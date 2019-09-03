@@ -31,7 +31,9 @@ hr {
 .is-hero-sub-text {
     font-size: calc(15px + 2vw);
     line-height: calc(15px + 3vw);
-    font-family: Lato
+    font-family: Lato;
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .is-hero-menu {
@@ -39,6 +41,26 @@ hr {
     font-size: calc(25px + 5vw);
     line-height: calc(25px + 4vw);
     font-family: Lato
+}
+.link {
+    transition: all .2s ease-in-out;
+    font-weight: 100;
+}
+.link:hover {
+    color: rgb(234, 78, 103) !important;
+    transform: scale(1.05);
+}
+.lato {
+    font-family: Lato;
+}
+
+.vertical-timeline-element-date {
+    color: #EF6461 !important;
+}
+
+.vertical-timeline {
+    margin-top: 5px !important;
+    margin-bottom: 25px !important;
 }
 
 .hover:hover {

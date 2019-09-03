@@ -18,9 +18,11 @@
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
+    "react-blur-image-loader": "^0.2.2",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-lottie": "^1.2.3",
+    "react-vertical-timeline-component": "^2.4.0",
     "sass-flex-mixin": "^1.0.3"
   },
   "devDependencies": {

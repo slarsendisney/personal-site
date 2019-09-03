@@ -3,6 +3,7 @@ $brand-colors:
 ("black",#1C1C1C),
 ("light-brown",#E1D2AF),
 ("grey", #2E4052),
+("light-grey", #2E405280),
 ("blue", #35466D),
 ("dark-blue", rgb(34, 45, 70)),
 ("light-blue", #49AAB7),
@@ -12,9 +13,9 @@ $brand-colors:
 
 @each $color in $brand-colors {
   .is-#{nth($color,1)}-bg{
-    background-color: nth($color,2);
+    background-color: nth($color,2) !important;
   }
   .is-#{nth($color,1)}{
-    color: nth($color,2);
+    color: nth($color,2) !important;
   }
 }
