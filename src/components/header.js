@@ -31,7 +31,7 @@ export default () => (
           <p className="link">PORTFOLIO</p>
         </Link>
         <Link
-          to="/blog"
+          to="/blog/"
           style={{ textDecoration: "none" }}
           className=" align-horizontal is-white  margin-4-r lato"
         >

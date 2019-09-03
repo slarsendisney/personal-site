@@ -19,6 +19,7 @@ export default class LottieControl extends React.Component {
 
     return (
       <Lottie
+        isClickToPauseDisabled={true}
         options={defaultOptions}
         width={"100%"}
         height={"99vh"}
