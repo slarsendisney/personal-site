@@ -1,0 +1,113 @@
+//fonts 
+@import url('https://fonts.googleapis.com/css?family=Lato:700&display=swap');
+
+//files
+@import "./vars.scss";
+@import "./layout.scss";
+@import "./colors.scss";
+@import "./opacity.scss";
+@import "./margin_padding.scss";
+
+@for $i from 1 through 6 {
+    h#{7 - $i} {
+        font-size: $i * 1.4em;
+    }
+}
+
+body {
+    background-color: #35466D;
+    margin: 0px;
+}
+
+h6 {
+    margin: 0px;
+    font-family: Lato;
+}
+
+hr {
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+}
+.is-hero-sub-text {
+    font-size: calc(15px + 2vw);
+    line-height: calc(15px + 3vw);
+    font-family: Lato
+}
+
+.is-hero-menu {
+    margin-bottom:0.5vw;
+    font-size: calc(25px + 5vw);
+    line-height: calc(25px + 4vw);
+    font-family: Lato
+}
+
+.hover:hover {
+    color: #EF6461;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-horizontal{
+    align-items: center;
+}
+
+.align-vertical {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text-align-right {
+    text-align: right
+}
+.text-align-center {
+    text-align: center
+}
+
+.start-background{
+    background-image:url('../images/StartBackground.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+footer {
+    text-align: center;
+    font-family: Lato;
+    padding: 10px;
+    background-color: rgb(34, 45, 70);
+}
+.btn {
+    background-color: rgb(234, 78, 103);
+    max-width: 250px;
+    padding:15px;
+    border-radius: 8px;
+    margin: auto;
+    font-family: Lato;
+}
+.btn:hover {
+    color: rgb(234, 78, 103);
+    background-color: white;
+    cursor: pointer;
+}
+
+
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
