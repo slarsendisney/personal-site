@@ -15,7 +15,6 @@
 }
 
 body {
-    background-color: #35466D;
     margin: 0px;
 }
 
@@ -29,17 +28,18 @@ hr {
     margin-bottom: 1vw;
 }
 .is-hero-sub-text {
-    font-size: calc(15px + 2vw);
-    line-height: calc(15px + 3vw);
+    font-size: calc(20px);
+    line-height: calc(20px);
     font-family: Lato;
     margin-bottom: 5px;
     margin-top: 10px;
+
 }
 
 .is-hero-menu {
-    margin-bottom:0.5vw;
-    font-size: calc(25px + 5vw);
-    line-height: calc(25px + 4vw);
+    margin-bottom:0;
+    font-size: calc(80px);
+    line-height: calc(70px);
     font-family: Lato
 }
 .link {
@@ -102,16 +102,21 @@ footer {
 }
 .btn {
     background-color: rgb(234, 78, 103);
+    color: white;
     max-width: 250px;
     padding:15px;
-    border-radius: 8px;
-    margin: auto;
+    text-align: center;
     font-family: Lato;
 }
 .btn:hover {
     color: rgb(234, 78, 103);
     background-color: white;
     cursor: pointer;
+}
+
+.line {
+    border-bottom: 7px solid;
+    max-width: 30%;
 }
 
 

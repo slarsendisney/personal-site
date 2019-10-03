@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="448px" height="200px" viewBox="0 0 448 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="189px" height="86px" viewBox="0 0 189 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 7</title>
+    <title>Group</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group-8" transform="translate(-48.000000, -172.000000)" fill="#FFFFFF" fill-rule="nonzero">
-            <g id="Group" transform="translate(48.000000, 172.000000)">
-                <g id="Group-7">
-                    <path d="M399.515152,48.5436893 L333.575758,48.5436893 L333.575758,200 L285.090909,200 L285.090909,48.5436893 L285.090909,0 L448,0 L448,48.5436893 L448,151.456311 L448,200 L360.727273,200 L360.727273,151.456311 L399.515152,151.456311 L399.515152,48.5436893 Z" id="Combined-Shape"></path>
-                    <path d="M230.787879,151.456311 L333.575758,151.456311 L333.575758,200 L182.30303,200 L182.30303,151.456311 L182.30303,-2.57343735e-11 L230.787879,-2.57373423e-11 L230.787879,151.456311 Z" id="Combined-Shape"></path>
-                    <path d="M79.5151515,0 L230.787879,0 L230.787879,48.5436893 L126.060606,48.5436893 L126.060606,151.456311 L126.060606,200 L0,200 L0,151.456311 L77.5757576,151.456311 L77.5757576,-3.22003124e-11 L79.5151515,-3.22004311e-11 Z" id="Combined-Shape"></path>
-                </g>
+        <g id="Desktop-HD" transform="translate(-628.000000, -218.000000)" fill-rule="nonzero">
+            <g id="Group" transform="translate(627.500000, 217.500000)">
+                <path d="M168.964286,21.131068 L141.035714,21.131068 L141.035714,85.5 L120.5,85.5 L120.5,21.131068 L120.5,0.5 L189.5,0.5 L189.5,21.131068 L189.5,64.868932 L189.5,85.5 L152.535714,85.5 L152.535714,64.868932 L168.964286,64.868932 L168.964286,21.131068 Z" id="Combined-Shape" fill="#EC2A56"></path>
+                <path d="M99.5,65.368932 L141.035714,65.368932 L141.035714,86 L80,86 L80,65.368932 L80,1 L99.5,1 L99.5,65.368932 Z" id="Combined-Shape" fill="#F9B806"></path>
+                <path d="M34.2647059,0.5 L99.5,0.5 L99.5,21.131068 L54.0294118,21.131068 L54.0294118,64.868932 L54.0294118,85.5 L0.5,85.5 L0.5,64.868932 L33.4411765,64.868932 L33.4411765,0.5 L34.2647059,0.5 Z" id="Combined-Shape" fill="#236DAB"></path>
             </g>
         </g>
     </g>

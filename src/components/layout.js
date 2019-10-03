@@ -5,11 +5,13 @@ import Header from "./header"
 
 const Layout = ({ children }) => {
   return (
-    <div className="is-white">
+    <div>
       <Header />
       <div className="">
         <main>{children}</main>
-        <footer>© {new Date().getFullYear()}, Samuel Larsen-Disney</footer>
+        <footer className="is-white-bg is-grey margin-2">
+          Made with ❤️ by Sam Larsen-Disney
+        </footer>
       </div>
     </div>
   )
