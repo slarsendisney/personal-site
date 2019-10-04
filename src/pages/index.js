@@ -11,7 +11,7 @@ export default () => {
     }, 2700)
   }, [])
   return (
-    <div className="is-pink-bg" style={{ height: "100vh" }}>
+    <div className="is-blue-bg" style={{ height: "100vh" }}>
       <Animation />
     </div>
   )

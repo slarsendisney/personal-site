@@ -13,7 +13,8 @@
     "gatsby-plugin-react-helmet": "^3.1.4",
     "gatsby-plugin-sass": "^2.1.12",
     "gatsby-plugin-sharp": "^2.2.13",
-    "gatsby-source-filesystem": "^2.1.11",
+    "gatsby-source-filesystem": "^2.1.29",
+    "gatsby-transformer-remark": "^2.6.27",
     "gatsby-transformer-sharp": "^2.2.7",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
@@ -35,6 +36,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "deploy": "gatsby build && firebase deploy",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

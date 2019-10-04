@@ -18,7 +18,7 @@ export default () => (
         className="col-xs-3 flex text-align-right"
         style={{ justifyContent: "flex-end" }}
       >
-        <Link
+        {/* <Link
           to="/portfolio"
           style={{ textDecoration: "none" }}
           className=" align-horizontal is-grey lato margin-4-r"
@@ -31,7 +31,7 @@ export default () => (
           className=" align-horizontal is-grey  margin-4-r lato"
         >
           <p className="link">BLOG</p>
-        </Link>
+        </Link> */}
       </div>
     </div>
   </div>

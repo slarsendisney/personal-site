@@ -2,9 +2,6 @@ import React, { useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import logo from "../images/Logo.svg"
-import Timeline from "../components/Timeline"
-
 const mediaLinks = [
   {
     type: "LinkedIn",
@@ -62,8 +59,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div className=" fade-in is-grey is-light-grey-bg">
-        <div className="row container-small pad-20-t">
+      <div className="is-grey is-light-grey-bg">
+        <div className="row container-small pad-20-t ">
           <div className="col-xs-8 pad-10-l">
             <p className="is-hero-menu margin-0">Sam</p>
             <p className="is-hero-menu margin-0">Larsen-Disney</p>
@@ -89,7 +86,7 @@ const IndexPage = () => {
           ))}
         </div>
       </div>
-      <div className="row container pad-20-t is-grey">
+      {/* <div className="row container pad-20-t is-grey">
         {sections.map((item, index) => (
           <div className={`col-xs-12 row margin-20-b`}>
             <div className="col-xs-12 col-md-5 flex align-vertical pad-10-b">
@@ -111,7 +108,7 @@ const IndexPage = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </Layout>
   )
 }

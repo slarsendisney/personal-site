@@ -88,11 +88,6 @@ hr {
     text-align: center
 }
 
-.start-background{
-    background-image:url('../images/StartBackground.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
 
 footer {
     text-align: center;
@@ -101,7 +96,7 @@ footer {
     background-color: rgb(34, 45, 70);
 }
 .btn {
-    background-color: rgb(234, 78, 103);
+    background-color: #2E4052;
     color: white;
     max-width: 250px;
     padding:15px;
@@ -109,9 +104,12 @@ footer {
     font-family: Lato;
 }
 .btn:hover {
-    color: rgb(234, 78, 103);
+    color:  #2E4052;
     background-color: white;
     cursor: pointer;
+    border-style: solid;
+    border-width: 3px;
+    margin: -3px;
 }
 
 .line {
@@ -119,22 +117,3 @@ footer {
     max-width: 30%;
 }
 
-
-
-.fade-in {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in;
-	animation-duration: 2s;
-}
-
-
-@keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
