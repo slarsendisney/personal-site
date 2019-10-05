@@ -8,18 +8,18 @@ coverimg: "./stats.png"
 ---
 
 <div class="row pad-10-b">
-    <div class="col-xs-12 col-md-6">
-         <h1>Landing Page</h1>
+    <div class="col-xs-12 col-md-2">
+         <h1 class="margin-0">Landing Page</h1>
     </div>
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-10">
         <img src="./landing.png"/>
     </div>
 </div>
 <div class="row pad-10-b">
-    <div class="col-xs-12 col-md-6">
-         <h1>Stats Page</h1>
+    <div class="col-xs-12 col-md-2">
+         <h1 class="margin-0">Stats Page</h1>
     </div>
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-10">
         <img src="./stats.png"/>
     </div>
 </div>

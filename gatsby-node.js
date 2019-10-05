@@ -55,6 +55,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           component: Project,
         })
         break
+      case "BIO":
+        console.log("BIO ignored.")
+        break
       default:
         console.log(`Unknown page: ${node.frontmatter.type}`)
     }

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import { Link, navigate } from "gatsby"
+import { useEffect } from "react"
+import { navigate } from "gatsby"
 
 export default () => {
   useEffect(() => {

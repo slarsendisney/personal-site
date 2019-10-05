@@ -21,12 +21,12 @@ const mediaLinks = [
 
 const sections = [
   {
-    label: "About Me",
+    label: "👨🏼‍💻 About Me",
     type: "AboutMe",
     url: "/bio",
   },
   {
-    label: "Projects",
+    label: "🔧 Projects",
     type: "Projects",
     url: "/projects",
   },
@@ -36,7 +36,7 @@ const sections = [
   //   url: "/art",
   // },
   {
-    label: "Articles",
+    label: "📝 Articles",
     type: "Writing",
     url: "/articles",
   },
@@ -67,6 +67,7 @@ const Logo = ({ type, url }) => {
           active ? `${type}` : `${type}-disabled`
         }.svg`)}
         style={{ cursor: "pointer" }}
+        alt={type}
       />
     </div>
   )
@@ -105,7 +106,7 @@ export default function Start({ data }) {
           <div className="col-xs-12 col-md-6 pad-10-r pad-10-b">
             {sections.map((item, index) => (
               <div className="col-xs-12 pad-10-l">
-                <div className="col-xs-6 col-md-12">
+                <div className="col-xs-10 col-md-12">
                   <Article {...item} />
                 </div>
               </div>
@@ -126,7 +127,12 @@ export default function Start({ data }) {
         <div className="row container-small pad-20-t pad-20-b">
           <div className="col-xs-12 text-align-center">
             <h1 className="is-white">For The People Who Prefer Paper</h1>
-            <a href={CVurl} target="_blank" style={{ textDecoration: "none" }}>
+            <a
+              href={CVurl}
+              rel="noopener noreferrer"
+              target="_blank"
+              style={{ textDecoration: "none" }}
+            >
               <div
                 className="btn "
                 style={{

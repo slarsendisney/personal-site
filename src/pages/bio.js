@@ -1,10 +1,11 @@
-import React, { useState } from "react"
-import { Link, graphql } from "gatsby"
+import React from "react"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Timeline from "../components/Timeline"
 export default function Bio({ data }) {
+  console.log({ data })
   return (
     <Layout>
       <SEO title={"Bio"} />
@@ -30,7 +31,7 @@ export default function Bio({ data }) {
               }}
             />
             <h1 className="is-hero-menu is-white margin-0">
-              I'm Samuel Larsen-Disney
+              I'm Sam Larsen-Disney
             </h1>
             <h3 className="is-white margin-0 pad-0">
               Designer. Engineer. Creator.
@@ -38,7 +39,7 @@ export default function Bio({ data }) {
           </div>
         </div>
       </div>
-      <div className="pad-10-t pad-10-b is-light-grey-bg">
+      <div className="pad-10-t pad-10-l pad-10-r pad-5-b is-light-grey-bg">
         <div className="row container ">
           <div className="col-xs-12 ">
             <h1 className="is-hero-sub-menu is-grey margin-0">
@@ -48,12 +49,26 @@ export default function Bio({ data }) {
           </div>
         </div>
       </div>
+
+      <div className="row container ">
+        <div className="col-xs-12 pad-10">
+          <h1 className="is-hero-sub-menu is-grey margin-0">
+            The Long Version
+          </h1>
+          <div
+            className="is-grey lato"
+            dangerouslySetInnerHTML={{
+              __html: data.allMarkdownRemark.edges[0].node.html,
+            }}
+          />
+        </div>
+      </div>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query {
+  {
     file(relativePath: { eq: "face.png" }) {
       childImageSharp {
         fluid(maxWidth: 400) {
@@ -62,5 +77,27 @@ export const query = graphql`
         }
       }
     }
+    allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: "BIO" } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 1
+    ) {
+      edges {
+        node {
+          html
+        }
+      }
+    }
   }
 `
+
+// {
+
+//   allFile(filter: { relativePath: { eq: "CV.pdf" } }) {
+//     edges {
+//       node {
+//         publicURL
+//       }
+//     }
+//   }
+// }

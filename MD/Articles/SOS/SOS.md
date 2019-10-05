@@ -1,12 +1,12 @@
 ---
 type: "Article"
 path: "/articles/sams-hackathon-guide"
-title: "Sam's Hackathon Guide"
+title: "Sam's Hackathon Survival Guide"
 desc: "A creative cheat sheat to help you get off to a running start."
 year: 2019
 ---
 
-When I was at university I went to plenty of hackathons and I did pretty well (though I say so myself!). But I was only able to do so well thanks to the support I got from my friends, sponsors and subject matter experts. I put this together as my way of giving back. I  hope that it might help you get hacking smarter and faster. 
+I put this together as my way of giving back. I hope that it might help you get hacking smarter and faster. 
 
 - ## [The Idea](#The-Idea)
 - ## [Naming Your Hack](#Naming-Your-Hack)
@@ -26,7 +26,7 @@ Take those pain points and come up with as many solutions as you can for them. I
 <h1 class="is-pink" id="Naming-Your-Hack">Naming Your Hack</h1>
 
 ### Keep It Short and Memorable
-The shorter the better. The judges are going to see plenty of hacks is your hack's name memorable enough stand out from the rest? Less than 10 characters is my rule!
+The shorter the better. The judges are going to see plenty of hacks. Is your hack's name memorable enough to stand out from the rest? Less than 10 characters is my rule!
 ### Choose A Name That Is Searchable
 If I search for your name am I going to find it on google or does it share its name with a million other products and servies?
 ### Align It With A Domain
