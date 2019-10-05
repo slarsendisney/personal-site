@@ -3,7 +3,7 @@ import { Link, navigate } from "gatsby"
 
 export default () => {
   useEffect(() => {
-    navigate("/lost")
+    navigate("/lost/")
   }, [])
-  return <div />
+  return null
 }

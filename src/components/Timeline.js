@@ -36,17 +36,17 @@ export default () => (
   <VerticalTimeline>
     {events.map(item => (
       <VerticalTimelineElement
-        className="vertical-timeline-element--work lato is-white"
+        className="vertical-timeline-element--work lato"
         date={item.date.toUpperCase()}
         iconStyle={{ background: "rgb(234, 78, 103)", color: "#fff" }}
       >
         <h6 className="vertical-timeline-element-title is-blue pad-0-b">
-          {item.role}
+          {item.location.toUpperCase()}
         </h6>
         <p className="vertical-timeline-element-subtitle is-grey">
-          {item.location.toUpperCase()}
+          {item.role}
         </p>
-        <p className="is-light-grey">{item.desc}</p>
+        <p className="is-grey">{item.desc}</p>
       </VerticalTimelineElement>
     ))}
   </VerticalTimeline>

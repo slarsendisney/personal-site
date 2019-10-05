@@ -10,23 +10,35 @@ export default function QandATemplate({
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
-      <SEO title="Hell Yeah" />
-      <div className="is-grey is-light-grey-bg">
+      <SEO title={frontmatter.answer} />
+      <div
+        className="is-grey is-light-grey-bg"
+        style={{
+          minHeight: "85vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <div className="row container-small pad-20-t pad-20-b ">
-          <div className="col-xs-8 pad-10-l">
+          <div className="col-xs-12 col-md-8 pad-10-l pad-10-r">
             <h6 className="is-hero-sub-text margin-3-b">
               {frontmatter.question.toUpperCase()}
             </h6>
-            <h6 className="is-hero-menu is-pink margin-10-b">
+            <p className="is-hero-menu is-pink margin-3-t margin-10-b">
               {frontmatter.answer}
-            </h6>
+            </p>
             <h6 className="is-hero-sub-text margin-3-b">{frontmatter.desc}</h6>
+            <div
+              className={`${html ? "pad-20-b lato" : ""}`}
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
             <Link
-              to="/start"
+              to={frontmatter.link}
               style={{ textDecoration: "none" }}
               className=" align-horizontal is-white lato margin-4-r"
             >
-              <div className="btn">Meet Sam</div>
+              <div className="btn">{frontmatter.btnLabel}</div>
             </Link>
           </div>
         </div>
@@ -42,6 +54,8 @@ export const pageQuery = graphql`
       frontmatter {
         question
         answer
+        link
+        btnLabel
         desc
       }
     }

@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <main>{children}</main>
-      <footer className="is-white-bg is-grey margin-2 footer">
+      <footer className="is-white-bg is-grey margin-2 footer opacity-70">
         Made with{" "}
         <span role="img" aria-label="love">
           ❤️

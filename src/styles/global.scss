@@ -18,10 +18,72 @@ body {
     margin: 0px;
 }
 
-h6 {
-    margin: 0px;
+h1 { 
+    display: block;
+    font-size: 2em;
     font-family: Lato;
-}
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+  
+h2 {
+    display: block;
+    font-size: 1.5em;
+    font-family: Lato;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+h3 { 
+    display: block;
+    font-size: 1.17em;
+    font-family: Lato;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+h4 { 
+    display: block;
+    font-size: 1em;
+    font-family: Lato;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+h5 { 
+    display: block;
+    font-size: .83em;
+    font-family: Lato;
+    margin-top: 1.67em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+h6 { 
+    display: block;
+    font-size: .67em;
+    font-family: Lato;
+    margin-top: 2.33em;
+    margin-bottom: 2.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
 
 hr {
     margin-top: 2vw;
@@ -37,10 +99,14 @@ hr {
 }
 
 .is-hero-menu {
-    margin-bottom:0;
-    font-size: calc(80px);
-    line-height: calc(70px);
-    font-family: Lato
+    display: block;
+    font-size: 3em;
+    font-family: Lato;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
 }
 .link {
     transition: all .2s ease-in-out;
@@ -54,6 +120,24 @@ hr {
     font-family: Lato;
 }
 
+.vertical-timeline {
+    width: 95%;
+    max-width: 1170px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2em 0;
+}
+.vertical-timeline {
+    margin-top: 5px !important;
+    margin-bottom: 25px !important;
+}
+
+div {
+    display: block;
+}
+.vertical-timeline::before {
+    background: #EF6461 !important;
+}
 .vertical-timeline-element-date {
     color: #EF6461 !important;
 }
@@ -62,6 +146,17 @@ hr {
     margin-top: 5px !important;
     margin-bottom: 25px !important;
 }
+
+.vertical-timeline-element-content {
+    border-style: solid;
+    border-width: 3px;
+
+    .vertical-timeline-element-content-arrow {
+        border-right: 7px solid #444;
+    }
+}
+
+
 
 .hover:hover {
     color: #EF6461;
@@ -102,6 +197,7 @@ footer {
     padding:15px;
     text-align: center;
     font-family: Lato;
+    
 }
 .btn:hover {
     color:  #2E4052;
@@ -112,8 +208,63 @@ footer {
     margin: -3px;
 }
 
+.article {
+     p img {
+        width: 100%;
+        max-width: 600px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+     }
+
+     ul li h2 a {
+         text-decoration: none;
+         color: rgb(234, 78, 103);
+     }
+    
+}
+
+.gatsby-highlight {
+    code {
+        overflow-wrap: break-word;
+    }   
+    background-color: #2E405210;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.13em;
+}
+.link {
+    text-decoration: none;
+    color: #2E4052;
+}
 .line {
     border-bottom: 7px solid;
     max-width: 30%;
 }
 
+
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color:rgb(234, 78, 103);
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+
+.grow {
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
+-moz-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
+box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
+}

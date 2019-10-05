@@ -1,0 +1,211 @@
+@import "./_flex";
+
+$flexboxgrid-grid-columns: 12 !default;
+$flexboxgrid-gutter-width: 1rem !default;
+$flexboxgrid-outer-margin: 2rem !default;
+$flexboxgrid-breakpoints:
+  sm 48em 46rem,
+  md 62em 61rem,
+  lg 75em 71rem !default;
+$flexboxgrid-max-width: 1200px !default;
+
+$gutter-compensation: $flexboxgrid-gutter-width * .5 * -1;
+$half-gutter-width: $flexboxgrid-gutter-width * .5;
+
+.margin-0 {
+  margin: 0
+}
+.wrapper {
+  box-sizing: border-box;
+  max-width: $flexboxgrid-max-width;
+  margin: 0 auto;
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $flexboxgrid-outer-margin;
+  padding-left: $flexboxgrid-outer-margin;
+}
+
+.row {
+  box-sizing: border-box;
+  @include flexbox();
+  @include flex(0, 1, auto);
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
+}
+
+.row.reverse {
+  @include flex-direction(row-reverse);
+}
+
+.col.reverse {
+  @include flex-direction(column-reverse);
+}
+
+@mixin flexboxgrid-sass-col-common {
+  box-sizing: border-box;
+  @include flex-grow(0);
+  @include flex-shrink(0);
+  padding-right: $half-gutter-width;
+  padding-left: $half-gutter-width;
+}
+
+$name: xs;
+.col-#{$name} {
+  @include flexboxgrid-sass-col-common;
+  @include flex-basis(auto);
+}
+@for $i from 1 through $flexboxgrid-grid-columns {
+  .col-#{$name}-#{$i} {
+    @include flexboxgrid-sass-col-common;
+    @include flex-basis(100% / $flexboxgrid-grid-columns * $i);
+    max-width: 100% / $flexboxgrid-grid-columns * $i;
+  }
+}
+@for $i from 0 through $flexboxgrid-grid-columns {
+  .col-#{$name}-offset-#{$i} {
+    @include flexboxgrid-sass-col-common;
+    @if $i == 0 {
+      margin-left: 0;
+    } @else {
+      margin-left: 100% / $flexboxgrid-grid-columns * $i;
+    }
+  }
+}
+.col-#{$name} {
+  @include flex-grow(1);
+  @include flex-basis(0);
+  max-width: 100%;
+}
+.start-#{$name} {
+  @include justify-content(flex-start);
+  text-align: left;
+}
+
+.center-#{$name} {
+  @include justify-content(center);
+  text-align: center;
+}
+
+.end-#{$name} {
+  @include justify-content(flex-end);
+  text-align: right;
+}
+
+.top-#{$name} {
+  @include align-items(flex-start);
+}
+
+.middle-#{$name} {
+  @include align-items(center);
+}
+
+.bottom-#{$name} {
+  @include align-items(flex-end);
+}
+
+.around-#{$name} {
+  @include justify-content(space-around);
+}
+
+.between-#{$name} {
+  @include justify-content(space-between);
+}
+
+.first-#{$name} {
+  order: -1;
+}
+
+.last-#{$name} {
+  order: 1;
+}
+
+
+@each $breakpoint in $flexboxgrid-breakpoints {
+  $name: nth($breakpoint, 1);
+  $size: nth($breakpoint, 2);
+  $container: nth($breakpoint, 3);
+  @media only screen and (min-width: $size) {
+    .container {
+      max-width: $container;
+      margin: auto;
+    }
+    .container-small {
+      max-width: $container*1.2;
+      margin: auto;
+    }
+
+    .col-#{$name} {
+      @include flexboxgrid-sass-col-common;
+      @include flex-basis(auto);
+    }
+    @for $i from 1 through $flexboxgrid-grid-columns {
+      .col-#{$name}-#{$i} {
+        @include flexboxgrid-sass-col-common;
+        @include flex-basis(100% / $flexboxgrid-grid-columns * $i);
+        max-width: 100% / $flexboxgrid-grid-columns * $i;
+      }
+    }
+    @for $i from 0 through $flexboxgrid-grid-columns {
+      .col-#{$name}-offset-#{$i} {
+        @include flexboxgrid-sass-col-common;
+        @if $i == 0 {
+          margin-left: 0;
+        } @else {
+          margin-left: 100% / $flexboxgrid-grid-columns * $i;
+        }
+      }
+    }
+    .col-#{$name} {
+      @include flex-grow(1);
+      @include flex-basis(0);
+      max-width: 100%;
+    }
+    .start-#{$name} {
+      @include justify-content(flex-start);
+      text-align: left;
+    }
+
+    .center-#{$name} {
+      @include justify-content(center);
+      text-align: center;
+    }
+
+    .end-#{$name} {
+      @include justify-content(flex-end);
+      text-align: right;
+    }
+
+    .top-#{$name} {
+      @include align-items(flex-start);
+    }
+
+    .middle-#{$name} {
+      @include align-items(center);
+    }
+
+    .bottom-#{$name} {
+      @include align-items(flex-end);
+    }
+
+    .around-#{$name} {
+      @include justify-content(space-around);
+    }
+
+    .between-#{$name} {
+      @include justify-content(space-between);
+    }
+
+    .first-#{$name} {
+      order: -1;
+    }
+
+    .last-#{$name} {
+      order: 1;
+    }
+  }
+}
