@@ -29,7 +29,7 @@ export default function Articles({
     }
     return acc
   }, [])
-  console.log(edges)
+
   const articlesToDisplay = edges.filter(
     edge => edge.node.frontmatter.year === year
   )

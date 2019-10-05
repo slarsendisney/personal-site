@@ -37,7 +37,6 @@ export default function Projects({
     }
     return acc
   }, [])
-  console.log(edges)
   const articlesToDisplay = edges.filter(
     edge => new Date(edge.node.frontmatter.date).getFullYear() === year
   )

@@ -4,9 +4,7 @@ import Animation from "../components/animation"
 
 export default () => {
   useEffect(() => {
-    console.log("In effect")
     setTimeout(() => {
-      console.log("Navigate")
       navigate("/start")
     }, 2700)
   }, [])
