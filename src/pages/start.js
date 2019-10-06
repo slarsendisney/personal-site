@@ -31,7 +31,7 @@ const sections = [
     url: "/projects",
   },
   // {
-  //   label: "Art",
+  //   label: "🚀Art",
   //   type: "Art",
   //   url: "/art",
   // },

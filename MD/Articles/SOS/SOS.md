@@ -1,7 +1,7 @@
 ---
 type: "Article"
 path: "/articles/sams-hackathon-guide"
-title: "Sam's Hackathon Survival Guide"
+title: "Sam's Hackathon Survival Guide 💪"
 desc: "A creative cheat sheat to help you get off to a running start."
 year: 2019
 ---
