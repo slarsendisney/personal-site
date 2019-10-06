@@ -6,7 +6,7 @@ desc: "A creative cheat sheat to help you get off to a running start."
 year: 2019
 ---
 
-I put this together as my way of giving back. I hope that it might help you get hacking smarter and faster. 
+I put this together as my way of giving back. I hope that it might help you get hacking smarter and faster ⚡️. 
 
 - ## [The Idea](#The-Idea)
 - ## [Naming Your Hack](#Naming-Your-Hack)

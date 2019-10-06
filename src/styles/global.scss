@@ -217,22 +217,41 @@ footer {
         margin-right: auto;
      }
 
+    pre code {
+        background: none;
+        width: auto;
+        display: block;
+        line-height: 1.42;
+        color: black;
+    }
+
+    pre {
+        font-size: 1rem;
+        background: #EF646130;
+        overflow-x: auto;;
+        border-radius: 3px;
+        padding: 1.45rem;
+        word-wrap: break-word;
+
+    }
+
+     p code {
+       
+            word-wrap: break-word;
+         
+     }
+
      ul li h2 a {
          text-decoration: none;
          color: rgb(234, 78, 103);
      }
+
+     h1 {
+        color: rgb(234, 78, 103);
+     }
     
 }
 
-.gatsby-highlight {
-    code {
-        overflow-wrap: break-word;
-    }   
-    background-color: #2E405210;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1.13em;
-}
 .link {
     text-decoration: none;
     color: #2E4052;

@@ -17,7 +17,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const Project = path.resolve(`./src/templates/Project.js`)
   const result = await graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(
+        limit: 1000
+        filter: { frontmatter: { type: { ne: "BIO" } } }
+      ) {
         edges {
           node {
             frontmatter {
@@ -54,9 +57,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           path: node.frontmatter.path,
           component: Project,
         })
-        break
-      case "BIO":
-        console.log("BIO ignored.")
         break
       default:
         console.log(`Unknown page: ${node.frontmatter.type}`)
