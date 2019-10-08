@@ -108,14 +108,7 @@ hr {
     margin-right: 0;
     font-weight: bold;
 }
-.link {
-    transition: all .2s ease-in-out;
-    font-weight: 100;
-}
-.link:hover {
-    color: rgb(234, 78, 103) !important;
-    transform: scale(1.05);
-}
+
 .lato {
     font-family: Lato;
 }
@@ -253,9 +246,16 @@ footer {
 }
 
 .link {
+    transition: all .2s ease-in-out;
+    font-weight: 100;
     text-decoration: none;
     color: #2E4052;
 }
+.link:hover {
+    color: rgb(234, 78, 103) !important;
+    transform: scale(1.05);
+}
+
 .line {
     border-bottom: 7px solid;
     max-width: 30%;
