@@ -1,7 +1,7 @@
 ---
 type: "Article"
-path: "/articles/learn-git-quick"
-title: "Learn Git Quick 🏃‍"
+path: "/articles/gimme-git-quick"
+title: "Gimme Git Quick 🏃‍"
 desc: "For the people who needed to know git yesterday. "
 year: 2019
 ---
