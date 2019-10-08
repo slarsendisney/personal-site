@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
-import React from "react"
-import Logo from "../images/Logo.svg"
+import { Link } from "gatsby";
+import React from "react";
+import Logo from "../images/Logo.svg";
 
 export default () => (
   <div className="is-white-bg margin-5">
@@ -25,14 +25,8 @@ export default () => (
         >
           <p className="link">PORTFOLIO</p>
         </Link>
-        <Link
-          to="/blog/"
-          style={{ textDecoration: "none" }}
-          className=" align-horizontal is-grey  margin-4-r lato"
-        >
-          <p className="link">BLOG</p>
-        </Link> */}
+         */}
       </div>
     </div>
   </div>
-)
+);

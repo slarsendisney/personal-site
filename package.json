@@ -51,10 +51,10 @@
     "start": "npm run hello && npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
-    "hello":"node scripts/hello.js"
+    "hello": "node scripts/hello.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
+  }
 }
