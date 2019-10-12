@@ -7,8 +7,12 @@ import SEO from "../components/seo"
 export const Project = ({ title, desc, path, coverimg }) => (
   <Link to={path} className="link margin-15-b" id="path">
     <div className="grow row">
-      <div className="col-xs-12 col-md-6 pad-2-t">
-        <Img fluid={coverimg.childImageSharp.fluid} className="shadow" />
+      <div className="col-xs-12 col-md-6 pad-2-t ">
+        <Img
+          fluid={coverimg.childImageSharp.fluid}
+          className="shadow"
+          style={{ maxHeight: 250 }}
+        />
       </div>
       <div className="col-xs-12 col-md-6 pad-2-t">
         <h1 className="margin-3-b margin-0-t">{title}</h1>
