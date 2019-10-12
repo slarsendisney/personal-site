@@ -30,11 +30,11 @@ const sections = [
     type: "Projects",
     url: "/projects",
   },
-  // {
-  //   label: "🚀Art",
-  //   type: "Art",
-  //   url: "/art",
-  // },
+  {
+    label: "🚀 Boilerplates",
+    type: "Boilerplates",
+    url: "/boilerplates",
+  },
   {
     label: "📝 Articles",
     type: "Writing",

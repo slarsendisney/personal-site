@@ -19,7 +19,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     {
       allMarkdownRemark(
         limit: 1000
-        filter: { frontmatter: { type: { ne: "BIO" } } }
+        filter: { frontmatter: { type: { in: ["Article", "Project", "Q&A"] } } }
       ) {
         edges {
           node {
