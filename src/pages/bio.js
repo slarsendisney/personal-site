@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Timeline from "../components/Timeline"
 export default function Bio({ data }) {
-  console.log({ data })
   return (
     <Layout>
       <SEO title={"Bio"} />
@@ -17,7 +16,7 @@ export default function Bio({ data }) {
           </div>
         </div>
       </div>
-      <div className="pad-10-t pad-10-b is-pink-bg">
+      <div className="pad-10-t pad-10-b is-pink-bg-always">
         <div className="row container ">
           <div className="col-xs-12 text-align-center pad-10-l pad-10-r">
             <Img
@@ -30,10 +29,10 @@ export default function Bio({ data }) {
                 marginRight: "auto",
               }}
             />
-            <h1 className="is-hero-menu is-white margin-0">
+            <h1 className="is-hero-menu is-white-always margin-0">
               I'm Sam Larsen-Disney
             </h1>
-            <h3 className="is-white margin-0 pad-0">
+            <h3 className="is-white-always margin-0 pad-0">
               Designer. Engineer. Creator.
             </h3>
           </div>

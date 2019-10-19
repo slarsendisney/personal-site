@@ -1,0 +1,50 @@
+
+.flex {
+    display: flex;
+}
+
+.align-horizontal{
+    align-items: center;
+}
+
+.align-vertical {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text-align-right {
+    text-align: right
+}
+.text-align-center {
+    text-align: center
+}
+
+.lato {
+    font-family: Lato;
+}
+
+
+.line {
+    border-bottom: 7px solid;
+    max-width: 30%;
+}
+
+
+.grow {
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
+-moz-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
+box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
+}
+
+.hover:hover {
+    color: #EF6461;
+    cursor: pointer;
+}

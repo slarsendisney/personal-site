@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -9,38 +10,37 @@ const BoilerPlate = ({ title, desc, flag, repo, demo }) => (
     <h4>{desc}</h4>
     {demo && (
       <h4>
-        <a
-          className="link is-pink"
+        <OutboundLink
+          className="link is-pink-always"
           href={demo}
           target="_blank"
           rel="noopener noreferrer"
         >
           See the demo!
-        </a>
+        </OutboundLink>
       </h4>
     )}
 
     <h4>Get set up by typing the following command in your terminal:</h4>
     <pre>
-      <code className="pad-3 is-grey-bg is-white border-radius">
+      <code className="pad-3 is-grey-bg-always is-white-always border-radius">
         {`npx -p yo -p generator-sld -- yo sld:${flag}`}
       </code>
     </pre>
     <h4>
       Or check out the{" "}
-      <a
-        className="link is-pink"
+      <OutboundLink
+        className="link is-pink-always"
         href={repo}
         target="_blank"
         rel="noopener noreferrer"
       >
         git repo
-      </a>
+      </OutboundLink>
     </h4>
   </div>
 )
 export default function Start({ data }) {
-  console.log({ data })
   const boilerplates = data.allMarkdownRemark.edges
   return (
     <Layout>
@@ -53,8 +53,10 @@ export default function Start({ data }) {
             </Link>
           </div>
           <div className="col-xs-12 col-md-6 pad-10-l">
-            <h1 className="is-hero-menu margin-0">Boilerplates</h1>
-            <div className="line margin-10-t margin-10-b" />
+            <h1 className="is-hero-menu is-white-always margin-0">
+              Boilerplates
+            </h1>
+            <div className="line margin-10-t margin-10-b is-white-always" />
             <div className="border" />
           </div>
         </div>

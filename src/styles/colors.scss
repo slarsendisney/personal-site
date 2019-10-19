@@ -1,21 +1,36 @@
 $brand-colors: 
-("white",white),
-("black",#1C1C1C),
-("light-brown",#E1D2AF),
-("grey", #2E4052),
-("light-grey", #F9F9F9),
-("blue", #35466D),
-("dark-blue", rgb(34, 45, 70)),
-("light-blue", #49AAB7),
-("pink", rgb(234, 78, 103)),
-("orange",#FF8A1D),
-("yellow", #F9B806);
+("white",white, #1C1C1C),
+("black",#1C1C1C, white),
+("light-brown",#E1D2AF,#E1D2AF),
+("grey", #2E4052, #F9F9F9),
+("light-grey", #F9F9F9, #121212),
+("blue", #35466D, #49AAB7),
+("dark-blue", rgb(34, 45, 70),rgb(228, 228, 228) ),
+("light-blue", #49AAB7,rgb(34, 45, 70) ),
+("pink", rgb(234, 78, 103),#121212 ),
+("dark-pink", #EF646130,#2E4052 ),
+("orange",#FF8A1D, #FF8A1D),
+("yellow", #F9B806, #F9B806);
 
 @each $color in $brand-colors {
   .is-#{nth($color,1)}-bg{
-    background-color: nth($color,2) !important;
+    background-color: nth($color,2);
   }
   .is-#{nth($color,1)}{
+    color: nth($color,2);
+  }
+  .is-#{nth($color,1)}-bg-always{
+    background-color: nth($color,2) !important;
+  }
+  .is-#{nth($color,1)}-always{
     color: nth($color,2) !important;
+  }
+  body.dark-mode {
+    .is-#{nth($color,1)}{
+      color: nth($color,3);
+    }
+    .is-#{nth($color,1)}-bg{
+      background-color: nth($color,3);
+    }
   }
 }

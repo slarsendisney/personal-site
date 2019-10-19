@@ -8,6 +8,7 @@
     "flexboxgrid-sass": "^8.0.5",
     "gatsby": "^2.15.29",
     "gatsby-image": "^2.2.24",
+    "gatsby-plugin-google-analytics": "^2.1.23",
     "gatsby-plugin-manifest": "^2.2.20",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.1.10",
@@ -34,7 +35,8 @@
     "react-vertical-timeline-component": "^2.5.0",
     "sass-flex-mixin": "^1.0.3",
     "sharp": "^0.23.1",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

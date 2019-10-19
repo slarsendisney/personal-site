@@ -1,0 +1,45 @@
+
+
+.article {
+     p img {
+        width: 100%;
+        max-width: 600px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+     }
+
+    pre code {
+        background: none;
+        width: auto;
+        display: block;
+        line-height: 1.42;
+        @extend .is-black;
+    }
+
+    pre {
+        @extend .is-dark-pink-bg;
+        font-size: 1rem;
+        overflow-x: auto;;
+        border-radius: 3px;
+        padding: 1.45rem;
+        word-wrap: break-word;
+
+    }
+
+     p code {
+       
+            word-wrap: break-word;
+         
+     }
+
+     ul li h2 a {
+         text-decoration: none;
+         @extend .is-pink-always;
+     }
+
+     h1 {
+        @extend .is-pink-always;
+     }
+    
+}

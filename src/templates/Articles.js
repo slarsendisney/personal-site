@@ -54,7 +54,7 @@ export default function Articles({
                   <button onClick={() => setYear(item.year)}>
                     <h4
                       className={`margin-0-t ${
-                        item.year === year ? "is-pink" : "is-grey"
+                        item.year === year ? "is-pink-always" : "is-grey"
                       }`}
                     >{`${item.year} (${item.count})`}</h4>
                   </button>

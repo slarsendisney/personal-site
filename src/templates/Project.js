@@ -19,7 +19,7 @@ export default function QandATemplate({
             </Link>
           </div>
           <div className="col-xs-12 pad-10-l pad-10-r">
-            <h1 className="is-hero-menu is-pink margin-1-t margin-5-b">
+            <h1 className="is-hero-menu is-pink-always margin-1-t margin-5-b">
               {frontmatter.title}
             </h1>
             {/* <Img fluid={frontmatter.coverimg.childImageSharp.fluid} /> */}

@@ -126,7 +126,7 @@ export default function Start({ data }) {
       <div className="is-grey is-pink-bg">
         <div className="row container-small pad-20-t pad-20-b">
           <div className="col-xs-12 text-align-center">
-            <h1 className="is-white">For The People Who Prefer Paper</h1>
+            <h1 className="is-white-always">For The People Who Prefer Paper</h1>
             <a
               href={CVurl}
               rel="noopener noreferrer"
