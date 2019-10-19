@@ -1,3 +1,8 @@
+data/nike/activity-files/*
+data/nike/all/*
+
+*.cache
+
 # Logs
 logs
 *.log
