@@ -99,14 +99,17 @@ export default function Articles({
       <SEO title={"Runs"} />
       <div className="is-grey is-light-grey-bg pad-10">
         <div className="row container ">
-          <div className="col-xs-12 ">
+          <div className="col-xs-12 col-sm-6 col-md-10">
             <Link to="/start" className="link">
               <h2 className="is-grey margin-0 margin-2-b grow">{`< Home`}</h2>
             </Link>
           </div>
           <div className="col-xs-12 ">
             <h1 className="is-hero-menu margin-0-t margin-0-b">
-              🏃‍♂️ Run. Run. Run.
+              <span role="img" aria-label="run">
+                🏃‍♂️
+              </span>{" "}
+              Run. Run. Run.
             </h1>
             <h2 className="margin-0-t">
               I have run for
@@ -124,7 +127,12 @@ export default function Articles({
               across
               <span className="is-pink-always">{` ${edges.length} runs`}</span>.
             </h2>
-            <div className="line margin-3-t margin-10-b" />
+            <div className="line margin-3-t margin-3-b" />
+            <div className="margin-3-b">
+              <Link to="/runs/posters" className="link">
+                <div className="btn">{`View Run Posters`}</div>
+              </Link>
+            </div>
           </div>
           <div className="col-xs-12 col-md-2">
             <div className="row">

@@ -23,11 +23,15 @@ export default () => {
         >
           {darkMode.value ? (
             <button type="button" onClick={darkMode.disable}>
-              🔆
+              <span role="img" aria-label="light-mode">
+                🔆
+              </span>
             </button>
           ) : (
             <button type="button" onClick={darkMode.enable}>
-              🌙
+              <span role="img" aria-label="dark-mode">
+                🌙
+              </span>
             </button>
           )}
         </div>

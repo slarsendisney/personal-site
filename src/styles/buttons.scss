@@ -26,6 +26,7 @@
 
 .link:hover {
     @extend .is-pink-always;
+    cursor: pointer;
     transform: scale(1.05);
 }
 

@@ -16,6 +16,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     path: "/runs",
     component: require.resolve("./src/templates/Runs.js"),
   })
+  actions.createPage({
+    path: "/runs/posters",
+    component: require.resolve("./src/templates/RunPosters.js"),
+  })
 
   const QandA = path.resolve(`./src/templates/QandA.js`)
   const Article = path.resolve(`./src/templates/Article.js`)
