@@ -6,6 +6,7 @@
   "author": "Sam Larsen-Disney <s.larsendisney@gmail.com>",
   "dependencies": {
     "@loadable/component": "^5.10.3",
+    "dotenv": "^8.2.0",
     "flexboxgrid-sass": "^8.0.5",
     "gatsby": "^2.15.29",
     "gatsby-image": "^2.2.24",
@@ -37,12 +38,14 @@
     "react-vertical-timeline-component": "^2.5.0",
     "sass-flex-mixin": "^1.0.3",
     "sharp": "^0.23.1",
+    "shelljs": "^0.8.3",
     "typescript": "^3.6.3",
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "gatsby-transformer-json": "^2.2.15",
     "prettier": "^1.18.2",
+    "puppeteer": "^1.20.0",
     "react-p5": "^1.1.1"
   },
   "keywords": [
@@ -51,10 +54,12 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build:nike": "npm run nike_data_update && gatsby build",
     "develop": "gatsby develop",
     "deploy": "gatsby build && firebase deploy",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "nike": "./scripts/getNikeData.sh",
+    "nike_activity": "./scripts/getActivity.sh",
+    "nike_data_update": "node ./scripts/getNikeData",
     "start": "npm run hello && npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+echo "💀 Removing Stale Nike Data"
 rm -rfv data/nike/*
-
+echo "📁 Making directories"
 mkdir data/nike/activity-files
 mkdir data/nike/all
 
@@ -17,7 +18,7 @@ if ! type jq >/dev/null 2>&1; then
 fi
 
 nike_plus_api() {
-  curl -H "Authorization: Bearer ${bearer_token}" "$@"
+  curl -s -H "Authorization: Bearer ${bearer_token}" "$@"
 }
 
 activity_ids=()
@@ -41,5 +42,6 @@ while true; do
     activities_page=$((activities_page + 1));
   fi
 done
-
+echo "🎉 All activity retrieved"
 jq -s '[.[].activities[]]' data/nike/activity-files/*.json > data/nike/all/nike.json
+echo "😘 All Merged and Ready for Build"
