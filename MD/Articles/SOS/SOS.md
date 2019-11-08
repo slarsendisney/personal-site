@@ -9,12 +9,19 @@ year: 2019
 I put this together as my way of giving back. I hope that it might help you get hacking smarter and faster ⚡️. 
 
 - ## [The Idea](#The-Idea)
+
 - ## [Naming Your Hack](#Naming-Your-Hack)
+
 - ## [Quick & Dirty Branding](#Quick-&-Dirty-Branding)
+
 - ## [Design Inspiration](#Design-Inspiration)
+
 - ## [Get Some Styles](#Styles)
-<!-- - ## [UI Boilerplates](#UI-Boilerplates) -->
+
+- ## [UI Boilerplates](#UI-Boilerplates) 
+
 - ## [Surviving The Night](#Surviving-The-Night)
+
 - ## [Fake It Till You Make It](#Fake-It-Till-You-Make-It)
 
 <h1 class="is-pink" id="The-Idea">The Idea</h1>
@@ -140,12 +147,11 @@ is-white
 // Make the background the colour
 is-white-bg
 ```
-<!-- 
 <h1 class="is-pink" id="UI-Boilerplates">UI Boilerplates</h1>
 Here have some boilerplates free of charge.
 
 ### GatsbyJS
-This is my new favourite framework. A react static site generator and so much more! Did I mention its *blazing* fast? -->
+This is my new favourite framework. A react static site generator and so much more! Did I mention its *blazing* fast? I've built boilerplates for realtime updates, working with markdown and so much more. [Check it out here](/boilerplates).
 
 
 <h1 class="is-pink" id="Surviving-The-Night">Surviving The Night </h1>

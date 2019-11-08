@@ -60,7 +60,7 @@ const Run = ({ start_epoch_ms, end_epoch_ms, summaries }) => {
 export default function Articles({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const [year, setYear] = useState(2018)
+  const [year, setYear] = useState(2019)
   let { edges } = data.allNikeJson // data.markdownRemark holds our post data
   edges = edges.sort(
     (a, b) => new Date(b.node.start_epoch_ms) - new Date(a.node.start_epoch_ms)

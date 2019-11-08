@@ -103,9 +103,9 @@ export default function Start({ data }) {
               ))}
             </div>
           </div>
-          <div className="col-xs-12 col-md-6 pad-10-r pad-10-b">
+          <div className="col-xs-12 col-md-6 pad-10-l pad-10-b">
             {sections.map((item, index) => (
-              <div className="col-xs-12 pad-10-l">
+              <div className="col-xs-12 ">
                 <div className="col-xs-10 col-md-12">
                   <Article {...item} />
                 </div>

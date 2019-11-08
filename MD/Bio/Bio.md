@@ -2,6 +2,8 @@
 type: "BIO"
 ---
 
+
+
 ### I was born in Canterbury in 1995 but have lived most of my life in Brighton, UK. I'm half English and half Australian.
 
 # I've always had a fascination for the way things work.

@@ -3,11 +3,12 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Article = ({ title, desc, path }) => (
+const Article = ({ title, desc, path, timeToRead }) => (
   <Link to={path} className="link margin-15-b" id="path">
     <div className="grow">
       <h1 className="margin-3-b margin-0-t">{title}</h1>
-      <h3 className="margin-0-t">{desc}</h3>
+      <h3 className="margin-0-t margin-1-b">{desc}</h3>
+      <h4 className="is-light-blue margin-0-t">{`${timeToRead} minute read.`}</h4>
     </div>
   </Link>
 )
@@ -64,7 +65,10 @@ export default function Articles({
           </div>
           <div className="col-xs-12 col-md-10">
             {articlesToDisplay.map(item => (
-              <Article {...item.node.frontmatter} />
+              <Article
+                {...item.node.frontmatter}
+                timeToRead={item.node.timeToRead}
+              />
             ))}
           </div>
         </div>
@@ -79,6 +83,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          timeToRead
           frontmatter {
             type
             title
