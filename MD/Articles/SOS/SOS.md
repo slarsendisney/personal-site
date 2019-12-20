@@ -16,9 +16,11 @@ I put this together as my way of giving back. I hope that it might help you get 
 
 - ## [Design Inspiration](#Design-Inspiration)
 
+- ## [Version Control](#Version-control)
+
 - ## [Get Some Styles](#Styles)
 
-- ## [UI Boilerplates](#UI-Boilerplates) 
+- ## [Front-end Boilerplates](#UI-Boilerplates) 
 
 - ## [Surviving The Night](#Surviving-The-Night)
 
@@ -71,13 +73,24 @@ And download those fonts [here](https://fonts.google.com/).
 
 *Users spend most of their time on other sites. This means that users prefer your site to work the same way as all the other sites they already know.* -  Laws of UX
 
-This quote is a great reason to be inspired or even steal good design from other sites. I use two main sources for my inspiration:
+This quote is a great reason to be inspired or even steal good design from other sites. I use three main sources for my inspiration:
 
 [dribbble](https://dribbble.com/): Arguably the home of designers online.
 
 [pages.xyz](https://www.pages.xyz/): A hall of fame for simply beautiful websites.
 
 [uplabs](https://www.uplabs.com/): A great place for designs along with their original files for download. Most of them are free.
+
+<h1 class="is-pink" id="Version-control">Version Control</h1>
+
+This is a hack, I dont need version control. Right? Wrong! Using version control might seem like it will slow down your progress but commiting regularly will allow you to time travel. Why is this a good thing? Well lets say you try to implement just one more feature before the end of the hack but you end up breaking your codebase, you can quickly jump back to when everything was working to show the judges. Magic.
+
+But Sam, I've never used version control before! SOS! You're in luck, I wrote a guide on git specifically for hackathons. Find it here:
+
+[Gimme Git Quick](/articles/gimme-git-quick)
+    
+![TimeTravel!](./timetravel.gif)
+
 
 
 <h1 class="is-pink" id="Styles">Get Some Styles</h1>
@@ -121,6 +134,14 @@ $sides: (top, bottom, left, right);
   }
 }
 ```
+Now you have a grid system you can use:
+```
+<div className ="row">
+  <div className="col-xs-12 col-md-6">
+    // This div will take up the whole screen on xs and half the screen on md
+  </div>
+</div>
+```
 
 ### Colour Colour Colour 
 Switch out the brand colours at the top of this snippet with your own.
@@ -147,11 +168,11 @@ is-white
 // Make the background the colour
 is-white-bg
 ```
-<h1 class="is-pink" id="UI-Boilerplates">UI Boilerplates</h1>
-Here have some boilerplates free of charge.
+<h1 class="is-pink" id="UI-Boilerplates">Front-end Boilerplates</h1>
+Why start from zero when you can start with a boilerplate?
 
 ### GatsbyJS
-This is my new favourite framework. A react static site generator and so much more! Did I mention its *blazing* fast? I've built boilerplates for realtime updates, working with markdown and so much more. [Check it out here](/boilerplates).
+This is my new favourite framework. A react static site generator and so much more! Did I mention its *blazing* fast? I've built boilerplates in GatsbyJS for realtime updates, working with markdown and so much more. [Check it out here](/boilerplates).
 
 
 <h1 class="is-pink" id="Surviving-The-Night">Surviving The Night </h1>
@@ -169,7 +190,7 @@ Consuming lots of sugar can get you buzzing but its usually followed by a sugar 
 For me the hardest time of a hack is 5AM - I get these pinching headaches right at the front of my head. I always find that if I can make it to 7 then I'm fine. If you find yourself with the same thing, stop coding, walk around, talk to people and preocccupy your mind with something else. It will pass. The only times I have ever caved at hackathons is when I've tried to continue coding at this point.
 
 <h1 class="is-pink" id="Fake-It-Till-You-Make-It">Fake It Till You Make It</h1>
-My final piece of advice is to fake it if time is pressing. Chances are that the judges wont have enough time to delve deep into your project and be sure its all working as you say it is under the hood. If you've been stuck on something for a long time, find a way to fake the functionality and move on. Ain't got time for that shit.
+My final piece of advice is to fake it if time is pressing. Chances are that the judges wont have enough time to delve deep into your project and be sure its all working as you say it is under the hood. If you've been stuck on something for a long time, find a way to fake the functionality and move on. Your idea is more important than your code.
 
 -
 

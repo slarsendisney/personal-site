@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/heading-has-content*/
+
 import { Link } from "gatsby"
 import React from "react"
 import useDarkMode from "use-dark-mode"
@@ -11,7 +13,7 @@ export default () => {
         <div className="col-xs-9 flex">
           <Link
             to="/start"
-            className=" align-horizontal is-white flex"
+            className=" align-horizontal is-white flex grow-on-hover"
             style={{ textDecoration: "none" }}
           >
             <img src={Logo} alt="" height={20} style={{}} />
@@ -23,11 +25,11 @@ export default () => {
         >
           {darkMode.value ? (
             <button type="button" onClick={darkMode.disable}>
-              <h2 className="la la-sun margin-0" />
+              <h2 className="la la-sun margin-0 is-pink-always" />
             </button>
           ) : (
             <button type="button" onClick={darkMode.enable}>
-              <h2 className="la la-moon margin-0" />
+              <h2 className="la la-moon margin-0 is-pink-always" />
             </button>
           )}
         </div>

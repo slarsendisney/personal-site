@@ -40,16 +40,34 @@ const sections = [
     type: "Writing",
     url: "/articles",
   },
+  {
+    label: "🧙‍♂️ Slides",
+    type: "Slides",
+    url: "http://slides.sld.codes",
+  },
 ]
 
-const Article = ({ label, desc, url }) => (
-  <Link to={url} className="link margin-15-b" id="path">
-    <div className="grow">
-      <h1 className="margin-3-b margin-0-t">{label}</h1>
-      <h3 className="margin-0-t">{desc}</h3>
-    </div>
-  </Link>
-)
+const Article = ({ label, desc, url }) => {
+  if (url.includes("http")) {
+    return (
+      <a href={url} className="link margin-15-b" id="path">
+        <div className="grow">
+          <h1 className="margin-3-b margin-0-t">{label}</h1>
+          <h3 className="margin-0-t">{desc}</h3>
+        </div>
+      </a>
+    )
+  } else {
+    return (
+      <Link to={url} className="link margin-15-b" id="path">
+        <div className="grow">
+          <h1 className="margin-3-b margin-0-t">{label}</h1>
+          <h3 className="margin-0-t">{desc}</h3>
+        </div>
+      </Link>
+    )
+  }
+}
 
 const Logo = ({ type, url }) => {
   const [active, setActive] = useState(false)

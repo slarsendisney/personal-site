@@ -1,5 +1,5 @@
-//fonts 
-@import url('https://fonts.googleapis.com/css?family=Lato:700&display=swap');
+//fonts
+@import url("https://fonts.googleapis.com/css?family=Lato:700&display=swap");
 
 //files
 @import "./layout.scss";
@@ -13,109 +13,101 @@
 @import "./utilities.scss";
 
 @for $i from 1 through 6 {
-    h#{7 - $i} {
-        font-size: $i * 1.4em;
-    }
+  h#{7 - $i} {
+    font-size: $i * 1.4em;
+  }
 }
 
 main {
-    min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 150px);
 }
 
 body {
-    margin: 0px;
-    max-width: 100vw;
+  margin: 0px;
+  max-width: 100vw;
 }
 
-h1 { 
-    display: block;
-    font-size: 2em;
-    font-family: Lato;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
+h1 {
+  display: block;
+  font-size: 2em;
+  font-family: Lato;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
 
-  
 h2 {
-    display: block;
-    font-size: 1.5em;
-    font-family: Lato;
-    margin-top: 0.83em;
-    margin-bottom: 0.83em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
+  display: block;
+  font-size: 1.5em;
+  font-family: Lato;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
 
-h3 { 
-    display: block;
-    font-size: 1.17em;
-    font-family: Lato;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
+h3 {
+  display: block;
+  font-size: 1.17em;
+  font-family: Lato;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
 
-h4 { 
-    display: block;
-    font-size: 1em;
-    font-family: Lato;
-    margin-top: 1.33em;
-    margin-bottom: 1.33em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
+h4 {
+  display: block;
+  font-size: 1em;
+  font-family: Lato;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
 
-h5 { 
-    display: block;
-    font-size: .83em;
-    font-family: Lato;
-    margin-top: 1.67em;
-    margin-bottom: 1.67em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
+h5 {
+  display: block;
+  font-size: 0.83em;
+  font-family: Lato;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
 
-h6 { 
-    display: block;
-    font-size: .67em;
-    font-family: Lato;
-    margin-top: 2.33em;
-    margin-bottom: 2.33em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
+h6 {
+  display: block;
+  font-size: 0.67em;
+  font-family: Lato;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
 
 hr {
-    margin-top: 2vw;
-    margin-bottom: 1vw;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
 }
-
 
 div {
-    display: block;
+  display: block;
 }
 
-
 footer {
-    text-align: center;
-    font-family: Lato;
+  text-align: center;
+  font-family: Lato;
 }
 
 .legal {
   font-size: 10px;
   opacity: 0.5;
 }
-
-
-
-
-
