@@ -21,7 +21,7 @@ export default () => {
         </div>
         <div
           className="col-xs-3 flex text-align-right"
-          style={{ justifyContent: "flex-end" }}
+          style={{ justifyContent: "flex-end", alignItems: "center" }}
         >
           {darkMode.value ? (
             <button type="button" onClick={darkMode.disable}>

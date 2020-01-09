@@ -45,6 +45,11 @@ const sections = [
     type: "Slides",
     url: "http://slides.sld.codes",
   },
+  {
+    label: "📸 Photography",
+    type: "Photos",
+    url: "/photos",
+  },
 ]
 
 const Article = ({ label, desc, url }) => {

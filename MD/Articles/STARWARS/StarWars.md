@@ -2,9 +2,8 @@
 type: "Article"
 path: "/articles/star-wars"
 title: "Recreating 'The Imperial March' with JS"
-desc: "An experiment with Tone.js in GatsbJS"
+desc: "An experiment with Tone.js in Gatsby"
 year: 2019
-
 ---
 
 
