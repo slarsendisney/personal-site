@@ -4,6 +4,7 @@ path: "/articles/slack-help"
 title: "How To Ask For Help On Slack"
 desc: "Fixing your slack messages with one character."
 year: 2019
+date: 2019-12-10
 ---
 
 # Bad Habits

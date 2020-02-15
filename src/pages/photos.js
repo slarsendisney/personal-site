@@ -27,7 +27,7 @@ export default () => {
       <div className="is-grey is-light-grey-bg">
         <div className="row container-small pad-10">
           <div className="col-xs-12 ">
-            <Link to="/start" className="link">
+            <Link to="/" className="link">
               <h2 className="is-grey margin-0 margin-2-b grow">{`< Home`}</h2>
             </Link>
           </div>
@@ -37,9 +37,13 @@ export default () => {
           </div>
           <div className="col-xs-12">
             <h3 className="">
-              When I am not coding, I ❤️ taking photos. My passion is wildlife
-              and landscape but I have also dabbled in portrait, wedding and
-              band photography. For enquiries please email me at
+              When I am not coding, I{" "}
+              <span aria-label="love" role="img">
+                ❤️
+              </span>{" "}
+              taking photos. My passion is wildlife and landscape but I have
+              also dabbled in portrait, wedding and band photography. For
+              enquiries please email me at
               <span className="is-pink-always"> s.larsendisney@gmail.com</span>.
             </h3>
             {PhotoGallery.map(item => (

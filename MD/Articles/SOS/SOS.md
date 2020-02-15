@@ -2,8 +2,9 @@
 type: "Article"
 path: "/articles/sams-hackathon-guide"
 title: "Sam's Hackathon Survival Guide 💪"
-desc: "A creative cheat sheat to help you get off to a running start."
+desc: "A creative cheat sheet to help you get off to a running start."
 year: 2019
+date: 2019-09-13
 ---
 
 I put this together as my way of giving back. I hope that it might help you get hacking smarter and faster ⚡️. 
@@ -89,7 +90,7 @@ But Sam, I've never used version control before! SOS! You're in luck, I wrote a 
 
 [Gimme Git Quick](/articles/gimme-git-quick)
     
-![TimeTravel!](./timetravel.gif)
+![TimeTravel!](https://ik.imagekit.io/sld/timetravel_aSVSg9MHC.gif)
 
 
 
@@ -196,4 +197,4 @@ My final piece of advice is to fake it if time is pressing. Chances are that the
 
 ## Now Go Smash That Hack 💪
 
-![Smash!](./smash.gif)
+![Smash!](https://ik.imagekit.io/sld/smash_LO8GKsLEM.gif)

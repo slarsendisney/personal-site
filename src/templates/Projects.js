@@ -50,7 +50,7 @@ export default function Projects({
       <div className="is-grey is-light-grey-bg pad-10">
         <div className="row container ">
           <div className="col-xs-12 ">
-            <Link to="/start" className="link">
+            <Link to="/" className="link">
               <h2 className="is-grey margin-0 margin-2-b grow">{`< Home`}</h2>
             </Link>
           </div>

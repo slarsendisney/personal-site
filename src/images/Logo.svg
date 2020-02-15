@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="189px" height="86px" viewBox="0 0 189 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="191px" height="87px" viewBox="0 0 191 87" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>Group</title>
+    <title>Logo</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop-HD" transform="translate(-628.000000, -218.000000)" fill-rule="nonzero">
-            <g id="Group" transform="translate(627.500000, 217.500000)">
-                <path d="M168.964286,21.131068 L141.035714,21.131068 L141.035714,85.5 L120.5,85.5 L120.5,21.131068 L120.5,0.5 L189.5,0.5 L189.5,21.131068 L189.5,64.868932 L189.5,85.5 L152.535714,85.5 L152.535714,64.868932 L168.964286,64.868932 L168.964286,21.131068 Z" id="Combined-Shape" fill="#EC2A56"></path>
-                <path d="M99.5,65.368932 L141.035714,65.368932 L141.035714,86 L80,86 L80,65.368932 L80,1 L99.5,1 L99.5,65.368932 Z" id="Combined-Shape" fill="#F9B806"></path>
-                <path d="M34.2647059,0.5 L99.5,0.5 L99.5,21.131068 L54.0294118,21.131068 L54.0294118,64.868932 L54.0294118,85.5 L0.5,85.5 L0.5,64.868932 L33.4411765,64.868932 L33.4411765,0.5 L34.2647059,0.5 Z" id="Combined-Shape" fill="#236DAB"></path>
-            </g>
+        <g id="Logo">
+            <polygon id="Combined-Shape" fill="#E70159" points="170.166667 21.1165049 141.833333 21.1165049 141.833333 87 121 87 121 21.1165049 121 0 191 0 191 21.1165049 191 65.8834951 191 87 153.5 87 153.5 65.8834951 170.166667 65.8834951"></polygon>
+            <polygon id="Combined-Shape" fill="#FFBD3B" points="99.808075 65.8834951 142 65.8834951 142 87 80 87 80 65.8834951 80 0 99.808075 0"></polygon>
+            <polygon id="Combined-Shape" fill="#3B52A4" points="34.1057635 0 100 0 100 20.8737864 54.0701129 20.8737864 54.0701129 65.1262136 54.0701129 86 0 86 0 65.1262136 33.2739157 65.1262136 33.2739157 0"></polygon>
         </g>
     </g>
 </svg>

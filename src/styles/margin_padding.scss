@@ -12,6 +12,10 @@ $sides: (top, bottom, left, right); // Leave this variable alone
     .margin-#{$space/5}-#{str-slice($side, 0, 1)} {
       margin-#{$side}: #{$space}px !important;
     }
+
+    .margin-auto-#{str-slice($side, 0, 1)} {
+      margin-#{$side}: #{$space}px !important;
+    }
   
     .pad-#{$space/5}-#{str-slice($side, 0, 1)} {
       padding-#{$side}: #{$space}px !important;

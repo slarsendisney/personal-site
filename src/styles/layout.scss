@@ -34,8 +34,6 @@ $half-gutter-width: $flexboxgrid-gutter-width * .5;
   @include flex(0, 1, auto);
   @include flex-direction(row);
   @include flex-wrap(wrap);
-  margin-right: $gutter-compensation;
-  margin-left: $gutter-compensation;
 }
 
 .row.reverse {

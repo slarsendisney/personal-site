@@ -38,6 +38,7 @@
     }
 }
 
+
 .shadow {
     -webkit-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
 -moz-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
@@ -47,4 +48,19 @@ box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
 .hover:hover {
     color: #EF6461;
     cursor: pointer;
+}
+
+
+.slide-image-one{
+    background-image: url("https://ik.imagekit.io/sld/ICHACK_a2o31d1eR.png");
+}
+
+.slide-image-two{
+    background-image: url("https://ik.imagekit.io/sld/HackKings_nVVodPVC9.jpeg");
+
+}
+
+.slide-image-three{
+    background-image: url("https://ik.imagekit.io/sld/AmexOnboarding_my-fjWmR6.jpeg");
+ 
 }

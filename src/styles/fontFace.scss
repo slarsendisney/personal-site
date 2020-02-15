@@ -1,0 +1,71 @@
+////
+/// @font-face Mixin for SASS
+/// Builds font-face declarations
+/// @author [Jonathan Neal](https://github.com/jonathantneal)
+/// @author [Chris Coggburn](mailto:chris@pixelandline.com)
+////
+
+/// String Replace Function
+/// @group functions
+/// @param $string
+/// @param $search
+/// @param $replace [""]
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+    @if $index {
+      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+  }
+  
+  /// SCSS @font-face mixin
+  /// @param $name - font-family
+  /// @param $path - URL to fonts
+  /// @param $weight [null] - font-weight
+  /// @param $style [null] - font-style
+  /// @param $exts [eot woff2 woff ttf svg] - font extensions to add to src
+  /// @example scss - Create a font face rule that applies to bold and italic text.
+  ///   // SCSS
+  ///   @include font-face(Samplino, fonts/Samplino);
+  ///
+  ///   // CSS Output:
+  ///   @font-face {
+  ///       font-family: "Samplino";
+  ///       src: url("fonts/Samplino.eot?") format("eot"),
+  ///            url("fonts/Samplino.woff2") format("woff2"),
+  ///            url("fonts/Samplino.woff") format("woff"),
+  ///            url("fonts/Samplino.ttf") format("truetype"),
+  ///            url("fonts/Samplino.svg#Samplino") format("svg");
+  ///       }
+  ///
+  /// @example scss - Create a font face rule that applies to bold and italic text.
+  ///   // SCSS
+  ///   @include font-face("Samplina Neue", fonts/SamplinaNeue, bold, italic);
+  ///
+  ///   // CSS Output
+  ///   @font-face {
+  ///       font-family: "Samplina Neue";
+  ///       font-style: italic;
+  ///       font-weight: bold;
+  ///       src: url("fonts/SamplinaNeue.eot?") format("eot"),
+  ///            url("fonts/SamplinaNeue.woff2") format("woff2"),
+  ///            url("fonts/SamplinaNeue.woff") format("woff"),
+  ///            url("fonts/SamplinaNeue.ttf") format("truetype"),
+  ///            url("fonts/SamplinaNeue.svg#Samplina_Neue") format("svg");
+  ///       }
+  @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $src: null;
+    $extmods: ( eot: "?", svg: "#" + str-replace($name, " ", "_") );
+    $formats: ( otf: "opentype", ttf: "truetype" );
+    @each $ext in $exts {
+      $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+      $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+      $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+    @font-face {
+      font-family: quote($name);
+      font-style: $style;
+      font-weight: $weight;
+      src: $src;
+    }
+  }

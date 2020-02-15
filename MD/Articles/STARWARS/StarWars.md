@@ -4,6 +4,7 @@ path: "/articles/star-wars"
 title: "Recreating 'The Imperial March' with JS"
 desc: "An experiment with Tone.js in Gatsby"
 year: 2019
+date: 2019-11-19
 ---
 
 
@@ -116,4 +117,4 @@ And hey presto! We have the imperial march in our browser. You can check it out 
 
 May the force be with you!
 
-![done!](./done.gif)
+![done!](https://ik.imagekit.io/sld/done_NWe8owZ09.gif)

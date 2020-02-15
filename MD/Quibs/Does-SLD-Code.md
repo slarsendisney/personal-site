@@ -1,7 +1,7 @@
 ---
 type: "Q&A"
 path: "/hellyeah"
-link: "/start"
+link: "/"
 btnLabel: "Meet Sam"
 question: "Does SLD code?"
 answer: "Hell yeah he does."

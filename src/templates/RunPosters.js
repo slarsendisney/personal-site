@@ -53,9 +53,12 @@ export default function Articles({ data }) {
           </div>
           <div className="col-xs-2  text-align-center">
             {index > 0 && (
-              <h1 className="margin-0 link" onClick={() => setIndex(index - 1)}>
-                ⬅
-              </h1>
+              <button
+                className="margin-0 link"
+                onClick={() => setIndex(index - 1)}
+              >
+                <h1>⬅</h1>
+              </button>
             )}
           </div>
           <div className="col-xs-8  text-align-center">
@@ -63,9 +66,12 @@ export default function Articles({ data }) {
           </div>
           <div className="col-xs-2  text-align-center">
             {index < edges.length - 1 && (
-              <h1 className="margin-0 link" onClick={() => setIndex(index + 1)}>
-                ➡
-              </h1>
+              <button
+                className="margin-0 link"
+                onClick={() => setIndex(index + 1)}
+              >
+                <h1>➡</h1>
+              </button>
             )}
           </div>
           <div className="col-xs-12">

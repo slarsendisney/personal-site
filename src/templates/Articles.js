@@ -15,7 +15,7 @@ const Article = ({ title, desc, path, timeToRead }) => (
 export default function Articles({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const [year, setYear] = useState(2019)
+  const [year, setYear] = useState(new Date().getFullYear())
   let { edges } = data.allMarkdownRemark // data.markdownRemark holds our post data
   edges = edges.sort(
     (a, b) => b.node.frontmatter.year - a.node.frontmatter.year
@@ -36,11 +36,14 @@ export default function Articles({
   )
   return (
     <Layout>
-      <SEO title={"Articles"} />
+      <SEO
+        title="Articles"
+        description="✍️ I Write Occasionally. I hope you find something useful!"
+      />
       <div className="is-grey is-light-grey-bg pad-10">
         <div className="row container ">
           <div className="col-xs-12 ">
-            <Link to="/start" className="link">
+            <Link to="/" className="link">
               <h2 className="is-grey margin-0 margin-2-b grow">{`< Home`}</h2>
             </Link>
           </div>
@@ -61,6 +64,17 @@ export default function Articles({
                   </button>
                 </div>
               ))}
+              <div className="col-xs-4 col-sm-3 col-md-12" id="rss-feed">
+                <a
+                  href="/rss.xml"
+                  target="_blank"
+                  style={{ textDecoration: "none" }}
+                >
+                  <h4 className={`margin-0-t link is-orange-always`}>
+                    RSS Feed
+                  </h4>
+                </a>
+              </div>
             </div>
           </div>
           <div className="col-xs-12 col-md-10">
@@ -79,7 +93,10 @@ export default function Articles({
 
 export const pageQuery = graphql`
   query Articles {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "Article" } } }) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { type: { eq: "Article" } } }
+    ) {
       edges {
         node {
           id

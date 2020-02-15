@@ -4,6 +4,7 @@ path: "/articles/gimme-git-quick"
 title: "Gimme Git Quick 🏃‍"
 desc: "For the people who needed to know git yesterday. "
 year: 2019
+date: 2019-10-01
 ---
 
 ### 🚨DISCLAIMER: This is by no means a comprehensive guide to using git. It is intended to be used in hackathon type scenarios where you team want to use it but you've never touched it before. If you are looking for something more in depth check out this [awesome article](https://medium.com/@george.seif94/a-full-tutorial-on-how-to-use-github-88466bac7d42).
@@ -36,7 +37,7 @@ git checkout -b your-name/thing you are working on
 
 3 - Code the thing ⚡️
 
-![Code](./code.gif)
+![Code](https://ik.imagekit.io/sld/code_8h0lMiPBd.gif)
 
 4 - Commmit and push your code
 

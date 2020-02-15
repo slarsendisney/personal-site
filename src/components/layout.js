@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import CookieConsent from "react-cookie-consent"
+import { Location } from "@reach/router"
 import Header from "./header"
 
 const Layout = ({ children }) => {
@@ -36,7 +37,7 @@ const Layout = ({ children }) => {
           so I can enhance the user experience. Hope thats cool with you!
         </h4>
       </CookieConsent>
-      <Header />
+      <Location>{locationProps => <Header {...locationProps} />}</Location>
       <main className="is-light-grey-bg">{children}</main>
       <footer className="is-white-bg is-grey pad-2 footer">
         Made with{" "}

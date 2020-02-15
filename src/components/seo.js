@@ -27,47 +27,24 @@ function SEO({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
+  const url = "https://sld.codes"
+
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={"SLD | " + title}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+    <Helmet>
+      <title>Sam Larsen-Disney | {title}</title>
+      <meta name="description" content={metaDescription} />
+
+      <meta property="og:url" content={url} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content="Sam Larsen-Disney" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <html lang="en" />
+    </Helmet>
   )
 }
 

@@ -1,9 +1,11 @@
 //fonts
 @import url("https://fonts.googleapis.com/css?family=Lato:700&display=swap");
 
-//files
+
+//files;
 @import "./layout.scss";
 @import "./colors.scss";
+@import "./paper.scss";
 @import "./opacity.scss";
 @import "./margin_padding.scss";
 @import "./article.scss";
@@ -25,6 +27,11 @@ main {
 body {
   margin: 0px;
   max-width: 100vw;
+}
+
+p {
+  font-family: Lato;
+  font-weight: lighter;
 }
 
 h1 {
@@ -109,5 +116,4 @@ footer {
 
 .legal {
   font-size: 10px;
-  opacity: 0.5;
 }

@@ -22,11 +22,11 @@ const BoilerPlate = ({ title, desc, flag, repo, demo }) => (
     )}
 
     <h4>Get set up by typing the following command in your terminal:</h4>
-    <pre>
-      <code className="pad-3 is-grey-bg-always is-white-always border-radius">
-        {`npx -p yo -p generator-sld -- yo sld:${flag}`}
-      </code>
-    </pre>
+
+    <p className="pad-3 is-grey-bg-always is-white-always border-radius">
+      {`npx -p yo -p generator-sld -- yo sld:${flag}`}
+    </p>
+
     <h4>
       Or check out the{" "}
       <OutboundLink
@@ -48,7 +48,7 @@ export default function Start({ data }) {
       <div className="is-white is-pink-bg">
         <div className="row container-small pad-20-t">
           <div className="col-xs-12 pad-10-l pad-10-r">
-            <Link to="/start" className="link">
+            <Link to="/" className="link">
               <h2 className="is-grey margin-0 margin-2-b grow">{`< Home`}</h2>
             </Link>
           </div>
@@ -63,7 +63,7 @@ export default function Start({ data }) {
       </div>
       <div className="is-grey is-white-bg">
         <div className="row container-small pad-10-t pad-20-b">
-          <div className="pad-10-l pad-10-r">
+          <div className="col-xs-12 pad-10-l pad-10-r">
             <h2 className="">GatsbyJS Boilerplates</h2>
             {boilerplates.map(item => (
               <BoilerPlate {...item.node.frontmatter} />
