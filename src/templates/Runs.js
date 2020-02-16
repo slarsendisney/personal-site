@@ -57,9 +57,9 @@ const Run = ({ start_epoch_ms, end_epoch_ms, summaries }) => {
     </div>
   )
 }
-export default function Articles({
+export default ({
   data, // this prop will be injected by the GraphQL query below.
-}) {
+}) => {
   const [year, setYear] = useState(2019)
   let { edges } = data.allNikeJson // data.markdownRemark holds our post data
   edges = edges.sort(
@@ -105,7 +105,7 @@ export default function Articles({
             </Link>
           </div>
           <div className="col-xs-12 ">
-            <h1 className="is-hero-menu margin-0-t margin-0-b">
+            <h1 className="is-hero-menu margin-0-tb">
               <span role="img" aria-label="run">
                 🏃‍♂️
               </span>{" "}
@@ -127,7 +127,7 @@ export default function Articles({
               across
               <span className="is-pink-always">{` ${edges.length} runs`}</span>.
             </h2>
-            <div className="line margin-3-t margin-3-b" />
+            <div className="line margin-3-tb" />
             <div className="margin-3-b">
               <Link to="/runs/posters" className="link">
                 <div className="btn">{`View Run Posters`}</div>

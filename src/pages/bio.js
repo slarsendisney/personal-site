@@ -55,7 +55,7 @@ export default function Bio({ data }) {
             The Long Version
           </h1>
           <div
-            className="is-grey lato"
+            className="is-grey lato paper margin-5-t"
             dangerouslySetInnerHTML={{
               __html: data.allMarkdownRemark.edges[0].node.html,
             }}
@@ -89,14 +89,3 @@ export const query = graphql`
     }
   }
 `
-
-// {
-
-//   allFile(filter: { relativePath: { eq: "CV.pdf" } }) {
-//     edges {
-//       node {
-//         publicURL
-//       }
-//     }
-//   }
-// }

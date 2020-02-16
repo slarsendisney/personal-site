@@ -1,0 +1,32 @@
+[
+  {
+    "label": "👨🏼‍💻 About Me",
+    "type": "AboutMe",
+    "url": "/bio"
+  },
+  {
+    "label": "🔧 Projects",
+    "type": "Projects",
+    "url": "/projects"
+  },
+  {
+    "label": "🚀 Boilerplates",
+    "type": "Boilerplates",
+    "url": "/boilerplates"
+  },
+  {
+    "label": "📝 Articles",
+    "type": "Writing",
+    "url": "/articles"
+  },
+  {
+    "label": "🧙‍♂️ Slides",
+    "type": "Slides",
+    "url": "http://slides.sld.codes"
+  },
+  {
+    "label": "📸 Photography",
+    "type": "Photos",
+    "url": "/photos"
+  }
+]

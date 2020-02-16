@@ -7,7 +7,8 @@ $sides: (top, bottom, left, right); // Leave this variable alone
     }
     .pad-#{$space/5} {
       padding: #{$space}px !important;
-  }
+    }
+    
   @each $side in $sides {
     .margin-#{$space/5}-#{str-slice($side, 0, 1)} {
       margin-#{$side}: #{$space}px !important;
@@ -19,6 +20,16 @@ $sides: (top, bottom, left, right); // Leave this variable alone
   
     .pad-#{$space/5}-#{str-slice($side, 0, 1)} {
       padding-#{$side}: #{$space}px !important;
+    }
+    @each $secondSide in $sides {
+      .margin-#{$space/5}-#{str-slice($side, 0, 1)}#{str-slice($secondSide, 0, 1)} {
+        margin-#{$side}: #{$space}px !important;
+        margin-#{$secondSide}: #{$space}px !important;
+      }
+      .pad-#{$space/5}-#{str-slice($side, 0, 1)}#{str-slice($secondSide, 0, 1)} {
+        padding-#{$side}: #{$space}px !important;
+        padding-#{$secondSide}: #{$space}px !important;
+      }
     }
   }
 }

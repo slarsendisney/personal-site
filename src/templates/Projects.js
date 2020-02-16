@@ -22,9 +22,9 @@ export const Project = ({ title, desc, path, coverimg }) => (
     </div>
   </Link>
 )
-export default function Projects({
+export default ({
   data, // this prop will be injected by the GraphQL query below.
-}) {
+}) => {
   const [year, setYear] = useState(2019)
   let { edges } = data.allMarkdownRemark // data.markdownRemark holds our post data
   edges = edges.sort(

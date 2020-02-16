@@ -3,9 +3,9 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default function QandATemplate({
+export default ({
   data, // this prop will be injected by the GraphQL query below.
-}) {
+}) => {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
   return (
@@ -20,8 +20,8 @@ export default function QandATemplate({
           justifyContent: "center",
         }}
       >
-        <div className="row container-small pad-20-t pad-20-b ">
-          <div className="col-xs-12 col-md-8 pad-10-l pad-10-r">
+        <div className="row container-small pad-20-tb ">
+          <div className="col-xs-12 col-md-8 pad-10-lr">
             <h6 className="is-hero-sub-text margin-3-b">
               {frontmatter.question.toUpperCase()}
             </h6>

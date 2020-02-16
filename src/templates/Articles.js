@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Article = ({ title, desc, path, timeToRead }) => (
+export const Article = ({ title, desc, path, timeToRead }) => (
   <Link to={path} className="link margin-15-b" id="path">
     <div className="grow">
       <h1 className="margin-3-b margin-0-t">{title}</h1>
@@ -12,9 +12,7 @@ const Article = ({ title, desc, path, timeToRead }) => (
     </div>
   </Link>
 )
-export default function Articles({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
+export default ({ data }) => {
   const [year, setYear] = useState(new Date().getFullYear())
   let { edges } = data.allMarkdownRemark // data.markdownRemark holds our post data
   edges = edges.sort(

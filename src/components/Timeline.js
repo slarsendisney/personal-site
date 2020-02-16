@@ -15,7 +15,7 @@ export default () => (
         iconStyle={{ background: "rgb(234, 78, 103)", color: "#fff" }}
       >
         <h6 className="vertical-timeline-element-title is-blue-always pad-0-b">
-          {item.location.toUpperCase()}
+          {`${item.company.toUpperCase()}, ${item.location.toUpperCase()}`}
         </h6>
         <p className="vertical-timeline-element-subtitle is-grey-always">
           {item.role}

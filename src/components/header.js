@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import React from "react"
 import useDarkMode from "use-dark-mode"
 import Logo from "../images/Logo.svg"
+import LogoDark from "../images/Logo-dark.svg"
 import LogoAnimation from "./LogoAnimation"
 
 export default props => {
@@ -19,10 +20,10 @@ export default props => {
             style={{ textDecoration: "none" }}
           >
             {props.location.pathname !== "/cv" ? (
-              <LogoAnimation />
+              <LogoAnimation darkMode={darkMode.value} />
             ) : (
               <img
-                src={Logo}
+                src={!darkMode.value ? Logo : LogoDark}
                 alt=""
                 style={{ paddingBottom: 2, height: "21.5px" }}
               />
@@ -39,7 +40,7 @@ export default props => {
               aria-label="light mode"
               onClick={darkMode.disable}
             >
-              <h2 className="la la-sun margin-0 is-pink-always" />
+              <h2 className="la la-sun margin-0 is-white-always" />
             </button>
           ) : (
             <button

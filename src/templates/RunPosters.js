@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Poster from "../components/poster"
 
-export default function Articles({ data }) {
+export default ({ data }) => {
   const [index, setIndex] = useState(0)
   let { edges } = data.allNikeJson
   edges = edges.sort(
@@ -38,7 +38,7 @@ export default function Articles({ data }) {
   return (
     <Layout>
       <SEO title={"Run Posters"} />
-      <div className="is-grey is-light-grey-bg pad-10-t pad-10-b">
+      <div className="is-grey is-light-grey-bg pad-10-tb">
         <div className="row container ">
           <div className="col-xs-12 ">
             <Link to="/runs" className="link">

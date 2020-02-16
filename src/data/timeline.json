@@ -1,42 +1,51 @@
 [
   {
     "role": "UX Engineer",
-    "location": "American Express, London",
+    "company": "American Express",
+    "location": "London",
     "date": "Sep 2019 - Present",
     "desc": "Currently creating the future of the ‘refer a friend’ experience.",
     "longDesc": "In my current role, I work both as a UX designer and Front-end developer in equal measure. I design and build the future of the 'Refer a Friend' scheme in a research and development team. We are constantly ideating using tools such as the design sprint process and lightening decision jams, both of which I have facilitated as well as participated in. The projects I have worked on have been incredibly varied. I have built web-ready animations, onboarding experiences, faster sites in newer frameworks, chat bots and so much more.",
-    "tags": "User Experience, Rapid Prototyping, JS, ReactJS, Redux, GatsbyJS, GraphQL, Adobe Suite, Sketch"
+    "tags": "User Experience, Rapid Prototyping, JS, ReactJS, Redux, GatsbyJS, GraphQL, Adobe Suite, Sketch",
+    "url": "https://www.americanexpress.com"
   },
   {
     "role": "Graduate UX Designer",
-    "location": "American Express, Burgess Hill",
+    "company": "American Express",
+    "location": "Burgess Hill",
     "date": "Feb 2019 - Sep 2019",
     "desc": "Making it easier than ever to ‘refer a friend’.",
     "longDesc": "Completed research into how we could improve elements of the referral hub. This included competitor analysis, analysis of existing site, creation of personas, wireframes and mockups. I also worked on a proof of concept for a research archive that intelligently links and prioritises research for better design decisions. ",
-    "tags": "User Experience, Customer Research, User Testing, JS, ReactJS, GatsbyJS, Sketch"
+    "tags": "User Experience, Customer Research, User Testing, JS, ReactJS, GatsbyJS, Sketch",
+    "url": "https://www.americanexpress.com"
   },
   {
     "role": "Graduate Front-End Engineer",
-    "location": "American Express, Burgess Hill",
+    "company": "American Express",
+    "location": "Burgess Hill",
     "date": "Sep 2018 - Feb 2019",
     "desc": "Working in loyalty on a UI for testing API integrations.",
     "longDesc": "I designed, implemented and deployed the first version of the Loyalty Servicing Platform with the help of my team. This tool, was built to replace Oracle Forms which was running out of extended support as it was reaching end of life. The tool was built using the new design language system and a modular structure that allowed us to better integrate the tool with other parts of the company.",
-    "tags": "Internal Tooling, Analytics, JS, ReactJS, Redux"
+    "tags": "Internal Tooling, Analytics, JS, ReactJS, Redux",
+    "url": "https://www.americanexpress.com"
   },
   {
     "role": "Technical Director & Co-Founder",
-    "location": "AMNiiS , Remote",
+    "company": "AMNiiS",
+    "location": "Remote",
     "date": "Sep 2017 - Feb 2019",
     "desc": "During my time at AMNiiS I built the TrailBee application, a dedicated transport administration tool. ",
     "longDesc": "During my time at AMNiiS I built the TrailBee application, a dedicated transport administration tool. The application consisted of a parent app and an admin user interface for schools. Due to the small size of the team, I was a 'jack of all trades'. I created the design language system for the application - this was my first taste of UX design.",
-    "tags": "React, React Native, JS, SocketIO, Node, MongoDB,"
+    "tags": "React, React Native, JS, SocketIO, Node, MongoDB"
   },
   {
     "role": "Summer Intern",
-    "location": "American Express, Burgess Hill",
+    "company": "American Express",
+    "location": "Burgess Hill",
     "date": "Jun 2017 - August 2017",
     "desc": "Working in loyalty on a response time monitoring tool using the ELK",
     "longDesc": "In my 10 weeks as a Software Engineer at American Express I worked within an agile team delivering an internal data visualisation tool. In doing so, I have strengthened my competence of the Elastic Stack and Java.",
-    "tags": "Data Visualisations, Analytics, Logging, ELK stack, Java, Splunk"
+    "tags": "Data Visualisations, Analytics, Logging, ELK stack, Java, Splunk",
+    "url": "https://www.americanexpress.com"
   }
 ]

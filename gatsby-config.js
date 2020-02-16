@@ -2,8 +2,8 @@ const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
-    title: `SLD Sam Larsen-Disney`,
-    description: `Design Engineer working @ American Express.`,
+    title: `SLD | Sam Larsen-Disney`,
+    description: `Sam Larsen-Disney | Design Engineer working @ American Express.`,
     author: `@sld`,
     siteUrl: `https://sld.codes`,
   },
@@ -16,6 +16,15 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-plugin-use-dark-mode",
+      options: {
+        classNameDark: "dark-mode",
+        classNameLight: "light-mode",
+        storageKey: "darkMode",
+        minify: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -125,7 +134,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        name: "Sam Larsen-Disney",
+        short_name: "SLD",
+        start_url: "/",
+        background_color: "#ea4e68",
+        theme_color: "#2e4052",
+        display: "standalone",
         icon: `src/images/favicon.png`,
+        crossOrigin: `use-credentials`,
       },
     },
     {

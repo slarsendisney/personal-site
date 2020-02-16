@@ -1,34 +1,26 @@
 import React from "react"
 import Lottie from "react-lottie"
+import data from "../data/logo.json"
+import dataDark from "../data/logo-dark.json"
 
-export default class LottieControl extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { isStopped: false, isPaused: false }
+export default ({ darkMode }) => {
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: darkMode ? dataDark : data,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
   }
 
-  render() {
-    const defaultOptions = {
-      loop: false,
-      autoplay: true,
-      animationData: require("../data/logo.json"),
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-      },
-    }
-
-    return (
-      <span title="Home">
-        <Lottie
-          isClickToPauseDisabled={true}
-          options={defaultOptions}
-          width={"51px"}
-          height={"23px"}
-          isStopped={this.state.isStopped}
-          isPaused={this.state.isPaused}
-          speed={0.1}
-        />
-      </span>
-    )
-  }
+  return (
+    <span title="Home">
+      <Lottie
+        isClickToPauseDisabled={true}
+        options={defaultOptions}
+        width={"51px"}
+        height={"23px"}
+      />
+    </span>
+  )
 }
