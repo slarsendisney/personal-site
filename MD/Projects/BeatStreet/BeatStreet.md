@@ -4,6 +4,7 @@ desc: "Creating playlists based on location with Spotify integration."
 date: "2018-12-25"
 path: "/projects/beat-street"
 type: "Project"
+skills: ["React", "REST APIs"]
 coverimg: "./landing-beat.png"
 ---
 

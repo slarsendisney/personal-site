@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export const Project = ({ title, desc, path, coverimg }) => (
+export const Project = ({ title, desc, path, coverimg, skills }) => (
   <Link to={path} className="link margin-15-b" id="path">
     <div className="grow row">
       <div className="col-xs-12 col-md-6 pad-2-t ">
@@ -18,6 +18,7 @@ export const Project = ({ title, desc, path, coverimg }) => (
         <h1 className="margin-3-b margin-0-t">{title}</h1>
         <h3 className="margin-0-t">{desc}</h3>
         <div className="line margin-5-t margin-5-b" />
+        <p className="margin-0-t">{skills.join(", ")}</p>
       </div>
     </div>
   </Link>
@@ -25,7 +26,7 @@ export const Project = ({ title, desc, path, coverimg }) => (
 export default ({
   data, // this prop will be injected by the GraphQL query below.
 }) => {
-  const [year, setYear] = useState(2019)
+  const [year, setYear] = useState(2020)
   let { edges } = data.allMarkdownRemark // data.markdownRemark holds our post data
   edges = edges.sort(
     (a, b) =>
@@ -94,6 +95,7 @@ export const pageQuery = graphql`
             type
             title
             desc
+            skills
             date
             path
             coverimg {

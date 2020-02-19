@@ -3,6 +3,7 @@ title: "DevCon 2019"
 desc: "Companion web app for an internal developer conference that gamified the day to encourage attendence and networking."
 date: "2019-10-03"
 path: "/projects/dev-con-2019"
+skills: ["GatsbyJS", "Redux"]
 type: "Project"
 coverimg: "./stats.png"
 ---

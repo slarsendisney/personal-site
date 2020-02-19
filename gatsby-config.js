@@ -1,4 +1,31 @@
-const path = require(`path`)
+require("dotenv").config({
+  path: `.env`,
+})
+
+const dynamicPlugins = []
+// pick data from 3 months ago
+const startDate = new Date()
+startDate.setMonth(startDate.getMonth() - 3)
+if (
+  process.env.GUESS_EMAIL &&
+  process.env.GUESS_PRIVATE_KEY &&
+  process.env.VIEW_ID
+) {
+  dynamicPlugins.push({
+    resolve: `gatsby-plugin-guess-js`,
+    options: {
+      GAViewID: process.env.VIEW_ID,
+      jwt: {
+        client_email: process.env.GUESS_EMAIL,
+        private_key: process.env.GUESS_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      },
+      period: {
+        startDate,
+        endDate: new Date(),
+      },
+    },
+  })
+}
 
 module.exports = {
   siteMetadata: {
@@ -15,6 +42,7 @@ module.exports = {
         siteUrl: `https://sld.codes`,
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-sass`,
     {
       resolve: "gatsby-plugin-use-dark-mode",
@@ -160,6 +188,7 @@ module.exports = {
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
+
     "gatsby-plugin-offline",
-  ],
+  ].concat(dynamicPlugins),
 }

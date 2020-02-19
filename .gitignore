@@ -1,6 +1,3 @@
-data/nike/activity-files/*
-data/nike/all/*
-
 *.cache
 .env
 # Logs

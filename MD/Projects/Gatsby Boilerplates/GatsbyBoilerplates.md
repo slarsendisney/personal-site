@@ -3,6 +3,7 @@ title: "Gatsby Boilerplates"
 desc: "A series of GatsbyJS quick starts for various project types. All with a fruity name."
 date: "2019-10-12"
 path: "/projects/gatsby-boilerplates"
+skills: ["GatsbyJS", "npm", "Yeoman"]
 type: "Project"
 coverimg: "./Hero.png"
 ---

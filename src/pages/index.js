@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { Project } from "../templates/Projects"
-import { Article } from "../templates/Articles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RecentEvents from "../components/RecentEvents"
@@ -12,9 +11,7 @@ import MediaLink from "../components/RootComponents/MediaLink"
 import EmploymentHistory from "../data/timeline.json"
 
 export default function Start({ data }) {
-  console.log({ data })
   const featuredProject = data.Projects.edges[0].node.frontmatter
-  const featuredArticles = data.Articles.edges
   const currentJob = EmploymentHistory[0]
   return (
     <Layout>
@@ -56,7 +53,7 @@ export default function Start({ data }) {
       </div>
       <div className="is-grey is-white-bg">
         <div className="row container-small pad-10-t pad-20-b">
-          <div className="pad-10-lr">
+          <div className="col-xs-12 pad-10-lr">
             <h2 className="">Latest Project</h2>
             <Project {...featuredProject} />
           </div>
@@ -125,6 +122,7 @@ export const query = graphql`
             title
             desc
             date
+            skills
             path
             coverimg {
               childImageSharp {
