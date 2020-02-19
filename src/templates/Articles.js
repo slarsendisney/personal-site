@@ -3,35 +3,22 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export const Article = ({ title, desc, path, timeToRead }) => (
-  <Link to={path} className="link margin-15-b" id="path">
+export const Article = ({ title, pubDate, link }) => (
+  <Link to={link} className="link margin-10-b" id="path">
     <div className="grow">
-      <h1 className="margin-3-b margin-0-t">{title}</h1>
-      <h3 className="margin-0-t margin-1-b">{desc}</h3>
-      <h4 className="is-light-blue margin-0-t">{`${timeToRead} minute read.`}</h4>
+      <h1 className="margin-3-b margin-0-t is-dark-blue">{title}</h1>
+      <h3 className="margin-0-t margin-5-b">
+        {pubDate.replace(
+          /([0-9])([0-9]):([0-9])([0-9]):([0-9])([0-9]) ([A-Z])([A-Z])([A-Z])/g,
+          ""
+        )}
+      </h3>
     </div>
   </Link>
 )
 export default ({ data }) => {
-  const [year, setYear] = useState(new Date().getFullYear())
-  let { edges } = data.allMarkdownRemark // data.markdownRemark holds our post data
-  edges = edges.sort(
-    (a, b) => b.node.frontmatter.year - a.node.frontmatter.year
-  )
-  const years = edges.reduce((acc, curr) => {
-    const year = curr.node.frontmatter.year
-    const idx = acc.findIndex(item => item.year === year)
-    if (idx > -1) {
-      acc[idx].count = acc[idx].count + 1
-    } else {
-      acc.push({ year, count: 1 })
-    }
-    return acc
-  }, [])
+  let { nodes } = data.allFeedMediumBlog
 
-  const articlesToDisplay = edges.filter(
-    edge => edge.node.frontmatter.year === year
-  )
   return (
     <Layout>
       <SEO
@@ -49,7 +36,7 @@ export default ({ data }) => {
             <h1 className="is-hero-menu margin-0-t">I Write Occasionally.</h1>
             <div className="line margin-3-t margin-10-b" />
           </div>
-          <div className="col-xs-12 col-md-2">
+          {/* <div className="col-xs-12 col-md-2">
             <div className="row">
               {years.map(item => (
                 <div className="col-xs-4 col-sm-3 col-md-12" id={item.year}>
@@ -74,13 +61,10 @@ export default ({ data }) => {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="col-xs-12 col-md-10">
-            {articlesToDisplay.map(item => (
-              <Article
-                {...item.node.frontmatter}
-                timeToRead={item.node.timeToRead}
-              />
+            {nodes.map(item => (
+              <Article {...item} link={item.fields.slug} />
             ))}
           </div>
         </div>
@@ -91,22 +75,13 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query Articles {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { type: { eq: "Article" } } }
-    ) {
-      edges {
-        node {
-          id
-          timeToRead
-          frontmatter {
-            type
-            title
-            desc
-            year
-            path
-          }
+    allFeedMediumBlog(sort: { fields: isoDate, order: DESC }) {
+      nodes {
+        fields {
+          slug
         }
+        pubDate
+        title
       }
     }
   }

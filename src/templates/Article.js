@@ -2,15 +2,30 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
+import {
+  FacebookShareButton,
+  InstapaperShareButton,
+  LinkedinShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  InstapaperIcon,
+  LinkedinIcon,
+  RedditIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share"
 export default ({
-  data, // this prop will be injected by the GraphQL query below.
+  data,
+  location, // this prop will be injected by the GraphQL query below.
 }) => {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  console.log({ data, location })
+  const { feedMediumBlog } = data // data.markdownRemark holds our post data
+  const { title, content, pubDate, fields } = feedMediumBlog
   return (
     <Layout>
-      <SEO title={frontmatter.title} description={frontmatter.desc} />
+      <SEO title={title} description={""} />
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t ">
           <div className="col-xs-12 pad-10-lr">
@@ -20,14 +35,38 @@ export default ({
           </div>
           <div className="col-xs-12 pad-10-lr">
             <h1 className="is-hero-menu is-pink-always margin-1-t margin-5-b">
-              {frontmatter.title}
+              {title}
             </h1>
-            <h6 className="is-hero-sub-text margin-3-b">{frontmatter.desc}</h6>
+            <h6 className="is-hero-sub-text margin-3-b">
+              {pubDate.replace(
+                /([0-9])([0-9]):([0-9])([0-9]):([0-9])([0-9]) ([A-Z])([A-Z])([A-Z])/g,
+                ""
+              )}
+            </h6>
             <div className="line margin-5-tb" />
             <div
-              className={`${html ? "pad-10-b lato article" : ""}`}
-              dangerouslySetInnerHTML={{ __html: html }}
+              className={`${content.encoded ? "pad-10-b lato article" : ""}`}
+              dangerouslySetInnerHTML={{ __html: content.encoded }}
             />
+          </div>
+          <div className="col-xs-12 pad-10-lr pad-5-b">
+            <hr className="margin-30-lr margin-5-b" />
+            <div
+              className="row flex text-align-center"
+              style={{ justifyContent: "center" }}
+            >
+              <FacebookShareButton url={location.href}>
+                <FacebookIcon round={true} style={{ height: 40 }} />
+              </FacebookShareButton>
+
+              <LinkedinShareButton url={location.href}>
+                <LinkedinIcon round={true} style={{ height: 40 }} />
+              </LinkedinShareButton>
+
+              <TwitterShareButton url={location.href}>
+                <TwitterIcon round={true} style={{ height: 40 }} />
+              </TwitterShareButton>
+            </div>
           </div>
         </div>
       </div>
@@ -36,12 +75,16 @@ export default ({
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        title
-        desc
+  query($slug: String!) {
+    feedMediumBlog(fields: { slug: { eq: $slug } }) {
+      link
+      title
+      pubDate
+      fields {
+        slug
+      }
+      content {
+        encoded
       }
     }
   }

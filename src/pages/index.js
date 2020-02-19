@@ -41,7 +41,7 @@ export default function Start({ data }) {
             </div>
           </div>
           <div className="col-xs-12 col-md-6 pad-5-l pad-10-b">
-            {sections.map((item, index) => (
+            {sections.map(item => (
               <div className="col-xs-12 " key={item.label}>
                 <div className="col-xs-10 col-md-12">
                   <NavLink {...item} />

@@ -57,21 +57,41 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           component: QandA,
         })
         break
-      case "Article":
-        createPage({
-          path: node.frontmatter.path,
-          component: Article,
-        })
-        break
       case "Project":
         createPage({
           path: node.frontmatter.path,
           component: Project,
         })
         break
-      default:
-        console.log(`Unknown page: ${node.frontmatter.type}`)
     }
+  })
+  const mediumPosts = await graphql(`
+    {
+      allFeedMediumBlog(sort: { fields: isoDate, order: DESC }) {
+        nodes {
+          title
+          pubDate
+          isoDate
+          content {
+            encoded
+          }
+          link
+        }
+      }
+    }
+  `)
+
+  if (mediumPosts.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+  mediumPosts.data.allFeedMediumBlog.nodes.forEach(node => {
+    const slug = "articles/" + node.title.split(" ").join("-")
+    createPage({
+      path: slug,
+      component: Article,
+      context: { slug: slug },
+    })
   })
 }
 
@@ -83,6 +103,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value,
+    })
+  }
+  if (node.internal.type === `FeedMediumBlog`) {
+    createNodeField({
+      node,
+      name: `slug`,
+      value: "articles/" + node.title.split(" ").join("-"),
     })
   }
 }

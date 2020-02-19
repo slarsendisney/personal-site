@@ -13,6 +13,7 @@ export default () => (
         className="vertical-timeline-element--work lato"
         date={item.date.toUpperCase()}
         iconStyle={{ background: "rgb(234, 78, 103)", color: "#fff" }}
+        key={item.role + item.company}
       >
         <h6 className="vertical-timeline-element-title is-blue-always pad-0-b">
           {`${item.company.toUpperCase()}, ${item.location.toUpperCase()}`}

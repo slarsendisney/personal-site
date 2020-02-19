@@ -8,7 +8,3 @@ I built the whole site using my favourite react framework - Gatsby! If you haven
 
 [``` Learn Gatsby ```](https://www.gatsbyjs.org/)
 
-
-# TODO:
-
-- Sort lighthouse audits on generated pages
