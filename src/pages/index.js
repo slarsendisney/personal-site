@@ -34,7 +34,7 @@ export default function Start({ data }) {
                 {currentJob.company}.
               </button>
             </h4>
-            <div className="row container-small pad-2 pad-6-t pad-10-b  pad-10-b">
+            <div className="row  pad-6-t pad-10-b  pad-10-b">
               {mediaLinks.map(item => (
                 <MediaLink type={item.type} url={item.url} key={item.type} />
               ))}

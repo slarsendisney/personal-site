@@ -15,7 +15,7 @@ export default ({ type, url }) => {
         src={require(`../../images/social_media/${
           active ? `${type}` : `${type}-disabled`
         }.svg`)}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: "pointer", height: 45 }}
         alt={type}
       />
     </button>

@@ -10,5 +10,9 @@
   {
     "type": "Twitter",
     "url": "https://twitter.com/SamLarsenDisney"
+  },
+  {
+    "type": "Github",
+    "url": "https://github.com/slarsendisney"
   }
 ]
