@@ -4,17 +4,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import {
   FacebookShareButton,
-  InstapaperShareButton,
   LinkedinShareButton,
-  RedditShareButton,
   TwitterShareButton,
-  WhatsappShareButton,
   FacebookIcon,
-  InstapaperIcon,
   LinkedinIcon,
-  RedditIcon,
   TwitterIcon,
-  WhatsappIcon,
 } from "react-share"
 export default ({
   data,
@@ -25,7 +19,7 @@ export default ({
   const { title, content, pubDate, fields } = feedMediumBlog
   return (
     <Layout>
-      <SEO title={title} description={""} />
+      <SEO title={title} description={fields.excerpt} />
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t ">
           <div className="col-xs-12 pad-10-lr">
@@ -81,7 +75,7 @@ export const pageQuery = graphql`
       title
       pubDate
       fields {
-        slug
+        excerpt
       }
       content {
         encoded

@@ -42,6 +42,15 @@ module.exports = {
         siteUrl: `https://sld.codes`,
       },
     },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://sld.codes",
+        sitemap: "https://sld.codes/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-sass`,
     {
@@ -112,6 +121,15 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-sentry",
+      options: {
+        dsn: "https://e95ebaa6275f4e81bb4ed1d66e102991@sentry.io/2687811",
+        environment: process.env.NODE_ENV,
+        enabled: (() =>
+          ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)(),
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Sam Larsen-Disney",
@@ -131,24 +149,7 @@ module.exports = {
         head: false,
       },
     },
-    `gatsby-plugin-sitemap`,
-    {
-      resolve: "gatsby-plugin-robots-txt",
-      options: {
-        host: "https://sld.codes",
-        sitemap: "https://sld.codes/sitemap.xml",
-        policy: [{ userAgent: "*", allow: "/" }],
-      },
-    },
-    {
-      resolve: "gatsby-plugin-sentry",
-      options: {
-        dsn: "https://e95ebaa6275f4e81bb4ed1d66e102991@sentry.io/2687811",
-        environment: process.env.NODE_ENV,
-        enabled: (() =>
-          ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)(),
-      },
-    },
+
     "gatsby-plugin-offline",
   ].concat(dynamicPlugins),
 }

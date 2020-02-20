@@ -111,5 +111,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       value: "articles/" + node.title.split(" ").join("-"),
     })
+    createNodeField({
+      node,
+      name: "excerpt",
+      value:
+        node.content.encoded.replace(/<[^>]*>?/gm, "").substring(0, 150) +
+        "...",
+    })
   }
 }
