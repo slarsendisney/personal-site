@@ -27,6 +27,22 @@
 
     }
 
+    a {
+        @extend .is-light-blue-always;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
      p code {
        
             word-wrap: break-word;
