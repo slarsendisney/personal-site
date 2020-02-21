@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
         <p className="legal">
           All views expressed on this site are my own and do not represent the
           opinions of any entity whatsover with which I have been, am now or
-          will be affilated with.
+          will be affiliated with.
         </p>
       </footer>
     </div>

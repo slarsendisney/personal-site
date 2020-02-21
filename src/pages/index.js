@@ -83,7 +83,6 @@ export default function Start({ data }) {
                 View CV
               </button>
             </Link>
-            <p className="is-white-always">(Please print responsibly)</p>
           </div>
         </div>
       </div>

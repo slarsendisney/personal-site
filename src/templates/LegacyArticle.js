@@ -7,10 +7,10 @@ export default function QandATemplate({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, html, excerpt } = markdownRemark
   return (
     <Layout>
-      <SEO title={frontmatter.title} />
+      <SEO title={frontmatter.title} description={excerpt} />
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t ">
           <div className="col-xs-12 pad-10-l pad-10-r">
@@ -43,6 +43,7 @@ export const pageQuery = graphql`
         title
         desc
       }
+      excerpt
     }
   }
 `
