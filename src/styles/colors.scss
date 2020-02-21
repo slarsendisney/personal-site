@@ -1,10 +1,10 @@
-$brand-colors: ("white", white, #1c1c1c), ("black", #1c1c1c, white),
-  ("light-brown", #e1d2af, #e1d2af), ("grey", #2e4052, #f9f9f9),
-  ("light-grey", #f9f9f9, #121212), ("blue", #35466d, #49aab7),
-  ("dark-blue", rgb(34, 45, 70), rgb(228, 228, 228)),
-  ("light-blue", #49aab7, #49aab7), ("pink", #ea4e68, #000000),
-  ("dark-pink", #ef646130, #2e4052), ("orange", #ff8a1d, #ff8a1d),
-  ("yellow", #f9b806, #f9b806);
+$brand-colors: ('white', white, #1c1c1c), ('black', #1c1c1c, white),
+  ('light-brown', #e1d2af, #e1d2af), ('grey', #2e4052, #f9f9f9),
+  ('light-grey', #f9f9f9, #121212), ('blue', #35466d, #49aab7),
+  ('dark-blue', rgb(34, 45, 70), rgb(228, 228, 228)),
+  ('light-blue', #49aab7, #49aab7), ('pink', #ea4e68, #000),
+  ('dark-pink', #ef646130, #2e4052), ('orange', #ff8a1d, #ff8a1d),
+  ('yellow', #f9b806, #f9b806);
 
 @each $color in $brand-colors {
   .is-#{nth($color,1)}-bg {
@@ -19,6 +19,7 @@ $brand-colors: ("white", white, #1c1c1c), ("black", #1c1c1c, white),
   .is-#{nth($color,1)}-always {
     color: nth($color, 2) !important;
   }
+
   body.dark-mode {
     .is-#{nth($color,1)} {
       color: nth($color, 3);

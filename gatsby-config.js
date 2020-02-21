@@ -5,7 +5,6 @@ require("dotenv").config({
 const EmploymentHistory = require("./src/data/timeline.json")
 const currentJob = EmploymentHistory[0]
 const dynamicPlugins = []
-// pick data from 3 months ago
 const startDate = new Date()
 startDate.setMonth(startDate.getMonth() - 3)
 if (

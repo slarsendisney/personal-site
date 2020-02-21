@@ -1,26 +1,26 @@
 .paper {
   background: #fff;
-  font-family: Lato;
   box-shadow:
     /* The top layer shadow */
-    0 -1px 1px rgba(0,0,0,0.15),
-    /* The second layer */
+    0 -1px 1px rgba(0, 0, 0, 0.15),
+    
     0 -10px 0 -5px #eee,
-    /* The second layer shadow */
-    0 -10px 1px -4px rgba(0,0,0,0.15),
-     /* The third layer */
+    
+    0 -10px 1px -4px rgba(0, 0, 0, 0.15),
+     
     0 -20px 0 -10px #eee,
-    /* The third layer shadow */
-    0 -20px 1px -9px rgba(0,0,0,0.15);
-    /* Padding for demo purposes */
-    padding: 30px;
+    
+    0 -20px 1px -9px    (0,0,0,0.15);
+  font-family: Lato;
+  /* Padding for demo purposes */
+  padding: 30px;
 
    
-    .link {
-      @extend .is-light-blue
-    }
-    hr {
-      opacity: 0.3;
-    }
+  .link {
+    @extend .is-light-blue; }
+
+  hr {
+    opacity: 0.3;
+  }
 }
 

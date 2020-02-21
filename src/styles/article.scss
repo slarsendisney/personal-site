@@ -1,66 +1,67 @@
 
 
 .article {
-     p img {
-        width: 100%;
-        max-width: 600px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-     }
+  p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    width: 100%;
+  }
+     
 
-    pre code {
-        background: none;
-        width: auto;
-        display: block;
-        line-height: 1.42;
-        @extend .is-black;
-    }
+  pre code {
+    @extend .is-black;
+    background: none;
+    display: block;
+    line-height: 1.42;
+    width: auto;
+  }
 
-    pre {
-        @extend .is-dark-pink-bg;
-        font-size: 1rem;
-        overflow-x: auto;;
-        border-radius: 3px;
-        padding: 1.45rem;
-        word-wrap: break-word;
+  pre {
+    @extend .is-dark-pink-bg;
+    border-radius: 3px;
+    font-size: 1rem;
+    overflow-x: auto;
+    padding: 1.45rem;
+    word-wrap: break-word;
 
-    }
+  }
 
-    a {
-        @extend .is-light-blue-always;
-    }
+  a {
+    @extend .is-light-blue-always;
+  }
 
-    h3 {
-        font-size: 2rem;
-    }
+  h3 {
+    font-size: 2rem;
+  }
 
-    h4 {
-        font-size: 1.5rem;
-    }
+  h4 {
+    font-size: 1.5rem;
+  }
 
-    img {
-        max-width: 100%;
-    }
+  img {
+    max-width: 100%;
+  }
 
-     p code {
+  p code {
        
-            word-wrap: break-word;
+    word-wrap: break-word;
          
-     }
+  }
 
-     ul li h2 a {
-         text-decoration: none;
-         @extend .is-pink-always;
-     }
+  ul li h2 a {
+    @extend .is-pink-always;
+    text-decoration: none;
+  }
 
-     h1 {
-        @extend .is-pink-always;
-     }
+  h1 {
+    @extend .is-pink-always;
+  }
    
 }
 
 .blog-poster {
-    max-height: 500px;
-    text-align: center;
+  max-height: 500px;
+  text-align: center;
 }

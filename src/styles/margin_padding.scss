@@ -2,12 +2,13 @@ $spaceamounts: (0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100, 1
 $sides: (top, bottom, left, right); // Leave this variable alone
 
 @each $space in $spaceamounts {
-    .margin-#{$space/5} {
-        margin: #{$space}px !important;
-    }
-    .pad-#{$space/5} {
-      padding: #{$space}px !important;
-    }
+  .margin-#{$space/5} {
+    margin: #{$space}px !important;
+  }
+
+  .pad-#{$space/5} {
+    padding: #{$space}px !important;
+  }
     
   @each $side in $sides {
     .margin-#{$space/5}-#{str-slice($side, 0, 1)} {
@@ -26,6 +27,7 @@ $sides: (top, bottom, left, right); // Leave this variable alone
         margin-#{$side}: #{$space}px !important;
         margin-#{$secondSide}: #{$space}px !important;
       }
+      
       .pad-#{$space/5}-#{str-slice($side, 0, 1)}#{str-slice($secondSide, 0, 1)} {
         padding-#{$side}: #{$space}px !important;
         padding-#{$secondSide}: #{$space}px !important;

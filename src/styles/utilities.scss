@@ -1,66 +1,67 @@
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
-.align-horizontal{
-    align-items: center;
+.align-horizontal {
+  align-items: center;
 }
 
 .align-vertical {
-    justify-content: center;
-    flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .text-align-right {
-    text-align: right
+  text-align: right;
 }
+
 .text-align-center {
-    text-align: center
+  text-align: center;
 }
 
 .lato {
-    font-family: Lato;
+  font-family: Lato;
 }
 
 
 .line {
-    border-bottom: 7px solid;
-    max-width: 30%;
+  border-bottom: 7px solid;
+  max-width: 30%;
 }
 
 
 .grow {
-    transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
-    &:hover {
-      transform: scale(1.02);
-    }
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
 
 .shadow {
-    -webkit-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
--moz-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.03);
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+  -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
 }
 
 .hover:hover {
-    color: #EF6461;
-    cursor: pointer;
+  color: #ef6461;
+  cursor: pointer;
 }
 
 
-.slide-image-one{
-    background-image: url("https://ik.imagekit.io/sld/ICHACK_a2o31d1eR.png");
+.slide-image-one {
+  background-image: url('https://ik.imagekit.io/sld/ICHACK_a2o31d1eR.png');
 }
 
-.slide-image-two{
-    background-image: url("https://ik.imagekit.io/sld/HackKings_nVVodPVC9.jpeg");
+.slide-image-two {
+  background-image: url('https://ik.imagekit.io/sld/HackKings_nVVodPVC9.jpeg');
 
 }
 
-.slide-image-three{
-    background-image: url("https://ik.imagekit.io/sld/AmexOnboarding_my-fjWmR6.jpeg");
+.slide-image-three {
+  background-image: url('https://ik.imagekit.io/sld/AmexOnboarding_my-fjWmR6.jpeg');
  
 }
