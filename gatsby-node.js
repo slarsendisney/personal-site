@@ -25,6 +25,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const QandA = path.resolve(`./src/templates/QandA.js`)
   const Article = path.resolve(`./src/templates/Article.js`)
+  const LegacyArticle = path.resolve(`./src/templates/LegacyArticle.js`)
   const Project = path.resolve(`./src/templates/Project.js`)
   const result = await graphql(`
     {
@@ -63,6 +64,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           component: Project,
         })
         break
+      case "Article":
+        createPage({
+          path: node.frontmatter.path,
+          component: LegacyArticle,
+        })
+        break
+      default:
+        console.log(`Unknown page: ${node.frontmatter.type}`)
     }
   })
   const mediumPosts = await graphql(`

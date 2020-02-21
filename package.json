@@ -11,6 +11,7 @@
     "@react-pdf/renderer": "^1.6.8",
     "@sentry/browser": "^5.12.4",
     "@weknow/gatsby-remark-twitter": "^0.2.3",
+    "date-fns": "^2.9.0",
     "dotenv": "^8.2.0",
     "flexboxgrid-sass": "^8.0.5",
     "font-face-mixin": "^1.1.0",

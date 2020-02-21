@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
+import { format } from "date-fns"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -8,17 +9,25 @@ export const Article = ({ title, pubDate, link }) => (
     <div className="grow">
       <h1 className="margin-3-b margin-0-t is-dark-blue">{title}</h1>
       <h3 className="margin-0-t margin-5-b">
-        {pubDate.replace(
-          /([0-9])([0-9]):([0-9])([0-9]):([0-9])([0-9]) ([A-Z])([A-Z])([A-Z])/g,
-          ""
-        )}
+        {format(new Date(pubDate), "iii, dd MMM yyyy")}
       </h3>
     </div>
   </Link>
 )
+const LegacyArticle = ({ title, path, date }) => (
+  <Link to={path} className="link margin-15-b" id="path">
+    <div className="grow">
+      <h1 className="margin-3-b margin-0-t is-dark-blue">{title}</h1>
+      <h3 className="margin-0-t margin-5-b">
+        {format(new Date(date), "iii, dd MMM yyyy")}
+      </h3>
+    </div>
+  </Link>
+)
+
 export default ({ data }) => {
   let { nodes } = data.allFeedMediumBlog
-
+  let { edges } = data.allMarkdownRemark
   return (
     <Layout>
       <SEO
@@ -32,13 +41,28 @@ export default ({ data }) => {
               <h2 className="is-grey margin-0 margin-2-b grow">{`< Home`}</h2>
             </Link>
           </div>
+
           <div className="col-xs-12 ">
             <h1 className="is-hero-menu margin-0-t">I Write Occasionally.</h1>
             <div className="line margin-3-t margin-10-b" />
           </div>
+          <div className="col-xs-12 ">
+            <h3 className="margin-0-t is-light-blue-always">From Medium:</h3>
+          </div>
           <div className="col-xs-12 col-md-10">
             {nodes.map(item => (
               <Article {...item} link={item.fields.slug} />
+            ))}
+          </div>
+          <div className="col-xs-12 margin-5-t">
+            <h3 className="margin-0-t is-light-blue-always">Legacy Guides:</h3>
+          </div>
+          <div className="col-xs-12 col-md-10">
+            {edges.map(item => (
+              <LegacyArticle
+                {...item.node.frontmatter}
+                timeToRead={item.node.timeToRead}
+              />
             ))}
           </div>
         </div>
@@ -56,6 +80,24 @@ export const pageQuery = graphql`
         }
         pubDate
         title
+      }
+    }
+    allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: "Article" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          timeToRead
+          frontmatter {
+            type
+            title
+            desc
+            path
+            date
+          }
+        }
       }
     }
   }
