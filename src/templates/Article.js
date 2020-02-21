@@ -10,12 +10,8 @@ import {
   LinkedinIcon,
   TwitterIcon,
 } from "react-share"
-export default ({
-  data,
-  location, // this prop will be injected by the GraphQL query below.
-}) => {
-  console.log({ data, location })
-  const { feedMediumBlog } = data // data.markdownRemark holds our post data
+export default ({ data, location }) => {
+  const { feedMediumBlog } = data
   const { title, content, pubDate, fields } = feedMediumBlog
   return (
     <Layout>

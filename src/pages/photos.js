@@ -27,11 +27,6 @@ export default () => {
       <div className="is-grey is-light-grey-bg">
         <div className="row container-small pad-10">
           <div className="col-xs-12 ">
-            <Link to="/" className="link">
-              <h2 className="is-grey margin-0 margin-2-b grow">{`< Home`}</h2>
-            </Link>
-          </div>
-          <div className="col-xs-12 ">
             <h1 className="is-hero-menu margin-0-t">Photography</h1>
             <div className="line margin-3-t margin-3-b" />
           </div>

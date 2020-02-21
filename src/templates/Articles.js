@@ -37,12 +37,6 @@ export default ({ data }) => {
       <div className="is-grey is-light-grey-bg pad-10">
         <div className="row container ">
           <div className="col-xs-12 ">
-            <Link to="/" className="link">
-              <h2 className="is-grey margin-0 margin-2-b grow">{`< Home`}</h2>
-            </Link>
-          </div>
-
-          <div className="col-xs-12 ">
             <h1 className="is-hero-menu margin-0-t">I Write Occasionally.</h1>
             <div className="line margin-3-t margin-10-b" />
           </div>
@@ -55,7 +49,7 @@ export default ({ data }) => {
             ))}
           </div>
           <div className="col-xs-12 margin-5-t">
-            <h3 className="margin-0-t is-light-blue-always">Legacy Guides:</h3>
+            <h3 className="margin-0-t is-light-blue-always">Legacy Posts:</h3>
           </div>
           <div className="col-xs-12 col-md-10">
             {edges.map(item => (

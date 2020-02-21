@@ -47,11 +47,6 @@ export default function Start({ data }) {
       <SEO title="Boilerplates" />
       <div className="is-white is-pink-bg">
         <div className="row container-small pad-20-t">
-          <div className="col-xs-12 pad-10-l pad-10-r">
-            <Link to="/" className="link">
-              <h2 className="is-grey margin-0 margin-2-b grow">{`< Home`}</h2>
-            </Link>
-          </div>
           <div className="col-xs-12 col-md-6 pad-10-l">
             <h1 className="is-hero-menu is-white-always margin-0">
               Boilerplates
