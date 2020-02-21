@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env`,
 })
 
+const EmploymentHistory = require("./src/data/timeline.json")
+const currentJob = EmploymentHistory[0]
 const dynamicPlugins = []
 // pick data from 3 months ago
 const startDate = new Date()
@@ -30,7 +32,7 @@ if (
 module.exports = {
   siteMetadata: {
     title: `SLD | Sam Larsen-Disney`,
-    description: `Sam Larsen-Disney | Design Engineer working @ American Express.`,
+    description: `Sam Larsen-Disney | ${currentJob.role} working @ ${currentJob.company}.`,
     author: `@sld`,
     siteUrl: `https://sld.codes`,
   },
