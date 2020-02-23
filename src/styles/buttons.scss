@@ -5,16 +5,15 @@
   max-width: 250px;
   padding: 15px;
   text-align: center;
-    
 }
 
 .btn:hover {
   @extend .is-dark-blue;
   @extend .is-white-bg;
-  border-style: solid;
-  border-width: 3px;
+  outline-style: solid;
+  outline-width: 3px;
   cursor: pointer;
-  margin: -3px;
+
 }
 
 .btn-variant {

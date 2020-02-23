@@ -6,6 +6,7 @@
 @import './layout';
 @import './colors';
 @import './paper';
+@import './inputs';
 @import './opacity';
 @import './margin_padding';
 @import './article';
@@ -18,6 +19,11 @@
   h#{7 - $i} {
     font-size: $i * 1.4em;
   }
+}
+
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 main {

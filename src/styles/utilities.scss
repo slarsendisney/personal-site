@@ -30,6 +30,12 @@
   max-width: 30%;
 }
 
+.line-sm {
+  border-bottom: 3px solid;
+  max-width: 100%;
+  opacity: 0.5;
+}
+
 
 .grow {
   transition: all 0.2s ease-in-out;
@@ -67,4 +73,14 @@
 .slide-image-three {
   background-image: url('https://ik.imagekit.io/sld/AmexOnboarding_my-fjWmR6.jpeg');
  
+}
+
+.firework-window {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  z-index: 100;
+  height:  calc(100vh);
+  pointer-events: none;
 }

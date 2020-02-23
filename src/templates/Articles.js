@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import { format } from "date-fns"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Subscribe from "../components/Articles/Subscribe"
 
 export const Article = ({ title, pubDate, link }) => (
   <Link to={link} className="link margin-10-b" id="path">
@@ -34,12 +35,13 @@ export default ({ data }) => {
         title="Articles"
         description="✍️ I Write Occasionally. I hope you find something useful!"
       />
-      <div className="is-grey is-light-grey-bg pad-10">
+      <div className="is-grey is-light-grey-bg pad-10-tb pad-5-lr">
         <div className="row container ">
           <div className="col-xs-12 ">
             <h1 className="is-hero-menu margin-0-t">I Write Occasionally.</h1>
             <div className="line margin-3-t margin-10-b" />
           </div>
+
           <div className="col-xs-12 ">
             <h3 className="margin-0-t is-light-blue-always">From Medium:</h3>
           </div>
@@ -58,6 +60,10 @@ export default ({ data }) => {
                 timeToRead={item.node.timeToRead}
               />
             ))}
+          </div>
+          <div className="col-xs-12 margin-5-t">
+            <div className="line-sm margin-5-tb" />
+            <Subscribe />
           </div>
         </div>
       </div>

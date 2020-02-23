@@ -10,7 +10,7 @@ import LogoAnimation from "./LogoAnimation"
 export default props => {
   const darkMode = useDarkMode(false)
   return (
-    <div className="is-white-bg pad-5">
+    <div className="is-white-bg pad-5" style={{ zIndex: 100 }}>
       <div className="row flex padding-0-tb container-small">
         <div className="col-xs-9 flex">
           <Link

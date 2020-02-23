@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env`,
 })
 
+//https://codes.us4.list-manage.com/subscribe/post?u=0cf960d42e04bd50f7c21d709&amp;id=35a0b97fdb
+
 const EmploymentHistory = require("./src/data/timeline.json")
 const currentJob = EmploymentHistory[0]
 const dynamicPlugins = []
@@ -68,6 +70,13 @@ module.exports = {
       options: {
         url: `https://medium.com/feed/@samlarsendisney`,
         name: `MediumBlog`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://codes.us4.list-manage.com/subscribe/post?u=0cf960d42e04bd50f7c21d709&amp;id=35a0b97fdb",
       },
     },
     {

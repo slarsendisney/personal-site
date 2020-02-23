@@ -10,14 +10,12 @@ import {
   TwitterIcon,
 } from "react-share"
 import Links from "../../data/links.json"
+import Subscribe from "./Subscribe.js"
 
 export default ({ location }) => (
   <>
-    <div className="pad-5-lr pad-5-b">
+    <div className="">
       <div className="row flex" style={{ justifyContent: "center" }}>
-        <div className="col-xs-12  text-align-center">
-          <h4>Share</h4>
-        </div>
         <div className="col-xs-12  text-align-center">
           <FacebookShareButton url={location.href}>
             <FacebookIcon round={true} style={{ height: 40 }} />
@@ -31,6 +29,10 @@ export default ({ location }) => (
             <TwitterIcon round={true} style={{ height: 40 }} />
           </TwitterShareButton>
         </div>
+      </div>
+      <div className="col-xs-12 margin-5-b">
+        <div className="line-sm margin-5-tb" />
+        <Subscribe />
       </div>
     </div>
     <div className="is-white-bg pad-5 border-radius">
@@ -60,7 +62,7 @@ export default ({ location }) => (
             )}
           />
         </div>
-        <div className="col-xs-12 col-sm-9">
+        <div className="col-xs-12 col-sm-9 margin-5-b">
           <h3>
             I’m Sam Larsen-Disney. I document the cool things I learn and enjoy
             helping the next generation to code. My site has no ads or sponsors.

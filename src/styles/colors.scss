@@ -1,7 +1,7 @@
 $brand-colors: ('white', white, #1c1c1c), ('black', #1c1c1c, white),
   ('light-brown', #e1d2af, #e1d2af), ('grey', #2e4052, #f9f9f9),
   ('light-grey', #f9f9f9, #121212), ('blue', #35466d, #49aab7),
-  ('dark-blue', rgb(34, 45, 70), rgb(228, 228, 228)),
+  ('dark-blue', rgb(34, 45, 70), rgb(255, 255, 255)),
   ('light-blue', #49aab7, #49aab7), ('pink', #ea4e68, #000),
   ('dark-pink', #ef646130, #2e4052), ('orange', #ff8a1d, #ff8a1d),
   ('yellow', #f9b806, #f9b806);
@@ -10,11 +10,17 @@ $brand-colors: ('white', white, #1c1c1c), ('black', #1c1c1c, white),
   .is-#{nth($color,1)}-bg {
     background-color: nth($color, 2);
   }
+  .is-#{nth($color,1)}-border {
+    border-color: nth($color, 2);
+  }
   .is-#{nth($color,1)} {
     color: nth($color, 2);
   }
   .is-#{nth($color,1)}-bg-always {
     background-color: nth($color, 2) !important;
+  }
+  .is-#{nth($color,1)}-border-always {
+    border-color: nth($color, 2) !important;
   }
   .is-#{nth($color,1)}-always {
     color: nth($color, 2) !important;
@@ -26,6 +32,9 @@ $brand-colors: ('white', white, #1c1c1c), ('black', #1c1c1c, white),
     }
     .is-#{nth($color,1)}-bg {
       background-color: nth($color, 3);
+    }
+    .is-#{nth($color,1)}-border {
+      border-color: nth($color, 3);
     }
   }
 }
