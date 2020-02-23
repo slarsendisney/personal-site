@@ -67,7 +67,7 @@ export default ({ location }) => (
             If you enjoy my content, please consider supporting what I do.
           </h3>
           <a href={Links.buyMeACoffee}>
-            <button className="btn is-pink-bg border-radius pad-3-lr pad-2-tb">
+            <button className="btn is-pink-bg is-white-always border-radius pad-3-lr pad-2-tb">
               ☕️ Buy me a coffee
             </button>
           </a>
