@@ -4,7 +4,7 @@
   margin: 8px 0;
   box-sizing: border-box;
   @extend .is-dark-blue-border;
-  background-color: #44444410;
+  @extend .is-white-bg;
   border: 2px solid;
   border-radius: 4px;
   font-size: medium;

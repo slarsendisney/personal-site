@@ -25,11 +25,12 @@ export default () => {
           className="row "
           style={{ marginRight: "auto", marginLeft: "auto" }}
         >
-          <div className="col-xs-2 col-sm-1 flex align-vertical">
-            <h1 className="is-grey is-hero-sub-menu">🎉</h1>
-          </div>
-          <div className="col-xs-10 col-sm-11 flex align-vertical">
-            <h4 className="is-grey">Awesome, you're all signed up!</h4>
+          <div className="col-xs-12 col-sm-11 flex align-vertical pad-7-tb">
+            <h3 className="is-grey">
+              {" "}
+              🎉 Awesome, you're all signed up! Thanks for showing interest in
+              my content.{" "}
+            </h3>
           </div>
         </div>
       ) : (
