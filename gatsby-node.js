@@ -95,7 +95,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
   mediumPosts.data.allFeedMediumBlog.nodes.forEach(node => {
-    const slug = "articles/" + node.title.split(" ").join("-")
+    const slug =
+      "articles/" +
+      node.title
+        .trim()
+        .split(" ")
+        .join("-")
+
     createPage({
       path: slug,
       component: Article,
@@ -118,7 +124,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: "articles/" + node.title.split(" ").join("-"),
+      value:
+        "articles/" +
+        node.title
+          .trim()
+          .split(" ")
+          .join("-"),
     })
     createNodeField({
       node,

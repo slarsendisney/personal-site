@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import experience from "../data/timeline.json"
 import education from "../data/education.json"
 import skills from "../data/skills.json"
+import contact from "../data/contact.json"
 import SEO from "../components/seo"
 import logo from "../images/Logo.svg"
 import { styles } from "../components/cvStyles"
@@ -187,13 +188,13 @@ export default class extends React.Component {
                       </h5>
 
                       <p className="body-text margin-0 margin-1-b">
-                        Website - sld.codes
+                        Website - {contact.website}
                       </p>
                       <p className="body-text margin-0 margin-1-b">
-                        Email - s.larsendisney@gmail.com
+                        Email - {contact.email}
                       </p>
                       <p className="body-text margin-0 margin-3-b">
-                        Phone - +447926147958{" "}
+                        Phone - {contact.phone}
                       </p>
                       <p className="body-text margin-0 margin-1-b">
                         This CV was coded in ReactJS!
