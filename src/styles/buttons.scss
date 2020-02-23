@@ -17,6 +17,25 @@
   margin: -3px;
 }
 
+.btn-variant {
+  @extend .is-pink-bg;
+  @extend .is-white;
+  font-family: Lato;
+  max-width: 250px;
+  padding: 15px;
+  text-align: center;
+    
+}
+
+.btn-variant:hover {
+  @extend .is-white;
+  @extend .is-dark-blue-bg-always;
+  border-style: solid;
+  border-width: 3px;
+  cursor: pointer;
+  margin: -3px;
+}
+
 .link {
   @extend .is-dark-blue;
   
