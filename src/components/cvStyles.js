@@ -9,11 +9,11 @@ export const styles = `
     
     .body-text{
         font-family: "DejaVu Sans", "Arial", sans-serif;
-        font-size: 11px;
+        font-size: 13px;
       }
       .body-text2{
         font-family: "DejaVu Sans", "Arial", sans-serif;
-        font-size: 8px;
+        font-size: 10px;
       }
       
 
@@ -39,7 +39,7 @@ h1 {
   
   h3 {
     display: block;
-    font-size: 1.17em;
+    font-size: 1.57em;
     font-family: "DejaVu Sans", "Arial", sans-serif;
     
     margin-left: 0;
@@ -49,10 +49,10 @@ h1 {
   
   h4 {
     display: block;
-    font-size: 1em;
+    font-size: 1.1em;
     font-family: "DejaVu Sans", "Arial", sans-serif;
     margin-top: 1.33em;
-    margin-bottom: 1.33em;
+    margin-bottom: 1.53em;
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
@@ -60,7 +60,7 @@ h1 {
   
   h5 {
     display: block;
-    font-size: 0.83em;
+    font-size: 1em;
     font-family: "DejaVu Sans", "Arial", sans-serif;
     
     margin-left: 0;

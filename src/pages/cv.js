@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import experience from "../data/timeline.json"
 import education from "../data/education.json"
-import skills from "../data/skills.json"
+import { DesignSkills, CodeSkills } from "../data/skills.js"
 import contact from "../data/contact.json"
 import SEO from "../components/seo"
 import logo from "../images/Logo.svg"
@@ -77,82 +77,63 @@ export default class extends React.Component {
                       }}
                     >
                       <h1 className="margin-0">Samuel Larsen-Disney</h1>
-                      <h4 className="margin-0">
-                        Front-end Developer & UX Designer
-                      </h4>
-                      <p className="body-text">
-                        I hope to significantly contribute to the fields of UX
-                        design and Web development while giving myself an
-                        opportunity to put my problem-solving abilities to the
-                        test, on a regular basis, as I enjoy a constant
-                        challenge in my work.
+                      <div className="flex">
+                        <h5
+                          className="body-text margin-0"
+                          style={{ color: "#067BC2" }}
+                        >{`${contact.website} | ${contact.email} | ${contact.phone}`}</h5>
+                      </div>
+                      <p className="body-text margin-1-tb">
+                        Creative, collaborative and courageous developer with
+                        extensive experience in web based technologies and UX
+                        design. Looking for the next challenge to improve
+                        customer experience to deepen engagement.
                       </p>
                     </div>
                     <div className="col-xs-12 is-light-grey-bg-always pad-1-b margin-2-t margin-3-b" />
-                    <div className="col-xs-6">
-                      <h5 className="margin-0 margin-2-b is-pink-always">
-                        EXPERIENCE
+
+                    <div className="col-xs-3">
+                      <h5 className="margin-0  margin-2-b is-light-blue-always">
+                        TECHNICAL SKILLS
                       </h5>
-                      {experience.map(item => (
-                        <div className="margin-3-b">
-                          <h3 className="margin-0 margin-1-t">{item.role}</h3>
-                          <h5 className="margin-0 margin-1-t">
-                            {`${item.company}, ${item.location} | ${item.date}`}
-                          </h5>
-                          <p
-                            className="body-text margin-0 margin-1-t"
-                            dangerouslySetInnerHTML={{
-                              __html: item.longDesc ? item.longDesc : item.desc,
-                            }}
-                          />
-                          <p
-                            className="body-text margin-1-t"
-                            style={{ color: "#067BC2" }}
-                          >
-                            {item.tags}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="col-xs-6">
-                      <h5 className="margin-0 margin-2-b is-pink-always">
+                      <div className="row">
+                        {CodeSkills.map(skill => (
+                          <div className="col-xs-12 pad-0">
+                            <p className="body-text margin-0 margin-1-b">
+                              {skill}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <h5 className="margin-2-tb is-light-blue-always">
+                        DESIGN SKILLS
+                      </h5>
+                      <div className="row">
+                        {DesignSkills.map(skill => (
+                          <div className="col-xs-12 pad-0">
+                            <p className="body-text margin-0 margin-1-b">
+                              {skill}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <h5 className="margin-2-tb is-light-blue-always">
                         EDUCATION
                       </h5>
                       {education.map(item => (
                         <div className="margin-3-b">
-                          <h3 className="margin-0 margin-1-t">{item.type}</h3>
-                          <h5 className="margin-0 margin-1-t">
-                            {`${item.location} | ${item.date}`}
-                          </h5>
+                          <h4 className="margin-0 margin-1-t">{item.type}</h4>
+                          <p className="body-text margin-0 margin-1-t">
+                            {`${item.location}`}
+                          </p>
                           <p className="body-text margin-0 margin-1-t ">
                             {item.desc}
                           </p>
                         </div>
                       ))}
-                      <h5 className="margin-0 margin-2-b is-pink-always">
-                        OUTSIDE WORK
+                      <h5 className="margin-0 margin-2-b is-light-blue-always">
+                        INTERESTS
                       </h5>
-
-                      <p className="body-text margin-0">
-                        Examples of personal projects that I have worked on can
-                        be found at{" "}
-                        <Link
-                          to="/projects"
-                          className="link"
-                          style={{ color: "#067BC2" }}
-                        >
-                          sld.codes/projects.
-                        </Link>{" "}
-                        You can read about them at{" "}
-                        <Link
-                          to="/articles"
-                          className="link"
-                          style={{ color: "#067BC2" }}
-                        >
-                          sld.codes/articles
-                        </Link>
-                        .
-                      </p>
 
                       <p className="body-text margin-0 margin-1-t ">
                         When I'm not in the office I like to attend hackathons.
@@ -165,55 +146,36 @@ export default class extends React.Component {
                         I've always enjoyed photography, I have worked on
                         everything from wildlife to wedding photography. One of
                         my photos "The Brighton Fox" was featured in Brighton &
-                        Hove's Annual Calendar in 2018. One of my dreams is to
-                        have my hobby featured in the Wildlife Photographer of
-                        the Year Exhibition at the Natural History Museum in
-                        London.
-                      </p>
-
-                      <h5 className="margin-0 margin-3-t margin-2-b is-pink-always">
-                        CORE SKILLS
-                      </h5>
-                      <div className="row">
-                        {skills.map(skill => (
-                          <div className="col-xs-4 pad-0">
-                            <p className="body-text margin-0 margin-1-b">
-                              {skill}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                      <h5 className="margin-0 margin-3-t margin-2-b is-pink-always">
-                        CONTACT
-                      </h5>
-
-                      <p className="body-text margin-0 margin-1-b">
-                        Website - {contact.website}
-                      </p>
-                      <p className="body-text margin-0 margin-1-b">
-                        Email - {contact.email}
-                      </p>
-                      <p className="body-text margin-0 margin-3-b">
-                        Phone - {contact.phone}
-                      </p>
-                      <p className="body-text margin-0 margin-1-b">
-                        This CV was coded in ReactJS!
+                        Hove's Annual Calendar in 2018.
                       </p>
                     </div>
-                  </div>
-                  <div
-                    className="pad-10"
-                    style={{ position: "absolute", bottom: 0, right: 0 }}
-                  >
-                    <img
-                      src={logo}
-                      alt="logo"
-                      style={{
-                        width: 40,
-                        marginLeft: "auto",
-                        marginRight: "auto",
-                      }}
-                    />
+                    <div className="col-xs-9">
+                      <h5 className="margin-0 margin-2-b is-light-blue-always">
+                        EXPERIENCE
+                      </h5>
+                      {experience.map(item => (
+                        <div className="margin-3-b">
+                          <h3 className="margin-0 margin-1-t">{item.role}</h3>
+                          <h5 className="margin-0 margin-1-tb">
+                            {`${item.company}, ${item.location} | ${item.date}`}
+                          </h5>
+
+                          {item.longDesc.map(desc => (
+                            <div className="flex">
+                              <p className="body-text margin-0 margin-1-r">{`-`}</p>
+                              <p className="body-text margin-0">{desc}</p>
+                            </div>
+                          ))}
+
+                          <p
+                            className="body-text margin-1-t"
+                            style={{ color: "#067BC2" }}
+                          >
+                            {item.tags}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </PDFExport>
