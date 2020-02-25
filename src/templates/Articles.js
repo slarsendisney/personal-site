@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
 
 export const Article = ({ title, pubDate, link }) => (
-  <Link to={link} className="link margin-10-b" id="path">
+  <Link to={"/" + link} className="link margin-10-b" id="path">
     <div className="grow">
       <h1 className="margin-3-b margin-0-t is-dark-blue">{title}</h1>
       <h3 className="margin-0-t margin-5-b">
@@ -47,7 +47,11 @@ export default ({ data }) => {
           </div>
           <div className="col-xs-12 col-md-10">
             {nodes.map(item => (
-              <Article {...item} link={item.fields.slug} />
+              <Article
+                {...item}
+                link={item.fields.slug}
+                key={item.fields.slug}
+              />
             ))}
           </div>
           <div className="col-xs-12 margin-5-t">
@@ -58,6 +62,7 @@ export default ({ data }) => {
               <LegacyArticle
                 {...item.node.frontmatter}
                 timeToRead={item.node.timeToRead}
+                key={item.node.frontmatter.title}
               />
             ))}
           </div>

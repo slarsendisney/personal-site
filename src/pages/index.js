@@ -18,7 +18,7 @@ export default function Start({ data }) {
       <SEO title="Home" />
       <div className="is-grey is-light-grey-bg">
         <div className="row container-small pad-20-t pad-10-b">
-          <div className="col-xs-12 col-sm-6 pad-10-l">
+          <div className="col-xs-12 col-sm-6 pad-5-lr">
             <h1 className="is-hero-menu margin-0">Sam</h1>
             <h1 className="is-hero-menu margin-0">Larsen-Disney</h1>
             <div className="line margin-10-t margin-10-b" />
@@ -40,20 +40,16 @@ export default function Start({ data }) {
               ))}
             </div>
           </div>
-          <div className="col-xs-12 col-sm-6 pad-5-l pad-10-b">
+          <div className="col-xs-12 col-sm-6 pad-5-lr pad-10-b">
             {sections.map(item => (
-              <div className="col-xs-12 " key={item.label}>
-                <div className="col-xs-10 col-md-12">
-                  <NavLink {...item} />
-                </div>
-              </div>
+              <NavLink {...item} key={item.label} />
             ))}
           </div>
         </div>
       </div>
       <div className="is-grey is-white-bg">
-        <div className="row container-small pad-10-t pad-20-b">
-          <div className="col-xs-12 pad-10-lr">
+        <div className="row container-small pad-10-t pad-20-b pad-5-lr">
+          <div className="col-xs-12 ">
             <h2 className="">Latest Project</h2>
             <Project {...featuredProject} />
           </div>

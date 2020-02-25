@@ -9,7 +9,7 @@ export default function Bio({ data }) {
     <Layout>
       <SEO title={"Bio"} />
       <div className="is-grey is-light-grey-bg pad-10-b">
-        <div className="row container pad-10 pad-20-b">
+        <div className="row container pad-5-lr pad-10-t pad-20-b">
           <div className="col-xs-12 col-md-7 ">
             <h1 className="is-hero-menu margin-0-t">Hey</h1>
             <div className="line margin-3-t margin-10-b" />
@@ -18,7 +18,7 @@ export default function Bio({ data }) {
       </div>
       <div className="pad-10-t pad-10-b is-pink-bg-always">
         <div className="row container ">
-          <div className="col-xs-12 text-align-center pad-10-l pad-10-r">
+          <div className="col-xs-12 text-align-center pad-5-lr">
             <Img
               fluid={data.file.childImageSharp.fluid}
               style={{
@@ -38,7 +38,7 @@ export default function Bio({ data }) {
           </div>
         </div>
       </div>
-      <div className="pad-10-t pad-10-l pad-10-r pad-5-b is-light-grey-bg">
+      <div className="pad-10-t pad-5-lr pad-5-b is-light-grey-bg">
         <div className="row container ">
           <div className="col-xs-12 ">
             <h1 className="is-hero-sub-menu is-grey margin-0">
@@ -50,7 +50,7 @@ export default function Bio({ data }) {
       </div>
 
       <div className="row container ">
-        <div className="col-xs-12 pad-10">
+        <div className="col-xs-12 pad-5-lr pad-10-b">
           <h1 className="is-hero-sub-menu is-grey margin-0">
             The Long Version
           </h1>
