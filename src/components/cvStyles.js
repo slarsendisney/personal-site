@@ -1,11 +1,14 @@
 export const styles = `
     /* Use the DejaVu Sans font for displaying and embedding in the PDF file. The standard PDF fonts do not support Unicode characters. */
+    
+
     .special-div {
         font-family: "DejaVu Sans", "Arial", sans-serif;
         font-size: 12px;
     }
 
     
+
     
     .body-text{
         font-family: "DejaVu Sans", "Arial", sans-serif;
@@ -13,9 +16,12 @@ export const styles = `
       }
       .body-text2{
         font-family: "DejaVu Sans", "Arial", sans-serif;
-        font-size: 10px;
+        font-size: 13px;
       }
       
+.border-top{
+  border-top: 2px solid #f9f9f9;
+}
 
 h1 {
     display: block;
@@ -88,8 +94,6 @@ h1 {
         font-style: bold;
         src: url("https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2") format("woff2");
       }
- 
-    
-   
+  
     
 `

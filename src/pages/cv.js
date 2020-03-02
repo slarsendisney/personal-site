@@ -4,10 +4,15 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import experience from "../data/timeline.json"
 import education from "../data/education.json"
-import { DesignSkills, CodeSkills } from "../data/skills.js"
+import { DesignSkills, DesignTools, CodeSkills } from "../data/skills.js"
 import contact from "../data/contact.json"
 import SEO from "../components/seo"
-import logo from "../images/Logo.svg"
+import work from "../images/cv_icons/work.svg"
+import pencil from "../images/cv_icons/pencil.svg"
+import code from "../images/cv_icons/code.svg"
+import tools from "../images/cv_icons/tools.svg"
+import school from "../images/cv_icons/school.svg"
+import interests from "../images/cv_icons/interests.svg"
 import { styles } from "../components/cvStyles"
 
 export default class extends React.Component {
@@ -87,74 +92,96 @@ export default class extends React.Component {
                         Creative, collaborative and courageous developer with
                         extensive experience in web based technologies and UX
                         design. Looking for the next challenge to improve
-                        customer experience to deepen engagement.
+                        customer experience and deepen engagement.
                       </p>
                     </div>
                     <div className="col-xs-12 is-light-grey-bg-always pad-1-b margin-2-t margin-3-b" />
 
                     <div className="col-xs-3">
-                      <h5 className="margin-0  margin-2-b is-light-blue-always">
+                      <h5 className="margin-0  margin-2-b flex align-horizontal is-special-blue">
+                        <img src={code} width={15} className="margin-1-r" />
                         TECHNICAL SKILLS
                       </h5>
                       <div className="row">
                         {CodeSkills.map(skill => (
-                          <div className="col-xs-12 pad-0">
-                            <p className="body-text margin-0 margin-1-b">
+                          <div className="col-xs-6 pad-0">
+                            <p className="body-text2 margin-0 margin-1-b">
                               {skill}
                             </p>
                           </div>
                         ))}
                       </div>
-                      <h5 className="margin-2-tb is-light-blue-always">
-                        DESIGN SKILLS
+                      <h5 className="border-top pad-2-t margin-2-tb flex align-horizontal is-special-blue">
+                        <img src={pencil} width={15} className="margin-1-r" />
+                        DESIGN EXPERTISE
                       </h5>
                       <div className="row">
                         {DesignSkills.map(skill => (
                           <div className="col-xs-12 pad-0">
-                            <p className="body-text margin-0 margin-1-b">
+                            <p className="body-text2 margin-0 margin-1-b">
                               {skill}
                             </p>
                           </div>
                         ))}
                       </div>
-                      <h5 className="margin-2-tb is-light-blue-always">
+                      <h5 className="border-top pad-2-t margin-2-tb flex align-horizontal is-special-blue">
+                        <img src={tools} width={15} className="margin-1-r" />
+                        DESIGN TOOLS
+                      </h5>
+                      <div className="row">
+                        {DesignTools.map(skill => (
+                          <div className="col-xs-6 pad-0">
+                            <p className="body-text2 margin-0 margin-1-b">
+                              {skill}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <h5 className="border-top pad-2-t margin-2-tb flex align-horizontal is-special-blue">
+                        <img src={school} width={12} className="margin-1-r" />
                         EDUCATION
                       </h5>
                       {education.map(item => (
                         <div className="margin-3-b">
-                          <h4 className="margin-0 margin-1-t">{item.type}</h4>
-                          <p className="body-text margin-0 margin-1-t">
-                            {`${item.location}`}
-                          </p>
+                          <h4 className="margin-0 margin-1-t">{`${item.type} - ${item.location}`}</h4>
+                          <p className="body-text margin-0 margin-1-t">{}</p>
                           <p className="body-text margin-0 margin-1-t ">
                             {item.desc}
                           </p>
                         </div>
                       ))}
-                      <h5 className="margin-0 margin-2-b is-light-blue-always">
+                      <h5 className="border-top pad-2-t margin-2-t margin-2-b flex align-horizontal is-special-blue">
+                        <img
+                          src={interests}
+                          width={15}
+                          className="margin-1-r"
+                        />
                         INTERESTS
                       </h5>
-
-                      <p className="body-text margin-0 margin-1-t ">
-                        When I'm not in the office I like to attend hackathons.
+                      <h4 className="margin-0 margin-1-t">Hackathons</h4>
+                      <p className="body-text margin-0 margin-1-t margin-3-b">
                         At these events I enjoy teaching the next generation to
                         code and have a bit of a reputation for staying up all
                         night.
                       </p>
-
-                      <p className="body-text margin-0 margin-1-t  margin-3-b">
-                        I've always enjoyed photography, I have worked on
-                        everything from wildlife to wedding photography. One of
+                      <h4 className="margin-0 margin-1-t">Photography</h4>
+                      <p className="body-text margin-0 margin-1-t margin-3-b">
+                        Everything from wildlife to wedding photography. One of
                         my photos "The Brighton Fox" was featured in Brighton &
                         Hove's Annual Calendar in 2018.
                       </p>
                     </div>
-                    <div className="col-xs-9">
-                      <h5 className="margin-0 margin-2-b is-light-blue-always">
+                    <div className="col-xs-9 pad-3-l">
+                      <h5 className="margin-0 margin-2-b flex align-horizontal is-special-blue">
+                        <img src={work} width={12} className="margin-1-r" />
                         EXPERIENCE
                       </h5>
-                      {experience.map(item => (
-                        <div className="margin-3-b">
+                      {experience.map((item, index) => (
+                        <div
+                          className={`margin-3-b ${
+                            index > 0 ? "border-top pad-2-t" : ""
+                          } `}
+                        >
                           <h3 className="margin-0 margin-1-t">{item.role}</h3>
                           <h5 className="margin-0 margin-1-tb">
                             {`${item.company}, ${item.location} | ${item.date}`}
@@ -168,7 +195,7 @@ export default class extends React.Component {
                           ))}
 
                           <p
-                            className="body-text margin-1-t"
+                            className="body-text margin-1-t margin-2-l"
                             style={{ color: "#067BC2" }}
                           >
                             {item.tags}
