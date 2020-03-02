@@ -61,10 +61,14 @@
   border-radius: 8px;
 }
 
+.slick-slide {
+  pointer-events: none;
+}
 .slide-image-one {
   background-image: url('https://ik.imagekit.io/sld/ICHACK_a2o31d1eR.png');
   background-position: right;
 }
+
 
 .slide-image-two {
   background-image: url('https://ik.imagekit.io/sld/HackKings_nVVodPVC9.jpeg');

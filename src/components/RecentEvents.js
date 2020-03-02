@@ -26,6 +26,7 @@ export default () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    focusOnSelect: false,
     autoplay: true,
     speed: 800,
     autoplaySpeed: 5000,
@@ -59,10 +60,14 @@ export default () => {
       <Slider {...settings}>
         {recentEvents.map(item => {
           return (
-            <div key={`${item.eventName}outer`}>
+            <div
+              key={`${item.eventName}outer`}
+              onClick={e => e.preventDefault()}
+            >
               <div
                 key={`${item.eventName}inner`}
-                className={`margin-10-l margin-10-r is-pink-bg pad-5 grow ${item.imgClass}`}
+                onClick={e => e.preventDefault()}
+                className={`margin-10-l margin-10-r is-pink-bg pad-5 ${item.imgClass}`}
                 style={{
                   borderRadius: 15,
 
