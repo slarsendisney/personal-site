@@ -6,12 +6,12 @@
     "date": "2019 - Present",
     "desc": "Currently creating the future of the ‘refer a friend’ experience.",
     "longDesc": [
-      "UX designer and Front-end developer building the future of the 'Refer a Friend' scheme in a research and development team.",
-      "Facilitated, as well as participated in, design sprints and lightening decision jams to help the team ideate.",
-      "Created a self-service automation tool for assesing a webpage's performance, accessibilty and generating screenshots of the page for multiple view ports.",
+      "Developed a new referral experience that features enhanced referral rewards for platinum and gold card members. It has engaged with 600,000 customers to date.",
+      "Created a self-service automation tool for assesing a webpage's performance, accessibilty and generating screenshots of the page for multiple view ports. This has increased the ability for markets to self service, reducing the need to engage engineers to acquire this information.",
+      "Facilitated design sprints and lightening decision jams to help the team ideate.",
       "Built web-ready animations, onboarding experiences, faster sites in newer frameworks and chat bots."
     ],
-    "tags": "User Experience, Rapid Prototyping, JS, ReactJS, Redux, GatsbyJS, GraphQL, Adobe Suite, Sketch, Invision",
+    "tags": "User Experience, Rapid Prototyping, JS, ReactJS, Redux, GatsbyJS, GraphQL, Electron, Adobe Suite, Sketch, Invision",
     "url": "https://www.americanexpress.com"
   },
   {
@@ -22,9 +22,9 @@
     "desc": "Making it easier than ever to ‘refer a friend’.",
     "longDesc": [
       "Completed research into how we could improve elements of the referral hub. This included competitor analysis, analysis of existing site, creation of personas, wireframes and mockups.",
-      "Worked on a proof of concept for a research archive that intelligently links and prioritises research for better design decisions. "
+      "Worked on a proof of concept for a research archive that summarises, tags, intelligently links and prioritises research for better design decisions."
     ],
-    "tags": "User Experience, Customer Research, User Testing, JS, ReactJS, GatsbyJS, Sketch, Invision",
+    "tags": "User Experience, Customer Research, User Testing, JS, ReactJS, GatsbyJS, Sketch, Invision, Python",
     "url": "https://www.americanexpress.com"
   },
   {
@@ -34,8 +34,8 @@
     "date": "2018 - 2019",
     "desc": "Working in loyalty on a UI for testing API integrations.",
     "longDesc": [
-      "Designed, implemented and deployed the first version of the Loyalty Servicing Platform. A tool built to replace Oracle Forms which was running out of extended support as it was reaching end of life.",
-      " Harnessed the new design language system and a modular structure that allowed us to better integrate the tool with other parts of the company."
+      "Replaced a legacy oracle tool to reduce development costs by half.",
+      "Harnessed the new design language system and a modular structure that allowed us to better integrate the tool with other parts of the company."
     ],
     "tags": "Internal Tooling, Analytics, JS, ReactJS, Redux, Sketch",
     "url": "https://www.americanexpress.com"
@@ -59,8 +59,7 @@
     "date": "2017",
     "desc": "Working in loyalty on a response time monitoring tool using the ELK",
     "longDesc": [
-      "Worked within an agile team delivering an internal data visualisation tool.",
-      "Strengthened my competence of the Elastic Stack and Java."
+      "Delivered an internal data visualisation tool capable of mapping the end-to-end journey of Amazon 'Pay with Points' requests."
     ],
     "tags": "Data Visualisations, Analytics, Logging, ELK stack, Java, Splunk",
     "url": "https://www.americanexpress.com"

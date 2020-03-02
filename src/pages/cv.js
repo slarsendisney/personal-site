@@ -160,9 +160,8 @@ export default class extends React.Component {
                       </h5>
                       <h4 className="margin-0 margin-1-t">Hackathons</h4>
                       <p className="body-text margin-0 margin-1-t margin-3-b">
-                        At these events I enjoy teaching the next generation to
-                        code and have a bit of a reputation for staying up all
-                        night.
+                        I enjoy teaching the next generation to code and have a
+                        bit of a reputation for staying up all night.
                       </p>
                       <h4 className="margin-0 margin-1-t">Photography</h4>
                       <p className="body-text margin-0 margin-1-t margin-3-b">

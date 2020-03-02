@@ -2,7 +2,7 @@ export const DesignSkills = [
   "User Research",
   "Usability Testing",
   "Visual Design",
-  "Interaction Design ",
+  // "Interaction Design ",
   "Design Sprints",
 ]
 
