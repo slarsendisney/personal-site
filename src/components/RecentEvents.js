@@ -65,7 +65,7 @@ export default () => {
                 className={`margin-10-l margin-10-r is-pink-bg pad-5 grow ${item.imgClass}`}
                 style={{
                   borderRadius: 15,
-                  backgroundPosition: "center",
+
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                   height: 400,
