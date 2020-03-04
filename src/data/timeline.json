@@ -24,7 +24,7 @@
       "Completed research into how we could improve elements of the referral hub. This included competitor analysis, analysis of existing site, creation of personas, wireframes and mockups.",
       "Worked on a proof of concept for a research archive that summarises, tags, intelligently links and prioritises research for better design decisions."
     ],
-    "tags": "User Experience, Customer Research, User Testing, JS, ReactJS, GatsbyJS, Sketch, Invision, Python",
+    "tags": "User Experience, User Research, User Testing, JS, ReactJS, GatsbyJS, Sketch, Invision, Python",
     "url": "https://www.americanexpress.com"
   },
   {
@@ -47,7 +47,7 @@
     "date": "2017 - 2019",
     "desc": "Built the TrailBee application, a dedicated transport administration tool. ",
     "longDesc": [
-      "Built the TrailBee application, a dedicated transport administration tool. The application consisted of a parent app and an admin user interface for schools.",
+      "Built the TrailBee application, a dedicated school transport administration tool. The application consisted of a parent app and an admin user interface for schools.",
       "Created a design language system for the application that was adopted for both desktop and mobile experiences."
     ],
     "tags": "React, React Native, JS, SocketIO, Node, MongoDB, Sketch"
