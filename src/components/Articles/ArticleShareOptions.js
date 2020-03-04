@@ -70,7 +70,10 @@ export default ({ location }) => (
           </h3>
           <a href={Links.buyMeACoffee}>
             <button className="btn-variant is-white-always border-radius pad-3-lr pad-2-tb">
-              ☕️ Buy me a coffee
+              <span role="img" aria-label="Coffee">
+                ☕️
+              </span>{" "}
+              Buy me a coffee
             </button>
           </a>
         </div>

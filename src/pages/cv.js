@@ -1,6 +1,5 @@
 import React from "react"
 import { PDFExport } from "@progress/kendo-react-pdf"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import experience from "../data/timeline.json"
 import education from "../data/education.json"
@@ -99,7 +98,12 @@ export default class extends React.Component {
 
                     <div className="col-xs-3">
                       <h5 className="margin-0  margin-2-b flex align-horizontal is-special-blue">
-                        <img src={code} width={15} className="margin-1-r" />
+                        <img
+                          src={code}
+                          alt=""
+                          width={15}
+                          className="margin-1-r"
+                        />
                         TECHNICAL SKILLS
                       </h5>
                       <div className="row">
@@ -112,7 +116,12 @@ export default class extends React.Component {
                         ))}
                       </div>
                       <h5 className="border-top pad-2-t margin-2-tb flex align-horizontal is-special-blue">
-                        <img src={pencil} width={15} className="margin-1-r" />
+                        <img
+                          src={pencil}
+                          alt=""
+                          width={15}
+                          className="margin-1-r"
+                        />
                         DESIGN EXPERTISE
                       </h5>
                       <div className="row">
@@ -125,7 +134,12 @@ export default class extends React.Component {
                         ))}
                       </div>
                       <h5 className="border-top pad-2-t margin-2-tb flex align-horizontal is-special-blue">
-                        <img src={tools} width={15} className="margin-1-r" />
+                        <img
+                          src={tools}
+                          alt=""
+                          width={15}
+                          className="margin-1-r"
+                        />
                         DESIGN TOOLS
                       </h5>
                       <div className="row">
@@ -138,7 +152,12 @@ export default class extends React.Component {
                         ))}
                       </div>
                       <h5 className="border-top pad-2-t margin-2-tb flex align-horizontal is-special-blue">
-                        <img src={school} width={12} className="margin-1-r" />
+                        <img
+                          src={school}
+                          alt=""
+                          width={12}
+                          className="margin-1-r"
+                        />
                         EDUCATION
                       </h5>
                       {education.map(item => (
@@ -153,6 +172,7 @@ export default class extends React.Component {
                       <h5 className="border-top pad-2-t margin-2-t margin-2-b flex align-horizontal is-special-blue">
                         <img
                           src={interests}
+                          alt=""
                           width={15}
                           className="margin-1-r"
                         />
@@ -172,7 +192,12 @@ export default class extends React.Component {
                     </div>
                     <div className="col-xs-9 pad-3-l">
                       <h5 className="margin-0 margin-2-b flex align-horizontal is-special-blue">
-                        <img src={work} width={12} className="margin-1-r" />
+                        <img
+                          src={work}
+                          alt=""
+                          width={12}
+                          className="margin-1-r"
+                        />
                         EXPERIENCE
                       </h5>
                       {experience.map((item, index) => (

@@ -38,7 +38,10 @@ export default () => {
           <div className="col-xs-12 ">
             <p>
               Want to know when I post something new? Subscribe to my
-              newsletter. 🚀
+              newsletter.{" "}
+              <span role="img" aria-label="Rocket">
+                🚀
+              </span>
             </p>
           </div>
           <div className="col-xs-12 col-sm-6 flex align-vertical">
