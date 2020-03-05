@@ -128,6 +128,7 @@ export default class extends React.Component {
                         />
                         DESIGN EXPERTISE
                       </h5>
+
                       <div className="row">
                         {DesignSkills.map(skill => (
                           <div className="col-xs-12 pad-0">
