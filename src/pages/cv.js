@@ -19,6 +19,7 @@ export default class extends React.Component {
   render() {
     return (
       <div style={{ minWidth: "240mm" }}>
+        <style>{styles}</style>
         <Layout>
           <SEO title="CV" />
           <div className="is-pink-bg pad-10-b">
@@ -53,7 +54,7 @@ export default class extends React.Component {
               }}
             >
               <PDFExport
-                scale={0.75}
+                scale={1}
                 paperSize="A4"
                 margin="0cm"
                 ref={component => (this.pdfExportComponent = component)}
@@ -234,7 +235,6 @@ export default class extends React.Component {
                   </div>
                 </div>
               </PDFExport>
-              <style>{styles}</style>
             </div>
           </div>
         </Layout>
