@@ -19,7 +19,6 @@ export default class extends React.Component {
   render() {
     return (
       <div style={{ minWidth: "240mm" }}>
-        <style>{styles}</style>
         <Layout>
           <SEO title="CV" />
           <div className="is-pink-bg pad-10-b">
@@ -54,7 +53,7 @@ export default class extends React.Component {
               }}
             >
               <PDFExport
-                scale={1}
+                scale={0.75}
                 paperSize="A4"
                 margin="0cm"
                 ref={component => (this.pdfExportComponent = component)}
@@ -217,15 +216,14 @@ export default class extends React.Component {
                           </h5>
 
                           {item.longDesc.map(desc => (
-                            <p className="body-text margin-0">
-                              {" "}
-                              {`- `}
-                              {desc}
-                            </p>
+                            <div className="flex">
+                              <p className="body-text2 margin-0 margin-1-r">{`-`}</p>
+                              <p className="body-text2 margin-0">{desc}</p>
+                            </div>
                           ))}
 
                           <p
-                            className="body-text margin-1-t margin-2-l"
+                            className="body-text2 margin-1-t margin-2-l"
                             style={{ color: "#067BC2" }}
                           >
                             {item.tags}
@@ -236,6 +234,7 @@ export default class extends React.Component {
                   </div>
                 </div>
               </PDFExport>
+              <style>{styles}</style>
             </div>
           </div>
         </Layout>
