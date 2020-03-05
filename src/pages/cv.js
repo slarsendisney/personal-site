@@ -207,7 +207,7 @@ export default class extends React.Component {
                       {experience.map((item, index) => (
                         <div
                           className={`margin-3-b ${
-                            index > 0 ? "border-top pad-2-t" : ""
+                            index > 0 ? "border-top pad-1-t" : ""
                           } `}
                         >
                           <h3 className="margin-0 margin-1-t">{item.role}</h3>
