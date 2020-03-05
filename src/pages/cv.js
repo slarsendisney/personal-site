@@ -205,7 +205,11 @@ export default class extends React.Component {
                         EXPERIENCE
                       </h5>
                       {experience.map((item, index) => (
-                        <div>
+                        <div
+                          className={`margin-3-b ${
+                            index > 0 ? "border-top pad-2-t" : ""
+                          } `}
+                        >
                           <h3 className="margin-0 margin-1-t">{item.role}</h3>
                           <h5 className="margin-0 margin-1-tb">
                             {`${item.company}, ${item.location} | ${item.date}`}
