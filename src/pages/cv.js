@@ -83,9 +83,13 @@ export default class extends React.Component {
                       <h1 className="margin-0">Samuel Larsen-Disney</h1>
                       <div className="flex">
                         <h5
-                          className="body-text margin-0"
+                          className="body-text margin-0 margin-1-t"
                           style={{ color: "#067BC2" }}
-                        >{`${contact.website} | ${contact.email} | ${contact.phone}`}</h5>
+                        >
+                          {contact.website}&nbsp;&nbsp;|&nbsp;&nbsp;
+                          {contact.email}&nbsp;&nbsp;|&nbsp;&nbsp;
+                          {contact.phone}
+                        </h5>
                       </div>
                       <p className="body-text margin-1-tb">
                         Creative, collaborative and courageous developer with
@@ -94,7 +98,7 @@ export default class extends React.Component {
                         customer experience and deepen engagement.
                       </p>
                     </div>
-                    <div className="col-xs-12 is-black-bg-always pad-1-b margin-2-t margin-4-b margin-1-lr" />
+                    <div className="col-xs-12 border-top pad-1-b margin-2-t margin-2-b margin-1-lr" />
 
                     <div className="col-xs-3">
                       <h5 className="margin-0  margin-2-b flex align-horizontal is-special-blue">
@@ -187,7 +191,7 @@ export default class extends React.Component {
                       <p className="body-text margin-0 margin-1-t margin-3-b">
                         Everything from wildlife to wedding photography. One of
                         my photos "The Brighton Fox" was featured in Brighton &
-                        Hove's Annual Calendar in 2018.
+                        Hove's Annual Calendar in 2019.
                       </p>
                     </div>
                     <div className="col-xs-9 pad-3-l">
