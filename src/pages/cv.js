@@ -217,10 +217,11 @@ export default class extends React.Component {
                           </h5>
 
                           {item.longDesc.map(desc => (
-                            <div className="flex">
-                              <p className="body-text margin-0 margin-1-r">{`-`}</p>
-                              <p className="body-text margin-0">{desc}</p>
-                            </div>
+                            <p className="body-text margin-0">
+                              {" "}
+                              {`- `}
+                              {desc}
+                            </p>
                           ))}
 
                           <p
