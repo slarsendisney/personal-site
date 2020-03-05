@@ -29,9 +29,9 @@ export default class extends React.Component {
                   onClick={() => {
                     this.pdfExportComponent.save()
                   }}
-                  style={{ width: 200, borderRadius: 8 }}
+                  style={{ width: 220 }}
                 >
-                  🖨 Print Me
+                  Download / Print
                 </button>
               </div>
               <div className="col-xs-12">
