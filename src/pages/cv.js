@@ -70,7 +70,7 @@ export default class extends React.Component {
                     position: "relative",
                   }}
                 >
-                  <div className="row pad-10">
+                  <div className="row">
                     <div
                       className="col-xs-12"
                       style={{
@@ -97,7 +97,6 @@ export default class extends React.Component {
                         customer experience and deepen engagement.
                       </p>
                     </div>
-                    <div className="col-xs-12 border-top pad-1-b margin-2-t margin-2-b margin-1-lr" />
 
                     <div className="col-xs-3">
                       <h5 className="margin-0  margin-2-b flex align-horizontal is-special-blue">
