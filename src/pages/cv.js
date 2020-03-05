@@ -19,7 +19,6 @@ export default class extends React.Component {
   render() {
     return (
       <div style={{ minWidth: "240mm" }}>
-        <style>{styles}</style>
         <Layout>
           <SEO title="CV" />
           <div className="is-pink-bg pad-10-b">
@@ -54,7 +53,7 @@ export default class extends React.Component {
               }}
             >
               <PDFExport
-                scale={1}
+                scale={0.75}
                 paperSize="A4"
                 margin="0cm"
                 ref={component => (this.pdfExportComponent = component)}
@@ -84,7 +83,7 @@ export default class extends React.Component {
                       <h1 className="margin-0">Samuel Larsen-Disney</h1>
                       <div className="flex">
                         <h5
-                          className="body-text margin-0 margin-1-t"
+                          className="body-text margin-0"
                           style={{ color: "#067BC2" }}
                         >
                           {contact.website}&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -206,22 +205,17 @@ export default class extends React.Component {
                         EXPERIENCE
                       </h5>
                       {experience.map((item, index) => (
-                        <div
-                          className={`margin-3-b ${
-                            index > 0 ? "border-top pad-1-t" : ""
-                          } `}
-                        >
+                        <div>
                           <h3 className="margin-0 margin-1-t">{item.role}</h3>
                           <h5 className="margin-0 margin-1-tb">
                             {`${item.company}, ${item.location} | ${item.date}`}
                           </h5>
 
                           {item.longDesc.map(desc => (
-                            <p className="body-text margin-0">
-                              {" "}
-                              {`- `}
-                              {desc}
-                            </p>
+                            <div className="flex">
+                              <p className="body-text margin-0 margin-1-r">{`-`}</p>
+                              <p className="body-text margin-0">{desc}</p>
+                            </div>
                           ))}
 
                           <p
@@ -236,6 +230,7 @@ export default class extends React.Component {
                   </div>
                 </div>
               </PDFExport>
+              <style>{styles}</style>
             </div>
           </div>
         </Layout>
