@@ -70,9 +70,9 @@ export default class extends React.Component {
                     position: "relative",
                   }}
                 >
-                  <div className="row ">
+                  <div className="row pad-5">
                     <div
-                      className="col-xs-12"
+                      className="col-xs-12 "
                       style={{
                         display: "flex",
                         justifyContent: "center",
