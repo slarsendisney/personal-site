@@ -47,7 +47,6 @@ export default class extends React.Component {
               style={{
                 backgroundColor: "",
                 width: "210mm",
-
                 marginLeft: "auto",
                 marginRight: "auto",
               }}
@@ -207,7 +206,7 @@ export default class extends React.Component {
                       {experience.map((item, index) => (
                         <div
                           className={`margin-3-b ${
-                            index > 0 ? "border-top pad-2-t" : ""
+                            index > 0 ? "border-top pad-1-t" : ""
                           } `}
                         >
                           <h3 className="margin-0 margin-1-t">{item.role}</h3>
@@ -216,7 +215,7 @@ export default class extends React.Component {
                           </h5>
 
                           {item.longDesc.map(desc => (
-                            <div className="flex">
+                            <div style={{ display: "flex" }}>
                               <p className="body-text margin-0 margin-1-r">{`-`}</p>
                               <p className="body-text margin-0">{desc}</p>
                             </div>
