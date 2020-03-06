@@ -55,7 +55,7 @@ export default function Bio({ data }) {
             The Long Version
           </h1>
           <div
-            className="lato paper margin-5-t"
+            className="margin-5-t pad-10 is-white-bg is-grey border-radius"
             dangerouslySetInnerHTML={{
               __html: data.allMarkdownRemark.edges[0].node.html,
             }}
