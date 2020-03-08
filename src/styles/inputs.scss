@@ -10,3 +10,7 @@
   font-size: medium;
   width: 100%;
 }
+.input:focus {
+  outline: none;
+  @extend .is-light-blue-border;
+}

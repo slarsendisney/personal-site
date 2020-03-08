@@ -10,7 +10,7 @@ export default () => (
   <VerticalTimeline>
     {events.map(item => (
       <VerticalTimelineElement
-        className="vertical-timeline-element--work lato"
+        className="vertical-timeline-element--work lato is-black"
         date={item.date.toUpperCase()}
         iconStyle={{ background: "rgb(234, 78, 103)", color: "#fff" }}
         key={item.role + item.company}

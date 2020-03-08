@@ -66,19 +66,27 @@ export default function Start({ data }) {
       <div className="is-grey is-pink-bg">
         <div className="row container-small pad-20-tb">
           <div className="col-xs-12 text-align-center">
-            <h1 className="is-white-always">For The People Who Prefer Paper</h1>
-            <Link to="/cv">
-              <button
-                className="btn "
-                style={{
-                  minWidth: 300,
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-              >
-                View CV
-              </button>
-            </Link>
+            <div className="row">
+              <div className="col-xs-12">
+                <h1 className="is-white-always">
+                  For The People Who Prefer Paper
+                </h1>
+              </div>
+              <div className="col-xs-12">
+                <Link to="/cv">
+                  <button
+                    className="bubble-button "
+                    style={{
+                      minWidth: 300,
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                    }}
+                  >
+                    View CV
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

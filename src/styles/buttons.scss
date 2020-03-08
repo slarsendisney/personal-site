@@ -2,9 +2,7 @@
   @extend .is-dark-blue-bg;
   @extend .is-white;
   font-family: Lato;
-  max-width: 250px;
-  padding: 15px;
-  text-align: center;
+
 }
 
 .btn:hover {
@@ -61,3 +59,79 @@ input[type='reset'] {
   padding: 0;
 }
 
+.bubble-button {
+  @extend .is-dark-blue-bg;
+  @extend .is-white;
+  font-family: Lato;
+  z-index: 1;
+  position: relative;
+  // max-width: 250px;
+  padding: 15px;
+  text-align: center;
+  outline: none;
+  border: none;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+.bubble-button::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  bottom: 100%;
+  right: 100%;
+  width: 5em;
+  height: 1em;
+  border-radius: 50%;
+  @extend .is-dark-blue;
+  @extend .is-white-bg;
+  transform-origin: center;
+  transform: translate3d(50%, 50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.45s ease-in-out;
+}
+
+.bubble-button:hover {
+  cursor: pointer;
+  @extend .is-dark-blue;
+  outline-style: solid;
+  outline-width: 3px;
+}
+
+.bubble-button:hover::before {
+  transform: translate3d(50%, 50%, 0) scale3d(15, 15, 15);
+}
+
+.link-bar {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  @extend .is-dark-blue;
+}
+
+.link-bar::before, .link-bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #fc2f70;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+
+}
+
+.link-bar::before {
+  top: 0;
+  transform-origin: center right;
+}
+
+
+.link-bar::after {
+  bottom: 0;
+  transform-origin: center left;
+}
+
+.link-bar:hover::after {
+  transform-origin: center right;
+  transform: scaleX(1);
+}

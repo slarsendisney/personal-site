@@ -55,7 +55,7 @@ export default () => {
           </div>
           <div className="col-xs-12 col-sm-6 flex align-vertical">
             <button
-              className="btn pad-3 margin-3-tb"
+              className="bubble-button pad-3 margin-3-tb"
               type="button"
               onClick={() => handleSubmit()}
               style={{ width: "100%" }}

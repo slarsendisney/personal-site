@@ -17,7 +17,7 @@ export default function QandATemplate({
         <div className="row container pad-10-t ">
           <div className="col-xs-12 pad-5-lr">
             <Link to="/articles" className="link">
-              <h2 className="is-grey margin-0 margin-2-b grow">{`< Articles`}</h2>
+              <h2 className="is-grey margin-0 margin-2-b link-bar pad-1-b">{`< Articles`}</h2>
             </Link>
           </div>
           <div className="col-xs-12 pad-5-lr">

@@ -25,7 +25,7 @@ export default class extends React.Component {
             <div className="container row pad-5">
               <div className="col-xs-12 text-align-center">
                 <button
-                  className="btn"
+                  className="bubble-button"
                   onClick={() => {
                     this.pdfExportComponent.save()
                   }}
