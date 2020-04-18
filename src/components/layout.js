@@ -30,11 +30,8 @@ const Layout = ({ children }) => {
         }}
       >
         <h4 className="margin-0">
-          This website uses cookies{" "}
-          <span role="img" aria-label="cookies">
-            🍪
-          </span>{" "}
-          so I can enhance the user experience. Hope thats cool with you!
+          This website uses cookies so I can enhance the user experience. Hope
+          thats cool with you!
         </h4>
       </CookieConsent>
       <Headroom>

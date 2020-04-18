@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { Project } from "../templates/Projects"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -50,7 +51,7 @@ export default function Start({ data }) {
       <div className="is-grey is-white-bg">
         <div className="row container-small pad-10-t pad-20-b pad-5-lr">
           <div className="col-xs-12 ">
-            <h2 className="">Latest Project</h2>
+            <h2 className="">Latest Projects</h2>
             <Project {...featuredProject} />
           </div>
         </div>
@@ -73,7 +74,7 @@ export default function Start({ data }) {
                 </h1>
               </div>
               <div className="col-xs-12">
-                <Link to="/cv">
+                <AniLink paintDrip hex="#ffffff" to="/cv">
                   <button
                     className="bubble-button "
                     style={{
@@ -84,7 +85,7 @@ export default function Start({ data }) {
                   >
                     View CV
                   </button>
-                </Link>
+                </AniLink>
               </div>
             </div>
           </div>

@@ -1,5 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import parse from "date-fns/parse"
+import compareAsc from "date-fns/compareAsc"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,6 +16,7 @@ export const Project = ({ title, desc, path, coverimg, skills }) => (
             className="shadow"
             style={{ maxHeight: 250 }}
           />
+          <div></div>
         </div>
         <div className="col-xs-12 col-md-6 pad-2-t">
           <h1 className="margin-3-b margin-0-t">{title}</h1>
@@ -41,9 +44,23 @@ export default ({
           </div>
 
           <div className="col-xs-12 col-md-10">
-            {edges.map(item => (
-              <Project {...item.node.frontmatter} />
-            ))}
+            {edges
+              .sort((a, b) => {
+                var resultA = parse(
+                  a.node.frontmatter.date,
+                  "yyyy-MM-dd",
+                  new Date()
+                )
+                var resultB = parse(
+                  b.node.frontmatter.date,
+                  "yyyy-MM-dd",
+                  new Date()
+                )
+                return compareAsc(resultB, resultA)
+              })
+              .map(item => (
+                <Project {...item.node.frontmatter} />
+              ))}
           </div>
         </div>
       </div>
