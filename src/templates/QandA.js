@@ -25,10 +25,10 @@ export default ({
             <h6 className="is-hero-sub-text is-black margin-3-b">
               {frontmatter.question.toUpperCase()}
             </h6>
-            <p className="is-hero-menu margin-3-t margin-10-b">
+            <p className="is-hero-menu margin-3-t margin-3-b">
               {frontmatter.answer}
             </p>
-            <h6 className="is-hero-sub-text is-black margin-3-b">
+            <h6 className="is-hero-sub-text is-black margin-10-b">
               {frontmatter.desc}
             </h6>
             <div
@@ -40,7 +40,7 @@ export default ({
               style={{ textDecoration: "none" }}
               className=" align-horizontal is-white lato margin-4-r"
             >
-              <div className="btn">{frontmatter.btnLabel}</div>
+              <button className="bubble-button">{frontmatter.btnLabel}</button>
             </Link>
           </div>
         </div>
