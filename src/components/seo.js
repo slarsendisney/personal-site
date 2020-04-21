@@ -32,17 +32,26 @@ function SEO({ description, lang, meta, title }) {
   return (
     <Helmet>
       <title>Sam Larsen-Disney | {title}</title>
+      <meta name="title" content={title} />
       <meta name="description" content={metaDescription} />
-
-      <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
+      <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
+      <meta
+        property="og:image"
+        content="https://ik.imagekit.io/sld/Logo__ok8RRhzzg3.png"
+      />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="Sam Larsen-Disney" />
       <meta name="twitter:title" content={title} />
+      <meta property="twitter:url" content={url} />
       <meta name="twitter:description" content={metaDescription} />
+      <meta
+        property="twitter:image"
+        content="https://ik.imagekit.io/sld/Logo__ok8RRhzzg3.png"
+      />
       <html lang="en" />
     </Helmet>
   )

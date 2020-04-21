@@ -12,7 +12,8 @@ import MediaLink from "../components/RootComponents/MediaLink"
 import EmploymentHistory from "../data/timeline.json"
 
 export default function Start({ data }) {
-  const featuredProject = data.Projects.edges[0].node.frontmatter
+  const featuredProjectOne = data.Projects.edges[0].node.frontmatter
+  const featuredProjectTwo = data.Projects.edges[1].node.frontmatter
   const currentJob = EmploymentHistory[0]
   return (
     <Layout>
@@ -50,9 +51,15 @@ export default function Start({ data }) {
       </div>
       <div className="is-grey is-white-bg">
         <div className="row container-small pad-10-t pad-20-b pad-5-lr">
-          <div className="col-xs-12 ">
+          <div className="col-xs-12">
             <h2 className="">Latest Projects</h2>
-            <Project {...featuredProject} />
+          </div>
+
+          <div className="col-xs-12 col-md-6 ">
+            <Project {...featuredProjectOne} />
+          </div>
+          <div className="col-xs-12 col-md-6 ">
+            <Project {...featuredProjectTwo} />
           </div>
         </div>
       </div>
@@ -117,7 +124,7 @@ export const query = graphql`
     Projects: allMarkdownRemark(
       filter: { frontmatter: { type: { eq: "Project" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 1
+      limit: 2
     ) {
       edges {
         node {
