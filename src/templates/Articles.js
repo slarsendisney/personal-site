@@ -6,13 +6,13 @@ import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
 
 export const Article = ({ title, pubDate, link }) => (
-  <Link to={"/" + link} className="link margin-10-b" id="path">
+  <Link to={"/" + link} className="link margin-20-b" id="path">
     <div className="grow row">
       <div className="col-xs-12">
         <h1 className="margin-2-b margin-0-t is-dark-blue">{title}</h1>
       </div>
       <div className="col-xs-12">
-        <h3 className="margin-0-t margin-5-b">
+        <h3 className="margin-0-t margin-7-b">
           {format(new Date(pubDate), "iii, dd MMM yyyy")}
         </h3>
       </div>
@@ -26,7 +26,7 @@ const LegacyArticle = ({ title, path, date }) => (
         <h1 className="margin-2-b margin-0-t is-dark-blue">{title}</h1>
       </div>
       <div className="col-xs-12">
-        <h3 className="margin-0-t margin-5-b">
+        <h3 className="margin-0-t margin-8-b">
           {format(new Date(date), "iii, dd MMM yyyy")}
         </h3>
       </div>

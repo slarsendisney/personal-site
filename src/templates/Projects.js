@@ -6,6 +6,28 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+export const ProjectPreview = ({ title, desc, path, coverimg, skills }) => (
+  <div className="pad-5-b">
+    <Link to={path} className="link " id="path">
+      <div className="grow row">
+        <div className="col-xs-12 pad-2-t ">
+          <Img
+            fluid={coverimg.childImageSharp.fluid}
+            className="shadow"
+            style={{ maxHeight: 250 }}
+          />
+          <div></div>
+        </div>
+        <div className="col-xs-12 pad-6-t">
+          <h1 className="margin-3-b margin-0-t">{title}</h1>
+          <h3 className="margin-0-t">{desc}</h3>
+          <p className="margin-0-t is-special-blue">{skills.join(", ")}</p>
+        </div>
+      </div>
+    </Link>
+  </div>
+)
+
 export const Project = ({ title, desc, path, coverimg, skills }) => (
   <div className="pad-5-b">
     <Link to={path} className="link " id="path">
@@ -21,13 +43,14 @@ export const Project = ({ title, desc, path, coverimg, skills }) => (
         <div className="col-xs-12 col-md-6 pad-2-t">
           <h1 className="margin-3-b margin-0-t">{title}</h1>
           <h3 className="margin-0-t">{desc}</h3>
-          <div className="line margin-5-t margin-5-b" />
-          <p className="margin-0-t">{skills.join(", ")}</p>
+
+          <p className="margin-0-t is-special-blue">{skills.join(", ")}</p>
         </div>
       </div>
     </Link>
   </div>
 )
+
 export default ({
   data, // this prop will be injected by the GraphQL query below.
 }) => {
