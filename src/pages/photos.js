@@ -22,7 +22,7 @@ function chunkArray(myArray, chunk_size) {
 export default () => {
   return (
     <Layout>
-      <SEO title={"Bio"} />
+      <SEO title={"Photography"} />
       <div className="is-grey is-light-grey-bg">
         <div className="row container-small pad-10">
           <div className="col-xs-12 ">

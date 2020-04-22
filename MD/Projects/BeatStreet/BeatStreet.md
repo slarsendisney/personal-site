@@ -5,7 +5,7 @@ date: "2018-12-25"
 path: "/projects/beat-street"
 type: "Project"
 skills: ["ReactJS", "REST APIs"]
-coverimg: "./landing-beat.png"
+coverimg: "./hero.png"
 ---
 
 <div class="row pad-10-b">
