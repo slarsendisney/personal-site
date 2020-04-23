@@ -8,7 +8,7 @@ skills: ["Gatsby", "Node", "REST APIs"]
 coverimg: "./MetaPreview.png"
 ---
 
-The aim of this project was to allow a user to see how changing certain pieces of meta data on a website, changes their appreance on social media platforms. 
+The aim of this project was to allow a user to see how changing certain pieces of meta data on a website, changes their appearance on social media platforms. 
 
 The project required two main capabilities:
 1. Mocked up examples of posts containing URLS from Facebook, Slack and Twitter.
