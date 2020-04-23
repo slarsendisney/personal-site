@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -35,6 +35,18 @@ export default function Bio({ data }) {
             <h3 className="is-white-always margin-0 pad-0">
               Designer. Engineer. Creator.
             </h3>
+            <Link to="/cv">
+              <button
+                className="bubble-button margin-10-t"
+                style={{
+                  minWidth: 300,
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                }}
+              >
+                View CV
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ date: "2019-10-03"
 path: "/projects/dev-con-2019"
 skills: ["GatsbyJS", "Redux"]
 type: "Project"
-coverimg: "./stats.png"
+coverimg: "./hero.png"
 ---
 
 <div class="row pad-10-b">

@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
 
 export default ({
   data, // this prop will be injected by the GraphQL query below.
@@ -19,14 +20,17 @@ export default ({
             </Link>
           </div>
           <div className="col-xs-12 pad-10-lr">
-            <h1 className="is-hero-menu is-pink-always margin-1-t margin-5-b">
+            <h1 className="is-hero-menu is-blue margin-1-t margin-5-b">
               {frontmatter.title}
             </h1>
-            {/* <Img fluid={frontmatter.coverimg.childImageSharp.fluid} /> */}
             <h6 className="is-hero-sub-text margin-3-b">{frontmatter.desc}</h6>
-            <div className="line margin-5-tb" />
+            <Img
+              fluid={frontmatter.coverimg.childImageSharp.fluid}
+              style={{ maxHeight: 250 }}
+            />
+
             <div
-              className={`${html ? "pad-20-b lato article" : ""}`}
+              className={`margin-5-t ${html ? "pad-20-b  lato article" : ""}`}
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </div>
