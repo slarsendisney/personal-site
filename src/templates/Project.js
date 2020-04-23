@@ -11,7 +11,11 @@ export default ({
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
-      <SEO title={frontmatter.title} description={frontmatter.desc} />
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.desc}
+        image={frontmatter.coverimg.childImageSharp.fluid.src}
+      />
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t pad-20-b ">
           <div className="col-xs-12 pad-10-lr">
