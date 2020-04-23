@@ -14,7 +14,9 @@ export default ({
       <SEO
         title={frontmatter.title}
         description={frontmatter.desc}
-        image={frontmatter.coverimg.childImageSharp.fluid.src}
+        image={
+          "https://sld.codes" + frontmatter.coverimg.childImageSharp.fluid.src
+        }
       />
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t pad-20-b ">

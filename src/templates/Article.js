@@ -7,9 +7,16 @@ import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
 export default ({ data, location }) => {
   const { feedMediumBlog } = data
   const { title, content, pubDate, fields } = feedMediumBlog
+
+  let imgSrcRegex = /src\s*=\s*"(.+?)"/
+  const found = content.encoded.match(imgSrcRegex)
   return (
     <Layout>
-      <SEO title={title} description={fields.excerpt} />
+      <SEO
+        title={title}
+        description={fields.excerpt}
+        image={found ? found[1] : undefined}
+      />
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t ">
           <div className="col-xs-12 pad-5-lr">
