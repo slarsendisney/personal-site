@@ -29,7 +29,8 @@ function SEO({ description, lang, meta, title, image }) {
 
   const url = "https://sld.codes"
 
-  const metaImage = image || "https://ik.imagekit.io/sld/Logo__ok8RRhzzg3.png"
+  const metaImage =
+    url + image || "https://ik.imagekit.io/sld/Logo__ok8RRhzzg3.png"
 
   return (
     <Helmet>
