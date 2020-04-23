@@ -45,18 +45,16 @@ export default function Start({ data }) {
   return (
     <Layout>
       <SEO title="Boilerplates" />
-      <div className="is-white is-pink-bg">
+      <div className="is-white is-light-grey-bg">
         <div className="row container-small pad-20-t">
           <div className="col-xs-12 col-md-6 pad-10-l">
-            <h1 className="is-hero-menu is-white-always margin-0">
-              Boilerplates
-            </h1>
-            <div className="line margin-10-t margin-10-b is-white-always" />
+            <h1 className="is-hero-menu is-grey margin-0">Boilerplates</h1>
+            <div className="line margin-10-t is-grey" />
             <div className="border" />
           </div>
         </div>
       </div>
-      <div className="is-grey is-white-bg">
+      <div className="is-light-grey-bg is-grey">
         <div className="row container-small pad-10-t pad-20-b">
           <div className="col-xs-12 pad-10-l pad-10-r">
             <h2 className="">GatsbyJS Boilerplates</h2>
