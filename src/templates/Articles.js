@@ -26,6 +26,27 @@ export const Article = ({ title, pubDate, slug, hero_img, excerpt }) => (
     </div>
   </Link>
 )
+export const ArticlePreview = ({ title, pubDate, slug, hero_img, excerpt }) => (
+  <Link to={"/" + slug} className="link" id="path">
+    <div className="grow row margin-5-b">
+      <div className="col-xs-12  margin-5-t ">
+        <img
+          src={hero_img}
+          className="shadow"
+          style={{ width: "100%", height: 250, objectFit: "cover" }}
+        />
+      </div>
+      <div className="col-xs-12  margin-5-t">
+        <h1 className="margin-0 is-dark-blue">{title}</h1>
+        <p className="margin-0 margin-2-b is-dark-blue">
+          {format(new Date(pubDate), "iii, dd MMM yyyy")}
+        </p>
+
+        <p className="margin-0 is-dark-blue">{excerpt}</p>
+      </div>
+    </div>
+  </Link>
+)
 const LegacyArticle = ({ title, path, date }) => (
   <Link to={path} className="link margin-15-b" id="path">
     <div className="grow row">

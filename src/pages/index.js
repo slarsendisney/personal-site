@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { ProjectPreview } from "../templates/Projects"
-import { Article } from "../templates/Articles"
+import { ArticlePreview } from "../templates/Articles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RecentEvents from "../components/RecentEvents"
@@ -72,11 +72,17 @@ export default function Start({ data }) {
           <div className="col-xs-12">
             <h2 className="">Recent Articles</h2>
           </div>
-          <div className="col-xs-12 ">
-            <Article {...featuredArticleOne} {...featuredArticleOne.fields} />
+          <div className="col-xs-12 col-md-6">
+            <ArticlePreview
+              {...featuredArticleOne}
+              {...featuredArticleOne.fields}
+            />
           </div>
-          <div className="col-xs-12  ">
-            <Article {...featuredArticleTwo} {...featuredArticleTwo.fields} />
+          <div className="col-xs-12 col-md-6 ">
+            <ArticlePreview
+              {...featuredArticleTwo}
+              {...featuredArticleTwo.fields}
+            />
           </div>
         </div>
       </div>
