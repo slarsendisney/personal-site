@@ -5,16 +5,23 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
 
-export const Article = ({ title, pubDate, link }) => (
-  <Link to={"/" + link} className="link margin-20-b" id="path">
-    <div className="grow row">
-      <div className="col-xs-12">
-        <h1 className="margin-2-b margin-0-t is-dark-blue">{title}</h1>
+export const Article = ({ title, pubDate, link, hero_img, excerpt }) => (
+  <Link to={"/" + link} className="link" id="path">
+    <div className="grow row margin-5-b">
+      <div className="col-xs-12 col-md-6 margin-5-t ">
+        <img
+          src={hero_img}
+          className="shadow"
+          style={{ width: "100%", height: 250, objectFit: "cover" }}
+        />
       </div>
-      <div className="col-xs-12">
-        <h3 className="margin-0-t margin-7-b">
+      <div className="col-xs-12 col-md-6 margin-5-t">
+        <h1 className="margin-0 is-dark-blue">{title}</h1>
+        <p className="margin-0 margin-2-b is-dark-blue">
           {format(new Date(pubDate), "iii, dd MMM yyyy")}
-        </h3>
+        </p>
+
+        <p className="margin-0 is-dark-blue">{excerpt}</p>
       </div>
     </div>
   </Link>
@@ -43,7 +50,7 @@ export default ({ data }) => {
         title="Articles"
         description="✍️ I Write Occasionally. I hope you find something useful!"
       />
-      <div className="is-grey is-light-grey-bg pad-10-tb pad-5-lr">
+      <div className="is-grey is-light-grey-bg pad-10-tb pad-3-lr">
         <div className="row container ">
           <div className="col-xs-12 ">
             <h1 className="is-hero-menu margin-0-t">I Write Occasionally.</h1>
@@ -55,11 +62,7 @@ export default ({ data }) => {
           </div>
           <div className="col-xs-12 col-md-10">
             {nodes.map(item => (
-              <Article
-                {...item}
-                link={item.fields.slug}
-                key={item.fields.slug}
-              />
+              <Article {...item} {...item.fields} key={item.fields.slug} />
             ))}
           </div>
           <div className="col-xs-12 margin-5-t">
@@ -90,6 +93,8 @@ export const pageQuery = graphql`
       nodes {
         fields {
           slug
+          hero_img
+          excerpt
         }
         pubDate
         title

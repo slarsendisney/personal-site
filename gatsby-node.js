@@ -138,5 +138,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         node.content.encoded.replace(/<[^>]*>?/gm, "").substring(0, 150) +
         "...",
     })
+    createNodeField({
+      node,
+      name: "hero-img",
+      value: node.content.encoded.match(/src\s*=\s*"(.+?)"/)[1],
+    })
   }
 }

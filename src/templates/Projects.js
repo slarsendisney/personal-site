@@ -16,7 +16,6 @@ export const ProjectPreview = ({ title, desc, path, coverimg, skills }) => (
             className="shadow"
             style={{ maxHeight: 250 }}
           />
-          <div></div>
         </div>
         <div className="col-xs-12 pad-6-t">
           <h1 className="margin-3-b margin-0-t">{title}</h1>
@@ -32,7 +31,7 @@ export const Project = ({ title, desc, path, coverimg, skills }) => (
   <div className="pad-5-b">
     <Link to={path} className="link " id="path">
       <div className="grow row">
-        <div className="col-xs-12 col-md-6 pad-2-t ">
+        <div className="col-xs-12 col-md-6 ">
           <Img
             fluid={coverimg.childImageSharp.fluid}
             className="shadow"
@@ -40,7 +39,7 @@ export const Project = ({ title, desc, path, coverimg, skills }) => (
           />
           <div></div>
         </div>
-        <div className="col-xs-12 col-md-6 pad-2-t">
+        <div className="col-xs-12 col-md-6">
           <h1 className="margin-3-b margin-0-t">{title}</h1>
           <h3 className="margin-0-t">{desc}</h3>
 
@@ -59,10 +58,10 @@ export default ({
   return (
     <Layout>
       <SEO title={"Projects"} />
-      <div className="is-grey is-light-grey-bg pad-10">
+      <div className="is-grey is-light-grey-bg pad-3-lr">
         <div className="row container ">
           <div className="col-xs-12 ">
-            <h1 className="is-hero-menu margin-0-t">Projects</h1>
+            <h1 className="is-hero-menu margin-10-t">Projects</h1>
             <div className="line margin-3-t margin-10-b" />
           </div>
 

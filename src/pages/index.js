@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { ProjectPreview } from "../templates/Projects"
+import { Article } from "../templates/Articles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RecentEvents from "../components/RecentEvents"
@@ -14,7 +15,10 @@ import EmploymentHistory from "../data/timeline.json"
 export default function Start({ data }) {
   const featuredProjectOne = data.Projects.edges[0].node.frontmatter
   const featuredProjectTwo = data.Projects.edges[1].node.frontmatter
+  const featuredArticleOne = data.Articles.edges[0].node
+  const featuredArticleTwo = data.Articles.edges[1].node
   const currentJob = EmploymentHistory[0]
+  console.log(data)
   return (
     <Layout>
       <SEO title="Home" />
@@ -50,7 +54,7 @@ export default function Start({ data }) {
         </div>
       </div>
       <div className="is-grey is-white-bg">
-        <div className="row container-small pad-10-t pad-20-b pad-5-lr">
+        <div className="row container-small pad-10-t  pad-3-lr pad-20-b">
           <div className="col-xs-12">
             <h2 className="">Latest Projects</h2>
           </div>
@@ -64,6 +68,19 @@ export default function Start({ data }) {
         </div>
       </div>
       <div className="is-grey is-light-grey-bg">
+        <div className="row container-small pad-10-t pad-3-lr pad-20-b">
+          <div className="col-xs-12">
+            <h2 className="">Recent Articles</h2>
+          </div>
+          <div className="col-xs-12 ">
+            <Article {...featuredArticleOne} {...featuredArticleOne.fields} />
+          </div>
+          <div className="col-xs-12  ">
+            <Article {...featuredArticleTwo} {...featuredArticleTwo.fields} />
+          </div>
+        </div>
+      </div>
+      <div className="is-grey is-white-bg">
         <div className="row container-small pad-10-t pad-20-b">
           <div className="pad-10-lr">
             <h2 className="margin-0-b">Recent Events</h2>
@@ -71,14 +88,12 @@ export default function Start({ data }) {
           <RecentEvents />
         </div>
       </div>
-      <div className="is-grey is-pink-bg">
+      <div className="is-grey is-light-grey-bg">
         <div className="row container-small pad-20-tb">
           <div className="col-xs-12 text-align-center">
             <div className="row">
               <div className="col-xs-12">
-                <h1 className="is-white-always">
-                  For The People Who Prefer Paper
-                </h1>
+                <h1 className="is-grey">For The People Who Prefer Paper</h1>
               </div>
               <div className="col-xs-12">
                 <AniLink paintDrip hex="#ffffff" to="/cv">
@@ -104,20 +119,19 @@ export default function Start({ data }) {
 
 export const query = graphql`
   {
-    Articles: allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "Article" } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
+    Articles: allFeedMediumBlog(
+      sort: { order: DESC, fields: [isoDate] }
       limit: 2
     ) {
       edges {
         node {
-          frontmatter {
-            type
-            title
-            desc
-            path
+          fields {
+            hero_img
+            excerpt
+            slug
           }
-          timeToRead
+          title
+          pubDate
         }
       }
     }
