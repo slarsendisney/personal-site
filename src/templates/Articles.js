@@ -5,8 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
 
-export const Article = ({ title, pubDate, link, hero_img, excerpt }) => (
-  <Link to={"/" + link} className="link" id="path">
+export const Article = ({ title, pubDate, slug, hero_img, excerpt }) => (
+  <Link to={"/" + slug} className="link" id="path">
     <div className="grow row margin-5-b">
       <div className="col-xs-12 col-md-6 margin-5-t ">
         <img
