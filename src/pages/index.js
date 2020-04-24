@@ -94,8 +94,24 @@ export default function Start({ data }) {
           <RecentEvents />
         </div>
       </div>
-      <div className="is-grey is-light-grey-bg">
-        <div className="row container-small pad-20-tb">
+      <div
+        className="is-grey is-light-grey-bg"
+        style={{ position: "relative" }}
+      >
+        <img
+          src="https://ik.imagekit.io/sld/Untitled_Artwork_9_oDFR_CBToKE.gif"
+          style={{
+            width: "100%",
+            maxHeight: "100%",
+            objectFit: "cover",
+            position: "absolute",
+            zIndex: 0,
+          }}
+        />
+        <div
+          className="row container-small pad-20-tb"
+          style={{ position: "relative", zIndex: 5 }}
+        >
           <div className="col-xs-12 text-align-center">
             <div className="row">
               <div className="col-xs-12">
