@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import useDarkMode from "use-dark-mode"
 import { ProjectPreview } from "../templates/Projects"
 import { ArticlePreview } from "../templates/Articles"
 import Layout from "../components/layout"
@@ -18,6 +19,7 @@ export default function Start({ data }) {
   const featuredArticleOne = data.Articles.edges[0].node
   const featuredArticleTwo = data.Articles.edges[1].node
   const currentJob = EmploymentHistory[0]
+  const darkMode = useDarkMode()
   console.log(data)
   return (
     <Layout>
@@ -99,7 +101,11 @@ export default function Start({ data }) {
         style={{ position: "relative" }}
       >
         <img
-          src="https://ik.imagekit.io/sld/Untitled_Artwork_9_oDFR_CBToKE.gif"
+          src={
+            !darkMode.value
+              ? "https://ik.imagekit.io/sld/Untitled_Artwork_9_oDFR_CBToKE.gif"
+              : "https://ik.imagekit.io/sld/Untitled_Artwork_10_46sRVmnPyiG.gif"
+          }
           style={{
             width: "100%",
             maxHeight: "100%",
@@ -108,6 +114,7 @@ export default function Start({ data }) {
             zIndex: 0,
           }}
         />
+
         <div
           className="row container-small pad-20-tb"
           style={{ position: "relative", zIndex: 5 }}
