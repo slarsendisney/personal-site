@@ -8,8 +8,8 @@ export default ({ label, desc, url }) => {
       <div className=" ">
         <OutboundLink
           href={url}
-          target="_blank"
-          rel="noopener noreferrer"
+          // target="_blank"
+          // rel="noopener noreferrer"
           className="margin-15-b"
           id="path"
         >
