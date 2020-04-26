@@ -3,7 +3,7 @@ type: "BIO"
 ---
 
 
-### I studied  a Bachelors in Computer Science at [King's College London](https://www.kcl.ac.uk/). During my time there I taught an AI to play pacman and built a visual search engine that attempted to combat fake news. I found university frustrating as most of the things I learned were theoretical. I always like the work I do to provide value and it was because of this that I could not wait to join the world of work. As soon as I was able to, I applied for summer internships.
+### I studied  a Bachelors in Computer Science at King's College London. During my time there I taught an AI to play pacman and built a visual search engine that attempted to combat fake news. I found university frustrating as most of the things I learned were theoretical. I always like the work I do to provide value and it was because of this that I could not wait to join the world of work. As soon as I was able to, I applied for summer internships.
 
 ### I joined American Express on their technology summer internship in 2017. During the ten weeks as a Software Engineer at American Express I worked within an agile team delivering an internal data visualisation tool. The summer strengthened my competency in the Elastic Stack and Java. The company culture was really good and, when they offered me a graduate position, I did not hesitate to say "yes!".
 
