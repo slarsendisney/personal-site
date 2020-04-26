@@ -2,9 +2,6 @@
 type: "BIO"
 ---
 
-### When I was 15 I *borrowed* three broken computers from a skip outside my school. I took them home, opened them up and managed to make a working computer out of the three that were broken. 
-
-### Tinkering with computers and software has always given me great joy but I had never considered it as a career. No, when I was 15 I wanted nothing more than to be an *Civil Engineer*. I completed work experience with [Mott MacDonald](https://www.mottmac.com/) and [Buro Happold](https://www.burohappold.com/). In both cases I was enjoying my interaction with the software I was using, more than the work itself. Maybe software development was for me?
 
 ### I studied  a Bachelors in Computer Science at [King's College London](https://www.kcl.ac.uk/). During my time there I taught an AI to play pacman and built a visual search engine that attempted to combat fake news. I found university frustrating as most of the things I learned were theoretical. I always like the work I do to provide value and it was because of this that I could not wait to join the world of work. As soon as I was able to, I applied for summer internships.
 

@@ -62,12 +62,12 @@ export default function Bio({ data }) {
       </div>
 
       <div className="row container ">
-        <div className="col-xs-12 pad-5-lr pad-10-b">
+        <div className="col-xs-12 pad-2-lr pad-10-b">
           <h1 className="is-hero-sub-menu is-grey margin-0">
             The Long Version
           </h1>
           <div
-            className="margin-5-t pad-10 is-white-bg is-grey border-radius"
+            className="margin-5-t pad-5 is-white-bg is-grey border-radius"
             dangerouslySetInnerHTML={{
               __html: data.allMarkdownRemark.edges[0].node.html,
             }}
