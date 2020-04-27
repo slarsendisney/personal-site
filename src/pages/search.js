@@ -54,8 +54,8 @@ export class Search extends Component {
           onChange={this.search}
         />
         <div className="row margin-3-t">
-          {this.state.results.map(page => {
-            const colour = types.find(item => item.type === page.type) || {
+          {this.state.results.map((page) => {
+            const colour = types.find((item) => item.type === page.type) || {
               bg: "special-blue",
             }
             return (
@@ -74,7 +74,7 @@ export class Search extends Component {
             this.state.query === "carlota") && (
             <>
               <div className="col-xs-12 ">
-                <h1 className="is-hero-menu is-pink text-align-center">
+                <h1 className="is-hero-menu is-pink-always text-align-center">
                   Love you ❤️
                 </h1>
               </div>
@@ -108,7 +108,7 @@ export class Search extends Component {
   getOrCreateIndex = () =>
     this.index ? this.index : Index.load(this.props.searchIndex)
 
-  search = evt => {
+  search = (evt) => {
     const query = evt.target.value
     this.index = this.getOrCreateIndex()
     this.setState({
@@ -136,7 +136,9 @@ export default () => {
                 }
               }
             `}
-            render={data => <Search searchIndex={data.siteSearchIndex.index} />}
+            render={(data) => (
+              <Search searchIndex={data.siteSearchIndex.index} />
+            )}
           />
         </div>
       </div>
