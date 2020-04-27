@@ -98,7 +98,9 @@ export class Search extends Component {
             (this.state.query !== "Carlota" ||
               this.state.query === "carlota") && (
               <div className="col-xs-12 ">
-                <h4>No results found matching that search term.</h4>
+                <h4 className="is-black">
+                  No results found matching that search term.
+                </h4>
               </div>
             )}
         </div>
