@@ -92,3 +92,9 @@
   height:  calc(100vh);
   pointer-events: none;
 }
+
+.animated-expansion{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 3s ease-out;
+}

@@ -16,7 +16,7 @@ export default function Bio({ data }) {
           </div>
         </div>
       </div>
-      <div className="pad-10-t pad-10-b is-pink-bg-always">
+      <div className="pad-10-t pad-10-b is-special-blue-bg-always">
         <div className="row container ">
           <div className="col-xs-12 text-align-center pad-5-lr">
             <Img

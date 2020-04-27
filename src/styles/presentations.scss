@@ -1,0 +1,43 @@
+
+.pres-layout {
+    padding-left:7vw;
+    padding-right:7vw;
+   
+    h1 {
+      font-weight: bold;
+      font-family: Lato;
+      margin-top: 0.37em;
+      margin-bottom: 0.37em;
+    }
+    h4 {
+      margin-top: 0.37em;
+      margin-bottom: 0.37em;
+    }
+  }
+  
+  .info-tooltip{
+  
+    font-family: Lato;
+  }
+  .pres-image{
+    border-top-right-radius: 15;
+    border-top-left-radius: 15;
+  }
+
+  .btn-sm {
+    margin: 10px;
+    color: white;
+    max-width: 250px;
+    padding:5px;
+    text-align: center;
+    font-family: Lato;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+  }
+  .btn-sm:hover {
+    color:  #fff;
+    background-color: #614fd0;
+    cursor: pointer;
+  }
+  

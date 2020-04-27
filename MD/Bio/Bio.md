@@ -1,5 +1,7 @@
 ---
 type: "BIO"
+title: "About Me"
+path: "/bio"
 ---
 
 

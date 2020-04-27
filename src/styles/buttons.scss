@@ -84,7 +84,7 @@ input[type='reset'] {
   height: 1em;
   border-radius: 50%;
   @extend .is-dark-blue;
-  @extend .is-white-bg;
+  @extend .is-blue-bg;
   transform-origin: center;
   transform: translate3d(50%, 50%, 0) scale3d(0, 0, 0);
   transition: transform 0.45s ease-in-out;
@@ -92,7 +92,7 @@ input[type='reset'] {
 
 .bubble-button:hover {
   cursor: pointer;
-  @extend .is-dark-blue;
+  @extend .is-white;
   outline-style: solid;
   outline-width: 3px;
 }
@@ -134,4 +134,23 @@ input[type='reset'] {
 .link-bar:hover::after {
   transform-origin: center right;
   transform: scaleX(1);
+}
+
+
+
+.btn-sm {
+  margin: 10px;
+  color: white;
+  max-width: 250px;
+  padding:5px;
+  text-align: center;
+  font-family: Lato;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+}
+.btn-sm:hover {
+  color:  #fff;
+  background-color: #614fd0;
+  cursor: pointer;
 }

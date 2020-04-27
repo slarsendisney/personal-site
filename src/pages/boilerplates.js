@@ -71,7 +71,7 @@ export default function Start({ data }) {
 export const query = graphql`
   {
     allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "BOILERPLATE" } } }
+      filter: { frontmatter: { type: { eq: "Boilerplate" } } }
       limit: 1000
     ) {
       edges {
