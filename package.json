@@ -75,6 +75,7 @@
     "react-slick": "^0.25.2",
     "react-smooth-collapse": "^2.1.0",
     "react-to-pdf": "0.0.11",
+    "react-tooltip": "^4.2.5",
     "react-vertical-timeline-component": "^2.6.0",
     "react-visibility-sensor": "^5.1.1",
     "sass-flex-mixin": "^1.0.3",
