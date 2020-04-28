@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Poster from "../components/poster"
+import Poster from "../components/Runs/poster"
 
 export default ({ data }) => {
   const [index, setIndex] = useState(0)
@@ -11,7 +11,7 @@ export default ({ data }) => {
     (a, b) => new Date(b.node.start_epoch_ms) - new Date(a.node.start_epoch_ms)
   )
   const handleArrows = useCallback(
-    event => {
+    (event) => {
       if (event.keyCode === 37) {
         if (index > 0) {
           setIndex(index - 1)

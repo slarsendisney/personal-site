@@ -1,10 +1,10 @@
 import React from "react"
 import Lottie from "react-lottie"
-import data from "../data/hearts.json"
+import data from "../../data/confetti.json"
 
 export default () => {
   const defaultOptions = {
-    loop: true,
+    loop: false,
     autoplay: true,
     animationData: data,
     rendererSettings: {
@@ -13,7 +13,7 @@ export default () => {
   }
 
   return (
-    <span>
+    <span title="Home">
       <Lottie
         isClickToPauseDisabled={true}
         options={defaultOptions}

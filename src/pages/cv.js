@@ -12,7 +12,7 @@ import code from "../images/cv_icons/code.svg"
 import tools from "../images/cv_icons/tools.svg"
 import school from "../images/cv_icons/school.svg"
 import interests from "../images/cv_icons/interests.svg"
-import { styles } from "../components/cvStyles"
+import { styles } from "../components/CV/cvStyles"
 
 export default class extends React.Component {
   pdfExportComponent
@@ -56,7 +56,7 @@ export default class extends React.Component {
               scale={0.75}
               paperSize="A4"
               margin="0cm"
-              ref={component => (this.pdfExportComponent = component)}
+              ref={(component) => (this.pdfExportComponent = component)}
               fileName="CV-SamuelLarsen-Disney"
             >
               <div
@@ -111,7 +111,7 @@ export default class extends React.Component {
                       TECHNICAL SKILLS
                     </h5>
                     <div className="row">
-                      {CodeSkills.map(skill => (
+                      {CodeSkills.map((skill) => (
                         <div className="col-xs-6 pad-0">
                           <p className="body-text2 margin-0 margin-1-b">
                             {skill}
@@ -129,7 +129,7 @@ export default class extends React.Component {
                       DESIGN EXPERTISE
                     </h5>
                     <div className="row">
-                      {DesignSkills.map(skill => (
+                      {DesignSkills.map((skill) => (
                         <div className="col-xs-12 pad-0">
                           <p className="body-text2 margin-0 margin-1-b">
                             {skill}
@@ -147,7 +147,7 @@ export default class extends React.Component {
                       DESIGN TOOLS
                     </h5>
                     <div className="row">
-                      {DesignTools.map(skill => (
+                      {DesignTools.map((skill) => (
                         <div className="col-xs-6 pad-0">
                           <p className="body-text2 margin-0 margin-1-b">
                             {skill}
@@ -164,7 +164,7 @@ export default class extends React.Component {
                       />
                       EDUCATION
                     </h5>
-                    {education.map(item => (
+                    {education.map((item) => (
                       <div className="margin-3-b">
                         <h4 className="margin-0 margin-1-t">{`${item.type} - ${item.location}`}</h4>
                         <p className="body-text margin-0 margin-1-t">{}</p>
@@ -215,7 +215,7 @@ export default class extends React.Component {
                           {`${item.company}, ${item.location} | ${item.date}`}
                         </h5>
 
-                        {item.longDesc.map(desc => (
+                        {item.longDesc.map((desc) => (
                           <div style={{ display: "flex" }}>
                             <p className="body-text margin-0 margin-1-r">{`-`}</p>
                             <p className="body-text margin-0">{desc}</p>

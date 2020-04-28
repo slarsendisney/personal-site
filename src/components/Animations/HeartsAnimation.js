@@ -1,25 +1,23 @@
 import React from "react"
 import Lottie from "react-lottie"
-import data from "../data/logo.json"
-import dataDark from "../data/logo-dark.json"
+import data from "../../data/hearts.json"
 
-export default ({ darkMode }) => {
+export default () => {
   const defaultOptions = {
-    loop: false,
+    loop: true,
     autoplay: true,
-    animationData: darkMode ? dataDark : data,
+    animationData: data,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
   }
 
   return (
-    <span title="Home">
+    <span>
       <Lottie
         isClickToPauseDisabled={true}
         options={defaultOptions}
-        width={"51px"}
-        height={"23px"}
+        width={"100%"}
       />
     </span>
   )

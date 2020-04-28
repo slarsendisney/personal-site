@@ -21,43 +21,44 @@ export const Slide = ({ slide, index, preview, frontmatter, ...props }) => {
   }
 
   return (
-    <Context.Provider value={context}>
-      <SEO frontmatter={frontmatter} />
-      <ReactTooltip className="info-tooltip" place="right" />
-      <div
-        {...(!preview ? swipeProps : {})}
-        className="pres-layout light-mode"
-        sx={{
-          boxSizing: "border-box",
-          width: "100%",
-          height: context.mode === modes.print ? "100vh" : "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          overflow: "hidden",
-          position: "relative",
-          color: "text",
-          bg: "background",
-          variant: "styles.Slide",
-        }}
-      >
-        {slide}
-
-        <button
-          style={{ position: "fixed", bottom: 20, right: 30 }}
-          onClick={() => navigate("/presentations")}
-        >
-          <img src={Logo} style={{ height: 20 }} />
-        </button>
+    <>
+      <Context.Provider value={context}>
+        <ReactTooltip className="info-tooltip" place="right" />
         <div
-          style={{ position: "fixed", bottom: 10, left: 20 }}
-          data-tip={`Use arrow keys or swipe to navigate between slides. Press 'esc' or click my logo to exit.`}
+          {...(!preview ? swipeProps : {})}
+          className="pres-layout light-mode"
+          sx={{
+            boxSizing: "border-box",
+            width: "100%",
+            height: context.mode === modes.print ? "100vh" : "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "hidden",
+            position: "relative",
+            color: "text",
+            bg: "background",
+            variant: "styles.Slide",
+          }}
         >
-          <img src={Question} style={{ height: 30 }} />
+          {slide}
+
+          <button
+            style={{ position: "fixed", bottom: 20, right: 30 }}
+            onClick={() => navigate("/presentations")}
+          >
+            <img src={Logo} style={{ height: 20 }} />
+          </button>
+          <div
+            style={{ position: "fixed", bottom: 10, left: 20 }}
+            data-tip={`Use arrow keys or swipe to navigate between slides. Press 'esc' or click my logo to exit.`}
+          >
+            <img src={Question} style={{ height: 30 }} />
+          </div>
         </div>
-      </div>
-    </Context.Provider>
+      </Context.Provider>
+    </>
   )
 }
 

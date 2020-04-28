@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import splitSlides from '../split-slides'
-import Slide from './slide'
-import Zoom from './zoom'
+import { jsx } from "theme-ui"
+import splitSlides from "../split-slides"
+import Slide from "./slide"
+import Zoom from "./zoom"
 
 const wrapper = ({ slide: i, ratio, zoom, ...props }) => {
   const slides = splitSlides(props)

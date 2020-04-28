@@ -1,12 +1,12 @@
 import addToMailchimp from "gatsby-plugin-mailchimp"
 import React, { useState } from "react"
-import ConfettiAnimation from "../ConfettiAnimation"
+import ConfettiAnimation from "../Animations/ConfettiAnimation"
 
 export default () => {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
   const handleSubmit = () => {
-    addToMailchimp(email).then(data => {
+    addToMailchimp(email).then((data) => {
       console.log(data)
       setSubmitted(true)
     })
@@ -50,7 +50,7 @@ export default () => {
               name="email"
               placeholder="Enter your email"
               className="input pad-3-tb "
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="col-xs-12 col-sm-6 flex align-vertical">

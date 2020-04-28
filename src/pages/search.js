@@ -1,11 +1,11 @@
-import React, { Component, useState } from "react"
+import React, { Component } from "react"
 import { StaticQuery, Link } from "gatsby"
 import { graphql } from "gatsby"
 import { Index } from "elasticlunr"
 import { Emojione } from "react-emoji-render"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import HeartsAnimation from "../components/HeartsAnimation"
+import HeartsAnimation from "../components/Animations/HeartsAnimation"
 
 const types = [
   {
@@ -86,7 +86,7 @@ export class Search extends Component {
             <>
               <div className="col-xs-12 ">
                 <h1 className="is-hero-menu is-pink-always text-align-center">
-                  Love you ❤️
+                  Love you <Emojione text="❤️" />
                 </h1>
               </div>
               <div

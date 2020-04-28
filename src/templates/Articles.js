@@ -11,6 +11,7 @@ export const Article = ({ title, pubDate, slug, hero_img, excerpt }) => (
       <div className="col-xs-12 col-md-6 margin-5-t ">
         <img
           src={hero_img}
+          alt="hero-img"
           className="shadow"
           style={{ width: "100%", height: 250, objectFit: "cover" }}
         />
@@ -31,6 +32,7 @@ export const ArticlePreview = ({ title, pubDate, slug, hero_img, excerpt }) => (
     <div className="grow row margin-5-b">
       <div className="col-xs-12  margin-5-t ">
         <img
+          alt="hero-img"
           src={hero_img}
           className="shadow"
           style={{ width: "100%", height: 250, objectFit: "cover" }}
@@ -82,7 +84,7 @@ export default ({ data }) => {
             <h3 className="margin-0-t is-light-blue-always">From Medium:</h3>
           </div>
           <div className="col-xs-12 col-md-10">
-            {nodes.map(item => (
+            {nodes.map((item) => (
               <Article {...item} {...item.fields} key={item.fields.slug} />
             ))}
           </div>
@@ -90,7 +92,7 @@ export default ({ data }) => {
             <h3 className="margin-0-t is-light-blue-always">Legacy Posts:</h3>
           </div>
           <div className="col-xs-12 col-md-10">
-            {edges.map(item => (
+            {edges.map((item) => (
               <LegacyArticle
                 {...item.node.frontmatter}
                 timeToRead={item.node.timeToRead}

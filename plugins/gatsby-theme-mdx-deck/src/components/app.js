@@ -1,14 +1,14 @@
-import React, { useReducer } from 'react'
-import merge from 'lodash.merge'
-import Context from '../context'
-import { modes } from '../constants'
+import React, { useReducer } from "react"
+import merge from "lodash.merge"
+import Context from "../context"
+import { modes } from "../constants"
 
 const reducer = (state, next) =>
-  typeof next === 'function'
+  typeof next === "function"
     ? merge({}, state, next(state))
     : merge({}, state, next)
 
-export default props => {
+export default (props) => {
   const [state, setState] = useReducer(reducer, {
     mode: modes.normal,
     step: 0,

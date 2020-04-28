@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Deck from "../components/deck"
 import splitSlides from "../split-slides"
+import SEO from "../components/seo"
 
 export const pageQuery = graphql`
   query($id: String!) {
@@ -16,7 +17,12 @@ export const pageQuery = graphql`
 
 const wrapper = (props) => {
   const slides = splitSlides(props)
-  return <Deck {...props} slides={slides} />
+  return (
+    <>
+      <SEO frontmatter={props._frontmatter} />
+      <Deck {...props} slides={slides} />
+    </>
+  )
 }
 
 const components = {
@@ -29,7 +35,14 @@ export default ({
   },
   ...props
 }) => {
-  const Component = (props) => <MDXRenderer {...props} children={body} />
-
-  return <Component {...props} components={components} />
+  const Component = (props) => (
+    <>
+      <MDXRenderer {...props} children={body} />
+    </>
+  )
+  return (
+    <>
+      <Component {...props} components={components} />
+    </>
+  )
 }

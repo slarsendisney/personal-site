@@ -4,11 +4,11 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component"
 import "react-vertical-timeline-component/style.min.css"
-import events from "../data/timeline.json"
+import events from "../../data/timeline.json"
 
 export default () => (
   <VerticalTimeline>
-    {events.map(item => (
+    {events.map((item) => (
       <VerticalTimelineElement
         className="vertical-timeline-element--work lato is-black"
         date={item.date.toUpperCase()}

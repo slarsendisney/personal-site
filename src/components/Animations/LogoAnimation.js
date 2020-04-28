@@ -1,12 +1,13 @@
 import React from "react"
 import Lottie from "react-lottie"
-import data from "../data/confetti.json"
+import data from "../../data/logo.json"
+import dataDark from "../../data/logo-dark.json"
 
-export default () => {
+export default ({ darkMode }) => {
   const defaultOptions = {
     loop: false,
     autoplay: true,
-    animationData: data,
+    animationData: darkMode ? dataDark : data,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -17,7 +18,8 @@ export default () => {
       <Lottie
         isClickToPauseDisabled={true}
         options={defaultOptions}
-        width={"100%"}
+        width={"51px"}
+        height={"23px"}
       />
     </span>
   )

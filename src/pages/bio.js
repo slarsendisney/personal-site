@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Timeline from "../components/Timeline"
+import Timeline from "../components/Bio/Timeline"
 export default function Bio({ data }) {
   return (
     <Layout>

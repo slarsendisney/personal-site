@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import React, { useEffect, useRef } from 'react'
-import Zoom from './zoom'
-import Slide from './slide'
-import useDeck from '../hooks/use-deck'
+import { jsx } from "theme-ui"
+import React, { useEffect, useRef } from "react"
+import Zoom from "./zoom"
+import Slide from "./slide"
+import useDeck from "../hooks/use-deck"
 
 const noop = () => {}
 
@@ -20,7 +20,7 @@ export const SlideList = ({
   useEffect(() => {
     const el = thumb.current
     if (!el) return
-    if (typeof el.scrollIntoViewIfNeeded === 'function') {
+    if (typeof el.scrollIntoViewIfNeeded === "function") {
       el.scrollIntoViewIfNeeded()
     }
   })
@@ -33,22 +33,23 @@ export const SlideList = ({
           key={i}
           role="link"
           ref={i === index ? thumb : null}
-          onClick={e => {
+          onClick={(e) => {
             onClick(i)
           }}
           style={
             index === i
               ? {
-                  position: 'relative',
+                  position: "relative",
                   zIndex: 1,
                 }
               : null
           }
           sx={{
             m: 2,
-            cursor: 'pointer',
+            cursor: "pointer",
             outline: index === i ? `4px solid cyan` : null,
-          }}>
+          }}
+        >
           <Zoom zoom={zoom} ratio={ratio}>
             <Slide slide={slide} preview />
           </Zoom>

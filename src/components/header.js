@@ -2,13 +2,14 @@
 
 import { Link } from "gatsby"
 import React, { useRef, useEffect, useState } from "react"
+import { Emojione } from "react-emoji-render"
 import useDarkMode from "use-dark-mode"
 import Logo from "../images/Logo.svg"
 import LogoDark from "../images/Logo-dark.svg"
-import LogoAnimation from "./LogoAnimation"
+import LogoAnimation from "./Animations/LogoAnimation"
 import SmoothCollapse from "react-smooth-collapse"
 import sections from "../data/nav-sections.json"
-import { NavLinkSmall } from "./RootComponents/NavLink"
+import { NavLinkSmall } from "./Root/NavLink"
 
 function useOutsideAlerter(ref, fn) {
   useEffect(() => {
@@ -21,7 +22,7 @@ function useOutsideAlerter(ref, fn) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [ref])
+  }, [ref, fn])
 }
 
 export default ({ location }) => {
@@ -117,7 +118,7 @@ export default ({ location }) => {
                     }}
                   >
                     <h3 className="margin-3-b margin-0-t link-bar pad-1-b  special-header-text">
-                      ☀️ Light Mode
+                      <Emojione text="☀️" /> Light Mode
                     </h3>
                   </button>
                 ) : (
@@ -130,7 +131,7 @@ export default ({ location }) => {
                     }}
                   >
                     <h3 className="margin-3-b margin-0-t link-bar pad-1-b  special-header-text">
-                      🌙 Dark Mode
+                      <Emojione text="🌙" /> Dark Mode
                     </h3>
                   </button>
                 )}

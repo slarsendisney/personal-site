@@ -52,15 +52,6 @@ const getIndex = () => {
   return index
 }
 
-const GoogleFont = ({ theme }) => {
-  if (!theme.googleFont) return false
-  return (
-    <Helmet>
-      <link rel="stylesheet" href={theme.googleFont} />
-    </Helmet>
-  )
-}
-
 const mergeThemes = (...themes) =>
   themes.reduce(
     (acc, theme) =>
@@ -112,7 +103,6 @@ export default ({
 
   return (
     <>
-      <GoogleFont theme={mergedTheme} />
       <Context.Provider value={context}>
         <ThemeProvider components={components} theme={mergedTheme}>
           <Global
@@ -124,6 +114,7 @@ export default ({
           />
           <Keyboard />
           <Storage />
+
           <Wrapper>
             <Mode slides={slides}>
               <Router

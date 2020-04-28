@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { navigate } from "gatsby"
-import Animation from "../components/animation"
+import Animation from "../components/Animations/animation"
 import SEO from "../components/seo"
 
 export default () => {

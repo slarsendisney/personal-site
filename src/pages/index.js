@@ -6,11 +6,11 @@ import { ProjectPreview } from "../templates/Projects"
 import { ArticlePreview } from "../templates/Articles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import RecentEvents from "../components/RecentEvents"
+import RecentEvents from "../components/Root/RecentEvents"
 import sections from "../data/nav-sections.json"
 import mediaLinks from "../data/media-links.json"
-import NavLink from "../components/RootComponents/NavLink"
-import MediaLink from "../components/RootComponents/MediaLink"
+import NavLink from "../components/Root/NavLink"
+import MediaLink from "../components/Root/MediaLink"
 import EmploymentHistory from "../data/timeline.json"
 
 export default function Start({ data }) {
@@ -103,6 +103,7 @@ export default function Start({ data }) {
         style={{ position: "relative" }}
       >
         <img
+          alt="planes"
           src={
             !darkMode.value
               ? "https://ik.imagekit.io/sld/Untitled_Artwork_9_oDFR_CBToKE.gif"
