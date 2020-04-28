@@ -32,6 +32,11 @@ const types = [
     bg: "red",
     text: "white",
   },
+  {
+    type: "Page",
+    bg: "blue",
+    text: "white",
+  },
 ]
 
 export class Search extends Component {
@@ -60,7 +65,7 @@ export class Search extends Component {
             }
             return (
               <div className="col-xs-12 margin-5-b grow" key={page.id}>
-                <Link to={"/" + page.path} className="is-grey">
+                <Link to={page.path} className="is-grey">
                   <h2 className="margin-0">{page.title}</h2>
                   <p className="margin-1-tb">{page.desc}</p>
                   <p className={`margin-0 is-${colour.bg}-always`}>

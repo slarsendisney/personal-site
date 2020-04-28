@@ -39,6 +39,8 @@ export const styles = `
       font-weight: bold;
     }
     
+    
+    
     h3 {
       display: block;
       font-size: 1.57em;
@@ -48,7 +50,18 @@ export const styles = `
       margin-right: 0;
       font-weight: bold;
     }
-    
+    .special-header-text {
+     
+        display: block;
+        font-family: Lato;
+        font-size: 1.17em;
+        font-weight: bold;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 1em;
+      
+    }
     h4 {
       display: block;
       font-size: 1.1em;

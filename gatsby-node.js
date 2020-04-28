@@ -1,6 +1,15 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const NavSections = require("./src/data/nav-sections.json")
 
+const importantURls = [
+  ...NavSections,
+  {
+    label: "📄 CV",
+    type: "CV",
+    url: "/cv",
+  },
+]
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
@@ -94,13 +103,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  mediumPosts.data.allFeedMediumBlog.nodes.forEach(node => {
-    const slug =
-      "articles/" +
-      node.title
-        .trim()
-        .split(" ")
-        .join("-")
+  mediumPosts.data.allFeedMediumBlog.nodes.forEach((node) => {
+    const slug = "articles/" + node.title.trim().split(" ").join("-")
 
     createPage({
       path: slug,
@@ -109,6 +113,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 }
+
+// exports.onCreatePage = ({ page, actions }) => {
+//   const { createPage, deletePage } = actions
+//   const sitePageRegex = /^\/\w*$/g
+//   const index = importantURls.findIndex((item) => item.url === page.path)
+//   if (sitePageRegex.test(page.path) && index > -1) {
+//     const oldPage = Object.assign({}, page)
+//     page.context.title = importantURls[index].label
+//     page.context.slug = page.path
+//     deletePage(oldPage)
+//     createPage(page)
+//   }
+// }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -124,12 +141,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: `slug`,
-      value:
-        "articles/" +
-        node.title
-          .trim()
-          .split(" ")
-          .join("-"),
+      value: "articles/" + node.title.trim().split(" ").join("-"),
     })
     createNodeField({
       node,

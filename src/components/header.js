@@ -44,7 +44,11 @@ export default ({ location }) => {
 
   return (
     // <VisibilitySensor onChange={onChange} partialVisibility={true}>
-    <div className="is-white-bg pad-5" style={{ zIndex: 100 }} ref={wrapperRef}>
+    <div
+      className="is-white-bg pad-5 "
+      style={{ zIndex: 100 }}
+      ref={wrapperRef}
+    >
       <div className="row flex padding-0-tb container-small">
         <div className="col-xs-9 flex">
           <Link
@@ -112,7 +116,7 @@ export default ({ location }) => {
                       delay(darkMode.disable)
                     }}
                   >
-                    <h3 className="margin-3-b margin-0-t link-bar pad-1-b ">
+                    <h3 className="margin-3-b margin-0-t link-bar pad-1-b  special-header-text">
                       ☀️ Light Mode
                     </h3>
                   </button>
@@ -125,7 +129,7 @@ export default ({ location }) => {
                       delay(darkMode.enable)
                     }}
                   >
-                    <h3 className="margin-3-b margin-0-t link-bar pad-1-b ">
+                    <h3 className="margin-3-b margin-0-t link-bar pad-1-b  special-header-text">
                       🌙 Dark Mode
                     </h3>
                   </button>

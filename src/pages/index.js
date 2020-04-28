@@ -43,15 +43,17 @@ export default function Start({ data }) {
               </button>
             </h4>
             <div className="row  pad-6-t pad-10-b  pad-10-b">
-              {mediaLinks.map(item => (
+              {mediaLinks.map((item) => (
                 <MediaLink type={item.type} url={item.url} key={item.type} />
               ))}
             </div>
           </div>
           <div className="col-xs-12 col-sm-6 pad-5-lr pad-10-b">
-            {sections.map(item => (
-              <NavLink {...item} key={item.label} />
-            ))}
+            {sections
+              .filter((item) => item.home)
+              .map((item) => (
+                <NavLink {...item} key={item.label} />
+              ))}
           </div>
         </div>
       </div>

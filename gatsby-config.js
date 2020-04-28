@@ -119,15 +119,14 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/MD`,
+        path: `${__dirname}/src/data/nav-sections.json`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `documents`,
-        path: `${__dirname}/files`,
+        name: `markdown-pages`,
+        path: `${__dirname}/MD`,
       },
     },
     {
@@ -174,23 +173,38 @@ module.exports = {
         fields: [`title`, `desc`],
         resolvers: {
           MarkdownRemark: {
-            title: node => node.frontmatter.title,
-            type: node => node.frontmatter.type,
-            desc: node => node.frontmatter.desc,
-            path: node => node.frontmatter.path,
+            title: (node) => node.frontmatter.title,
+            type: (node) => node.frontmatter.type,
+            desc: (node) => node.frontmatter.desc,
+            path: (node) => node.frontmatter.path,
           },
           FeedMediumBlog: {
-            title: node => node.title,
+            title: (node) => node.title,
             type: () => "Article",
-            desc: node => node.fields.excerpt,
-            path: node => "/" + node.fields.slug,
+            desc: (node) => node.fields.excerpt,
+            path: (node) => "/" + node.fields.slug,
           },
           Mdx: {
-            title: node => node.frontmatter.title,
+            title: (node) => node.frontmatter.title,
             type: () => "Presentation",
-            desc: node => node.frontmatter.desc,
-            path: node => node.frontmatter.path + "/slides",
+            desc: (node) => node.frontmatter.desc,
+            path: (node) => node.frontmatter.path + "/slides",
           },
+          NavSectionsJson: {
+            title: (node) => node.label,
+            type: () => "Page",
+            desc: (node) => node.desc,
+            path: (node) => node.url,
+          },
+        },
+        filter: (node, getNode) => {
+          if (node.frontmatter) {
+            if (node.frontmatter.type === "Q&A") {
+              return false
+            }
+          }
+
+          return true
         },
       },
     },

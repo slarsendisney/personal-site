@@ -13,7 +13,9 @@ export const NavLinkSmall = ({ label, desc, url }) => {
           className="margin-15-b"
           id="path"
         >
-          <h3 className="margin-3-b margin-0-t link-bar pad-1-b">{label}</h3>
+          <h3 className="margin-3-b margin-0-t link-bar pad-1-b special-header-text">
+            {label}
+          </h3>
         </OutboundLink>
       </div>
     )
@@ -23,7 +25,9 @@ export const NavLinkSmall = ({ label, desc, url }) => {
     if (currentLocation) {
       return (
         <div style={{ cursor: "pointer" }}>
-          <h3 className={`margin-3-b margin-0-t pad-1-b is-special-blue`}>
+          <h3
+            className={`margin-3-b margin-0-t pad-1-b is-special-blue  special-header-text`}
+          >
             {label}
           </h3>
         </div>
@@ -32,7 +36,11 @@ export const NavLinkSmall = ({ label, desc, url }) => {
     return (
       <Link to={url} className="margin-15-b" id="path">
         <div className="  ">
-          <h3 className={`margin-3-b margin-0-t link-bar pad-1-b `}>{label}</h3>
+          <h3
+            className={`margin-3-b margin-0-t link-bar pad-1-b  special-header-text`}
+          >
+            {label}
+          </h3>
         </div>
       </Link>
     )

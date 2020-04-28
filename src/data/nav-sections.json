@@ -1,32 +1,65 @@
 [
   {
     "label": "👨🏼‍💻 About Me",
+    "desc": "Who is this Sam guy anyway?",
     "type": "AboutMe",
-    "url": "/bio"
+    "url": "/bio",
+    "home": true,
+    "nav": true,
+    "indexed": true
   },
   {
     "label": "🔧 Projects",
+    "desc": "A mixture of personal and industry products I have worked on.",
     "type": "Projects",
-    "url": "/projects"
+    "url": "/projects",
+    "home": true,
+    "nav": true,
+    "indexed": true
   },
   {
     "label": "🚀 Boilerplates",
+    "desc": "Skeleton code to help you jump start a variety of different projects.",
     "type": "Boilerplates",
-    "url": "/boilerplates"
+    "url": "/boilerplates",
+    "home": true,
+    "nav": true,
+    "indexed": true
   },
   {
     "label": "📝 Articles",
+    "desc": "I write occasionaly.",
     "type": "Writing",
-    "url": "/articles"
+    "url": "/articles",
+    "home": true,
+    "nav": true,
+    "indexed": true
   },
   {
     "label": "🎟 Presentations",
+    "desc": "The slide decks I use when public speaking.",
     "type": "Slides",
-    "url": "/presentations"
+    "url": "/presentations",
+    "home": true,
+    "nav": true,
+    "indexed": true
   },
   {
     "label": "📸 Photography",
+    "desc": "A snapshot into my favourite hobby.",
     "type": "Photos",
-    "url": "/photos"
+    "url": "/photos",
+    "home": true,
+    "nav": true,
+    "indexed": true
+  },
+  {
+    "label": "📄 CV / Resume",
+    "desc": "Coded in ReactJS.",
+    "type": "CV",
+    "url": "/cv",
+    "home": false,
+    "nav": false,
+    "indexed": true
   }
 ]
