@@ -64,6 +64,7 @@
     "react-burger-menu": "^2.6.13",
     "react-cookie-consent": "^3.0.0",
     "react-dom": "^16.13.1",
+    "react-emoji-render": "^1.2.2",
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.0.0",
     "react-lottie": "^1.2.3",

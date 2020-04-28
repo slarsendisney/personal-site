@@ -1,21 +1,22 @@
-import React from 'react'
-import { Router, globalHistory } from '@reach/router'
-import { Global } from '@emotion/core'
-import { ThemeProvider } from 'theme-ui'
-import { Helmet } from 'react-helmet'
-import get from 'lodash.get'
-import merge from 'lodash.merge'
-import useKeyboard from '../hooks/use-keyboard'
-import useStorage from '../hooks/use-storage'
-import useDeck from '../hooks/use-deck'
-import Context from '../context'
-import Wrapper from './wrapper'
-import Slide from './slide'
-import { modes } from '../constants'
+import React from "react"
+import { Router, globalHistory } from "@reach/router"
+import { Global } from "@emotion/core"
+import { ThemeProvider } from "theme-ui"
+import { Helmet } from "react-helmet"
+import get from "lodash.get"
+import merge from "lodash.merge"
+import useKeyboard from "../hooks/use-keyboard"
+import useStorage from "../hooks/use-storage"
+import useDeck from "../hooks/use-deck"
+import Context from "../context"
+import Wrapper from "./wrapper"
+import Slide from "./slide"
+import { modes } from "../constants"
 
-import Presenter from './presenter'
-import Overview from './overview'
-import Grid from './grid'
+import Presenter from "./presenter"
+import Overview from "./overview"
+import Grid from "./grid"
+import SEO from "./seo"
 
 const Keyboard = () => {
   useKeyboard()
@@ -45,7 +46,7 @@ const Print = ({ slides }) => {
 
 const getIndex = () => {
   const { pathname } = globalHistory.location
-  const paths = pathname.split('/')
+  const paths = pathname.split("/")
   const n = Number(paths[paths.length - 1])
   const index = isNaN(n) ? 0 : n
   return index
@@ -63,7 +64,7 @@ const GoogleFont = ({ theme }) => {
 const mergeThemes = (...themes) =>
   themes.reduce(
     (acc, theme) =>
-      typeof theme === 'function' ? theme(acc) : merge(acc, theme),
+      typeof theme === "function" ? theme(acc) : merge(acc, theme),
     {}
   )
 
@@ -111,17 +112,15 @@ export default ({
 
   return (
     <>
-      <Helmet>
-        {title && <title>{title}</title>}
-        {head}
-      </Helmet>
+      <SEO frontmatter={props._frontmatter} />
+
       <GoogleFont theme={mergedTheme} />
       <Context.Provider value={context}>
         <ThemeProvider components={components} theme={mergedTheme}>
           <Global
             styles={{
               body: {
-                overflow: context.mode === modes.normal ? 'hidden' : null,
+                overflow: context.mode === modes.normal ? "hidden" : null,
               },
             }}
           />
@@ -132,11 +131,12 @@ export default ({
               <Router
                 basepath={slug}
                 style={{
-                  height: '100%',
-                }}>
+                  height: "100%",
+                }}
+              >
                 <Slide index={0} path="/" slide={slides[0]} />
                 {slides.map((slide, i) => (
-                  <Slide key={i} index={i} path={i + '/*'} slide={slide} />
+                  <Slide key={i} index={i} path={i + "/*"} slide={slide} />
                 ))}
                 <Print path="/print" slides={slides} />
               </Router>

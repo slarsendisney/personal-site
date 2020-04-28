@@ -1,6 +1,6 @@
 [
   {
-    "label": "👨🏼‍💻 About Me",
+    "label": "🖐 About Me",
     "desc": "Who is this Sam guy anyway?",
     "type": "AboutMe",
     "url": "/bio",
@@ -27,7 +27,7 @@
     "indexed": true
   },
   {
-    "label": "📝 Articles",
+    "label": "✏️ Articles",
     "desc": "I write occasionaly.",
     "type": "Writing",
     "url": "/articles",

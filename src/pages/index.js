@@ -20,7 +20,7 @@ export default function Start({ data }) {
   const featuredArticleTwo = data.Articles.edges[1].node
   const currentJob = EmploymentHistory[0]
   const darkMode = useDarkMode()
-  console.log(data)
+
   return (
     <Layout>
       <SEO title="Home" />

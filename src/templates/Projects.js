@@ -80,8 +80,11 @@ export default ({
                 )
                 return compareAsc(resultB, resultA)
               })
-              .map(item => (
-                <Project {...item.node.frontmatter} />
+              .map((item) => (
+                <Project
+                  {...item.node.frontmatter}
+                  key={item.node.frontmatter.title}
+                />
               ))}
           </div>
         </div>

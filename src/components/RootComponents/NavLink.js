@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { Emojione } from "react-emoji-render"
 
 export const NavLinkSmall = ({ label, desc, url }) => {
   if (url.includes("http")) {
@@ -14,7 +15,7 @@ export const NavLinkSmall = ({ label, desc, url }) => {
           id="path"
         >
           <h3 className="margin-3-b margin-0-t link-bar pad-1-b special-header-text">
-            {label}
+            <Emojione text={label} />
           </h3>
         </OutboundLink>
       </div>
@@ -28,7 +29,7 @@ export const NavLinkSmall = ({ label, desc, url }) => {
           <h3
             className={`margin-3-b margin-0-t pad-1-b is-special-blue  special-header-text`}
           >
-            {label}
+            <Emojione text={label} />
           </h3>
         </div>
       )
@@ -39,7 +40,7 @@ export const NavLinkSmall = ({ label, desc, url }) => {
           <h3
             className={`margin-3-b margin-0-t link-bar pad-1-b  special-header-text`}
           >
-            {label}
+            <Emojione text={label} />
           </h3>
         </div>
       </Link>
@@ -57,7 +58,9 @@ export default ({ label, desc, url }) => {
           className="margin-15-b"
           id="path"
         >
-          <h1 className="margin-3-b margin-0-t link-bar pad-1-b">{label}</h1>
+          <h1 className="margin-3-b margin-0-t link-bar pad-1-b">
+            <Emojione text={label} />
+          </h1>
         </OutboundLink>
       </div>
     )
@@ -65,7 +68,9 @@ export default ({ label, desc, url }) => {
     return (
       <Link to={url} className="margin-15-b" id="path">
         <div className="  ">
-          <h1 className="margin-3-b margin-0-t link-bar pad-1-b">{label}</h1>
+          <h1 className="margin-3-b margin-0-t link-bar pad-1-b">
+            <Emojione text={label} />
+          </h1>
         </div>
       </Link>
     )
