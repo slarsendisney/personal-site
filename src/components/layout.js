@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 import CookieConsent from "react-cookie-consent"
 import { Location } from "@reach/router"
 import Header from "./header"
-import Headroom from "react-headroom"
+
 const Layout = ({ children }) => {
   return (
     <div style={{}}>
@@ -34,9 +34,9 @@ const Layout = ({ children }) => {
           that's cool with you!
         </h4>
       </CookieConsent>
-      <Headroom calcHeightOnResize={true}>
-        <Location>{(locationProps) => <Header {...locationProps} />}</Location>
-      </Headroom>
+
+      <Location>{(locationProps) => <Header {...locationProps} />}</Location>
+
       <main className="is-light-grey-bg">{children}</main>
       <footer className="is-white-bg is-grey pad-2 footer">
         Made with{" "}
