@@ -31,11 +31,11 @@ const Layout = ({ children }) => {
       >
         <h4 className="margin-0">
           This website uses cookies so I can enhance the user experience. Hope
-          thats cool with you!
+          that's cool with you!
         </h4>
       </CookieConsent>
-      <Headroom>
-        <Location>{locationProps => <Header {...locationProps} />}</Location>
+      <Headroom calcHeightOnResize={true}>
+        <Location>{(locationProps) => <Header {...locationProps} />}</Location>
       </Headroom>
       <main className="is-light-grey-bg">{children}</main>
       <footer className="is-white-bg is-grey pad-2 footer">

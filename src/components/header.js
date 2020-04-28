@@ -38,7 +38,7 @@ export default ({ location }) => {
     })
   })
 
-  const delay = fn => {
+  const delay = (fn) => {
     setTimeout(() => fn(), 300)
   }
 
@@ -81,17 +81,17 @@ export default ({ location }) => {
           <SmoothCollapse expanded={menuOpen} className="">
             <div className="row margin-5-t">
               <div className="col-xs-12 col-md-2 ">
-                {sections.slice(0, 2).map(item => (
+                {sections.slice(0, 2).map((item) => (
                   <NavLinkSmall {...item} key={item.label} />
                 ))}
               </div>
               <div className="col-xs-12 col-md-2 ">
-                {sections.slice(2, 4).map(item => (
+                {sections.slice(2, 4).map((item) => (
                   <NavLinkSmall {...item} key={item.label} />
                 ))}
               </div>
               <div className="col-xs-12 col-md-2 ">
-                {sections.slice(4, 6).map(item => (
+                {sections.slice(4, 6).map((item) => (
                   <NavLinkSmall {...item} key={item.label} />
                 ))}
               </div>
