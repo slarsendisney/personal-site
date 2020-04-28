@@ -21,7 +21,7 @@ export const Slide = ({ slide, index, preview, ...props }) => {
 
   return (
     <Context.Provider value={context}>
-      <ReactTooltip className="info-tooltip" />
+      <ReactTooltip className="info-tooltip" place="right" />
       <div
         {...(!preview ? swipeProps : {})}
         className="pres-layout light-mode"

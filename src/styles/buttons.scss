@@ -84,7 +84,7 @@ input[type='reset'] {
   height: 1em;
   border-radius: 50%;
   @extend .is-dark-blue;
-  @extend .is-blue-bg;
+  @extend .is-special-blue-bg;
   transform-origin: center;
   transform: translate3d(50%, 50%, 0) scale3d(0, 0, 0);
   transition: transform 0.45s ease-in-out;
@@ -92,9 +92,8 @@ input[type='reset'] {
 
 .bubble-button:hover {
   cursor: pointer;
-  @extend .is-white;
-  outline-style: solid;
-  outline-width: 3px;
+  @extend .is-white-always;
+
 }
 
 .bubble-button:hover::before {
