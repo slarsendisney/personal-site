@@ -112,8 +112,6 @@ export default ({
 
   return (
     <>
-      <SEO frontmatter={props._frontmatter} />
-
       <GoogleFont theme={mergedTheme} />
       <Context.Provider value={context}>
         <ThemeProvider components={components} theme={mergedTheme}>
@@ -134,9 +132,20 @@ export default ({
                   height: "100%",
                 }}
               >
-                <Slide index={0} path="/" slide={slides[0]} />
+                <Slide
+                  index={0}
+                  path="/"
+                  slide={slides[0]}
+                  frontmatter={props._frontmatter}
+                />
                 {slides.map((slide, i) => (
-                  <Slide key={i} index={i} path={i + "/*"} slide={slide} />
+                  <Slide
+                    key={i}
+                    index={i}
+                    path={i + "/*"}
+                    slide={slide}
+                    frontmatter={props._frontmatter}
+                  />
                 ))}
                 <Print path="/print" slides={slides} />
               </Router>

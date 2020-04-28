@@ -9,8 +9,9 @@ import useSwipe from "../hooks/use-swipe"
 import { modes } from "../constants"
 import Logo from "../images/Logo.svg"
 import Question from "../images/question.svg"
+import SEO from "./seo"
 
-export const Slide = ({ slide, index, preview, ...props }) => {
+export const Slide = ({ slide, index, preview, frontmatter, ...props }) => {
   const outer = useDeck()
   const swipeProps = useSwipe()
   const context = {
@@ -21,6 +22,7 @@ export const Slide = ({ slide, index, preview, ...props }) => {
 
   return (
     <Context.Provider value={context}>
+      <SEO frontmatter={frontmatter} />
       <ReactTooltip className="info-tooltip" place="right" />
       <div
         {...(!preview ? swipeProps : {})}
