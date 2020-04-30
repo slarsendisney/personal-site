@@ -2,17 +2,52 @@
 .pres-layout {
     padding-left:7vw;
     padding-right:7vw;
+    display: flex;
    
-    h1 {
+    img{
+      max-height: 80vh;
+      max-width: 90vw;
+    }
+     
+    h1, h2, h3, h4, h5, p {
+      font-family: Fira Code;
       font-weight: bold;
+      margin-top: 0.37em;
+      margin-bottom: 0.37em;
+    }
+    p {
       font-family: Lato;
-      margin-top: 0.37em;
-      margin-bottom: 0.37em;
+      font-weight: normal;
+      font-size: 1em;
+      // margin-right: auto;
     }
-    h4 {
-      margin-top: 0.37em;
-      margin-bottom: 0.37em;
+    .legal {
+     
+        font-family: Lato;
+        font-weight: normal;
+        font-size: 0.4em;
+        // margin-right: auto;
+      
     }
+
+  pre code {
+    @extend .is-black;
+    background: none;
+    display: block;
+    line-height: 1.42;
+    width: auto;
+  }
+
+  pre {
+    @extend .is-dark-pink-bg;
+    border-radius: 3px;
+    font-size: 0.4em;
+    overflow-x: auto;
+    padding: 1.45rem;
+    word-wrap: break-word;
+
+  }
+
   }
   
   .info-tooltip{

@@ -127,6 +127,7 @@ export default ({
                   index={0}
                   path="/"
                   slide={slides[0]}
+                  length={slides.length}
                   frontmatter={props._frontmatter}
                 />
                 {slides.map((slide, i) => (
@@ -135,6 +136,7 @@ export default ({
                     index={i}
                     path={i + "/*"}
                     slide={slide}
+                    length={slides.length}
                     frontmatter={props._frontmatter}
                   />
                 ))}

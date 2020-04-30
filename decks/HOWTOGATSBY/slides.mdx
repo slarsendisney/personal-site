@@ -7,44 +7,86 @@ location: Space | Earth
 ---
 
 # Intro to Gatsby
+#### Slides can be found at [slides.sld.codes](http://slides.sld.codes)
 
 ---
 
-What is gatsby:
-A Static site generator
-
-Produces static html files that we load up onto a server.
-No querying done - all preconfigured.
+# What is GatsbyJS?
 
 ---
 
-Static site does not mean not dynamic.
+## A Static site generator
 
-we can add JS and do dynamic things.
+- Produces static html files that we load up onto a server.
+- No data querying done server side - all preconfigured.
+
+---
+
+## Static site does !== static page
+
+We can still add all the JS we want to do dynamic things.
 
 
 ---
 
-Gatsby generates content for you. Pass Gatstby content and it will generate pages for each.
+## Gatsby generates pages for you
 
-Gatsby uses Node to generate this in development. Does not need it in prod.
+Pass Gatsby content, define a template and it will programmatically create pages for you.
+
+Gatsby uses Node to generate these pages in development.
 
 ---
 
-Uses GraphQL to get data from anywhere.
+## Uses GraphQL to get data from anywhere
 
 We could get content from files, databases other websites - the list goes on!
 
----
-
-Gatsby also uses react and css.
-
-Takes care of layout.
 
 ---
 
-Built with a plugin architecture.
-Abstract complex code into a plugin so its away from content.
+```
+---
+title: "Intro to Gatsby"
+path: /decks/HOWTOGATSBY
+desc: An overview of GatsbyJS for the uninitiated.
+hero: "./hero.png"
+location: Space | Earth
+---
+
+# Intro to Gatsby
+#### Slides can be found at [slides.sld.codes](http://slides.sld.codes)
+
+---
+
+# What is GatsbyJS?
+
+---
+
+...
+```
+
+<a href="https://github.com/slarsendisney/personal-site/blob/master/decks/HOWTOGATSBY/slides.mdx">
+<p class="legal">See the file here.</p>
+</a>
+
+---
+
+## 💪 Harnesses ReactJS
+
+Gatsby uses react and stylesheets to help structure page layout.
+
+---
+
+## 🔌 Built with a plugin architecture
+
+Abstract complex, configurations, or reusable code into a plugin so its away from what your focused on.
+
+---
+
+“You get simplicity by finding slightly more sophisticated building blocks“.
+
+ [*- Alan Kay*](https://www.youtube.com/watch?v=NdSD07U5uBs)
+
 
 ---
 
@@ -52,25 +94,37 @@ Abstract complex code into a plugin so its away from content.
 
 ---
 
-Speed due to static output.
+## ⚡️ Speed
+
+Its hard to beat the speed of sending static output.
 
 ---
+
+## 🔑 Security
 
 Extremely secure as you are just sending HTML.
 
 ---
 
-improved dev experience
-
-modern dev enviroment
-tooling simple
-languages modern and clean
+## 😍 Developer Experience
 
 ---
 
-Gatsby has a solid team, open source community and documentation.
+Takes away logic we all find pernickety:
 
-Its growing fast.
+- *react-router*
+
+---
+
+- modern dev enviroment
+- simple tooling 
+- modern and clean languages
+
+---
+
+Gatsby has a solid team, open source community and awesome documentation.
+
+🏃‍♂️ Its growing fast.
 
 ---
 
@@ -82,3 +136,38 @@ Its growing fast.
 - Has a stable and growing community.
 
 ---
+
+# How to use Gatsby
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /.cache
+|-- /plugins
+|-- /public
+|-- /src
+    |-- /pages
+    |-- /templates
+    |-- html.js
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-ssr.js
+|-- gatsby-browser.js
+```
+
+
+---
+
+<p class="legal">Have a go yourself</p>
+
+# [sld.codes/boilerplates](https://sld.codes/boilerplates)
+
+---
+
+<p class="legal">See Gatsby in Action</p>
+
+## [Using Gatsby to help my mutual aid network](https://sld.codes/decks/CORONASUPPORT/slides/0)

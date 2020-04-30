@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
+import ReadingProgress from "../components/Articles/ReadingProgress"
 
 export default ({ data, location }) => {
   const { feedMediumBlog } = data
@@ -10,6 +11,7 @@ export default ({ data, location }) => {
 
   let imgSrcRegex = /src\s*=\s*"(.+?)"/
   const found = content.encoded.match(imgSrcRegex)
+  const target = React.createRef()
   return (
     <Layout>
       <SEO
@@ -17,13 +19,15 @@ export default ({ data, location }) => {
         description={fields.excerpt}
         image={found ? found[1] : undefined}
       />
+      <ReadingProgress target={target} />
       <div className="is-grey is-light-grey-bg">
-        <div className="row container pad-10-t ">
+        <div className="row container pad-10-t " ref={target}>
           <div className="col-xs-12 pad-5-lr">
             <Link to="/articles" className="">
               <h2 className="is-grey margin-0 margin-2-b link-bar pad-1-b">{`< Articles`}</h2>
             </Link>
           </div>
+
           <div className="col-xs-12 pad-5-lr">
             <h1 className="is-hero-menu is-pink-always margin-1-t margin-5-b">
               {title}

@@ -81,7 +81,7 @@ export default ({ data }) => {
           </div>
 
           <div className="col-xs-12 ">
-            <h3 className="margin-0-t is-light-blue-always">From Medium:</h3>
+            <h2 className="margin-0-t is-special-blue">From Medium:</h2>
           </div>
           <div className="col-xs-12 col-md-10">
             {nodes.map((item) => (
@@ -89,7 +89,7 @@ export default ({ data }) => {
             ))}
           </div>
           <div className="col-xs-12 margin-5-t">
-            <h3 className="margin-0-t is-light-blue-always">Legacy Posts:</h3>
+            <h2 className="margin-0-t is-special-blue">Legacy Posts:</h2>
           </div>
           <div className="col-xs-12 col-md-10">
             {edges.map((item) => (

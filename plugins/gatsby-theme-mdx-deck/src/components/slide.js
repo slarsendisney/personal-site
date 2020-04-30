@@ -11,7 +11,14 @@ import Logo from "../images/Logo.svg"
 import Question from "../images/question.svg"
 import SEO from "./seo"
 
-export const Slide = ({ slide, index, preview, frontmatter, ...props }) => {
+export const Slide = ({
+  slide,
+  index,
+  preview,
+  frontmatter,
+  length,
+  ...props
+}) => {
   const outer = useDeck()
   const swipeProps = useSwipe()
   const context = {
@@ -19,11 +26,21 @@ export const Slide = ({ slide, index, preview, frontmatter, ...props }) => {
     index,
     preview,
   }
-
+  console.log({ slide, index, length, preview, frontmatter, props })
   return (
     <>
       <Context.Provider value={context}>
         <ReactTooltip className="info-tooltip" place="right" />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            height: 5,
+            zIndex: 100,
+            width: `${index !== 0 ? ((index + 1) / length) * 100 : 0}vw`,
+          }}
+          className="is-pink-bg"
+        />
         <div
           {...(!preview ? swipeProps : {})}
           className="pres-layout light-mode"
@@ -48,13 +65,21 @@ export const Slide = ({ slide, index, preview, frontmatter, ...props }) => {
             style={{ position: "fixed", bottom: 20, right: 30 }}
             onClick={() => navigate("/presentations")}
           >
-            <img src={Logo} style={{ height: 20 }} />
+            <img src={Logo} style={{ height: 21 }} />
           </button>
           <div
             style={{ position: "fixed", bottom: 10, left: 20 }}
             data-tip={`Use arrow keys or swipe to navigate between slides. Press 'esc' or click my logo to exit.`}
           >
             <img src={Question} style={{ height: 30 }} />
+          </div>
+          <div
+            className="text-align-center"
+            style={{ position: "fixed", bottom: 20 }}
+          >
+            <p style={{ fontSize: 15 }} className="margin-0 is-grey opacity-50">
+              {index + 1}/{length}
+            </p>
           </div>
         </div>
       </Context.Provider>
