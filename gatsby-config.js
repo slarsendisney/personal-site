@@ -223,6 +223,11 @@ module.exports = {
       },
     },
 
-    "gatsby-plugin-offline",
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        appendScript: require.resolve(`./src/custom-sw-code`),
+      },
+    },
   ].concat(dynamicPlugins),
 }

@@ -1,7 +1,7 @@
 const { navigate } = require("gatsby")
 require("./src/styles/global.scss")
 
-const handleEsc = event => {
+const handleEsc = (event) => {
   if (event.keyCode === 27) {
     if (window.location.pathname.includes("decks")) {
       navigate("/presentations")
