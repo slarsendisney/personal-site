@@ -12,6 +12,7 @@ import Logo from "../images/Logo.svg"
 import Question from "../images/question.svg"
 import Broadcast from "../images/broadcast.svg"
 import BroadcastOff from "../images/broadcast-off.svg"
+import Stop from "../images/stop.svg"
 
 const toggleMode = (next) => (state) =>
   state.mode === next
@@ -27,6 +28,7 @@ export const Slide = ({
   livePresenter,
   follow,
   shouldfollow,
+  stopPres,
   verfication,
   verified,
   slide,
@@ -147,20 +149,32 @@ export const Slide = ({
             />
             {livePresenter && (
               <>
-                <button
-                  ref={followButton}
-                  onClick={(e) => {
-                    shouldfollow(!follow)
-                    e.currentTarget.blur()
-                  }}
-                  style={{ marginLeft: 15 }}
-                >
-                  <img
-                    src={follow ? Broadcast : BroadcastOff}
-                    style={{ width: 22 }}
-                    className="grow"
-                  />
-                </button>
+                {verified ? (
+                  <button
+                    onClick={(e) => {
+                      context.setState(toggleMode(modes.normal))
+                      stopPres()
+                      e.currentTarget.blur()
+                    }}
+                    style={{ marginLeft: 15 }}
+                  >
+                    <img src={Stop} style={{ height: 30 }} className="grow" />
+                  </button>
+                ) : (
+                  <button
+                    onClick={(e) => {
+                      shouldfollow(!follow)
+                      e.currentTarget.blur()
+                    }}
+                    style={{ marginLeft: 15 }}
+                  >
+                    <img
+                      src={follow ? Broadcast : BroadcastOff}
+                      style={{ width: 22 }}
+                      className="grow"
+                    />
+                  </button>
+                )}
               </>
             )}
           </div>
@@ -186,6 +200,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     sayHello: () => dispatch({ type: "server/hello", data: "Hello!" }),
     shouldfollow: (value) => dispatch({ type: "follow", data: value }),
+    stopPres: () => dispatch({ type: "server/endPres" }),
     verfication: (password, location, index) =>
       dispatch({
         type: "server/verify",

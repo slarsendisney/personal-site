@@ -28,7 +28,12 @@ function reducer(
     case "endLivePresentor":
       return Object.assign(
         {},
-        { ...state, livePresenter: false, presentation: undefined }
+        {
+          ...state,
+          livePresenter: false,
+          presentation: undefined,
+          verified: false,
+        }
       )
     default:
       return state
