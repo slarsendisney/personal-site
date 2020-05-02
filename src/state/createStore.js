@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux"
 import createSocketIoMiddleware from "redux-socket.io"
 import io from "socket.io-client"
-let socket = io("https://sld-clicker.herokuapp.com/")
+let socket = io("https://sld-clicker.herokuapp.com/") //io("http://localhost:3000/")
 let socketIoMiddleware = createSocketIoMiddleware(socket, "server/")
 
 function reducer(
@@ -12,6 +12,7 @@ function reducer(
   },
   action
 ) {
+  console.log(action.type)
   switch (action.type) {
     case "follow":
       return Object.assign({}, { ...state, follow: action.data })
@@ -40,6 +41,8 @@ function reducer(
   }
 }
 let store = applyMiddleware(socketIoMiddleware)(createStore)(reducer)
-store.subscribe(() => {})
+store.subscribe(() => {
+  console.log("new client state", store.getState())
+})
 
 export default store

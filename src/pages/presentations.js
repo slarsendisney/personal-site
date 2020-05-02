@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 
 const Start = ({ data, presentation }) => {
   const { nodes } = data.allMdx
+  console.log(presentation)
   return (
     <Layout>
       <SEO title="Presentations" />
@@ -19,7 +20,17 @@ const Start = ({ data, presentation }) => {
             <div className="margin-5-b"></div>
           </div>
 
-          {nodes.map((item) => {
+          {[
+            ...nodes.filter(
+              (item) =>
+                presentation && presentation.deck === item.frontmatter.path
+            ),
+            ...nodes.filter(
+              (item) =>
+                !presentation ||
+                (presentation && presentation.deck !== item.frontmatter.path)
+            ),
+          ].map((item) => {
             const { title, path, desc, hero, location } = item.frontmatter
             return (
               <div className="col-xs-12 col-sm-6 col-md-4  margin-5-b">
@@ -34,7 +45,14 @@ const Start = ({ data, presentation }) => {
                     margin: "auto",
                   }}
                 >
-                  <Link to={path + "/slides/0"} className="link ">
+                  <Link
+                    to={
+                      presentation && presentation.slide
+                        ? path + "/slides/" + presentation.slide
+                        : path + "/slides/0"
+                    }
+                    className="link "
+                  >
                     <Img
                       fluid={hero.childImageSharp.fluid}
                       style={{
@@ -50,8 +68,7 @@ const Start = ({ data, presentation }) => {
                       <h1 className="margin-0-b">{title}</h1>
                       {presentation && presentation.deck === path ? (
                         <h4 className="margin-0-b margin-1-t is-pink-always">
-                          Currently being presented. Click to follow along as
-                          Sam presents.
+                          Currently being presented. Click to follow along 🚀!
                         </h4>
                       ) : (
                         <h4 className="margin-0-b margin-1-t">{desc}</h4>
@@ -71,7 +88,7 @@ const Start = ({ data, presentation }) => {
 
 export const query = graphql`
   {
-    allMdx {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         frontmatter {
           path

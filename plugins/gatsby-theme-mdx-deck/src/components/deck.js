@@ -104,7 +104,12 @@ export const Deck = ({
   ) {
     jump(slug, presentation.slide)
   }
-  if (verified && presentation && index !== presentation.slide) {
+  if (
+    verified &&
+    presentation &&
+    window.location.pathname !== "/presentations/" &&
+    index !== presentation.slide
+  ) {
     changePresPosOnServer(index)
   }
 

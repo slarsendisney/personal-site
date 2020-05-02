@@ -32,6 +32,7 @@ export const Slide = ({
   verfication,
   verified,
   slide,
+  presentation,
   index,
   preview,
   frontmatter,
@@ -147,36 +148,37 @@ export const Slide = ({
               src={Question}
               style={{ height: 30 }}
             />
-            {livePresenter && (
-              <>
-                {verified ? (
-                  <button
-                    onClick={(e) => {
-                      context.setState(toggleMode(modes.normal))
-                      stopPres()
-                      e.currentTarget.blur()
-                    }}
-                    style={{ marginLeft: 15 }}
-                  >
-                    <img src={Stop} style={{ height: 30 }} className="grow" />
-                  </button>
-                ) : (
-                  <button
-                    onClick={(e) => {
-                      shouldfollow(!follow)
-                      e.currentTarget.blur()
-                    }}
-                    style={{ marginLeft: 15 }}
-                  >
-                    <img
-                      src={follow ? Broadcast : BroadcastOff}
-                      style={{ width: 22 }}
-                      className="grow"
-                    />
-                  </button>
-                )}
-              </>
-            )}
+            {livePresenter &&
+              window.location.pathname.includes(presentation.deck) && (
+                <>
+                  {verified ? (
+                    <button
+                      onClick={(e) => {
+                        context.setState(toggleMode(modes.normal))
+                        stopPres()
+                        e.currentTarget.blur()
+                      }}
+                      style={{ marginLeft: 15 }}
+                    >
+                      <img src={Stop} style={{ height: 30 }} className="grow" />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={(e) => {
+                        shouldfollow(!follow)
+                        e.currentTarget.blur()
+                      }}
+                      style={{ marginLeft: 15 }}
+                    >
+                      <img
+                        src={follow ? Broadcast : BroadcastOff}
+                        style={{ width: 22 }}
+                        className="grow"
+                      />
+                    </button>
+                  )}
+                </>
+              )}
           </div>
           <div
             className="text-align-center"
@@ -192,8 +194,8 @@ export const Slide = ({
   )
 }
 
-const mapStateToProps = ({ livePresenter, follow, verified }) => {
-  return { livePresenter, follow, verified }
+const mapStateToProps = ({ livePresenter, follow, verified, presentation }) => {
+  return { livePresenter, follow, verified, presentation }
 }
 
 const mapDispatchToProps = (dispatch) => {
