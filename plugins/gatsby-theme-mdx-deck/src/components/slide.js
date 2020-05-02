@@ -157,7 +157,7 @@ export const Slide = ({
                 >
                   <img
                     src={follow ? Broadcast : BroadcastOff}
-                    style={{ height: 30 }}
+                    style={{ width: 22 }}
                     className="grow"
                   />
                 </button>

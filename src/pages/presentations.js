@@ -24,7 +24,9 @@ const Start = ({ data, presentation }) => {
             return (
               <div className="col-xs-12 col-sm-6 col-md-4  margin-5-b">
                 <div
-                  className="is-white-bg grow"
+                  className={`is-white-bg grow ${
+                    presentation && presentation.deck === path ? "pulse" : ""
+                  }`}
                   style={{
                     borderRadius: 15,
                     height: "100%",
