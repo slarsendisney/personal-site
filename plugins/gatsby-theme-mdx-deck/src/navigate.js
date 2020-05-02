@@ -29,3 +29,12 @@ export const previous = (context) => {
   }
   previousSlide(context)
 }
+
+const jumpToSlide = (slug, newIndex) => {
+  navigate([slug, newIndex].join("/"))
+  //setState({ step: newIndex })
+}
+
+export const jump = (context, newIndex) => {
+  jumpToSlide(context, newIndex)
+}

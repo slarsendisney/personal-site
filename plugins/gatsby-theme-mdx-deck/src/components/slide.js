@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { connect } from "react-redux"
 import { navigate } from "gatsby"
 import ReactTooltip from "react-tooltip"
@@ -24,7 +24,7 @@ const toggleMode = (next) => (state) =>
 
 export const Slide = ({
   sayHello,
-  presenter,
+  livePresenter,
   follow,
   shouldfollow,
   verfication,
@@ -34,7 +34,6 @@ export const Slide = ({
   preview,
   frontmatter,
   length,
-
   ...props
 }) => {
   const outer = useDeck()
@@ -44,8 +43,8 @@ export const Slide = ({
     index,
     preview,
   }
-  console.log(context.mode)
 
+  const followButton = useRef(null)
   const [password, setPassword] = useState("")
 
   const onChange = (e) => setPassword(e.target.value)
@@ -74,7 +73,7 @@ export const Slide = ({
               <input
                 className="input"
                 type="password"
-                value={verfication}
+                value={password}
                 onChange={onChange}
               ></input>
               <div className="row">
@@ -82,7 +81,9 @@ export const Slide = ({
                   <button
                     className="bubble-button is-green-bg"
                     style={{ width: "100%" }}
-                    onClick={() => verfication(password)}
+                    onClick={() =>
+                      verfication(password, frontmatter.path, index)
+                    }
                   >
                     Submit
                   </button>
@@ -144,10 +145,14 @@ export const Slide = ({
               src={Question}
               style={{ height: 30 }}
             />
-            {presenter && (
+            {livePresenter && (
               <>
                 <button
-                  onClick={() => shouldfollow(!follow)}
+                  ref={followButton}
+                  onClick={(e) => {
+                    shouldfollow(!follow)
+                    e.currentTarget.blur()
+                  }}
                   style={{ marginLeft: 15 }}
                 >
                   <img
@@ -173,15 +178,23 @@ export const Slide = ({
   )
 }
 
-const mapStateToProps = ({ presenter, follow, verified }) => {
-  return { presenter, follow, verified }
+const mapStateToProps = ({ livePresenter, follow, verified }) => {
+  return { livePresenter, follow, verified }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     sayHello: () => dispatch({ type: "server/hello", data: "Hello!" }),
     shouldfollow: (value) => dispatch({ type: "follow", data: value }),
-    verfication: (value) => dispatch({ type: "server/verify", data: value }),
+    verfication: (password, location, index) =>
+      dispatch({
+        type: "server/verify",
+        data: {
+          password,
+          location,
+          index,
+        },
+      }),
   }
 }
 

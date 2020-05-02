@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Router, globalHistory } from "@reach/router"
+import { connect } from "react-redux"
 import { Global } from "@emotion/core"
 import { ThemeProvider } from "theme-ui"
 import { Helmet } from "react-helmet"
@@ -14,11 +15,12 @@ import Wrapper from "./wrapper"
 import Slide from "./slide"
 import { modes } from "../constants"
 import Presenter from "./presenter"
+import { jump } from "../navigate"
 import Overview from "./overview"
 import Grid from "./grid"
 
-const Keyboard = () => {
-  useKeyboard()
+const Keyboard = ({ verified, update }) => {
+  useKeyboard(verified, update)
   return false
 }
 
@@ -60,11 +62,16 @@ const mergeThemes = (...themes) =>
 
 const DefaultMode = ({ children }) => <React.Fragment children={children} />
 
-export default ({
+export const Deck = ({
   slides = [],
   pageContext: { title, slug },
   theme = {},
   themes = [],
+  follow,
+  presentation,
+  livePresenter,
+  changePresPosOnServer,
+  verified,
   ...props
 }) => {
   const outer = useDeck()
@@ -85,6 +92,21 @@ export default ({
   }
 
   let Mode = DefaultMode
+
+  if (
+    !verified &&
+    livePresenter &&
+    follow &&
+    presentation &&
+    window.location.pathname.includes(presentation.deck) &&
+    window.location.pathname !==
+      presentation.deck + "/slides/" + presentation.slide
+  ) {
+    jump(slug, presentation.slide)
+  }
+  if (verified && presentation && index !== presentation.slide) {
+    changePresPosOnServer(index)
+  }
 
   switch (context.mode) {
     case modes.presenter:
@@ -112,7 +134,7 @@ export default ({
               },
             }}
           />
-          <Keyboard />
+          <Keyboard verified={verified} update={changePresPosOnServer} />
           <Storage />
           <Wrapper>
             <Mode slides={slides}>
@@ -128,6 +150,11 @@ export default ({
                   slide={slides[0]}
                   length={slides.length}
                   frontmatter={props._frontmatter}
+                  activeDeck={
+                    presentation
+                      ? presentation.deck === props._frontmatter.path
+                      : false
+                  }
                 />
                 {slides.map((slide, i) => (
                   <Slide
@@ -137,6 +164,11 @@ export default ({
                     slide={slide}
                     length={slides.length}
                     frontmatter={props._frontmatter}
+                    activeDeck={
+                      presentation
+                        ? presentation.deck === props._frontmatter.path
+                        : false
+                    }
                   />
                 ))}
               </Router>
@@ -147,3 +179,21 @@ export default ({
     </>
   )
 }
+
+const mapStateToProps = ({ presentation, follow, livePresenter, verified }) => {
+  return { presentation, follow, livePresenter, verified }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changePresPosOnServer: (value) =>
+      dispatch({ type: "server/updateIndex", data: value }),
+  }
+}
+
+const ConnectedDeck =
+  typeof window !== `undefined`
+    ? connect(mapStateToProps, mapDispatchToProps)(Deck)
+    : Slide
+
+export default ConnectedDeck

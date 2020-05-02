@@ -1,10 +1,11 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
+import { connect } from "react-redux"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Start = ({ data }) => {
+const Start = ({ data, presentation }) => {
   const { nodes } = data.allMdx
   return (
     <Layout>
@@ -17,6 +18,7 @@ const Start = ({ data }) => {
             <div className="line-sm  is-grey" style={{ width: 305 }} />
             <div className="margin-5-b"></div>
           </div>
+
           {nodes.map((item) => {
             const { title, path, desc, hero, location } = item.frontmatter
             return (
@@ -40,10 +42,18 @@ const Start = ({ data }) => {
                       }}
                       className="pres-image is-light-grey-border"
                     />
+
                     <div className="line-sm opacity-10" />
                     <div className="pad-3-lr pad-3-b is-grey">
                       <h1 className="margin-0-b">{title}</h1>
-                      <h4 className="margin-0-b margin-1-t">{desc}</h4>
+                      {presentation && presentation.deck === path ? (
+                        <h4 className="margin-0-b margin-1-t is-pink-always">
+                          Currently being presented. Click to follow along as
+                          Sam presents.
+                        </h4>
+                      ) : (
+                        <h4 className="margin-0-b margin-1-t">{desc}</h4>
+                      )}
                       <p className="opacity-50">{location}</p>
                     </div>
                   </Link>
@@ -79,4 +89,11 @@ export const query = graphql`
   }
 `
 
-export default Start
+const mapStateToProps = ({ presentation }) => {
+  return { presentation }
+}
+
+const ConnectedStart =
+  typeof window !== `undefined` ? connect(mapStateToProps, null)(Start) : Start
+
+export default ConnectedStart
