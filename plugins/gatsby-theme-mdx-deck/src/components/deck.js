@@ -5,6 +5,7 @@ import { ThemeProvider } from "theme-ui"
 import { Helmet } from "react-helmet"
 import get from "lodash.get"
 import merge from "lodash.merge"
+import Modal from "react-modal"
 import useKeyboard from "../hooks/use-keyboard"
 import useStorage from "../hooks/use-storage"
 import useDeck from "../hooks/use-deck"
@@ -12,11 +13,9 @@ import Context from "../context"
 import Wrapper from "./wrapper"
 import Slide from "./slide"
 import { modes } from "../constants"
-
 import Presenter from "./presenter"
 import Overview from "./overview"
 import Grid from "./grid"
-import SEO from "./seo"
 
 const Keyboard = () => {
   useKeyboard()
@@ -100,6 +99,7 @@ export default ({
     default:
       break
   }
+  Modal.setAppElement("#___gatsby")
 
   return (
     <>
@@ -114,7 +114,6 @@ export default ({
           />
           <Keyboard />
           <Storage />
-
           <Wrapper>
             <Mode slides={slides}>
               <Router
@@ -140,7 +139,6 @@ export default ({
                     frontmatter={props._frontmatter}
                   />
                 ))}
-                <Print path="/print" slides={slides} />
               </Router>
             </Mode>
           </Wrapper>

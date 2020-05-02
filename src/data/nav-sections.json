@@ -61,5 +61,14 @@
     "home": false,
     "nav": false,
     "indexed": true
+  },
+  {
+    "label": "🚀 Code Pad",
+    "desc": "Utility to help me demo react concepts quickly.",
+    "type": "Pad",
+    "url": "/pad",
+    "home": false,
+    "nav": false,
+    "indexed": true
   }
 ]

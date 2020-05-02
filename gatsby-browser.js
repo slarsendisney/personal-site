@@ -1,5 +1,6 @@
-const { navigate } = require("gatsby")
-require("./src/styles/global.scss")
+import { navigate } from "gatsby"
+import wrapWithProvider from "./src/state/wrapWithProvider"
+import "./src/styles/global.scss"
 
 const handleEsc = (event) => {
   if (event.keyCode === 27) {
@@ -13,7 +14,9 @@ const handleEsc = (event) => {
 
 window.addEventListener("keydown", handleEsc)
 
-exports.onRouteUpdate = ({ location, prevLocation }) => {
+export const wrapRootElement = wrapWithProvider
+
+export const onRouteUpdate = ({ location, prevLocation }) => {
   if (window.location.pathname.includes("decks")) {
     document.getElementsByTagName("BODY")[0].className = "light-mode"
   }

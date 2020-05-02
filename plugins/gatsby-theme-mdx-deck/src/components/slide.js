@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import React, { Fragment } from "react"
+import React, { useState } from "react"
+import { connect } from "react-redux"
 import { navigate } from "gatsby"
 import ReactTooltip from "react-tooltip"
 import Context from "../context"
@@ -9,14 +10,31 @@ import useSwipe from "../hooks/use-swipe"
 import { modes } from "../constants"
 import Logo from "../images/Logo.svg"
 import Question from "../images/question.svg"
-import SEO from "./seo"
+import Broadcast from "../images/broadcast.svg"
+import BroadcastOff from "../images/broadcast-off.svg"
+
+const toggleMode = (next) => (state) =>
+  state.mode === next
+    ? {
+        mode: modes.normal,
+      }
+    : {
+        mode: next,
+      }
 
 export const Slide = ({
+  sayHello,
+  presenter,
+  follow,
+  shouldfollow,
+  verfication,
+  verified,
   slide,
   index,
   preview,
   frontmatter,
   length,
+
   ...props
 }) => {
   const outer = useDeck()
@@ -26,11 +44,64 @@ export const Slide = ({
     index,
     preview,
   }
-  console.log({ slide, index, length, preview, frontmatter, props })
+  console.log(context.mode)
+
+  const [password, setPassword] = useState("")
+
+  const onChange = (e) => setPassword(e.target.value)
   return (
     <>
       <Context.Provider value={context}>
         <ReactTooltip className="info-tooltip" place="right" />
+        {context.mode === "MASTER" && !verified && (
+          <div
+            className="flex align-horizontal align-vertical"
+            style={{
+              position: "absolute",
+              zIndex: 200,
+              top: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "#00000050",
+            }}
+          >
+            <div
+              className="is-white-bg is-grey pad-5 border-radius"
+              style={{ minWidth: "30vw" }}
+            >
+              <h1 className="margin-0-t margin-2-b">Ready to go live?</h1>
+              <h4 className="margin-0">Enter the password:</h4>
+              <input
+                className="input"
+                type="password"
+                value={verfication}
+                onChange={onChange}
+              ></input>
+              <div className="row">
+                <div className="col-xs-6">
+                  <button
+                    className="bubble-button is-green-bg"
+                    style={{ width: "100%" }}
+                    onClick={() => verfication(password)}
+                  >
+                    Submit
+                  </button>
+                </div>
+                <div className="col-xs-6">
+                  <button
+                    className="bubble-button is-red-bg"
+                    style={{ width: "100%" }}
+                    onClick={() => {
+                      context.setState(toggleMode(modes.normal))
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         <div
           style={{
             position: "absolute",
@@ -67,11 +138,26 @@ export const Slide = ({
           >
             <img src={Logo} style={{ height: 21 }} />
           </button>
-          <div
-            style={{ position: "fixed", bottom: 10, left: 20 }}
-            data-tip={`Use arrow keys or swipe to navigate between slides. Press 'esc' or click my logo to exit.`}
-          >
-            <img src={Question} style={{ height: 30 }} />
+          <div style={{ position: "fixed", bottom: 10, left: 20 }}>
+            <img
+              data-tip={`Use arrow keys or swipe to navigate between slides. Press 'esc' or click my logo to exit.`}
+              src={Question}
+              style={{ height: 30 }}
+            />
+            {presenter && (
+              <>
+                <button
+                  onClick={() => shouldfollow(!follow)}
+                  style={{ marginLeft: 15 }}
+                >
+                  <img
+                    src={follow ? Broadcast : BroadcastOff}
+                    style={{ height: 30 }}
+                    className="grow"
+                  />
+                </button>
+              </>
+            )}
           </div>
           <div
             className="text-align-center"
@@ -87,4 +173,21 @@ export const Slide = ({
   )
 }
 
-export default Slide
+const mapStateToProps = ({ presenter, follow, verified }) => {
+  return { presenter, follow, verified }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sayHello: () => dispatch({ type: "server/hello", data: "Hello!" }),
+    shouldfollow: (value) => dispatch({ type: "follow", data: value }),
+    verfication: (value) => dispatch({ type: "server/verify", data: value }),
+  }
+}
+
+const ConnectedSlide =
+  typeof window !== `undefined`
+    ? connect(mapStateToProps, mapDispatchToProps)(Slide)
+    : Slide
+
+export default ConnectedSlide

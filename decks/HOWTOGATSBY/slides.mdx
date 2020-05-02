@@ -5,6 +5,8 @@ desc: An overview of GatsbyJS for the uninitiated.
 hero: "./hero.png"
 location: Space | Earth
 ---
+import Editor from '../../src/components/LiveEditor/Editor';
+import {SingleInstancePages} from "./CodeSnippets";
 
 # Intro to Gatsby
 #### Slides can be found at [slides.sld.codes](http://slides.sld.codes)
@@ -15,32 +17,33 @@ location: Space | Earth
 
 ---
 
-## A Static site generator
 
-- Produces static html files that we load up onto a server.
-- No data querying done server side - all preconfigured.
+
+“You get simplicity by finding slightly more sophisticated building blocks“.
+
+ [*- Alan Kay*](https://www.youtube.com/watch?v=NdSD07U5uBs)
+
 
 ---
 
-## Static site does !== static page
+## A static site generator
+
+- Produces static html files that we load up onto a server.
+- No data querying done server side - all sorted at build.
+
+---
+
+
+## Static site !== static page
 
 We can still add all the JS we want to do dynamic things.
 
 
 ---
 
-## Gatsby generates pages for you
-
-Pass Gatsby content, define a template and it will programmatically create pages for you.
-
-Gatsby uses Node to generate these pages in development.
-
----
-
 ## Uses GraphQL to get data from anywhere
 
 We could get content from files, databases other websites - the list goes on!
-
 
 ---
 
@@ -69,13 +72,17 @@ location: Space | Earth
 <p class="legal">See the file here.</p>
 </a>
 
----
-
-## 💪 Harnesses ReactJS
-
-Gatsby uses react and stylesheets to help structure page layout.
 
 ---
+
+## Gatsby generates pages for you
+
+- Pass Gatsby content, define a template and it will programmatically create pages for you.
+- Gatsby uses Node to generate these pages in development.
+
+---
+
+
 
 ## 🔌 Built with a plugin architecture
 
@@ -83,12 +90,49 @@ Abstract complex, configurations, or reusable code into a plugin so its away fro
 
 ---
 
-“You get simplicity by finding slightly more sophisticated building blocks“.
 
- [*- Alan Kay*](https://www.youtube.com/watch?v=NdSD07U5uBs)
+## 💪 Harnesses ReactJS
 
+Gatsby uses react and stylesheets to help structure page layout.
 
 ---
+
+## Project Structure 📁
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins                //local development plugins
+|-- /public                 //the built html and JS files
+|-- /src
+    |-- /pages              //location of single instance pages
+    |-- /templates          //templates for programmatically generated pages
+|-- /static                 //static content you want copied to your public folder at build
+|-- gatsby-config.js        //core configuration file and plugin handeller
+|-- gatsby-node.js          //
+|-- gatsby-browser.js       //code that will run on the client browser
+```
+
+---
+
+#### gatsby-config.js 
+
+---
+
+#### gatsby-node.js 
+
+---
+
+#### Single Instance Pages
+<p class="legal">src/pages/index.js</p>
+
+<Editor fullWidth  code={SingleInstancePages}/>
+
+---
+
 
 # Why use Gatsby?
 
@@ -134,31 +178,6 @@ Gatsby has a solid team, open source community and awesome documentation.
 - Under the hood it uses Node, GraphQL and react
 - Primary benefits are speed, security and developer experience.
 - Has a stable and growing community.
-
----
-
-# How to use Gatsby
-
----
-
-<p class="legal">Typical project structure:</p>
-
-``` 
-/
-|-- /.cache
-|-- /plugins
-|-- /public
-|-- /src
-    |-- /pages
-    |-- /templates
-    |-- html.js
-|-- /static
-|-- gatsby-config.js
-|-- gatsby-node.js
-|-- gatsby-ssr.js
-|-- gatsby-browser.js
-```
-
 
 ---
 
