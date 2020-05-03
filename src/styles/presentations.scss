@@ -29,6 +29,7 @@
         font-family: Lato;
         font-weight: normal;
         font-size: 0.4em;
+        
         // margin-right: auto;
       
     }
@@ -82,4 +83,8 @@
 
   .react-joyride__tooltip {
     font-family: Lato;
+  }
+
+  .react-joyride__overlay{
+    cursor: auto !important;
   }

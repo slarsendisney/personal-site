@@ -11,19 +11,14 @@ const steps = [
   {
     target: ".stepThree",
     content: "Swipe or use your arrow keys to navigate between the slides.",
-    placement: "top-end",
+    placement: "top",
   },
   {
     target: ".stepFour",
     content: "Tap or click here to exit the presentation at any time.",
-    placement: "top-end",
+    placement: "bottom-end",
   },
-  {
-    target: ".stepSix",
-    content:
-      "Here you can see the current slide and the total number of slides in the deck.",
-    placement: "top-end",
-  },
+
   {
     target: ".stepFive",
     content:
@@ -59,6 +54,7 @@ export default () => {
       showSkipButton={true}
       continuous={true}
       callback={tourCB}
+      showProgress={true}
       disableCloseOnEsc={true}
       disableOverlayClose={true}
       styles={{

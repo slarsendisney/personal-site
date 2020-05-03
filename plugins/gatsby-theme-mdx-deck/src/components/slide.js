@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react"
 import { connect } from "react-redux"
 import { navigate } from "gatsby"
 import { useCookies } from "react-cookie"
-
+import ReactTooltip from "react-tooltip"
 import Context from "../context"
 import useDeck from "../hooks/use-deck"
 import useSwipe from "../hooks/use-swipe"
@@ -14,6 +14,7 @@ import Question from "../images/question.svg"
 import Broadcast from "../images/broadcast.svg"
 import BroadcastOff from "../images/broadcast-off.svg"
 import Stop from "../images/stop.svg"
+import Close from "../images/close.svg"
 
 const toggleMode = (next) => (state) =>
   state.mode === next
@@ -55,6 +56,7 @@ export const Slide = ({
   return (
     <>
       <Context.Provider value={context}>
+        <ReactTooltip className="info-tooltip" />
         {context.mode === "MASTER" && !verified && (
           <div
             className="flex align-horizontal align-vertical"
@@ -136,17 +138,37 @@ export const Slide = ({
           }}
         >
           {slide}
-
+          <img
+            src={Logo}
+            data-tip={`This presentation was made by Sam Larsen-Disney`}
+            style={{ position: "fixed", height: 18, bottom: 20, right: 20 }}
+          />
           <button
-            className="stepFour"
-            style={{ position: "fixed", bottom: 20, right: 30 }}
+            className=""
+            style={{}}
             onClick={() => navigate("/presentations")}
           >
-            <img src={Logo} style={{ height: 21 }} />
+            <img
+              src={Close}
+              className="grow stepFour"
+              data-tip={`Close`}
+              style={{
+                position: "fixed",
+                height: "100%",
+                top: 12,
+                right: 15,
+                height: 30,
+              }}
+            />
           </button>
           <div style={{ position: "fixed", bottom: 10, left: 20 }}>
             <button onClick={() => removeCookie("SLDPresTourCookie")}>
-              <img src={Question} style={{ height: 30 }} className="stepOne" />
+              <img
+                src={Question}
+                style={{ height: 30 }}
+                className="stepOne grow"
+                data-tip={`Help`}
+              />
             </button>
             {((livePresenter &&
               window.location.pathname.includes(presentation.deck)) ||
@@ -172,6 +194,11 @@ export const Slide = ({
                     style={{ marginLeft: 15 }}
                     className="stepFive"
                     disabled={TourActive}
+                    data-tip={
+                      follow
+                        ? "Review at your own pace."
+                        : "Follow presentation."
+                    }
                   >
                     <img
                       src={follow ? Broadcast : BroadcastOff}
@@ -186,6 +213,7 @@ export const Slide = ({
           <div
             className="text-align-center stepSix"
             style={{ position: "fixed", bottom: 20 }}
+            data-tip={`You're on slide ${index + 1} of ${length}`}
           >
             <p style={{ fontSize: 15 }} className="margin-0 is-grey opacity-50">
               {index + 1}/{length}
