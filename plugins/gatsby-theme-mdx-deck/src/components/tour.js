@@ -48,7 +48,13 @@ export default () => {
   }
   return (
     <Joyride
-      steps={window.location.pathname.includes("slides") ? steps : []}
+      steps={
+        typeof window !== `undefined`
+          ? window.location.pathname.includes("slides")
+            ? steps
+            : []
+          : []
+      }
       run={TourActive}
       showSkipButton={true}
       continuous={true}
