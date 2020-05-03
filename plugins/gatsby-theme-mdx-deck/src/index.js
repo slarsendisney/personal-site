@@ -1,7 +1,12 @@
 import React from "react"
 import App from "./components/app"
-
-export const wrapPageElement = ({ element }) => <App>{element}</App>
+import Tour from "./components/tour"
+export const wrapPageElement = ({ element }) => (
+  <>
+    <Tour />
+    <App>{element}</App>
+  </>
+)
 
 export { Appear } from "./components/appear"
 export { Notes } from "./components/notes"

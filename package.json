@@ -85,6 +85,7 @@
     "react-vertical-timeline-component": "^2.6.0",
     "react-visibility-sensor": "^5.1.1",
     "reactour": "^1.17.0",
+    "recompose": "^0.30.0",
     "redux": "^4.0.5",
     "redux-socket.io": "^1.4.0",
     "sass-flex-mixin": "^1.0.3",
