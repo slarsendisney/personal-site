@@ -31,18 +31,20 @@ export default (props) => {
 
   const { Provider = DefaultProvider } = theme
   return (
-    <Provider>
-      <div
-        {...props}
-        sx={{
-          width: "100vw",
-          height: mode !== modes.print ? height : "100vh",
-          variant: "styles.root",
-          "*": {
-            boxSizing: "border-box",
-          },
-        }}
-      />
-    </Provider>
+    <>
+      <Provider>
+        <div
+          {...props}
+          sx={{
+            width: "100vw",
+            height: mode !== modes.print ? height : "100vh",
+            variant: "styles.root",
+            "*": {
+              boxSizing: "border-box",
+            },
+          }}
+        />
+      </Provider>
+    </>
   )
 }
