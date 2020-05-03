@@ -1,5 +1,7 @@
 *.cache
 .env
+.cache
+.bitmap
 # Logs
 logs
 *.log
