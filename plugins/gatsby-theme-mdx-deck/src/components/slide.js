@@ -4,6 +4,8 @@ import React, { useState, useRef } from "react"
 import { connect } from "react-redux"
 import { navigate } from "gatsby"
 import ReactTooltip from "react-tooltip"
+import { useCookies } from "react-cookie"
+import Joyride from "react-joyride"
 import Context from "../context"
 import useDeck from "../hooks/use-deck"
 import useSwipe from "../hooks/use-swipe"
@@ -23,6 +25,42 @@ const toggleMode = (next) => (state) =>
         mode: next,
       }
 
+const steps = [
+  {
+    target: ".stepTwo",
+    content:
+      "Welcome to the presentation! It looks like your first time here so let me explain a few things.",
+    placement: "center",
+  },
+  {
+    target: ".stepThree",
+    content: "Swipe or use your arrow keys to navigate between the slides.",
+    placement: "top-end",
+  },
+  {
+    target: ".stepFour",
+    content: "Tap or click here to exit the presentation at any time.",
+    placement: "top-end",
+  },
+  {
+    target: ".stepSix",
+    content:
+      "Here you can see the current slide and the total number of slides in the deck.",
+    placement: "top-end",
+  },
+  {
+    target: ".stepFive",
+    content:
+      "While I'm presenting, you can tap or click here to review the slides at your own pace.",
+    placement: "top-end",
+  },
+  {
+    target: ".stepOne",
+    content: "Tap or click here at any time to see these instructions again.",
+    placement: "top",
+  },
+]
+
 export const Slide = ({
   sayHello,
   livePresenter,
@@ -39,6 +77,7 @@ export const Slide = ({
   length,
   ...props
 }) => {
+  const [cookies, setCookie, removeCookie] = useCookies()
   const outer = useDeck()
   const swipeProps = useSwipe()
   const context = {
@@ -46,15 +85,35 @@ export const Slide = ({
     index,
     preview,
   }
-
-  const followButton = useRef(null)
   const [password, setPassword] = useState("")
-
+  const TourActive = !cookies.SLDPresTourCookie
+  const tourCB = (e) => {
+    console.log(e)
+    if (e.action === "reset" || e.action === "close") {
+      setCookie("SLDPresTourCookie", true)
+    }
+  }
   const onChange = (e) => setPassword(e.target.value)
   return (
     <>
       <Context.Provider value={context}>
         <ReactTooltip className="info-tooltip" place="right" />
+        <Joyride
+          steps={steps}
+          run={TourActive}
+          showSkipButton={true}
+          continuous={true}
+          callback={tourCB}
+          disableOverlayClose={true}
+          styles={{
+            options: {
+              arrowColor: "#fff",
+              backgroundColor: "#fff",
+              primaryColor: "#ea4e68",
+              textColor: "#2e4052",
+            },
+          }}
+        />
         {context.mode === "MASTER" && !verified && (
           <div
             className="flex align-horizontal align-vertical"
@@ -116,9 +175,10 @@ export const Slide = ({
           }}
           className="is-pink-bg"
         />
+
         <div
           {...(!preview ? swipeProps : {})}
-          className="pres-layout light-mode"
+          className="pres-layout light-mode stepTwo stepThree"
           sx={{
             boxSizing: "border-box",
             width: "100%",
@@ -137,51 +197,53 @@ export const Slide = ({
           {slide}
 
           <button
+            className="stepFour"
             style={{ position: "fixed", bottom: 20, right: 30 }}
             onClick={() => navigate("/presentations")}
           >
             <img src={Logo} style={{ height: 21 }} />
           </button>
           <div style={{ position: "fixed", bottom: 10, left: 20 }}>
-            <img
-              data-tip={`Use arrow keys or swipe to navigate between slides. Press 'esc' or click my logo to exit.`}
-              src={Question}
-              style={{ height: 30 }}
-            />
-            {livePresenter &&
-              window.location.pathname.includes(presentation.deck) && (
-                <>
-                  {verified ? (
-                    <button
-                      onClick={(e) => {
-                        context.setState(toggleMode(modes.normal))
-                        stopPres()
-                        e.currentTarget.blur()
-                      }}
-                      style={{ marginLeft: 15 }}
-                    >
-                      <img src={Stop} style={{ height: 30 }} className="grow" />
-                    </button>
-                  ) : (
-                    <button
-                      onClick={(e) => {
-                        shouldfollow(!follow)
-                        e.currentTarget.blur()
-                      }}
-                      style={{ marginLeft: 15 }}
-                    >
-                      <img
-                        src={follow ? Broadcast : BroadcastOff}
-                        style={{ width: 22 }}
-                        className="grow"
-                      />
-                    </button>
-                  )}
-                </>
-              )}
+            <button onClick={() => removeCookie("SLDPresTourCookie")}>
+              <img src={Question} style={{ height: 30 }} className="stepOne" />
+            </button>
+            {((livePresenter &&
+              window.location.pathname.includes(presentation.deck)) ||
+              TourActive === true) && (
+              <>
+                {verified ? (
+                  <button
+                    onClick={(e) => {
+                      context.setState(toggleMode(modes.normal))
+                      stopPres()
+                      e.currentTarget.blur()
+                    }}
+                    style={{ marginLeft: 15 }}
+                  >
+                    <img src={Stop} style={{ height: 30 }} className="grow" />
+                  </button>
+                ) : (
+                  <button
+                    onClick={(e) => {
+                      shouldfollow(!follow)
+                      e.currentTarget.blur()
+                    }}
+                    style={{ marginLeft: 15 }}
+                    className="stepFive"
+                    disabled={TourActive}
+                  >
+                    <img
+                      src={follow ? Broadcast : BroadcastOff}
+                      style={{ width: 22 }}
+                      className="grow"
+                    />
+                  </button>
+                )}
+              </>
+            )}
           </div>
           <div
-            className="text-align-center"
+            className="text-align-center stepSix"
             style={{ position: "fixed", bottom: 20 }}
           >
             <p style={{ fontSize: 15 }} className="margin-0 is-grey opacity-50">
