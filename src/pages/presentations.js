@@ -47,7 +47,7 @@ const Start = ({ data, presentation }) => {
                 >
                   <Link
                     to={
-                      presentation && presentation.slide
+                      presentation && presentation.deck === path
                         ? path + "/slides/" + presentation.slide
                         : path + "/slides/0"
                     }
