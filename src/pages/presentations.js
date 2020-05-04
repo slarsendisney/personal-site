@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { connect } from "react-redux"
+import SmoothCollapse from "react-smooth-collapse"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -16,8 +17,27 @@ const Start = ({ data, presentation }) => {
         <div className="row container pad-5-t pad-5-b pad-3-lr">
           <div className="col-xs-12 ">
             <h1 className="is-grey is-hero-menu  margin-1-b">Presentations</h1>
-            <div className="line-sm  is-grey" style={{ width: 305 }} />
-            <div className="margin-5-b"></div>
+            <div
+              className="line-sm  is-grey margin-5-b"
+              style={{ width: 305 }}
+            />
+            <SmoothCollapse expanded={presentation && presentation.deck}>
+              <div className="flex is-pink-bg-always is-white-always">
+                <Link to={presentation.deck + "/slides/" + presentation.slide}>
+                  <h4>
+                    Sam is currently presenting{" "}
+                    {
+                      nodes.find(
+                        (item) =>
+                          presentation &&
+                          presentation.deck === item.frontmatter.path
+                      ).frontmatter.title
+                    }
+                    . Click to follow along 🚀!
+                  </h4>
+                </Link>
+              </div>
+            </SmoothCollapse>
           </div>
 
           {[
@@ -69,13 +89,7 @@ const Start = ({ data, presentation }) => {
                     <div className="line-sm opacity-10" />
                     <div className="pad-3-lr pad-3-b is-grey">
                       <h1 className="margin-0-b">{title}</h1>
-                      {presentation && presentation.deck === path ? (
-                        <h4 className="margin-0-b margin-1-t is-pink-always">
-                          Currently being presented. Click to follow along 🚀!
-                        </h4>
-                      ) : (
-                        <h4 className="margin-0-b margin-1-t">{desc}</h4>
-                      )}
+                      <h4 className="margin-0-b margin-1-t">{desc}</h4>
                       <p className="opacity-50">{location}</p>
                     </div>
                   </Link>
