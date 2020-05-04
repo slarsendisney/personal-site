@@ -123,18 +123,12 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "nike_activity": "./scripts/getActivity.sh",
     "nike_data_update": "node ./scripts/getNikeData",
-    "start": "npm run hello && npm run develop",
+    "start": "npm run hello && npm run count_commits && npm run develop",
     "serve": "gatsby serve",
     "hello": "node scripts/hello.js",
     "ammend_last_commit":"git commit --amend",
     "fix-styles": "npx stylelint 'src/styles/**/*.scss' --syntax scss --fix"
   },
-  "pre-commit": [
-    "count_commits"
-  ],
-  "post-commit": [
-    "ammend_last_commit"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
