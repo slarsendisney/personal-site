@@ -1,6 +1,6 @@
 import React from "react"
 import Lottie from "react-lottie"
-import data from "../../data/hearts.json"
+import data from "../../animation-data/hearts.json"
 
 export default () => {
   const defaultOptions = {

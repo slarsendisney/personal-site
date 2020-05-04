@@ -1,7 +1,7 @@
 import React from "react"
 import Lottie from "react-lottie"
-import data from "../../data/logo.json"
-import dataDark from "../../data/logo-dark.json"
+import data from "../../animation-data/logo.json"
+import dataDark from "../../animation-data/logo-dark.json"
 
 export default ({ darkMode }) => {
   const defaultOptions = {

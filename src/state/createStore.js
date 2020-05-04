@@ -9,11 +9,14 @@ function reducer(
     livePresenter: false,
     follow: true,
     verified: false,
+    count: 0,
   },
   action
 ) {
   console.log(action.type)
   switch (action.type) {
+    case "userCount":
+      return Object.assign({}, { ...state, count: action.data })
     case "follow":
       return Object.assign({}, { ...state, follow: action.data })
     case "verify":

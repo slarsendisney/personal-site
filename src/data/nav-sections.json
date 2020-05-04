@@ -70,5 +70,14 @@
     "home": false,
     "nav": false,
     "indexed": true
+  },
+  {
+    "label": "📈 Site Stats",
+    "desc": "Ever wondered how many lines of code are at work here?",
+    "type": "Pad",
+    "url": "/stats",
+    "home": false,
+    "nav": false,
+    "indexed": true
   }
 ]

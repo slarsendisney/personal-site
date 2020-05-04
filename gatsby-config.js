@@ -120,7 +120,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `stats`,
-        path: `${__dirname}/data/stats`,
+        path: `${__dirname}/data/stats/count_total.json`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `git-stats`,
+        path: `${__dirname}/data/stats/gitlog.json`,
       },
     },
     {

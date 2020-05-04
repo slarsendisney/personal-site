@@ -2,6 +2,7 @@
 .env
 .cache
 .bitmap
+data/stats
 # Logs
 logs
 *.log
