@@ -63,7 +63,10 @@ const Stats = ({ data, count }) => {
   })
   return (
     <Layout>
-      <SEO title="Stats" />
+      <SEO
+        title="Stats"
+        description="Ever wondered how many lines of code are at work here?"
+      />
       <div className="row container pad-10-t pad-5-lr">
         <div className="col-xs-12  is-grey">
           <h1 className=" margin-2-t">

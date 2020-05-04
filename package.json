@@ -1,6 +1,6 @@
 {
   "name": "sld-personal-site",
-  "private": true,
+  "private": false,
   "description": "SLD: Personal Site",
   "version": "1.1.0",
   "author": "Sam Larsen-Disney <s.larsendisney@gmail.com>",
@@ -51,7 +51,6 @@
     "gatsby-transformer-sharp": "^2.5.0",
     "gsap": "^3.2.6",
     "html2canvas": "^1.0.0-rc.5",
-    "i": "^0.3.6",
     "node-sass": "^4.14.0",
     "npm": "^6.14.4",
     "prismjs": "^1.20.0",
@@ -126,16 +125,10 @@
     "start": "npm run hello && npm run count_commits && npm run develop",
     "serve": "gatsby serve",
     "hello": "node scripts/hello.js",
-    "ammend_last_commit":"git commit --amend",
     "fix-styles": "npx stylelint 'src/styles/**/*.scss' --syntax scss --fix"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bit": {
-    "env": {},
-    "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
+    "url": "https://github.com/slarsendisney/personal-site"
   }
 }
