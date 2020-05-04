@@ -72,12 +72,21 @@
     "indexed": true
   },
   {
-    "label": "📈 Site Stats",
+    "label": "📈 Stats",
     "desc": "Ever wondered how many lines of code are at work here?",
     "type": "Pad",
     "url": "/stats",
     "home": false,
-    "nav": false,
+    "nav": true,
     "indexed": true
+  },
+  {
+    "label": "🔎 Search",
+    "desc": "Site wide search.",
+    "type": "Searxch",
+    "url": "/search",
+    "home": false,
+    "nav": true,
+    "indexed": false
   }
 ]
