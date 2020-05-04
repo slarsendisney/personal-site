@@ -97,6 +97,7 @@
     "gatsby-plugin-remove-trailing-slashes": "^2.3.0",
     "gatsby-source-filesystem": "^2.3.0",
     "gatsby-transformer-json": "^2.4.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^2.0.5",
     "puppeteer": "^3.0.1",
     "react-p5": "^1.3.2",
@@ -114,7 +115,7 @@
     "count": "cloc  --by-file --exclude-ext=json,svg --json src/ decks/ MD/",
     "count_totals": "cloc --exclude-ext=svg --exclude-dir=animation-data --json src/ decks/ MD/ > data/stats/count_total.json",
     "count_commits": "git log --all --pretty=format:'%n{%n%d%n  \"commit hash\": \"%H\",%n  \"date\": \"%ad\",%n  \"message\": \"%f\"%n}'| grep -v \"origin\" | tr -d '\n' | sed 's/}{/}, {/g' | sed -e 's/^/[/' |sed -e 's/$/]/' > data/stats/gitlog.json",
-    "postinstall": "npm run count_totals && npm run count_commits",
+    "postinstall": "npm run count_totals",
     "develop": "gatsby develop -o",
     "deploy": "gatsby build && firebase deploy",
     "update": "ncu -u  && npm install",
@@ -126,6 +127,9 @@
     "hello": "node scripts/hello.js",
     "fix-styles": "npx stylelint 'src/styles/**/*.scss' --syntax scss --fix"
   },
+  "pre-commit": [
+    "count_commits"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
