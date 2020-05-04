@@ -109,6 +109,15 @@ export default ({ location }) => {
             <div className="row margin-5-t">
               {sections
                 .filter((item) => item.nav)
+                .sort(function (a, b) {
+                  if (a.type < b.type) {
+                    return -1
+                  }
+                  if (a.type > b.type) {
+                    return 1
+                  }
+                  return 0
+                })
                 .map((item) => (
                   <div className="col-xs-6 col-md-3 col-lg-2">
                     <NavLinkSmall {...item} key={item.label} />

@@ -29,7 +29,7 @@
   {
     "label": "✏️ Articles",
     "desc": "I write occasionaly.",
-    "type": "Writing",
+    "type": "Articles",
     "url": "/articles",
     "home": true,
     "nav": true,
@@ -38,7 +38,7 @@
   {
     "label": "🎟 Presentations",
     "desc": "The slide decks I use when public speaking.",
-    "type": "Slides",
+    "type": "Presentations",
     "url": "/presentations",
     "home": true,
     "nav": true,
@@ -74,7 +74,7 @@
   {
     "label": "📈 Stats",
     "desc": "Ever wondered how many lines of code are at work here?",
-    "type": "Pad",
+    "type": "Stats",
     "url": "/stats",
     "home": false,
     "nav": true,
@@ -83,7 +83,7 @@
   {
     "label": "🔎 Search",
     "desc": "Site wide search.",
-    "type": "Searxch",
+    "type": "Search",
     "url": "/search",
     "home": false,
     "nav": true,
