@@ -1,50 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { connect } from "react-redux"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import { connect } from "react-redux"
-import { PieChart, Pie, ResponsiveContainer, Cell } from "recharts"
+import StatsCard from "../components/Stats/StatsCard"
+import PieChart from "../components/Stats/PieChart"
 
-const COLORS = ["#ea4e68", "#FE788E", "#FEB0BD", "#B43046"]
-
-const StatCard = ({ name, nFiles, comment, code }) => {
-  return (
-    <div className="col-xs-6 col-md-3 is-grey">
-      <h2>{name}</h2>
-      <h4>{nFiles} files</h4>
-      <h4>{code} lines</h4>
-    </div>
-  )
-}
-
-const RADIAN = Math.PI / 180
-const RenderCustomizedLabel = ({
-  cx,
-  cy,
-  midAngle,
-  innerRadius,
-  outerRadius,
-  percent,
-  index,
-  data,
-}) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5
-  const x = cx + radius * Math.cos(-midAngle * RADIAN)
-  const y = cy + radius * Math.sin(-midAngle * RADIAN)
-
-  return (
-    <text
-      x={x}
-      y={y}
-      fill="white"
-      textAnchor={x > cx ? "start" : "end"}
-      dominantBaseline="central"
-      style={{ fontFamily: "Lato" }}
-    >
-      {data[index].name}
-    </text>
-  )
-}
 const Stats = ({ data, count }) => {
   const { JavaScript, Markdown, Sass, JSON, SUM } = data.statsJson
   const { totalCount } = data.allGitlogJson
@@ -96,56 +57,18 @@ const Stats = ({ data, count }) => {
         </div>
 
         {Object.keys(cards).map(function (item) {
-          return <StatCard name={item} {...cards[item]} />
+          return <StatsCard name={item} {...cards[item]} />
         })}
         <div className="col-xs-12 col-md-6 is-grey margin-5-t">
           <h2>By Line Count</h2>
           <div style={{ height: 400 }}>
-            <ResponsiveContainer>
-              <PieChart>
-                <Pie
-                  dataKey="value"
-                  data={statsByCodeCount}
-                  fill="#8884d8"
-                  labelLine={false}
-                  label={(e) => (
-                    <RenderCustomizedLabel {...e} data={statsByCodeCount} />
-                  )}
-                >
-                  {statsByCodeCount.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
-              </PieChart>
-            </ResponsiveContainer>
+            <PieChart data={statsByCodeCount} />
           </div>
         </div>
         <div className="col-xs-12 col-md-6 is-grey margin-5-t">
           <h2>By File Count</h2>
           <div style={{ height: 400 }}>
-            <ResponsiveContainer>
-              <PieChart>
-                <Pie
-                  dataKey="value"
-                  data={statsByFileCount}
-                  fill="#8884d8"
-                  labelLine={false}
-                  label={(e) => (
-                    <RenderCustomizedLabel {...e} data={statsByFileCount} />
-                  )}
-                >
-                  {statsByFileCount.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
-              </PieChart>
-            </ResponsiveContainer>
+            <PieChart data={statsByFileCount} />
           </div>
         </div>
       </div>

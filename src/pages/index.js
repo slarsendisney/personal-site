@@ -12,6 +12,7 @@ import mediaLinks from "../data/media-links.json"
 import NavLink from "../components/Root/NavLink"
 import MediaLink from "../components/Root/MediaLink"
 import EmploymentHistory from "../data/timeline.json"
+import PreferPaper from "../components/Root/PreferPaper"
 
 export default function Start({ data }) {
   const featuredProjectOne = data.Projects.edges[0].node.frontmatter
@@ -98,53 +99,7 @@ export default function Start({ data }) {
           <RecentEvents />
         </div>
       </div>
-      <div
-        className="is-grey is-light-grey-bg"
-        style={{ position: "relative" }}
-      >
-        <img
-          alt="planes"
-          src={
-            !darkMode.value
-              ? "https://ik.imagekit.io/sld/Untitled_Artwork_9_oDFR_CBToKE.gif"
-              : "https://ik.imagekit.io/sld/Untitled_Artwork_10_46sRVmnPyiG.gif"
-          }
-          style={{
-            width: "100%",
-            maxHeight: "100%",
-            objectFit: "cover",
-            position: "absolute",
-            zIndex: 0,
-          }}
-        />
-
-        <div
-          className="row container-small pad-20-tb"
-          style={{ position: "relative", zIndex: 5 }}
-        >
-          <div className="col-xs-12 text-align-center">
-            <div className="row">
-              <div className="col-xs-12">
-                <h1 className="is-grey">For The People Who Prefer Paper</h1>
-              </div>
-              <div className="col-xs-12">
-                <AniLink paintDrip hex="#ffffff" to="/cv">
-                  <button
-                    className="bubble-button "
-                    style={{
-                      minWidth: 300,
-                      marginLeft: "auto",
-                      marginRight: "auto",
-                    }}
-                  >
-                    View CV
-                  </button>
-                </AniLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PreferPaper darkMode={darkMode} />
     </Layout>
   )
 }
