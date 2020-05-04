@@ -22,21 +22,27 @@ const Start = ({ data, presentation }) => {
               style={{ width: 305 }}
             />
             <SmoothCollapse expanded={presentation && presentation.deck}>
-              <div className="flex is-pink-bg-always is-white-always">
-                <Link to={presentation.deck + "/slides/" + presentation.slide}>
-                  <h4>
-                    Sam is currently presenting{" "}
-                    {
+              <Link
+                to={
+                  presentation
+                    ? presentation.deck + "/slides/" + presentation.slide
+                    : "/"
+                }
+                style={{ textDecoration: "none" }}
+              >
+                <div className="flex is-pink-bg-always is-white-always margin-5-b margin-3-lr pad-3 border-radius">
+                  <h4 className="margin-0">
+                    Sam is currently presenting "
+                    {presentation &&
                       nodes.find(
                         (item) =>
                           presentation &&
                           presentation.deck === item.frontmatter.path
-                      ).frontmatter.title
-                    }
-                    . Click to follow along 🚀!
+                      ).frontmatter.title}
+                    ". Click to follow along!
                   </h4>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </SmoothCollapse>
           </div>
 
