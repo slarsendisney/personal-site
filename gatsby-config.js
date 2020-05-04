@@ -119,6 +119,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `stats`,
+        path: `${__dirname}/data/stats`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/src/data/nav-sections.json`,
       },
     },

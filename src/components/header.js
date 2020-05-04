@@ -90,6 +90,7 @@ export default ({ location }) => {
                   <NavLinkSmall {...item} key={item.label} />
                 ))}
               </div>
+
               <div className="col-xs-12 col-md-2 ">
                 {sections.slice(2, 4).map((item) => (
                   <NavLinkSmall {...item} key={item.label} />

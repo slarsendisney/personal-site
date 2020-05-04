@@ -36,7 +36,6 @@ export default () => {
   const [cookies, setCookie] = useCookies()
   const TourActive = !cookies.SLDPresTourCookie
   const tourCB = (e) => {
-    console.log(e)
     if (e.action === "reset" || e.action === "close") {
       setCookie("SLDPresTourCookie", true)
     }

@@ -33,7 +33,10 @@ const Start = ({ data, presentation }) => {
           ].map((item) => {
             const { title, path, desc, hero, location } = item.frontmatter
             return (
-              <div className="col-xs-12 col-sm-6 col-md-4  margin-5-b">
+              <div
+                className="col-xs-12 col-sm-6 col-md-4 margin-5-b"
+                key={title}
+              >
                 <div
                   className={`is-white-bg grow ${
                     presentation && presentation.deck === path ? "pulse" : ""
