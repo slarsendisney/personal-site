@@ -25,9 +25,9 @@ export const NavLinkSmall = ({ label, desc, url }) => {
       typeof window !== "undefined" && window.location.pathname === url
     if (currentLocation) {
       return (
-        <div style={{ cursor: "pointer" }}>
+        <div style={{ cursor: "default" }}>
           <h3
-            className={`margin-3-b margin-0-t pad-1-b is-special-blue  special-header-text`}
+            className={`margin-0-tb pad-1-b is-special-blue special-header-text`}
           >
             <Emojione text={label} />
           </h3>
@@ -37,9 +37,7 @@ export const NavLinkSmall = ({ label, desc, url }) => {
     return (
       <Link to={url} className="margin-15-b" id="path">
         <div className="  ">
-          <h3
-            className={`margin-3-b margin-0-t link-bar pad-1-b  special-header-text`}
-          >
+          <h3 className={`margin-0-tb link-bar pad-1-b  special-header-text`}>
             <Emojione text={label} />
           </h3>
         </div>

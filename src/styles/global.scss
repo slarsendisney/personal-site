@@ -31,6 +31,11 @@ main {
   min-height: calc(100vh - 150px);
 }
 
+div {
+  transition: background-color 0.5s ease;
+
+}
+
 body {
   margin: 0;
   max-width: 100vw;

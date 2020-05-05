@@ -50,7 +50,7 @@
     "type": "Photos",
     "url": "/photos",
     "home": true,
-    "nav": true,
+    "nav": false,
     "indexed": true
   },
   {
@@ -77,7 +77,7 @@
     "type": "Stats",
     "url": "/stats",
     "home": false,
-    "nav": true,
+    "nav": false,
     "indexed": true
   },
   {
