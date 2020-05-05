@@ -1,15 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const NavSections = require("./src/data/nav-sections.json")
 
-const importantURls = [
-  ...NavSections,
-  {
-    label: "📄 CV",
-    type: "CV",
-    url: "/cv",
-  },
-]
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
@@ -34,6 +25,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const QandA = path.resolve(`./src/templates/QandA.js`)
   const Article = path.resolve(`./src/templates/Article.js`)
+  const MDXArticle = path.resolve(`./src/templates/MDXArticle.js`)
   const LegacyArticle = path.resolve(`./src/templates/LegacyArticle.js`)
   const Project = path.resolve(`./src/templates/Project.js`)
   const result = await graphql(`
@@ -112,20 +104,37 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: { slug: slug },
     })
   })
-}
 
-// exports.onCreatePage = ({ page, actions }) => {
-//   const { createPage, deletePage } = actions
-//   const sitePageRegex = /^\/\w*$/g
-//   const index = importantURls.findIndex((item) => item.url === page.path)
-//   if (sitePageRegex.test(page.path) && index > -1) {
-//     const oldPage = Object.assign({}, page)
-//     page.context.title = importantURls[index].label
-//     page.context.slug = page.path
-//     deletePage(oldPage)
-//     createPage(page)
-//   }
-// }
+  const mdxPosts = await graphql(`
+    {
+      allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
+  if (mdxPosts.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  mdxPosts.data.allMdx.edges.forEach((item) => {
+    const slug =
+      "articles/" + item.node.frontmatter.title.trim().split(" ").join("-")
+
+    createPage({
+      path: slug,
+      component: MDXArticle,
+      context: { slug: slug },
+    })
+  })
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -135,6 +144,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value,
+    })
+  }
+  if (node.internal.type === "Mdx" && node.frontmatter.type === "Article") {
+    createNodeField({
+      node,
+      name: `slug`,
+      value: "articles/" + node.frontmatter.title.trim().split(" ").join("-"),
     })
   }
   if (node.internal.type === `FeedMediumBlog`) {

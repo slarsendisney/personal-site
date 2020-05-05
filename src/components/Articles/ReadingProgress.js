@@ -36,8 +36,6 @@ export default ({ target }) => {
     window.addEventListener("scroll", scrollListener)
     return () => window.removeEventListener("scroll", scrollListener)
   })
-
-  console.log(readingProgress)
   if (!show) {
     return <Fragment />
   }

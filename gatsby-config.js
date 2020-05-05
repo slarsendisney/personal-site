@@ -81,6 +81,7 @@ module.exports = {
         minify: true,
       },
     },
+    "gatsby-plugin-mdx",
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
@@ -141,6 +142,13 @@ module.exports = {
       options: {
         name: `markdown-pages`,
         path: `${__dirname}/MD`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "special-articles",
+        path: `${__dirname}/MDX/Articles`,
       },
     },
     {
@@ -232,7 +240,7 @@ module.exports = {
     {
       resolve: `gatsby-theme-mdx-deck`,
       options: {
-        contentPath: `decks`,
+        contentPath: `MDX/Decks`,
         basePath: `/decks`,
       },
     },

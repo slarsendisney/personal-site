@@ -11,7 +11,7 @@ export default class LottieControl extends React.Component {
     const defaultOptions = {
       loop: true,
       autoplay: true,
-      animationData: require("../../../src/components/Presentations/animations/celebration.json"),
+      animationData: require("../../../../src/components/Presentations/animations/celebration.json"),
       rendererSettings: {
         preserveAspectRatio: "xMidYMid slice",
       },

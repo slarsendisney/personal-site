@@ -1,20 +1,36 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { format } from "date-fns"
+import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
-
-export const Article = ({ title, pubDate, slug, hero_img, excerpt }) => (
+import compareAsc from "date-fns/compareAsc"
+export const Article = ({
+  title,
+  pubDate,
+  slug,
+  hero_img,
+  coverimg,
+  excerpt,
+}) => (
   <Link to={"/" + slug} className="link" id="path">
     <div className="grow row margin-5-b">
       <div className="col-xs-12 col-md-6 margin-5-t ">
-        <img
-          src={hero_img}
-          alt="hero-img"
-          className="shadow"
-          style={{ width: "100%", height: 250, objectFit: "cover" }}
-        />
+        {hero_img ? (
+          <img
+            src={hero_img}
+            alt="hero-img"
+            className="shadow"
+            style={{ width: "100%", height: 250, objectFit: "cover" }}
+          />
+        ) : (
+          <Img
+            fluid={coverimg.childImageSharp.fluid}
+            className="shadow"
+            style={{ maxHeight: 250 }}
+          />
+        )}
       </div>
       <div className="col-xs-12 col-md-6 margin-5-t">
         <h1 className="margin-0 is-dark-blue">{title}</h1>
@@ -67,6 +83,17 @@ const LegacyArticle = ({ title, path, date }) => (
 export default ({ data }) => {
   let { nodes } = data.allFeedMediumBlog
   let { edges } = data.allMarkdownRemark
+  let mdxEdges = data.allMdx.edges.map((item) => ({
+    ...item.node,
+    ...item.node.fields,
+    ...item.node.frontmatter,
+    pubDate: item.node.frontmatter.date,
+  }))
+  // just add ...mdxEdges below
+  let allArticles = [...nodes].sort((a, b) =>
+    compareAsc(new Date(b.pubDate), new Date(a.pubDate))
+  )
+
   return (
     <Layout>
       <SEO
@@ -80,11 +107,8 @@ export default ({ data }) => {
             <div className="line margin-3-t margin-10-b" />
           </div>
 
-          <div className="col-xs-12 ">
-            <h2 className="margin-0-t is-special-blue">From Medium:</h2>
-          </div>
           <div className="col-xs-12 col-md-10">
-            {nodes.map((item) => (
+            {allArticles.map((item) => (
               <Article {...item} {...item.fields} key={item.fields.slug} />
             ))}
           </div>
@@ -121,6 +145,28 @@ export const pageQuery = graphql`
         }
         pubDate
         title
+      }
+    }
+    allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date
+            coverimg {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+                  ...GatsbyImageSharpFluid_noBase64
+                }
+              }
+            }
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
       }
     }
     allMarkdownRemark(
