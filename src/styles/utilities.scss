@@ -125,3 +125,19 @@
       box-shadow: 0 0 0 0 rgba(204,169,44, 0);
   }
 }
+
+.rotate-icon {
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+          transition: transform .8s ease-in-out;
+}
+
+.rotate-light:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+
+.rotate-dark:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}

@@ -64,37 +64,23 @@ export default ({ location }) => {
           className="col-xs-3 flex text-align-right"
           style={{ justifyContent: "flex-end", alignItems: "center" }}
         >
-          {darkMode.value ? (
-            <button
-              type="button"
-              aria-label="light mode"
-              onClick={() => {
-                setMenuOpen(false)
-                delay(darkMode.disable)
-              }}
-              data-tip={`Light Mode`}
-            >
-              <h2
-                className={`las la-adjust link margin-0`}
-                style={{ fontSize: 30 }}
-              ></h2>
-            </button>
-          ) : (
-            <button
-              type="button"
-              aria-label="dark mode"
-              onClick={() => {
-                setMenuOpen(false)
-                delay(darkMode.enable)
-              }}
-              data-tip={`Dark Mode`}
-            >
-              <h2
-                className={`las la-adjust link margin-0`}
-                style={{ fontSize: 30 }}
-              ></h2>
-            </button>
-          )}
+          <button
+            type="button"
+            aria-label="light mode"
+            onClick={() => {
+              setMenuOpen(false)
+              delay(darkMode.value ? darkMode.disable : darkMode.enable)
+            }}
+            data-tip={`Light Mode`}
+          >
+            <h2
+              className={`las la-adjust link margin-0 rotate-icon ${
+                darkMode.value ? "rotate-dark" : "rotate-light"
+              }`}
+              style={{ fontSize: 30 }}
+            ></h2>
+          </button>
+
           <button type="button" onClick={() => setMenuOpen(!menuOpen)}>
             <h2
               className={`las ${
