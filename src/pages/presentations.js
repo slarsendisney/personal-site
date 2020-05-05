@@ -111,7 +111,10 @@ const Start = ({ data, presentation }) => {
 
 export const query = graphql`
   {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { type: { ne: "Article" } } }
+    ) {
       nodes {
         frontmatter {
           path
