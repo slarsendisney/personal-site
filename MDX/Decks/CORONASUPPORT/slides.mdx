@@ -206,5 +206,161 @@ Theres a plugin for that.
 
 ---
 
+Use firebase logic like you would any react project
+
+```
+import React from "react"
+import firebase from "gatsby-plugin-firebase"                 
+
+function Component() {
+  const [data, setData] = React.useState(null)
+
+  React.useEffect(() => {
+    firebase
+      .database()
+      .ref("/data")
+      .once("value")
+      .then(snapshot => {
+        setData(snapshot.val())
+      })
+  }, [])
+
+  return <div>{data ? data : "Loading..."}</div>
+}
+
+export default Component
+```
+
+---
+
+### useAuth()
+
+```
+
+const App = () => {
+const { initialising, user } = useAuth();
+if (initialising) {
+    return /* Content to show while loading */;
+} else {
+    return /* Content to show when we have the user profile. 
+            At this point if user is undefined we know the user is not logged in. */
+}};
+
+export default App;
+
+```
+
+---
+
+![form](https://ik.imagekit.io/sld/Screenshot_2020-04-22_at_16.02.49_82pKenfSg.png)
+
+---
+
+# 📍 Calculating Request Positions
+
+---
+
+### [Geocoding API](https://developers.google.com/maps/documentation/geocoding/intro)
+
+Address => Lat/Lon
+
+---
+
+![Map](https://ik.imagekit.io/sld/Screenshot_2020-04-22_at_15.46.33_p7V-P5DEfbe.png)
+
+---
+
+```
+
+ function submitRequest() {
+    let payload = user
+       {
+          address: user.address,
+          latlng: user.latLng,
+          phone_number: user.phone_number,
+          ...requestData,
+          time: parseInt((new Date().getTime() / 1000).toFixed(0)),
+       }
+    firebase
+      .firestore()
+      .collection("cases")
+      .add(payload)
+      .then(() => {
+        sendText(data.name);
+      });
+  }
+
+```
+
+---
+
+Twilio Text Requests
+
+```
+const accountSid = process.env.ACCOUNTSID;
+const authToken = process.env.AUTHTOKEN;
+const client = require("twilio")(accountSid, authToken);
+
+... 
+
+app.post("/send", (req, res) => {
+  const name = req.body.name;
+  const message = `Hi Volunteer! We've recieved a new request from ${name}. 
+                   Head to https://coronasupport.house/volunteers to claim it.`;
+  volunteerPhoneNumbers.forEach(number => {
+    client.messages.create({
+      body: message,
+      from: "+441173253685",
+      to: number
+    });
+  });
+  res.send("OK");
+});
+```
+
+---
+
+# Extensions
+
+---
+
+# Community Search
+
+- Find volunteers
+
+---
+
+# Settings page
+
+- Opt-in and out of text alerts and community search
+- update your information
+- delete your account
+
+---
+
+# Volunteer find
+
+- Shows lead volunteer in your block 
+- Shows closest geographical volunteer to you
+
+---
+
+# Check-in Service
+
+- Prompts volunteers to check in with local vulnearble people
+
+
+---
+
+## 55 volunteers 
+
+## 13 requests for help answered
+
+---
+
+# 💪 No requests for help lost.
+
+---
+
 # fin.
 
