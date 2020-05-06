@@ -18,8 +18,8 @@ export const ProjectPreview = ({ title, desc, path, coverimg, skills }) => (
           />
         </div>
         <div className="col-xs-12 pad-6-t is-grey">
-          <h1 className="margin-3-b margin-0-t">{title}</h1>
-          <h3 className="margin-0-t">{desc}</h3>
+          <h1 className="margin-1-b margin-0-t">{title}</h1>
+          <h3 className="margin-0-t  margin-1-b">{desc}</h3>
           <p className="margin-0-t is-special-blue">{skills.join(", ")}</p>
         </div>
       </div>
@@ -40,8 +40,8 @@ export const Project = ({ title, desc, path, coverimg, skills }) => (
           <div></div>
         </div>
         <div className="col-xs-12 col-md-6  is-grey">
-          <h1 className="margin-3-b margin-0-t">{title}</h1>
-          <h3 className="margin-0-t">{desc}</h3>
+          <h1 className="margin-1-b margin-0-t">{title}</h1>
+          <h3 className="margin-0-t margin-1-b">{desc}</h3>
 
           <p className="margin-0-t is-special-blue">{skills.join(", ")}</p>
         </div>

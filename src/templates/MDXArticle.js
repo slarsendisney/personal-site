@@ -47,7 +47,7 @@ export default ({ data, location }) => {
               </>
             )}
 
-            <div className={`pad-10-b lato article`}>
+            <div className={`pad-10-b lato`}>
               <MDXProvider>
                 <MDXRenderer>{mdx.body}</MDXRenderer>
               </MDXProvider>

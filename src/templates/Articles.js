@@ -88,6 +88,7 @@ export default ({ data }) => {
     ...item.node.fields,
     ...item.node.frontmatter,
     pubDate: item.node.frontmatter.date,
+    excerpt: item.node.frontmatter.desc,
   }))
   // just add ...mdxEdges below
   let allArticles = [...nodes].sort((a, b) =>
@@ -153,6 +154,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
+            desc
             coverimg {
               childImageSharp {
                 fluid(maxWidth: 1000) {
