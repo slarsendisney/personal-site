@@ -81,7 +81,7 @@ My Plan
 
 ---
 
-I reused a lot of my old code
+## I reused a lot of old code
 
 - The site was built using one of my [GatsbyJS boilerplates](/boilerplates).
 - Styles were taken from my [personal site](/).
@@ -89,15 +89,120 @@ I reused a lot of my old code
 
 ---
 
-MVP 👑
+# MVP 👑
 
+- A landing page
+- Resource links
+- Volunteer guidelines
 - A way for those in need to create requests.
 - A way for authorised volunteers to claim these requests and mark them as resolved.
 
 
 ---
 
-THE STATIC STUFF
+| Static Pages        | Dynamic Pages           |
+| ------------- |:-------------:|
+| Landing Page     | Request Help |
+| Resource links      | Volunteer Authed Pages      |
+| Volunteer guidelines |     |
+| Privacy Notice |     |
+| 404 page |     |
+
+---
+
+Static Pages => React components in /pages
+
+```
+                                                       
+        /src
+        |-- /pages
+            |-- 404.js
+            |-- index.js
+            |-- useful-links.js
+            |-- volunteer-guidelines.js
+
+```
+
+---
+
+index.js
+
+```
+                                                       
+import React from "react";
+import Logo from "../images/Logo-Blue.svg";
+import Layout from "../components/layout";
+import { Link } from "gatsby";
+
+export default () => {
+  return (
+    <Layout>
+      <div className="is-dark-blue">
+        <div className="row container">
+          <div className="col-xs-12 text-align-center">
+            <img src={Logo} alt="Logo" className="hero-logo" />
+          </div>
+          <div className="col-xs-12 text-align-center">
+            <h1>Sussex Square & Lewes Crescent Mutual Aid Network</h1>
+            <div className="line margin-auto-l margin-auto-r" />
+            <div className="row pad-5-tb">
+              <div className="col-xs-12 margin-5-b pad-3-tb pad-5-lr is-light-grey-bg border-radius">
+                <p>
+                  Please check back here regularly - We're building this website
+                  as fast as we can and will have more helpful resources in the
+                  coming days.
+                </p>
+              </div>
+
+```
+
+---
+
+<div style={{height:'100%', width:'100%', overflow:'auto', pointerEvents:"none"}} className="pad-15"> 
+    <object type="text/html" data="https://coronasupport.house/" width="100%" height="100%">
+    </object>
+ </div>
+
+---
+
+# Pages relying on authentication
+
+---
+
+
+I'm no back-end dev
+
+---
+
+# 🔥
+
+## Firebase to the rescue
+
+- Drop-in auth module
+- Realtime Database
+
+---
+
+Theres a plugin for that.
+
+```
+
+{
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: {
+          apiKey: process.env.FIREBASE_API_KEY,
+          authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+          databaseURL: process.env.FIREBASE_DB_URL,
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          storageBucket: process.env.FIREBASE_SB,
+          messagingSenderId: process.env.FIREBASE_MSG_SENDER_ID,
+          appId: process.env.FIREBASE_APP_ID
+        }
+      }
+    },
+
+```
 
 ---
 

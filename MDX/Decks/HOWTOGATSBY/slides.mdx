@@ -106,15 +106,134 @@ Gatsby uses react and stylesheets to help structure page layout.
 
 ``` 
 /
-|-- /plugins                //local development plugins
-|-- /public                 //the built html and JS files
+|-- /plugins                
+|-- /public                 
 |-- /src
-    |-- /pages              //location of single instance pages
-    |-- /templates          //templates for programmatically generated pages
-|-- /static                 //static content you want copied to your public folder at build
-|-- gatsby-config.js        //core configuration file and plugin handeller
-|-- gatsby-node.js          //
-|-- gatsby-browser.js       //code that will run on the client browser
+    |-- /pages              
+    |-- /templates          
+|-- /static                 
+|-- gatsby-config.js ⬅️ core configuration file and plugin handeller        
+|-- gatsby-node.js         
+|-- gatsby-browser.js       
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins               
+|-- /public                 
+|-- /src
+    |-- /pages              
+    |-- /templates          
+|-- /static                 
+|-- gatsby-config.js       
+|-- gatsby-node.js ⬅️ control your site's data in the graphQL data layer    
+|-- gatsby-browser.js       
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins                
+|-- /public                 
+|-- /src
+    |-- /pages             
+    |-- /templates          
+|-- /static                 
+|-- gatsby-config.js       
+|-- gatsby-node.js 
+|-- gatsby-browser.js ⬅️ code that will run on the client browser           
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins                
+|-- /public                
+|-- /src
+    |-- /pages            
+    |-- /templates          
+|-- /static ⬅️ static content you want copied to your public folder at build
+|-- gatsby-config.js       
+|-- gatsby-node.js          
+|-- gatsby-browser.js      
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins        
+|-- /public             
+|-- /src
+    |-- /pages            
+    |-- /templates ⬅️ templates for programmatically generated pages        
+|-- /static
+|-- gatsby-config.js 
+|-- gatsby-node.js
+|-- gatsby-browser.js  
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins              
+|-- /public               
+|-- /src
+    |-- /pages ⬅️ location of single instance pages                         
+    |-- /templates
+|-- /static             
+|-- gatsby-config.js     
+|-- gatsby-node.js       
+|-- gatsby-browser.js    
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/   
+|-- /plugins ⬅️ local development plugins                                   
+|-- /public               
+|-- /src
+    |-- /pages
+    |-- /templates      
+|-- /static                
+|-- gatsby-config.js        
+|-- gatsby-node.js       
+|-- gatsby-browser.js      
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/   
+|-- /plugins
+|-- /public ⬅️ the built html and JS files                                  
+|-- /src
+    |-- /pages
+    |-- /templates      
+|-- /static                
+|-- gatsby-config.js        
+|-- gatsby-node.js       
+|-- gatsby-browser.js      
 ```
 
 
@@ -122,20 +241,86 @@ Gatsby uses react and stylesheets to help structure page layout.
 
 #### gatsby-config.js 
 
+``` 
+module.exports = {                                                                
+  siteMetadata: {
+    title: `Site Title`,
+    author: {
+      name: `Sam Larsen-Disney`,
+    },
+    description: `Short, sharp description.`,
+    siteUrl: `https://sld.codes`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    `gatsby-transformer-remark` 
+  ]
+}
+```
+
+---
+
+### We can now make queries!
+
+```
+
+query GetBlogPosts {
+  allMarkdownRemark(filter: {frontmatter: {type: {eq: "Article"}}}) {
+    nodes {
+      frontmatter {
+        title
+      }
+    }
+  }
+}
+
+```
+
 ---
 
 #### gatsby-node.js 
 
+```
+exports.createPages = async ({ graphql, actions }) => {                           
+  const { createPage } = actions
+  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const result = await graphql(
+    `{
+        allMarkdownRemark{
+          edges {
+            node {
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+      }`
+  )
+  const posts = result.data.allMarkdownRemark.edges
+  posts.forEach((post, index) => {
+    createPage({
+      path: post.frontmatter.path,
+      component: blogPost,
+    })
+  })
+}
+```
+
 ---
+
+
 
 #### Single Instance Pages
 <p class="legal">src/pages/index.js</p>
 
 <Editor fullWidth  code={SingleInstancePages}/>
-
----
-
-Global Styles
 
 ---
 
@@ -159,16 +344,17 @@ Extremely secure as you are just sending HTML.
 
 ---
 
-Takes away logic we all find pernickety:
+#### Takes away logic we all find pernickety:
 
 - *react-router*
-- **
+- *progressive-image-loading*
+- *data-fetching*
 
 ---
 
-- modern dev enviroment
-- simple tooling 
-- modern and clean languages
+- #### modern dev enviroment
+- #### simple tooling 
+- #### modern and clean languages
 
 ---
 
@@ -178,11 +364,18 @@ Gatsby has a solid team, open source community and awesome documentation.
 
 ---
 
-npm gatsby stats
+#### npm stats
+
+![GATSBY STATS](https://ik.imagekit.io/sld/gatsbyStats_P_fCfBD7g.png)
 
 ---
 
-Which big websites use gatsby
+#### Built with Gatsby
+
+- [The Official React Javascript Library Website](https://reactjs.org/)
+- [The Impossible Foods’ Brand Website](https://impossiblefoods.com/)
+- [The Airbnb Sites for Developers and Designers](https://airbnb.io/)
+
 
 ---
 
@@ -195,12 +388,12 @@ Which big websites use gatsby
 
 ---
 
-<p class="legal">Have a go yourself</p>
+<p >Have a go yourself</p>
 
 # [sld.codes/boilerplates](/boilerplates)
 
 ---
 
-<p class="legal">See Gatsby in Action</p>
+<p >See Gatsby in Action</p>
 
 ## [Using Gatsby to help my mutual aid network](/decks/CORONASUPPORT/slides/0)
