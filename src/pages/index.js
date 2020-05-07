@@ -59,15 +59,15 @@ export default function Start({ data }) {
         </div>
       </div>
       <div className="is-grey is-white-bg">
-        <div className="row container-small pad-10-t  pad-3-lr pad-20-b">
+        <div className="row container-small pad-10-t  pad-3-lr pad-10-b">
           <div className="col-xs-12">
-            <h2 className="">Latest Projects</h2>
+            <h2 className="margin-0 margin-2-b">Latest Projects</h2>
           </div>
 
-          <div className="col-xs-12 col-md-6 ">
+          <div className="col-xs-12 col-md-6 pad-0">
             <ProjectPreview {...featuredProjectOne} />
           </div>
-          <div className="col-xs-12 col-md-6 ">
+          <div className="col-xs-12 col-md-6 pad-0">
             <ProjectPreview {...featuredProjectTwo} />
           </div>
         </div>
@@ -75,15 +75,15 @@ export default function Start({ data }) {
       <div className="is-grey is-light-grey-bg">
         <div className="row container-small pad-10-t pad-3-lr pad-20-b">
           <div className="col-xs-12">
-            <h2 className="">Recent Articles</h2>
+            <h2 className="margin-0">Recent Articles</h2>
           </div>
-          <div className="col-xs-12 col-md-6">
+          <div className="col-xs-12 col-md-6 pad-0">
             <ArticlePreview
               {...featuredArticleOne}
               {...featuredArticleOne.fields}
             />
           </div>
-          <div className="col-xs-12 col-md-6 ">
+          <div className="col-xs-12 col-md-6 pad-0">
             <ArticlePreview
               {...featuredArticleTwo}
               {...featuredArticleTwo.fields}
@@ -92,10 +92,9 @@ export default function Start({ data }) {
         </div>
       </div>
       <div className="is-grey is-white-bg">
-        <div className="row container-small pad-10-t pad-20-b">
-          <div className="pad-10-lr">
-            <h2 className="margin-0-b">Recent Events</h2>
-          </div>
+        <div className="row container-small pad-10-t pad-10-b ">
+          <h2 className="margin-0-b pad-3-lr">Recent Events</h2>
+
           <RecentEvents />
         </div>
       </div>

@@ -26,10 +26,10 @@ export default ({
             </Link>
           </div>
           <div className="col-xs-12 pad-10-lr">
-            <h1 className="is-hero-menu is-grey margin-1-t margin-5-b">
+            <h1 className="is-hero-menu is-grey margin-1-t margin-1-b">
               {frontmatter.title}
             </h1>
-            <h6 className="is-hero-sub-text margin-3-b is-grey">
+            <h6 className="is-hero-sub-text margin-5-b is-grey">
               {frontmatter.desc}
             </h6>
             <Img

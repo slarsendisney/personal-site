@@ -58,15 +58,13 @@ export default () => {
   return (
     <div style={{ width: "100%" }} className="margin-5-t">
       <Slider {...settings}>
-        {recentEvents.map(item => {
+        {recentEvents.map((item) => {
           return (
             <div key={`${item.eventName}outer`}>
               <div
                 key={`${item.eventName}inner`}
-                className={`margin-10-l margin-10-r is-pink-bg pad-5 ${item.imgClass}`}
+                className={`margin-3-l margin-3-r  pad-5 ${item.imgClass}`}
                 style={{
-                  borderRadius: 15,
-
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                   height: 400,
@@ -76,14 +74,13 @@ export default () => {
                 <div
                   className="is-black-always is-white-bg-always pad-1"
                   style={{
-                    borderRadius: 8,
                     position: "absolute",
                     bottom: 25,
                     marginLeft: "auto",
                     marginRight: "auto",
                   }}
                 >
-                  <h3 className="margin-0 margin-1-b">{item.eventName}</h3>
+                  <h2 className="margin-0 margin-1-b">{item.eventName}</h2>
                   <p className="margin-0">{item.location}</p>
                 </div>
               </div>
