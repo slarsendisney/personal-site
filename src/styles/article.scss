@@ -1,6 +1,50 @@
 
 
 .article {
+  font-weight: bold;
+  blockquote {
+    display: block;
+    border-width: 2px 0;
+    border-style: solid;
+    border-color: #eee;
+    padding: 1.5em 0 0.5em;
+    padding-bottom: 1.5em;
+    margin: 1.5em 0;
+    position: relative;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  blockquote:before {
+    content: '\201C';
+    position: absolute;
+    top: 0em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @extend .is-light-grey-bg;
+    width: 3rem;
+    height: 2rem;
+    font: 6em/1.08em 'PT Sans', sans-serif;
+    @extend .is-grey-bg;
+    text-align: center;
+  }
+  
+  figure {
+    max-width: 600px;
+    width: fit-content;
+    margin: 0 auto;
+    @extend .is-white-bg;
+
+    // margin:auto;
+    -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+     -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+
+    figcaption {
+      padding: 10px;
+      text-align: center;
+      @extend .is-black;
+    }
+  }
   p img {
     display: block;
     margin-left: auto;
@@ -25,6 +69,7 @@
     overflow-x: auto;
     padding: 1.45rem;
     word-wrap: break-word;
+    font-weight: normal;
 
   }
 
@@ -32,12 +77,14 @@
     @extend .is-light-blue-always;
   }
 
-  h3 {
+  h3 { font-weight: bold;
     font-size: 2rem;
+    @extend .margin-0-b
   }
 
-  h4 {
+  h4 { font-weight: bold;
     font-size: 1.5rem;
+    @extend .margin-0-b
   }
 
   img {
@@ -45,7 +92,7 @@
   }
 
   p code {
-       
+    
     word-wrap: break-word;
          
   }
@@ -55,10 +102,14 @@
     text-decoration: none;
   }
 
-  h1 {
+  h1 {font-weight: bold;
     @extend .is-pink-always;
+    @extend .margin-0-b
   }
-   
+  p {
+    font-weight: normal;
+    font-size: 1.1em;
+  }
 }
 
 .blog-poster {
