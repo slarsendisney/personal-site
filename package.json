@@ -66,6 +66,7 @@
     "react-cookie-consent": "^3.0.0",
     "react-dom": "^16.13.1",
     "react-emoji-render": "^1.2.2",
+    "react-graceful-image": "^1.5.0",
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.0.0",
     "react-joyride": "^2.2.1",
@@ -114,8 +115,8 @@
   "scripts": {
     "build": "gatsby build",
     "build:nike": "npm run nike_data_update && gatsby build",
-    "count": "cloc  --by-file --exclude-ext=json,svg src/ decks/ MD/",
-    "count_totals": "cloc --exclude-ext=svg --exclude-dir=animation-data --json src/ decks/ MD/ > data/stats/count_total.json",
+    "count": "cloc  --by-file --exclude-ext=json,svg src/ MDX/ MD/",
+    "count_totals": "cloc --exclude-ext=svg --exclude-dir=animation-data --json src/ MDX/ MD/ > data/stats/count_total.json",
     "count_commits": "git log --all --pretty=format:'%n{%n%d%n  \"commit hash\": \"%H\",%n  \"date\": \"%ad\",%n  \"message\": \"%f\"%n}'| grep -v \"origin\" | tr -d '\n' | sed 's/}{/}, {/g' | sed -e 's/^/[/' |sed -e 's/$/]/' > data/stats/gitlog.json",
     "postinstall": "npm run count_totals",
     "develop": "gatsby develop -o",
@@ -124,7 +125,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "nike_activity": "./scripts/getActivity.sh",
     "nike_data_update": "node ./scripts/getNikeData",
-    "start": "npm run hello && npm run count_commits && npm run develop",
+    "start": "npm run hello && npm run count_commits && npm run count_totals && npm run develop",
     "serve": "gatsby serve",
     "hello": "node scripts/hello.js",
     "fix-styles": "npx stylelint 'src/styles/**/*.scss' --syntax scss --fix"

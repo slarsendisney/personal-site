@@ -6,6 +6,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
 import compareAsc from "date-fns/compareAsc"
+import Graceful from "react-graceful-image"
+
 export const Article = ({
   title,
   pubDate,
@@ -47,7 +49,7 @@ export const ArticlePreview = ({ title, pubDate, slug, hero_img, excerpt }) => (
   <Link to={"/" + slug} className="link" id="path">
     <div className="grow row margin-5-b">
       <div className="col-xs-12  margin-5-t ">
-        <img
+        <Graceful
           alt="hero-img"
           src={hero_img}
           className="shadow"
