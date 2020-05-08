@@ -6,13 +6,16 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
 import compareAsc from "date-fns/compareAsc"
-import Graceful from "react-graceful-image"
+
+import { LazyLoadImage } from "react-lazy-load-image-component"
+import "react-lazy-load-image-component/src/effects/blur.css"
 
 export const Article = ({
   title,
   pubDate,
   slug,
   hero_img,
+  placeholder_img,
   coverimg,
   excerpt,
 }) => (
@@ -20,11 +23,13 @@ export const Article = ({
     <div className="grow row margin-5-b">
       <div className="col-xs-12 col-md-6 margin-5-t ">
         {hero_img ? (
-          <img
-            src={hero_img}
-            alt="hero-img"
+          <LazyLoadImage
+            alt={title}
+            effect="blur"
             className="shadow"
             style={{ width: "100%", height: 250, objectFit: "cover" }}
+            src={hero_img}
+            placeholderSrc={placeholder_img}
           />
         ) : (
           <Img
@@ -45,15 +50,24 @@ export const Article = ({
     </div>
   </Link>
 )
-export const ArticlePreview = ({ title, pubDate, slug, hero_img, excerpt }) => (
+export const ArticlePreview = ({
+  title,
+  pubDate,
+  slug,
+  hero_img,
+  placeholder_img,
+  excerpt,
+}) => (
   <Link to={"/" + slug} className="link" id="path">
     <div className="grow row margin-5-b">
       <div className="col-xs-12  margin-5-t ">
-        <Graceful
-          alt="hero-img"
-          src={hero_img}
+        <LazyLoadImage
+          alt={title}
+          effect="blur"
           className="shadow"
           style={{ width: "100%", height: 250, objectFit: "cover" }}
+          src={hero_img}
+          placeholderSrc={placeholder_img}
         />
       </div>
       <div className="col-xs-12  margin-5-t">
@@ -146,6 +160,7 @@ export const pageQuery = graphql`
         fields {
           slug
           hero_img
+          placeholder_img
           excerpt
         }
         pubDate

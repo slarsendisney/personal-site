@@ -154,6 +154,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
   if (node.internal.type === `FeedMediumBlog`) {
+    const firstImage = node.content.encoded.match(/src\s*=\s*"(.+?)"/)[1]
     createNodeField({
       node,
       name: `slug`,
@@ -169,7 +170,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: "hero-img",
-      value: node.content.encoded.match(/src\s*=\s*"(.+?)"/)[1],
+      value: firstImage,
+    })
+    createNodeField({
+      node,
+      name: "placeholder-img",
+      value: firstImage.replace("1024", "350"),
     })
   }
 }
