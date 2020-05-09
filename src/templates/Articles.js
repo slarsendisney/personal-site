@@ -117,10 +117,10 @@ export default ({ data }) => {
         title="Articles"
         description="✍️ I Write Occasionally. I hope you find something useful!"
       />
-      <div className="is-grey is-light-grey-bg pad-10-tb pad-3-lr">
+      <div className="is-grey is-light-grey-bg pad-5-t pad-3-lr">
         <div className="row container ">
           <div className="col-xs-12 ">
-            <h1 className="is-hero-menu margin-10-t margin-1-l margin-3-b">
+            <h1 className="is-hero-menu  margin-1-l margin-3-b">
               I Write Occasionally.
             </h1>
             <div className="line margin-5-b  margin-1-l" />

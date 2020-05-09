@@ -1,0 +1,150 @@
+---
+title: "Intro to Deno"
+path: /decks/HOWTODENO
+desc: What Deno is and how to get started.
+hero: "./hero.png"
+date: 2020-07-05
+location: Space | Earth
+---
+
+
+
+# What is Deno?
+
+---
+
+### A secure runtime for JavaScript and TypeScript.
+
+---
+
+### Solves the same problems as NodeJS and was made by the same guy.
+
+---
+
+### "(node) could have been much nicer"
+
+*- Ryan Dahl*
+
+
+---
+
+### Uses the [V8 JavaScript engine](https://github.com/v8/v8).
+(Like node!)
+
+---
+
+### Runtime implemented in Rust and Typescript.
+
+---
+
+### Just hit release candidate 1.0.0
+
+(early adoption)
+
+---
+
+### Deno is ***secure by default***
+
+---
+
+You as the developer need to give permissions to perform certain actions in the runtime. 
+
+### *Prevents security holes.*
+
+---
+Example main.ts:
+```
+// Print the current working directory
+console.log( Deno.cwd() )
+```
+Can be run with:
+
+```
+// Explicit permission from dev to allow deno to read files.
+deno run --allow-read main.ts
+```
+
+---
+
+Supports top level await:
+```
+const res = await fetch('https://sld.codes')
+// no async function needed!
+```
+
+---
+Browser compatible events:
+```
+window.onload = e=> console.log("Yo!")
+```
+---
+
+You can also execute Web Assembly Binaries
+
+---
+
+No more NPM 
+
+---
+
+Remote modules referenced by their URL:
+```
+import { serve } from "https://deno.land/std@v0.42.0/http/server.ts";
+```
+
+---
+When script is run for the first time it will download and cache imports.
+
+No package.json and code can be referenced from any URL.
+
+---
+
+### Main Advantages:
+
+- Secure by default
+- Browser compatible APIs.
+- Test runner, file watcher and bundler baked in.
+- No node modules, package.json instead reference URL.
+
+---
+
+# Getting Started
+
+---
+
+### Get Deno
+
+Shell: 
+
+```
+curl -fsSL https://deno.land/x/install/install.sh | sh
+```
+
+PowerShell: 
+
+```
+iwr https://deno.land/x/install/install.ps1 -useb | iex
+```
+
+---
+
+### Simple server demo:
+
+main.ts
+```
+import { serve } from "https://deno.land/std@v0.42.0/http/server.ts";
+const s = serve({ port: 8000 });
+console.log("http://localhost:8000/");
+for await (const req of s) {
+  req.respond({ body: "Hello World\n" });
+}
+
+```
+Run with:
+```
+deno --allow-net  main.ts
+```
+
+---
+
+# fin.

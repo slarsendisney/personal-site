@@ -7,7 +7,6 @@ export default () => {
   const [submitted, setSubmitted] = useState(false)
   const handleSubmit = () => {
     addToMailchimp(email).then((data) => {
-      console.log(data)
       setSubmitted(true)
     })
   }
@@ -48,6 +47,7 @@ export default () => {
             <input
               type="text"
               name="email"
+              label="email-input"
               placeholder="Enter your email"
               className="input pad-3-tb "
               onChange={(e) => setEmail(e.target.value)}
@@ -57,6 +57,7 @@ export default () => {
             <button
               className="bubble-button pad-3 margin-3-tb"
               type="button"
+              aria-label="Subscribe"
               onClick={() => handleSubmit()}
               style={{ width: "100%" }}
             >

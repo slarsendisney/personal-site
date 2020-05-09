@@ -1,0 +1,9 @@
+---
+title: "GRAD"
+desc: ""
+date: "2019-02-03"
+path: "/projects/grad"
+skills: ["GatsbyJS", "Express", "Onboarding"]
+type: "Project"
+coverimg: "./hero.png"
+---
