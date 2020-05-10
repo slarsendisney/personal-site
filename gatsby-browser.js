@@ -1,4 +1,5 @@
 import { navigate } from "gatsby"
+import "firebase/firestore"
 import wrapWithProvider from "./src/state/wrapWithProvider"
 import "./src/styles/global.scss"
 

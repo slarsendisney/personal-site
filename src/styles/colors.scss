@@ -6,7 +6,7 @@ $brand-colors: ('white', white, #1c1c1c), ('black', #1c1c1c, white),
   ('light-blue', #49aab7, #49aab7), ('pink', #ea4e68, #000),
   ('red', #ea4e68, #000), ('green', #4cbb55, #000),
   ('dark-pink', #ef646130, #2e4052), ('orange', #ff8a1d, #ff8a1d),
-  ('yellow', #f9b806, #f9b806);
+  ('yellow', #f7b50050, #438dfc50);
 
 @each $color in $brand-colors {
   .is-#{nth($color,1)}-bg {

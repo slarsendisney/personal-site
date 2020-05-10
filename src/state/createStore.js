@@ -13,7 +13,6 @@ function reducer(
   },
   action
 ) {
-  console.log(action.type)
   switch (action.type) {
     case "userCount":
       return Object.assign({}, { ...state, count: action.data })
@@ -45,7 +44,7 @@ function reducer(
 }
 let store = applyMiddleware(socketIoMiddleware)(createStore)(reducer)
 store.subscribe(() => {
-  console.log("new client state", store.getState())
+  // console.log("new client state", store.getState())
 })
 
 export default store
