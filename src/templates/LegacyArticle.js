@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import Like from "../components/Articles/StickyLike"
+import Like from "../components/Articles/StickyLike"
 import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
 
 export default function QandATemplate({
@@ -35,9 +35,9 @@ export default function QandATemplate({
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </div>
-          {/* <div className="col-xs-12 pad-3-lr pad-5-b">
+          <div className="col-xs-12 pad-3-lr pad-5-b">
             <Like />
-          </div> */}
+          </div>
           <div className="col-xs-12 pad-3-lr pad-5-b">
             <ArticleShareOptions location={location} />
           </div>

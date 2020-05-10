@@ -1,9 +1,14 @@
 import React from "react"
 import { Emojione } from "react-emoji-render"
-import firebase from "gatsby-plugin-firebase"
 import { useScrollYPosition } from "react-use-scroll-position"
 import { useDocument } from "react-firebase-hooks/firestore"
 import { useWindowSize, useLocalStorage } from "../../utils/customHooks"
+
+let firebase
+
+if (typeof window !== "undefined") {
+  firebase = require("firebase/app")
+}
 
 let buttonTypes = [
   { type: "fire", label: "🔥" },
@@ -53,7 +58,8 @@ export default () => {
   const size = useWindowSize()
   const scrollY = useScrollYPosition()
   const pathArray =
-    typeof window !== "undefined"
+    typeof window !== "undefined" &&
+    window.location.pathname.includes("articles")
       ? window.location.pathname.split("/")
       : ["test"]
 
@@ -61,9 +67,10 @@ export default () => {
     pathArray[pathArray.length - 1].length > 0
       ? pathArray[pathArray.length - 1]
       : pathArray[pathArray.length - 2]
-  const [value, loading, error] = useDocument(
-    firebase.firestore().doc(`likes/${contentID}`)
-  )
+  const [value, loading, error] =
+    typeof window !== "undefined"
+      ? useDocument(firebase.firestore().doc(`likes/${contentID}`))
+      : [0, true, false]
   const [likes, setLikes] = useLocalStorage("likes", {})
 
   const incrementLikes = (type) => {

@@ -1,5 +1,5 @@
 import React from "react"
-import "firebase/firestore"
+// import "firebase/firestore"
 
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
