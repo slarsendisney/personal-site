@@ -1,63 +1,13 @@
-import React, { useEffect, useState } from "react"
-import { useScrollYPosition } from "react-use-scroll-position"
-import { useDocument, useCollection } from "react-firebase-hooks/firestore"
+import React from "react"
+import { Emojione } from "react-emoji-render"
 import firebase from "gatsby-plugin-firebase"
-
-function useWindowSize() {
-  const isClient = typeof window === "object"
-
-  function getSize() {
-    return {
-      width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined,
-    }
-  }
-
-  const [windowSize, setWindowSize] = useState(getSize)
-
-  useEffect(() => {
-    if (!isClient) {
-      return false
-    }
-
-    function handleResize() {
-      setWindowSize(getSize())
-    }
-
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-  return windowSize
-}
-function useLocalStorage(key, initialValue) {
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(key)
-
-      return item ? JSON.parse(item) : initialValue
-    } catch (error) {
-      console.log(error)
-      return initialValue
-    }
-  })
-
-  const setValue = (value) => {
-    try {
-      const valueToStore =
-        value instanceof Function ? value(storedValue) : value
-      setStoredValue(valueToStore)
-      window.localStorage.setItem(key, JSON.stringify(valueToStore))
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  return [storedValue, setValue]
-}
+import { useScrollYPosition } from "react-use-scroll-position"
+import { useDocument } from "react-firebase-hooks/firestore"
+import { useWindowSize, useLocalStorage } from "../../utils/customHooks"
 
 let buttonTypes = [
   { type: "fire", label: "🔥" },
-  { type: "bolt", label: "⚡️" },
+  { type: "popcorn", label: "🍿" },
   { type: "unicorn", label: "🦄" },
 ]
 const LikeButton = ({
@@ -75,7 +25,7 @@ const LikeButton = ({
       style={{ width: 45 }}
     >
       <button
-        className="grow"
+        className=""
         onClick={() =>
           selected(type) ? decrementLikes(type) : incrementLikes(type)
         }
@@ -85,7 +35,7 @@ const LikeButton = ({
             selected(type) ? "is-yellow-bg" : ""
           }`}
         >
-          {label}
+          <Emojione text={label} />
         </h1>
       </button>
       <p className="margin-0 opacity-60 text-align-center">
@@ -102,8 +52,15 @@ const LikeButton = ({
 export default () => {
   const size = useWindowSize()
   const scrollY = useScrollYPosition()
-  const pathArray = window.location.pathname.split("/")
-  const contentID = pathArray[pathArray.length - 1]
+  const pathArray =
+    typeof window !== "undefined"
+      ? window.location.pathname.split("/")
+      : ["test"]
+
+  const contentID =
+    pathArray[pathArray.length - 1].length > 0
+      ? pathArray[pathArray.length - 1]
+      : pathArray[pathArray.length - 2]
   const [value, loading, error] = useDocument(
     firebase.firestore().doc(`likes/${contentID}`)
   )
@@ -163,7 +120,7 @@ export default () => {
   if (size.width < 1325) {
     return (
       <div
-        className="is-white-bg border-radius flex pad-2-t pad-2-lr"
+        className="is-white-bg border-radius flex pad-2-t pad-1-lr"
         style={{
           justifyContent: "center",
           width: "fit-content",
@@ -185,7 +142,7 @@ export default () => {
     >
       {!error && (
         <div
-          className="is-white-bg border-radius pad-1-lr pad-2-t margin-3-l flex"
+          className="is-white-bg border-radius pad-1-t margin-3-l flex"
           style={{ flexDirection: "column" }}
         >
           {Buttons}
