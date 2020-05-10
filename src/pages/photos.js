@@ -11,13 +11,11 @@ function chunkArray(myArray, chunk_size) {
 
   for (index = 0; index < arrayLength; index += chunk_size) {
     const myChunk = myArray.slice(index, index + chunk_size)
-    // Do something if you want with the group
     tempArray.push(myChunk)
   }
 
   return tempArray
 }
-// Split
 
 export default () => {
   return (
@@ -40,10 +38,10 @@ export default () => {
               enquiries please email me at
               <span className="is-pink-always"> s.larsendisney@gmail.com</span>.
             </h3>
-            {PhotoGallery.map(item => (
+            {PhotoGallery.map((item) => (
               <>
                 <h1>{item.name}</h1>
-                {chunkArray(item.photos, 3).map(row => (
+                {chunkArray(item.photos, 3).map((row) => (
                   <Gallery photos={row} />
                 ))}
               </>

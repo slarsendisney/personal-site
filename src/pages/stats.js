@@ -49,7 +49,7 @@ const Stats = ({ data, count }) => {
             The latest build of this site has{" "}
             <span className="is-special-blue">{SUM.code}</span> lines of code,{" "}
             <span className="is-orange-always">{SUM.comment}</span> comments and{" "}
-            <span className="is-green-always">{totalCount}</span> commits*
+            <span className="is-green-always">{totalCount}</span> commits.*
           </h1>
 
           <p>* These stats only account for code I have written myself.</p>

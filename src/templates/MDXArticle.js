@@ -41,7 +41,7 @@ export default ({ data, location }) => {
                   {title}
                 </h1>
                 <h6 className="is-hero-sub-text margin-3-b">
-                  {format(new Date(date), "EEE', 'dd LLL yyyy")}
+                  {format(new Date(date), "iii, dd MMM yyyy")}
                 </h6>
                 <div className="line margin-5-tb" />
               </>

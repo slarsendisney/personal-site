@@ -8,7 +8,6 @@ import SEO from "../components/seo"
 
 const Start = ({ data, presentation }) => {
   const { nodes } = data.allMdx
-  console.log(presentation)
   return (
     <Layout>
       <SEO title="Presentations" />
@@ -16,9 +15,11 @@ const Start = ({ data, presentation }) => {
       <div className="is-light-grey-bg">
         <div className="row container pad-5-t pad-5-b pad-3-lr">
           <div className="col-xs-12 ">
-            <h1 className="is-grey is-hero-menu  margin-1-b">Presentations</h1>
+            <h1 className="is-grey is-hero-menu margin-3-l  margin-1-b">
+              Presentations
+            </h1>
             <div
-              className="line-sm  is-grey margin-5-b"
+              className="line-sm  is-grey margin-5-b margin-3-l "
               style={{ width: 305 }}
             />
             <SmoothCollapse expanded={presentation && presentation.deck}>

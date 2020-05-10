@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { format } from "date-fns"
 import ReactHtmlParser from "react-html-parser"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -51,10 +52,7 @@ export default ({ data, location }) => {
               {title}
             </h1>
             <h6 className="is-hero-sub-text margin-3-b">
-              {pubDate.replace(
-                /([0-9])([0-9]):([0-9])([0-9]):([0-9])([0-9]) ([A-Z])([A-Z])([A-Z])/g,
-                ""
-              )}
+              {format(new Date(pubDate), "iii, dd MMM yyyy")}
             </h6>
             <div className="line margin-5-tb" />
             <div className="lato article">

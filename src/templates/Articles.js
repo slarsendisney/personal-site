@@ -143,7 +143,7 @@ export default ({ data }) => {
               />
             ))}
           </div>
-          <div className="col-xs-12 margin-5-t">
+          <div className="col-xs-12 margin-5-t margin-10-b">
             <div className="line-sm margin-5-tb" />
             <Subscribe />
           </div>
