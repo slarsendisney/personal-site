@@ -164,8 +164,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       name: "excerpt",
       value:
-        node.content.encoded.replace(/<[^>]*>?/gm, "").substring(0, 150) +
-        "...",
+        node.content.encoded
+          .replace(/<\/[^>]*>?/gm, " ")
+          .replace(/<[^>]*>?/gm, "")
+          .substring(0, 150) + "...",
     })
     createNodeField({
       node,
