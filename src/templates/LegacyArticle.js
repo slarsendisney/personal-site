@@ -25,7 +25,7 @@ export default function QandATemplate({
             </Link>
           </div>
           <div className="col-xs-12 pad-3-lr">
-            <h1 className="is-hero-menu is-pink-always margin-1-t margin-5-b">
+            <h1 className="is-hero-menu  margin-1-t margin-5-b">
               {frontmatter.title}
             </h1>
             <h6 className="is-hero-sub-text margin-3-b">{frontmatter.desc}</h6>
