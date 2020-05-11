@@ -1,11 +1,10 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { connect } from "react-redux"
 import { Emojione } from "react-emoji-render"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import StatsCard from "../components/Stats/StatsCard"
-import PieChart from "../components/Stats/PieChart"
 import { useCollectionOnce } from "react-firebase-hooks/firestore"
 
 let firebase
@@ -30,6 +29,9 @@ const Stats = ({ data, count }) => {
   const cards = { JavaScript, Markdown, Sass, JSON }
   const statsByCodeCount = []
   const statsByFileCount = []
+  Object.keys(cards).forEach((key) => {
+    cards[key].percentage = Math.floor((cards[key].code / SUM.code) * 100)
+  })
   Object.keys(cards).forEach((item) => {
     statsByCodeCount.push({
       name: item,
@@ -71,7 +73,7 @@ const Stats = ({ data, count }) => {
         title="Stats"
         description="Ever wondered how many lines of code are at work here?"
       />
-      <div className="row container pad-10-t pad-3-lr">
+      <div className="row container pad-10-t pad-10-b pad-3-lr">
         <div className="col-xs-12  is-grey">
           <h1 className=" margin-2-t">
             You are{" "}
@@ -123,21 +125,32 @@ const Stats = ({ data, count }) => {
           <div className="line margin-5-tb" />
         </div>
 
+        <div className="col-xs-8 col-md-6 is-grey">
+          <h2 className="margin-0 margin-2-b">Most Popular Pages</h2>
+        </div>
+        <div className="col-xs-4 col-md-6 text-align-center is-grey">
+          <h2 className="margin-0 margin-2-b">Views</h2>
+        </div>
+        {data.allPageViews.edges.slice(0, 5).map((item) => (
+          <>
+            <div className="col-xs-8 col-md-6 is-grey">
+              <Link to={item.node.path} className="is-special-blue">
+                <p className="margin-0">
+                  sld.codes{item.node.path === "/" ? "" : item.node.path}
+                </p>
+              </Link>
+            </div>
+            <div className="col-xs-4 col-md-6 text-align-center is-grey">
+              <p className="margin-0 margin-1-b">{item.node.totalCount}</p>
+            </div>
+          </>
+        ))}
+        <div className="col-xs-12 is-grey margin-10-t">
+          <h4 className="margin-0 margin-1-b">Project Breakdown By Language</h4>
+        </div>
         {Object.keys(cards).map(function (item) {
           return <StatsCard name={item} {...cards[item]} />
         })}
-        <div className="col-xs-12 col-md-6 is-grey margin-5-t">
-          <h2>By Line Count</h2>
-          <div style={{ height: 400 }}>
-            <PieChart data={statsByCodeCount} />
-          </div>
-        </div>
-        <div className="col-xs-12 col-md-6 is-grey margin-5-t">
-          <h2>By File Count</h2>
-          <div style={{ height: 400 }}>
-            <PieChart data={statsByFileCount} />
-          </div>
-        </div>
       </div>
     </Layout>
   )
@@ -145,6 +158,15 @@ const Stats = ({ data, count }) => {
 
 export const query = graphql`
   {
+    allPageViews {
+      edges {
+        node {
+          totalCount
+          path
+          sessions
+        }
+      }
+    }
     siteWideStats {
       pageViews
       sessions
