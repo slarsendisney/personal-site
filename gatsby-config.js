@@ -2,18 +2,18 @@ require("dotenv").config({
   path: `.env`,
 })
 
-//https://codes.us4.list-manage.com/subscribe/post?u=0cf960d42e04bd50f7c21d709&amp;id=35a0b97fdb
-
 const EmploymentHistory = require("./src/data/timeline.json")
 const currentJob = EmploymentHistory[0]
+
 const dynamicPlugins = []
-const startDate = new Date()
-startDate.setMonth(startDate.getMonth() - 3)
+
 if (
   process.env.GUESS_EMAIL &&
   process.env.GUESS_PRIVATE_KEY &&
   process.env.VIEW_ID
 ) {
+  const startDate = new Date()
+  startDate.setMonth(startDate.getMonth() - 3)
   dynamicPlugins.push({
     resolve: `gatsby-plugin-guess-js`,
     options: {
@@ -26,6 +26,15 @@ if (
         startDate,
         endDate: new Date(),
       },
+    },
+  })
+  dynamicPlugins.push({
+    resolve: `gatsby-source-google-analytics-reporting-api`,
+    options: {
+      email: process.env.GUESS_EMAIL,
+      key: process.env.GUESS_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      viewId: process.env.VIEW_ID,
+      startDate: `2019-09-01`,
     },
   })
 }

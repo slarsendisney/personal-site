@@ -25,7 +25,7 @@ function useOutsideAlerter(ref, fn) {
   }, [ref, fn])
 }
 
-export default ({ location }) => {
+export default () => {
   const darkMode = useDarkMode(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const wrapperRef = useRef(null)

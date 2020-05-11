@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet"
 import CookieConsent from "react-cookie-consent"
 import { Location } from "@reach/router"
 import Header from "./header"
+import Footer from "./Footer"
 
 const Layout = ({ children }) => {
   return (
@@ -35,22 +36,10 @@ const Layout = ({ children }) => {
         </h4>
       </CookieConsent>
 
-      <Location>{(locationProps) => <Header {...locationProps} />}</Location>
+      <Header />
 
       <main className="is-light-grey-bg">{children}</main>
-      <footer className="is-white-bg is-grey pad-2 footer">
-        Made with{" "}
-        <span role="img" aria-label="love">
-          ❤️
-        </span>{" "}
-        by Sam Larsen-Disney
-        <br />
-        <p className="legal">
-          All views expressed on this site are my own and do not represent the
-          opinions of any entity whatsover with which I have been, am now or
-          will be affiliated with.
-        </p>
-      </footer>
+      <Location>{(locationProps) => <Footer {...locationProps} />}</Location>
     </div>
   )
 }

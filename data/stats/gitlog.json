@@ -1,5 +1,10 @@
 [
   {
+    "commit hash": "72134138e5ea1f1fc361e7489334482b19c3df52",
+    "date": "Mon May 11 11:01:42 2020 +0100",
+    "message": "stats-page-now-includes-reacts"
+  },
+  {
     "commit hash": "8eb0f8a59077b5c050c30a5a763bece56dd9bad0",
     "date": "Mon May 11 09:33:32 2020 +0100",
     "message": "Fixed-FB-dev-warning"

@@ -21,6 +21,9 @@ const Stats = ({ data, count }) => {
   )
   const { JavaScript, Markdown, Sass, JSON, SUM } = data.statsJson
   const { totalCount } = data.allGitlogJson
+  const totalViews = data.siteWideStats.pageViews
+  const totalSessions = data.siteWideStats.sessions
+
   const cards = { JavaScript, Markdown, Sass, JSON }
   const statsByCodeCount = []
   const statsByFileCount = []
@@ -60,14 +63,13 @@ const Stats = ({ data, count }) => {
           })
           return acc
         }, {})
-  console.log(reacts)
   return (
     <Layout>
       <SEO
         title="Stats"
         description="Ever wondered how many lines of code are at work here?"
       />
-      <div className="row container pad-10-t pad-5-lr">
+      <div className="row container pad-10-t pad-3-lr">
         <div className="col-xs-12  is-grey">
           <h1 className=" margin-2-t">
             You are{" "}
@@ -81,8 +83,15 @@ const Stats = ({ data, count }) => {
                 the only <span className="is-pink-always">1</span>{" "}
               </>
             )}
-            currently visiting the site. At last count, the site had had{" "}
-            <span className="is-light-blue-always">2,000</span>+ visits.{" "}
+            currently visiting the site. The site has recieved{" "}
+            <span className="is-special-blue">
+              {totalViews.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            </span>{" "}
+            page visits across{" "}
+            <span className="is-special-blue">
+              {totalSessions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+            </span>
+            sessions.{" "}
           </h1>
 
           <h1 className=" margin-2-t">
@@ -105,7 +114,10 @@ const Stats = ({ data, count }) => {
             <span className="is-green-always">{totalCount}</span> commits.*
           </h1>
 
-          <p>* These stats only account for code I have written myself.</p>
+          <p>
+            * These stats only account for code I have written myself. Page
+            views and sessions are accurate as of time of last build.
+          </p>
           <div className="line margin-5-tb" />
         </div>
 
@@ -131,6 +143,10 @@ const Stats = ({ data, count }) => {
 
 export const query = graphql`
   {
+    siteWideStats {
+      pageViews
+      sessions
+    }
     allGitlogJson {
       totalCount
     }
