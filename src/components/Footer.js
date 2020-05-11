@@ -2,7 +2,6 @@ import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 
 export default ({ location }) => {
-  console.log(location)
   return (
     <footer className="is-white-bg is-grey pad-2 footer">
       Made with{" "}

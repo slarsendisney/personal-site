@@ -17,8 +17,11 @@ if (typeof window !== "undefined") {
 
 const Stats = ({ data, count }) => {
   const [value, loading, error] = useCollectionOnce(
-    firebase.firestore().collection("likes")
+    typeof window !== "undefined"
+      ? firebase.firestore().collection("likes")
+      : ""
   )
+
   const { JavaScript, Markdown, Sass, JSON, SUM } = data.statsJson
   const { totalCount } = data.allGitlogJson
   const totalViews = data.siteWideStats.pageViews
@@ -48,7 +51,6 @@ const Stats = ({ data, count }) => {
         }
       : value.docs.reduce((acc, cur) => {
           const obj = cur.data()
-          console.log(cur.id)
           Object.keys(obj).map((key) => {
             if (acc.total) {
               acc.total = acc.total + obj[key]
