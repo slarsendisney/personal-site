@@ -5,11 +5,8 @@ import SEO from "../components/seo"
 import Like from "../components/Articles/StickyLike"
 import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
 
-export default function QandATemplate({
-  location,
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
+export default function QandATemplate({ location, data }) {
+  const { markdownRemark } = data
   const { frontmatter, html, excerpt } = markdownRemark
   return (
     <Layout>

@@ -7,7 +7,8 @@ import { useWindowSize, useLocalStorage } from "../../utils/customHooks"
 let firebase
 
 if (typeof window !== "undefined") {
-  firebase = require("firebase")
+  firebase = require("firebase/app")
+  require("firebase/firestore")
 }
 
 let buttonTypes = [

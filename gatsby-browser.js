@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
     messagingSenderId: process.env.FIREBASE_MSG_SENDER_ID,
     appId: process.env.FIREBASE_APP_ID,
   }
-  firebase = require("firebase")
+  firebase = require("firebase/app")
   firebase.initializeApp(config)
 }
 
