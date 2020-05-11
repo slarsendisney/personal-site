@@ -1,12 +1,24 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { connect } from "react-redux"
+import { Emojione } from "react-emoji-render"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import StatsCard from "../components/Stats/StatsCard"
 import PieChart from "../components/Stats/PieChart"
+import { useCollectionOnce } from "react-firebase-hooks/firestore"
+
+let firebase
+
+if (typeof window !== "undefined") {
+  firebase = require("firebase/app")
+  require("firebase/firestore")
+}
 
 const Stats = ({ data, count }) => {
+  const [value, loading, error] = useCollectionOnce(
+    firebase.firestore().collection("likes")
+  )
   const { JavaScript, Markdown, Sass, JSON, SUM } = data.statsJson
   const { totalCount } = data.allGitlogJson
   const cards = { JavaScript, Markdown, Sass, JSON }
@@ -22,6 +34,33 @@ const Stats = ({ data, count }) => {
       value: cards[item].nFiles,
     })
   })
+  const reacts =
+    loading || error
+      ? {
+          total: "...",
+          fire: "...",
+          uncorn: "...",
+          popcorn: "...",
+          avo: "...",
+        }
+      : value.docs.reduce((acc, cur) => {
+          const obj = cur.data()
+          console.log(cur.id)
+          Object.keys(obj).map((key) => {
+            if (acc.total) {
+              acc.total = acc.total + obj[key]
+            } else {
+              acc.total = obj[key]
+            }
+            if (acc[key]) {
+              acc[key] = acc[key] + obj[key]
+            } else {
+              acc[key] = obj[key]
+            }
+          })
+          return acc
+        }, {})
+  console.log(reacts)
   return (
     <Layout>
       <SEO
@@ -45,6 +84,20 @@ const Stats = ({ data, count }) => {
             currently visiting the site. At last count, the site had had{" "}
             <span className="is-light-blue-always">2,000</span>+ visits.{" "}
           </h1>
+
+          <h1 className=" margin-2-t">
+            Articles I have written have been reacted to{" "}
+            <span className="is-special-blue">{reacts.total}</span> times with{" "}
+            <span className="is-green">{reacts.avo}</span>{" "}
+            <Emojione text={"🥑"} />,{" "}
+            <span className="is-red">{reacts.popcorn}</span>{" "}
+            <Emojione text={"🍿"} />,{" "}
+            <span className="is-orange">{reacts.fire}</span>{" "}
+            <Emojione text={"🔥"} /> and{" "}
+            <span className="is-red">{reacts.unicorn}</span>{" "}
+            <Emojione text={"🦄"} />.
+          </h1>
+
           <h1 className=" margin-2-t">
             The latest build of this site has{" "}
             <span className="is-special-blue">{SUM.code}</span> lines of code,{" "}
