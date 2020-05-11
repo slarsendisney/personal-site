@@ -7,13 +7,14 @@ import { useWindowSize, useLocalStorage } from "../../utils/customHooks"
 let firebase
 
 if (typeof window !== "undefined") {
-  firebase = require("firebase/app")
+  firebase = require("firebase")
 }
 
 let buttonTypes = [
   { type: "fire", label: "🔥" },
   { type: "popcorn", label: "🍿" },
   { type: "unicorn", label: "🦄" },
+  { type: "avo", label: "🥑" },
 ]
 const LikeButton = ({
   type,

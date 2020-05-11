@@ -17,6 +17,7 @@ function transform(node) {
         alt="progressive-image"
         effect="blur"
         src={node.attribs.src}
+        placeholderSrc={node.attribs.src.replace(/\/max\/\d*/, "/max/256")}
       />
     )
   }

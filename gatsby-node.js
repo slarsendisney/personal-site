@@ -177,7 +177,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: "placeholder-img",
-      value: firstImage.replace("1024", "350"),
+      value: firstImage.replace(/\/max\/\d*/, "/max/350"),
     })
   }
 }
