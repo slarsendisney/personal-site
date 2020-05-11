@@ -77,7 +77,7 @@ export default () => {
 
   const incrementLikes = (type) => {
     let contentLikes = likes && likes[contentID] ? likes[contentID] : {}
-    if (!loading && (!contentLikes[type] || contentLikes[type] < 1)) {
+    if (!loading && !error && (!contentLikes[type] || contentLikes[type] < 1)) {
       setLikes({ ...likes, [contentID]: { ...contentLikes, [type]: 1 } })
       firebase
         .firestore()
@@ -94,7 +94,7 @@ export default () => {
   }
   const decrementLikes = (type) => {
     let contentLikes = likes && likes[contentID] ? likes[contentID] : {}
-    if (!loading && contentLikes[type]) {
+    if (!loading && !error && contentLikes[type]) {
       setLikes({ ...likes, [contentID]: { ...contentLikes, [type]: 0 } })
       firebase
         .firestore()

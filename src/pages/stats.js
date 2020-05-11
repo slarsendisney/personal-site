@@ -91,7 +91,7 @@ const Stats = ({ data, count }) => {
             <span className="is-special-blue">
               {totalViews.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </span>{" "}
-            page visits across{" "}
+            page views across{" "}
             <span className="is-special-blue">
               {totalSessions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
             </span>
