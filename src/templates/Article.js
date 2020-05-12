@@ -7,9 +7,11 @@ import SEO from "../components/seo"
 import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
 import ReadingProgress from "../components/Articles/ReadingProgress"
 import { LazyLoadImage } from "react-lazy-load-image-component"
+import { Emojione } from "react-emoji-render"
 import "react-lazy-load-image-component/src/effects/blur.css"
 import Like from "../components/Articles/StickyLike"
 
+let textTags = new Set(["p", "h1", "h2", "h3", "h4", "h5", "h6"])
 function transform(node) {
   if (node.type === "tag" && node.name === "img") {
     return (
@@ -30,6 +32,14 @@ function transform(node) {
       )
     }
   }
+  // if (node.type === "tag" && textTags.has(node.name)) {
+  //   const CustomTag = `${node.name}`
+  //   return (
+  //     <CustomTag>
+  //       <Emojione text={node.children[0].data} />
+  //     </CustomTag>
+  //   )
+  // }
 }
 
 export default ({ data, location }) => {
