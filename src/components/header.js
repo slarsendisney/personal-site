@@ -90,7 +90,7 @@ export default () => {
             ></h2>
           </button>
         </div>
-        <div className="col-xs-12">
+        <div className="col-xs-12 pad-0">
           <SmoothCollapse expanded={menuOpen} className="">
             <div className="row margin-5-t">
               {sections
