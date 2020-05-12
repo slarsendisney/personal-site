@@ -1,14 +1,10 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
-
+import { Emojione } from "react-emoji-render"
 export default ({ location }) => {
   return (
-    <footer className="is-white-bg is-grey pad-2 footer">
-      Made with{" "}
-      <span role="img" aria-label="love">
-        ❤️
-      </span>{" "}
-      by Sam Larsen-Disney
+    <footer className="is-white-bg is-grey pad-2-lr pad-3-t pad-2-b footer">
+      Made with <Emojione text="❤️" /> by Sam Larsen-Disney
       <br />
       <StaticQuery
         query={graphql`
@@ -36,9 +32,8 @@ export default ({ location }) => {
             let node = pageViews.node
 
             return (
-              <p className="legal margin-0 margin-1-t">
-                Page Stats | {node.totalCount} views | {node.sessions} sessions
-                |{" "}
+              <p className="footer-sub-text margin-0 margin-1-t margin-2-b">
+                {node.totalCount} page views | {node.sessions} sessions |{" "}
                 <Link to="/stats" className="is-special-blue">
                   All Stats
                 </Link>{" "}
@@ -50,7 +45,7 @@ export default ({ location }) => {
             )
           } else {
             return (
-              <p className="legal margin-0 margin-1-t">
+              <p className="footer-sub-text margin-0 margin-1-t margin-2-b">
                 Site Stats | {data.siteWideStats.pageViews} views |{" "}
                 {data.siteWideStats.sessions} sessions |{" "}
                 <Link to="/stats" className="is-special-blue">

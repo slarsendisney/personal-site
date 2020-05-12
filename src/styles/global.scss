@@ -28,7 +28,7 @@ html {
 }
 
 main {
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 160px);
 }
 
 div {
@@ -130,6 +130,10 @@ footer {
 
 .legal {
   font-size: 10px;
+}
+
+.footer-sub-text {
+  font-size: 13px;
 }
 
 a{
