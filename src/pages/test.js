@@ -7,7 +7,7 @@ function SEO({ variant }) {
       ? {
           title: "TEST A",
           desc: "test A",
-          img: "https://ik.imagekit.io/sld/DarkMode_83Vy6Q6Wm.png", //img: "https://ik.imagekit.io/sld/Logo_-CIuihSCZ.png",
+          img: "https://ik.imagekit.io/sld/Logo_-CIuihSCZ.png",
         }
       : {
           title: "TEST B",
