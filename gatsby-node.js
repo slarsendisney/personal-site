@@ -97,12 +97,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
   mediumPosts.data.allFeedMediumBlog.nodes.forEach((node) => {
     const slug = "articles/" + node.title.trim().split(" ").join("-")
-
-    createPage({
-      path: slug,
-      component: Article,
-      context: { slug: slug },
-    })
+    if (node.content.encoded) {
+      createPage({
+        path: slug,
+        component: Article,
+        context: { slug: slug },
+      })
+    } else {
+    }
   })
 
   const mdxPosts = await graphql(`
@@ -137,7 +139,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField, deleteNode } = actions
+
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
     createNodeField({

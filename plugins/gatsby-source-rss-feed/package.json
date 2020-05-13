@@ -1,0 +1,61 @@
+{
+  "_from": "gatsby-source-rss-feed@^1.2.0",
+  "_id": "gatsby-source-rss-feed@1.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-1XulMO1MKURZdqaISuPfhBpcfm0sr1DZeOZLd4XakqTJvZ0pqLWP/dk/8F21do/RPBtjfwfuhuq42f3i/qIw2g==",
+  "_location": "/gatsby-source-rss-feed",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "gatsby-source-rss-feed@^1.2.0",
+    "name": "gatsby-source-rss-feed",
+    "escapedName": "gatsby-source-rss-feed",
+    "rawSpec": "^1.2.0",
+    "saveSpec": null,
+    "fetchSpec": "^1.2.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/gatsby-source-rss-feed/-/gatsby-source-rss-feed-1.2.0.tgz",
+  "_shasum": "661ff37eb7040d907d7af98768dce38e3d474ec3",
+  "_spec": "gatsby-source-rss-feed@^1.2.0",
+  "_where": "/Users/samlarsen-disney/Documents/sld.codes/sld-personal-site",
+  "author": {
+    "name": "mottox2"
+  },
+  "bugs": {
+    "url": "https://github.com/mottox2/gatsby-source-rss-feed/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "rss-parser": "^3.7.6"
+  },
+  "deprecated": false,
+  "description": "Gatsby source plugin for rss feed",
+  "devDependencies": {
+    "@babel/cli": "7.8.4",
+    "@babel/core": "7.9.0",
+    "@babel/preset-env": "7.9.5"
+  },
+  "homepage": "https://github.com/mottox2/gatsby-source-rss-feed",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source-plugin"
+  ],
+  "license": "MIT",
+  "main": "gatsby-node.js",
+  "name": "gatsby-source-rss-feed",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mottox2/gatsby-source-rss-feed.git"
+  },
+  "scripts": {
+    "build": "babel src --out-dir .",
+    "prepublish": "npm run build"
+  },
+  "version": "1.2.0"
+}
