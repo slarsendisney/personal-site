@@ -27,13 +27,13 @@ const Trend = ({ data }) => {
   const maxViews = data.maxViews.edges[0].node.views
   const articles = data.allFeedMediumBlog.nodes.reduce((acc, cur) => {
     const date = new Date(cur.isoDate)
-    acc[format(date, "yyyyMMdd")] = true
+    acc[format(date, "yyyyMMdd")] = cur.title
     return acc
   }, {})
   const completeArticles = data.allCuratedFeedMediumBlog.edges.reduce(
     (acc, cur) => {
       const date = new Date(cur.node.isoDate)
-      acc[format(date, "yyyyMMdd")] = true
+      acc[format(date, "yyyyMMdd")] = cur.node.title
       return acc
     },
     articles
@@ -42,7 +42,7 @@ const Trend = ({ data }) => {
   const decks = data.allMdx.nodes.reduce((acc, cur) => {
     const date = new Date(cur.frontmatter.date)
 
-    acc[format(date, "yyyyMMdd")] = true
+    acc[format(date, "yyyyMMdd")] = cur.frontmatter.title
     return acc
   }, {})
   return (
@@ -171,6 +171,9 @@ const Trend = ({ data }) => {
                     marginLeft: "auto",
                     marginRight: "auto",
                   }}
+                  data-tip={`"${
+                    completeArticles[item.node.date]
+                  }" Article Added`}
                 />
               )}
               {decks[item.node.date] && (
@@ -183,6 +186,7 @@ const Trend = ({ data }) => {
                     marginLeft: "auto",
                     marginRight: "auto",
                   }}
+                  data-tip={`"${decks[item.node.date]}" Deck Added`}
                 />
               )}
             </div>

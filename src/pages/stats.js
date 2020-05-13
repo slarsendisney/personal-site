@@ -123,7 +123,7 @@ const Stats = ({ data, count }) => {
 
           <p>
             * These stats only account for code I have written myself. Page
-            views and sessions are accurate as of time of last build.
+            views and sessions are refreshed daily at 9AM GMT.
           </p>
           <div className="line margin-8-tb" />
         </div>
