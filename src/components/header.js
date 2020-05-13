@@ -92,7 +92,7 @@ export default () => {
         </div>
         <div className="col-xs-12 pad-0">
           <SmoothCollapse expanded={menuOpen} className="">
-            <div className="row margin-5-t">
+            <div className="row margin-3-t">
               {sections
                 .filter((item) => item.nav)
                 .sort(function (a, b) {

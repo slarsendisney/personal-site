@@ -7,6 +7,8 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
   const scopes = "https://www.googleapis.com/auth/analytics.readonly"
   const jwt = new google.auth.JWT(email, null, key, scopes)
   await jwt.authorize()
+
+  //SITE WIDE STATS
   const SiteWideStats = await google.analytics("v3").data.ga.get({
     auth: jwt,
     ids: "ga:" + viewId,
@@ -30,6 +32,35 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
       },
     })
   }
+
+  //VIEWS PER DATE
+  const viewsPerDate = await google.analytics("v3").data.ga.get({
+    auth: jwt,
+    ids: "ga:" + viewId,
+    "start-date": "30daysAgo",
+    "end-date": "today",
+    dimensions: "ga:date",
+    metrics: "ga:pageviews",
+  })
+
+  for (let [date, views] of viewsPerDate.data.rows) {
+    createNode({
+      date: String(date),
+      views: Number(views),
+      id: date,
+      internal: {
+        type: `ViewsPerDate`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify({ date, views }))
+          .digest(`hex`),
+        mediaType: `text/plain`,
+        description: `Page views & sessions for the site`,
+      },
+    })
+  }
+
+  //VIEWS PER PAGE
   const result = await google.analytics("v3").data.ga.get({
     auth: jwt,
     ids: "ga:" + viewId,

@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import StatsCard from "../components/Stats/StatsCard"
 import { useCollectionOnce } from "react-firebase-hooks/firestore"
+import Trend from "../components/Stats/Trend"
 
 let firebase
 
@@ -151,6 +152,7 @@ const Stats = ({ data, count }) => {
         {Object.keys(cards).map(function (item) {
           return <StatsCard name={item} {...cards[item]} />
         })}
+        {/* <Trend /> */}
       </div>
     </Layout>
   )

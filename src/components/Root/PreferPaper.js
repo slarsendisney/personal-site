@@ -2,7 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 
 export default ({ darkMode }) => (
-  <div className="is-grey is-light-grey-bg" style={{ position: "relative" }}>
+  <div
+    className="is-white-always is-hero-blue-bg"
+    style={{ position: "relative" }}
+  >
     <div
       className="row container-small pad-20-tb"
       style={{ position: "relative", zIndex: 5 }}
@@ -10,7 +13,7 @@ export default ({ darkMode }) => (
       <div className="col-xs-12 text-align-center">
         <div className="row">
           <div className="col-xs-12">
-            <h1 className="is-grey">For The People Who Prefer Paper</h1>
+            <h1 className="">For The People Who Prefer Paper</h1>
           </div>
           <div className="col-xs-12">
             <Link to="/cv">

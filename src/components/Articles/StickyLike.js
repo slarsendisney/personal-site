@@ -25,7 +25,7 @@ const LikeButton = ({
   normalisedValue,
   incrementLikes,
   decrementLikes,
-
+  error,
   selected,
 }) => {
   return (
@@ -48,7 +48,7 @@ const LikeButton = ({
         </h1>
       </button>
       <p className="margin-0 opacity-60 text-align-center">
-        {!loading
+        {!loading && !error
           ? value.data() && value.data()[type]
             ? value.data()[type] + normalisedValue
             : 0
@@ -134,6 +134,7 @@ export default () => {
       type={item.type}
       label={item.label}
       loading={loading}
+      error={error}
       value={value}
       normalisedValue={normalisedValues[item.type]}
       contentID={contentID}
@@ -166,14 +167,12 @@ export default () => {
         marginLeft: -100,
       }}
     >
-      {!error && (
-        <div
-          className="is-white-bg border-radius pad-1-t margin-3-l flex"
-          style={{ flexDirection: "column" }}
-        >
-          {Buttons}
-        </div>
-      )}
+      <div
+        className="is-white-bg border-radius pad-1-t margin-3-l flex"
+        style={{ flexDirection: "column" }}
+      >
+        {Buttons}
+      </div>
     </div>
   )
 }

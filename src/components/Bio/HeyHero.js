@@ -12,7 +12,7 @@ export default ({ data }) => (
         </div>
       </div>
     </div>
-    <div className="pad-10-t pad-10-b is-special-blue-bg-always">
+    <div className="pad-10-t pad-10-b is-hero-blue-bg is-white-always is-black">
       <div className="row container ">
         <div className="col-xs-12 text-align-center pad-5-lr">
           <Img
@@ -25,12 +25,8 @@ export default ({ data }) => (
               marginRight: "auto",
             }}
           />
-          <h1 className="is-hero-menu is-white-always margin-0">
-            I'm Sam Larsen-Disney
-          </h1>
-          <h3 className="is-white-always margin-0 pad-0">
-            Designer. Engineer. Creator.
-          </h3>
+          <h1 className="is-hero-menu  margin-0">I'm Sam Larsen-Disney</h1>
+          <h3 className="margin-0 pad-0">Designer. Engineer. Creator.</h3>
           <Link to="/cv">
             <button
               className="bubble-button margin-10-t"
