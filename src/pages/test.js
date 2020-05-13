@@ -1,13 +1,13 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-function SEO({ varient }) {
+function SEO({ variant }) {
   const data =
-    varient === 0
+    variant === 0
       ? {
           title: "TEST A",
           desc: "test A",
-          img: "https://ik.imagekit.io/sld/Logo_-CIuihSCZ.png",
+          img: "https://ik.imagekit.io/sld/DarkMode_83Vy6Q6Wm.png", //img: "https://ik.imagekit.io/sld/Logo_-CIuihSCZ.png",
         }
       : {
           title: "TEST B",

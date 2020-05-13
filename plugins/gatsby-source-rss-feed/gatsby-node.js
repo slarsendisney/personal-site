@@ -85,6 +85,17 @@ exports.sourceNodes = async (
           type: `Feed${name}`,
         },
       })
+    } else {
+      createNode({
+        ...normalizedItem,
+        id: nodeId,
+        parent: null,
+        children: [],
+        internal: {
+          contentDigest: createContentDigest(item),
+          type: `Feed${name}-Curated`,
+        },
+      })
     }
   })
   const meta = {}
