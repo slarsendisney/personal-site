@@ -85,19 +85,18 @@ exports.sourceNodes = async (
           type: `Feed${name}`,
         },
       })
+    } else {
+      createNode({
+        ...normalizedItem,
+        id: nodeId,
+        parent: null,
+        children: [],
+        internal: {
+          contentDigest: createContentDigest(item),
+          type: `CuratedFeed${name}`,
+        },
+      })
     }
-    // else {
-    //   createNode({
-    //     ...normalizedItem,
-    //     id: nodeId,
-    //     parent: null,
-    //     children: [],
-    //     internal: {
-    //       contentDigest: createContentDigest(item),
-    //       type: `Feed${name}-Curated`,
-    //     },
-    //   })
-    // }
   })
   const meta = {}
   Object.keys(other).forEach((key) => (meta[key] = feed[key]))

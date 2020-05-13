@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { connect } from "react-redux"
 import { Emojione } from "react-emoji-render"
+import ReactTooltip from "react-tooltip"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import StatsCard from "../components/Stats/StatsCard"
@@ -74,6 +75,7 @@ const Stats = ({ data, count }) => {
         title="Stats"
         description="Ever wondered how many lines of code are at work here?"
       />
+      <ReactTooltip className="lato" />
       <div className="row container pad-10-t pad-10-b pad-3-lr">
         <div className="col-xs-12  is-grey">
           <h1 className=" margin-2-t">
@@ -123,36 +125,42 @@ const Stats = ({ data, count }) => {
             * These stats only account for code I have written myself. Page
             views and sessions are accurate as of time of last build.
           </p>
-          <div className="line margin-5-tb" />
+          <div className="line margin-8-tb" />
         </div>
 
-        <div className="col-xs-8 col-md-6 is-grey">
-          <h2 className="margin-0 margin-2-b">Most Popular Pages</h2>
+        <div className="col-xs-4 col-md-6 is-grey">
+          <h2 className="margin-0 margin-2-b">Popular Pages</h2>
         </div>
-        <div className="col-xs-4 col-md-6 text-align-center is-grey">
+        <div className="col-xs-4 col-md-3 text-align-center is-grey">
           <h2 className="margin-0 margin-2-b">Views</h2>
+        </div>
+        <div className="col-xs-4 col-md-3 text-align-center is-grey">
+          <h2 className="margin-0 margin-2-b">Sessions</h2>
         </div>
         {data.allPageViews.edges.slice(0, 5).map((item) => (
           <>
-            <div className="col-xs-8 col-md-6 is-grey">
+            <div className="col-xs-4 col-md-6 is-grey">
               <Link to={item.node.path} className="is-special-blue">
                 <p className="margin-0">
                   sld.codes{item.node.path === "/" ? "" : item.node.path}
                 </p>
               </Link>
             </div>
-            <div className="col-xs-4 col-md-6 text-align-center is-grey">
+            <div className="col-xs-4 col-md-3 text-align-center is-grey">
               <p className="margin-0 margin-1-b">{item.node.totalCount}</p>
+            </div>
+            <div className="col-xs-4 col-md-3 text-align-center is-grey">
+              <p className="margin-0 margin-1-b">{item.node.sessions}</p>
             </div>
           </>
         ))}
-        <div className="col-xs-12 is-grey margin-10-t">
-          <h4 className="margin-0 margin-1-b">Project Breakdown By Language</h4>
+        <Trend />
+        <div className="col-xs-12 is-grey margin-8-t">
+          <h2 className="margin-0 margin-1-b">Project Breakdown By Language</h2>
         </div>
         {Object.keys(cards).map(function (item) {
           return <StatsCard name={item} {...cards[item]} />
         })}
-        {/* <Trend /> */}
       </div>
     </Layout>
   )

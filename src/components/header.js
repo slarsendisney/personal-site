@@ -2,10 +2,7 @@
 
 import { Link } from "gatsby"
 import React, { useRef, useEffect, useState } from "react"
-import ReactTooltip from "react-tooltip"
 import useDarkMode from "use-dark-mode"
-import Logo from "../images/Logo.svg"
-import LogoDark from "../images/Logo-dark.svg"
 import LogoAnimation from "./Animations/LogoAnimation"
 import SmoothCollapse from "react-smooth-collapse"
 import sections from "../data/nav-sections.json"
