@@ -51,7 +51,7 @@ const LikeButton = ({
         {!loading && !error
           ? value.data() && value.data()[type]
             ? value.data()[type] + normalisedValue
-            : 0
+            : 0 + normalisedValue
           : "..."}
       </p>
     </div>
@@ -118,7 +118,8 @@ export default () => {
         .doc(contentID)
         .set(
           {
-            [type]: value.data()[type] - 1,
+            [type]:
+              value.data() && value.data()[type] ? value.data()[type] - 1 : 0,
           },
           { merge: true }
         )
@@ -128,7 +129,6 @@ export default () => {
     likes &&
     likes[contentID] &&
     (likes[contentID][type] || likes[contentID][type] > 0)
-
   const Buttons = buttonTypes.map((item) => (
     <LikeButton
       type={item.type}

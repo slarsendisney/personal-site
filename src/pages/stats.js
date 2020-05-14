@@ -57,7 +57,7 @@ const Stats = ({ data, count }) => {
           const obj = cur.data()
           Object.keys(obj).map((key) => {
             if (acc.total) {
-              acc.total = acc.total + obj[key]
+              acc.total = acc.total + (obj[key] >= 0 ? obj[key] : 0)
             } else {
               acc.total = obj[key]
             }
@@ -123,7 +123,7 @@ const Stats = ({ data, count }) => {
 
           <p>
             * These stats only account for code I have written myself. Page
-            views and sessions are refreshed daily at 9AM GMT.
+            views and sessions are refreshed daily at 9PM GMT.
           </p>
           <div className="line margin-8-tb" />
         </div>

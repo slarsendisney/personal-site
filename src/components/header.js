@@ -68,7 +68,6 @@ export default () => {
               setMenuOpen(false)
               delay(darkMode.value ? darkMode.disable : darkMode.enable)
             }}
-            data-tip={`Light Mode`}
           >
             <h2
               className={`las la-adjust link margin-0 rotate-icon ${
