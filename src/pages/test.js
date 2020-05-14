@@ -40,7 +40,7 @@ function SEO({ variant }) {
 }
 
 export default () => {
-  const variant = 1
+  const variant = 0
   return (
     <>
       <SEO
