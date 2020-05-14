@@ -61,7 +61,7 @@ const Trend = ({ data }) => {
             borderRadius: 7.5,
           }}
         />
-        <p className="margin-0  margin-1-r">Article Posted</p>
+        <p className="margin-0  margin-1-r">Article Added</p>
         <div
           className="is-green-bg margin-1-r"
           style={{
@@ -70,7 +70,7 @@ const Trend = ({ data }) => {
             borderRadius: 7.5,
           }}
         />
-        <p className="margin-0 ">Deck Posted</p>
+        <p className="margin-0 ">Deck Added</p>
       </div>
       <div
         className="col-xs-12 margin-1-t flex "
