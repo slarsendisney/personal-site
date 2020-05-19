@@ -8,9 +8,6 @@ type: "Project"
 coverimg: "./hero.png"
 ---
 
-
-
-
 <div class="row">
 <div class="col-xs-12 " >
        <p class="margin-5-tb">I was a summer intern before I was a Graduate at American Express. When I completed onboarding for the second time, I found that everyone was asking the same questions that had been asked the previous year. Questions that didn’t seem to be stored anywhere but instead were passed around by word of mouth. There was no source of information for onboarding that had relevant and up to date advice for new starters. I thought I could fix that.</p>

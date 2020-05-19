@@ -7,11 +7,12 @@ skills: ["GatsbyJS", "NPM", "Yeoman"]
 type: "Project"
 coverimg: "./Hero.png"
 ---
+<div class="flex" style="justify-content: center;">
+<a href="/boilerplates"><button class="bubble-button border-radius">Start using these boilerplates</button></a>
+</div>
 
-<h2><a href="/boilerplates" class="link is-orange">Click here to start using these boilerplates</a></h2> 
 
-
-## Purpose
+## The Idea
 I built a series of boilerplates for GatsbyJS as it's awesome but can be hard to configure if you are new to coding. I wanted to make it accessible to people who are at hackathons and just want to start quick!
 
 ## Quickstart
@@ -25,7 +26,7 @@ By default, all these boilerplates come with scss styling for grid layout, colou
 
 <div class="row pad-10 is-white-bg margin-10-t margin-10-b">
     <div class="col-xs-12 col-md-4">
-         <h1 class="margin-0">Gatsby Melon</h1>
+         <h3 class="margin-0">Gatsby Melon</h3>
     </div>
     <div class="col-xs-12 col-md-8">
         <img src="./Melon.png"/>
@@ -33,7 +34,7 @@ By default, all these boilerplates come with scss styling for grid layout, colou
 </div>
 <div class="row pad-10 is-white-bg margin-10-t margin-10-b">
     <div class="col-xs-12 col-md-4">
-         <h1 class="margin-0">Gatsby Mango</h1>
+         <h3 class="margin-0">Gatsby Mango</h3>
     </div>
     <div class="col-xs-12 col-md-8">
         <img src="./Mango.png"/>

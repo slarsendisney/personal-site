@@ -8,14 +8,14 @@ skills: ["Gatsby", "Node", "REST APIs"]
 coverimg: "./MetaPreview.png"
 ---
 
+<div class="flex" style="justify-content: center;">
+<a href="https://metapreview.app/" target="_blank"><button class="bubble-button border-radius">See it in action</button></a>
+</div>
+
+
 The aim of this project was to allow a user to see how changing certain pieces of meta data on a website, changes their appearance on social media platforms. 
 
 The project required two main capabilities:
 1. Mocked up examples of posts containing URLS from Facebook, Slack and Twitter.
 2. A Back-end service that can scrape meta data from a website url. 
 
-<a href="https://metapreview.app/" target="_blank">
-<button class="bubble-button margin-5-t">
-See it in action
-</button>
-</a>
