@@ -99,6 +99,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-github-profile`,
+      options: {
+        token: process.env.GITHUB_PROFILE_BEARER_TOKEN,
+        username: "slarsendisney",
+      },
+    },
+    {
       resolve: "gatsby-plugin-mailchimp",
       options: {
         endpoint:
@@ -131,13 +138,6 @@ module.exports = {
       options: {
         name: `stats`,
         path: `${__dirname}/data/stats/count_total.json`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `git-stats`,
-        path: `${__dirname}/data/stats/gitlog.json`,
       },
     },
     {

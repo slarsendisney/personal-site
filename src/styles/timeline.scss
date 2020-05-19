@@ -46,6 +46,9 @@ body.dark-mode {
     border-style: solid;
     border-width: 3px;
     box-shadow: none;
+    .vertical-timeline-element-content-arrow {
+      border-right: 7px solid #fff;
+    }
 
   }
 

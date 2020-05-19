@@ -24,7 +24,7 @@ const Stats = ({ data, count }) => {
   )
 
   const { JavaScript, Markdown, Sass, JSON, SUM } = data.statsJson
-  const { totalCount } = data.allGitlogJson
+  const totalCount = data.gitHubProfile.commitsOnRepo
   const totalViews = data.siteWideStats.pageViews
   const totalSessions = data.siteWideStats.sessions
 
@@ -103,14 +103,21 @@ const Stats = ({ data, count }) => {
 
           <h1 className=" margin-2-t">
             Articles I have written have been reacted to{" "}
-            <span className="is-special-blue">{reacts.total}</span> times with{" "}
-            <span className="is-green">{reacts.avo}</span>{" "}
+            <span className="is-special-blue">
+              {reacts.total ? reacts.total : "X"}
+            </span>{" "}
+            times with{" "}
+            <span className="is-green">{reacts.avo ? reacts.avo : "X"}</span>{" "}
             <Emojione text={"🥑"} />,{" "}
-            <span className="is-red">{reacts.popcorn}</span>{" "}
+            <span className="is-red">
+              {reacts.popcorn ? reacts.popcorn : "X"}
+            </span>{" "}
             <Emojione text={"🍿"} />,{" "}
-            <span className="is-orange">{reacts.fire}</span>{" "}
+            <span className="is-orange">{reacts.fire ? reacts.fire : "X"}</span>{" "}
             <Emojione text={"🔥"} /> and{" "}
-            <span className="is-red">{reacts.unicorn}</span>{" "}
+            <span className="is-red">
+              {reacts.unicorn ? reacts.unicorn : "X"}
+            </span>{" "}
             <Emojione text={"🦄"} />.
           </h1>
 
@@ -118,12 +125,12 @@ const Stats = ({ data, count }) => {
             The latest build of this site has{" "}
             <span className="is-special-blue">{SUM.code}</span> lines of code,{" "}
             <span className="is-orange-always">{SUM.comment}</span> comments and{" "}
-            <span className="is-green-always">{totalCount}</span> commits.*
+            <span className="is-green-always">{totalCount}</span> commits*.
           </h1>
 
           <p>
             * These stats only account for code I have written myself. Page
-            views and sessions are refreshed daily at 9PM GMT.
+            views, sessions and commit count are refreshed daily at 9PM GMT.
           </p>
           <div className="line margin-8-tb" />
         </div>
@@ -181,8 +188,9 @@ export const query = graphql`
       pageViews
       sessions
     }
-    allGitlogJson {
-      totalCount
+    gitHubProfile {
+      totalContributions
+      commitsOnRepo
     }
     statsJson {
       JavaScript {

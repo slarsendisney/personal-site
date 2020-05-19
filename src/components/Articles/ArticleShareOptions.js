@@ -44,14 +44,13 @@ export default ({ location }) => (
                 file(relativePath: { eq: "face.png" }) {
                   childImageSharp {
                     fluid(maxWidth: 400) {
-                      # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
                       ...GatsbyImageSharpFluid_noBase64
                     }
                   }
                 }
               }
             `}
-            render={data => (
+            render={(data) => (
               <Img
                 fluid={data.file.childImageSharp.fluid}
                 style={{
