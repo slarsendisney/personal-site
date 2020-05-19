@@ -19,26 +19,27 @@ export default ({
         }
       />
       <div className="is-grey is-light-grey-bg">
-        <div className="row container pad-10-t pad-20-b ">
-          <div className="col-xs-12 pad-10-lr">
+        <div className="row container pad-10-t pad-10-b ">
+          <div className="col-xs-12 pad-3-lr">
             <Link to="/projects" className="link">
-              <h2 className="is-grey margin-0 margin-2-b grow">{`< Projects`}</h2>
+              <h1 className="is-grey margin-0 margin-2-b grow">{`< Projects`}</h1>
             </Link>
           </div>
-          <div className="col-xs-12 pad-10-lr">
-            <h1 className="is-hero-menu is-grey margin-1-t margin-1-b">
-              {frontmatter.title}
-            </h1>
-            <h6 className="is-hero-sub-text margin-5-b is-grey">
-              {frontmatter.desc}
-            </h6>
+          <div className="col-xs-12 pad-3-lr margin-1-t">
             <Img
               fluid={frontmatter.coverimg.childImageSharp.fluid}
-              style={{ maxHeight: 250 }}
+              style={{ maxHeight: 450 }}
             />
+            <h1 className="is-hero-menu is-grey margin-5-t margin-1-b text-align-center">
+              {frontmatter.title}
+            </h1>
+            <p className="is-hero-sub-text margin-3-b is-grey text-align-center">
+              {frontmatter.desc}
+            </p>
+            <div className="line margin-5-b" style={{ margin: "auto" }}></div>
 
             <div
-              className={`margin-5-t ${html ? "pad-20-b  lato article" : ""}`}
+              className={`lato article`}
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </div>
