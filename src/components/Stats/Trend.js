@@ -25,6 +25,12 @@ const Trend = ({ data }) => {
       ? data.allViewsPerDate.edges
       : data.allViewsPerDate.edges.slice(data.allViewsPerDate.edges.length - 14)
   const maxViews = data.maxViews.edges[0].node.views
+  const projects = data.allMarkdownRemark.edges.reduce((acc, cur) => {
+    const date = new Date(cur.node.frontmatter.date)
+
+    acc[format(date, "yyyyMMdd")] = cur.node.frontmatter.title
+    return acc
+  }, {})
   const articles = data.allFeedMediumBlog.nodes.reduce((acc, cur) => {
     const date = new Date(cur.isoDate)
     acc[format(date, "yyyyMMdd")] = cur.title
@@ -70,8 +76,18 @@ const Trend = ({ data }) => {
             borderRadius: 7.5,
           }}
         />
-        <p className="margin-0 ">Deck Added</p>
+        <p className="margin-0 margin-1-r">Deck Added</p>
+        <div
+          className="is-orange-bg margin-1-r"
+          style={{
+            height: 15,
+            width: 15,
+            borderRadius: 7.5,
+          }}
+        />
+        <p className="margin-0 ">Project Added</p>
       </div>
+
       <div
         className="col-xs-12 margin-1-t flex "
         style={{ height: 10, justifyContent: "center" }}
@@ -189,6 +205,19 @@ const Trend = ({ data }) => {
                   data-tip={`"${decks[item.node.date]}" Deck Added`}
                 />
               )}
+              {projects[item.node.date] && (
+                <div
+                  className="is-orange-bg margin-1-b"
+                  style={{
+                    height: 15,
+                    width: 15,
+                    borderRadius: 7.5,
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                  data-tip={`"${projects[item.node.date]}" Project Added`}
+                />
+              )}
             </div>
           )
         })}
@@ -231,6 +260,18 @@ export default () => {
               node {
                 title
                 isoDate
+              }
+            }
+          }
+          allMarkdownRemark(
+            filter: { frontmatter: { type: { eq: "Project" } } }
+          ) {
+            edges {
+              node {
+                frontmatter {
+                  date
+                  title
+                }
               }
             }
           }
