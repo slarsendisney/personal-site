@@ -49,7 +49,7 @@ const Stats = ({ data, count }) => {
       ? {
           total: "...",
           fire: "...",
-          uncorn: "...",
+          unicorn: "...",
           popcorn: "...",
           avo: "...",
         }
