@@ -107,7 +107,7 @@ export default ({ data }) => {
     excerpt: item.node.frontmatter.desc,
   }))
   // just add ...mdxEdges below
-  let allArticles = [...nodes].sort((a, b) =>
+  let allArticles = [...nodes, ...mdxEdges].sort((a, b) =>
     compareAsc(new Date(b.pubDate), new Date(a.pubDate))
   )
 

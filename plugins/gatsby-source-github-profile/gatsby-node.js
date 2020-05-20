@@ -14,7 +14,12 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
         contributionCalendar {
             totalContributions
          }
-     }
+    }
+    pandemicContributions: contributionsCollection(from: "2020-03-16T00:00:00Z") {
+      contributionCalendar {
+        totalContributions
+      }
+    }
     repository(name: "personal-site") {
       id
       createdAt
@@ -41,20 +46,29 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
   })
   const data = await response.json()
 
-  const { contributionsCollection } = data.data.user
+  const { contributionsCollection, pandemicContributions } = data.data.user
   const totalContributions =
     contributionsCollection.contributionCalendar.totalContributions
+  const pandemicPosterContributions =
+    pandemicContributions.contributionCalendar.totalContributions
   const commits = data.data.user.repository.ref.target.history.totalCount
   createNode({
     totalContributions: Number(totalContributions),
     commitsOnRepo: Number(commits),
+    pandemicContributions: Number(pandemicPosterContributions),
     id: "Github-Profile",
     internal: {
       type: `GitHubProfile`,
       mediaType: `text/plain`,
       contentDigest: crypto
         .createHash(`md5`)
-        .update(JSON.stringify({ totalContributions, commits }))
+        .update(
+          JSON.stringify({
+            totalContributions,
+            commits,
+            pandemicPosterContributions,
+          })
+        )
         .digest(`hex`),
       description: `Github Profile Information`,
     },

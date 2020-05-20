@@ -8,3 +8,43 @@ skills: ["Twilio","Firebase", "Custom Hooks"]
 coverimg: "./hero.png"
 ---
 
+<div class="row margin-5-t ">
+    <div class="col-xs-12 col-sm-6 flex" style="justify-content:center; flex-direction:column">
+        <h4>A Digital Community</h4>
+        <p></p>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <img src="./3.png"/>
+    </div>
+</div>
+
+
+<div class="row margin-5-t">
+    <div class="col-xs-12 col-sm-6">
+        <img src="./1.png"/>
+    </div>
+    <div class="col-xs-12 col-sm-6 flex" style="justify-content:center; flex-direction:column">
+        <h4>Volunteer Dashboard</h4>
+        <p></p>
+    </div>
+</div>
+
+<div class="row margin-5-t margin-10-b ">
+    <div class="col-xs-12 col-sm-6 flex" style="justify-content:center; flex-direction:column">
+        <h4>Pinpointing Requests</h4>
+        <p></p>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <img src="./2.png"/>
+    </div>
+</div>
+
+
+<blockquote style="font-weight:normal; font-size:1.1em">
+I’m normally a bit of a perfectionist but this time speed was most important. I needed to get a version of the site deployed as gast as possible so that it could start helping those in need. </blockquote>
+
+
+<div class="flex" style="justify-content:center; flex-direction:column; align-items:center;">
+ <p>I have also written an article describing some of the thought proccess I went through when building this platform. Check it out!</p>
+<a href="/articles/Using-GatsbyJS-to-Help-My-Mutual-Aid-Network"><button class="bubble-button border-radius">Read the article</button></a>
+</div>

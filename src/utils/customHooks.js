@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 export function useWindowSize() {
   const isClient = typeof window === "object"
@@ -58,4 +59,19 @@ export function useLocalStorage(key, initialValue) {
   }
 
   return [storedValue, setValue]
+}
+
+export const useGithubData = () => {
+  const data = useStaticQuery(
+    graphql`
+      query MyQuery {
+        gitHubProfile {
+          totalContributions
+          pandemicContributions
+          commitsOnRepo
+        }
+      }
+    `
+  )
+  return data.gitHubProfile
 }

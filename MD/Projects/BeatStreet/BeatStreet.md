@@ -8,35 +8,34 @@ skills: ["ReactJS", "REST APIs"]
 coverimg: "./hero.png"
 ---
 
-<div class="row pad-10-b">
-    <div class="col-xs-12 col-md-2">
-         <h1 class="margin-0">Landing Page</h1>
+
+<div class="row margin-5-t ">
+    <div class="col-xs-12 col-sm-6 flex" style="justify-content:center; flex-direction:column">
+        <h4>A New Way To Find Music</h4>
+        <p></p>
     </div>
-    <div class="col-xs-12 col-md-10">
-        <img src="./landing-beat.png"/>
+    <div class="col-xs-12 col-sm-6">
+         <img src="./landing-beat.png"/>
     </div>
 </div>
-<div class="row pad-10-b">
-    <div class="col-xs-12 col-md-2">
-         <h1 class="margin-0">Location Choice</h1>
-    </div>
-    <div class="col-xs-12 col-md-10">
+
+
+<div class="row margin-5-t">
+    <div class="col-xs-12 col-sm-6">
         <img src="./choice-beat.png"/>
     </div>
-</div>
-<div class="row pad-10-b">
-    <div class="col-xs-12 col-md-2">
-         <h1 class="margin-0">Animated Loading</h1>
-    </div>
-    <div class="col-xs-12 col-md-10">
-        <img src="./loading-beat.png"/>
+    <div class="col-xs-12 col-sm-6 flex" style="justify-content:center; flex-direction:column">
+        <h4>Beats From Near You Or Far Away</h4>
+        <p></p>
     </div>
 </div>
-<div class="row pad-10-b">
-    <div class="col-xs-12 col-md-2">
-         <h1 class="margin-0">Playlist Creation</h1>
+
+<div class="row margin-5-t margin-10-b ">
+    <div class="col-xs-12 col-sm-6 flex" style="justify-content:center; flex-direction:column">
+        <h4>Auto Generated Playlists</h4>
+        <p></p>
     </div>
-    <div class="col-xs-12 col-md-10">
+    <div class="col-xs-12 col-sm-6">
         <img src="./complete-beat.png"/>
     </div>
 </div>
