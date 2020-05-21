@@ -6,10 +6,13 @@ hero: "./hero.png"
 date: 2020-05-10
 location: Space | Earth
 ---
+import {FavColours, LeastFavColours, ColorBrands, Spectrum} from '../../../src/components/Presentations/gifs';
 
 import PresImage from '../../../src/components/Presentations/PresImage';
 
-# Not ready yet! Come back soon!
+# Portfolio 101
+
+How I built this site and how you can design, build and host your own.
 
 ---
 
@@ -19,10 +22,15 @@ This is all...
 
 ---
 
+Your site is your space on the net.
+
+(Do what you want with it.)
+
+---
 
 The Angle We're Taking:
 
-## To build a personal brand and showcase your work.
+To build a personal brand, showcase your work and mess around.
 
 ---
 
@@ -31,9 +39,73 @@ The Angle We're Taking:
 ---
 
 
+Colour Theory
+
+The colours that you use to represent yourself matter
+
 ---
 
-# INSPIRATION
+#### Induce the right emotion in your users by using appropriate colours.
+
+<PresImage image={ColorBrands}/>
+
+---
+
+<div className="">
+<PresImage image={Spectrum}/>
+</div>
+
+---
+
+Cheat your colour scheme
+
+# [Coolors](https://coolors.co) 
+
+---
+
+## The Logo
+
+---
+
+<PresImage image={"https://ik.imagekit.io/sld/059b81864cdb473affdf6ea8ba1989c7_veMFWscTf.jpg"}/>
+
+---
+
+<PresImage image={"https://ik.imagekit.io/sld/maxresdefault_aG3eQuJbz.jpg"}/>
+
+---
+
+<PresImage image={"https://ik.imagekit.io/sld/netflix_EV22ktyWN.gif"}/>
+
+---
+
+<PresImage image={"https://ik.imagekit.io/sld/Screenshot_2020-05-21_at_14.32.33_NZxNTeXn4.png"} />
+
+---
+
+<PresImage image={"https://ik.imagekit.io/sld/Color_loEQbJ_BFwH.png"} />
+
+---
+
+<PresImage image={"https://ik.imagekit.io/sld/BW_WSFIKUbGN.png"} />
+
+---
+
+## Getting Animated 
+
+---
+
+The animation was built using Lottie — an awesome animation library from airbnb.
+
+---
+
+<PresImage image={"https://airbnb.io/lottie/images/Introduction_00_sm.gif"} />
+
+---
+
+# DESIGN INSPIRATION
+
+[sidebar](https://sidebar.io/): Just go here every day.
 
 [dribbble](https://dribbble.com/): Arguably the home of designers online.
 
@@ -44,10 +116,18 @@ The Angle We're Taking:
 
 ---
 
-## Personal Brand
+
+# Content
 
 ---
 
+Think ahead about where you will be sourcing your content from.
+
+---
+
+Make it enticing.
+
+---
 
 ## Building the site
 
@@ -57,9 +137,6 @@ Build it with tools you want to use in your day job.
 
 ---
 
-Think ahead about where you will be sourcing your content
-
----
 
 # Architecture
 
@@ -73,7 +150,431 @@ Think ahead about where you will be sourcing your content
 
 ---
 
-# Hosting
+# Lets talk about Gatsby
+
+---
+
+
+“You get simplicity by finding slightly more sophisticated building blocks“.
+
+ [*- Alan Kay*](https://www.youtube.com/watch?v=NdSD07U5uBs)
+
+
+---
+
+## A static site generator
+
+- Produces static html files that we load up onto a server.
+- No data querying done server side - all sorted at build.
+
+---
+
+
+## Static site !== static page
+
+We can still add all the JS we want to do dynamic things.
+
+
+---
+
+## Uses GraphQL to get data from anywhere
+
+We could get content from files, databases other websites - the list goes on!
+
+---
+
+```
+---
+title: "Intro to Gatsby"
+path: /decks/HOWTOGATSBY
+desc: An overview of GatsbyJS for the uninitiated.
+hero: "./hero.png"
+location: Space | Earth
+---
+
+# Intro to Gatsby
+#### Slides can be found at [slides.sld.codes](http://slides.sld.codes)
+
+---
+
+# What is GatsbyJS?
+
+---
+
+...
+```
+
+<a href="https://github.com/slarsendisney/personal-site/blob/master/decks/HOWTOGATSBY/slides.mdx">
+<p class="legal">See the file here.</p>
+</a>
+
+
+---
+
+## Gatsby generates pages for you
+
+- Pass Gatsby content, define a template and it will programmatically create pages for you.
+- Gatsby uses Node to generate these pages in development.
+
+---
+
+
+
+## 🔌 Built with a plugin architecture
+
+Abstract complex, configurations, or reusable code into a plugin so its away from what your focused on.
+
+---
+
+
+## 💪 Harnesses ReactJS
+
+Gatsby uses react and stylesheets to help structure page layout.
+
+---
+
+## Project Structure 📁
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins                
+|-- /public                 
+|-- /src
+    |-- /pages              
+    |-- /templates          
+|-- /static                 
+|-- gatsby-config.js ⬅️ core configuration file and plugin handeller        
+|-- gatsby-node.js         
+|-- gatsby-browser.js       
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins               
+|-- /public                 
+|-- /src
+    |-- /pages              
+    |-- /templates          
+|-- /static                 
+|-- gatsby-config.js       
+|-- gatsby-node.js ⬅️ control your site's data in the graphQL data layer    
+|-- gatsby-browser.js       
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins                
+|-- /public                 
+|-- /src
+    |-- /pages             
+    |-- /templates          
+|-- /static                 
+|-- gatsby-config.js       
+|-- gatsby-node.js 
+|-- gatsby-browser.js ⬅️ code that will run on the client browser           
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins                
+|-- /public                
+|-- /src
+    |-- /pages            
+    |-- /templates          
+|-- /static ⬅️ static content you want copied to your public folder at build
+|-- gatsby-config.js       
+|-- gatsby-node.js          
+|-- gatsby-browser.js      
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins        
+|-- /public             
+|-- /src
+    |-- /pages            
+    |-- /templates ⬅️ templates for programmatically generated pages        
+|-- /static
+|-- gatsby-config.js 
+|-- gatsby-node.js
+|-- gatsby-browser.js  
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins              
+|-- /public               
+|-- /src
+    |-- /pages ⬅️ location of single instance pages                         
+    |-- /templates
+|-- /static             
+|-- gatsby-config.js     
+|-- gatsby-node.js       
+|-- gatsby-browser.js    
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/   
+|-- /plugins ⬅️ local development plugins                                   
+|-- /public               
+|-- /src
+    |-- /pages
+    |-- /templates      
+|-- /static                
+|-- gatsby-config.js        
+|-- gatsby-node.js       
+|-- gatsby-browser.js      
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/   
+|-- /plugins
+|-- /public ⬅️ the built html and JS files                                  
+|-- /src
+    |-- /pages
+    |-- /templates      
+|-- /static                
+|-- gatsby-config.js        
+|-- gatsby-node.js       
+|-- gatsby-browser.js      
+```
+
+
+---
+
+#### gatsby-config.js 
+
+``` 
+module.exports = {                                                                
+  siteMetadata: {
+    title: `Site Title`,
+    author: {
+      name: `Sam Larsen-Disney`,
+    },
+    description: `Short, sharp description.`,
+    siteUrl: `https://sld.codes`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    `gatsby-transformer-remark` 
+  ]
+}
+```
+
+---
+
+### We can now make queries!
+
+```
+
+query GetBlogPosts {
+  allMarkdownRemark(filter: {frontmatter: {type: {eq: "Article"}}}) {
+    nodes {
+      frontmatter {
+        title
+      }
+    }
+  }
+}
+
+```
+
+---
+
+#### gatsby-node.js 
+
+```
+exports.createPages = async ({ graphql, actions }) => {                           
+  const { createPage } = actions
+  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const result = await graphql(
+    `{
+        allMarkdownRemark{
+          edges {
+            node {
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+      }`
+  )
+  const posts = result.data.allMarkdownRemark.edges
+  posts.forEach((post, index) => {
+    createPage({
+      path: post.frontmatter.path,
+      component: blogPost,
+    })
+  })
+}
+```
+
+---
+
+# Why use Gatsby?
+
+---
+
+## ⚡️ Speed
+
+Its hard to beat the speed of sending static output.
+
+---
+
+## 🔑 Security
+
+Extremely secure as you are just sending HTML.
+
+---
+
+## 😍 Developer Experience
+
+---
+
+#### Takes away logic we all find pernickety:
+
+- *react-router*
+- *progressive-image-loading*
+- *data-fetching*
+
+---
+
+- #### modern dev enviroment
+- #### simple tooling 
+- #### modern and clean languages
+
+---
+
+Gatsby has a solid team, open source community and awesome documentation.
+
+🏃‍♂️ Its growing fast.
+
+---
+
+#### npm stats
+
+![GATSBY STATS](https://ik.imagekit.io/sld/gatsbyStats_P_fCfBD7g.png)
+
+---
+
+#### Built with Gatsby
+
+- [The Official React Javascript Library Website](https://reactjs.org/)
+- [The Impossible Foods’ Brand Website](https://impossiblefoods.com/)
+- [The Airbnb Sites for Developers and Designers](https://airbnb.io/)
+- [sld.codes (duh)](https://sld.codes/)
+
+
+---
+
+<p >Have a go yourself</p>
+
+## [sld.codes/boilerplates](/boilerplates)
+
+---
+
+Socket.io
+
+---
+
+- Count site visitors
+- Control my presentations remotely
+
+---
+
+Firebase realtime DB
+
+---
+
+# Deployments
+
+---
+
+Gatsby Cloud
+
+The fastest continuous deployment solution for Gatsby sites and apps—up to 20x faster standard builds times than other solution.
+
+---
+
+Avg Build Times:
+
+Using Cache: 1.5 mins
+
+Without Cache: 7 mins
+
+---
+
+Automatic on push to origin/master
+
+---
+
+
+# Firebase
+
+Generous free plan.
+
+---
+
+Google domains ❤️ Firebase
+
+No verification of ownership step.
+
+---
+
+You can have a domain live in 1 hour from the moment you buy the domain.
+
+---
+
+
+# Cost
+  
+---
+
+## ~£9 a month
+
+- Heroku Hobby Teir: $7 a month
+- Domain Name: £40 a year
+- Firebase: FREE
+- Gatsby Cloud: FREE
 
 ---
 
@@ -102,14 +603,11 @@ Think ahead about where you will be sourcing your content
 
 ---
 
-# Cost
-  
+# Whats next?
+
 ---
 
-## ~£9 a month
 
-- Heroku Hobby Teir: $7 a month
-- Domain Name: £40 a year
 
 ---
 

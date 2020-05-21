@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
 export default ({ image }) => (
   <img
     src={image}
     alt="Slide Img"
-    style={{ maxHeight: "100vh", maxWidth: "100vw" }}
+    style={{ maxHeight: "90vh", maxWidth: "90vw" }}
   />
-);
+)
