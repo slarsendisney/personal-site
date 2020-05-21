@@ -15,13 +15,15 @@ export default ({ data, location }) => {
   const { title, date, desc, coverimg, declutter } = mdx.frontmatter
 
   const target = React.createRef()
+
   return (
     <Layout>
       <SEO
         title={title}
         description={desc}
+        location={location}
         image={"https://sld.codes" + coverimg.childImageSharp.fluid.src}
-      />{" "}
+      />
       <ReadingProgress target={target} />
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t " ref={target}>

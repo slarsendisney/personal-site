@@ -48,7 +48,12 @@ export default ({ data, location }) => {
   const target = React.createRef()
   return (
     <Layout>
-      <SEO title={title} description={fields.excerpt} image={fields.hero_img} />
+      <SEO
+        title={title}
+        description={fields.excerpt}
+        image={fields.hero_img}
+        location={location}
+      />
       <ReadingProgress target={target} />
 
       <div

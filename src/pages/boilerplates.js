@@ -45,11 +45,11 @@ const BoilerPlate = ({ title, desc, flag, repo, demo }) => (
     </div>
   </div>
 )
-export default function Start({ data }) {
+export default function Start({ data, location }) {
   const boilerplates = data.allMarkdownRemark.edges
   return (
     <Layout>
-      <SEO title="Boilerplates" />
+      <SEO title="Boilerplates" location={location} />
       <div className="is-white is-light-grey-bg">
         <div className="row container-small pad-10-t pad-3-lr">
           <div className="col-xs-12 col-md-6 ">

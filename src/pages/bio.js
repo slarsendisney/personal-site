@@ -5,10 +5,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Timeline from "../components/Bio/Timeline"
 import HeyHero from "../components/Bio/HeyHero"
-export default function Bio({ data }) {
+export default function Bio({ data, location }) {
   return (
     <Layout>
-      <SEO title={"Bio"} />
+      <SEO title={"Bio"} location={location} />
       <HeyHero data={data} />
       <div className="pad-10-t pad-5-lr pad-5-b is-light-grey-bg">
         <div className="row container ">

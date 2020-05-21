@@ -4,9 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 
-export default ({
-  data, // this prop will be injected by the GraphQL query below.
-}) => {
+export default ({ data, location }) => {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
   return (
@@ -14,6 +12,7 @@ export default ({
       <SEO
         title={frontmatter.title}
         description={frontmatter.desc}
+        location={location}
         image={
           "https://sld.codes" + frontmatter.coverimg.childImageSharp.fluid.src
         }

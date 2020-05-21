@@ -10,7 +10,11 @@ export default function QandATemplate({ location, data }) {
   const { frontmatter, html, excerpt } = markdownRemark
   return (
     <Layout>
-      <SEO title={frontmatter.title} description={excerpt} />
+      <SEO
+        title={frontmatter.title}
+        description={excerpt}
+        location={location}
+      />
       <div
         className="is-grey is-light-grey-bg"
         style={{ position: "relative" }}
