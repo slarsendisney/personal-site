@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
 import ReadingProgress from "../components/Articles/ReadingProgress"
+import Like from "../components/Articles/StickyLike"
 
 export default ({ data, location }) => {
   const { mdx } = data
@@ -24,13 +25,13 @@ export default ({ data, location }) => {
       <ReadingProgress target={target} />
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t " ref={target}>
-          <div className="col-xs-12 pad-5-lr">
+          <div className="col-xs-12 pad-3-lr">
             <Link to="/articles" className="">
               <h2 className="is-grey margin-0 margin-2-b link-bar pad-1-b">{`< Articles`}</h2>
             </Link>
           </div>
 
-          <div className="col-xs-12 pad-5-lr">
+          <div className="col-xs-12 pad-3-lr">
             {!declutter && (
               <>
                 <Img
@@ -53,7 +54,10 @@ export default ({ data, location }) => {
               </MDXProvider>
             </div>
           </div>
-          <div className="col-xs-12 pad-5-lr pad-5-b">
+          <div className="col-xs-12 pad-3-lr pad-5-b">
+            <Like />
+          </div>
+          <div className="col-xs-12 pad-3-lr pad-5-b">
             <ArticleShareOptions location={location} />
           </div>
         </div>
