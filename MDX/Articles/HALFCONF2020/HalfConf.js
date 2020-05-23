@@ -451,7 +451,7 @@ export default () => {
         <div className="row">
           <div className="col-xs-12  flex align-vertical">
             <h2 className="margin-0 pad-0" style={{ fontSize: 35 }}>
-              Responsive Design in 2020
+              Internationalisation and Data Visulisation
             </h2>
           </div>
           <div className="col-xs-12 margin-5-b">
