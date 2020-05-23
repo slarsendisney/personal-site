@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
 import compareAsc from "date-fns/compareAsc"
-
+import StickyArticleSideBar from "../components/Articles/StickyArticleSideBar"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import "react-lazy-load-image-component/src/effects/blur.css"
 
@@ -141,27 +141,30 @@ export default ({ data }) => {
             ))}
           </div>
           <div className="col-xs-12 col-md-3 col-lg-3 pad-3-l">
-            {/* <h3 className="margin-0-b">TOP CATEGORIES</h3> */}
-            <h3 className="margin-0-b">POPULAR CONTENT</h3>
-            {popular.edges.map((item) => (
-              <div style={{ maxWidth: 250 }}>
-                <Link to={item.node.path} className="is-special-blue">
-                  <p className="">{pathToTitle(item.node.path)}</p>
-                </Link>
-              </div>
-            ))}
-            <h3 className="margin-0-b margin-5-t">FEELING LUCKY?</h3>
-            <button
-              onClick={() =>
-                navigate(
-                  "/" +
-                    allArticles[Math.floor(Math.random() * allArticles.length)]
-                      .fields.slug
-                )
-              }
-            >
-              <p className="is-special-blue">See A Random Article</p>
-            </button>
+            <StickyArticleSideBar>
+              {/* <h3 className="margin-0-b">TOP CATEGORIES</h3> */}
+              <h3 className="margin-0-b">POPULAR CONTENT</h3>
+              {popular.edges.map((item) => (
+                <div style={{ maxWidth: 250 }}>
+                  <Link to={item.node.path} className="is-special-blue">
+                    <p className="">{pathToTitle(item.node.path)}</p>
+                  </Link>
+                </div>
+              ))}
+              <h3 className="margin-0-b margin-5-t">FEELING LUCKY?</h3>
+              <button
+                onClick={() =>
+                  navigate(
+                    "/" +
+                      allArticles[
+                        Math.floor(Math.random() * allArticles.length)
+                      ].fields.slug
+                  )
+                }
+              >
+                <p className="is-special-blue">See A Random Article</p>
+              </button>
+            </StickyArticleSideBar>
           </div>
 
           <div className="col-xs-12 margin-5-t margin-10-b">
