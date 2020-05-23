@@ -24,7 +24,10 @@ import Phone from "./phone.svg"
 import Constellation from "./constellation.svg"
 import Culture from "./culture.svg"
 import Graph from "./graph.svg"
+import Integer from "./integer.svg"
 import Solar from "./solar.svg"
+import Book from "./book.svg"
+import IntlDemo from "./IntlDemo"
 
 export default () => {
   const startDate = new Date(2020, 2, 16)
@@ -182,6 +185,7 @@ export default () => {
             <iframe
               width="100%"
               height="300px"
+              className="border-radius"
               style={{ maxHeight: 200 }}
               src="https://www.youtube.com/embed/kZkOyVuBw-o"
               frameborder="0"
@@ -208,7 +212,7 @@ export default () => {
               <li>
                 <p className="margin-1-t">
                   <strong>Its Heavy</strong> - Library is around 12mb for
-                  handpose. so affects site performance.
+                  handpose. This of course, affects site performance.
                 </p>
               </li>
               <li>
@@ -334,7 +338,7 @@ export default () => {
               </div>
             </div>
           </div>
-          <div className="col-xs-12 col-sm-6 margin-5-b flex ">
+          <div className="col-xs-12 col-sm-6 margin-5-b ">
             <div className="flex " style={{ flexDirection: "column" }}>
               <h3 className="margin-0-tb">
                 <strong>Cheap Dark Mode</strong>
@@ -398,7 +402,7 @@ export default () => {
               </p>
             </div>
           </div>
-          <div className="col-xs-12 col-sm-6 margin-5-b flex ">
+          <div className="col-xs-12 col-sm-6 margin-5-b ">
             <div className="flex " style={{ flexDirection: "column" }}>
               <h3 className="margin-0-tb">
                 <strong>Testing Network Conditions</strong>
@@ -418,7 +422,7 @@ export default () => {
             </div>
           </div>
           <div
-            className="col-xs-12 col-md-6 margin-5-b flex"
+            className="col-xs-12 col-md-6 margin-5-tb flex"
             style={{ alignItems: "center" }}
           >
             <img src={Glasses} className="poster-icon " />
@@ -436,7 +440,7 @@ export default () => {
             </div>
           </div>
           <div
-            className="col-xs-12 col-md-6 margin-5-tb flex"
+            className="col-xs-12 col-md-6 margin-5-tb"
             style={{ alignItems: "center" }}
           >
             <NetworkStrength />
@@ -540,30 +544,102 @@ export default () => {
               Touch screens were intially built for accessibility but now we are
               all reaping the benefits.
             </p>
+
+            <div className="flex " style={{ flexDirection: "column" }}>
+              <h3 className="margin-0-tb">
+                <strong>Reusable Formatter Instance</strong>
+              </h3>
+              <pre
+                className="is-grey-bg is-white pad-3 border-radius"
+                style={{ width: "100%" }}
+              >
+                {`const reusableFormatterInstance  = (locale, number) => {
+  return new Intl.NumberFormat(locale).format(number);
+};
+
+reusableFormatterInstance('en', 123456789123456789);`}
+              </pre>
+            </div>
           </div>
-          <div className="col-xs-12 text-align-center margin-5-t margin-3-b">
-            <img src={Solar} className="poster-icon " />
+          <div className="col-xs-12 col-md-6 ">
+            <div className="flex align-horizontal">
+              <img src={Integer} className="poster-icon" />
+
+              <h2 className="margin-1-tb  margin-2-l">Integers</h2>
+            </div>
+            <div className="flex " style={{ flexDirection: "column" }}>
+              <p className="margin-0-tb">
+                Integers are not the same across the world!
+              </p>
+              <pre className="is-grey-bg is-white pad-3 border-radius">
+                {`English --> 123,457 | Tamil --> 1,23,457`}
+              </pre>
+            </div>
+          </div>
+
+          <div
+            className="col-xs-12 col-md-6 "
+            style={{ flexDirection: "column" }}
+          >
+            <div className="flex align-horizontal">
+              <img src={Book} className="poster-icon" />
+
+              <h2 className="margin-1-tb  margin-2-l">Further Reading</h2>
+            </div>
+            <ul className="margin-1-t">
+              <li>
+                <a className="is-special-blue" href="https://formatjs.io/">
+                  <h4 className="margin-0 margin-1-b">react-intl</h4>
+                </a>
+              </li>
+              <li>
+                <a
+                  className="is-special-blue"
+                  href="https://react.i18next.com/"
+                >
+                  <h4 className="margin-0 margin-1-b">react-i18next</h4>
+                </a>
+              </li>
+              <li>
+                <a
+                  className="is-special-blue"
+                  href="https://github.com/facebook/fbt"
+                >
+                  <h4 className="margin-0 margin-1-b">fbt</h4>
+                </a>
+              </li>
+              <li>
+                <a className="is-special-blue" href="https://momentjs.com/">
+                  <h4 className="margin-0 margin-1-b">moment</h4>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="col-xs-12 col-md-6 margin-5-tb flex"
+            style={{ alignItems: "center" }}
+          >
+            <img src={Glasses} className="poster-icon " />
+            <div className="flex " style={{ flexDirection: "column" }}>
+              <h2 className="margin-2-l margin-0-tb">
+                Putting It Into Practise
+              </h2>
+              <p className="margin-0 margin-2-l">
+                The div next to this section contains a demo of using
+                internationalisation to format a string based on various
+                locales. It uses compact notation to ensure it will fit the
+                space.
+              </p>
+            </div>
+          </div>
+          <div
+            className="col-xs-12 col-md-6 margin-5-tb"
+            style={{ alignItems: "center" }}
+          >
+            <IntlDemo />
           </div>
         </div>
-        <div className="row">
-          <div className="col-xs-12  flex align-vertical">
-            <h2 className="margin-0 pad-0" style={{ fontSize: 35 }}>
-              More coming soon....
-            </h2>
-          </div>
-          <div className="col-xs-12 margin-5-b">
-            <div
-              className="line margin-5-tb opacity-5"
-              style={{ width: "100%", maxWidth: "100vw" }}
-            />
-            <h4 className="margin-0 margin-1-tb ">
-              I havent completed my notes - more on the way!
-            </h4>
-          </div>
-          <div className="col-xs-12 margin-5-b text-align-center">
-            <h2 className="margin-0 is-special-blue"></h2>
-          </div>
-        </div>
+
         <div className="col-xs-12 text-align-center margin-5-t margin-3-b">
           <img src={BlackHole} className="poster-icon " />
         </div>
