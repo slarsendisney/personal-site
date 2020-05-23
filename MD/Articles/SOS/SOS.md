@@ -2,7 +2,8 @@
 type: "Article"
 path: "/articles/sams-hackathon-guide"
 title: "Sam's Hackathon Survival Guide 💪"
-desc: "A creative cheat sheet to help you get off to a running start."
+desc: "A creative cheat sheet to help you get off to a running start at your next hack. I put this together as my way of giving back. I hope that it might help you get hacking smarter and faster ⚡️. "
+coverimg: "./hero.png"
 year: 2019
 date: 2019-09-13
 ---

@@ -170,7 +170,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         node.content.encoded
           .replace(/<\/[^>]*>?/gm, " ")
           .replace(/<[^>]*>?/gm, "")
-          .substring(0, 150) + "...",
+          .substring(0, 250) + "...",
     })
     createNodeField({
       node,

@@ -2,7 +2,8 @@
 type: "Article"
 path: "/articles/gimme-git-quick"
 title: "Gimme Git Quick 🏃‍"
-desc: "For the people who needed to know git yesterday. "
+desc: "For the people who needed to know git yesterday, this is the quickest git guide ever. It is intended to be used in hackathon type scenarios where you team want to use it but you've never touched it before. "
+coverimg: "./hero.png"
 year: 2019
 date: 2019-10-01
 ---
