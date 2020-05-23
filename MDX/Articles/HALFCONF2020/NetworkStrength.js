@@ -8,7 +8,9 @@ export default () => {
     >
       <h2 className="is-grey" style={{ margin: "auto" }}>
         Your effective network type:{" "}
-        {navigator.connection.effectiveType.toUpperCase()}
+        {typeof navigator !== "undefined"
+          ? navigator.connection.effectiveType.toUpperCase()
+          : ""}
       </h2>
     </div>
   )
