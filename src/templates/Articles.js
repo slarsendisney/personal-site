@@ -35,7 +35,7 @@ export const Article = ({
   excerpt,
 }) => (
   <Link to={"/" + slug} className="link" id="path">
-    <div className="grow row margin-3-t">
+    <div className="grow row margin-3-t margin-5-b">
       <div className="col-xs-12 col-sm-5 col-md-5 margin-2-b">
         {hero_img ? (
           <LazyLoadImage
@@ -146,7 +146,7 @@ export default ({ data }) => {
             {popular.edges.map((item) => (
               <div style={{ maxWidth: 250 }}>
                 <Link to={item.node.path} className="is-special-blue">
-                  <p>{pathToTitle(item.node.path)}</p>
+                  <p className="">{pathToTitle(item.node.path)}</p>
                 </Link>
               </div>
             ))}

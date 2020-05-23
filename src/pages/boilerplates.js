@@ -50,17 +50,15 @@ export default function Start({ data, location }) {
   return (
     <Layout>
       <SEO title="Boilerplates" location={location} />
-      <div className="is-white is-light-grey-bg">
-        <div className="row container-small pad-10-t pad-3-lr">
+      <div className="is-grey is-light-grey-bg">
+        <div className="row container-small pad-5-t pad-3-lr pad-3-lr">
           <div className="col-xs-12 col-md-6 ">
-            <h1 className="is-hero-menu is-grey margin-0">Boilerplates</h1>
-            <div className="line margin-10-t is-grey" />
-            <div className="border" />
+            <h3 className="margin-0-b margin-1-l">BOILERPLATES</h3>
           </div>
         </div>
       </div>
-      <div className="is-light-grey-bg is-grey">
-        <div className="row container-small pad-5-t pad-10-b">
+      <div className="is-light-grey-bg is-grey pad-5-b">
+        <div className="row container-small pad-10-b">
           {boilerplates.map((item) => (
             <BoilerPlate {...item.node.frontmatter} />
           ))}

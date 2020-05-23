@@ -12,16 +12,11 @@ const Start = ({ data, presentation }) => {
     <Layout>
       <SEO title="Presentations" />
 
-      <div className="is-light-grey-bg">
-        <div className="row container pad-5-t pad-5-b pad-3-lr">
+      <div className="is-light-grey-bg is-grey">
+        <div className="row container-small pad-5-t pad-5-b pad-3-lr">
           <div className="col-xs-12 ">
-            <h1 className="is-grey is-hero-menu margin-3-l  margin-1-b">
-              Presentations
-            </h1>
-            <div
-              className="line-sm  is-grey margin-5-b margin-3-l "
-              style={{ width: 305 }}
-            />
+            <h3 className="margin-5-b margin-1-l">PRESENTATIONS</h3>
+
             <SmoothCollapse expanded={presentation && presentation.deck}>
               <Link
                 to={
@@ -61,7 +56,7 @@ const Start = ({ data, presentation }) => {
             const { title, path, desc, hero, location } = item.frontmatter
             return (
               <div
-                className="col-xs-12 col-sm-6 col-md-4 margin-5-b"
+                className="col-xs-12 col-sm-6 col-md-4 col-lg-3 margin-5-b"
                 key={title}
               >
                 <div

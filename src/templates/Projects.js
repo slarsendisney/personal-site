@@ -28,21 +28,20 @@ export const ProjectPreview = ({ title, desc, path, coverimg, skills }) => (
 )
 
 export const Project = ({ title, desc, path, coverimg, skills }) => (
-  <div className="pad-5-b">
+  <div className="col-xs-12 col-sm-10 col-md-6 pad-5-b ">
     <Link to={path} className="link " id="path">
       <div className="grow row">
-        <div className="col-xs-12 col-md-6 margin-2-t">
+        <div className="col-xs-12 col-md-6  margin-3-t">
           <Img
             fluid={coverimg.childImageSharp.fluid}
             className="shadow"
-            style={{ maxHeight: 250 }}
+            style={{ maxHeight: 200 }}
           />
           <div></div>
         </div>
-        <div className="col-xs-12 col-md-6 margin-2-t is-grey">
-          <h1 className="margin-1-b margin-0-t">{title}</h1>
-          <h3 className="margin-0-t margin-1-b">{desc}</h3>
-
+        <div className="col-xs-12 col-md-6  margin-3-t is-grey">
+          <h2 className="margin-1-b margin-0-t">{title}</h2>
+          <p className="margin-0-t margin-1-b">{desc}</p>
           <p className="margin-0-t is-special-blue">{skills.join(" | ")}</p>
         </div>
       </div>
@@ -58,34 +57,35 @@ export default ({
   return (
     <Layout>
       <SEO title={"Projects"} />
-      <div className="is-grey is-light-grey-bg pad-3-lr">
-        <div className="row container pad=0">
-          <div className="col-xs-12">
-            <h1 className="is-hero-menu margin-10-t margin-3-b">Projects</h1>
-            <div className="line margin-5-b" />
+      <div className="is-grey is-light-grey-bg pad-5-t pad-3-lr">
+        <div className="row container-small ">
+          <div className="col-xs-12 ">
+            <h3 className="margin-0-b margin-1-l">PROJECTS</h3>
           </div>
 
-          <div className="col-xs-12 col-md-10 pad-0">
-            {edges
-              .sort((a, b) => {
-                var resultA = parse(
-                  a.node.frontmatter.date,
-                  "yyyy-MM-dd",
-                  new Date()
-                )
-                var resultB = parse(
-                  b.node.frontmatter.date,
-                  "yyyy-MM-dd",
-                  new Date()
-                )
-                return compareAsc(resultB, resultA)
-              })
-              .map((item) => (
-                <Project
-                  {...item.node.frontmatter}
-                  key={item.node.frontmatter.title}
-                />
-              ))}
+          <div className="col-xs-12 pad-0">
+            <div className="row">
+              {edges
+                .sort((a, b) => {
+                  var resultA = parse(
+                    a.node.frontmatter.date,
+                    "yyyy-MM-dd",
+                    new Date()
+                  )
+                  var resultB = parse(
+                    b.node.frontmatter.date,
+                    "yyyy-MM-dd",
+                    new Date()
+                  )
+                  return compareAsc(resultB, resultA)
+                })
+                .map((item) => (
+                  <Project
+                    {...item.node.frontmatter}
+                    key={item.node.frontmatter.title}
+                  />
+                ))}
+            </div>
           </div>
         </div>
       </div>
