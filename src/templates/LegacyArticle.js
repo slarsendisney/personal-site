@@ -8,12 +8,14 @@ import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
 export default function QandATemplate({ location, data }) {
   const { markdownRemark } = data
   const { frontmatter, html, excerpt } = markdownRemark
+  const { coverimg } = frontmatter
   return (
     <Layout>
       <SEO
         title={frontmatter.title}
         description={excerpt}
         location={location}
+        image={"https://sld.codes" + coverimg.childImageSharp.fluid.src}
       />
       <div
         className="is-grey is-light-grey-bg"
@@ -55,6 +57,14 @@ export const pageQuery = graphql`
       frontmatter {
         title
         desc
+        coverimg {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+              ...GatsbyImageSharpFluid_noBase64
+            }
+          }
+        }
       }
       excerpt
     }

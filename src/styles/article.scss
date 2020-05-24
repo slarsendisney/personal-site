@@ -101,6 +101,9 @@
     @extend .is-pink-always;
     text-decoration: none;
   }
+  li {
+    margin-bottom: 5px;
+  }
 
   h1 {font-weight: bold;
     @extend .is-pink-always;
