@@ -8,7 +8,7 @@ year: 2019
 date: 2019-12-10
 ---
 
-# Bad Habits
+## Bad Habits
 Instant messaging platforms we are used to like Whatsapp and messenger have got us into some bad habits that we shouldn't carry over to slack. Let me give you an example of an all too common script that isnt quite right.
 
 ```
@@ -36,7 +36,7 @@ So why is this a problem? As soon as that first message is sent, I get a notific
 
 Then, out of politeness I am asked "How are you?". I know the intentions are good but odds are I would rather be working, than small talking.
 
-# All this can be fixed with a comma
+## All this can be fixed with a comma
 
 ```
 BOB: Hey, I was wondering if you could help me with X.
