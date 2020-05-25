@@ -11,13 +11,13 @@
   margin-top: 5px !important;
 }
 
-.vertical-timeline::before {
-  @extend .is-pink-bg-always;
-}
+
 
 .vertical-timeline-element-date {
-  @extend .is-pink-always;
+  @extend .is-special-blue;
 }
+
+
 
 .vertical-timeline {
   margin-bottom: 25px !important;
