@@ -55,12 +55,12 @@ export const Article = ({
         )}
       </div>
       <div className="col-xs-12 col-sm-7 col-md-7">
-        <h2 className="margin-0 is-dark-blue">{title}</h2>
-        <p className="margin-0 margin-2-b is-dark-blue">
+        <h2 className="margin-0 is-grey">{title}</h2>
+        <p className="margin-0 margin-2-b is-grey">
           {format(new Date(pubDate), "iii, dd MMM yyyy")}
         </p>
 
-        <p className="margin-0 is-dark-blue">{excerpt}</p>
+        <p className="margin-0 is-grey">{excerpt}</p>
       </div>
     </div>
   </Link>
@@ -86,12 +86,12 @@ export const ArticlePreview = ({
         />
       </div>
       <div className="col-xs-12  margin-5-t">
-        <h2 className="margin-0 is-dark-blue">{title}</h2>
-        <p className="margin-0 margin-2-b is-dark-blue">
+        <h2 className="margin-0 is-grey">{title}</h2>
+        <p className="margin-0 margin-2-b is-grey">
           {format(new Date(pubDate), "iii, dd MMM yyyy")}
         </p>
 
-        <p className="margin-0 is-dark-blue">{excerpt}</p>
+        <p className="margin-0 is-grey">{excerpt}</p>
       </div>
     </div>
   </Link>
@@ -173,7 +173,9 @@ export default ({ data }) => {
 
           <div className="col-xs-12 margin-5-t margin-10-b">
             <div className="line-sm margin-5-tb" />
-            <Subscribe />
+            <div className="container" style={{ margin: 0 }}>
+              <Subscribe />
+            </div>
           </div>
         </div>
       </div>

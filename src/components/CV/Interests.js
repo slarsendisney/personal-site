@@ -2,7 +2,7 @@ import React from "react"
 
 export default ({ icon }) => (
   <>
-    <h5 className="border-top pad-2-t margin-2-t margin-2-b flex align-horizontal is-special-blue">
+    <h5 className="border-top pad-2-t margin-2-t margin-2-b flex align-horizontal is-special-blue-always">
       <img src={icon} alt="" width={15} className="margin-1-r" />
       INTERESTS
     </h5>

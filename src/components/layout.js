@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
 
       <Header />
 
-      <main className="is-light-grey-bg">{children}</main>
+      <main className="is-light-grey-bg is-grey">{children}</main>
       <Location>{(locationProps) => <Footer {...locationProps} />}</Location>
     </div>
   )

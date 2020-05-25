@@ -34,7 +34,7 @@
 }
 
 .link {
-  @extend .is-dark-blue;
+  @extend .is-grey;
   
   font-weight: 100;
   text-decoration: none;
@@ -61,7 +61,8 @@ input[type='reset'] {
 
 .bubble-button {
   @extend .is-dark-blue-bg;
-  @extend .is-white;
+  @extend .is-white-always;
+  @extend .grow;
   font-family: Lato;
   z-index: 1;
   position: relative;
@@ -104,7 +105,7 @@ input[type='reset'] {
   position: relative;
   text-decoration: none;
   display: inline-block;
-  @extend .is-dark-blue;
+  @extend .is-grey;
 }
 
 .link-bar::before, .link-bar::after {

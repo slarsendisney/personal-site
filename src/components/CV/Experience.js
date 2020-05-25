@@ -2,7 +2,7 @@ import React from "react"
 
 export default ({ experience, icon }) => (
   <>
-    <h5 className="margin-0 margin-2-b flex align-horizontal is-special-blue">
+    <h5 className="margin-0 margin-2-b flex align-horizontal is-special-blue-always">
       <img src={icon} alt="" width={12} className="margin-1-r" />
       EXPERIENCE
     </h5>

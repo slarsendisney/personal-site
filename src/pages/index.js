@@ -35,7 +35,7 @@ export default function Start({ data }) {
             <h4 className="is-hero-sub-text">
               {`${currentJob.role} @ `}
               <button
-                style={{ color: "#046ED0", cursor: "pointer" }}
+                className="is-special-blue"
                 onClick={() => {
                   window.open(currentJob.url, "_blank")
                 }}

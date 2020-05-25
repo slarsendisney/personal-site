@@ -36,7 +36,7 @@ export default ({ data }) => (
                 marginRight: "auto",
               }}
             >
-              View CV
+              VIEW CV
             </button>
           </Link>
         </div>

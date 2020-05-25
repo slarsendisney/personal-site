@@ -42,7 +42,7 @@ export default () => {
 
   return (
     <div
-      className="is-white-bg pad-5 "
+      className="is-white-bg is-grey pad-5 "
       style={{ zIndex: 100 }}
       ref={wrapperRef}
     >

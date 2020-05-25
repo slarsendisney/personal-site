@@ -18,14 +18,14 @@ export default ({ darkMode }) => (
           <div className="col-xs-12">
             <Link to="/cv">
               <button
-                className="bubble-button "
+                className="bubble-button border-radius"
                 style={{
                   minWidth: 300,
                   marginLeft: "auto",
                   marginRight: "auto",
                 }}
               >
-                View CV
+                VIEW CV
               </button>
             </Link>
           </div>

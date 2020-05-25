@@ -17,15 +17,15 @@ export default ({ location }) => (
     <div className="">
       <div className="row flex" style={{ justifyContent: "center" }}>
         <div className="col-xs-12  text-align-center">
-          <FacebookShareButton url={location.href}>
+          <FacebookShareButton url={location.href} className="grow">
             <FacebookIcon round={true} style={{ height: 40 }} />
           </FacebookShareButton>
 
-          <LinkedinShareButton url={location.href}>
+          <LinkedinShareButton url={location.href} className="grow">
             <LinkedinIcon round={true} style={{ height: 40 }} />
           </LinkedinShareButton>
 
-          <TwitterShareButton url={location.href}>
+          <TwitterShareButton url={location.href} className="grow">
             <TwitterIcon round={true} style={{ height: 40 }} />
           </TwitterShareButton>
         </div>
@@ -68,10 +68,7 @@ export default ({ location }) => (
             If you enjoy my content, please consider supporting what I do.
           </h3>
           <a href={Links.buyMeACoffee}>
-            <button className="btn-variant is-white-always border-radius pad-3-lr pad-2-tb">
-              <span role="img" aria-label="Coffee">
-                ☕️
-              </span>{" "}
+            <button className="bubble-button is-white-always border-radius pad-4-lr pad-2-tb">
               Buy me a coffee
             </button>
           </a>

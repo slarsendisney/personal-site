@@ -11,7 +11,7 @@ export default class extends React.Component {
     return (
       <Layout>
         <SEO title="CV" />
-        <div className="is-light-grey-bg pad-10-b">
+        <div className="is-light-grey-bg is-grey-always pad-10-b">
           <div className="container row pad-5">
             <div className="hide-on-big col-xs-12 is-grey is-white-bg pad-3 margin-5-b border-radius">
               <h3>This page is optimised for larger displays.</h3>
@@ -23,13 +23,13 @@ export default class extends React.Component {
             </div>
             <div className="col-xs-12 text-align-center">
               <button
-                className="bubble-button"
+                className="bubble-button border-radius"
                 onClick={() => {
                   this.pdfExportComponent.save()
                 }}
                 style={{ width: 220 }}
               >
-                Download PDF
+                DOWNLOAD PDF
               </button>
             </div>
           </div>

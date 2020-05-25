@@ -7,7 +7,7 @@ export default ({ heading, icon, colClass, skills, noBorderTop }) => (
         !noBorderTop
           ? "border-top  margin-2-tb pad-2-t"
           : "margin-2-b margin-0-t"
-      }  flex align-horizontal is-special-blue`}
+      }  flex align-horizontal is-special-blue-always`}
     >
       <img src={icon} alt="" width={15} className={`margin-1-r`} />
       {heading}

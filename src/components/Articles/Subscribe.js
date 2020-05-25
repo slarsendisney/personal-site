@@ -24,11 +24,13 @@ export default () => {
           className="row "
           style={{ marginRight: "auto", marginLeft: "auto" }}
         >
-          <div className="col-xs-12 col-sm-11 flex align-vertical pad-7-tb">
-            <h3 className="is-grey">
+          <div className="col-xs-12 col-sm-11 flex align-vertical pad-7-tb is-grey">
+            <h2 className="margin-1-b margin-2-l">
               {" "}
-              🎉 Awesome, you're all signed up! Thanks for showing interest in
-              my content.{" "}
+              🎉 Awesome, you're all signed up!{" "}
+            </h2>
+            <h3 className="margin-0 margin-2-l">
+              Thanks for showing interest in my content.
             </h3>
           </div>
         </div>
@@ -53,15 +55,15 @@ export default () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="col-xs-12 col-sm-6 flex align-vertical">
+          <div className="col-xs-12 col-sm-6 col-md-5 col-lg-4 flex align-vertical">
             <button
-              className="bubble-button pad-3 margin-3-tb"
+              className="bubble-button pad-3 margin-3-tb border-radius"
               type="button"
               aria-label="Subscribe"
               onClick={() => handleSubmit()}
               style={{ width: "100%" }}
             >
-              Subscribe
+              SUBSCRIBE
             </button>
           </div>
         </div>
