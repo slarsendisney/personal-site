@@ -167,7 +167,7 @@ export default () => {
               </h2>
               <p className="margin-0 margin-2-l">
                 I integrated pose recognition into my site's presentation
-                clicker to create touch free slide navigation for presentors
+                clicker to create touch free slide navigation for presenters
                 using just their gestures. This prototype is built using
                 socket.io, posenet and one of my Gatsbyjs boilerplates which you
                 can find{" "}
