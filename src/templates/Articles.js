@@ -151,6 +151,10 @@ export default ({ data }) => {
                   </Link>
                 </div>
               ))}
+              <h3 className="margin-0-b margin-5-t">EXTERNAL CONTENT</h3>
+              <a href="https://medium.com/@samlarsendisney">
+                <p className="is-special-blue">Curated Medium Posts</p>
+              </a>
               <h3 className="margin-0-b margin-5-t">FEELING LUCKY?</h3>
               <button
                 onClick={() =>

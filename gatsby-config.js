@@ -267,7 +267,6 @@ module.exports = {
         basePath: `/decks`,
       },
     },
-
     {
       resolve: `gatsby-plugin-offline`,
       options: {
