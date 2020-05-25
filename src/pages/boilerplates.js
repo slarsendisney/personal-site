@@ -15,7 +15,7 @@ const BoilerPlate = ({ title, desc, flag, repo, demo }) => (
       {demo && (
         <h4>
           <OutboundLink
-            className="link is-pink-always"
+            className="is-special-blue"
             href={demo}
             target="_blank"
             rel="noopener noreferrer"
@@ -34,7 +34,7 @@ const BoilerPlate = ({ title, desc, flag, repo, demo }) => (
       <h4>
         Or check out the{" "}
         <OutboundLink
-          className="link is-pink-always"
+          className="is-special-blue"
           href={repo}
           target="_blank"
           rel="noopener noreferrer"

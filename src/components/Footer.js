@@ -4,8 +4,10 @@ import { Emojione } from "react-emoji-render"
 export default ({ location }) => {
   return (
     <footer className="is-white-bg is-grey pad-2-lr pad-3-t pad-2-b footer">
-      Made with <Emojione text="❤️" /> by Sam Larsen-Disney
-      <br />
+      <p className="margin-0">
+        Made with <Emojione text="❤️" /> by Sam Larsen-Disney
+      </p>
+
       <StaticQuery
         query={graphql`
           {

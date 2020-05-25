@@ -3,7 +3,7 @@
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  @extend .is-dark-blue-border;
+  @extend .is-grey-border;
   @extend .is-white-bg;
   @extend .is-black;
   border: 2px solid;
@@ -13,5 +13,5 @@
 }
 .input:focus {
   outline: none;
-  @extend .is-light-blue-border;
+  @extend .is-special-blue-border;
 }

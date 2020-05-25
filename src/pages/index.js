@@ -13,12 +13,15 @@ import NavLink from "../components/Root/NavLink"
 import MediaLink from "../components/Root/MediaLink"
 import EmploymentHistory from "../data/timeline.json"
 import PreferPaper from "../components/Root/PreferPaper"
+import getAllArticles from "../utils/getAllArticles"
 
 export default function Start({ data }) {
+  const allArticles = getAllArticles(data)
+  const featuredArticleOne = allArticles[0]
+  const featuredArticleTwo = allArticles[1]
   const featuredProjectOne = data.Projects.edges[0].node.frontmatter
   const featuredProjectTwo = data.Projects.edges[1].node.frontmatter
-  const featuredArticleOne = data.Articles.edges[0].node
-  const featuredArticleTwo = data.Articles.edges[1].node
+
   const currentJob = EmploymentHistory[0]
   const darkMode = useDarkMode()
 
@@ -59,7 +62,7 @@ export default function Start({ data }) {
         </div>
       </div>
       <div className="is-grey is-white-bg">
-        <div className="row container-small pad-10-t  pad-3-lr pad-10-b">
+        <div className="row container-small pad-10-t  pad-3-lr pad-5-b">
           <div className="col-xs-12">
             <h2 className="margin-0 margin-2-b">Latest Projects</h2>
           </div>
@@ -73,7 +76,7 @@ export default function Start({ data }) {
         </div>
       </div>
       <div className="is-grey is-light-grey-bg">
-        <div className="row container-small pad-10-t pad-3-lr pad-20-b">
+        <div className="row container-small pad-10-t pad-3-lr pad-10-b">
           <div className="col-xs-12">
             <h2 className="margin-0">Recent Articles</h2>
           </div>
@@ -92,9 +95,8 @@ export default function Start({ data }) {
         </div>
       </div>
       <div className="is-grey is-white-bg">
-        <div className="row container-small pad-10-t pad-10-b ">
+        <div className="row container-small pad-5-t pad-10-b ">
           <h2 className="margin-0-b pad-3-lr">Recent Events</h2>
-
           <RecentEvents />
         </div>
       </div>
@@ -105,19 +107,67 @@ export default function Start({ data }) {
 
 export const query = graphql`
   {
-    Articles: allFeedMediumBlog(
-      sort: { order: DESC, fields: [isoDate] }
+    allFeedMediumBlog(sort: { fields: isoDate, order: DESC }, limit: 2) {
+      nodes {
+        fields {
+          slug
+          hero_img
+          excerpt
+        }
+        pubDate
+        title
+      }
+    }
+    allMdx(
+      filter: { frontmatter: { type: { eq: "Article" } } }
+      sort: { fields: frontmatter___date, order: DESC }
       limit: 2
     ) {
       edges {
         node {
+          frontmatter {
+            title
+            date
+            desc
+            coverimg {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+                  ...GatsbyImageSharpFluid_noBase64
+                }
+              }
+            }
+          }
           fields {
-            hero_img
-            excerpt
             slug
           }
-          title
-          pubDate
+          excerpt
+        }
+      }
+    }
+    allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: "Article" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 2
+    ) {
+      edges {
+        node {
+          id
+          timeToRead
+          frontmatter {
+            type
+            title
+            desc
+            path
+            date
+            coverimg {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid_noBase64
+                }
+              }
+            }
+          }
         }
       }
     }

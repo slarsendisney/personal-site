@@ -5,10 +5,11 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
-import compareAsc from "date-fns/compareAsc"
+
 import StickyArticleSideBar from "../components/Articles/StickyArticleSideBar"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import "react-lazy-load-image-component/src/effects/blur.css"
+import getAllArticles from "../utils/getAllArticles"
 
 let pathToTitle = (path) => {
   let clean = path
@@ -71,19 +72,28 @@ export const ArticlePreview = ({
   slug,
   hero_img,
   placeholder_img,
+  coverimg,
   excerpt,
 }) => (
   <Link to={"/" + slug} className="link" id="path">
     <div className="grow row margin-5-b">
       <div className="col-xs-12  margin-5-t ">
-        <LazyLoadImage
-          alt={title}
-          effect="blur"
-          className="shadow"
-          style={{ width: "100%", height: 250, objectFit: "cover" }}
-          src={hero_img}
-          placeholderSrc={placeholder_img}
-        />
+        {hero_img ? (
+          <LazyLoadImage
+            alt={title}
+            effect="blur"
+            className="shadow"
+            style={{ width: "100%", maxHeight: 250, objectFit: "cover" }}
+            src={hero_img}
+            placeholderSrc={placeholder_img}
+          />
+        ) : (
+          <Img
+            fluid={coverimg.childImageSharp.fluid}
+            className="shadow"
+            style={{ width: "100%", maxHeight: 250 }}
+          />
+        )}
       </div>
       <div className="col-xs-12  margin-5-t">
         <h2 className="margin-0 is-grey">{title}</h2>
@@ -98,29 +108,8 @@ export const ArticlePreview = ({
 )
 
 export default ({ data }) => {
-  let { nodes } = data.allFeedMediumBlog
+  const allArticles = getAllArticles(data)
   let popular = data.allPageViews
-  let mdxEdges = data.allMdx.edges.map((item) => ({
-    ...item.node,
-    ...item.node.fields,
-    ...item.node.frontmatter,
-    pubDate: item.node.frontmatter.date,
-    excerpt: item.node.frontmatter.desc,
-  }))
-  let mdEdges = data.allMarkdownRemark.edges.map((item) => ({
-    ...item.node,
-    ...item.node.fields,
-    ...item.node.frontmatter,
-    fields: {
-      slug: item.node.frontmatter.path,
-    },
-    pubDate: item.node.frontmatter.date,
-    excerpt: item.node.frontmatter.desc,
-  }))
-  // just add ...mdxEdges below
-  let allArticles = [...nodes, ...mdxEdges, ...mdEdges].sort((a, b) =>
-    compareAsc(new Date(b.pubDate), new Date(a.pubDate))
-  )
   return (
     <Layout>
       <SEO
