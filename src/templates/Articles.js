@@ -134,13 +134,13 @@ export default ({ data }) => {
               The Ramblings of a Curious Engineer.
             </h1> */}
           </div>
-          <div className="col-xs-12 col-md-9 col-lg-9 pad-3-lr">
+          <div className="col-xs-12 col-md-9 col-lg-9 pad-3-lr fade-in">
             <h3 className="  margin-1-l margin-0-b">RECENTLY PUBLISHED</h3>
             {allArticles.map((item) => (
               <Article {...item} {...item.fields} key={item.fields.slug} />
             ))}
           </div>
-          <div className="col-xs-12 col-md-3 col-lg-3 pad-3-l">
+          <div className="col-xs-12 col-md-3 col-lg-3 pad-3-l fade-in ">
             <StickyArticleSideBar>
               {/* <h3 className="margin-0-b">TOP CATEGORIES</h3> */}
               <h3 className="margin-0-b">POPULAR CONTENT</h3>
