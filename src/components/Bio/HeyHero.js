@@ -29,7 +29,7 @@ export default ({ data }) => (
           <h3 className="margin-0 pad-0">Designer. Engineer. Creator.</h3>
           <Link to="/cv">
             <button
-              className="bubble-button margin-10-t"
+              className="bubble-button border-radius margin-10-t"
               style={{
                 minWidth: 300,
                 marginLeft: "auto",
