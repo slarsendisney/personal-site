@@ -2,6 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { format } from "date-fns"
 import { useWindowSize } from "../../utils/customHooks"
+import getAllArticles from "../../utils/getAllArticles"
 
 const monthNames = [
   "JAN",
@@ -25,27 +26,28 @@ const Trend = ({ data }) => {
       ? data.allViewsPerDate.edges
       : data.allViewsPerDate.edges.slice(data.allViewsPerDate.edges.length - 14)
   const maxViews = data.maxViews.edges[0].node.views
-  const projects = data.allMarkdownRemark.edges.reduce((acc, cur) => {
+  const projects = data.projects.edges.reduce((acc, cur) => {
     const date = new Date(cur.node.frontmatter.date)
 
     acc[format(date, "yyyyMMdd")] = cur.node.frontmatter.title
     return acc
   }, {})
-  const articles = data.allFeedMediumBlog.nodes.reduce((acc, cur) => {
-    const date = new Date(cur.isoDate)
+  const articles = getAllArticles(data).reduce((acc, cur) => {
+    const date = new Date(cur.pubDate)
     acc[format(date, "yyyyMMdd")] = cur.title
     return acc
   }, {})
+
   const completeArticles = data.allCuratedFeedMediumBlog.edges.reduce(
     (acc, cur) => {
-      const date = new Date(cur.node.isoDate)
+      const date = new Date(cur.node.pubDate)
       acc[format(date, "yyyyMMdd")] = cur.node.title
       return acc
     },
     articles
   )
 
-  const decks = data.allMdx.nodes.reduce((acc, cur) => {
+  const decks = data.decks.nodes.reduce((acc, cur) => {
     const date = new Date(cur.frontmatter.date)
 
     acc[format(date, "yyyyMMdd")] = cur.frontmatter.title
@@ -252,18 +254,18 @@ export default () => {
           allFeedMediumBlog {
             nodes {
               title
-              isoDate
+              pubDate
             }
           }
           allCuratedFeedMediumBlog {
             edges {
               node {
                 title
-                isoDate
+                pubDate
               }
             }
           }
-          allMarkdownRemark(
+          projects: allMarkdownRemark(
             filter: { frontmatter: { type: { eq: "Project" } } }
           ) {
             edges {
@@ -275,7 +277,17 @@ export default () => {
               }
             }
           }
-          allMdx(filter: { frontmatter: { type: { ne: "Article" } } }) {
+          allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  date
+                }
+              }
+            }
+          }
+          decks: allMdx(filter: { frontmatter: { type: { ne: "Article" } } }) {
             nodes {
               frontmatter {
                 date
