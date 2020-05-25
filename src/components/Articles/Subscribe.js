@@ -35,9 +35,9 @@ export default () => {
           </div>
         </div>
       ) : (
-        <div className="row">
+        <div className="row margin-3-lr">
           <div className="col-xs-12 ">
-            <p>
+            <p className="margin-1-tb margin-0">
               Want to know when I post something new? Subscribe to my
               newsletter.{" "}
               <span role="img" aria-label="Rocket">

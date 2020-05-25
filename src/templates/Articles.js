@@ -118,53 +118,58 @@ export default ({ data }) => {
       />
       <div className="is-grey is-light-grey-bg pad-5-t">
         <div className="row container-small ">
-          <div className="col-xs-12 pad-3-lr">
-            {/* <h1 className="margin-1-tb margin-1-l">
-              The Ramblings of a Curious Engineer.
-            </h1> */}
-          </div>
-          <div className="col-xs-12 col-md-9 col-lg-9 pad-3-lr fade-in">
+          <div className="col-xs-12 pad-3-lr"></div>
+          <div className="col-xs-12 col-md-9  pad-3-lr fade-in">
             <h3 className="  margin-1-l margin-0-b">RECENTLY PUBLISHED</h3>
             {allArticles.map((item) => (
               <Article {...item} {...item.fields} key={item.fields.slug} />
             ))}
           </div>
-          <div className="col-xs-12 col-md-3 col-lg-3 pad-3-l fade-in ">
+          <div
+            className="col-xs-12 col-md-3  pad-3-l fade-in "
+            style={{ position: "relative" }}
+          >
             <StickyArticleSideBar>
-              {/* <h3 className="margin-0-b">TOP CATEGORIES</h3> */}
-              <h3 className="margin-0-b">POPULAR CONTENT</h3>
-              {popular.edges.map((item) => (
-                <div style={{ maxWidth: 250 }}>
-                  <Link to={item.node.path} className="is-special-blue">
-                    <p className="">{pathToTitle(item.node.path)}</p>
-                  </Link>
+              <div className="row">
+                <div className="col-xs-12 col-sm-6 col-md-12">
+                  <h3 className="margin-0-b">POPULAR CONTENT</h3>
+                  {popular.edges.map((item) => (
+                    <div>
+                      <Link to={item.node.path} className="is-special-blue">
+                        <p className="" style={{ maxWidth: 250 }}>
+                          {pathToTitle(item.node.path)}
+                        </p>
+                      </Link>
+                    </div>
+                  ))}
                 </div>
-              ))}
-              <h3 className="margin-0-b margin-5-t">EXTERNAL CONTENT</h3>
-              <a href="https://medium.com/@samlarsendisney">
-                <p className="is-special-blue">Curated Medium Posts</p>
-              </a>
-              <h3 className="margin-0-b margin-5-t">FEELING LUCKY?</h3>
-              <button
-                onClick={() =>
-                  navigate(
-                    "/" +
-                      allArticles[
-                        Math.floor(Math.random() * allArticles.length)
-                      ].fields.slug
-                  )
-                }
-              >
-                <p className="is-special-blue">See A Random Article</p>
-              </button>
+                <div className="col-xs-12 col-sm-6 col-md-12">
+                  <h3 className="margin-0-b margin-5-t">EXTERNAL CONTENT</h3>
+                  <a href="https://medium.com/@samlarsendisney">
+                    <p className="is-special-blue">Curated Medium Posts</p>
+                  </a>
+                  <h3 className="margin-0-b margin-5-t">FEELING LUCKY?</h3>
+                  <button
+                    onClick={() =>
+                      navigate(
+                        "/" +
+                          allArticles[
+                            Math.floor(Math.random() * allArticles.length)
+                          ].fields.slug
+                      )
+                    }
+                  >
+                    <p className="is-special-blue">See A Random Article</p>
+                  </button>
+                </div>
+              </div>
             </StickyArticleSideBar>
           </div>
 
-          <div className="col-xs-12 margin-5-t margin-10-b">
-            <div className="line-sm margin-5-tb" />
-            <div className="container" style={{ margin: 0 }}>
-              <Subscribe />
-            </div>
+          <div className="col-md-9 pad-0 margin-10-b ">
+            <div className="line-sm margin-1-t margin-3-b margin-5-lr opacity-10" />
+
+            <Subscribe />
           </div>
         </div>
       </div>
