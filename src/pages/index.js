@@ -33,7 +33,7 @@ export default function Start({ data }) {
           <div className="col-xs-12 col-sm-6 pad-5-lr">
             <h1 className="is-hero-menu margin-0">Sam</h1>
             <h1 className="is-hero-menu margin-0">Larsen-Disney</h1>
-            <div className="line margin-10-t margin-10-b" />
+            <div className="line margin-5-tb" />
             <div className="border" />
             <h4 className="is-hero-sub-text">
               {`${currentJob.role} @ `}

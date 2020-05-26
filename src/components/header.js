@@ -37,7 +37,7 @@ export default () => {
   })
 
   const delay = (fn) => {
-    setTimeout(() => fn(), 300)
+    fn()
   }
 
   return (
