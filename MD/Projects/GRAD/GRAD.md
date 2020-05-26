@@ -1,7 +1,7 @@
 ---
 title: "GRAD"
 desc: "Challenging the onboarding experience and empowering new starters to challenge the status quo."
-date: "2020-03-19"
+date: "2020-05-26"
 path: "/projects/grad"
 skills: ["GatsbyJS", "Express", "Onboarding"]
 type: "Project"

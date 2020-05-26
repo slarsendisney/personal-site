@@ -30,7 +30,7 @@ export const CodeSkills = [
   "NextJS",
   "Express",
   "GraphQL",
-  "Git",
+  "Typescript",
   "Jenkins",
   "Jest",
   "Python",
