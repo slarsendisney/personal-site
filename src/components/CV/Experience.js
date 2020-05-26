@@ -2,13 +2,13 @@ import React from "react"
 
 export default ({ experience, icon }) => (
   <>
-    <h5 className="margin-0 margin-2-b flex align-horizontal is-special-blue-always">
+    <h5 className="margin-0 margin-1-b flex align-horizontal is-special-blue-always">
       <img src={icon} alt="" width={12} className="margin-1-r" />
       EXPERIENCE
     </h5>
     {experience.map((item, index) => (
-      <div className={`margin-3-b ${index > 0 ? "border-top pad-2-t" : ""} `}>
-        <h3 className="margin-0 margin-1-t">{item.role}</h3>
+      <div className={`margin-1-b ${index > 0 ? "border-top pad-1-t" : ""} `}>
+        <h3 className="margin-0">{item.role}</h3>
         <h5 className="margin-0 margin-1-tb">
           {`${item.company}, ${item.location} | ${item.date}`}
         </h5>

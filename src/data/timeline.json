@@ -21,10 +21,11 @@
     "date": "2019",
     "desc": "Making it easier than ever to ‘refer a friend’.",
     "longDesc": [
-      "Completed research into how we could improve elements of the referral hub. This included competitor analysis, analysis of existing site, creation of personas, wireframes and mockups.",
-      "Worked on a proof of concept for a research archive that summarises, tags, intelligently links and prioritises research for better design decisions."
+      "Conducted research into how we could improve elements of the referral hub. This included competitor analysis, analysis of existing site, creation of personas, wireframes and mockups.",
+      "Built a prototype for a research archive that summarises, tags, intelligently links and prioritises research for better design decisions.",
+      "Was the only graduate in my cohort to formally manage interns and have gone on to be the youngest engineer to manage graduates"
     ],
-    "tags": "User Experience, User Research, User Testing, JS, ReactJS, GatsbyJS, Sketch, Invision, Python",
+    "tags": "User Experience, User Research, User Testing, JS, ReactJS, GatsbyJS, GraphQL, Sketch, Invision, Python",
     "url": "https://www.americanexpress.com"
   },
   {
@@ -34,10 +35,10 @@
     "date": "2018 - 2019",
     "desc": "Working in loyalty on a UI for testing API integrations.",
     "longDesc": [
-      "Replaced a legacy oracle tool to reduce development costs by half.",
-      "Harnessed the new design language system and a modular structure that allowed us to better integrate the tool with other parts of the company."
+      "Designed and built GRAD, a hub for technology onboarding. The collection initially intended for graduates, is being used campus-wide and receives over 250 unique vistors a month and has accumulated over 20,000 views.",
+      "Replaced uses of Oracle forms (legacy software) in Loyalty. By doing so we no longer need to pay for extended support reducing development costs by half."
     ],
-    "tags": "Internal Tooling, Analytics, JS, ReactJS, Redux, Node, Sketch",
+    "tags": "Internal Tooling, Analytics, JS, ReactJS, Redux, Node, Sketch, Java",
     "url": "https://www.americanexpress.com"
   },
   {
@@ -47,7 +48,7 @@
     "date": "2017 - 2019",
     "desc": "Built the TrailBee application, a dedicated transport administration tool. ",
     "longDesc": [
-      "Built the TrailBee application, a dedicated school transport administration tool. The application consisted of a parent app and an admin user interface for schools.",
+      "Designed & built the TrailBee application, a dedicated school transport administration tool. The application consisted of a parent app and an admin user interface for schools.",
       "Created a design language system for the application that was adopted for both desktop and mobile experiences."
     ],
     "tags": "React, React Native, JS, SocketIO, Node, MongoDB, Sketch"
@@ -59,7 +60,7 @@
     "date": "2017",
     "desc": "Working in loyalty on a response time monitoring tool using the ELK",
     "longDesc": [
-      "Delivered an internal data visualisation tool capable of mapping the end-to-end journey of Amazon 'Pay with Points' requests."
+      "Delivered an internal data visualisation tool capable of mapping the end-to-end journey of Amazon 'Pay with Points' requests. The project alerts when our E2E time drops below expected levels to help identify issues and avoid fines from Amazon."
     ],
     "tags": "Data Visualisations, Analytics, Logging, ELK stack, Java, Splunk",
     "url": "https://www.americanexpress.com"

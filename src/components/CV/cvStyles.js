@@ -13,6 +13,11 @@ export const styles = `
         font-family: "DejaVu Sans", "Arial", sans-serif;
         font-size: 13px;
     }
+
+    .body-text-legal{
+      font-family: "DejaVu Sans", "Arial", sans-serif;
+      font-size: 12px;
+  }
       
     .border-top{
       border-top: 2px solid #f9f9f9;
