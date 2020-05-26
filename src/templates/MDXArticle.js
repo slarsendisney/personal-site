@@ -15,7 +15,6 @@ export default ({ data, location }) => {
   const { title, date, desc, coverimg, declutter } = mdx.frontmatter
 
   const target = React.createRef()
-
   return (
     <Layout>
       <SEO

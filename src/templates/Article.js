@@ -1,46 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { format } from "date-fns"
-import ReactHtmlParser from "react-html-parser"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
 import ReadingProgress from "../components/Articles/ReadingProgress"
-import { LazyLoadImage } from "react-lazy-load-image-component"
-import { Emojione } from "react-emoji-render"
-import "react-lazy-load-image-component/src/effects/blur.css"
 import Like from "../components/Articles/StickyLike"
-
-let textTags = new Set(["p", "h1", "h2", "h3", "h4", "h5", "h6"])
-function transform(node) {
-  if (node.type === "tag" && node.name === "img") {
-    return (
-      <LazyLoadImage
-        alt="progressive-image"
-        effect="blur"
-        src={node.attribs.src}
-        placeholderSrc={node.attribs.src.replace(/\/max\/\d*/, "/max/256")}
-      />
-    )
-  }
-  if (node.type === "tag" && node.name === "a") {
-    if (node.attribs.href.includes("https://sld.codes")) {
-      return (
-        <Link to={node.attribs.href.replace("https://sld.codes", "")}>
-          {node.children[0].data}
-        </Link>
-      )
-    }
-  }
-  // if (node.type === "tag" && textTags.has(node.name)) {
-  //   const CustomTag = `${node.name}`
-  //   return (
-  //     <CustomTag>
-  //       <Emojione text={node.children[0].data} />
-  //     </CustomTag>
-  //   )
-  // }
-}
+import RenderArticle from "../components/Articles/RenderArticle"
 
 export default ({ data, location }) => {
   const { feedMediumBlog } = data
@@ -75,8 +41,8 @@ export default ({ data, location }) => {
               {format(new Date(pubDate), "iii, dd MMM yyyy")}
             </h6>
             <div className="line margin-5-tb" />
-            <div className="lato article">
-              {ReactHtmlParser(content.encoded, { transform })}
+            <div className="lato">
+              <RenderArticle content={content.encoded} lazyLoadImage={true} />
             </div>
           </div>
           <div className="col-xs-12 pad-3-lr pad-5-b">

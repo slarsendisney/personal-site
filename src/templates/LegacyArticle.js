@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import RenderArticle from "../components/Articles/RenderArticle"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Like from "../components/Articles/StickyLike"
@@ -9,6 +10,7 @@ export default function QandATemplate({ location, data }) {
   const { markdownRemark } = data
   const { frontmatter, html, excerpt } = markdownRemark
   const { coverimg } = frontmatter
+  console.log(html)
   return (
     <Layout>
       <SEO
@@ -33,10 +35,9 @@ export default function QandATemplate({ location, data }) {
             </h1>
             <h6 className="is-hero-sub-text margin-3-b">{frontmatter.desc}</h6>
             <div className="line margin-5-t margin-5-b" />
-            <div
-              className={`${html ? "pad-10-b lato article" : ""}`}
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+            <div className="pad-10-b lato">
+              <RenderArticle content={html} lazyLoadImage={false} />
+            </div>
           </div>
           <div className="col-xs-12 pad-3-lr pad-5-b">
             <Like />

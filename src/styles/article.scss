@@ -1,5 +1,26 @@
 
+.article-legacy {
 
+  pre code {
+    @extend .is-white-always;
+    background: none;
+    display: block;
+    line-height: 1.42;
+    width: auto;
+  }
+
+  pre {
+    @extend .is-grey-bg-always;
+    border-radius: 3px;
+    font-size: 1rem;
+    overflow-x: auto;
+    padding: 1.45rem;
+    word-wrap: break-word;
+    font-weight: normal;
+
+  }
+
+}
 .article {
   font-weight: bold;
   blockquote {
@@ -53,25 +74,6 @@
     width: 100%;
   }
      
-
-  pre code {
-    @extend .is-black;
-    background: none;
-    display: block;
-    line-height: 1.42;
-    width: auto;
-  }
-
-  pre {
-    @extend .is-dark-pink-bg;
-    border-radius: 3px;
-    font-size: 1rem;
-    overflow-x: auto;
-    padding: 1.45rem;
-    word-wrap: break-word;
-    font-weight: normal;
-
-  }
 
   a {
     @extend .is-special-blue;

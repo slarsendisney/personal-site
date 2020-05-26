@@ -171,7 +171,7 @@ export default () => {
                 using just their gestures. This prototype is built using
                 socket.io, posenet and one of my Gatsbyjs boilerplates which you
                 can find{" "}
-                <a className="is-special-blue" href="/boilerplates">
+                <a className="is-special-blue-always" href="/boilerplates">
                   here
                 </a>
                 .
@@ -469,7 +469,7 @@ export default () => {
             </h4>
           </div>
           <div className="col-xs-12 margin-5-b text-align-center">
-            <h2 className="margin-0 is-special-blue">
+            <h2 className="margin-0 is-special-blue-always">
               "Data visulisations are powerful international communication tools
               to effectively communicate a storyand share critical information
               across the world."
@@ -588,13 +588,16 @@ reusableFormatterInstance('en', 123456789123456789);`}
             </div>
             <ul className="margin-1-t">
               <li>
-                <a className="is-special-blue" href="https://formatjs.io/">
+                <a
+                  className="is-special-blue-always"
+                  href="https://formatjs.io/"
+                >
                   <h4 className="margin-0 margin-1-b">react-intl</h4>
                 </a>
               </li>
               <li>
                 <a
-                  className="is-special-blue"
+                  className="is-special-blue-always"
                   href="https://react.i18next.com/"
                 >
                   <h4 className="margin-0 margin-1-b">react-i18next</h4>
@@ -602,14 +605,17 @@ reusableFormatterInstance('en', 123456789123456789);`}
               </li>
               <li>
                 <a
-                  className="is-special-blue"
+                  className="is-special-blue-always"
                   href="https://github.com/facebook/fbt"
                 >
                   <h4 className="margin-0 margin-1-b">fbt</h4>
                 </a>
               </li>
               <li>
-                <a className="is-special-blue" href="https://momentjs.com/">
+                <a
+                  className="is-special-blue-always"
+                  href="https://momentjs.com/"
+                >
                   <h4 className="margin-0 margin-1-b">moment</h4>
                 </a>
               </li>
