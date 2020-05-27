@@ -48,6 +48,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-meta-redirect`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {

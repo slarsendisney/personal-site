@@ -42,6 +42,7 @@
     "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-manifest": "^2.4.3",
     "gatsby-plugin-mdx": "^1.2.7",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-offline": "^3.2.2",
     "gatsby-plugin-purgecss": "^5.0.0",
     "gatsby-plugin-react-helmet": "^3.3.1",
