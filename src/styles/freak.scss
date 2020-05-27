@@ -1,38 +1,45 @@
 .freak-out {
 
     h1,h2,h3,button,a {
-        animation: twister 5s;
+        animation: colorRotate 5s;
+        -webkit-animation: colorRotate 5s;
+        -z-animation: colorRotate 5s;
+        -o-animation: colorRotate 5s;
     }
 }
-@keyframes twister {
-    0% {
+@keyframes colorRotate {
+    from {
+      color: #6666ff;
       transform: rotateZ(0deg);
     }
     10% {
+      color: #0099ff;
       transform: rotateZ(360deg);
     }
     20% {
-      transform: rotateZ(720deg);
-    }
-    30% {
-      transform: rotateZ(1080deg);
-    }
-    40% {
-      transform: rotateZ(1440deg);
-    }
+        transform: rotateZ(720deg);
+      }
+      30% {
+        transform: rotateZ(1080deg);
+      }
+      40% {
+        transform: rotateZ(1440deg);
+      }
     50% {
-      transform: rotateZ(1800deg);
+        transform: rotateZ(1800deg);
+      color: #00ff00;
     }
     60% {
-      transform: rotateZ(2160deg);
-    }
-    70% {
-      transform: rotateZ(2520deg);
-    }
-    80% {
-    }
-    90% {
+        transform: rotateZ(2160deg);
+      }
+      70% {
+        transform: rotateZ(2520deg);
+      }
+    75% {
+      color: #ff3399;
     }
     100% {
+      color: #6666ff;
     }
   }
+
