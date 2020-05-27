@@ -15,13 +15,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       fromPath: redirect.from,
       toPath: redirect.to,
       isPermanent: true,
-      redirectInBrowser: true,
     })
     createRedirect({
       fromPath: redirect.from + "/",
       toPath: redirect.to + "/",
       isPermanent: true,
-      redirectInBrowser: true,
     })
   })
 
