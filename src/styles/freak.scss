@@ -1,0 +1,38 @@
+.freak-out {
+
+    h1,h2,h3,button,a {
+        animation: twister 5s;
+    }
+}
+@keyframes twister {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    10% {
+      transform: rotateZ(360deg);
+    }
+    20% {
+      transform: rotateZ(720deg);
+    }
+    30% {
+      transform: rotateZ(1080deg);
+    }
+    40% {
+      transform: rotateZ(1440deg);
+    }
+    50% {
+      transform: rotateZ(1800deg);
+    }
+    60% {
+      transform: rotateZ(2160deg);
+    }
+    70% {
+      transform: rotateZ(2520deg);
+    }
+    80% {
+    }
+    90% {
+    }
+    100% {
+    }
+  }

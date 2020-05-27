@@ -7,6 +7,7 @@ import LogoAnimation from "./Animations/LogoAnimation"
 import SmoothCollapse from "react-smooth-collapse"
 import sections from "../data/nav-sections.json"
 import { NavLinkSmall } from "./Root/NavLink"
+import SpamButton from "../utils/SpamButton"
 
 function useOutsideAlerter(ref, fn) {
   useEffect(() => {
@@ -20,6 +21,11 @@ function useOutsideAlerter(ref, fn) {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [ref, fn])
+}
+
+function freakOut() {
+  document.body.classList.add("freak-out")
+  setTimeout(() => document.body.classList.remove("freak-out"), 5000)
 }
 
 export default () => {
@@ -77,14 +83,20 @@ export default () => {
             ></h2>
           </button>
 
-          <button type="button" onClick={() => setMenuOpen(!menuOpen)}>
+          <SpamButton
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            onSpam={() => freakOut()}
+            clicks={8}
+            interval={2000}
+          >
             <h2
               className={`las ${
                 !menuOpen ? "la-bars" : "la-times-circle"
               } link margin-0 margin-2-l`}
               style={{ fontSize: 30 }}
             ></h2>
-          </button>
+          </SpamButton>
         </div>
         <div className="col-xs-12 pad-0">
           <SmoothCollapse expanded={menuOpen} className="">

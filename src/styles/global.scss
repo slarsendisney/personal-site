@@ -16,6 +16,7 @@
 @import './timeline';
 @import './utilities';
 @import './presentations';
+@import './freak';
 
 @for $i from 1 through 6 {
   h#{7 - $i} {
