@@ -1,8 +1,29 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const redirects = [
+  {
+    from: "/articles/Sharing-Presentations-Without-Sharing-My-Screen",
+    to: "/articles/Presenting-Without-Sharing-My-Screen",
+  },
+]
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+  redirects.forEach((redirect) => {
+    createRedirect({
+      fromPath: redirect.from,
+      toPath: redirect.to,
+      isPermanent: true,
+      redirectInBrowser: true,
+    })
+    createRedirect({
+      fromPath: redirect.from + "/",
+      toPath: redirect.to + "/",
+      isPermanent: true,
+      redirectInBrowser: true,
+    })
+  })
 
   actions.createPage({
     path: "/articles",
