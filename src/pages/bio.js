@@ -19,7 +19,7 @@ export default function Bio({ data, location }) {
         <div className="is-white-bg pad-10-tb pad-3-lr">
           <div className="row container ">
             <div className="col-xs-12 ">
-              <h1>
+              <h2>
                 I currently work as a {currentRole} at{" "}
                 <a href={currentCompanyURL} className="is-special-blue">
                   {currentCompany}
@@ -48,8 +48,8 @@ export default function Bio({ data, location }) {
                   presentations
                 </a>{" "}
                 and at hackathons.
-              </h1>
-              <h1>
+              </h2>
+              <h2>
                 In the last year I have contributed{" "}
                 {data.gitHubProfile.totalContributions} times to{" "}
                 <a
@@ -70,7 +70,7 @@ export default function Bio({ data, location }) {
                   npm packages
                 </a>
                 .*
-              </h1>
+              </h2>
               <p>* These stats are refreshed daily at 9PM GMT.</p>
             </div>
           </div>
