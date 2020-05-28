@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "gatsby": "^2.13.6"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "gatsby-source-npm",
+  "peerDependencies": {
+    "gatsby": "^2.13.6"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "start": "gatsby develop"
+  },
+  "version": "0.0.1"
+}

@@ -80,6 +80,7 @@
     "node-fetch": "^2.6.0",
     "node-sass": "^4.14.1",
     "npm": "^6.14.5",
+    "npm-api": "^1.0.0",
     "prismjs": "^1.20.0",
     "prop-types": "^15.7.2",
     "pseudomap": "1.0.2",

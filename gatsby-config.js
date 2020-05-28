@@ -45,10 +45,14 @@ module.exports = {
     description: `Sam Larsen-Disney | ${currentJob.role} working @ ${currentJob.company}.`,
     author: `@sld`,
     siteUrl: `https://sld.codes`,
+    currentRole: currentJob.role,
+    currentCompany: currentJob.company,
+    currentCompanyURL: currentJob.url,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-meta-redirect`,
+    `gatsby-source-npm`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {

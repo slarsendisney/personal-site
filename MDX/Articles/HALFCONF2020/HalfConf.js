@@ -1,11 +1,4 @@
-import React, { useState, useEffect } from "react"
-import {
-  differenceInDays,
-  differenceInMinutes,
-  differenceInSeconds,
-  differenceInHours,
-  differenceInBusinessDays,
-} from "date-fns"
+import React from "react"
 import NetworkStrength from "./NetworkStrength"
 import Ticket from "./ticket.svg"
 import Computer from "./computer.svg"
@@ -25,7 +18,6 @@ import Constellation from "./constellation.svg"
 import Culture from "./culture.svg"
 import Graph from "./graph.svg"
 import Integer from "./integer.svg"
-import Solar from "./solar.svg"
 import Book from "./book.svg"
 import IntlDemo from "./IntlDemo"
 
