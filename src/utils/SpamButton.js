@@ -14,7 +14,9 @@ export default (props) => {
   }, [count])
 
   const onClickFunctions = () => {
-    onClick()
+    if (onClick) {
+      onClick()
+    }
     setCount(count + 1)
   }
   return (

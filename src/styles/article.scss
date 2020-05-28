@@ -100,7 +100,7 @@
   }
 
   ul li h2 a {
-    @extend .is-pink-always;
+    @extend .is-grey;
     text-decoration: none;
   }
   li {
@@ -108,12 +108,18 @@
   }
 
   h1 {font-weight: bold;
-    @extend .is-pink-always;
+    @extend .is-grey;
     @extend .margin-0-b
   }
   p {
     font-weight: normal;
     font-size: 1.1em;
+    code {
+      @extend .is-orange-bg-always;
+      @extend .is-grey-always;
+      @extend .pad-1;
+      border-radius: 3px;
+    }
   }
 }
 

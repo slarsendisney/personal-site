@@ -9,6 +9,30 @@ import SEO from "../components/seo"
 import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
 import ReadingProgress from "../components/Articles/ReadingProgress"
 import Like from "../components/Articles/StickyLike"
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+
+const CodeBlock = (props) => (
+  <SyntaxHighlighter
+    style={atomOneDark}
+    wrapLines
+    customStyle={{
+      padding: 10,
+      paddingTop: 15,
+      paddingBottom: 0,
+      borderRadius: 5,
+      margin: 0,
+    }}
+    showLineNumbers
+    lineNumberContainerProps={{
+      style: { opacity: 0.5, float: "left", paddingRight: "10px" },
+    }}
+    {...props}
+  />
+)
+const components = {
+  code: CodeBlock,
+}
 
 export default ({ data, location }) => {
   const { mdx } = data
@@ -39,7 +63,7 @@ export default ({ data, location }) => {
                   fluid={coverimg.childImageSharp.fluid}
                   style={{ maxHeight: 250 }}
                 />
-                <h1 className="is-hero-menu is-black margin-1-t margin-5-b">
+                <h1 className="is-hero-menu is-grey margin-1-t margin-5-b">
                   {title}
                 </h1>
                 <h6 className="is-hero-sub-text margin-3-b">
@@ -49,8 +73,8 @@ export default ({ data, location }) => {
               </>
             )}
 
-            <div className={`pad-10-b lato`}>
-              <MDXProvider>
+            <div className={`pad-10-b lato ${!declutter ? "article" : ""}`}>
+              <MDXProvider components={components}>
                 <MDXRenderer>{mdx.body}</MDXRenderer>
               </MDXProvider>
             </div>
