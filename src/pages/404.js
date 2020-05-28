@@ -34,7 +34,7 @@ export default () => {
               style={{ textDecoration: "none" }}
               className=" align-horizontal is-white lato margin-4-r"
             >
-              <button className="bubble-button">
+              <button className="bubble-button border-radius">
                 There's no place like home
               </button>
             </Link>
