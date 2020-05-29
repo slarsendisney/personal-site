@@ -60,7 +60,6 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     })
   }
 
-  //VIEWS PER PAGE
   const result = await google.analytics("v3").data.ga.get({
     auth: jwt,
     ids: "ga:" + viewId,
