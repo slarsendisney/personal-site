@@ -98,7 +98,6 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        year
         desc
         date
         declutter

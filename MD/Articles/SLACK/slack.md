@@ -4,7 +4,6 @@ path: "/articles/slack-help"
 title: "How To Ask For Help On Slack"
 desc: "Instant messaging platforms we are used to like Whatsapp and messenger have got us into some bad habits that we shouldn't carry over to slack. Fixing your slack messages with one character."
 coverimg: "./hero.png"
-year: 2019
 date: 2019-12-10
 ---
 

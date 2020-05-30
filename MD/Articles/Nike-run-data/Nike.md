@@ -4,7 +4,6 @@ path: "/articles/dear-nike"
 title: "Turning Runs into Data Visualisation Posters"
 desc: "It should have been easy to get my data. Instead I ended up having to go on a journey into the world of puppeteer - an awesome way to interact with chrome through node."
 coverimg: "./hero.png"
-year: 2020
 date: 2020-01-05
 ---
 

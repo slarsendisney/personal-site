@@ -4,7 +4,6 @@ path: "/articles/star-wars"
 title: "Recreating 'The Imperial March' with JS"
 desc: "Did you know that 'The Imperial March' is 104bpm? This is the kind of useless fact I now know as a result of trying to recreate the classic theme tune in the browser. An experiment with Tone.js in Gatsby."
 coverimg: "./hero.png"
-year: 2019
 date: 2019-11-19
 ---
 
