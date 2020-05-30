@@ -134,9 +134,11 @@ const Stats = ({ data, count }) => {
           </p>
           <div className="line margin-8-tb" />
         </div>
-
+        <div className="col-xs-12">
+          <h2>Popular Pages Last 30 Days</h2>
+        </div>
         <div className="col-xs-4 col-md-6 is-grey">
-          <h2 className="margin-0 margin-2-b">Popular Pages</h2>
+          <h2 className="margin-0 margin-2-b">Page</h2>
         </div>
         <div className="col-xs-4 col-md-3 text-align-center is-grey">
           <h2 className="margin-0 margin-2-b">Views</h2>
