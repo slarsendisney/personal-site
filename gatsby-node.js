@@ -1,6 +1,17 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const formatTitleForUrl = (title) =>
+  title
+    .trim()
+    .split(" ")
+    .join("-")
+    .split("'")
+    .join("")
+    .replace(
+      /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+      ""
+    )
 const redirects = [
   {
     from: "/articles/Sharing-Presentations-Without-Sharing-My-Screen",
@@ -45,13 +56,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const QandA = path.resolve(`./src/templates/QandA.js`)
   const Article = path.resolve(`./src/templates/Article.js`)
   const MDXArticle = path.resolve(`./src/templates/MDXArticle.js`)
-  const LegacyArticle = path.resolve(`./src/templates/LegacyArticle.js`)
   const Project = path.resolve(`./src/templates/Project.js`)
   const result = await graphql(`
     {
       allMarkdownRemark(
         limit: 1000
-        filter: { frontmatter: { type: { in: ["Article", "Project", "Q&A"] } } }
+        filter: { frontmatter: { type: { in: ["Project", "Q&A"] } } }
       ) {
         edges {
           node {
@@ -82,12 +92,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         createPage({
           path: node.frontmatter.path,
           component: Project,
-        })
-        break
-      case "Article":
-        createPage({
-          path: node.frontmatter.path,
-          component: LegacyArticle,
         })
         break
       default:
@@ -146,9 +150,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   mdxPosts.data.allMdx.edges.forEach((item) => {
-    const slug =
-      "articles/" + item.node.frontmatter.title.trim().split(" ").join("-")
-
+    const slug = "articles/" + formatTitleForUrl(item.node.frontmatter.title)
     createPage({
       path: slug,
       component: MDXArticle,
@@ -158,7 +160,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField, deleteNode } = actions
+  const { createNodeField, deleteNode, createRedirect } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
@@ -172,8 +174,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: "articles/" + node.frontmatter.title.trim().split(" ").join("-"),
+      value: "articles/" + formatTitleForUrl(node.frontmatter.title),
     })
+    if (node.frontmatter.path) {
+      createRedirect({
+        fromPath: node.frontmatter.path,
+        toPath: "articles/" + formatTitleForUrl(node.frontmatter.title),
+        isPermanent: true,
+      })
+    }
   }
   if (node.internal.type === `FeedMediumBlog`) {
     const firstImage = node.content.encoded.match(/src\s*=\s*"(.+?)"/)[1]

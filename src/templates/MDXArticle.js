@@ -61,7 +61,7 @@ export default ({ data, location }) => {
               <>
                 <Img
                   fluid={coverimg.childImageSharp.fluid}
-                  style={{ maxHeight: 250 }}
+                  style={{ maxHeight: 300 }}
                 />
                 <h1 className="is-hero-menu is-grey margin-1-t margin-5-b">
                   {title}

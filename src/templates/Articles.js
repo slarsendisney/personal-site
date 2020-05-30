@@ -35,7 +35,7 @@ export const Article = ({
   coverimg,
   excerpt,
 }) => (
-  <Link to={"/" + slug} className="link" id="path">
+  <Link to={slug} className="link" id="path">
     <div className="grow row margin-3-t margin-5-b">
       <div className="col-xs-12 col-sm-5 col-md-5 margin-2-b">
         {hero_img ? (
@@ -210,6 +210,7 @@ export const pageQuery = graphql`
             title
             date
             desc
+            path
             coverimg {
               childImageSharp {
                 fluid(maxWidth: 1000) {

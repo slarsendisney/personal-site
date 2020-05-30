@@ -26,7 +26,6 @@ function transform(node) {
       )
     }
   }
-  console.log({ node })
   if (node.type === "tag" && node.name === "pre") {
     const code =
       node.children[0].name === "code"
