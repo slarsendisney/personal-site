@@ -251,20 +251,6 @@ export default () => {
               }
             }
           }
-          allFeedMediumBlog {
-            nodes {
-              title
-              pubDate
-            }
-          }
-          allCuratedFeedMediumBlog {
-            edges {
-              node {
-                title
-                pubDate
-              }
-            }
-          }
           projects: allMarkdownRemark(
             filter: { frontmatter: { type: { eq: "Project" } } }
           ) {

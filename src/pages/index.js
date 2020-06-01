@@ -107,17 +107,6 @@ export default function Start({ data }) {
 
 export const query = graphql`
   {
-    allFeedMediumBlog(sort: { fields: isoDate, order: DESC }, limit: 2) {
-      nodes {
-        fields {
-          slug
-          hero_img
-          excerpt
-        }
-        pubDate
-        title
-      }
-    }
     allMdx(
       filter: { frontmatter: { type: { eq: "Article" } } }
       sort: { fields: frontmatter___date, order: DESC }
@@ -142,32 +131,6 @@ export const query = graphql`
             slug
           }
           excerpt
-        }
-      }
-    }
-    allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "Article" } } }
-      sort: { fields: frontmatter___date, order: DESC }
-      limit: 2
-    ) {
-      edges {
-        node {
-          id
-          timeToRead
-          frontmatter {
-            type
-            title
-            desc
-            path
-            date
-            coverimg {
-              childImageSharp {
-                fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-          }
         }
       }
     }

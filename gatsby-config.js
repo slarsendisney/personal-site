@@ -83,7 +83,7 @@ module.exports = {
           "src/styles/presentations.scss",
           "src/styles/colors.scss",
         ], // Ignore files/folders
-        purgeOnly: ["./src/styles/"], // Purge only these files/folders
+        purgeOnly: ["./src/styles"], // Purge only these files/folders
       },
     },
     {
@@ -95,12 +95,31 @@ module.exports = {
         minify: true,
       },
     },
-    "gatsby-plugin-mdx",
     {
-      resolve: `gatsby-source-rss-feed`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        url: `https://medium.com/feed/@samlarsendisney`,
-        name: `MediumBlog`,
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 590,
+              linkImagesToOriginal: false,
+              withWebp: true,
+            },
+          },
+          { resolve: "gatsby-remark-prismjs" },
+          { resolve: "gatsby-remark-responsive-iframe" },
+          { resolve: "gatsby-remark-copy-linked-files" },
+          { resolve: "gatsby-remark-smartypants" },
+        ],
+      },
+    },
+    // Reminder (https://github.com/gatsbyjs/gatsby/issues/15486#issuecomment-509405867)
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-images`],
       },
     },
     {
@@ -115,19 +134,6 @@ module.exports = {
       options: {
         endpoint:
           "https://codes.us4.list-manage.com/subscribe/post?u=0cf960d42e04bd50f7c21d709&amp;id=35a0b97fdb",
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          "@weknow/gatsby-remark-twitter",
-          {
-            resolve: `gatsby-remark-images`,
-          },
-          `gatsby-remark-copy-images`,
-          `gatsby-remark-copy-linked-files`,
-        ],
       },
     },
     `gatsby-transformer-json`,

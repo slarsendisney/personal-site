@@ -1,0 +1,47 @@
+---
+type: "Article"
+title: Rewarding User’s With Delight
+desc:  Today I wanted to implement a form that my users could use to subscribe to articles that I write. Not a new idea, the same form that has existed on every blog since the days of blogger. I created a new file in my project and typed away creating the ...
+coverimg: "./hero.png"
+date: 2020-02-23
+---
+
+Today I wanted to implement a form that my users could use to subscribe to articles that I write. Not a new idea, the same form that has existed on every blog since the days of blogger.
+
+I created a new file in my project and typed away creating the form with an input for an email address and a submit button. I started up my development server and was greeted with something that looked a lot like this:
+
+![1](./1.gif)
+
+Not so delightful.
+
+I was thinking to myself _“A user has come to my site, liked the content and decided to subscribe and this is how I am rewarding them?”_. This interaction was doing nothing for me. And if it was doing nothing for me, I was sure it would be doing even less for my users.
+
+I think it’s our duty to make our users smile. To reward them. Give me a virtual high-five when I do something you and I agree is awesome. It doesn’t take a whole lot to make flows more gracious, a simple fade and an animation can really cheer up a journey. Something more like this:
+
+![2](./2.gif)
+
+More delightful.
+
+With the above in mind, I went back to the drawing board. I decided that when a user clicks the subscribe button, confetti should fill the screen. I browsed the animations available from [lottie files](https://lottiefiles.com/), and found some confetti that was perfect for my use case.
+
+I created a container for the animation that would only be visible when the form was submitted. I gave it css that insured it would fill the whole screen:
+```css
+position: fixed;  
+top: 0px;  
+left: 0px;  
+width: 100vw;  
+z-index: 100;  
+height:  100vh;  
+pointer-events: none;
+```
+You’ll see I have added the pointer-events property. By setting this value to ‘none’ we can ensure that it is possible to click through the div to the elements below even though the confetti is in the foreground.
+
+The end result:
+
+![3](./3.gif)
+
+Confetti ❤️
+
+You can check out for yourself on [my website](https://sld.codes/articles). The form is at the bottom of all article pages.
+
+Go create delight for your users! 🎉

@@ -179,18 +179,6 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query Articles {
-    allFeedMediumBlog(sort: { fields: isoDate, order: DESC }) {
-      nodes {
-        fields {
-          slug
-          hero_img
-          placeholder_img
-          excerpt
-        }
-        pubDate
-        title
-      }
-    }
     allPageViews(
       filter: { path: { regex: "//articles/[^?/]*$/g" } }
       sort: { fields: totalCount, order: DESC }

@@ -40,8 +40,3 @@ coverimg: "./hero.png"
         <img src="./3.png"/>
     </div>
 </div>
-<!-- 
-<div class="flex" style="justify-content:center; flex-direction:column; align-items:center;">
-<p>Want more? If you have something rant-worthy or want to see some things that are, the site is live so go check it out!</p>
-<a href="https://designrant.app/"><button class="bubble-button border-radius">Visit The Site</button></a>
-</div> -->
