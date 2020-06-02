@@ -52,7 +52,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-meta-redirect`,
-    `gatsby-source-npm`,
+    `gatsby-source-npm-author-packages`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {

@@ -1,16 +1,11 @@
-const fetch = require("node-fetch")
 const crypto = require("crypto")
+const search = require("libnpmsearch")
 
 exports.sourceNodes = async ({ actions }, configOptions) => {
   const { createNode } = actions
 
-  const response = await fetch(
-    "https://api.npms.io/v2/search?q=author:dudesamld"
-  )
-  const data = await response.json()
-
-  const { total, results } = data
-
+  const data = await search("author:dudesamld")
+  const total = data.length
   createNode({
     totalPackages: Number(total),
     id: "NPM-Profile",
@@ -25,11 +20,11 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
           })
         )
         .digest(`hex`),
-      description: `Github Profile Information`,
+      description: `NPM Profile Information`,
     },
   })
-  for (let result of results) {
-    const { name, description, links, version } = result.package
+  for (let result of data) {
+    const { name, description, links, version } = result
     createNode({
       name: String(name),
       desc: String(description),
@@ -43,7 +38,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
           .update(JSON.stringify({ name, description, links, version }))
           .digest(`hex`),
         mediaType: `text/plain`,
-        description: `Page views & sessions for the site`,
+        description: `NPM package data`,
       },
     })
   }

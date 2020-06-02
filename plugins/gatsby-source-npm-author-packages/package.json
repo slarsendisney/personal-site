@@ -4,7 +4,7 @@
   },
   "license": "MIT",
   "main": "index.js",
-  "name": "gatsby-source-npm",
+  "name": "gatsby-source-npm-author-packages",
   "peerDependencies": {
     "gatsby": "^2.13.6"
   },

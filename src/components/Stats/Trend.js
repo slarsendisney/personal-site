@@ -38,14 +38,7 @@ const Trend = ({ data }) => {
     return acc
   }, {})
 
-  const completeArticles = data.allCuratedFeedMediumBlog.edges.reduce(
-    (acc, cur) => {
-      const date = new Date(cur.node.pubDate)
-      acc[format(date, "yyyyMMdd")] = cur.node.title
-      return acc
-    },
-    articles
-  )
+  const completeArticles = articles
 
   const decks = data.decks.nodes.reduce((acc, cur) => {
     const date = new Date(cur.frontmatter.date)
@@ -251,6 +244,7 @@ export default () => {
               }
             }
           }
+
           projects: allMdx(
             filter: { frontmatter: { type: { eq: "Project" } } }
           ) {
