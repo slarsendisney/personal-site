@@ -3,8 +3,7 @@ const search = require("libnpmsearch")
 
 exports.sourceNodes = async ({ actions }, configOptions) => {
   const { createNode } = actions
-
-  const data = await search("author:dudesamld")
+  const data = await search(`author:${configOptions.author}`)
   const total = data.length
   createNode({
     totalPackages: Number(total),
@@ -24,12 +23,13 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     },
   })
   for (let result of data) {
-    const { name, description, links, version } = result
+    const { name, description, links, version, keywords } = result
     createNode({
-      name: String(name),
-      desc: String(description),
-      link: links.npm,
-      version: version,
+      name,
+      description,
+      keywords,
+      links,
+      version,
       id: name,
       internal: {
         type: `NPMPackage`,

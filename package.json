@@ -158,8 +158,8 @@
   "scripts": {
     "build": "gatsby build",
     "build:nike": "npm run nike_data_update && gatsby build",
-    "count": "cloc  --by-file --exclude-ext=json,svg src/ MDX/ MD/",
-    "count_totals": "cloc --exclude-ext=svg --exclude-dir=animation-data --json src/ MDX/ MD/ > data/stats/count_total.json",
+    "count": "cloc  --by-file --exclude-ext=json,svg src/ MDX/",
+    "count_totals": "cloc --exclude-ext=svg --exclude-dir=animation-data --json src/ MDX/ > data/stats/count_total.json",
     "count_commits": "git log --all --pretty=format:'%n{%n%d%n  \"commit hash\": \"%H\",%n  \"date\": \"%ad\",%n  \"message\": \"%f\"%n}'| grep -v \"origin\" | tr -d '\n' | sed 's/}{/}, {/g' | sed -e 's/^/[/' |sed -e 's/$/]/' > data/stats/gitlog.json",
     "postinstall": "npm run count_totals",
     "develop": "gatsby develop -o",

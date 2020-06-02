@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "gatsby": "^2.13.6"
+    "gatsby": "^2.13.6",
+    "libnpmsearch": "^3.0.0"
   },
   "license": "MIT",
   "main": "index.js",
