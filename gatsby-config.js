@@ -1,7 +1,7 @@
 require("dotenv").config({
   path: `.env`,
 })
-
+const { formatTitleForURL } = require("./src/utils/formatTitleForURL")
 const EmploymentHistory = require("./src/data/timeline.json")
 const currentJob = EmploymentHistory[0]
 
@@ -235,20 +235,11 @@ module.exports = {
             title: (node) => node.frontmatter.title,
             type: (node) => node.frontmatter.type,
             desc: (node) => node.frontmatter.desc,
-            path: (node) => node.frontmatter.path,
+            path: (node) =>
+              node.frontmatter.type === "Article"
+                ? "articles/" + formatTitleForURL(node.frontmatter.title)
+                : node.frontmatter.path,
           },
-          FeedMediumBlog: {
-            title: (node) => node.title,
-            type: () => "Article",
-            desc: (node) => node.fields.excerpt,
-            path: (node) => "/" + node.fields.slug,
-          },
-          // Mdx: {
-          //   title: (node) => node.frontmatter.title,
-          //   type: () => "Presentation",
-          //   desc: (node) => node.frontmatter.desc,
-          //   path: (node) => node.frontmatter.path + "/slides",
-          // },
           NavSectionsJson: {
             title: (node) => node.label,
             type: () => "Page",
@@ -258,7 +249,10 @@ module.exports = {
         },
         filter: (node, getNode) => {
           if (node.frontmatter) {
-            if (node.frontmatter.type === "Q&A") {
+            if (
+              node.frontmatter.type === "Q&A" ||
+              node.frontmatter.type === "BIO"
+            ) {
               return false
             }
           }

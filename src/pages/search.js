@@ -10,7 +10,7 @@ import HeartsAnimation from "../components/Animations/HeartsAnimation"
 const types = [
   {
     type: "Article",
-    bg: "pink",
+    bg: "black",
     text: "white",
   },
   {
@@ -67,16 +67,21 @@ export class Search extends Component {
             }
             return (
               <div className="col-xs-12 margin-5-b grow" key={page.id}>
-                <Link to={page.path} className="is-grey">
+                <Link
+                  to={
+                    page.type === "Presentation"
+                      ? page.path + "/slides"
+                      : page.path
+                  }
+                  className="is-grey"
+                >
                   <h2 className="margin-0">
                     <Emojione text={page.title} />
                   </h2>
                   <p className="margin-1-tb">
                     <Emojione text={page.desc} />
                   </p>
-                  <p className={`margin-0 is-${colour.bg}-always`}>
-                    {page.type}
-                  </p>
+                  <p className={`margin-0 is-${colour.bg}`}>{page.type}</p>
                 </Link>
               </div>
             )

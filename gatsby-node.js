@@ -1,16 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const formatTitleForUrl = (title) =>
-  title
-    .trim()
-    .split(" ")
-    .join("-")
-    .split("'")
-    .join("")
-    .replace(
-      /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
-      ""
-    )
+const { formatTitleForURL } = require("./src/utils/formatTitleForURL")
 const redirects = [
   {
     from: "/articles/Sharing-Presentations-Without-Sharing-My-Screen",
@@ -146,7 +136,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   mdxPosts.data.allMdx.edges.forEach((item) => {
-    const slug = "articles/" + formatTitleForUrl(item.node.frontmatter.title)
+    const slug = "articles/" + formatTitleForURL(item.node.frontmatter.title)
     createPage({
       path: slug,
       component: MDXArticle,
@@ -158,53 +148,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField, deleteNode, createRedirect } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
   if (node.internal.type === "Mdx" && node.frontmatter.type === "Article") {
     createNodeField({
       node,
       name: `slug`,
-      value: "articles/" + formatTitleForUrl(node.frontmatter.title),
+      value: "articles/" + formatTitleForURL(node.frontmatter.title),
     })
     if (node.frontmatter.path) {
       createRedirect({
         fromPath: node.frontmatter.path,
-        toPath: "articles/" + formatTitleForUrl(node.frontmatter.title),
+        toPath: "articles/" + formatTitleForURL(node.frontmatter.title),
         isPermanent: true,
       })
     }
-  }
-  if (node.internal.type === `FeedMediumBlog`) {
-    const firstImage = node.content.encoded.match(/src\s*=\s*"(.+?)"/)[1]
-    createNodeField({
-      node,
-      name: `slug`,
-      value: "articles/" + node.title.trim().split(" ").join("-"),
-    })
-    createNodeField({
-      node,
-      name: "excerpt",
-      value:
-        node.content.encoded
-          .replace(/<\/[^>]*>?/gm, " ")
-          .replace(/<[^>]*>?/gm, "")
-          .substring(0, 250) + "...",
-    })
-    createNodeField({
-      node,
-      name: "hero-img",
-      value: firstImage,
-    })
-    createNodeField({
-      node,
-      name: "placeholder-img",
-      value: firstImage.replace(/\/max\/\d*/, "/max/350"),
-    })
   }
 }
