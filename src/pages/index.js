@@ -31,9 +31,9 @@ export default function Start({ data }) {
       <SEO title="Home" />
       <div className="is-grey is-light-grey-bg">
         <div className="row container-small pad-20-t pad-10-b">
-          <div className="col-xs-12">
+          {/* <div className="col-xs-12">
             <ExperimentalHero />
-          </div>
+          </div> */}
           <div className="col-xs-12 col-sm-6 pad-5-lr">
             <h1 className="is-hero-menu margin-0">Sam</h1>
             <h1 className="is-hero-menu margin-0">Larsen-Disney</h1>
