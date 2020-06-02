@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import useDarkMode from "use-dark-mode"
 import { ProjectPreview } from "../templates/Projects"
 import { ArticlePreview } from "../templates/Articles"
@@ -111,17 +110,6 @@ export default function Start({ data }) {
 
 export const query = graphql`
   {
-    allFeedMediumBlog(sort: { fields: isoDate, order: DESC }, limit: 2) {
-      nodes {
-        fields {
-          slug
-          hero_img
-          excerpt
-        }
-        pubDate
-        title
-      }
-    }
     allMdx(
       filter: { frontmatter: { type: { eq: "Article" } } }
       sort: { fields: frontmatter___date, order: DESC }
@@ -149,33 +137,7 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "Article" } } }
-      sort: { fields: frontmatter___date, order: DESC }
-      limit: 2
-    ) {
-      edges {
-        node {
-          id
-          timeToRead
-          frontmatter {
-            type
-            title
-            desc
-            path
-            date
-            coverimg {
-              childImageSharp {
-                fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    Projects: allMarkdownRemark(
+    Projects: allMdx(
       filter: { frontmatter: { type: { eq: "Project" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 2

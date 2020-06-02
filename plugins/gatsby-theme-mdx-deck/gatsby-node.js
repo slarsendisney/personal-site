@@ -26,7 +26,7 @@ exports.onPreBootstrap = ({ store }, opts = {}) => {
   debug(`Initializing ${dirname} directory`)
 }
 
-const mdxResolverPassthrough = fieldName => async (
+const mdxResolverPassthrough = (fieldName) => async (
   source,
   args,
   context,
@@ -165,19 +165,14 @@ exports.onCreateNode = ({
   createContentDigest,
 }) => {
   const { createNode, createParentChildLink } = actions
-
-  const toPath = node => {
+  if (node.internal.type !== `Mdx`) return
+  const fileNode = getNode(node.parent)
+  const source = fileNode.sourceInstanceName
+  if (source !== "MDX/Decks") return
+  const toPath = (node) => {
     const { dir } = path.posix.parse(node.relativePath)
     return path.posix.join(basePath, dir, node.name)
   }
-
-  if (node.internal.type !== `Mdx`) return
-
-  const fileNode = getNode(node.parent)
-  const source = fileNode.sourceInstanceName
-
-  if (node.internal.type !== `Mdx` || source !== contentPath) return
-
   const slug = toPath(fileNode)
   const id = createNodeId(`${node.id} >>> Deck`)
 

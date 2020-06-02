@@ -52,7 +52,7 @@ export const Project = ({ title, desc, path, coverimg, skills }) => (
 export default ({
   data, // this prop will be injected by the GraphQL query below.
 }) => {
-  let { edges } = data.allMarkdownRemark // data.markdownRemark holds our post data
+  let { edges } = data.allMdx // data.markdownRemark holds our post data
 
   return (
     <Layout>
@@ -95,7 +95,7 @@ export default ({
 
 export const pageQuery = graphql`
   query Projects {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "Project" } } }) {
+    allMdx(filter: { frontmatter: { type: { eq: "Project" } } }) {
       edges {
         node {
           id

@@ -46,7 +46,7 @@ const BoilerPlate = ({ title, desc, flag, repo, demo }) => (
   </div>
 )
 export default function Start({ data, location }) {
-  const boilerplates = data.allMarkdownRemark.edges
+  const boilerplates = data.allMdx.edges
   return (
     <Layout>
       <SEO title="Boilerplates" location={location} />
@@ -70,7 +70,7 @@ export default function Start({ data, location }) {
 
 export const query = graphql`
   {
-    allMarkdownRemark(
+    allMdx(
       filter: { frontmatter: { type: { eq: "Boilerplate" } } }
       limit: 1000
     ) {

@@ -13,10 +13,10 @@
   "comment": 9,
   "code": 5942},
 "Markdown" :{
-  "nFiles": 31,
-  "blank": 1134,
+  "nFiles": 40,
+  "blank": 1393,
   "comment": 0,
-  "code": 2453},
+  "code": 3473},
 "Sass" :{
   "nFiles": 17,
   "blank": 268,
@@ -28,7 +28,8 @@
   "comment": 0,
   "code": 233},
 "SUM": {
-  "blank": 1688,
-  "comment": 213,
-  "code": 9932,
-  "nFiles": 135} }
+  "blank": 1939,
+  "comment": 239,
+  "code": 10698,
+  "nFiles": 141} }
+

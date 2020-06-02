@@ -179,18 +179,6 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query Articles {
-    allFeedMediumBlog(sort: { fields: isoDate, order: DESC }) {
-      nodes {
-        fields {
-          slug
-          hero_img
-          placeholder_img
-          excerpt
-        }
-        pubDate
-        title
-      }
-    }
     allPageViews(
       filter: { path: { regex: "//articles/[^?/]*$/g" } }
       sort: { fields: totalCount, order: DESC }
@@ -224,32 +212,6 @@ export const pageQuery = graphql`
             slug
           }
           excerpt
-        }
-      }
-    }
-    allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "Article" } } }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      edges {
-        node {
-          id
-          timeToRead
-          frontmatter {
-            type
-            title
-            desc
-            path
-            date
-            coverimg {
-              childImageSharp {
-                fluid(maxWidth: 1000) {
-                  # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-          }
         }
       }
     }

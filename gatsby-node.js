@@ -32,17 +32,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       isPermanent: true,
     })
   })
-
   actions.createPage({
     path: "/articles",
     component: require.resolve("./src/templates/Articles.js"),
   })
-
   actions.createPage({
     path: "/projects",
     component: require.resolve("./src/templates/Projects.js"),
   })
-
   actions.createPage({
     path: "/runs",
     component: require.resolve("./src/templates/Runs.js"),
@@ -58,7 +55,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const Project = path.resolve(`./src/templates/Project.js`)
   const result = await graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         limit: 1000
         filter: { frontmatter: { type: { in: ["Project", "Q&A"] } } }
       ) {
@@ -79,7 +76,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMdx.edges.forEach(({ node }) => {
     switch (node.frontmatter.type) {
       case "Q&A":
         createPage({
@@ -97,37 +94,37 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         console.log(`Unknown page: ${node.frontmatter.type}`)
     }
   })
-  const mediumPosts = await graphql(`
-    {
-      allFeedMediumBlog(sort: { fields: isoDate, order: DESC }) {
-        nodes {
-          title
-          pubDate
-          isoDate
-          content {
-            encoded
-          }
-          link
-        }
-      }
-    }
-  `)
+  // const mediumPosts = await graphql(`
+  //   {
+  //     allFeedMediumBlog(sort: { fields: isoDate, order: DESC }) {
+  //       nodes {
+  //         title
+  //         pubDate
+  //         isoDate
+  //         content {
+  //           encoded
+  //         }
+  //         link
+  //       }
+  //     }
+  //   }
+  // `)
 
-  if (mediumPosts.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
-  mediumPosts.data.allFeedMediumBlog.nodes.forEach((node) => {
-    const slug = "articles/" + node.title.trim().split(" ").join("-")
-    if (node.content.encoded) {
-      createPage({
-        path: slug,
-        component: Article,
-        context: { slug: slug },
-      })
-    } else {
-    }
-  })
+  // if (mediumPosts.errors) {
+  //   reporter.panicOnBuild(`Error while running GraphQL query.`)
+  //   return
+  // }
+  // mediumPosts.data.allFeedMediumBlog.nodes.forEach((node) => {
+  //   const slug = "articles/" + node.title.trim().split(" ").join("-")
+  //   if (node.content.encoded) {
+  //     createPage({
+  //       path: slug,
+  //       component: Article,
+  //       context: { slug: slug },
+  //     })
+  //   } else {
+  //   }
+  // })
 
   const mdxPosts = await graphql(`
     {

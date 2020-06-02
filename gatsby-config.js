@@ -83,7 +83,7 @@ module.exports = {
           "src/styles/presentations.scss",
           "src/styles/colors.scss",
         ], // Ignore files/folders
-        purgeOnly: ["./src/styles/"], // Purge only these files/folders
+        purgeOnly: ["./src/styles"], // Purge only these files/folders
       },
     },
     {
@@ -95,12 +95,31 @@ module.exports = {
         minify: true,
       },
     },
-    "gatsby-plugin-mdx",
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
     {
-      resolve: `gatsby-source-rss-feed`,
+      resolve: `gatsby-plugin-mdx`,
+      extensions: [".mdx", ".md"],
       options: {
-        url: `https://medium.com/feed/@samlarsendisney`,
-        name: `MediumBlog`,
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-copy-images`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+        ],
+        plugins: [{ resolve: "gatsby-remark-images" }],
       },
     },
     {
@@ -115,19 +134,6 @@ module.exports = {
       options: {
         endpoint:
           "https://codes.us4.list-manage.com/subscribe/post?u=0cf960d42e04bd50f7c21d709&amp;id=35a0b97fdb",
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          "@weknow/gatsby-remark-twitter",
-          {
-            resolve: `gatsby-remark-images`,
-          },
-          `gatsby-remark-copy-images`,
-          `gatsby-remark-copy-linked-files`,
-        ],
       },
     },
     `gatsby-transformer-json`,
@@ -152,17 +158,38 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/MD`,
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Articles`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "special-articles",
-        path: `${__dirname}/MDX/Articles`,
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Bio`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Boilerplates`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Projects`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Quibs`,
       },
     },
     {
@@ -170,15 +197,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        useMozJpeg: false,
-        stripMetadata: true,
-        defaultQuality: 75,
       },
     },
     {
@@ -208,7 +226,7 @@ module.exports = {
       options: {
         fields: [`title`, `desc`],
         resolvers: {
-          MarkdownRemark: {
+          Mdx: {
             title: (node) => node.frontmatter.title,
             type: (node) => node.frontmatter.type,
             desc: (node) => node.frontmatter.desc,
@@ -220,12 +238,12 @@ module.exports = {
             desc: (node) => node.fields.excerpt,
             path: (node) => "/" + node.fields.slug,
           },
-          Mdx: {
-            title: (node) => node.frontmatter.title,
-            type: () => "Presentation",
-            desc: (node) => node.frontmatter.desc,
-            path: (node) => node.frontmatter.path + "/slides",
-          },
+          // Mdx: {
+          //   title: (node) => node.frontmatter.title,
+          //   type: () => "Presentation",
+          //   desc: (node) => node.frontmatter.desc,
+          //   path: (node) => node.frontmatter.path + "/slides",
+          // },
           NavSectionsJson: {
             title: (node) => node.label,
             type: () => "Page",

@@ -109,7 +109,7 @@ export const query = graphql`
   {
     allMdx(
       sort: { fields: frontmatter___date, order: DESC }
-      filter: { frontmatter: { type: { ne: "Article" } } }
+      filter: { frontmatter: { type: { eq: "deck" } } }
     ) {
       nodes {
         frontmatter {

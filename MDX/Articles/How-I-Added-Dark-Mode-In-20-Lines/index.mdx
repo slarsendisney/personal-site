@@ -1,0 +1,145 @@
+---
+type: "Article"
+title: How I Added Dark Mode In 20 Lines
+desc: This is how I added dark mode to my GatsbyJS site . Let’s talk dark mode...
+coverimg: "./hero.png"
+date: 2020-04-23
+---
+
+This is how I added dark mode to my [GatsbyJS site](https://sld.codes/).
+
+Let’s talk dark mode.
+
+#### Step 1.
+
+Install dependencies.
+
+npm install --save use-dark-mode gatsby-plugin-use-dark-mode gatsby-plugin-sass
+
+#### Step 2.
+
+Add the plugin to your gatsby config.
+```js
+module.exports = {  
+  ...,  
+  plugins: [  
+    `gatsby-plugin-sass`,  
+    {  
+      resolve: "gatsby-plugin-use-dark-mode",  
+      options: {  
+        classNameDark: "dark-mode",  
+        classNameLight: "light-mode",  
+        storageKey: "darkMode",  
+        minify: true,  
+      },  
+    },  
+   ...,  
+  ],  
+}
+```
+
+**gatsby-plugin-use-dark-mode** adds a classname to the body of the html showing what state we are in, dark or light mode. This is calculated using the storageKey(a cookie) that sits on the client. This defaults to the users default setting on their device.
+
+#### Step 3.
+
+Create our colours in a **colors.scss** file.
+```scss
+$brand-colors: ('white', #ffffff, #1c1c1c), ('black', #1c1c1c, white),  
+  ('light-brown', #e1d2af, #e1d2af), ('grey', #2e4052, #f9f9f9),  
+  ('light-grey', #f9f9f9, #121212), ('blue', #35466d, #49aab7);  
+@each $color in $brand-colors {  
+  .is-#{nth($color,1)} {  
+    color: nth($color, 2);  
+  }  
+body.dark-mode {  
+    .is-#{nth($color,1)} {  
+      color: nth($color, 3);  
+    }  
+  }  
+}
+```
+
+Wait? Whats going on here?!
+
+First I am defining some brand colours in the following format:
+
+`(‘name-of-colour’, #colour-in-light-mode’, #colour-in-dark-mode)`
+
+Then I iterate through each colour and create a classnames with the name and hex for light mode so for example:
+
+`('white', #ffffff, #1c1c1c)`
+
+creates in the loop:
+```scss
+.is-white {  
+    color: #ffffff;  
+  }
+```
+I also add a second instance of this class that overrides when dark mode has been added as a class name to the body. This uses the second colour so in our example with white we create:
+```scss
+body.dark-mode {  
+    .is-white {  
+      color: #1c1c1c;  
+    }  
+}
+```
+
+You can repeat this process for background and border colours too!
+
+#### Step 4.
+
+Import colors.scss in **global.scss.**
+```scss
+@import './colors';
+```
+#### Step 5.
+
+Add scss to **gatsby-browser.js.**
+```js
+require("./src/styles/global.scss")
+```
+#### Step 6.
+
+Create a new react component that acts as a mode switch.
+```js
+import React from "react";  
+import useDarkMode from "use-dark-mode";  
+export default (props) => {  
+  const darkMode = useDarkMode(false); //defaults to false  
+  return (  
+    <div>  
+      {darkMode.value ? (  
+        <button  
+          type="button"  
+          aria-label="light mode"  
+          onClick={darkMode.disable}  
+        >  
+          <h2>To Light Mode</h2>  
+        </button>  
+      ) : (  
+        <button type="button" aria-label="dark mode" onClick={darkMode.enable}>  
+          <h2>To Dark Mode</h2>  
+        </button>  
+      )}  
+    </div>  
+  );  
+};
+```
+
+#### Step 7.
+
+Use our new classnames in any react component.
+```js
+import React from "react";  
+export default () => {  
+  return (  
+    <div>  
+      <h4 className="is-white">Text colour dependant on mode!</h4>  
+    </div>  
+  );  
+};
+```
+
+You’re all done! 🎉
+
+![1](./1.gif)

@@ -244,13 +244,8 @@ export default () => {
               }
             }
           }
-          allFeedMediumBlog {
-            nodes {
-              title
-              pubDate
-            }
-          }
-          projects: allMarkdownRemark(
+
+          projects: allMdx(
             filter: { frontmatter: { type: { eq: "Project" } } }
           ) {
             edges {
