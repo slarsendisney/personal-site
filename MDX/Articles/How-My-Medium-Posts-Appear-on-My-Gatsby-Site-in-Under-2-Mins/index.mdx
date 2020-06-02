@@ -1,18 +1,14 @@
 ---
 type: "Article"
 title: How My Medium Posts Appear on My Gatsby Site in Under 2 Mins
-desc: Yep, that’s all it takes.  I took the plunge and moved my blog to medium. Transitioning to Medium Posts 📝 I wanted a better writing experience. Writing in Markdown was leading to too many spelling mistakes and, with me writing more and more, my repo...
+desc: Yep, that’s all it takes. I took the plunge and moved my blog to medium. Transitioning to Medium Posts 📝 I wanted a better writing experience. Writing in Markdown was leading to too many spelling mistakes and, with me writing more and more, my repo...
 coverimg: "./hero.png"
 date: 2020-02-26
 ---
 
-Yep, that’s all it takes.
-
-I took the plunge and moved my blog to medium.
-
 #### Transitioning to Medium Posts 📝
 
-I wanted a better writing experience. Writing in Markdown was leading to too many spelling mistakes and, with me writing more and more, my repo was getting bigger with each post!
+I took the plunge and moved my blog to medium. I wanted a better writing experience. Writing in Markdown was leading to too many spelling mistakes and, with me writing more and more, my repo was getting bigger with each post!
 
 Medium exposes an rss feed for your posts that you can find at:
 
@@ -24,7 +20,7 @@ createNodeField({
       node,  
       name: "excerpt",  
       value:  
-        node.content.encoded.replace(/<\[^>\]\*>?/gm, "").substring(0, 150) +  
+        node.content.encoded.replace(/<[^>]*>?/gm, "").substring(0, 150) +  
         "...",  
 })
 ```
@@ -32,11 +28,10 @@ The regex you’re seeing above strips the html from the content so you are left
 
 When you’re browsing BBC news, or streaming your favourite Youtube videos, I doubt you’re thinking about the site’s accessibility. We all frequent the...
 
-![1](./1.png)
-
-How it looks in the wild.
-
-How it looks in the wild.
+<figure>
+  <img src="./1.png" alt="1"/>
+  <figcaption>How it looks in the wild.</figcaption>
+</figure>
 
 🎉 Just enough to pull you in, and perfect for a preview.
 
@@ -56,14 +51,15 @@ When you create a a new project in the Gatsby cloud, they expose a web-hook that
 
 By pure chance, I was browsing [IFTTT](https://ifttt.com/) that same day looking for applets I could use for my home automation, when I saw that Medium had an [integration](https://ifttt.com/medium). I was able to create an applet — “If Post published by you, then Make a web request”. I simply pointed the web request to the Gatsby web-hook and it was good to go.
 
-![4](./4.png)
 
-The Holy Trinity
+<figure>
+  <img src="./4.png" alt="4"/>
+  <figcaption>The holy trinity.</figcaption>
+</figure>
 
 ### The Result 🏁
 
 When I post to medium, within 10 seconds the hook is triggered, my personal site is built and deployed:
 
-![3](./3.png)
 
 The average time for this process is 105 seconds. That’s quick 🏃‍♂️.

@@ -7,7 +7,7 @@ import Img from "gatsby-image"
 
 export default ({ data, location }) => {
   const { mdx } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = mdx
+  const { frontmatter, body } = mdx
   return (
     <Layout>
       <SEO
@@ -39,7 +39,7 @@ export default ({ data, location }) => {
             <div className="line margin-5-b" style={{ margin: "auto" }}></div>
 
             <div className={`lato article`}>
-              <MDXRenderer>{mdx.body}</MDXRenderer>
+              <MDXRenderer>{body}</MDXRenderer>
             </div>
           </div>
         </div>

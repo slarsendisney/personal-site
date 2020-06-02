@@ -13,7 +13,7 @@ I decided to audit 100 pages per site. This would be a good amount of data to gi
 
 **Not interested in the code?** [Check out the results here](https://top100audits.sld.codes/).
 
-> **Disclaimer:** This was a fun experiment. Results here are by no means a complete or comprehensive assessment of the audited sites. All views expressed in this article are my own and do not represent the opinions of any entity with which I have been, am now or will be affiliated with.
+**Disclaimer:** This was a fun experiment. Results here are by no means a complete or comprehensive assessment of the audited sites. All views expressed in this article are my own and do not represent the opinions of any entity with which I have been, am now or will be affiliated with.
 
 ### How I Audited 10,000 Web Pages
 
@@ -84,7 +84,7 @@ let newHrefs = await page.$$eval("a", as => as.map(a => a.href));
 ```
 > It turns out sites don’t always use `<a>` tags. This sometimes meant that my crawler would finish for any given site before reaching 100 pages. I didn’t notice this was the case until the audits had finished. If I were to run this experiment again I would make sure to improve the crawlers ability to search sites.
 
-> To audit all 10,000 pages, took 21 hours and 32 minutes.
+*To audit all 10,000 pages, took 21 hours and 32 minutes.*
 
 That sounds like a crazy long time, but it works out to 7.74 seconds per audit. It should be noted that my internet is no where near fibre optic speeds and I am pretty sure that my provider throttled my connection. But, I don’t think this subtracts anything from the results when most of the world is still using 3G.
 

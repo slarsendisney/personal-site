@@ -47,7 +47,7 @@ GUESS_EMAIL=YOUR_SERVICE_ACCOUNT_EMAIL_GOES_HERE
 GUESS_PRIVATE_KEY=YOUR_PRIVATE_KEY_GOES_HERE  
 VIEW_ID=YOUR_ANALYTICS_VIEW_ID_GOES_HERE
 ```
-> Note: If you are using a CI/CD pipeline you will have to store these environment variables there too!
+*** Note: If you are using a CI/CD pipeline you will have to store these environment variables there too!***
 
 Now in order to access these values in our config, we need to load them in within out gatsby-config.js file. Take the following snippet it and add it the top of the file:
 ```js
@@ -58,7 +58,7 @@ require("dotenv").config({
 
 #### 4. Set up the guess plugin for gatsby.
 
-npm install gatsby-plugin-guess-js --save
+`npm install gatsby-plugin-guess-js --save`
 
 Add the plugin to your gatsby config:
 ```js
@@ -82,7 +82,7 @@ Add the plugin to your gatsby config:
 
 If it works awesome! Skip this step. If, however, you’re unlucky like me, this will fail. I had an error that looked like this:
 
-npm ERR! error:0906D06C:PEM routines:PEM_read_bio:no start line
+`npm ERR! error:0906D06C:PEM routines:PEM_read_bio:no start line`
 
 It turns out, guess didn’t like my private key as it contained “n” which it formatted strangely. To fix this I had to use a little regex within my gatsby plugin configuration when setting my private key:
 ```js
@@ -101,4 +101,4 @@ It turns out, guess didn’t like my private key as it contained “n” which i
     },  
   }
 ```
-### At this point, you should be good to go! 🚀
+#### At this point, you should be good to go! 🚀

@@ -10,7 +10,10 @@ date: 2020-05-19
 
 A couple of weeks back, I came home to find this note taped to my front door..
 
-![letter](./1.jpeg)
+<figure>
+  <img src="./1.jpeg" alt="1"/>
+  <figcaption>The Letter.</figcaption>
+</figure>
 
 My neighbours, had taken the initiative to set up a WhatsApp group of local people that would get us all talking and so we could look out for each other while in isolation. I thought this was an awesome idea and joined the group to see what I could do.
 
@@ -18,13 +21,15 @@ I wasn’t the only one, after 24 hours, the WhatsApp group had 50+ members and 
 
 With the scale of the group what it was, Kelly(the group admin) set up a zoom call to get us all acquainted and work out what we could realistically offer.
 
-![zoom](./2.jpeg)
+<figure>
+  <img src="./2.jpeg" alt="2"/>
+  <figcaption>The zoom call 🤙</figcaption>
+</figure>
 
-The zoom call 🤙
 
 We defined our scope of help as...
 
-> We are volunteering to help each other as a community. As such, of course this is completely free. We are offering help with errands such as picking up urgent supplies, shopping, posting mail, dog walking or just friendly phone call.
+*We are volunteering to help each other as a community. As such, of course this is completely free. We are offering help with errands such as picking up urgent supplies, shopping, posting mail, dog walking or just friendly phone call.*
 
 #### The Problem
 
@@ -66,7 +71,7 @@ Given that most of the people using the site would not be ‘spring chickens’,
 In order to use the auth in the context of my Gatsby site, I created a react hook called useAuth...
 ```js
 export const useAuth = () => {  
-  const \[state, setState\] = React.useState(() => {  
+  const [state, setState] = React.useState(() => {  
     const user =  
       typeof window !== "undefined" ? firebase.auth().currentUser : "";  
     return { initialising: !user, user };  
@@ -77,7 +82,7 @@ export const useAuth = () => {
   React.useEffect(() => {  
     const unsubscribe = firebase.auth().onAuthStateChanged(onChange);  
     return () => unsubscribe();  
-  }, \[\]);  
+  }, []);  
   return state;  
 };
 ```
@@ -86,9 +91,9 @@ You’ll notice a weird ternary above checking the type of window. This is becau
 const App = () => {  
   const { initialising, user } = useAuth();  
   if (initialising) {  
-    return /\* Content to show while loading \*/;  
+    return /* Content to show while loading */;  
   } else {  
-    return; /\* Content to show when we have the user profile. At this point if user is undefined we know the user is not logged in. \*/  
+    return; /* Content to show when we have the user profile. At this point if user is undefined we know the user is not logged in. */  
   }  
 };  
 export default App;
@@ -104,11 +109,15 @@ If user does not have an address, name and phone number
 Otherwise
  -> Show the user the correct content for that type of account
 ```
-![3](./3.png)
+
+<figure>
+  <img src="./3.png" alt="3"/>
+  <figcaption>Prompting for additional info.</figcaption>
+</figure>
 
 ```
 If user does not have an address, name and phone number  
-\-> Prompt user to add this information
+-> Prompt user to add this information
 ```
 #### Calculating the Position of Requests
 
@@ -117,7 +126,7 @@ I wanted to acquire the latitude and longitude of requests so I could plot them 
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";  
 const handleAddressSelect = (address) => {  
   geocodeByAddress(address)  
-    .then((results) => getLatLng(results\[0\])) //closest result  
+    .then((results) => getLatLng(results[0])) //closest result  
     .then((latLng) => {  
       setData({  
         ...data,  
@@ -130,6 +139,9 @@ const handleAddressSelect = (address) => {
 ```
 In the above code, we take a string address and getLatLng utilises the google maps API to turn it into coordinates. This was triggered when a user selected an address from the list:
 
-![4](./4.png)
+<figure>
+  <img src="./4.png" alt="4"/>
+  <figcaption>Requesting support</figcaption>
+</figure>
 
 Upon submission of a request, this data was bundled up and sent to the firebase realtime database. It also triggered text alerts to volunteers encouraging them to check the site and retrieve the request.

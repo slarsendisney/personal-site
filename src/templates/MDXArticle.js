@@ -57,21 +57,13 @@ export default ({ data, location }) => {
           </div>
 
           <div className="col-xs-12 pad-3-lr">
-            {!declutter && (
-              <>
-                <Img
-                  fluid={coverimg.childImageSharp.fluid}
-                  style={{ maxHeight: 300 }}
-                />
-                <h1 className="is-hero-menu is-grey margin-1-t margin-5-b">
-                  {title}
-                </h1>
-                <h6 className="is-hero-sub-text margin-3-b">
-                  {format(new Date(date), "iii, dd MMM yyyy")}
-                </h6>
-                <div className="line margin-5-tb" />
-              </>
-            )}
+            <h1 className="is-hero-menu is-grey margin-1-t margin-5-b">
+              {title}
+            </h1>
+            <h6 className="is-hero-sub-text margin-3-b">
+              {format(new Date(date), "iii, dd MMM yyyy")}
+            </h6>
+            <div className="line margin-5-tb" />
 
             <div className={`pad-10-b lato ${!declutter ? "article" : ""}`}>
               <MDXProvider components={components}>

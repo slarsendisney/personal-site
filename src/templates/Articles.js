@@ -144,10 +144,6 @@ export default ({ data }) => {
                   ))}
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-12">
-                  <h3 className="margin-0-b margin-5-t">EXTERNAL CONTENT</h3>
-                  <a href="https://medium.com/@samlarsendisney">
-                    <p className="is-special-blue">Curated Medium Posts</p>
-                  </a>
                   <h3 className="margin-0-b margin-5-t">FEELING LUCKY?</h3>
                   <button
                     onClick={() =>

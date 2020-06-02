@@ -51,10 +51,9 @@
   
   figure {
     max-width: 600px;
-    width: fit-content;
+    width:100%;
     margin: 0 auto;
     @extend .is-white-bg;
-
     // margin:auto;
     -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
      -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
@@ -65,13 +64,19 @@
       text-align: center;
       @extend .is-black;
     }
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100% !important;
+    }
   }
   p img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     max-width: 600px;
-    width: 100%;
+    width: 100% !important;
   }
      
 

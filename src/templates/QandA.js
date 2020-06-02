@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -7,7 +8,7 @@ export default ({
   data, // this prop will be injected by the GraphQL query below.
 }) => {
   const { mdx } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = mdx
+  const { frontmatter, body } = mdx
   return (
     <Layout>
       <SEO title={frontmatter.answer} />
@@ -31,10 +32,9 @@ export default ({
             <h6 className="is-hero-sub-text is-black margin-10-b">
               {frontmatter.desc}
             </h6>
-            <div
-              className={`${html ? "pad-20-b lato" : ""}`}
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+            <div className="pad-20-b lato">
+              <MDXRenderer>{body}</MDXRenderer>
+            </div>
             <Link
               to={frontmatter.link}
               style={{ textDecoration: "none" }}
@@ -52,7 +52,7 @@ export default ({
 export const pageQuery = graphql`
   query($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
-      html
+      body
       frontmatter {
         question
         answer

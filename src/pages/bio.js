@@ -1,5 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Timeline from "../components/Bio/Timeline"
@@ -85,12 +87,9 @@ export default function Bio({ data, location }) {
               <h1 className="is-hero-sub-menu is-grey margin-0">
                 Origin Story
               </h1>
-              <div
-                className="margin-5-t pad-5 is-white-bg is-grey border-radius"
-                dangerouslySetInnerHTML={{
-                  __html: data.allMdx.edges[0].node.html,
-                }}
-              />
+              <div className="margin-5-t pad-5 is-white-bg is-grey border-radius lato">
+                <MDXRenderer>{data.allMdx.edges[0].node.body}</MDXRenderer>
+              </div>
             </div>
           </div>
         </div>
@@ -134,7 +133,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          html
+          body
         }
       }
     }
