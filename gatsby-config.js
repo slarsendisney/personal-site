@@ -95,31 +95,31 @@ module.exports = {
         minify: true,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-mdx`,
+      extensions: [".mdx", ".md"],
       options: {
-        extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           {
-            resolve: "gatsby-remark-images",
+            resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
-              linkImagesToOriginal: false,
-              withWebp: true,
             },
           },
-          { resolve: "gatsby-remark-prismjs" },
-          { resolve: "gatsby-remark-responsive-iframe" },
-          { resolve: "gatsby-remark-copy-linked-files" },
-          { resolve: "gatsby-remark-smartypants" },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-copy-images`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
         ],
-      },
-    },
-    // Reminder (https://github.com/gatsbyjs/gatsby/issues/15486#issuecomment-509405867)
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [`gatsby-remark-images`],
+        plugins: [{ resolve: "gatsby-remark-images" }],
       },
     },
     {
@@ -158,17 +158,38 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/MD`,
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Articles`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "special-articles",
-        path: `${__dirname}/MDX/Articles`,
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Bio`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Boilerplates`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Projects`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Quibs`,
       },
     },
     {
@@ -176,15 +197,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        useMozJpeg: false,
-        stripMetadata: true,
-        defaultQuality: 75,
       },
     },
     {
@@ -214,7 +226,7 @@ module.exports = {
       options: {
         fields: [`title`, `desc`],
         resolvers: {
-          MarkdownRemark: {
+          Mdx: {
             title: (node) => node.frontmatter.title,
             type: (node) => node.frontmatter.type,
             desc: (node) => node.frontmatter.desc,
@@ -226,12 +238,12 @@ module.exports = {
             desc: (node) => node.fields.excerpt,
             path: (node) => "/" + node.fields.slug,
           },
-          Mdx: {
-            title: (node) => node.frontmatter.title,
-            type: () => "Presentation",
-            desc: (node) => node.frontmatter.desc,
-            path: (node) => node.frontmatter.path + "/slides",
-          },
+          // Mdx: {
+          //   title: (node) => node.frontmatter.title,
+          //   type: () => "Presentation",
+          //   desc: (node) => node.frontmatter.desc,
+          //   path: (node) => node.frontmatter.path + "/slides",
+          // },
           NavSectionsJson: {
             title: (node) => node.label,
             type: () => "Page",

@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import useDarkMode from "use-dark-mode"
 import { ProjectPreview } from "../templates/Projects"
 import { ArticlePreview } from "../templates/Articles"
@@ -134,7 +133,7 @@ export const query = graphql`
         }
       }
     }
-    Projects: allMarkdownRemark(
+    Projects: allMdx(
       filter: { frontmatter: { type: { eq: "Project" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 2

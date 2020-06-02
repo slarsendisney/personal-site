@@ -6,8 +6,8 @@ import SEO from "../components/seo"
 export default ({
   data, // this prop will be injected by the GraphQL query below.
 }) => {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { mdx } = data // data.markdownRemark holds our post data
+  const { frontmatter, html } = mdx
   return (
     <Layout>
       <SEO title={frontmatter.answer} />
@@ -51,7 +51,7 @@ export default ({
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    mdx(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
         question

@@ -56,7 +56,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const Project = path.resolve(`./src/templates/Project.js`)
   const result = await graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         limit: 1000
         filter: { frontmatter: { type: { in: ["Project", "Q&A"] } } }
       ) {
@@ -77,7 +77,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMdx.edges.forEach(({ node }) => {
     switch (node.frontmatter.type) {
       case "Q&A":
         createPage({

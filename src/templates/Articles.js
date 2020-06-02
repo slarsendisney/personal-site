@@ -215,31 +215,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "Article" } } }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      edges {
-        node {
-          id
-          timeToRead
-          frontmatter {
-            type
-            title
-            desc
-            path
-            date
-            coverimg {
-              childImageSharp {
-                fluid(maxWidth: 1000) {
-                  # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 `

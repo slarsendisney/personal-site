@@ -88,7 +88,7 @@ export default function Bio({ data, location }) {
               <div
                 className="margin-5-t pad-5 is-white-bg is-grey border-radius"
                 dangerouslySetInnerHTML={{
-                  __html: data.allMarkdownRemark.edges[0].node.html,
+                  __html: data.allMdx.edges[0].node.html,
                 }}
               />
             </div>
@@ -107,7 +107,7 @@ export const query = graphql`
     npmProfile {
       totalPackages
     }
-    boilerplates: allMarkdownRemark(
+    boilerplates: allMdx(
       filter: { frontmatter: { type: { eq: "Boilerplate" } } }
     ) {
       totalCount
@@ -127,7 +127,7 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(
+    allMdx(
       filter: { frontmatter: { type: { eq: "BIO" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 1

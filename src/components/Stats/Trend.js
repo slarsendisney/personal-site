@@ -251,7 +251,7 @@ export default () => {
               }
             }
           }
-          projects: allMarkdownRemark(
+          projects: allMdx(
             filter: { frontmatter: { type: { eq: "Project" } } }
           ) {
             edges {

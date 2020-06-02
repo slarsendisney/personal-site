@@ -1,12 +1,13 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 
 export default ({ data, location }) => {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { mdx } = data // data.markdownRemark holds our post data
+  const { frontmatter, html } = mdx
   return (
     <Layout>
       <SEO
@@ -37,10 +38,9 @@ export default ({ data, location }) => {
             </p>
             <div className="line margin-5-b" style={{ margin: "auto" }}></div>
 
-            <div
-              className={`lato article`}
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+            <div className={`lato article`}>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </div>
           </div>
         </div>
       </div>
@@ -50,8 +50,8 @@ export default ({ data, location }) => {
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      body
       frontmatter {
         title
         desc
