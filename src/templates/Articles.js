@@ -108,6 +108,7 @@ export const ArticlePreview = ({
 )
 
 export default ({ data }) => {
+  const { currentPage, numPages } = data.sitePage.context
   const allArticles = getAllArticles(data)
   let popular = data.allPageViews
   return (
@@ -124,7 +125,29 @@ export default ({ data }) => {
             {allArticles.map((item) => (
               <Article {...item} {...item.fields} key={item.fields.slug} />
             ))}
+            <div
+              className="flex margin-5-b"
+              style={{ justifyContent: "center" }}
+            >
+              {Array.from({ length: 5 }, (v, k) => k + 1).map(
+                (item) =>
+                  item <= numPages && (
+                    <Link to={item === 1 ? `/articles/` : `/articles/${item}`}>
+                      <div
+                        className={`${
+                          item === currentPage
+                            ? "is-special-blue-bg is-white "
+                            : " is-grey-bg is-white "
+                        } pad-2-lr pad-1-tb margin-1  grow border-radius-sm`}
+                      >
+                        <h3 className="margin-0">{item}</h3>
+                      </div>
+                    </Link>
+                  )
+              )}
+            </div>
           </div>
+
           <div
             className="col-xs-12 col-md-3  pad-3-l fade-in "
             style={{ position: "relative" }}
@@ -174,7 +197,15 @@ export default ({ data }) => {
 }
 
 export const pageQuery = graphql`
-  query Articles {
+  query Articles($skip: Int!, $limit: Int!, $slug: String!) {
+    sitePage(path: { eq: $slug }) {
+      context {
+        limit
+        skip
+        numPages
+        currentPage
+      }
+    }
     allPageViews(
       filter: { path: { regex: "//articles/[^?/]*$/g" } }
       sort: { fields: totalCount, order: DESC }
@@ -187,7 +218,12 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
+    allMdx(
+      limit: $limit
+      skip: $skip
+      filter: { frontmatter: { type: { eq: "Article" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       edges {
         node {
           frontmatter {

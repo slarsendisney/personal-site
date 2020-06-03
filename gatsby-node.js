@@ -23,10 +23,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
   actions.createPage({
-    path: "/articles",
-    component: require.resolve("./src/templates/Articles.js"),
-  })
-  actions.createPage({
     path: "/projects",
     component: require.resolve("./src/templates/Projects.js"),
   })
@@ -84,41 +80,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         console.log(`Unknown page: ${node.frontmatter.type}`)
     }
   })
-  // const mediumPosts = await graphql(`
-  //   {
-  //     allFeedMediumBlog(sort: { fields: isoDate, order: DESC }) {
-  //       nodes {
-  //         title
-  //         pubDate
-  //         isoDate
-  //         content {
-  //           encoded
-  //         }
-  //         link
-  //       }
-  //     }
-  //   }
-  // `)
-
-  // if (mediumPosts.errors) {
-  //   reporter.panicOnBuild(`Error while running GraphQL query.`)
-  //   return
-  // }
-  // mediumPosts.data.allFeedMediumBlog.nodes.forEach((node) => {
-  //   const slug = "articles/" + node.title.trim().split(" ").join("-")
-  //   if (node.content.encoded) {
-  //     createPage({
-  //       path: slug,
-  //       component: Article,
-  //       context: { slug: slug },
-  //     })
-  //   } else {
-  //   }
-  // })
 
   const mdxPosts = await graphql(`
     {
-      allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
+      allMdx(
+        filter: { frontmatter: { type: { eq: "Article" } } }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         edges {
           node {
             id
@@ -134,7 +102,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-
+  const posts = mdxPosts.data.allMdx.edges
+  const postsPerPage = 6
+  const numPages = Math.ceil(posts.length / postsPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/articles` : `/articles/${i + 1}`,
+      component: require.resolve("./src/templates/Articles.js"),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+        slug: i === 0 ? `/articles` : `/articles/${i + 1}`,
+      },
+    })
+  })
   mdxPosts.data.allMdx.edges.forEach((item) => {
     const slug = "articles/" + formatTitleForURL(item.node.frontmatter.title)
     createPage({
