@@ -29,7 +29,7 @@ import Webcam from "./webcam.svg"
 import France from "./france.svg"
 const filmsOrders = films.sort()
 const PROJECTCOUNT = 3
-const BIRTHDAYCOUNT = 2
+const BIRTHDAYCOUNT = 3
 
 function twoDecimalPlacesIfCents(amount) {
   return amount % 1 !== 0 ? amount.toFixed(2) : amount

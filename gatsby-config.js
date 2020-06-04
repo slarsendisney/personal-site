@@ -52,6 +52,8 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-meta-redirect`,
+    `gatsby-plugin-preact`,
+    `gatsby-plugin-webpack-bundle-analyzer`,
     {
       resolve: `gatsby-source-npm-author-packages`,
       options: {
@@ -102,7 +104,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-mdx`,
       extensions: [".mdx", ".md"],
@@ -112,7 +113,12 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              linkImagesToOriginal: false,
             },
+          },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`,
+            options: {},
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -124,7 +130,7 @@ module.exports = {
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
-        plugins: [{ resolve: "gatsby-remark-images" }],
+        plugins: [`gatsby-remark-images`, `gatsby-remark-images-medium-zoom`],
       },
     },
     {

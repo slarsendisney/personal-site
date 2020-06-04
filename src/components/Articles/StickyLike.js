@@ -3,6 +3,7 @@ import { Emojione } from "react-emoji-render"
 import { useScrollYPosition } from "react-use-scroll-position"
 import { useDocumentOnce } from "react-firebase-hooks/firestore"
 import { useWindowSize, useLocalStorage } from "../../utils/customHooks"
+import { useEffect } from "react"
 
 let firebase
 
@@ -61,6 +62,9 @@ const LikeButton = ({
 export default () => {
   const size = useWindowSize()
   const scrollY = useScrollYPosition()
+  useEffect(() => {
+    window.scrollTo(0, 1)
+  }, [])
   const pathArray =
     typeof window !== "undefined" &&
     window.location.pathname.includes("articles")
@@ -163,7 +167,7 @@ export default () => {
     <div
       style={{
         position: "fixed",
-        top: Math.max(20, 335 - scrollY),
+        top: scrollY ? Math.max(20, 335 - scrollY) : 335,
         marginLeft: -100,
       }}
     >
