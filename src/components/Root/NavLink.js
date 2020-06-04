@@ -35,7 +35,7 @@ export const NavLinkSmall = ({ label, desc, url }) => {
       )
     }
     return (
-      <Link to={url} className="margin-15-b" id="path">
+      <Link to={url} id="path">
         <div className="  ">
           <h3 className={`margin-0-tb link-bar pad-1-b  special-header-text`}>
             <Emojione text={label} />
