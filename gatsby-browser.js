@@ -37,3 +37,10 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
     document.getElementsByTagName("BODY")[0].className = "light-mode"
   }
 }
+
+export const onClientEntry = async () => {
+  if (typeof IntersectionObserver === "undefined") {
+    await import("intersection-observer")
+    console.log("IntersectionObserver polyfilled ;)")
+  }
+}

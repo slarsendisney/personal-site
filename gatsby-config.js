@@ -102,37 +102,34 @@ module.exports = {
         minify: true,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
-      extensions: [".mdx", ".md"],
       options: {
+        extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: "gatsby-remark-images",
             options: {
               maxWidth: 590,
               linkImagesToOriginal: false,
+              withWebp: true,
             },
           },
-          {
-            resolve: `gatsby-remark-images-medium-zoom`,
-            options: {},
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          `gatsby-remark-copy-images`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
+          { resolve: "gatsby-remark-prismjs" },
+          { resolve: "gatsby-remark-responsive-iframe" },
+          { resolve: "gatsby-remark-copy-linked-files" },
+          { resolve: "gatsby-remark-smartypants" },
         ],
-        plugins: [`gatsby-remark-images`, `gatsby-remark-images-medium-zoom`],
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-images`],
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-github-profile`,
       options: {

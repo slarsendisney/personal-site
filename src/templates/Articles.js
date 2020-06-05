@@ -7,8 +7,6 @@ import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
 
 import StickyArticleSideBar from "../components/Articles/StickyArticleSideBar"
-import { LazyLoadImage } from "react-lazy-load-image-component"
-import "react-lazy-load-image-component/src/effects/blur.css"
 import getAllArticles from "../utils/getAllArticles"
 
 let pathToTitle = (path) => {
@@ -26,34 +24,15 @@ let pathToTitle = (path) => {
   )
 }
 
-export const Article = ({
-  title,
-  pubDate,
-  slug,
-  hero_img,
-  placeholder_img,
-  coverimg,
-  excerpt,
-}) => (
+export const Article = ({ title, pubDate, slug, coverimg, excerpt }) => (
   <Link to={slug} className="link" id="path">
     <div className="grow row margin-3-t margin-5-b">
       <div className="col-xs-12 col-sm-5 col-md-5 margin-2-b">
-        {hero_img ? (
-          <LazyLoadImage
-            alt={title}
-            effect="blur"
-            className="shadow"
-            style={{ width: "100%", maxHeight: 200, objectFit: "cover" }}
-            src={hero_img}
-            placeholderSrc={placeholder_img}
-          />
-        ) : (
-          <Img
-            fluid={coverimg.childImageSharp.fluid}
-            className="shadow"
-            style={{ width: "100%", maxHeight: 200 }}
-          />
-        )}
+        <Img
+          fluid={coverimg.childImageSharp.fluid}
+          className="shadow"
+          style={{ width: "100%", maxHeight: 200 }}
+        />
       </div>
       <div className="col-xs-12 col-sm-7 col-md-7">
         <h2 className="margin-0 is-grey">{title}</h2>
@@ -66,34 +45,15 @@ export const Article = ({
     </div>
   </Link>
 )
-export const ArticlePreview = ({
-  title,
-  pubDate,
-  slug,
-  hero_img,
-  placeholder_img,
-  coverimg,
-  excerpt,
-}) => (
+export const ArticlePreview = ({ title, pubDate, slug, coverimg, excerpt }) => (
   <Link to={"/" + slug} className="link" id="path">
     <div className="grow row margin-5-b">
       <div className="col-xs-12  margin-5-t ">
-        {hero_img ? (
-          <LazyLoadImage
-            alt={title}
-            effect="blur"
-            className="shadow"
-            style={{ width: "100%", maxHeight: 250, objectFit: "cover" }}
-            src={hero_img}
-            placeholderSrc={placeholder_img}
-          />
-        ) : (
-          <Img
-            fluid={coverimg.childImageSharp.fluid}
-            className="shadow"
-            style={{ width: "100%", maxHeight: 250 }}
-          />
-        )}
+        <Img
+          fluid={coverimg.childImageSharp.fluid}
+          className="shadow"
+          style={{ width: "100%", maxHeight: 250 }}
+        />
       </div>
       <div className="col-xs-12  margin-5-t">
         <h2 className="margin-0 is-grey">{title}</h2>
@@ -233,7 +193,7 @@ export const pageQuery = graphql`
             path
             coverimg {
               childImageSharp {
-                fluid(maxWidth: 1000) {
+                fluid(maxWidth: 400) {
                   # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
                   ...GatsbyImageSharpFluid_noBase64
                 }
