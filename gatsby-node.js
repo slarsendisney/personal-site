@@ -1,5 +1,4 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 const { formatTitleForURL } = require("./src/utils/formatTitleForURL")
 const redirects = [
   {
