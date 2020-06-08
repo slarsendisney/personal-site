@@ -24,29 +24,32 @@ let pathToTitle = (path) => {
   )
 }
 
-export const Article = ({ title, pubDate, slug, coverimg, excerpt }) => (
-  <Link to={slug} className="link" id="path">
-    <div className="grow row margin-3-t margin-5-b">
-      <div className="col-xs-12 col-sm-5 col-md-5 margin-2-b">
-        <Img
-          fluid={coverimg.childImageSharp.fluid}
-          className="shadow"
-          style={{ width: "100%", maxHeight: 200 }}
-        />
-      </div>
-      <div className="col-xs-12 col-sm-7 col-md-7">
-        <h2 className="margin-0 is-grey">{title}</h2>
-        <p className="margin-0 margin-2-b is-grey">
-          {format(new Date(pubDate), "iii, dd MMM yyyy")}
-        </p>
+export const Article = ({ title, pubDate, slug, coverimg, excerpt }) => {
+  console.log(slug)
+  return (
+    <Link to={slug} className="link" id="path">
+      <div className="grow row margin-3-t margin-5-b">
+        <div className="col-xs-12 col-sm-5 col-md-5 margin-2-b">
+          <Img
+            fluid={coverimg.childImageSharp.fluid}
+            className="shadow"
+            style={{ width: "100%", maxHeight: 200 }}
+          />
+        </div>
+        <div className="col-xs-12 col-sm-7 col-md-7">
+          <h2 className="margin-0 is-grey">{title}</h2>
+          <p className="margin-0 margin-2-b is-grey">
+            {format(new Date(pubDate), "iii, dd MMM yyyy")}
+          </p>
 
-        <p className="margin-0 is-grey">{excerpt}</p>
+          <p className="margin-0 is-grey">{excerpt}</p>
+        </div>
       </div>
-    </div>
-  </Link>
-)
+    </Link>
+  )
+}
 export const ArticlePreview = ({ title, pubDate, slug, coverimg, excerpt }) => (
-  <Link to={"/" + slug} className="link" id="path">
+  <Link to={slug} className="link" id="path">
     <div className="grow row margin-5-b">
       <div className="col-xs-12  margin-5-t ">
         <Img

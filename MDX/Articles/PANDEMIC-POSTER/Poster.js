@@ -69,7 +69,10 @@ export default () => {
   const watchTitanic = Math.floor(hoursInLockDown() / 3.5)
   const aroundTheWorld = twoDecimalPlacesIfCents(hoursInLockDown() / 45)
   const listenToQueen = Math.floor(minutesInLockDown() / 58)
-  const daysWithoutCarlota = differenceInDays(endDate, new Date(2020, 2, 1))
+  const daysWithoutCarlota = differenceInDays(
+    new Date(2020, 5, 7),
+    new Date(2020, 2, 1)
+  )
   const coffeeDoses = Math.floor(daysInLockDown() * 1.7)
   const beer = Math.floor(daysInLockDown() / 3)
   const hoursListened = twoDecimalPlacesIfCents(daysInLockDown() * 4.21)

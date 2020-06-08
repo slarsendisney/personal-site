@@ -35,7 +35,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 
   const QandA = path.resolve(`./src/templates/QandA.js`)
-  const Article = path.resolve(`./src/templates/Article.js`)
   const MDXArticle = path.resolve(`./src/templates/MDXArticle.js`)
   const Project = path.resolve(`./src/templates/Project.js`)
   const result = await graphql(`
@@ -117,12 +116,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
-  mdxPosts.data.allMdx.edges.forEach((item) => {
-    const slug = "articles/" + formatTitleForURL(item.node.frontmatter.title)
+  mdxPosts.data.allMdx.edges.forEach((item, index) => {
+    const slug = "/articles/" + formatTitleForURL(item.node.frontmatter.title)
     createPage({
       path: slug,
       component: MDXArticle,
-      context: { slug: slug },
+      context: { slug: slug, articlePage: Math.floor(index / postsPerPage) },
     })
   })
 }
@@ -134,12 +133,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: "articles/" + formatTitleForURL(node.frontmatter.title),
+      value: "/articles/" + formatTitleForURL(node.frontmatter.title),
     })
     if (node.frontmatter.path) {
       createRedirect({
         fromPath: node.frontmatter.path,
-        toPath: "articles/" + formatTitleForURL(node.frontmatter.title),
+        toPath: "/articles/" + formatTitleForURL(node.frontmatter.title),
         isPermanent: true,
       })
     }

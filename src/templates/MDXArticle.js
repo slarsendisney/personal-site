@@ -37,7 +37,7 @@ const components = {
 export default ({ data, location }) => {
   const { mdx } = data
   const { title, date, desc, coverimg, declutter } = mdx.frontmatter
-
+  const { articlePage } = data.sitePage.context
   const target = React.createRef()
   return (
     <Layout>
@@ -51,7 +51,12 @@ export default ({ data, location }) => {
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t " ref={target}>
           <div className="col-xs-12 pad-3-lr">
-            <Link to="/articles" className="">
+            <Link
+              to={
+                articlePage === 0 ? "/articles" : `/articles/${articlePage + 1}`
+              }
+              className=""
+            >
               <h2 className="is-grey margin-0 margin-2-b link-bar pad-1-b">{`< Articles`}</h2>
             </Link>
           </div>
@@ -85,6 +90,12 @@ export default ({ data, location }) => {
 
 export const pageQuery = graphql`
   query($slug: String!) {
+    sitePage(path: { eq: $slug }) {
+      context {
+        slug
+        articlePage
+      }
+    }
     mdx(fields: { slug: { eq: $slug } }) {
       id
       body
