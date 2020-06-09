@@ -40,6 +40,15 @@ const types = [
   },
 ]
 
+const linkFromType = (page) => {
+  if (page.type === "Presentation") {
+    return page.path + "/slides"
+  }
+  if (page.type === "Article") {
+    return "/" + page.path
+  }
+  return page.path
+}
 export class Search extends Component {
   constructor(props) {
     super(props)
@@ -67,14 +76,7 @@ export class Search extends Component {
             }
             return (
               <div className="col-xs-12 margin-5-b grow" key={page.id}>
-                <Link
-                  to={
-                    page.type === "Presentation"
-                      ? page.path + "/slides"
-                      : page.path
-                  }
-                  className="is-grey"
-                >
+                <Link to={linkFromType(page)} className="is-grey">
                   <h2 className="margin-0">
                     <Emojione text={page.title} />
                   </h2>

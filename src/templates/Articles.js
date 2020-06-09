@@ -25,7 +25,6 @@ let pathToTitle = (path) => {
 }
 
 export const Article = ({ title, pubDate, slug, coverimg, excerpt }) => {
-  console.log(slug)
   return (
     <Link to={slug} className="link" id="path">
       <div className="grow row margin-3-t margin-5-b">
@@ -128,21 +127,6 @@ export default ({ data }) => {
                       </Link>
                     </div>
                   ))}
-                </div>
-                <div className="col-xs-12 col-sm-6 col-md-12">
-                  <h3 className="margin-0-b margin-5-t">FEELING LUCKY?</h3>
-                  <button
-                    onClick={() =>
-                      navigate(
-                        "/" +
-                          allArticles[
-                            Math.floor(Math.random() * allArticles.length)
-                          ].fields.slug
-                      )
-                    }
-                  >
-                    <p className="is-special-blue">See A Random Article</p>
-                  </button>
                 </div>
               </div>
             </StickyArticleSideBar>

@@ -147,13 +147,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `nike-data`,
-        path: `${__dirname}/data/nike/all`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `stats`,
         path: `${__dirname}/data/stats/count_total.json`,
       },
