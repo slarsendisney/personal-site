@@ -52,7 +52,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-meta-redirect`,
-    `gatsby-plugin-preact`,
     {
       resolve: `gatsby-plugin-webpack-bundle-analyzer`,
       options: {
@@ -162,7 +161,35 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "mdx-pages",
-        path: `${__dirname}/MDX`,
+        path: `${__dirname}/MDX/Articles`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Bio`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Boilerplates`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Projects`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Quibs`,
       },
     },
     {

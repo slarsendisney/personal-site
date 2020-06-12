@@ -15,6 +15,14 @@ const config = (opts = {}) => {
           path: name,
         },
       },
+      mdx && {
+        resolve: "gatsby-plugin-mdx",
+        options: {
+          gatsbyRemarkPlugins,
+          remarkPlugins,
+        },
+      },
+      "gatsby-plugin-react-helmet",
       "gatsby-plugin-emotion",
       "gatsby-plugin-catch-links",
       "gatsby-plugin-theme-ui",

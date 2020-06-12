@@ -75,9 +75,12 @@ export default ({ data, location }) => {
               {title}
             </h1>
             <div className="flex align-horizontal margin-3-b">
-              <div style={{ height: 25, width: 25 }} className="margin-1-r">
-                <FeatureBadge feature={featured} link={true} />
-              </div>
+              {featured && (
+                <div style={{ height: 25, width: 25 }} className="margin-1-r">
+                  <FeatureBadge feature={featured} link={true} />
+                </div>
+              )}
+
               <h6 className="is-hero-sub-text margin-0">
                 {format(new Date(date), "iii, dd MMM yyyy")}{" "}
               </h6>
