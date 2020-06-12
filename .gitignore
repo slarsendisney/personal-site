@@ -9,7 +9,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 # plugins
-plugins/gatsby-source-npm-author-packages
+plugins/gatsby-source-npm-author-packages/
 # Runtime data
 pids
 *.pid
