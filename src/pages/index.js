@@ -33,7 +33,7 @@ export default function Start({ data }) {
           {/* <div className="col-xs-12">
             <ExperimentalHero />
           </div> */}
-          <div className="col-xs-12 col-sm-6 pad-5-lr">
+          <div className="col-xs-12 col-sm-6 pad-3-lr">
             <h1 className="is-hero-menu margin-0">Sam</h1>
             <h1 className="is-hero-menu margin-0">Larsen-Disney</h1>
             <div className="line margin-5-tb" />
@@ -55,7 +55,7 @@ export default function Start({ data }) {
               ))}
             </div>
           </div>
-          <div className="col-xs-12 col-sm-6 pad-5-lr pad-10-b">
+          <div className="col-xs-12 col-sm-6 pad-3-lr pad-10-b">
             {sections
               .filter((item) => item.home)
               .map((item) => (

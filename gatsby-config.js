@@ -53,11 +53,16 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-meta-redirect`,
     `gatsby-plugin-preact`,
-    `gatsby-plugin-webpack-bundle-analyzer`,
     {
-      resolve: `gatsby-source-npm-author-packages`,
+      resolve: `gatsby-plugin-webpack-bundle-analyzer`,
       options: {
-        author: `dudesamld`,
+        disable: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-npm-author-packages-dev`,
+      options: {
+        author: `slarsendisney`,
       },
     },
     {
@@ -112,9 +117,6 @@ module.exports = {
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -122,7 +124,6 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-copy-images`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
@@ -161,35 +162,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "mdx-pages",
-        path: `${__dirname}/MDX/Articles`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "mdx-pages",
-        path: `${__dirname}/MDX/Bio`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "mdx-pages",
-        path: `${__dirname}/MDX/Boilerplates`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "mdx-pages",
-        path: `${__dirname}/MDX/Projects`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "mdx-pages",
-        path: `${__dirname}/MDX/Quibs`,
+        path: `${__dirname}/MDX`,
       },
     },
     {

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, navigate } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { format } from "date-fns"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
@@ -24,10 +24,10 @@ let pathToTitle = (path) => {
   )
 }
 
-export const Article = ({ title, pubDate, slug, coverimg, excerpt }) => {
+export const Article = ({ title, pubDate, slug, coverimg, excerpt, key }) => {
   return (
-    <Link to={slug} className="link" id="path">
-      <div className="grow row margin-3-t margin-5-b">
+    <Link to={slug} className="link" id={key}>
+      <div className="row margin-3-t margin-5-b ">
         <div className="col-xs-12 col-sm-5 col-md-5 margin-2-b">
           <Img
             fluid={coverimg.childImageSharp.fluid}
@@ -82,10 +82,12 @@ export default ({ data }) => {
       <div className="is-grey is-light-grey-bg pad-5-t">
         <div className="row container-small ">
           <div className="col-xs-12 pad-3-lr"></div>
-          <div className="col-xs-12 col-md-9  pad-3-lr fade-in">
-            <h3 className="  margin-1-l margin-0-b">RECENTLY PUBLISHED</h3>
+          <div className="col-xs-12 col-md-9 pad-3-lr">
+            <h3 className=" margin-1-l margin-0-b">RECENTLY PUBLISHED</h3>
             {allArticles.map((item) => (
-              <Article {...item} {...item.fields} key={item.fields.slug} />
+              <div className="grow">
+                <Article {...item} {...item.fields} key={item.fields.slug} />
+              </div>
             ))}
             <div
               className="flex margin-5-b"

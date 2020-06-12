@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -40,7 +39,7 @@ export default function Bio({ data, location }) {
                 and{" "}
                 <a href="/projects/corona-support" className="is-special-blue">
                   rapid response systems
-                </a>{" "}
+                </a>
                 . I enjoy teaching the next generation to code through my{" "}
                 <a href="/articles" className="is-special-blue">
                   articles
@@ -64,7 +63,7 @@ export default function Bio({ data, location }) {
                 <a href="/boilerplates" className="is-special-blue">
                   boilerplates
                 </a>{" "}
-                and {data.npmProfile.totalPackages}{" "}
+                and {data.allNpmPackage.totalCount}{" "}
                 <a
                   href="https://www.npmjs.com/~dudesamld"
                   className="is-special-blue"
@@ -103,8 +102,8 @@ export const query = graphql`
     gitHubProfile {
       totalContributions
     }
-    npmProfile {
-      totalPackages
+    allNpmPackage {
+      totalCount
     }
     boilerplates: allMdx(
       filter: { frontmatter: { type: { eq: "Boilerplate" } } }
