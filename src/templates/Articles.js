@@ -1,15 +1,18 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { format } from "date-fns"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withIEPolyfill"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Subscribe from "../components/Articles/Subscribe"
-
 import StickyArticleSideBar from "../components/Articles/StickyArticleSideBar"
 import getAllArticles from "../utils/getAllArticles"
+import FeatureBadge from "../components/Articles/FeatureBadge"
+import ReactTooltip from "react-tooltip"
+import { kebabCase } from "lodash"
+import { MaxStickyBarWidth } from "../utils/customHooks"
 
-let pathToTitle = (path) => {
+export const pathToTitle = (path) => {
   let clean = path
     .replace("/articles/", "")
     .split("/")
@@ -24,24 +27,60 @@ let pathToTitle = (path) => {
   )
 }
 
-export const Article = ({ title, pubDate, slug, coverimg, excerpt, key }) => {
+export const createTagGroup = (tags) =>
+  tags.map((tag) => (
+    <Link to={`/articles/tags/${kebabCase(tag)}`}>
+      <p className="tag is-special-blue-bg is-white pad-1 border-radius-sm margin-1-tb margin-1-r">
+        {tag.toUpperCase()}
+      </p>
+    </Link>
+  ))
+
+export const Article = ({
+  title,
+  pubDate,
+  slug,
+  coverimg,
+  featured,
+  excerpt,
+  key,
+  tags,
+}) => {
   return (
     <Link to={slug} className="link" id={key}>
       <div className="row margin-3-t margin-5-b ">
-        <div className="col-xs-12 col-sm-5 col-md-5 margin-2-b">
+        <div
+          className="col-xs-12 col-md-5 margin-2-b"
+          style={{ position: "relative" }}
+        >
+          {featured && (
+            <div
+              style={{
+                position: "absolute",
+                bottom: 3,
+                right: 12,
+                zIndex: 100,
+                height: 30,
+                width: 30,
+              }}
+            >
+              <FeatureBadge feature={featured} link={false} />
+            </div>
+          )}
           <Img
             fluid={coverimg.childImageSharp.fluid}
             className="shadow"
-            style={{ width: "100%", maxHeight: 200 }}
+            objectFit="cover"
+            style={{ width: "100%", height: "100%", maxHeight: 220 }}
           />
         </div>
-        <div className="col-xs-12 col-sm-7 col-md-7">
+        <div className="col-xs-12 col-md-7">
           <h2 className="margin-0 is-grey">{title}</h2>
           <p className="margin-0 margin-2-b is-grey">
             {format(new Date(pubDate), "iii, dd MMM yyyy")}
           </p>
-
-          <p className="margin-0 is-grey">{excerpt}</p>
+          <p className="margin-0 is-grey margin-1-tb">{excerpt}</p>
+          <div className="flex">{createTagGroup(tags)}</div>
         </div>
       </div>
     </Link>
@@ -71,10 +110,20 @@ export const ArticlePreview = ({ title, pubDate, slug, coverimg, excerpt }) => (
 
 export default ({ data }) => {
   const { currentPage, numPages } = data.sitePage.context
+  const maxWidth = MaxStickyBarWidth()
   const allArticles = getAllArticles(data)
-  let popular = data.allPageViews
+  const popular = data.allPageViews
+  const tags = data.tags.group
+    .sort((a, b) => b.totalCount - a.totalCount)
+    .slice(0, 10)
+    .map((item) => item.tag)
+  console.log(tags)
   return (
     <Layout>
+      <ReactTooltip
+        className="info-tooltip"
+        className="is-black-bg is-white lato"
+      />
       <SEO
         title="Articles"
         description="✍️ I Write Occasionally. I hope you find something useful!"
@@ -113,22 +162,29 @@ export default ({ data }) => {
           </div>
 
           <div
-            className="col-xs-12 col-md-3  pad-3-l fade-in "
+            className="col-xs-12 col-md-3  pad-3-l"
             style={{ position: "relative" }}
           >
             <StickyArticleSideBar>
-              <div className="row">
+              <div
+                className="row pad-3-r"
+                style={{ maxWidth: maxWidth, width: "100%" }}
+              >
                 <div className="col-xs-12 col-sm-6 col-md-12">
                   <h3 className="margin-0-b">POPULAR CONTENT</h3>
                   {popular.edges.map((item) => (
                     <div>
                       <Link to={item.node.path} className="is-special-blue">
-                        <p className="" style={{ maxWidth: 250 }}>
-                          {pathToTitle(item.node.path)}
-                        </p>
+                        <p className="">{pathToTitle(item.node.path)}</p>
                       </Link>
                     </div>
                   ))}
+                </div>
+                <div className="col-xs-12 col-sm-6 col-md-12">
+                  <h3 className="margin-0-b">TOP TAGS</h3>
+                  <div className="flex flex-wrap margin-3-tb">
+                    {createTagGroup(tags)}
+                  </div>
                 </div>
               </div>
             </StickyArticleSideBar>
@@ -167,6 +223,12 @@ export const pageQuery = graphql`
         }
       }
     }
+    tags: allMdx {
+      group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
+      }
+    }
     allMdx(
       limit: $limit
       skip: $skip
@@ -180,6 +242,8 @@ export const pageQuery = graphql`
             date
             desc
             path
+            featured
+            tags
             coverimg {
               childImageSharp {
                 fluid(maxWidth: 400) {

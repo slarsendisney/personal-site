@@ -1,9 +1,38 @@
 import React, { useEffect, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-export function useWindowSize() {
-  const isClient = typeof window === "object"
+const isClient = typeof window === "object"
 
+export function MaxStickyBarWidth() {
+  function getSize() {
+    return isClient
+      ? window.innerWidth > 1363
+        ? 1363 / 4
+        : window.innerWidth
+      : undefined
+  }
+
+  const [stickyMaxWidth, setStickyMaxWidth] = useState(getSize)
+
+  useEffect(() => {
+    if (!isClient) {
+      return false
+    }
+
+    function handleResize() {
+      setStickyMaxWidth(getSize())
+    }
+
+    typeof window !== "undefined" &&
+      window.addEventListener("resize", handleResize)
+    return () =>
+      typeof window !== "undefined" &&
+      window.removeEventListener("resize", handleResize)
+  }, [])
+  return stickyMaxWidth
+}
+
+export function useWindowSize() {
   function getSize() {
     return {
       width: isClient ? window.innerWidth : undefined,

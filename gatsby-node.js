@@ -1,4 +1,5 @@
 const path = require(`path`)
+const _ = require("lodash")
 const { formatTitleForURL } = require("./src/utils/formatTitleForURL")
 const redirects = [
   {
@@ -29,6 +30,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const QandA = path.resolve(`./src/templates/QandA.js`)
   const MDXArticle = path.resolve(`./src/templates/MDXArticle.js`)
   const Project = path.resolve(`./src/templates/Project.js`)
+  const Tag = path.resolve(`./src/templates/Tag.js`)
   const result = await graphql(`
     {
       allMdx(
@@ -43,6 +45,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               title
             }
           }
+        }
+      }
+      tagsGroup: allMdx(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
         }
       }
     }
@@ -69,6 +76,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       default:
         console.log(`Unknown page: ${node.frontmatter.type}`)
     }
+  })
+
+  result.data.tagsGroup.group.forEach((tag) => {
+    createPage({
+      path: `articles/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: Tag,
+      context: {
+        tag: tag.fieldValue,
+      },
+    })
   })
 
   const mdxPosts = await graphql(`

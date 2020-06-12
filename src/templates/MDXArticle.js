@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import Img from "gatsby-image"
+import ReactTooltip from "react-tooltip"
 import { format } from "date-fns"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,6 +11,7 @@ import ReadingProgress from "../components/Articles/ReadingProgress"
 import Like from "../components/Articles/StickyLike"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import FeatureBadge from "../components/Articles/FeatureBadge"
 
 const CodeBlock = (props) => (
   <SyntaxHighlighter
@@ -36,11 +37,15 @@ const components = {
 
 export default ({ data, location }) => {
   const { mdx } = data
-  const { title, date, desc, coverimg, declutter } = mdx.frontmatter
+  const { title, date, desc, coverimg, declutter, featured } = mdx.frontmatter
   const { articlePage } = data.sitePage.context
   const target = React.createRef()
   return (
     <Layout>
+      <ReactTooltip
+        className="info-tooltip"
+        className="is-black-bg is-white lato"
+      />
       <SEO
         title={title}
         description={desc}
@@ -57,7 +62,11 @@ export default ({ data, location }) => {
               }
               className=""
             >
-              <h2 className="is-grey margin-0 margin-2-b link-bar pad-1-b">{`< Articles`}</h2>
+              <h2 className="is-grey margin-0 margin-2-b link-bar pad-1-b">
+                {" "}
+                <i class="las la-arrow-left"></i>
+                {` Articles`}
+              </h2>
             </Link>
           </div>
 
@@ -65,9 +74,14 @@ export default ({ data, location }) => {
             <h1 className="is-hero-menu is-grey margin-1-t margin-5-b">
               {title}
             </h1>
-            <h6 className="is-hero-sub-text margin-3-b">
-              {format(new Date(date), "iii, dd MMM yyyy")}
-            </h6>
+            <div className="flex align-horizontal margin-3-b">
+              <div style={{ height: 25, width: 25 }} className="margin-1-r">
+                <FeatureBadge feature={featured} link={true} />
+              </div>
+              <h6 className="is-hero-sub-text margin-0">
+                {format(new Date(date), "iii, dd MMM yyyy")}{" "}
+              </h6>
+            </div>
             <div className="line margin-5-tb" />
 
             <div className={`pad-10-b lato ${!declutter ? "article" : ""}`}>
@@ -104,6 +118,7 @@ export const pageQuery = graphql`
         desc
         date
         declutter
+        featured
         coverimg {
           childImageSharp {
             fluid(maxWidth: 1000) {

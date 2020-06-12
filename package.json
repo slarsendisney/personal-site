@@ -78,6 +78,7 @@
     "html2canvas": "^1.0.0-rc.5",
     "intersection-observer": "^0.10.0",
     "libnpmsearch": "^3.0.0",
+    "lodash": "^4.17.15",
     "lodash.get": "^4.4.2",
     "lodash.isstring": "4.0.1",
     "lodash.merge": "^4.6.2",
