@@ -60,9 +60,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-npm-author-packages-dev`,
+      resolve: `gatsby-source-npm-author-packages`,
       options: {
-        author: `slarsendisney`,
+        maintainer: `slarsendisney`,
       },
     },
     {
