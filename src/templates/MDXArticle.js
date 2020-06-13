@@ -57,11 +57,11 @@ export default ({ data, location }) => {
               }
               className=""
             >
-              <h2 className="is-grey margin-0 margin-2-b link-bar pad-1-b">
+              <h3 className="is-grey margin-0 margin-2-b link-bar pad-1-b">
                 {" "}
                 <i class="las la-arrow-left"></i>
-                {` Articles`}
-              </h2>
+                {` ARTICLES`}
+              </h3>
             </Link>
           </div>
 

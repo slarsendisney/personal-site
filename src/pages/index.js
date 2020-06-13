@@ -150,7 +150,7 @@ export const query = graphql`
             title
             desc
             date
-            skills
+            tags
             path
             coverimg {
               childImageSharp {

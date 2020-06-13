@@ -29,7 +29,7 @@ export const pathToTitle = (path) => {
 export const createTagGroup = (tags) =>
   tags.map((tag) => (
     <Link to={`/articles/tags/${kebabCase(tag)}`}>
-      <p className="tag  margin-1-tb margin-1-r">{tag.toUpperCase()}</p>
+      <p className="article-tag  margin-1-tb margin-1-r">{tag.toUpperCase()}</p>
     </Link>
   ))
 
@@ -45,7 +45,7 @@ export const Article = ({
 }) => {
   return (
     <Link to={slug} className="link" id={key}>
-      <div className="row margin-3-t margin-5-b ">
+      <div className="row margin-3-t margin-5-b pad-0">
         <div
           className="col-xs-12 col-md-5 margin-2-b"
           style={{ position: "relative" }}
@@ -116,7 +116,7 @@ export const ArticlePreview = ({
           style={{ width: "100%", height: "100%", maxHeight: 250 }}
         />
       </div>
-      <div className="col-xs-12  margin-5-t">
+      <div className="col-xs-12  margin-3-t">
         <h2 className="margin-0 is-grey">{title}</h2>
         <p className="margin-0 margin-2-b is-grey">
           {format(new Date(pubDate), "iii, dd MMM yyyy")}
@@ -146,9 +146,10 @@ export default ({ data }) => {
       />
       <div className="is-grey is-light-grey-bg pad-5-t">
         <div className="row container-small ">
-          <div className="col-xs-12 pad-3-lr"></div>
-          <div className="col-xs-12 col-md-9 pad-3-lr">
-            <h3 className=" margin-1-l margin-0-b">RECENTLY PUBLISHED</h3>
+          <div className="col-xs-12 col-md-9">
+            <h3 className=" margin-1-l margin-0-b" style={{ lineHeight: 1.5 }}>
+              RECENTLY PUBLISHED
+            </h3>
             {allArticles.map((item) => (
               <div className="grow">
                 <Article {...item} {...item.fields} key={item.fields.slug} />
@@ -239,7 +240,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tags: allMdx {
+    tags: allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
       group(field: frontmatter___tags) {
         tag: fieldValue
         totalCount

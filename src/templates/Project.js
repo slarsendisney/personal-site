@@ -21,8 +21,12 @@ export default ({ data, location }) => {
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t pad-10-b ">
           <div className="col-xs-12 pad-3-lr">
-            <Link to="/projects" className="link">
-              <h1 className="is-grey margin-0 margin-2-b grow">{`< Projects`}</h1>
+            <Link to="/projects" className="">
+              <h3 className="is-grey margin-0 margin-2-b link-bar pad-1-b">
+                {" "}
+                <i class="las la-arrow-left"></i>
+                {` PROJECTS`}
+              </h3>
             </Link>
           </div>
           <div className="col-xs-12 pad-3-lr margin-1-t">

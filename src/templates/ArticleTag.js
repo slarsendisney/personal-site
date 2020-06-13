@@ -22,9 +22,9 @@ const Tags = ({ pageContext, data }) => {
     <Layout>
       <SEO
         title={`"${tag}"`}
-        description="✍️ I Write Occasionally. I hope you find something useful!"
+        description={`Articles I have written tagged with "${tag}"`}
       />
-      <div className="is-grey  pad-5-t container-small row ">
+      <div className="is-grey pad-5-t container-small row ">
         <div className="col-xs-12 col-md-9 pad-3-lr ">
           <Link to="/articles">
             <div className="flex is-grey">
@@ -110,7 +110,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tags: allMdx {
+    tags: allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
       group(field: frontmatter___tags) {
         tag: fieldValue
         totalCount
@@ -119,7 +119,7 @@ export const pageQuery = graphql`
     allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { tags: { in: [$tag] }, type: { eq: "Article" } } }
     ) {
       totalCount
       edges {

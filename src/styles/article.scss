@@ -118,11 +118,14 @@
   }
   p {
     font-weight: normal;
-    font-size: 1.1em;
+    font-size: 1em;
     code {
       @extend .is-yellow-bg-always;
       @extend .is-grey-always;
-      @extend .pad-1;
+      padding-left: 2px;
+      padding-right: 2px;
+      padding-top: 1px;
+      padding-bottom: 1px;
       border-radius: 3px;
     }
   }

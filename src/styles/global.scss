@@ -145,9 +145,18 @@ live-editor {
   font-size: 30px !important;
 }
 
-.tag {
+.article-tag {
   font-size: 13px;
-  @extend .is-tag-bg; 
+  @extend .is-article-tag-bg; 
+
+  @extend .is-white;
+  @extend .pad-1;
+  @extend .border-radius-sm
+}
+
+.project-tag {
+  font-size: 13px;
+  @extend .is-project-tag-bg; 
 
   @extend .is-white;
   @extend .pad-1;
