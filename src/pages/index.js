@@ -65,20 +65,6 @@ export default function Start({ data }) {
         </div>
       </div>
       <div className="is-grey is-white-bg">
-        <div className="row container-small pad-10-t  pad-3-lr pad-5-b">
-          <div className="col-xs-12">
-            <h2 className="margin-0 margin-2-b">Latest Projects</h2>
-          </div>
-
-          <div className="col-xs-12 col-md-6 pad-0">
-            <ProjectPreview {...featuredProjectOne} />
-          </div>
-          <div className="col-xs-12 col-md-6 pad-0">
-            <ProjectPreview {...featuredProjectTwo} />
-          </div>
-        </div>
-      </div>
-      <div className="is-grey is-light-grey-bg">
         <div className="row container-small pad-10-t pad-3-lr pad-10-b">
           <div className="col-xs-12">
             <h2 className="margin-0">Recent Articles</h2>
@@ -94,6 +80,20 @@ export default function Start({ data }) {
               {...featuredArticleTwo}
               {...featuredArticleTwo.fields}
             />
+          </div>
+        </div>
+      </div>
+      <div className="is-grey is-light-grey-bg">
+        <div className="row container-small pad-10-t  pad-3-lr pad-5-b">
+          <div className="col-xs-12">
+            <h2 className="margin-0 margin-2-b">Latest Projects</h2>
+          </div>
+
+          <div className="col-xs-12 col-md-6 pad-0">
+            <ProjectPreview {...featuredProjectOne} />
+          </div>
+          <div className="col-xs-12 col-md-6 pad-0">
+            <ProjectPreview {...featuredProjectTwo} />
           </div>
         </div>
       </div>
@@ -121,6 +121,8 @@ export const query = graphql`
             title
             date
             desc
+            featured
+            tags
             coverimg {
               childImageSharp {
                 fluid(maxWidth: 1000) {

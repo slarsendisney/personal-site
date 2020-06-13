@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import ReactTooltip from "react-tooltip"
 import { format } from "date-fns"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -42,10 +41,6 @@ export default ({ data, location }) => {
   const target = React.createRef()
   return (
     <Layout>
-      <ReactTooltip
-        className="info-tooltip"
-        className="is-black-bg is-white lato"
-      />
       <SEO
         title={title}
         description={desc}

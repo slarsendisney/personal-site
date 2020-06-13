@@ -5,6 +5,7 @@ import CookieConsent from "react-cookie-consent"
 import { Location } from "@reach/router"
 import Header from "./header"
 import Footer from "./Footer"
+import ReactTooltip from "react-tooltip"
 
 const Layout = ({ children }) => {
   return (
@@ -35,7 +36,10 @@ const Layout = ({ children }) => {
           that's cool with you!
         </h4>
       </CookieConsent>
-
+      <ReactTooltip
+        className="info-tooltip"
+        className="is-black-bg is-white lato"
+      />
       <Header />
 
       <main className="is-light-grey-bg is-grey">{children}</main>

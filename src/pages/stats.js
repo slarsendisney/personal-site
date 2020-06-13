@@ -2,7 +2,6 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { connect } from "react-redux"
 import { Emojione } from "react-emoji-render"
-import ReactTooltip from "react-tooltip"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import StatsCard from "../components/Stats/StatsCard"
@@ -75,7 +74,6 @@ const Stats = ({ data, count }) => {
         title="Stats"
         description="Ever wondered how many lines of code are at work here?"
       />
-      <ReactTooltip className="lato" />
       <div className="row container pad-10-t pad-10-b pad-3-lr">
         <div className="col-xs-12  is-grey">
           <h1 className=" margin-2-t">

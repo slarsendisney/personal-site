@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ReactTooltip from "react-tooltip"
 import { Article, createTagGroup, pathToTitle } from "./Articles"
 import getAllArticles from "../utils/getAllArticles"
 import StickyArticleSideBar from "../components/Articles/StickyArticleSideBar"
@@ -21,10 +20,6 @@ const Tags = ({ pageContext, data }) => {
     .map((item) => item.tag)
   return (
     <Layout>
-      <ReactTooltip
-        className="info-tooltip"
-        className="is-black-bg is-white lato"
-      />
       <SEO
         title={`"${tag}"`}
         description="✍️ I Write Occasionally. I hope you find something useful!"
@@ -33,11 +28,14 @@ const Tags = ({ pageContext, data }) => {
         <div className="col-xs-12 col-md-9 pad-3-lr ">
           <div className="flex is-grey">
             <Link to="/articles">
-              <h3 className="is-grey margin-1-l margin-0-b grow">
+              <h3
+                className="is-grey margin-1-l margin-0-b grow"
+                style={{ lineHeight: 1.5 }}
+              >
                 <i class="las la-arrow-left"></i>
               </h3>
             </Link>
-            <h3 className="margin-1-l margin-0-b">
+            <h3 className="margin-1-l margin-0-b" style={{ lineHeight: 1.5 }}>
               {totalCount} ARTICLE{totalCount === 1 ? "" : "S"} TAGGED WITH{" "}
               {` `}
               <span className="is-yellow-bg is-grey-always pad-1 border-radius-sm">

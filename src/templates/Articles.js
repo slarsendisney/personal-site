@@ -8,7 +8,6 @@ import Subscribe from "../components/Articles/Subscribe"
 import StickyArticleSideBar from "../components/Articles/StickyArticleSideBar"
 import getAllArticles from "../utils/getAllArticles"
 import FeatureBadge from "../components/Articles/FeatureBadge"
-import ReactTooltip from "react-tooltip"
 import { kebabCase } from "lodash"
 import { MaxStickyBarWidth } from "../utils/customHooks"
 
@@ -80,20 +79,43 @@ export const Article = ({
             {format(new Date(pubDate), "iii, dd MMM yyyy")}
           </p>
           <p className="margin-0 is-grey margin-1-tb">{excerpt}</p>
-          <div className="flex">{createTagGroup(tags)}</div>
+          <div className="flex flex-wrap">{createTagGroup(tags)}</div>
         </div>
       </div>
     </Link>
   )
 }
-export const ArticlePreview = ({ title, pubDate, slug, coverimg, excerpt }) => (
+export const ArticlePreview = ({
+  title,
+  pubDate,
+  slug,
+  coverimg,
+  featured,
+  tags,
+  excerpt,
+}) => (
   <Link to={slug} className="link" id="path">
     <div className="grow row margin-5-b">
-      <div className="col-xs-12  margin-5-t ">
+      <div className="col-xs-12  margin-5-t " style={{ position: "relative" }}>
+        {featured && (
+          <div
+            style={{
+              position: "absolute",
+              bottom: 3,
+              right: 12,
+              zIndex: 100,
+              height: 30,
+              width: 30,
+            }}
+          >
+            <FeatureBadge feature={featured} link={false} />
+          </div>
+        )}
         <Img
           fluid={coverimg.childImageSharp.fluid}
           className="shadow"
-          style={{ width: "100%", maxHeight: 250 }}
+          objectFit="cover"
+          style={{ width: "100%", height: "100%", maxHeight: 250 }}
         />
       </div>
       <div className="col-xs-12  margin-5-t">
@@ -101,8 +123,8 @@ export const ArticlePreview = ({ title, pubDate, slug, coverimg, excerpt }) => (
         <p className="margin-0 margin-2-b is-grey">
           {format(new Date(pubDate), "iii, dd MMM yyyy")}
         </p>
-
-        <p className="margin-0 is-grey">{excerpt}</p>
+        <p className="margin-0 is-grey margin-1-tb">{excerpt}</p>
+        <div className="flex flex-wrap">{createTagGroup(tags)}</div>
       </div>
     </div>
   </Link>
@@ -120,10 +142,6 @@ export default ({ data }) => {
   console.log(tags)
   return (
     <Layout>
-      <ReactTooltip
-        className="info-tooltip"
-        className="is-black-bg is-white lato"
-      />
       <SEO
         title="Articles"
         description="✍️ I Write Occasionally. I hope you find something useful!"
