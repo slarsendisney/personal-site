@@ -98,7 +98,6 @@ h5 {
   display: block;
   font-family: Lato;
   font-size: 0.83em;
-
   margin-bottom: 1.67em;
   margin-left: 0;
   margin-right: 0;
@@ -147,5 +146,10 @@ live-editor {
 }
 
 .tag {
-  font-size: 13px
+  font-size: 13px;
+  @extend .is-tag-bg; 
+
+  @extend .is-white;
+  @extend .pad-1;
+  @extend .border-radius-sm
 }

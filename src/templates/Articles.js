@@ -29,9 +29,7 @@ export const pathToTitle = (path) => {
 export const createTagGroup = (tags) =>
   tags.map((tag) => (
     <Link to={`/articles/tags/${kebabCase(tag)}`}>
-      <p className="tag is-special-blue-bg is-white pad-1 border-radius-sm margin-1-tb margin-1-r">
-        {tag.toUpperCase()}
-      </p>
+      <p className="tag  margin-1-tb margin-1-r">{tag.toUpperCase()}</p>
     </Link>
   ))
 

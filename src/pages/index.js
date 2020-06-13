@@ -13,7 +13,6 @@ import MediaLink from "../components/Root/MediaLink"
 import EmploymentHistory from "../data/timeline.json"
 import PreferPaper from "../components/Root/PreferPaper"
 import getAllArticles from "../utils/getAllArticles"
-import ExperimentalHero from "../components/Hero/ExperimentalHero"
 
 export default function Start({ data }) {
   const allArticles = getAllArticles(data)

@@ -26,23 +26,27 @@ const Tags = ({ pageContext, data }) => {
       />
       <div className="is-grey  pad-5-t container-small row ">
         <div className="col-xs-12 col-md-9 pad-3-lr ">
-          <div className="flex is-grey">
-            <Link to="/articles">
+          <Link to="/articles">
+            <div className="flex is-grey">
               <h3
                 className="is-grey margin-1-l margin-0-b grow"
                 style={{ lineHeight: 1.5 }}
               >
                 <i class="las la-arrow-left"></i>
               </h3>
-            </Link>
-            <h3 className="margin-1-l margin-0-b" style={{ lineHeight: 1.5 }}>
-              {totalCount} ARTICLE{totalCount === 1 ? "" : "S"} TAGGED WITH{" "}
-              {` `}
-              <span className="is-yellow-bg is-grey-always pad-1 border-radius-sm">
-                {tag.toUpperCase()}
-              </span>
-            </h3>
-          </div>
+
+              <h3
+                className=" is-grey margin-1-l margin-0-b"
+                style={{ lineHeight: 1.5 }}
+              >
+                {totalCount} ARTICLE{totalCount === 1 ? "" : "S"} TAGGED WITH{" "}
+                {` `}
+                <span className="is-yellow-bg is-grey-always pad-1 border-radius-sm">
+                  {tag.toUpperCase()}
+                </span>
+              </h3>
+            </div>
+          </Link>
           {allArticles.map((node) => {
             return (
               <div className="grow">
