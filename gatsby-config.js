@@ -117,6 +117,13 @@ module.exports = {
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+              linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`,
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -124,12 +131,20 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          `gatsby-remark-copy-images`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
-        plugins: [{ resolve: "gatsby-remark-images" }],
+        plugins: [`gatsby-remark-images`, `gatsby-remark-images-medium-zoom`],
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-images`],
+      },
+    },
+
     {
       resolve: `gatsby-source-github-profile`,
       options: {
