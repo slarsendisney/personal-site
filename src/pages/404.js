@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import StringSimilarity from "string-similarity"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,9 +9,6 @@ export default ({ location, data }) => {
   const pages = data.allSitePage.nodes.map(({ path }) => path)
   const pathname = location.pathname
   const result = StringSimilarity.findBestMatch(pathname, pages).bestMatch
-  console.log(result.target)
-  console.log(result.rating)
-
   function renderContent() {
     return result.rating > 0.7 ? (
       <>
@@ -30,7 +27,7 @@ export default ({ location, data }) => {
     ) : (
       <>
         <h1 className="is-hero-menu margin-3-t is-grey margin-3-b">
-          Yep, you're lost. ⚡️
+          Yep, you're lost.
         </h1>
         <h3 className=" is-grey margin-5-b">
           Click your heels together three times and say 'There's no place like
@@ -56,9 +53,7 @@ export default ({ location, data }) => {
             <h3 className="is-grey margin-1-tb">
               PAGE NOT FOUND <Emojione text="😭" />
             </h3>
-
             {renderContent()}
-
             <Link
               to={"/"}
               style={{ textDecoration: "none" }}

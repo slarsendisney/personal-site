@@ -1,0 +1,196 @@
+---
+type: "Article"
+title: Rethinking 404 Pages
+desc:  What if your 404 page could do more? What if it could make a guess as to what your user was trying to do and try and get them where they need to go? This is what I will be investigating today.
+coverimg: "./hero.png"
+date: 2020-06-14
+tags: [gatsby, ux]
+---
+
+When you think about a "404 page" you probably think of the classic "Page Not Found". You might have come across hilarious pages that have jokes, gifs or memes on these pages. But nearly all of these pages only have one primary call to action - take me home. 
+
+Let's say, I am a user interested in the projects on sld.codes. I've been to the site before so I know that I can find projects by navigating to `sld.codes/projects` but when I type the URL in my browser I accidentally type  `sld.codes/project` , missing off the "s" in "projects".  I land on the 404 page and I ask myself - was it projects? Or, was it portfolio? At this point, I can either try modifying the URL, or click the call to action, go home and navigate around the site until I find what I was looking for. I see this as a missed opportunity. 
+
+What if your 404 page could do more? What if it could make a guess as to what your user was trying to do and point them in the right direction? This is what I will be investigating today.
+
+#### 404 & Gatsby
+
+Out of the box Gatsby has a very useful development 404 page. You can find the code for it at `gatsby/dist/internal-plugins/dev-404-page/raw_dev-404-page.js` :
+
+![development-404 page](./development-404.png)
+
+There are two parts here that really interest me:
+
+**The current path.**
+
+In the example above we can see that gatsby knows you're trying to hit `/asdasd`
+
+**The "Pages" section.**
+
+A list of every path on the site. This is data that can be collected with the following graphQL query:
+
+   ```graphql
+   allSitePage {
+         nodes {
+           path
+         }
+       }
+   ```
+
+#### The Idea
+
+> When landing on the 404 page, take the current path and sift through all paths on the site to find the closest match. If that match is "close enough" then suggest that page to the user.
+
+Pages in Gatsby have the `location` object available as a prop which we can use to grab the pathname:
+
+```jsx
+import React from "react"
+export default ({ location }) => {
+  console.log(location.pathname)
+}
+```
+
+We can use the query mentioned above from the 404 development page to get our list of pages:
+
+```jsx
+import React from "react"
+import { graphql } from "gatsby"
+export default ({ location, data }) => {
+  console.log(location.pathname)
+  console.log({data.allSitePage})
+}
+
+export const pageQuery = graphql`
+  {
+    allSitePage(
+      filter: { path: { nin: ["/dev-404-page", "/404", "/404.html"] } }
+    ) {
+      nodes {
+        path
+      }
+    }
+  }
+`
+```
+
+You'll notice I've added a filter to the page just to exclude pages that match 404 pages so that these are never offered to the user as suggested pages.
+
+Now to find the closest match to the current page in the paths. I came across this awesome little npm package called `string-similarity`. 
+It has a funciton "bestMatch" that can find the best match to a string in an array of strings. It also gives the match a rating so I could introduce a threshold. Using this function we have all the pieces we need to work out the logic:
+
+```jsx
+import React from "react"
+import { graphql } from "gatsby"
+import StringSimilarity from "string-similarity"
+export default ({ location, data }) => {
+  const pages = data.allSitePage.nodes.map(({ path }) => path)
+  const pathname = location.pathname
+  const result = StringSimilarity.findBestMatch(pathname, pages).bestMatch
+  const goodMatch = result.rating > 0.7
+}
+
+export const pageQuery = graphql`
+  {
+    allSitePage(
+      filter: { path: { nin: ["/dev-404-page", "/404", "/404.html"] } }
+    ) {
+      nodes {
+        path
+      }
+    }
+  }
+`
+```
+If I consider the match to be high enough, I can suggest the match as the user's intended path. Job done!
+
+#### Final Implementation:
+
+```jsx
+import React from "react"
+import { Link, graphql } from "gatsby"
+import StringSimilarity from "string-similarity"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import { Emojione } from "react-emoji-render"
+
+export default ({ location, data }) => {
+  const pages = data.allSitePage.nodes.map(({ path }) => path)
+  const pathname = location.pathname
+  const result = StringSimilarity.findBestMatch(pathname, pages).bestMatch
+  function renderContent() {
+    return result.rating > 0.7 ? (
+      <>
+        <h1 className=" margin-3-t is-grey margin-3-b">
+          You were probably looking for{" "}
+          <Link to={result.target} className="is-special-blue">
+            {result.target}
+          </Link>
+        </h1>
+        <h3 className="is-grey margin-3-b margin-5-t">
+          Not what you're after? Click your heels together three times and say
+          'There's no place like home', press the button below, and you'll be
+          there.
+        </h3>
+      </>
+    ) : (
+      <>
+        <h1 className="is-hero-menu margin-3-t is-grey margin-3-b">
+          Yep, you're lost.
+        </h1>
+        <h3 className=" is-grey margin-5-b">
+          Click your heels together three times and say 'There's no place like
+          home', press the button below, and you'll be there.
+        </h3>
+      </>
+    )
+  }
+
+  return (
+    <Layout>
+      <SEO title={"404"} />
+      <div
+        className="is-light-grey-bg"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <div className="row container pad-20-tb">
+          <div className="col-xs-12">
+            <h3 className="is-grey margin-1-tb">
+              PAGE NOT FOUND <Emojione text="😭" />
+            </h3>
+            {renderContent()}
+            <Link
+              to={"/"}
+              style={{ textDecoration: "none" }}
+              className=" align-horizontal is-white lato margin-4-r"
+            >
+              <button className="bubble-button border-radius">
+                There's no place like home
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  )
+}
+
+export const pageQuery = graphql`
+  {
+    allSitePage(
+      filter: { path: { nin: ["/dev-404-page", "/404", "/404.html"] } }
+    ) {
+      nodes {
+        path
+      }
+    }
+  }
+`
+
+```
+
+You can check out the page by navigating to ** [/articles/tags/preact]("/articles/tags/reac")**.
+
