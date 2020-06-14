@@ -1,33 +1,63 @@
 import React from "react"
 import { Link } from "gatsby"
+import StringSimilarity from "string-similarity"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { Emojione } from "react-emoji-render"
 
-export default () => {
+export default ({ location, data }) => {
+  const pages = data.allSitePage.nodes.map(({ path }) => path)
+  const pathname = location.pathname
+  const result = StringSimilarity.findBestMatch(pathname, pages).bestMatch
+  console.log(result.target)
+  console.log(result.rating)
+
+  function renderContent() {
+    return result.rating > 0.7 ? (
+      <>
+        <h1 className=" margin-3-t is-grey margin-3-b">
+          You were probably looking for{" "}
+          <Link to={result.target} className="is-special-blue">
+            {result.target}
+          </Link>
+        </h1>
+        <h3 className="is-grey margin-3-b margin-5-t">
+          Not what you're after? Click your heels together three times and say
+          'There's no place like home', press the button below, and you'll be
+          there.
+        </h3>
+      </>
+    ) : (
+      <>
+        <h1 className="is-hero-menu margin-3-t is-grey margin-3-b">
+          Yep, you're lost. ⚡️
+        </h1>
+        <h3 className=" is-grey margin-5-b">
+          Click your heels together three times and say 'There's no place like
+          home', press the button below, and you'll be there.
+        </h3>
+      </>
+    )
+  }
+
   return (
     <Layout>
       <SEO title={"404"} />
       <div
-        className="is-pink-always is-light-grey-bg"
+        className="is-light-grey-bg"
         style={{
-          minHeight: "85vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
         }}
       >
-        <div className="row container-small pad-20-tb ">
-          <div className="col-xs-12 col-md-8 pad-10-lr">
-            <h6 className="is-hero-sub-text is-black margin-3-b">
-              Did I really just hit a dead link?
-            </h6>
-            <p className="is-hero-menu margin-3-t is-special-blue margin-3-b">
-              Yep, you're lost. ⚡️
-            </p>
-            <h6 className="is-hero-sub-text is-black margin-10-b">
-              Click your heels together three times and say 'There's no place
-              like home', press the button below, and you'll be there.
-            </h6>
+        <div className="row container pad-20-tb" style={{ maxWidth: 800 }}>
+          <div className="col-xs-12">
+            <h3 className="is-grey margin-1-tb">
+              PAGE NOT FOUND <Emojione text="😭" />
+            </h3>
+
+            {renderContent()}
 
             <Link
               to={"/"}
@@ -44,3 +74,15 @@ export default () => {
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  {
+    allSitePage(
+      filter: { path: { nin: ["/dev-404-page", "/404", "/404.html"] } }
+    ) {
+      nodes {
+        path
+      }
+    }
+  }
+`
