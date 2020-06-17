@@ -29,37 +29,8 @@ export default function Start({ data }) {
       <SEO title="Home" />
       <div className="is-grey is-light-grey-bg">
         <div className="row container-small pad-20-t pad-10-b">
-          {/* <div className="col-xs-12">
+          <div className="col-xs-12">
             <ExperimentalHero />
-          </div> */}
-          <div className="col-xs-12 col-sm-6 pad-3-lr">
-            <h1 className="is-hero-menu margin-0">Sam</h1>
-            <h1 className="is-hero-menu margin-0">Larsen-Disney</h1>
-            <div className="line margin-5-tb" />
-            <div className="border" />
-            <h4 className="is-hero-sub-text">
-              {`${currentJob.role} @ `}
-              <button
-                className="is-special-blue"
-                onClick={() => {
-                  window.open(currentJob.url, "_blank")
-                }}
-              >
-                {currentJob.company}.
-              </button>
-            </h4>
-            <div className="row  pad-6-t pad-10-b  pad-10-b">
-              {mediaLinks.map((item) => (
-                <MediaLink type={item.type} url={item.url} key={item.type} />
-              ))}
-            </div>
-          </div>
-          <div className="col-xs-12 col-sm-6 pad-3-lr pad-10-b">
-            {sections
-              .filter((item) => item.home)
-              .map((item) => (
-                <NavLink {...item} key={item.label} />
-              ))}
           </div>
         </div>
       </div>
