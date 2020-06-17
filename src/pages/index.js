@@ -6,10 +6,7 @@ import { ArticlePreview } from "../templates/Articles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RecentEvents from "../components/Root/RecentEvents"
-import sections from "../data/nav-sections.json"
-import mediaLinks from "../data/media-links.json"
-import NavLink from "../components/Root/NavLink"
-import MediaLink from "../components/Root/MediaLink"
+import ExperimentalHero from "../components/Hero/ExperimentalHero"
 import EmploymentHistory from "../data/timeline.json"
 import PreferPaper from "../components/Root/PreferPaper"
 import getAllArticles from "../utils/getAllArticles"
@@ -28,7 +25,7 @@ export default function Start({ data }) {
     <Layout>
       <SEO title="Home" />
       <div className="is-grey is-light-grey-bg">
-        <div className="row container-small pad-20-t pad-10-b">
+        <div className="row container-small pad-10-tb">
           <div className="col-xs-12">
             <ExperimentalHero />
           </div>

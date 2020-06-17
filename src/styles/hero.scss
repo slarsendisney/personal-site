@@ -21,16 +21,16 @@
 
 .hero-wrapper {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-gap: 10px;
-  background-color: #fff;
-  color: #444;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+
 }
 
 .hero-box {
-  background-color: #444;
-  color: #fff;
+  color: #444;
   border-radius: 5px;
+  height:100%;
   padding: 20px;
   font-size: 150%;
 }
