@@ -106,7 +106,7 @@ export default () => {
         className="col-xs-12"
         style={{ textAlign: "center", marginTop: -20 }}
       >
-        <h1 className="margin-0 is-grey is-hero-menu">Sam Larsen-Disney</h1>
+        <h1 className="margin-0 is-grey is-hero-menu">Samuel Larsen-Disney</h1>
         <p className="margin-0 is-grey">DESIGNER. ENGINEER. CREATOR.</p>
       </div>
     </div>
