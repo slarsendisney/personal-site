@@ -64,7 +64,6 @@ export default () => {
   }, [])
   const hitTheButton = () => {
     setSubscribed(true)
-    setSeen({ date: new Date().getTime(), subscribed: true })
     setTimeout(() => setFade(true), 3500)
     setTimeout(() => setVisible(false), 4500)
   }

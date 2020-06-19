@@ -1,16 +1,23 @@
 import addToMailchimp from "gatsby-plugin-mailchimp"
+import { subDays } from "date-fns"
 import React, { useState } from "react"
 import ConfettiAnimation from "../Animations/ConfettiAnimation"
+import { useLocalStorage } from "../../utils/customHooks"
 import { Emojione } from "react-emoji-render"
 
 export default ({ noLabel, cb }) => {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
+  const [seen, setSeen] = useLocalStorage("dismissed_modal", {
+    date: subDays(new Date(), 4).getTime(),
+    subscribed: false,
+  })
   const handleSubmit = () => {
     addToMailchimp(email).then((data) => {
       if (cb) {
         cb()
       }
+      setSeen({ date: new Date().getTime(), subscribed: true })
       setSubmitted(true)
     })
   }
