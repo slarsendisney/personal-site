@@ -1,5 +1,6 @@
 import React from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 export default function Bio({ data, location }) {

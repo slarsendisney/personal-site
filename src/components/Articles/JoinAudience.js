@@ -55,7 +55,7 @@ export default () => {
     setViewed({ ...viewed, [contentID]: new Date().getTime() })
 
     if (
-      viewedArticlesToday(viewed) > 2 &&
+      viewedArticlesToday(viewed) > 1 &&
       !seen.subscribed &&
       differenceInDays(new Date(), new Date(seen.date)) > 2
     ) {
