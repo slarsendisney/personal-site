@@ -1,12 +1,16 @@
 import addToMailchimp from "gatsby-plugin-mailchimp"
 import React, { useState } from "react"
 import ConfettiAnimation from "../Animations/ConfettiAnimation"
+import { Emojione } from "react-emoji-render"
 
-export default () => {
+export default ({ noLabel, cb }) => {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
   const handleSubmit = () => {
     addToMailchimp(email).then((data) => {
+      if (cb) {
+        cb()
+      }
       setSubmitted(true)
     })
   }
@@ -26,25 +30,25 @@ export default () => {
         >
           <div className="col-xs-12 col-sm-11 flex align-vertical pad-7-tb is-grey">
             <h2 className="margin-1-b margin-2-l">
-              {" "}
-              🎉 Awesome, you're all signed up!{" "}
+              <Emojione text="🎉 " />
+              Awesome, you're all signed up!{" "}
             </h2>
-            <h3 className="margin-0 margin-2-l">
+            <p className="margin-0 margin-2-l">
               Thanks for showing interest in my content.
-            </h3>
+            </p>
           </div>
         </div>
       ) : (
         <div className="row margin-3-lr">
-          <div className="col-xs-12 ">
-            <p className="margin-1-tb margin-0">
-              Want to know when I post something new? Subscribe to my
-              newsletter.{" "}
-              <span role="img" aria-label="Rocket">
-                🚀
-              </span>
-            </p>
-          </div>
+          {!noLabel && (
+            <div className="col-xs-12 ">
+              <p className="margin-1-tb margin-0">
+                Want to know when I post something new? Subscribe to my
+                newsletter. <Emojione text="🚀" />
+              </p>
+            </div>
+          )}
+
           <div className="col-xs-12 col-sm-6 flex align-vertical">
             <input
               type="text"

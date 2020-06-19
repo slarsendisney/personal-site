@@ -107,6 +107,22 @@
   ul li h2 a {
     @extend .is-grey;
     text-decoration: none;
+    
+  }
+  ul {
+    li {
+      code {
+      
+          @extend .is-yellow-bg-always;
+          @extend .is-grey-always;
+          padding-left: 2px;
+          padding-right: 2px;
+          padding-top: 1px;
+          padding-bottom: 1px;
+          border-radius: 3px;
+        
+      }
+    }
   }
   li {
     margin-bottom: 5px;
@@ -143,3 +159,4 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
