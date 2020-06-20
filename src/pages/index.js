@@ -25,7 +25,7 @@ export default function Start({ data }) {
     <Layout>
       <SEO title="Home" />
       <div className="is-grey is-light-grey-bg">
-        <div className="row container-small pad-10-tb">
+        <div className="row container-small pad-10-t pad-5-b">
           <div className="col-xs-12">
             <ExperimentalHero />
           </div>

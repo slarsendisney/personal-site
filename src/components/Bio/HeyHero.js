@@ -18,9 +18,7 @@ export default ({ data }) => (
           <Img
             fluid={data.file.childImageSharp.fluid}
             style={{
-              marginTop: -250,
-              maxWidth: 400,
-              width: "80%",
+              height: 100,
               marginLeft: "auto",
               marginRight: "auto",
             }}
