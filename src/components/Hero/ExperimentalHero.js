@@ -1,114 +1,42 @@
 import React from "react"
-import Man from "./man.png"
-import Ribbon1 from "./ribbon1.png"
-import Ribbon2 from "./ribbon2.png"
-import Ribbon3 from "./ribbon3.png"
-import Paperclip from "./paperclip.png"
-import Screwdriver from "./screwdriver.png"
-import Spring from "./spring.png"
-import Coffee from "./coffee.png"
-import Pen from "./pen.png"
+import { graphql } from "gatsby"
+import { useWindowSize } from "../../utils/customHooks"
 
 export default () => {
+  const size = useWindowSize()
+  if (size.width < 1325) {
+  }
   return (
     <div className="row">
       <div className="col-xs-12 flex align-horizontal align-vertical">
         <div
           class="hero-wrapper text-align-center"
-          style={{ width: "100%", maxWidth: 900 }}
+          style={{ width: "100%", maxWidth: 1300 }}
         >
-          <div class="hero-box a">
-            <img
-              className="float-slow"
-              src={Coffee}
-              style={{ maxWidth: 45, width: "7vw", marginRight: "-240%" }}
-            />
-          </div>
+          <div class="hero-box a"></div>
           <div class="hero-box b"></div>
-          <div class="hero-box c">
-            <img
-              src={Ribbon2}
-              className="grow-lg "
-              style={{ maxWidth: 50, width: "6vw", marginLeft: "-150%" }}
-            />
-          </div>
-          <div class="hero-box d">
-            <div className="row">
-              <div className="col-xs-12">
-                <img
-                  src={Ribbon1}
-                  className="grow-lg "
-                  style={{ maxWidth: 60, width: "10vw", marginRight: "-100%" }}
-                />
-              </div>
-              <div className="col-xs-12" style={{ marginTop: "80%" }}>
-                <img
-                  className="float-slow"
-                  src={Paperclip}
-                  style={{ maxWidth: 60, width: "8vw", marginRight: "-30%" }}
-                />
-              </div>
-            </div>
-          </div>
-          <div class="hero-box e" style={{ position: "relative" }}>
-            <img
-              className="float"
-              src={Man}
-              style={{ maxWidth: 260, width: "100%", marginLeft: "-15%" }}
-            />
-          </div>
-          <div class="hero-box f">
-            <div className="row">
-              <div className="col-xs-12" style={{ marginTop: "5%" }}>
-                <img
-                  className="float-slowest"
-                  src={Spring}
-                  style={{ maxWidth: 50, width: "5vw", marginLeft: "-50%" }}
-                />
-              </div>
-              <div className="col-xs-12" style={{ marginTop: "50%" }}>
-                <img
-                  className="float-slow "
-                  src={Pen}
-                  style={{ maxWidth: 50, width: "8vw", marginLeft: "-50%" }}
-                />
-              </div>
-            </div>
-          </div>
-          <div class="hero-box g">
-            <img
-              className="float-slowest"
-              src={Screwdriver}
-              style={{
-                maxHeight: 60,
-                height: "8vw",
-                marginTop: "-50%",
-                marginRight: "-100%",
-              }}
-            />
-          </div>
-          <div class="hero-box h" style={{ position: "relative" }}></div>
-          <div class="hero-box i">
-            <img
-              src={Ribbon3}
-              className="grow-lg "
-              style={{
-                maxWidth: 60,
-                width: "8vw",
-                marginTop: "-50%",
-                marginLeft: "-90%",
-              }}
-            />
-          </div>
+          <div class="hero-box c"></div>
+          <div class="hero-box d"></div>
+          <div class="hero-box e" style={{ position: "relative" }}></div>
+          <div class="hero-box f"></div>
+          <div class="hero-box g"></div>
+          <div class="hero-box h"></div>
+          <div class="hero-box i"></div>
         </div>
-      </div>
-      <div
-        className="col-xs-12"
-        style={{ textAlign: "center", marginTop: -20 }}
-      >
-        <h1 className="margin-0 is-grey is-hero-menu">Samuel Larsen-Disney</h1>
-        <p className="margin-0 is-grey">DESIGNER. ENGINEER. CREATOR.</p>
       </div>
     </div>
   )
 }
+
+export const query = graphql`
+  {
+    file(relativePath: { eq: "face.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+          ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
+  }
+`
