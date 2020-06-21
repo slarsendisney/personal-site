@@ -24,14 +24,14 @@ export default function Start({ data }) {
   return (
     <Layout>
       <SEO title="Home" />
-      <div className="is-grey is-light-grey-bg">
-        <div className="row container-small pad-10-t pad-5-b">
+      <div className="is-grey is-hero-blue-bg">
+        <div className="row container-small pad-3-tb">
           <div className="col-xs-12">
-            <ExperimentalHero />
+            <ExperimentalHero currentJob={currentJob} />
           </div>
         </div>
       </div>
-      <div className="is-grey is-white-bg">
+      <div className="is-grey is-white-bg" id="articles">
         <div className="row container-small pad-10-t pad-3-lr pad-10-b">
           <div className="col-xs-12">
             <h2 className="margin-0">Recent Articles</h2>

@@ -49,7 +49,7 @@ export default () => {
   return (
     <div
       className="is-white-bg is-grey pad-5 "
-      style={{ zIndex: 100 }}
+      style={{ zIndex: 1000 }}
       ref={wrapperRef}
     >
       <div className="row flex padding-0-tb container-small">
