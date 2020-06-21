@@ -18,6 +18,7 @@ let buttonTypes = [
   { type: "unicorn", label: "🦄" },
   { type: "avo", label: "🥑" },
 ]
+
 const LikeButton = ({
   type,
   label,

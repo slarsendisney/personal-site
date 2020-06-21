@@ -11,6 +11,7 @@ import Like from "../components/Articles/StickyLike"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import FeatureBadge from "../components/Articles/FeatureBadge"
+import JoinAudience from "../components/Articles/JoinAudience"
 
 const CodeBlock = (props) => (
   <SyntaxHighlighter
@@ -47,6 +48,7 @@ export default ({ data, location }) => {
         location={location}
         image={"https://sld.codes" + coverimg.childImageSharp.fluid.src}
       />
+      <JoinAudience />
       <ReadingProgress target={target} />
       <div className="is-grey is-light-grey-bg">
         <div className="row container pad-10-t " ref={target}>

@@ -154,11 +154,17 @@ live-editor {
   @extend .border-radius-sm
 }
 
+.article-tag:hover {
+  @extend .is-article-tag-hover-bg; 
+}
+
 .project-tag {
   font-size: 13px;
   @extend .is-project-tag-bg; 
-
   @extend .is-white;
   @extend .pad-1;
   @extend .border-radius-sm
+}
+.project-tag:hover {
+  @extend .is-project-tag-hover-bg; 
 }
