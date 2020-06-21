@@ -1,0 +1,24 @@
+{
+    "name": "gatsby-source-npm-author-packages",
+    "description": "Gatsby source plugin for retrieving NPM Packages by a specific Author",
+    "author": "Sam Larsen-Disney <s.larsendisney@gmail.com>",
+    "version": "0.0.1",
+    "license": "MIT",
+    "main": "gatsby-node.js",
+    "devDependencies": {
+      "gatsby": "^2.13.6",
+      "libnpmsearch": "^3.0.0"
+    },
+    "keywords": [
+      "gatsby",
+      "gatsby-plugin",
+      "gatsby-source-plugin"
+    ],
+    "peerDependencies": {
+      "gatsby": "^2.13.6"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/slarsendisney/gatsby-source-npm-author-packages.git"
+    }
+  }
