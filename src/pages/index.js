@@ -6,10 +6,7 @@ import { ArticlePreview } from "../templates/Articles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RecentEvents from "../components/Root/RecentEvents"
-import sections from "../data/nav-sections.json"
-import mediaLinks from "../data/media-links.json"
-import NavLink from "../components/Root/NavLink"
-import MediaLink from "../components/Root/MediaLink"
+import ExperimentalHero from "../components/Hero/ExperimentalHero"
 import EmploymentHistory from "../data/timeline.json"
 import PreferPaper from "../components/Root/PreferPaper"
 import getAllArticles from "../utils/getAllArticles"
@@ -27,43 +24,14 @@ export default function Start({ data }) {
   return (
     <Layout>
       <SEO title="Home" />
-      <div className="is-grey is-light-grey-bg">
-        <div className="row container-small pad-20-t pad-10-b">
-          {/* <div className="col-xs-12">
-            <ExperimentalHero />
-          </div> */}
-          <div className="col-xs-12 col-sm-6 pad-3-lr">
-            <h1 className="is-hero-menu margin-0">Sam</h1>
-            <h1 className="is-hero-menu margin-0">Larsen-Disney</h1>
-            <div className="line margin-5-tb" />
-            <div className="border" />
-            <h4 className="is-hero-sub-text">
-              {`${currentJob.role} @ `}
-              <button
-                className="is-special-blue"
-                onClick={() => {
-                  window.open(currentJob.url, "_blank")
-                }}
-              >
-                {currentJob.company}.
-              </button>
-            </h4>
-            <div className="row  pad-6-t pad-10-b  pad-10-b">
-              {mediaLinks.map((item) => (
-                <MediaLink type={item.type} url={item.url} key={item.type} />
-              ))}
-            </div>
-          </div>
-          <div className="col-xs-12 col-sm-6 pad-3-lr pad-10-b">
-            {sections
-              .filter((item) => item.home)
-              .map((item) => (
-                <NavLink {...item} key={item.label} />
-              ))}
+      <div className="is-grey is-hero-blue-bg">
+        <div className="row container-small pad-3-tb">
+          <div className="col-xs-12">
+            <ExperimentalHero currentJob={currentJob} />
           </div>
         </div>
       </div>
-      <div className="is-grey is-white-bg">
+      <div className="is-grey is-white-bg" id="articles">
         <div className="row container-small pad-10-t pad-3-lr pad-10-b">
           <div className="col-xs-12">
             <h2 className="margin-0">Recent Articles</h2>
