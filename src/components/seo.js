@@ -24,7 +24,8 @@ function SEO({ description, lang, meta, title, image, location }) {
     ? "https://sld.codes" + location.pathname
     : "https://sld.codes"
 
-  const metaImage = image || "https://ik.imagekit.io/sld/Logo__ok8RRhzzg3.png"
+  const metaImage =
+    image || "https://ik.imagekit.io/sld/NewHeroImg_Kne09AU6n.png"
   return (
     <Helmet>
       <title>Sam Larsen-Disney | {title}</title>
