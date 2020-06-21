@@ -60,7 +60,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-npm-author-packages`,
+      resolve: `gatsby-source-npm-author-packages-dev`,
       options: {
         maintainer: `slarsendisney`,
       },
