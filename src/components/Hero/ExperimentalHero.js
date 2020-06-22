@@ -233,6 +233,7 @@ export default ({ currentJob }) => {
                         />
                         <Img
                           className="bulb"
+                          loading="eager"
                           fluid={data.Bulb.childImageSharp.fluid}
                           style={{
                             position: "absolute",
@@ -243,6 +244,7 @@ export default ({ currentJob }) => {
                       </div>
                     </div>
                     <Img
+                      loading="eager"
                       fluid={data.BodyThinking.childImageSharp.fluid}
                       style={{
                         maxWidth: 200,
