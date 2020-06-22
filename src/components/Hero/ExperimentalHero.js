@@ -11,14 +11,21 @@ export default ({ currentJob }) => {
       query={graphql`
         fragment bigimage on File {
           childImageSharp {
-            fluid(maxWidth: 400) {
+            fluid(maxWidth: 200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        fragment medImage on File {
+          childImageSharp {
+            fluid(maxWidth: 125) {
               ...GatsbyImageSharpFluid
             }
           }
         }
         fragment image on File {
           childImageSharp {
-            fluid(maxWidth: 125) {
+            fluid(maxWidth: 75) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -36,12 +43,12 @@ export default ({ currentJob }) => {
             ...image
           }
           Macbook: file(relativePath: { eq: "illustration/Item/Macbook.png" }) {
-            ...image
+            ...medImage
           }
           MacbookDark: file(
             relativePath: { eq: "illustration/Item/Macbook-Dark.png" }
           ) {
-            ...image
+            ...medImage
           }
           iPad: file(relativePath: { eq: "illustration/Item/iPad.png" }) {
             ...image
@@ -49,7 +56,7 @@ export default ({ currentJob }) => {
           Paperclip: file(
             relativePath: { eq: "illustration/Item/Paperclip.png" }
           ) {
-            ...image
+            ...medImage
           }
           Ribbon1: file(
             relativePath: { eq: "illustration/Item/Ribbon 1.png" }
