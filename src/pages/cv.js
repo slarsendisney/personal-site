@@ -41,7 +41,7 @@ export default class extends React.Component {
             }}
           >
             <PDFExport
-              scale={0.75}
+              scale={0.74}
               paperSize="A4"
               margin="0cm"
               ref={(component) => (this.pdfExportComponent = component)}
