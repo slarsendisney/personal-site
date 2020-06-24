@@ -27,6 +27,38 @@
 .hide-on-big {
   display: none;
 }
+.mobile-cv {
+  width: 210mm;
+  -webkit-transform-origin: top left;
+  transform: scale(0.3);
+  margin: auto;
+  margin-bottom: -197mm;
+ 
+  h5 {
+    font-size: 0.8em;
+  }
+  @media only screen and (min-width: 320px) {
+    transform: scale(0.35);
+    width: 200mm;
+    margin-left: 0vw;
+  }
+  @media only screen and (min-width: 370px) {
+   
+    margin-left: 5vw;
+  }
+  @media only screen and (min-width: 415px) {
+    transform: scale(0.45);
+    margin-left: 6vw;
+  }
+  @media only screen and (min-width: 500px) {
+    transform: scale(0.55);
+    margin-bottom: -137mm;
+  }
+  @media only screen and (min-width: 700px) {
+    transform: scale(0.75);
+    margin-bottom: -77mm;
+  }
+}
 
 @media only screen and (max-width: 908px) {
   .paper {
@@ -35,5 +67,8 @@
   }
   .hide-on-big {
     display: block;
+  }
+  .hide-on-small {
+    display: none;
   }
 }

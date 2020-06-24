@@ -16,19 +16,25 @@ import Contact from "./Contact"
 import Intro from "./Intro"
 import Interests from "./Interests"
 
-export default () => (
-  <div
-    id="cvDiv"
-    className="special-div"
-    style={{
-      backgroundColor: "",
-      width: "210mm",
-      height: "297mm",
-      marginLeft: "auto",
-      marginRight: "auto",
-      position: "relative",
-    }}
-  >
+export default ({ small }) => {
+  const Wrapper = ({ children }) => (
+    <div
+      id="cvDiv"
+      className="special-div"
+      style={{
+        backgroundColor: "",
+        width: "210mm",
+        height: "297mm",
+        marginLeft: "auto",
+        marginRight: "auto",
+        position: "relative",
+      }}
+    >
+      {children}
+    </div>
+  )
+
+  const CV = () => (
     <div className="row pad-5">
       <div
         className="col-xs-12 "
@@ -74,5 +80,14 @@ export default () => (
         <Experience experience={experience} icon={work} />
       </div>
     </div>
-  </div>
-)
+  )
+
+  if (small) {
+    return <CV />
+  } else
+    return (
+      <Wrapper>
+        <CV />
+      </Wrapper>
+    )
+}
