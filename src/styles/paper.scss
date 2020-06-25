@@ -29,30 +29,30 @@
 }
 .mobile-cv {
   width: 210mm;
-  zoom: 0.3;
-  -moz-transform: scale(0.3);
+  zoom: 0.2;
+  -moz-transform: scale(0.2);
   h5 {
     font-size: 0.8em;
   }
   @media only screen and (min-width: 321px) {
+    zoom: 0.3;
+    -moz-transform: scale(0.3);
+  }
+  @media only screen and (min-width: 415px) {
     zoom: 0.4;
     -moz-transform: scale(0.4);
   }
-  @media only screen and (min-width: 415px) {
+  @media only screen and (min-width: 500px) {
     zoom: 0.5;
     -moz-transform: scale(0.5);
   }
-  @media only screen and (min-width: 500px) {
+  @media only screen and (min-width: 600px) {
     zoom: 0.6;
     -moz-transform: scale(0.6);
   }
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 700px) {
     zoom: 0.7;
     -moz-transform: scale(0.7);
-  }
-  @media only screen and (min-width: 700px) {
-    zoom: 0.8;
-    -moz-transform: scale(0.8);
   }
 }
 

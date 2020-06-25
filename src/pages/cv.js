@@ -12,8 +12,8 @@ export default class extends React.Component {
       <Layout>
         <SEO title="CV" />
         <div className="is-light-grey-bg is-black-always pad-10-b">
-          <div className="container row pad-5">
-            <div className="col-xs-12 text-align-center">
+          <div className="container row ">
+            <div className="col-xs-12 pad-5 text-align-center">
               <button
                 className="bubble-button border-radius"
                 onClick={() => {
