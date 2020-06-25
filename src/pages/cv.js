@@ -24,7 +24,7 @@ export default class extends React.Component {
                 DOWNLOAD PDF
               </button>
             </div>
-            <div className="col-xs-12 pad-5-t flex align-vertical align-horizontal">
+            <div className="col-xs-12 flex align-vertical align-horizontal">
               <div className="hide-on-big mobile-cv is-white-bg-always">
                 <Cv small={true} />
               </div>
