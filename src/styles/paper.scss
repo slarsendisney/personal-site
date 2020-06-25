@@ -28,36 +28,24 @@
   display: none;
 }
 .mobile-cv {
-  width: 475mm;
-  zoom: 0.16;
-  -moz-transform: scale(0.2);
-  h5 {
-    font-size: 0.8em;
+  width: 230mm;
+  @media only screen and (min-width: 121px) {
+    transform: scale(0.3) translateY(-115%);
   }
   @media only screen and (min-width: 321px) {
-    width: 280mm;
-    zoom: 0.3;
-    -moz-transform: scale(0.3);
+    transform: scale(0.3) translateY(-115%);
   }
   @media only screen and (min-width: 415px) {
-    width: 275mm;
-    zoom: 0.3;
-    -moz-transform: scale(0.3);
+    transform: scale(0.4) translateY(-75%);
   }
   @media only screen and (min-width: 500px) {
-    width: 200mm;
-    zoom: 0.5;
-    -moz-transform: scale(0.5);
+    transform: scale(0.5) translateY(-50%);
   }
   @media only screen and (min-width: 600px) {
-    width: 220mm;
-    zoom: 0.6;
-    -moz-transform: scale(0.6);
+    transform: scale(0.6) translateY(-30%);
   }
   @media only screen and (min-width: 700px) {
-    width: 230mm;
-    zoom: 0.7;
-    -moz-transform: scale(0.7);
+    transform: scale(0.7) translateY(-20%);
   }
 }
 
