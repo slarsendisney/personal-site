@@ -84,7 +84,12 @@
 
   @media screen and (max-width: 500px) {
     transform: scale(0.7);
-    margin-left: 10px;
+    // margin-left: -5px;
     margin-top: 10px;
+  }
+  @media screen and (max-width: 330px) {
+    transform: scale(0.5);
+    // margin-left: -5px;
+    margin-top: 20px;
   }
 }

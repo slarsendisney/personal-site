@@ -41,7 +41,7 @@
 }
 
 .link:hover {
-  @extend .is-pink-always;
+  @extend .is-special-blue-always;
   cursor: pointer;
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;

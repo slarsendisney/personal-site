@@ -104,6 +104,7 @@
     "react-blur-image-loader": "^0.2.2",
     "react-cookie": "^4.0.3",
     "react-cookie-consent": "^5.0.1",
+    "react-crossfade-image": "^1.2.0",
     "react-dom": "^16.13.1",
     "react-emoji-render": "^1.2.4",
     "react-firebase-hooks": "^2.2.0",
