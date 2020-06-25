@@ -25,7 +25,7 @@ export default class extends React.Component {
               </button>
             </div>
             <div className="col-xs-12 flex align-vertical align-horizontal">
-              <div className="hide-on-big mobile-cv is-white-bg-always">
+              <div className="hide-on-big mobile-cv is-white-bg-always pad-3">
                 <Cv small={true} />
               </div>
             </div>
@@ -41,7 +41,7 @@ export default class extends React.Component {
             }}
           >
             <PDFExport
-              scale={0.74}
+              scale={0.75}
               paperSize="A4"
               margin="0cm"
               ref={(component) => (this.pdfExportComponent = component)}

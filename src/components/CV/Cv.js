@@ -23,8 +23,8 @@ export default ({ small }) => {
       className="special-div"
       style={{
         backgroundColor: "",
-        width: "210mm",
-        height: "297mm",
+        width: "209mm",
+        height: "296mm",
         marginLeft: "auto",
         marginRight: "auto",
         position: "relative",
@@ -35,7 +35,7 @@ export default ({ small }) => {
   )
 
   const CV = () => (
-    <div className="row pad-5">
+    <div className="row pad-1 pad-3-t">
       <div
         className="col-xs-12 "
         style={{
