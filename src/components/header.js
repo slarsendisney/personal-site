@@ -7,6 +7,7 @@ import LogoAnimation from "./Animations/LogoAnimation"
 import SmoothCollapse from "react-smooth-collapse"
 import sections from "../data/nav-sections.json"
 import { NavLinkSmall } from "./Root/NavLink"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import SpamButton from "../utils/SpamButton"
 
 function useOutsideAlerter(ref, fn) {
@@ -72,6 +73,11 @@ export default () => {
             aria-label="light mode"
             onClick={() => {
               setMenuOpen(false)
+              trackCustomEvent({
+                category: "Dark Mode",
+                action: "Click",
+                label: "Dark Mode Toggle Button",
+              })
               delay(darkMode.value ? darkMode.disable : darkMode.enable)
             }}
           >
@@ -86,7 +92,14 @@ export default () => {
           <SpamButton
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            onSpam={() => freakOut()}
+            onSpam={() => {
+              trackCustomEvent({
+                category: "Egg Trigger",
+                action: "Click",
+                label: "Egg-Nav",
+              })
+              freakOut()
+            }}
             clicks={8}
             interval={2000}
           >

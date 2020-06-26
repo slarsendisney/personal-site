@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import ConfettiAnimation from "../Animations/ConfettiAnimation"
 import { useLocalStorage } from "../../utils/customHooks"
 import { Emojione } from "react-emoji-render"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 export default ({ noLabel, cb }) => {
   const [email, setEmail] = useState("")
@@ -17,6 +18,13 @@ export default ({ noLabel, cb }) => {
       if (cb) {
         cb()
       }
+      const subLocation =
+        typeof window !== "undefined" ? window.location.pathname : "N/A"
+      trackCustomEvent({
+        category: "Subscriptions",
+        action: "Click",
+        label: `Subscribe Click - ${subLocation}`,
+      })
       setSeen({ date: new Date().getTime(), subscribed: true })
       setSubmitted(true)
     })

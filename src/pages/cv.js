@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { styles } from "../components/CV/cvStyles"
 import Cv from "../components/CV/Cv"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 export default class extends React.Component {
   pdfExportComponent
@@ -17,6 +18,11 @@ export default class extends React.Component {
               <button
                 className="bubble-button border-radius"
                 onClick={() => {
+                  trackCustomEvent({
+                    category: "CV",
+                    action: "Click",
+                    label: "CV Download Button",
+                  })
                   this.pdfExportComponent.save()
                 }}
                 style={{ width: 220 }}
