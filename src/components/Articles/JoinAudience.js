@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import { subDays, differenceInDays, differenceInHours } from "date-fns"
 import Subscribe from "./Subscribe"
 import { Emojione } from "react-emoji-render"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import { useLocalStorage } from "../../utils/customHooks"
 
 function useOutsideAlerter(ref, fn) {
@@ -59,10 +60,20 @@ export default () => {
       !seen.subscribed &&
       differenceInDays(new Date(), new Date(seen.date)) > 2
     ) {
+      trackCustomEvent({
+        category: "Subscribe",
+        action: "View",
+        label: "Modal Viewed",
+      })
       setVisible(true)
     }
   }, [])
   const hitTheButton = () => {
+    trackCustomEvent({
+      category: "Subscribe",
+      action: "Click",
+      label: "Modal: Clicked Subscribe",
+    })
     setSubscribed(true)
     setTimeout(() => setFade(true), 3500)
     setTimeout(() => setVisible(false), 4500)

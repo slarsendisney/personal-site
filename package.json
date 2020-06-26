@@ -71,6 +71,7 @@
     "gatsby-source-filesystem": "^2.1.3",
     "gatsby-source-npm-author-packages": "0.0.4",
     "gatsby-source-rss-feed": "^1.2.0",
+    "gatsby-source-spotify": "^1.3.2",
     "gatsby-transformer-remark": "2.8.15",
     "gatsby-transformer-sharp": "2.5.5",
     "googleapis": "^52.1.0",

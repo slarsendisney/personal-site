@@ -21,7 +21,7 @@ export default ({ noLabel, cb }) => {
       const subLocation =
         typeof window !== "undefined" ? window.location.pathname : "N/A"
       trackCustomEvent({
-        category: "Subscriptions",
+        category: "Subscribe",
         action: "Click",
         label: `Subscribe Click - ${subLocation}`,
       })
