@@ -11,6 +11,7 @@ import {
 } from "react-share"
 import Links from "../../data/links.json"
 import Subscribe from "./Subscribe.js"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 export default ({ location }) => (
   <>
@@ -20,11 +21,9 @@ export default ({ location }) => (
           <FacebookShareButton url={location.href} className="grow">
             <FacebookIcon round={true} style={{ height: 40 }} />
           </FacebookShareButton>
-
           <LinkedinShareButton url={location.href} className="grow">
             <LinkedinIcon round={true} style={{ height: 40 }} />
           </LinkedinShareButton>
-
           <TwitterShareButton url={location.href} className="grow">
             <TwitterIcon round={true} style={{ height: 40 }} />
           </TwitterShareButton>
@@ -67,11 +66,30 @@ export default ({ location }) => (
             helping the next generation to code. My site has no ads or sponsors.
             If you enjoy my content, please consider supporting what I do.
           </h3>
-          <a href={Links.buyMeACoffee}>
-            <button className="bubble-button is-white-always border-radius pad-4-lr pad-2-tb">
-              Buy me a coffee
-            </button>
-          </a>
+          <div>
+            <div className="row pad-0">
+              <div className="col-xs-12 col-sm-5 col-md-4 col-lg-3 margin-3-b">
+                <OutboundLink href={Links.buyMeACoffee}>
+                  <button
+                    className="bubble-button is-white-always border-radius pad-4-lr pad-2-tb"
+                    style={{ width: "100%" }}
+                  >
+                    Buy me a coffee
+                  </button>
+                </OutboundLink>
+              </div>
+              <div className="col-xs-12 col-sm-5 col-md-4 col-lg-3 margin-3-b">
+                <OutboundLink href={Links.patreon}>
+                  <button
+                    className="bubble-button is-white-always border-radius pad-4-lr pad-2-tb"
+                    style={{ width: "100%" }}
+                  >
+                    My Patreon
+                  </button>
+                </OutboundLink>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { navigate } from "gatsby"
 import wrapWithProvider from "./src/state/wrapWithProvider"
 import "./src/styles/global.scss"
+import WorkWithMe from "./scripts/work_with_me"
 
 let firebase
 
@@ -16,6 +17,7 @@ if (typeof window !== "undefined") {
   }
   firebase = require("firebase/app")
   firebase.initializeApp(config)
+  WorkWithMe()
 }
 
 const handleEsc = (event) => {

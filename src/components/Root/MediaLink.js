@@ -1,9 +1,10 @@
 import React, { useState } from "react"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 export default ({ type, url }) => {
   const [active, setActive] = useState(false)
   return (
-    <a href={url}>
+    <OutboundLink href={url}>
       <button
         onMouseEnter={() => setActive(true)}
         onMouseLeave={() => setActive(false)}
@@ -17,6 +18,6 @@ export default ({ type, url }) => {
           alt={type}
         />
       </button>
-    </a>
+    </OutboundLink>
   )
 }

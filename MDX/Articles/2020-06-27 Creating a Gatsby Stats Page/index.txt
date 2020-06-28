@@ -1,0 +1,10 @@
+---
+type: "Article"
+title: "Creating a Gatsby Stats Page"
+desc: "How I built my site's stats page and how you can build your own in minutes."
+coverimg: "./hero.png"
+date: 2020-06-27
+declutter: false
+tags: [gatsby, analytics, guide]
+---
+

@@ -1,6 +1,7 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Timeline from "../components/Bio/Timeline"
@@ -22,54 +23,57 @@ export default function Bio({ data, location }) {
             <div className="col-xs-12 ">
               <h2>
                 I currently work as a {currentRole} at{" "}
-                <a href={currentCompanyURL} className="is-special-blue">
+                <OutboundLink
+                  href={currentCompanyURL}
+                  className="is-special-blue"
+                >
                   {currentCompany}
-                </a>
+                </OutboundLink>
                 . I have built{" "}
-                <a
-                  href="/projects/enhanced-referral"
+                <Link
+                  to="/projects/enhanced-referral"
                   className="is-special-blue"
                 >
                   new ways to refer friends
-                </a>
+                </Link>
                 ,{" "}
-                <a href="/projects/grad" className="is-special-blue">
+                <Link to="/projects/grad" className="is-special-blue">
                   onboarding experiences
-                </a>{" "}
+                </Link>{" "}
                 and{" "}
-                <a href="/projects/corona-support" className="is-special-blue">
+                <Link to="/projects/corona-support" className="is-special-blue">
                   rapid response systems
-                </a>
+                </Link>
                 . I enjoy teaching the next generation to code through my{" "}
-                <a href="/articles" className="is-special-blue">
+                <Link to="/articles" className="is-special-blue">
                   articles
-                </a>
+                </Link>
                 ,{" "}
-                <a href="/presentations" className="is-special-blue">
+                <Link to="/presentations" className="is-special-blue">
                   presentations
-                </a>{" "}
+                </Link>{" "}
                 and at hackathons.
               </h2>
               <h2>
                 In the last year I have contributed{" "}
                 {data.gitHubProfile.totalContributions} times to{" "}
-                <a
+                <OutboundLink
                   href="https://github.com/slarsendisney"
                   className="is-special-blue"
                 >
                   open source projects
-                </a>
+                </OutboundLink>
                 . I maintain {data.boilerplates.totalCount}{" "}
-                <a href="/boilerplates" className="is-special-blue">
+                <Link to="/boilerplates" className="is-special-blue">
                   boilerplates
-                </a>{" "}
+                </Link>{" "}
                 and {data.allNpmPackage.totalCount}{" "}
-                <a
+                <OutboundLink
                   href="https://www.npmjs.com/~dudesamld"
                   className="is-special-blue"
                 >
                   npm packages
-                </a>
+                </OutboundLink>
                 .*
               </h2>
               <p>* These stats are refreshed daily at 9PM GMT.</p>
