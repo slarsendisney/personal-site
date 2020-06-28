@@ -302,9 +302,6 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-offline`,
-      options: {
-        appendScript: require.resolve(`./src/custom-sw-code`),
-      },
     },
     {
       resolve: `gatsby-source-spotify`,
