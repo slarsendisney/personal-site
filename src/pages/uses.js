@@ -6,7 +6,11 @@ import SEO from "../components/seo"
 export default function Bio({ data, location }) {
   return (
     <Layout>
-      <SEO title={"Uses"} location={location} />
+      <SEO
+        title={"Uses"}
+        location={location}
+        image="https://ik.imagekit.io/sld/hero_STs91PFw6QY.png"
+      />
       <div className=" is-light-grey-bg">
         <div className="pad-10-tb pad-3-lr">
           <div className="row container ">
