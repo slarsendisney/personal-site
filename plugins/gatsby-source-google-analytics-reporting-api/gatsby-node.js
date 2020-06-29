@@ -33,6 +33,33 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     })
   }
 
+  //Events
+  const Events = await google.analytics("v3").data.ga.get({
+    auth: jwt,
+    ids: "ga:" + viewId,
+    "start-date": startDate || "2009-01-01",
+    "end-date": "today",
+    dimensions: "ga:eventCategory, ga:eventLabel",
+    metrics: "ga:totalEvents",
+  })
+  for (let [eventCategory, eventLabel, totalEvents] of Events.data.rows) {
+    createNode({
+      eventCategory,
+      eventLabel,
+      totalEvents,
+      id: eventCategory + eventLabel,
+      internal: {
+        type: `SiteEvents`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify({ eventCategory, eventLabel, totalEvents }))
+          .digest(`hex`),
+        mediaType: `text/plain`,
+        description: `Events for this site`,
+      },
+    })
+  }
+
   //VIEWS PER DATE
   const viewsPerDate = await google.analytics("v3").data.ga.get({
     auth: jwt,

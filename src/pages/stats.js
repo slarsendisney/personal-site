@@ -2,11 +2,14 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { connect } from "react-redux"
 import { Emojione } from "react-emoji-render"
+import GitHubButton from "react-github-btn"
+import useDarkMode from "use-dark-mode"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import StatsCard from "../components/Stats/StatsCard"
 import { useCollectionOnce } from "react-firebase-hooks/firestore"
 import Trend from "../components/Stats/Trend"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 let firebase
 
@@ -15,22 +18,27 @@ if (typeof window !== "undefined") {
   require("firebase/firestore")
 }
 
+const colours = ["green", "orange", "yellow", "pink"]
+
 const Stats = ({ data, count }) => {
   const [value, loading, error] = useCollectionOnce(
     typeof window !== "undefined"
       ? firebase.firestore().collection("likes")
       : ""
   )
+  const darkMode = useDarkMode(false)
 
   const { JavaScript, Markdown, Sass, JSON, SUM } = data.statsJson
   const totalCount = data.gitHubProfile.commitsOnRepo
+  const { forks, stars } = data.gitHubProfile
   const totalViews = data.siteWideStats.pageViews
   const totalSessions = data.siteWideStats.sessions
-
   const cards = { JavaScript, Markdown, Sass, JSON }
   const statsByCodeCount = []
   const statsByFileCount = []
+  let remainingPct = 100
   Object.keys(cards).forEach((key) => {
+    remainingPct = remainingPct - Math.floor((cards[key].code / SUM.code) * 100)
     cards[key].percentage = Math.floor((cards[key].code / SUM.code) * 100)
   })
   Object.keys(cards).forEach((item) => {
@@ -74,100 +82,227 @@ const Stats = ({ data, count }) => {
         title="Stats"
         description="Ever wondered how many lines of code are at work here?"
       />
-      <div className="row container pad-10-t pad-10-b pad-3-lr">
-        <div className="col-xs-12  is-grey">
-          <h1 className=" margin-2-t">
-            You are{" "}
-            {count > 1 ? (
-              <>
-                among <span className="is-pink-always">{count}</span> people{" "}
-              </>
-            ) : (
-              <>
-                {" "}
-                the only <span className="is-pink-always">1</span>{" "}
-              </>
-            )}
-            currently visiting the site. The site has recieved{" "}
-            <span className="is-special-blue">
-              {totalViews.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            </span>{" "}
-            page views across{" "}
-            <span className="is-special-blue">
-              {totalSessions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-            </span>
-            sessions.{" "}
-          </h1>
+      <div>
+        <div className="row container pad-10-t pad-10-b pad-3-lr">
+          <div className="col-xs-12  is-grey">
+            <h2 className=" margin-2-t">
+              You are{" "}
+              {count > 1 ? (
+                <>
+                  among <span className="is-pink-always">{count}</span> people{" "}
+                </>
+              ) : (
+                <>
+                  {" "}
+                  the only <span className="is-pink-always">1</span>{" "}
+                </>
+              )}
+              currently visiting the site. The site has recieved{" "}
+              <span className="is-special-blue">
+                {totalViews.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </span>{" "}
+              page views across{" "}
+              <span className="is-special-blue">
+                {totalSessions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+              </span>
+              sessions.{" "}
+            </h2>
+            <h2 className=" margin-2-t ">
+              Dark mode has been toggled{" "}
+              <span className="is-special-blue bold">
+                {data.darkModeToggles.totalEvents}
+              </span>{" "}
+              times. Easter eggs on this site have been triggered{" "}
+              <span className="is-special-blue bold">
+                {data.eggTriggers.totalEvents}
+              </span>{" "}
+              times.
+            </h2>
+            <h2 className=" margin-2-t">
+              In total, I have written{" "}
+              <span className="is-special-blue">
+                {data.articleCount.totalCount}
+              </span>{" "}
+              articles. Articles have been reacted to{" "}
+              <span className="is-special-blue">
+                {reacts.total ? reacts.total : "X"}
+              </span>{" "}
+              times with{" "}
+              <span className="is-green">{reacts.avo ? reacts.avo : "X"}</span>{" "}
+              <Emojione text={"🥑"} />,{" "}
+              <span className="is-red">
+                {reacts.popcorn ? reacts.popcorn : "X"}
+              </span>{" "}
+              <Emojione text={"🍿"} />,{" "}
+              <span className="is-orange">
+                {reacts.fire ? reacts.fire : "X"}
+              </span>{" "}
+              <Emojione text={"🔥"} /> and{" "}
+              <span className="is-red">
+                {reacts.unicorn ? reacts.unicorn : "X"}
+              </span>{" "}
+              <Emojione text={"🦄"} />.
+            </h2>
 
-          <h1 className=" margin-2-t">
-            Articles I have written have been reacted to{" "}
-            <span className="is-special-blue">
-              {reacts.total ? reacts.total : "X"}
-            </span>{" "}
-            times with{" "}
-            <span className="is-green">{reacts.avo ? reacts.avo : "X"}</span>{" "}
-            <Emojione text={"🥑"} />,{" "}
-            <span className="is-red">
-              {reacts.popcorn ? reacts.popcorn : "X"}
-            </span>{" "}
-            <Emojione text={"🍿"} />,{" "}
-            <span className="is-orange">{reacts.fire ? reacts.fire : "X"}</span>{" "}
-            <Emojione text={"🔥"} /> and{" "}
-            <span className="is-red">
-              {reacts.unicorn ? reacts.unicorn : "X"}
-            </span>{" "}
-            <Emojione text={"🦄"} />.
-          </h1>
+            <h2 className=" margin-2-t">
+              The latest build of this site has{" "}
+              <span className="is-special-blue">{SUM.code}</span> lines of code,{" "}
+              <span className="is-orange-always">{SUM.comment}</span> comments
+              and <span className="is-green-always">{totalCount}</span>{" "}
+              commits*.
+            </h2>
+          </div>
+        </div>
+      </div>
 
-          <h1 className=" margin-2-t">
-            The latest build of this site has{" "}
-            <span className="is-special-blue">{SUM.code}</span> lines of code,{" "}
-            <span className="is-orange-always">{SUM.comment}</span> comments and{" "}
-            <span className="is-green-always">{totalCount}</span> commits*.
-          </h1>
+      <div className="is-white-bg">
+        <div className="row container pad-10-tb pad-3-lr">
+          <div className="col-xs-12 flex margin-3-b">
+            <h4 className="margin-0-b">POPULAR PAGES - LAST 30 DAYS</h4>
+          </div>
 
-          <p>
-            * These stats only account for code I have written myself. Page
-            views, sessions and commit count are refreshed daily at 9PM GMT.
-          </p>
-          <div className="line margin-8-tb" />
+          <div className="col-xs-4 col-md-6 is-grey">
+            <h3 className="margin-0 margin-2-b">
+              <strong>Page</strong>
+            </h3>
+          </div>
+          <div className="col-xs-4 col-md-3 text-align-center is-grey">
+            <h3 className="margin-0 margin-2-b">
+              <strong>Views</strong>
+            </h3>
+          </div>
+          <div className="col-xs-4 col-md-3 text-align-center is-grey">
+            <h3 className="margin-0 margin-2-b">
+              <strong>Sessions</strong>
+            </h3>
+          </div>
+
+          {data.allPageViews.edges.slice(0, 5).map((item) => (
+            <>
+              <div className="col-xs-4 col-md-6 is-grey">
+                <Link to={item.node.path} className="is-special-blue">
+                  <p className="margin-0">{item.node.path}</p>
+                </Link>
+              </div>
+              <div className="col-xs-4 col-md-3 text-align-center is-grey">
+                <p className="margin-0 margin-1-b">{item.node.totalCount}</p>
+              </div>
+              <div className="col-xs-4 col-md-3 text-align-center is-grey">
+                <p className="margin-0 margin-1-b">{item.node.sessions}</p>
+              </div>
+            </>
+          ))}
         </div>
-        <div className="col-xs-12">
-          <h2>Popular Pages Last 30 Days</h2>
+      </div>
+      <div>
+        <div className="row container pad-10-tb pad-3-lr">
+          <Trend />
         </div>
-        <div className="col-xs-4 col-md-6 is-grey">
-          <h2 className="margin-0 margin-2-b">Page</h2>
-        </div>
-        <div className="col-xs-4 col-md-3 text-align-center is-grey">
-          <h2 className="margin-0 margin-2-b">Views</h2>
-        </div>
-        <div className="col-xs-4 col-md-3 text-align-center is-grey">
-          <h2 className="margin-0 margin-2-b">Sessions</h2>
-        </div>
-        {data.allPageViews.edges.slice(0, 5).map((item) => (
-          <>
-            <div className="col-xs-4 col-md-6 is-grey">
-              <Link to={item.node.path} className="is-special-blue">
-                <p className="margin-0">
-                  sld.codes{item.node.path === "/" ? "" : item.node.path}
-                </p>
-              </Link>
+      </div>
+      <div className="is-white-bg">
+        <div className="row container pad-10-tb pad-3-lr">
+          <div className="col-xs-12 is-grey">
+            <h4 className="margin-0">PROJECT BREAKDOWN BY LANGUAGE</h4>
+          </div>
+          <div className="col-xs-12 margin-2-b">
+            <OutboundLink href="https://jackmorrison.xyz/">
+              <p className="legal block is-special-blue margin-0-tb">
+                Graph below inspired by Jack Morrison
+              </p>
+            </OutboundLink>
+          </div>
+          <div className="col-xs-12">
+            <div className="flex margin-1-t">
+              {Object.keys(cards).map(function (item, index) {
+                return (
+                  <div
+                    className={`is-${colours[index]}-bg`}
+                    style={{
+                      width: `${cards[item].percentage}%`,
+                      height: 20,
+                      borderTopLeftRadius: index === 0 ? 5 : 0,
+                      borderBottomLeftRadius: index === 0 ? 5 : 0,
+                    }}
+                    data-tip={`${cards[item].percentage}% ${item}`}
+                  />
+                )
+              })}
+              <div
+                className={`is-special-blue-bg`}
+                data-tip={`${remainingPct}% Other`}
+                style={{
+                  width: `${remainingPct}%`,
+                  height: 20,
+                  borderTopRightRadius: 5,
+                  borderBottomRightRadius: 5,
+                }}
+              />
             </div>
-            <div className="col-xs-4 col-md-3 text-align-center is-grey">
-              <p className="margin-0 margin-1-b">{item.node.totalCount}</p>
-            </div>
-            <div className="col-xs-4 col-md-3 text-align-center is-grey">
-              <p className="margin-0 margin-1-b">{item.node.sessions}</p>
-            </div>
-          </>
-        ))}
-        <Trend />
-        <div className="col-xs-12 is-grey margin-8-t">
-          <h2 className="margin-0 margin-1-b">Project Breakdown By Language</h2>
+          </div>
+
+          {Object.keys(cards).map(function (item) {
+            return <StatsCard name={item} {...cards[item]} />
+          })}
         </div>
-        {Object.keys(cards).map(function (item) {
-          return <StatsCard name={item} {...cards[item]} />
-        })}
+      </div>
+      <div>
+        <div className="row container pad-10-tb pad-3-lr">
+          <div className="col-xs-12 is-grey">
+            <h4 className="margin-0 margin-1-b">GITHUB REPO</h4>
+            <h2 className=" margin-2-t">
+              This site's repository has been starred{" "}
+              <span className="is-special-blue bold">{stars}</span> times and
+              forked <span className="is-special-blue bold">{forks}</span>{" "}
+              times.
+            </h2>
+            <div className="flex" style={{ flexWrap: "wrap" }}>
+              <div className="margin-1-r">
+                <GitHubButton
+                  href="https://github.com/slarsendisney"
+                  data-color-scheme={darkMode.value ? "dark" : "light"}
+                  data-size="large"
+                  aria-label="Follow @slarsendisney on GitHub"
+                >
+                  Follow @slarsendisney
+                </GitHubButton>
+              </div>
+              <div className="margin-1-r">
+                <GitHubButton
+                  href="https://github.com/slarsendisney/personal-site/fork"
+                  data-color-scheme={darkMode.value ? "dark" : "light"}
+                  data-icon="octicon-repo-forked"
+                  data-size="large"
+                  aria-label="Fork slarsendisney/personal-site on GitHub"
+                >
+                  Fork
+                </GitHubButton>
+              </div>
+
+              <div>
+                <GitHubButton
+                  href="https://github.com/slarsendisney/personal-site"
+                  data-color-scheme={darkMode.value ? "dark" : "light"}
+                  data-icon="octicon-star"
+                  data-size="large"
+                  aria-label="Star nslarsendisney/personal-site on GitHub"
+                >
+                  Star
+                </GitHubButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="is-white-bg">
+        <div className="row container pad-5-t pad-3-lr">
+          <div className="col-xs-12 is-grey text-align-center">
+            <p className="margin-0 legal">
+              * Code count only account for code I have written myself. Page
+              views, sessions, events and commit count are refreshed daily at
+              9PM GMT.
+            </p>
+          </div>
+        </div>
       </div>
     </Layout>
   )
@@ -184,13 +319,24 @@ export const query = graphql`
         }
       }
     }
+    articleCount: allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
+      totalCount
+    }
     siteWideStats {
       pageViews
       sessions
     }
+    eggTriggers: siteEvents(eventLabel: { eq: "Egg-Nav" }) {
+      totalEvents
+    }
+    darkModeToggles: siteEvents(eventLabel: { eq: "Dark Mode Toggle Button" }) {
+      totalEvents
+    }
     gitHubProfile {
       totalContributions
       commitsOnRepo
+      forks
+      stars
     }
     statsJson {
       JavaScript {

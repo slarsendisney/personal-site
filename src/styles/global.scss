@@ -31,6 +31,7 @@ html {
 
 main {
   min-height: calc(100vh - 155px);
+  transition: background-color 0.5s ease;
 }
 
 div {
@@ -167,4 +168,8 @@ live-editor {
 }
 .project-tag:hover {
   @extend .is-project-tag-hover-bg; 
+}
+
+.block {
+  display: inline-block;
 }

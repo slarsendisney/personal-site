@@ -24,6 +24,10 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
       id
       createdAt
       url
+      forkCount
+      stargazers {
+        totalCount
+      }
       ref(qualifiedName: "master") {
             name
             target {
@@ -44,17 +48,22 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     body: JSON.stringify(body),
     headers: headers,
   })
-  const data = await response.json()
 
+  const data = await response.json()
+  // console.log(data)
   const { contributionsCollection, pandemicContributions } = data.data.user
   const totalContributions =
     contributionsCollection.contributionCalendar.totalContributions
   const pandemicPosterContributions =
     pandemicContributions.contributionCalendar.totalContributions
   const commits = data.data.user.repository.ref.target.history.totalCount
+  const { forkCount } = data.data.user.repository
+  const stars = data.data.user.repository.stargazers.totalCount
   createNode({
     totalContributions: Number(totalContributions),
     commitsOnRepo: Number(commits),
+    forks: Number(forkCount),
+    stars: Number(stars),
     pandemicContributions: Number(pandemicPosterContributions),
     id: "Github-Profile",
     internal: {

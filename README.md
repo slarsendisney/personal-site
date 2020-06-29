@@ -23,7 +23,7 @@ I built the whole site using my favourite react framework - Gatsby! If you haven
 
 Yes, you can fork this repo. Please give me proper credit by linking back to [sld.codes](https://sld.codes). Thanks!
 
-I want to keep this site open source howevers it's always disheartening to find that someone has copied my work without giving me credit. I spent a non-trivial amount of effort building and designing sld.codes, and I am proud of it! All I ask of you is to not claim this effort as your own.
+I want to keep this site open source howevers it's always disheartening to find that someone has copied my work without giving me credit. I spent a non-trivial amount of effort building and designing sld.codes, and I am proud of it! *All I ask of you is to not claim this effort as your own.*
 
 If you have questions about implementation, please refer to the [Gatsby docs](https://www.gatsbyjs.org/docs/).
 

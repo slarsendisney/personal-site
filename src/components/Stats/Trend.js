@@ -48,10 +48,10 @@ const Trend = ({ data }) => {
   }, {})
   return (
     <>
-      <div className="col-xs-12 is-grey margin-8-t">
-        <h2 className="margin-0 margin-1-b">
-          Views Over Last {allViewsPerDate.length > 14 ? "Month" : "Fortnight"}
-        </h2>
+      <div className="col-xs-12 is-grey">
+        <h4 className="margin-0 margin-3-b">
+          VIEWS OVER LAST {allViewsPerDate.length > 14 ? "MONTH" : "FORTNIGHT"}
+        </h4>
       </div>
       <div className="col-xs-12 is-grey flex align-horizontal">
         <div
@@ -62,7 +62,7 @@ const Trend = ({ data }) => {
             borderRadius: 7.5,
           }}
         />
-        <p className="margin-0  margin-1-r">Article Added</p>
+        <p className="margin-0 margin-1-r">Article Added</p>
         <div
           className="is-green-bg margin-1-r"
           style={{
