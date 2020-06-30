@@ -17,6 +17,7 @@
 @import './utilities';
 @import './presentations';
 @import './freak';
+@import './animista';
 
 @for $i from 1 through 6 {
   h#{7 - $i} {
@@ -172,4 +173,8 @@ live-editor {
 
 .block {
   display: inline-block;
+}
+
+.emoji-thanks{
+  font-size:30px;
 }

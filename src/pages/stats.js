@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { graphql, Link } from "gatsby"
 import { connect } from "react-redux"
 import { Emojione } from "react-emoji-render"
@@ -7,9 +7,16 @@ import useDarkMode from "use-dark-mode"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import StatsCard from "../components/Stats/StatsCard"
-import { useCollectionOnce } from "react-firebase-hooks/firestore"
+import {
+  useCollectionOnce,
+  useDocumentDataOnce,
+} from "react-firebase-hooks/firestore"
 import Trend from "../components/Stats/Trend"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
+import {
+  BuyMeACoffeeButton,
+  PatreonButton,
+} from "../components/Articles/ArticleShareOptions"
 
 let firebase
 
@@ -26,6 +33,12 @@ const Stats = ({ data, count }) => {
       ? firebase.firestore().collection("likes")
       : ""
   )
+
+  const [coffees, loadingCoffees, errorCoffees] = useDocumentDataOnce(
+    typeof window !== "undefined"
+      ? firebase.firestore().doc("coffee/ko-fi")
+      : ""
+  )
   const darkMode = useDarkMode(false)
 
   const { JavaScript, Markdown, Sass, JSON, SUM } = data.statsJson
@@ -34,6 +47,7 @@ const Stats = ({ data, count }) => {
   const totalViews = data.siteWideStats.pageViews
   const totalSessions = data.siteWideStats.sessions
   const cards = { JavaScript, Markdown, Sass, JSON }
+
   const statsByCodeCount = []
   const statsByFileCount = []
   let remainingPct = 100
@@ -157,6 +171,33 @@ const Stats = ({ data, count }) => {
 
       <div className="is-white-bg">
         <div className="row container pad-10-tb pad-3-lr">
+          <div className="col-xs-12 margin-3-b">
+            <h4 className="margin-0-b">
+              SPONSORSHIP <Emojione text={"❤️"} />
+            </h4>
+            <h2 className=" margin-2-t">
+              Some incredibly generous people have bought me{" "}
+              <span className="is-special-blue">
+                {loadingCoffees ? "..." : coffees.count}
+              </span>{" "}
+              coffees to help power my creativity. The most recent coffee was
+              bought by{" "}
+              <span className="is-special-blue">
+                {loadingCoffees ? "..." : coffees.recent}
+              </span>{" "}
+              . Thanks for supporting what I do - you're awesome.
+            </h2>
+          </div>
+          <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 margin-3-b">
+            <BuyMeACoffeeButton />
+          </div>
+          <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 margin-3-b">
+            <PatreonButton />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="row container pad-10-tb pad-3-lr">
           <div className="col-xs-12 flex margin-3-b">
             <h4 className="margin-0-b">POPULAR PAGES - LAST 30 DAYS</h4>
           </div>
@@ -194,12 +235,12 @@ const Stats = ({ data, count }) => {
           ))}
         </div>
       </div>
-      <div>
+      <div className="is-white-bg">
         <div className="row container pad-10-tb pad-3-lr">
           <Trend />
         </div>
       </div>
-      <div className="is-white-bg">
+      <div>
         <div className="row container pad-10-tb pad-3-lr">
           <div className="col-xs-12 is-grey">
             <h4 className="margin-0">PROJECT BREAKDOWN BY LANGUAGE</h4>
@@ -216,7 +257,7 @@ const Stats = ({ data, count }) => {
               {Object.keys(cards).map(function (item, index) {
                 return (
                   <div
-                    className={`is-${colours[index]}-bg`}
+                    className={`is-${colours[index]}-bg-always`}
                     style={{
                       width: `${cards[item].percentage}%`,
                       height: 20,
@@ -245,7 +286,7 @@ const Stats = ({ data, count }) => {
           })}
         </div>
       </div>
-      <div>
+      <div className="is-white-bg">
         <div className="row container pad-10-tb pad-3-lr">
           <div className="col-xs-12 is-grey">
             <h4 className="margin-0 margin-1-b">GITHUB REPO</h4>
@@ -293,6 +334,7 @@ const Stats = ({ data, count }) => {
           </div>
         </div>
       </div>
+
       <div className="is-white-bg">
         <div className="row container pad-5-t pad-3-lr">
           <div className="col-xs-12 is-grey text-align-center">

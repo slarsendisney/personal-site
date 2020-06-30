@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import useDarkMode from "use-dark-mode"
+import { connect } from "react-redux"
 import { ProjectPreview } from "../templates/Projects"
 import { ArticlePreview } from "../templates/Articles"
 import Layout from "../components/layout"
@@ -10,14 +11,14 @@ import ExperimentalHero from "../components/Hero/ExperimentalHero"
 import EmploymentHistory from "../data/timeline.json"
 import PreferPaper from "../components/Root/PreferPaper"
 import getAllArticles from "../utils/getAllArticles"
+import MakeItRain from "../components/Root/MakeItRain"
 
-export default function Start({ data }) {
+const Start = ({ data, donationActive, donation }) => {
   const allArticles = getAllArticles(data)
   const featuredArticleOne = allArticles[0]
   const featuredArticleTwo = allArticles[1]
   const featuredProjectOne = data.Projects.edges[0].node.frontmatter
   const featuredProjectTwo = data.Projects.edges[1].node.frontmatter
-
   const currentJob = EmploymentHistory[0]
   const darkMode = useDarkMode()
 
@@ -27,7 +28,11 @@ export default function Start({ data }) {
       <div className="is-grey is-hero-blue-bg">
         <div className="row container-small pad-3-tb">
           <div className="col-xs-12">
-            <ExperimentalHero currentJob={currentJob} />
+            <ExperimentalHero
+              currentJob={currentJob}
+              donationActive={donationActive}
+              donation={donation}
+            />
           </div>
         </div>
       </div>
@@ -133,3 +138,11 @@ export const query = graphql`
     }
   }
 `
+const mapStateToProps = ({ donationActive, donation }) => {
+  return { donationActive, donation }
+}
+
+const ConnectedStart =
+  typeof window !== `undefined` ? connect(mapStateToProps, null)(Start) : Start
+
+export default ConnectedStart

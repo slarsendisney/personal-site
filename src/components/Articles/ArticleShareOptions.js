@@ -13,6 +13,27 @@ import Links from "../../data/links.json"
 import Subscribe from "./Subscribe.js"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
+export const BuyMeACoffeeButton = () => (
+  <OutboundLink href={Links.buyMeACoffee}>
+    <button
+      className="bubble-button is-white-always border-radius pad-4-lr pad-2-tb"
+      style={{ width: "100%" }}
+    >
+      Buy me a coffee
+    </button>
+  </OutboundLink>
+)
+export const PatreonButton = () => (
+  <OutboundLink href={Links.patreon}>
+    <button
+      className="bubble-button is-white-always border-radius pad-4-lr pad-2-tb"
+      style={{ width: "100%" }}
+    >
+      My Patreon
+    </button>
+  </OutboundLink>
+)
+
 export default ({ location }) => (
   <>
     <div className="">

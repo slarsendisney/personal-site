@@ -52,7 +52,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-meta-redirect`,
-    `gatsby-plugin-preact`,
+    // `gatsby-plugin-preact`,
     {
       resolve: `gatsby-plugin-webpack-bundle-analyzer`,
       options: {
@@ -300,9 +300,9 @@ module.exports = {
         basePath: `/decks`,
       },
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-    },
+    // {
+    //   resolve: `gatsby-plugin-offline`,
+    // },
     {
       resolve: `gatsby-source-spotify`,
       options: {

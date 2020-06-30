@@ -137,7 +137,7 @@ export class Search extends Component {
         .search(query, { expand: true })
         .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     })
-    console.log(this.state.results)
+    // console.log(this.state.results)
   }
 }
 

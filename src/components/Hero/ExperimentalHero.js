@@ -40,7 +40,7 @@ export default ({ currentJob }) => {
   const darkMode = useDarkMode(false)
   return (
     <>
-      <div className="row" style={{ paddingRight: "3%" }}>
+      <div className="row" style={{ paddingRight: "3%", position: "relative" }}>
         <div className="col-xs-12 pad-5-t margin-3-t">
           <div
             class="outer-wrapper text-align-center pad-10-t"
@@ -141,7 +141,9 @@ export default ({ currentJob }) => {
                   className="float-y"
                 >
                   <div
-                    className={`${darkMode.value ? "bulb-glow" : ""} bulb`}
+                    className={`${
+                      darkMode.value ? "bulb-glow flicker-in-1" : ""
+                    } bulb`}
                     style={{
                       position: "absolute",
                       left: 30,
@@ -149,7 +151,7 @@ export default ({ currentJob }) => {
                     }}
                   />
                   <img
-                    className="bulb"
+                    className={` bulb ${darkMode.value ? "flicker-in-1" : ""}`}
                     src={images.Bulb}
                     style={{
                       position: "absolute",
@@ -244,10 +246,10 @@ export default ({ currentJob }) => {
       </div>
       <div className="row">
         <div className="col-xs-12 flex align-horizontal align-vertical text-align-center">
-          <h1 className="margin-0-t margin-1-b is-hero-menu">
+          <h1 className="margin-0-t margin-1-b is-hero-menu ">
             Sam Larsen-Disney
           </h1>
-          <h3 className="margin-0  is-hero-sub-text">
+          <h3 className="margin-0  is-hero-sub-text tracking-in-contract">
             DESIGNER | ENGINEER | CREATOR
           </h3>
           <AnchorLink href="#articles">

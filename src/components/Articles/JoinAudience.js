@@ -96,7 +96,7 @@ export default () => {
       }`}
     >
       <div
-        className={`modal is-white-bg margin-3 pad-1 border-radius ${
+        className={`modal is-white-bg margin-3 pad-1 border-radius tilt-in-fwd-tr ${
           fade ? "fade-out" : ""
         }`}
         ref={modalRef}

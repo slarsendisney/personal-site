@@ -137,7 +137,6 @@ export default ({ data }) => {
     .sort((a, b) => b.totalCount - a.totalCount)
     .slice(0, 10)
     .map((item) => item.tag)
-  console.log(tags)
   return (
     <Layout>
       <SEO
