@@ -1,6 +1,4 @@
 {
-
-  "description": "Add MDX Deck presentations to any Gatsby site",
   "devDependencies": {
     "gatsby": "^2.13.6",
     "react": "^16.8.6",

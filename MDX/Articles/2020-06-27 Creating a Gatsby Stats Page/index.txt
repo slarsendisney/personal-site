@@ -1,10 +1,158 @@
 ---
 type: "Article"
-title: "Creating a Gatsby Stats Page"
-desc: "How I built my site's stats page and how you can build your own in minutes."
+title: "Deep Dive: My Stats Page"
+desc: "How I built my GatsbyJS site's stats page. This article includes everything you need to get tracking set up on your site and ingesting that data to create clear stats and simple data visualisations."
 coverimg: "./hero.png"
 date: 2020-06-27
 declutter: false
-tags: [gatsby, analytics, guide]
+tags: [gatsby, analytics, guide, graphql, plugins]
 ---
+
+Did you know that the UK government website has a secret stats page for each of its site pages? If you put `/info` before a route, it will show you the stats page for any given page. As an example, if we wanted to look at the stats for the government's page on universal credit, we could type [`https://www.gov.uk/info/universal-credit`](https://www.gov.uk/info/universal-credit). 
+
+I have always admired the UX of these stats pages. They seem to convey a large amount of data without it being overwhelming to the user. This is what I wanted for my stats page as I set out to build it and was the source of much inspiration when building it. 
+
+### You Can't Have Stats Without Data
+
+My site collects data in a variety of different ways, I have site tracking, a database, code statistics, real-time connections and data from external sources. But we can't pull from them without setting them up so they can collect data first.
+
+#### Site Tracking
+
+My site has been live for 9 months now. I've only had tracking set up for 6 months of that but I wish I had done it sooner. Not only do you get page views, but with tools like [`google analytics`](https://analytics.google.com/), you can get behaviour flows which give you a massive insight into how people are navigating your website.
+
+It should be noted that there are plenty of alternatives to google analytics. As the tool I use, some of this article is geared towards it. 
+
+##### Adding Google Analytics to a Gatsby Site
+
+Like everything I seem to want to add to my site - "there's a plugin for that". I added [`gatsby-plugin-google-analytics`](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/) by following these steps:
+
+1. Sign up to Google Analytics and acquire a tracking ID.
+
+2. Install the plugin:
+
+   ```shell
+   npm install --save gatsby-plugin-google-analytics
+   ```
+
+3. Add it to your Gatsby config:
+
+   ```js
+   module.exports = {
+     plugins: [
+      {
+         resolve: `gatsby-plugin-google-analytics`,
+         options: {
+           trackingId: "Your-Tracking-ID",
+         },
+       },
+     ]
+    }
+   ```
+
+4. Replace any `<a>` tags with `<OutboundLink>` components:
+
+   ```jsx
+   import { OutboundLink } from "gatsby-plugin-google-analytics"
+   
+   export default () => (
+   	<OutboundLink href="https://sld.codes/"> MY LINK </OutboundLink>
+   )
+   ```
+
+   This allows you to track any links that lead away from your site so you can see where your vistors are going.
+
+The plugin is disabled in development, this ensures that you don't accidentally track yourself while working away on your site. But if you want to test it out you can always `gatsby build && gatsby serve`. 
+
+#### Database
+
+I use a database to track how many reactions each of my article have recieved. In fact, I have a whole article on [how I added page reactions](/articles/Creating-Page-Reactions) that you can read if you like.
+
+##### Adding Firebase to your site
+
+#### Real-time Connections
+
+##### Implementing Socket.IO
+
+#### Code Stats
+
+#### External Sources
+
+I also use data that is collected for me by other services connected to this site most notably Github and Ko-fi.
+
+### Using Collected Data
+
+#### Source Plugins At Build
+
+[I have created a couple of local plugins](https://github.com/slarsendisney/personal-site/tree/master/plugins) that I use to source data at build time. Its imporant to note that data pulled into the site in this way is not updated in real-time. It only updates when the site is built and deployed. To stop myself needing to manually build it everytime, I have a cron-job set up on a node server that pings gatsby cloud at 9PM GMT:  
+
+```js
+const CronJob = require("cron").CronJob;
+const GatsbyWebHook = "your-gatsby-cloud-webhook-url"
+
+var job = new CronJob(
+  "0 00 21 * * *",
+  function () {
+    fetch(GatsbyWebHook, { method: "POST", body: "a=1" }).then(() =>
+      console.log("Pinged Gatsby")
+    );
+  },
+  null,
+  true,
+  "Europe/London"
+);
+```
+
+There's a [great cheat sheet](https://devhints.io/cron) for cron that I would totally reccomend using if you're setting this up.
+
+##### Github
+
+Github has an awesome API you can use to grab your github stats and repos. Their most recent version is queried via graphQL which should be faimliar to Gatsby users. Convienient! You can discover the data you can retrieve using the [github API explorer](https://developer.github.com/v4/explorer/).
+
+In my `gatsby-source-github-profile` plugin, I fetch repository information via this API and add it to my graphQL layer using the `createNode` action.
+
+##### Google Analytics
+
+I take a similar approach with google analytics but instead of using REST I use the `googleapis` npm package. In my implementation I am using V3 of the google analytics API but V4 has been out for a while. I am used to V3 so just feel more comfortable using it but will update this code soon. I make multiple queries but as an example here is my retrieval and ingestion of my site wide views to date: 
+
+````js
+  const SiteWideStats = await google.analytics("v3").data.ga.get({
+    auth: jwt,
+    ids: "ga:" + viewId,
+    "start-date": startDate || "2009-01-01",
+    "end-date": "today",
+    metrics: "ga:pageviews, ga:sessions",
+  })
+  for (let [pageViews, sessions] of SiteWideStats.data.rows) {
+    createNode({
+      pageViews: Number(pageViews),
+      sessions: Number(sessions),
+      id: "All-site",
+      internal: {
+        type: `SiteWideStats`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify({ pageViews, sessions }))
+          .digest(`hex`),
+        mediaType: `text/plain`,
+        description: `Page views & sessions for the site`,
+      },
+    })
+  }
+````
+
+### Stats Page
+
+### Footer Stats
+
+### That's all Folks!
+
+You can check out the results using the magical teleportation devices below:
+
+Site stats | Footer Stats
+
+If you enjoyed this deep dive why not show me by using the article reactions? You can also sign up to my newsletter using the form below this article - no pressure though!
+
+
+
+
 

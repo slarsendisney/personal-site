@@ -300,9 +300,9 @@ module.exports = {
         basePath: `/decks`,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-offline`,
-    // },
+    {
+      resolve: `gatsby-plugin-offline`,
+    },
     {
       resolve: `gatsby-source-spotify`,
       options: {

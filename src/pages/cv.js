@@ -5,12 +5,16 @@ import SEO from "../components/seo"
 import { styles } from "../components/CV/cvStyles"
 import Cv from "../components/CV/Cv"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
+import { Helmet } from "react-helmet"
 
 export default class extends React.Component {
   pdfExportComponent
   render() {
     return (
       <Layout>
+        <Helmet>
+          <meta name="googlebot" content="noindex" />
+        </Helmet>
         <SEO title="CV" />
         <div className="is-light-grey-bg is-black-always pad-10-b">
           <div className="container row ">
