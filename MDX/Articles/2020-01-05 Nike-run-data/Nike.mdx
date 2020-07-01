@@ -13,7 +13,7 @@ I have been pondering the idea of publicising my run data in an effort to get me
 
 Sadly, even in a world where GDPR is a thing, Nike has not made it possible for people to download their own run data. I think this is in an effort to keep you using their app as having access to your run data would make it too easy to switch to another service. 
 
-# The (Automated?) Journey for an Access Token
+## The (Automated?) Journey for an Access Token
 
 Thanks to [@yasoobkhalid](https://twitter.com/yasoobkhalid) I came across this [gist](https://gist.github.com/niw/858c1ecaef89858893681e46db63db66) that explains how to hit the Nike API assuming you have a bearer token from the Nike site - they use the same auth service for both their site and the Nike Run Club app. The only problem with this process is that it requires you to go and login to Nike to get a new bearer token whenever you want to retrieve your data - **Not cool**. I want to be able to retrieve my data as part of my Gatsby build script every time I deploy my site and I don't want to do this manually. 
 
@@ -92,7 +92,7 @@ await page.waitForSelector(".g72-menu")
 
 This got the script run time down to X seconds on.a pretty average network speed. Nice. 
 
-#### Getting Activity Data
+### Getting Activity Data
 
 You'll see I have a function called `CallScript()` in the _puppeteer_ code above. This executes the getActivity.sh bash script that is taken from the  [gist](https://gist.github.com/niw/858c1ecaef89858893681e46db63db66). It fetches activity using the bearer token retrieved from _puppeteer_. 
 
@@ -129,7 +129,7 @@ done
 
 This works perfectly but I decided that having it switch between node and a bash script was not very efficient and would make it impossible to run on a CI/CD pipeline. Lets rebuild the bash script as JavaScript code!
 
-# Getting Arty
+## Getting Arty
 
 While browsing the wonderful world of twitter, I came across a tweet from [@zehf](https://twitter.com/zehf). He created arty data-visualisation posters from World Cup statistics for each match:
 

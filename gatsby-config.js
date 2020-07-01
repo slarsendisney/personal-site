@@ -116,6 +116,14 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: false,
+
+              removeAccents: true,
+            },
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
@@ -303,16 +311,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
     },
-    {
-      resolve: `gatsby-source-spotify`,
-      options: {
-        clientId: process.env.SPOTIFY_CLIENT_ID,
-        clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-        refreshToken: process.env.SPOTIFY_CLIENT_REFRESH_TOKEN,
-        fetchPlaylists: true,
-        fetchRecent: true,
-        timeRanges: ["short_term", "medium_term", "long_term"],
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-spotify`,
+    //   options: {
+    //     clientId: process.env.SPOTIFY_CLIENT_ID,
+    //     clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+    //     refreshToken: process.env.SPOTIFY_CLIENT_REFRESH_TOKEN,
+    //     fetchPlaylists: true,
+    //     fetchRecent: true,
+    //     timeRanges: ["short_term", "medium_term", "long_term"],
+    //   },
+    // },
   ].concat(dynamicPlugins),
 }

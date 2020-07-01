@@ -12,6 +12,7 @@ import SyntaxHighlighter from "react-syntax-highlighter"
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import FeatureBadge from "../components/Articles/FeatureBadge"
 import JoinAudience from "../components/Articles/JoinAudience"
+import TableOfContents from "../components/Articles/TableOfContents"
 
 const CodeBlock = (props) => (
   <SyntaxHighlighter
@@ -51,7 +52,12 @@ export default ({ data, location }) => {
       <JoinAudience />
       <ReadingProgress target={target} />
       <div className="is-grey is-light-grey-bg">
-        <div className="row container pad-10-t " ref={target}>
+        <div
+          className={`row ${
+            declutter ? "container" : "container-article"
+          } pad-10-t `}
+          ref={target}
+        >
           <div className="col-xs-12 pad-3-lr">
             <Link
               to={
@@ -68,7 +74,7 @@ export default ({ data, location }) => {
           </div>
 
           <div className="col-xs-12 pad-3-lr">
-            <h1 className="is-hero-menu is-grey margin-1-t margin-5-b">
+            <h1 className="is-hero-menu is-grey margin-1-t margin-3-b">
               {title}
             </h1>
             <div className="flex align-horizontal margin-3-b">
@@ -82,9 +88,9 @@ export default ({ data, location }) => {
                 {format(new Date(date), "iii, dd MMM yyyy")}{" "}
               </h6>
             </div>
-            <div className="line margin-5-tb" />
+            <div className="line margin-5-b margin-3-t" />
 
-            <div className={`pad-10-b lato ${!declutter ? "article" : ""}`}>
+            <div className={`pad-3-b lato ${!declutter ? "article" : ""}`}>
               <MDXProvider components={components}>
                 <MDXRenderer>{mdx.body}</MDXRenderer>
               </MDXProvider>
@@ -93,6 +99,12 @@ export default ({ data, location }) => {
           <div className="col-xs-12 pad-3-lr pad-5-b">
             <Like />
           </div>
+          {!declutter && (
+            <div className="col-xs-12">
+              <TableOfContents tableOfContents={mdx.tableOfContents} />
+            </div>
+          )}
+
           <div className="col-xs-12 pad-3-lr pad-5-b">
             <ArticleShareOptions location={location} />
           </div>
@@ -113,6 +125,7 @@ export const pageQuery = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       id
       body
+      tableOfContents
       frontmatter {
         title
         desc

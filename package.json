@@ -59,6 +59,7 @@
     "gatsby-plugin-use-dark-mode": "^1.1.2",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-query-params": "^1.2.1",
+    "gatsby-remark-autolink-headers": "^2.3.7",
     "gatsby-remark-copy-images": "^0.2.1",
     "gatsby-remark-copy-linked-files": "^2.3.7",
     "gatsby-remark-images": "3.3.13",

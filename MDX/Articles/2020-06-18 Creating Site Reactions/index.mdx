@@ -50,7 +50,8 @@ With this I can then set the position of the element using an in-line style tag:
 
 By using `Math.max()` we can ensure that the element starts at the correct place on the side, 335 px down from the top, and only starts following when it is 20px from the top of the window. Cool? Cool.
 
-### Keeping track of your reactions (Client-side)
+### Keeping track of your reactions
+#### Client-side
 
 Much like a facebook post, I wanted you to be able to react once by clicking the emoji and by clicking it again remove your reaction. If you're interested in mashing buttons you [should read this article](/articles/Creating-onMash-for-the-Click-Addicts). I also wanted to ensure that if you left the site and came back your reactions would be remembered. I decided to use `window.localstorage` to do this, all wrapped up in a custom hook:
 
@@ -103,7 +104,7 @@ const incrementLikes = (type) => {
 
 A similar approach was taken for decrementing likes.
 
-### Keeping track of global reactions 
+#### Global
 
 I use a [firebase firestore](https://firebase.google.com/docs/firestore) to keep track of the reactions made by all users. I wont go into detail about setting up a gatsby project to use firebase here but [`gatsby-plugin-firebase`](https://www.gatsbyjs.org/packages/gatsby-plugin-firebase/) is a great place to start. There's also a [great article by Kyle Shelvin](https://kyleshevlin.com/firebase-and-gatsby-together-at-last) that has a very solid introduction to using it. I use that in combination with [`react-firebase-hooks`](https://www.npmjs.com/package/react-firebase-hooks) to read from the database. I do just want to note that I use the hook "useDocumentOnce" as opposed to "useDocument". This means that it reads the data once when loading the page, instead of continually reading. This reduced the amount of usage my database saw from thousands reads to hundreds of reads and therefore saves me money. The only downside is that the reactions may be out of sync if they are liked by someone else while you are still viewing the page. 
 

@@ -132,23 +132,23 @@ I put default props of 4 clicks in 1000ms which I think is mashed enough. Just l
 
 <Mash />
 
-# Adding it to NPM
+## Adding it to NPM
 
-## Login to npm in your terminal:
+### Login to npm in your terminal:
 If you don't already have an account you can [create an NPM account here](https://www.npmjs.com/signup). Then login by running:```npm login```
 
-## Create a folder for your package
+### Create a folder for your package
 
 For my new button I called it `react-mash`. You must check that the name isnt already taken by another package on NPM.
 ```
 mkdir your-package-name
 ```
 
-## Initialise npm in your package:
+### Initialise npm in your package:
 We can do this with ```npm init```. When prompted give your package name, author info, etc.
 
 
-## Add our component
+### Add our component
 
 As this package contains only one component, we can make it the default component. Create a src folder and inside create an index.js file with your component. In my case it looked like this:
 
@@ -262,7 +262,7 @@ module.exports = {
 }
 ```
 
-## Build
+### Build
 
 ```
 ./node_modules/.bin/babel src --out-file index.js
@@ -282,7 +282,7 @@ You could also add this command to your package.json scripts to make it easier t
 
 We can now run it with ```npm run build```
 
-## Publish
+### Publish
 
 At this point we're ready to publish - ```npm publish```
 

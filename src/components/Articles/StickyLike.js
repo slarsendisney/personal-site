@@ -43,7 +43,7 @@ const LikeButton = ({
       >
         <h1
           className={`margin-0 border-radius pad-1-lr ${
-            selected(type) ? "is-yellow-bg" : ""
+            selected(type) ? "is-yellow-bg jello-vertical" : ""
           }`}
         >
           <Emojione text={label} />
@@ -149,7 +149,7 @@ export default () => {
     />
   ))
 
-  if (size.width < 1325) {
+  if (size.width < 785) {
     return (
       <div
         className="is-white-bg border-radius flex pad-2-t pad-1-lr"
@@ -168,7 +168,7 @@ export default () => {
     <div
       style={{
         position: "fixed",
-        top: scrollY ? Math.max(20, 335 - scrollY) : 335,
+        top: scrollY ? Math.max(20, 315 - scrollY) : 315,
         marginLeft: -100,
       }}
     >

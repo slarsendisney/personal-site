@@ -137,6 +137,10 @@ $name: xs;
       margin: auto;
       max-width: $container*1.2;
     }
+    .container-article {
+      margin: auto;
+      max-width: $container*0.7;
+    }
 
     .col-#{$name} {
       @include flexboxgrid-sass-col-common;

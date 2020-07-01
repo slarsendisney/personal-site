@@ -43,6 +43,7 @@ export default ({ target }) => {
     <div
       className={`reading-progress-bar`}
       style={{
+        zIndex: 20000,
         width: `${readingProgress}%`,
         top: 0,
       }}

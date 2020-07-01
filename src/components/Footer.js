@@ -3,7 +3,10 @@ import { StaticQuery, graphql, Link } from "gatsby"
 import { Emojione } from "react-emoji-render"
 export default ({ location }) => {
   return (
-    <footer className="is-white-bg is-grey pad-2-lr pad-3-t pad-2-b footer">
+    <footer
+      className="is-white-bg is-grey pad-2-lr pad-3-t pad-2-b footer"
+      id="footer"
+    >
       <p className="margin-0">
         Made with <Emojione text="❤️" /> by Sam Larsen-Disney
       </p>

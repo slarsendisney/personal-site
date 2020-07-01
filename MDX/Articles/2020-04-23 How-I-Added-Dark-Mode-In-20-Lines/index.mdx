@@ -7,13 +7,13 @@ date: 2020-04-23
 tags: [gatsby, react, plugins]
 ---
 
-#### Step 1.
+**Step 1.**
 
 Install dependencies.
 
 `npm install --save use-dark-mode gatsby-plugin-use-dark-mode gatsby-plugin-sass`
 
-#### Step 2.
+**Step 2.**
 
 Add the plugin to your gatsby config.
 ```js
@@ -37,7 +37,7 @@ module.exports = {
 
 **gatsby-plugin-use-dark-mode** adds a classname to the body of the html showing what state we are in, dark or light mode. This is calculated using the storageKey(a cookie) that sits on the client. This defaults to the users default setting on their device.
 
-#### Step 3.
+**Step 3.**
 
 Create our colours in a **colors.scss** file.
 ```scss
@@ -83,19 +83,19 @@ body.dark-mode {
 
 You can repeat this process for background and border colours too!
 
-#### Step 4.
+**Step 4.**
 
 Import colors.scss in **global.scss.**
 ```scss
 @import './colors';
 ```
-#### Step 5.
+**Step 5.**
 
 Add scss to **gatsby-browser.js.**
 ```js
 require("./src/styles/global.scss")
 ```
-#### Step 6.
+**Step 6.**
 
 Create a new react component that acts as a mode switch.
 ```js
@@ -123,7 +123,7 @@ export default (props) => {
 };
 ```
 
-#### Step 7.
+**Step 7.**
 
 Use our new classnames in any react component.
 ```js

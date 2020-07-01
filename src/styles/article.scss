@@ -1,26 +1,48 @@
-
-.article-legacy {
-
-  pre code {
-    @extend .is-white-always;
-    background: none;
-    display: block;
-    line-height: 1.42;
-    width: auto;
+.article-toc {
+  list-style-type: none;
+  padding-inline-start: 0px;
+  @extend .is-grey;
+      p {
+        @extend .is-grey;
+    font-weight: bold;
+    
   }
 
-  pre {
-    @extend .is-grey-bg-always;
-    border-radius: 3px;
-    font-size: 1rem;
-    overflow-x: auto;
-    padding: 1.45rem;
-    word-wrap: break-word;
-    font-weight: normal;
-
+  p:hover{
+    color: #2f7afc;
   }
 
+  
+  ul {
+    padding-inline-start: 5px;
+
+    li {
+      @extend .is-grey;
+      p {
+        @extend .is-grey;
+        font-weight: normal;
+      }
+      ul {
+        padding-inline-start: 18px;
+        list-style-type: circle;
+        li {
+          @extend .is-grey;
+          p {
+            @extend .is-grey;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+    
+  }
 }
+
+.article-toc-text {
+  font-size: 13px;
+}
+
+
 .article {
   font-weight: bold;
   blockquote {
@@ -28,11 +50,12 @@
     border-width: 2px 0;
     border-style: solid;
     border-color: #eee;
-    padding: 1.5em 0 0.5em;
-    padding-bottom: 1.5em;
+    padding: 1em 0 0.5em;
+    padding-bottom: 1em;
     margin: 1.5em 0;
     position: relative;
-    font-size: 1.2em;
+    font-size: 1em;
+    font-weight: normal;
     text-align: center;
   }
   blockquote:before {
@@ -84,13 +107,22 @@
     @extend .is-special-blue;
   }
 
-  h3 { font-weight: bold;
+  h2 { font-weight: bold;
     font-size: 2rem;
     @extend .margin-0-b
   }
 
-  h4 { font-weight: bold;
+  h3 { font-weight: bold;
     font-size: 1.5rem;
+    @extend .margin-0-b
+  }
+
+  h4 { font-weight: bold;
+    font-size: 1.2rem;
+    @extend .margin-0-b
+  }
+  h5 { font-weight: bold;
+    font-size: 1rem;
     @extend .margin-0-b
   }
 
@@ -98,6 +130,26 @@
     max-width: 100%;
   }
 
+  ol{
+    padding-inline-start: 20px;
+    padding-inline-end: 10px;
+  }
+
+  ul {
+    li {
+      code {
+        font-size: 0.8em;
+      }
+    }
+    
+    padding-inline-start: 20px;
+    padding-inline-end: 10px;
+    font-size: 1em;
+    font-weight: normal;
+  }
+  pre {
+    padding:0px;
+  }
   p code {
     
     word-wrap: break-word;
@@ -107,6 +159,7 @@
   ul li h2 a {
     @extend .is-grey;
     text-decoration: none;
+    
     
   }
   ul {

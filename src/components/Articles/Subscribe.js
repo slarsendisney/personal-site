@@ -54,7 +54,7 @@ export default ({ noLabel, cb }) => {
           </div>
         </div>
       ) : (
-        <div className="row margin-3-lr">
+        <div className="row margin-0-lr">
           {!noLabel && (
             <div className="col-xs-12 ">
               <p className="margin-1-tb margin-0">
@@ -64,7 +64,7 @@ export default ({ noLabel, cb }) => {
             </div>
           )}
 
-          <div className="col-xs-12 col-sm-6 flex align-vertical">
+          <div className="col-xs-12 col-sm-6 col-md-8 flex align-vertical">
             <input
               type="text"
               name="email"
@@ -74,7 +74,7 @@ export default ({ noLabel, cb }) => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="col-xs-12 col-sm-6 col-md-5 col-lg-4 flex align-vertical">
+          <div className="col-xs-12 col-sm-6 col-md-4   flex align-vertical">
             <button
               className="bubble-button pad-3 margin-3-tb border-radius"
               type="button"

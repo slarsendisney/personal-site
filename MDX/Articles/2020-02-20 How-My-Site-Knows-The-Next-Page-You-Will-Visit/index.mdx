@@ -32,15 +32,15 @@ Absolutely, but if you can’t try these things out on your personal website, wh
 
 Like it seems to be with everything in the GatsbyJS world — There’s a plugin for that! But it did not work straight out of the box for me this time. The steps I followed were as follows:
 
-#### 1. Create a Google Service Account, through the Google Developer Console.
+ 1. Create a Google Service Account, through the Google Developer Console.
 
 Navigate to [https://console.developers.google.com/](https://console.developers.google.com/), click “Credentials” on the left hand drawer. Click “Create Credentials”, then “Service Account”. Fill in the form with an appropriate name and you should be done. Be sure to save the json file with the service account’s private key and the account’s email, you’ll need them later.
 
-#### 2. Give the service account access to your site’s property in Google Analytics.
+ 2. Give the service account access to your site’s property in Google Analytics.
 
 Navigate to [https://analytics.google.com](https://analytics.google.com/), click Admin, Click “Property User Management”. Add the service account you just made using it’s email. Make a note of your analytics view ID, you’ll need it later.
 
-#### 3. Set up some environment variables
+ 3. Set up some environment variables
 
 Take all the information that you saved along the way and add it to a .env file at the root of your project. Don’t know what .env is? [Click here](https://www.npmjs.com/package/dotenv). If you’ve done this step right you should have equivalent keys in your .env file:
 ```js
@@ -57,7 +57,7 @@ require("dotenv").config({
 })
 ```
 
-#### 4. Set up the guess plugin for gatsby.
+ 4. Set up the guess plugin for gatsby.
 
 `npm install gatsby-plugin-guess-js --save`
 
@@ -79,7 +79,7 @@ Add the plugin to your gatsby config:
   }
   ```
 
-#### 5. Try and run it!
+ 5. Try and run it!
 
 If it works awesome! Skip this step. If, however, you’re unlucky like me, this will fail. I had an error that looked like this:
 
@@ -102,4 +102,4 @@ It turns out, guess didn’t like my private key as it contained “n” which i
     },  
   }
 ```
-#### At this point, you should be good to go! 🚀
+ At this point, you should be good to go! 🚀

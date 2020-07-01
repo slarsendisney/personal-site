@@ -51,7 +51,7 @@ export default ({ location }) => (
         </div>
       </div>
       <div className="col-xs-12 margin-5-b">
-        <div className="line-sm margin-5-tb" />
+        <div className="line-sm margin-5-tb opacity-10" />
         <Subscribe />
       </div>
     </div>
@@ -82,14 +82,14 @@ export default ({ location }) => (
           />
         </div>
         <div className="col-xs-12 col-sm-9 margin-5-b">
-          <h3>
+          <h4>
             I’m Sam Larsen-Disney. I document the cool things I learn and enjoy
             helping the next generation to code. My site has no ads or sponsors.
             If you enjoy my content, please consider supporting what I do.
-          </h3>
+          </h4>
           <div>
             <div className="row pad-0">
-              <div className="col-xs-12 col-sm-5 col-md-4 col-lg-3 margin-3-b">
+              <div className="col-xs-12 col-sm-5 margin-3-b">
                 <OutboundLink href={Links.buyMeACoffee}>
                   <button
                     className="bubble-button is-white-always border-radius pad-4-lr pad-2-tb"
@@ -99,7 +99,7 @@ export default ({ location }) => (
                   </button>
                 </OutboundLink>
               </div>
-              <div className="col-xs-12 col-sm-5 col-md-4 col-lg-3 margin-3-b">
+              <div className="col-xs-12 col-sm-5 margin-3-b">
                 <OutboundLink href={Links.patreon}>
                   <button
                     className="bubble-button is-white-always border-radius pad-4-lr pad-2-tb"
