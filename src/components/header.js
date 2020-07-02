@@ -126,7 +126,7 @@ export default () => {
                   return 0
                 })
                 .map((item) => (
-                  <div className="col-xs-6 col-md-3 col-lg-2">
+                  <div className="col-xs-6 col-md-3 col-lg-2" key={item.label}>
                     <NavLinkSmall {...item} key={item.label} />
                   </div>
                 ))}

@@ -4,6 +4,8 @@ import io from "socket.io-client"
 let socket = io("https://sld-clicker.herokuapp.com/") //io("http://localhost:3000/")
 let socketIoMiddleware = createSocketIoMiddleware(socket, "server/")
 
+const DEVELOPMENT = false
+
 function reducer(
   state = {
     donationActive: false,
@@ -14,7 +16,6 @@ function reducer(
   },
   action
 ) {
-  console.log({ action })
   switch (action.type) {
     case "donation": {
       return Object.assign(
@@ -58,7 +59,9 @@ function reducer(
 }
 let store = applyMiddleware(socketIoMiddleware)(createStore)(reducer)
 store.subscribe(() => {
-  console.log("new client state", store.getState())
+  if (DEVELOPMENT) {
+    console.log("new client state", store.getState())
+  }
 })
 
 export default store
