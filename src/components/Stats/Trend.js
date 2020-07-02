@@ -26,9 +26,18 @@ const Trend = ({ data }) => {
       ? data.allViewsPerDate.edges
       : data.allViewsPerDate.edges.slice(data.allViewsPerDate.edges.length - 14)
   const maxViews = data.maxViews.edges[0].node.views
+  const α = 0.7
+  const B = 1000
+  const normalisedViews = allViewsPerDate.map((item) => ({
+    node: {
+      ...item.node,
+      standard: (1 - α) * item.node.views + α * B,
+    },
+  }))
+  const normalisedMax = (1 - α) * maxViews + α * B
+
   const projects = data.projects.edges.reduce((acc, cur) => {
     const date = new Date(cur.node.frontmatter.date)
-
     acc[format(date, "yyyyMMdd")] = cur.node.frontmatter.title
     return acc
   }, {})
@@ -135,10 +144,10 @@ const Trend = ({ data }) => {
         className="col-xs-12 margin-3-t flex"
         style={{ height: 100, justifyContent: "center" }}
       >
-        {allViewsPerDate.map((item) => {
+        {normalisedViews.map((item) => {
           return (
             <div
-              className="is-white-bg border-radius margin-1-r"
+              className="is-light-grey-bg border-radius margin-1-r"
               style={{
                 position: "relative",
                 width: 100 / allViewsPerDate.length + "%",
@@ -151,7 +160,9 @@ const Trend = ({ data }) => {
                   position: "absolute",
                   bottom: 0,
                   width: "100%",
-                  height: Math.floor((item.node.views / maxViews) * 100),
+                  height: Math.floor(
+                    (item.node.standard / normalisedMax) * 100
+                  ),
                 }}
               />
             </div>
