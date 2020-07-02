@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { format } from "date-fns"
+import VisibilitySensor from "react-visibility-sensor"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ArticleShareOptions from "../components/Articles/ArticleShareOptions"
@@ -32,15 +33,50 @@ const CodeBlock = (props) => (
     {...props}
   />
 )
-const components = {
-  code: CodeBlock,
-}
 
 export default ({ data, location }) => {
   const { mdx } = data
   const { title, date, desc, coverimg, declutter, featured } = mdx.frontmatter
   const { articlePage } = data.sitePage.context
   const target = React.createRef()
+  const [currentHeading, setCurrentHeading] = useState("")
+
+  useEffect(() => {
+    console.log(mdx.tableOfContents)
+    setCurrentHeading(mdx.tableOfContents.items[0].title)
+  }, [])
+  function onChange(isVisible, name) {
+    if (isVisible) {
+      setCurrentHeading(name)
+    }
+  }
+
+  const VisWatcher = ({ children, name }) => {
+    return (
+      <VisibilitySensor onChange={(e) => onChange(e, name)}>
+        {children}
+      </VisibilitySensor>
+    )
+  }
+  const Heading = (props) => {
+    const CustomTag = `h${props.priority}`
+    return (
+      <VisWatcher name={props.children}>
+        <CustomTag {...props}>{props.children}</CustomTag>
+      </VisWatcher>
+    )
+  }
+
+  const components = {
+    code: CodeBlock,
+    h1: (e) => <Heading {...e} priority={1} />,
+    h2: (e) => <Heading {...e} priority={2} />,
+    h3: (e) => <Heading {...e} priority={3} />,
+    h4: (e) => <Heading {...e} priority={4} />,
+    h5: (e) => <Heading {...e} priority={5} />,
+    h6: (e) => <Heading {...e} priority={6} />,
+  }
+
   return (
     <Layout>
       <SEO
@@ -101,7 +137,10 @@ export default ({ data, location }) => {
           </div>
           {!declutter && (
             <div className="col-xs-12">
-              <TableOfContents tableOfContents={mdx.tableOfContents} />
+              <TableOfContents
+                tableOfContents={mdx.tableOfContents}
+                currentHeading={currentHeading}
+              />
             </div>
           )}
 

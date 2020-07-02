@@ -334,7 +334,22 @@ const Stats = ({ data, count }) => {
           </div>
         </div>
       </div>
-
+      <div>
+        <div className="row container pad-10-tb pad-3-lr">
+          <div className="col-xs-12 is-grey">
+            <h2 className=" margin-2-t">
+              Want to know more about how this page works? I have written a
+              "deep dive" article that goes into detail about integrating and
+              using stats with code examples.
+            </h2>
+            <Link to="/articles/Deep-Dive-Into-My-Stats-Page">
+              <button className="bubble-button border-radius">
+                Take Me There
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
       <div className="is-white-bg">
         <div className="row container pad-5-t pad-3-lr">
           <div className="col-xs-12 is-grey text-align-center">

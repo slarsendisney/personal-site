@@ -1,9 +1,9 @@
 .article-toc {
   list-style-type: none;
   padding-inline-start: 0px;
-  @extend .is-grey;
+
       p {
-        @extend .is-grey;
+      
     font-weight: bold;
     
   }
@@ -17,18 +17,18 @@
     padding-inline-start: 5px;
 
     li {
-      @extend .is-grey;
+     
       p {
-        @extend .is-grey;
+       
         font-weight: normal;
       }
       ul {
         padding-inline-start: 18px;
         list-style-type: circle;
         li {
-          @extend .is-grey;
+         
           p {
-            @extend .is-grey;
+           
             font-weight: normal;
           }
         }

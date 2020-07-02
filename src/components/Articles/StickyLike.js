@@ -166,11 +166,19 @@ export default () => {
 
   return (
     <div
-      style={{
-        position: "fixed",
-        top: scrollY ? Math.max(20, 315 - scrollY) : 315,
-        marginLeft: -100,
-      }}
+      style={
+        scrollY <= 290
+          ? {
+              position: "absolute",
+              top: Math.max(310, scrollY + 20),
+              marginLeft: -100,
+            }
+          : {
+              position: "fixed",
+              top: 20,
+              marginLeft: -100,
+            }
+      }
     >
       <div
         className="is-white-bg border-radius pad-1-t margin-3-l flex"

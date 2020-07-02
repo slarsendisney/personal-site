@@ -3,7 +3,7 @@ import { useScrollYPosition } from "react-use-scroll-position"
 import { useWindowSize } from "../../utils/customHooks"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 
-export default ({ tableOfContents }) => {
+export default ({ tableOfContents, currentHeading }) => {
   const size = useWindowSize()
   const scrollY = useScrollYPosition()
   if (size.width < 1385 || !tableOfContents.items) {
@@ -15,7 +15,11 @@ export default ({ tableOfContents }) => {
         {items.map((item) => (
           <li>
             <AnchorLink offset="30" href={item.url}>
-              <p className="article-toc-text pad-1-b margin-2-t margin-0-b link-bar-sm margin-0-b">
+              <p
+                className={`article-toc-text pad-1-b margin-2-t margin-0-b link-bar-sm margin-0-b ${
+                  currentHeading === item.title ? "is-special-blue" : ""
+                }`}
+              >
                 {item.title}
               </p>
             </AnchorLink>
@@ -28,11 +32,18 @@ export default ({ tableOfContents }) => {
 
   return (
     <div
-      style={{
-        position: "fixed",
-        top: scrollY ? Math.max(20, 315 - scrollY) : 315,
-        pointerEvents: "none",
-      }}
+      style={
+        scrollY <= 290
+          ? {
+              position: "absolute",
+              top: Math.max(310, scrollY + 20),
+              pointerEvents: "none",
+            }
+          : {
+              position: "fixed",
+              top: 20,
+            }
+      }
       className="flex "
     >
       <div className="container-article" style={{ width: "100vw" }}></div>
