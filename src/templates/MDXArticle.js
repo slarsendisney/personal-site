@@ -116,7 +116,7 @@ export default ({ data, location }) => {
             </h1>
             <div className="flex align-horizontal margin-3-b">
               {featured && (
-                <div style={{ height: 25, width: 25 }} className="margin-1-r">
+                <div style={{ height: 40, width: 40 }} className="margin-2-r">
                   <FeatureBadge feature={featured} link={true} />
                 </div>
               )}

@@ -54,11 +54,11 @@ export const Article = ({
             <div
               style={{
                 position: "absolute",
-                bottom: 3,
-                right: 12,
+                bottom: 8,
+                right: 15,
                 zIndex: 100,
-                height: 30,
-                width: 30,
+                height: 40,
+                width: 40,
               }}
             >
               <FeatureBadge feature={featured} link={false} />
@@ -99,11 +99,11 @@ export const ArticlePreview = ({
           <div
             style={{
               position: "absolute",
-              bottom: 3,
-              right: 12,
+              bottom: 8,
+              right: 15,
               zIndex: 100,
-              height: 30,
-              width: 30,
+              height: 40,
+              width: 40,
             }}
           >
             <FeatureBadge feature={featured} link={false} />

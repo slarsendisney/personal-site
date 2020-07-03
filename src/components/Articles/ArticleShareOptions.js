@@ -45,7 +45,10 @@ export default ({ location }) => (
           <LinkedinShareButton url={location.href} className="grow">
             <LinkedinIcon round={true} style={{ height: 40 }} />
           </LinkedinShareButton>
-          <TwitterShareButton url={location.href} className="grow">
+          <TwitterShareButton
+            url={`Just found this - ${location.href} by @SamLarsenDisney`}
+            className="grow"
+          >
             <TwitterIcon round={true} style={{ height: 40 }} />
           </TwitterShareButton>
         </div>
