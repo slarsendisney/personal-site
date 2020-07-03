@@ -42,6 +42,7 @@ export default ({ tableOfContents, currentHeading }) => {
           : {
               position: "fixed",
               top: 20,
+              pointerEvents: "none",
             }
       }
       className="flex "
