@@ -132,7 +132,9 @@ export default ({ data }) => {
   const { currentPage, numPages } = data.sitePage.context
   const maxWidth = MaxStickyBarWidth()
   const allArticles = getAllArticles(data)
-  const popular = data.allPageViews
+  const popular = data.allPageViews.edges.filter(
+    (item) => !/\/articles\/\d$/g.test(item.node.path)
+  )
   const tags = data.tags.group
     .sort((a, b) => b.totalCount - a.totalCount)
     .slice(0, 10)
@@ -188,7 +190,7 @@ export default ({ data }) => {
               >
                 <div className="col-xs-12 col-sm-6 col-md-12">
                   <h3 className="margin-0-b">POPULAR CONTENT</h3>
-                  {popular.edges.map((item) => (
+                  {popular.map((item) => (
                     <div>
                       <Link to={item.node.path} className="is-special-blue">
                         <p className="">{pathToTitle(item.node.path)}</p>
