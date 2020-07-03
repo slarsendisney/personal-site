@@ -42,8 +42,9 @@ export default ({ data, location }) => {
   const [currentHeading, setCurrentHeading] = useState("")
 
   useEffect(() => {
-    console.log(mdx.tableOfContents)
-    setCurrentHeading(mdx.tableOfContents.items[0].title)
+    if (mdx.tableOfContents.items) {
+      setCurrentHeading(mdx.tableOfContents.items[0].title)
+    }
   }, [])
   function onChange(isVisible, name) {
     if (isVisible) {
