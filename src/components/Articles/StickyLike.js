@@ -100,9 +100,13 @@ export default () => {
         .firestore()
         .collection("likes")
         .doc(contentID)
-        .update({
-          [type]: firebase.firestore.FieldValue.increment(1),
-        })
+        .set(
+          {
+            [type]:
+              value.data() && value.data()[type] ? value.data()[type] + 1 : 1,
+          },
+          { merge: true }
+        )
     }
   }
   const decrementLikes = (type) => {
@@ -117,9 +121,13 @@ export default () => {
         .firestore()
         .collection("likes")
         .doc(contentID)
-        .update({
-          [type]: firebase.firestore.FieldValue.increment(-1),
-        })
+        .set(
+          {
+            [type]:
+              value.data() && value.data()[type] ? value.data()[type] - 1 : 1,
+          },
+          { merge: true }
+        )
     }
   }
   const isSelected = (type) =>
