@@ -88,7 +88,7 @@ export default ({ data, location }) => {
       />
       <JoinAudience />
       <ReadingProgress target={target} />
-      <div className="is-grey is-light-grey-bg">
+      <div className="is-black is-light-grey-bg">
         <div
           className={`row ${
             declutter ? "container" : "container-article"
@@ -102,7 +102,7 @@ export default ({ data, location }) => {
               }
               className=""
             >
-              <h3 className="is-grey margin-0 margin-2-b link-bar pad-1-b">
+              <h3 className="is-black margin-0 margin-2-b link-bar pad-1-b">
                 {" "}
                 <i class="las la-arrow-left"></i>
                 {` ARTICLES`}
@@ -111,7 +111,7 @@ export default ({ data, location }) => {
           </div>
 
           <div className="col-xs-12 pad-3-lr">
-            <h1 className="is-hero-menu is-grey margin-1-t margin-3-b">
+            <h1 className="is-hero-menu is-black margin-1-t margin-3-b">
               {title}
             </h1>
             <div className="flex align-horizontal margin-3-b">
