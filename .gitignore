@@ -60,7 +60,6 @@ typings/
 
 # firebase files
 .firebaserc
-firebase.json
 .firebase/
 
 # gatsby files
