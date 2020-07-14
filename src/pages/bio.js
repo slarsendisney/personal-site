@@ -69,7 +69,7 @@ export default function Bio({ data, location }) {
                 </Link>{" "}
                 and {data.allNpmPackage.totalCount}{" "}
                 <OutboundLink
-                  href="https://www.npmjs.com/~dudesamld"
+                  href="https://www.npmjs.com/~slarsendisney"
                   className="is-special-blue"
                 >
                   npm packages
