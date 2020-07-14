@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import useDarkMode from "use-dark-mode"
 import { connect } from "react-redux"
 import { ProjectPreview } from "../templates/Projects"
@@ -53,6 +53,16 @@ const Start = ({ data, donationActive, donation }) => {
               {...featuredArticleTwo.fields}
             />
           </div>
+          <div
+            className="col-xs-12 pad-0 pad-1-r"
+            style={{ textAlign: "right" }}
+          >
+            <Link to="/articles" className="link-bar">
+              <h3 className="font-weight-normal margin-1-b">
+                ALL ARTICLES <i class="las la-arrow-right"></i>
+              </h3>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="is-grey is-light-grey-bg">
@@ -66,6 +76,16 @@ const Start = ({ data, donationActive, donation }) => {
           </div>
           <div className="col-xs-12 col-md-6 pad-0">
             <ProjectPreview {...featuredProjectTwo} />
+          </div>
+          <div
+            className="col-xs-12 pad-0 pad-1-r"
+            style={{ textAlign: "right" }}
+          >
+            <Link to="/projects" className="link-bar">
+              <h3 className="font-weight-normal margin-1-b ">
+                ALL PROJECTS <i class="las la-arrow-right"></i>
+              </h3>
+            </Link>
           </div>
         </div>
       </div>
