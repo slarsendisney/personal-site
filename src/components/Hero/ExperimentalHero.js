@@ -3,6 +3,8 @@ import AnchorLink from "react-anchor-link-smooth-scroll"
 import useDarkMode from "use-dark-mode"
 import CrossfadeImage from "react-crossfade-image"
 
+// These URLS are subject to change without warning. Please don't use them in your own projects as I own the rights.
+
 const images = {
   Ribbon1:
     "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FRibbon%201.png?alt=media&token=81396fad-3e5a-4a93-bc64-404d1bc29d09",
