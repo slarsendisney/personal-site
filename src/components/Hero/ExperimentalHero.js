@@ -5,35 +5,35 @@ import CrossfadeImage from "react-crossfade-image"
 
 const images = {
   Ribbon1:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FRibbon%201.png?alt=media&token=2236894b-8dc5-49ec-960b-3a5635ada36b",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FRibbon%201.png?alt=media&token=81396fad-3e5a-4a93-bc64-404d1bc29d09",
   Ribbon1Dark:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FRibbon%201-Dark.png?alt=media&token=a51c995f-f07e-4665-a50b-eb66380f4b99",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FRibbon%201-Dark.png?alt=media&token=71fae2ad-b79b-4a21-8ca5-3a76d4240f9e",
   Bulb:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FBulb.png?alt=media&token=b62b73c5-e554-491e-9a0e-e0d9ecc866ba",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FBulb.png?alt=media&token=168d9de5-3de6-4fdf-a917-85984fca4ce3",
   Pencil:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FPencil.png?alt=media&token=aebb1d5d-1162-4956-9ae0-e3729aab3204",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FPencil.png?alt=media&token=13709f6c-628d-4f29-86ae-5c06dcb4d316",
   Macbook:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FMacbook.png?alt=media&token=d0665372-3c4e-474d-aba0-68d61747ff41",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FMacbook.png?alt=media&token=1f97e289-7edf-498c-a632-83915a86ef3a",
   MacbookDark:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FMacbook-Dark.png?alt=media&token=041b569f-5010-477f-8b4f-da00389a8eab",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FMacbook-Dark.png?alt=media&token=549ed1ca-ab1a-41e5-a72b-15bec5fad8dc",
   iPad:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FiPad.png?alt=media&token=dafb4497-8575-4156-b6b7-6ca3c4c89ff7",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FiPad.png?alt=media&token=93504aba-9208-473d-9229-9bd04403cbfe",
   Paperclip:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FPaperclip.png?alt=media&token=b87337ab-cb4a-4cf6-b7b0-08fe8d327d41",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FPaperclip.png?alt=media&token=77f5f049-8880-4bca-ae28-a1e19648ed8d",
   Ribbon2:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FRibbon%202.png?alt=media&token=b22b72d7-8718-4d07-bebd-90e47d4299e6",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FRibbon%202.png?alt=media&token=4f2f66c3-ed4a-42e8-a504-453204cc1a8e",
   BodyThinking:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FBody%2FThinking.png?alt=media&token=7e3e2447-437b-4c9e-9b91-779464e5613f",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FThinking.png?alt=media&token=3be1ad9a-5c4d-45ab-beba-a3edf5ae88ec",
   Ribbon3:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FRibbon%203.png?alt=media&token=27579ff8-7918-46a0-b35a-c37a1319f474",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FRibbon%203.png?alt=media&token=ddf917fd-f4fb-4c0c-ba18-a3648cdb9898",
   Ribbon4:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FRibbon%204.png?alt=media&token=d2bbe58d-a4cb-46d3-94a2-50c38442e9b2",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FRibbon%204.png?alt=media&token=f372908d-46c8-4161-9284-32358a1e762e",
   Ribbon10:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FRibbon%2010.png?alt=media&token=9c5d55b1-583a-4e34-94b0-f214e1f4f0a1",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FRibbon%2010.png?alt=media&token=5c3515f3-40a6-4272-956f-261e6fc0487c",
   Ribbon10Dark:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FRibbon%2010-Dark.png?alt=media&token=2a684b89-5c10-4b6d-907c-a878fe4c6e49",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FRibbon%2010-Dark.png?alt=media&token=1cad0a95-ae9a-44f3-99c3-36c32646fa2c",
   Ribbon11:
-    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/illustrations%2FItem%2FRibbon%2011.png?alt=media&token=1fee07c8-1cdb-4cf6-aa5c-8df55ac93e45",
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/secrets%2FRibbon%2011.png?alt=media&token=3ee2393f-8e10-432c-bb7f-79146d33ff5c",
 }
 
 export default ({ currentJob }) => {
