@@ -25,6 +25,8 @@ Yes, you can fork this repo. Please give me proper credit by linking back to [sl
 
 I want to keep this site open source howevers it's always disheartening to find that someone has copied my work without giving me credit. I spent a non-trivial amount of effort building and designing sld.codes, and I am proud of it! *All I ask of you is to not claim this effort as your own.*
 
+I own the images used within the hero section of this site that are referenced in the code. Please do not use without my express permission.
+
 If you have questions about implementation, please refer to the [Gatsby docs](https://www.gatsbyjs.org/docs/).
 
 
