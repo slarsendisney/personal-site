@@ -29,7 +29,6 @@ function SEO({ description, lang, meta, title, image, location }) {
   return (
     <Helmet>
       <title>{title} | Sam Larsen-Disney </title>
-
       <meta name="title" content={`${title} | Sam Larsen-Disney `} />
       <meta name="description" content={metaDescription} />
       <link rel="canonical" href={url} />
@@ -38,7 +37,6 @@ function SEO({ description, lang, meta, title, image, location }) {
       <meta property="og:title" content={`${title} | Sam Larsen-Disney `} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={metaImage} />
-
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="Sam Larsen-Disney" />
       <meta name="twitter:title" content={`${title} | Sam Larsen-Disney `} />
