@@ -72,6 +72,18 @@
     border-top-left-radius: 15;
   }
 
+  .bottom-fade-to-white {
+    background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  .pres-warning{
+    @extend .container;
+    min-height: 200px;
+    position: relative;
+    @extend .border-radius;
+  }
+
   .btn-sm {
     margin: 10px;
     color: white;

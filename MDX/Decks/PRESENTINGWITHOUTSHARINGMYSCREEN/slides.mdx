@@ -1,0 +1,207 @@
+---
+title: "Presenting Without Sharing My Screen"
+path: /decks/PRESENTINGWITHOUTSHARINGMYSCREEN
+desc: A React + Gatsby + Socket.io solution for crystal clear slides for everyone using minimal bandwidth. 
+hero: "./hero.png"
+date: 2020-07-11
+type: "Presentation"
+location: Remote | React London
+---
+
+import { TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed } from 'react-twitter-embed';
+import TextLoop from "react-text-loop";
+import {Emojione} from "react-emoji-render"
+import Warning from "../../../src/components/Presentations/Warning";
+import Success from "../../../src/components/Presentations/Success";
+import CodeBlock from "../../../src/components/Presentations/CodeBlock";
+import Idea from "../../../src/components/Presentations/Idea";
+import ZoomData from "./ZoomData";
+
+# Hey I'm Sam
+
+follow along at follow.sld.codes
+
+---
+
+<div className="flex align-horizontal align-vertical container">
+    <Warning content="All views expressed in this talk are my own and do not represent the opinions of any entity whatsover with which I have been, am now or will be affiliated." backgroundColourClassName="is-white-bg"/>
+</div>
+
+---
+
+Powerpoint and me are not friends.
+
+---
+
+I hate it.
+
+---
+
+It's an aid for me not the audience.
+
+---
+
+Genuine enthusiasm sells ideas not slide decks.
+
+---
+
+Gatsby
+
+---
+
+## gatsby-plugin-mdx-deck
+As its name suggests, this theme takes MDX and turns it into slide decks .
+
+---
+
+<CodeBlock >
+{
+    `---
+# My first slide
+An awesome introduction
+---
+# My second slide..
+My first point
+---
+...
+`
+}
+</CodeBlock >
+
+<a href="https://github.com/slarsendisney/personal-site/blob/master/decks/HOWTOGATSBY/slides.mdx">
+<p class="legal">See an example here.</p>
+</a>
+
+---
+
+<div className="flex align-horizontal align-vertical container">
+    <Success content="This was the PowerPoint alternative I was looking for." backgroundColourClassName="is-white-bg"/>
+</div>
+
+---
+
+# 👓 & 🌍
+
+---
+
+# The End?
+
+---
+
+# Coronavirus & social distancing
+
+---
+
+# Reality of video calls in old buildings
+
+---
+
+<div className="flex align-horizontal align-vertical container" style={{height:"100%", width:"100%"}}>
+    <ZoomData />
+</div>
+
+---
+
+<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
+
+<h3 className="lato-always"><Emojione text="😐 No fibre" /></h3>
+
+<h3 className="lato-always"><Emojione text="😑 Other users" /></h3>
+
+<h3 className="lato-always"><Emojione text="😕 BAD ISP" /></h3>
+
+<h3 className="lato-always"><Emojione text="😞 VPN" /></h3>
+
+</div>
+
+---
+
+![Sooo 90s](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/90s.gif?alt=media&token=92309475-e44b-4df3-ab5b-1419f95226c2)
+
+---
+
+<div className="flex align-horizontal align-vertical container">
+    <Warning content="The UX designer in me thinks this is less than ideal. I spend considerable time putting presentations together and they deserve a proper delivery." backgroundColourClassName="is-white-bg"/>
+</div>
+
+---
+
+<Idea content="When I give a presentation, my slide decks are already hosted. <br/><br/> <strong>Why don’t I send people to that URL and let them “follow along” as I present?</strong>"/>
+
+---
+
+<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
+
+<h3 className="lato-always"><Emojione text="✅ Stress on my network goes down"/></h3>
+
+<h3 className="lato-always"><Emojione text="✅ Everybody downloads less"/></h3>
+
+<h3 className="lato-always"><Emojione text="✅ Crystal clear content"/></h3>
+
+</div>
+
+---
+
+
+
+---
+
+Little Bonus!
+
+---
+
+HalfStack 2019
+
+---
+
+<TwitterTweetEmbed tweetId="1241812642852995074" options={{
+    cards: 'hidden',
+  }}/>
+
+---
+
+![Trump](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2)
+
+---
+
+Try it yourself
+
+---
+
+
+<div className="text-align-left row is-grey" style={{width:"100%"}}>
+    <div className="col-xs-12 ">
+        <h2 className="lato-always"> <Emojione text="👋"/> That's all folks!</h2>
+        
+        <p className="legal margin-3-t">Find me on the interwebs. Feedback always welcome:</p>
+        <div>
+        <h4 className="lato-always">
+                <TextLoop>
+                    <span></span>
+                    <span>twitter.</span>
+                    
+                    <span>linkedin.</span>
+                    
+                </TextLoop>sld.codes
+            </h4>
+            </div>
+           <h4 className="margin-0 opacity-30">-</h4>
+    </div>
+    <div className="col-xs-4 ">
+        <h5 className="lato-always">Dev Links</h5>
+         <a className="legal margin-0" href=""><p>Demo Project</p></a>
+         <a className="legal margin-0" href=""><p>gatsby-theme-mdx-deck</p></a>
+         <a className="legal margin-0" href=""><p>Socket.io</p></a>
+       
+    </div>
+    <div className="col-xs-4 ">
+         <h5 className="lato-always">Resources</h5>
+        <a className="legal margin-0" href=""><p>Demoing Gesture Controlled Slides</p></a>
+    </div>
+    <div className="col-xs-4 ">
+        <h5 className="lato-always">Credits</h5>
+        <a className="legal margin-0" href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"><p>How much data does zoom use?</p></a>
+         <a className="legal margin-0" href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"><p>Trumps waving hands.</p></a>
+        
+    </div>
+</div>
