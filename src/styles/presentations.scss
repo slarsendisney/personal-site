@@ -3,7 +3,9 @@
     padding-left:7vw;
     padding-right:7vw;
     display: flex;
-   
+    * {
+      z-index:100;
+    }
     img{
       max-height: 80vh;
       max-width: 90vw;

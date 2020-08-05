@@ -121,6 +121,7 @@ export const Slide = ({
 
         <div
           {...(!preview ? swipeProps : {})}
+          id="pres-slide"
           className="pres-layout light-mode stepTwo stepThree"
           sx={{
             boxSizing: "border-box",

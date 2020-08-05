@@ -2,10 +2,11 @@ import React from "react"
 import Lottie from "react-lottie"
 import data from "../../animation-data/confetti.json"
 
-export default () => {
+export default ({}) => {
   const defaultOptions = {
     loop: false,
     autoplay: true,
+
     animationData: data,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",

@@ -121,6 +121,7 @@
     "react-mash": "^1.0.9",
     "react-modal": "^3.11.2",
     "react-p5-wrapper": "^2.0.0",
+    "react-particles-js": "^3.3.0",
     "react-pdf-print": "^0.1.9",
     "react-photo-gallery": "^8.0.0",
     "react-redux": "^7.2.0",

@@ -1,7 +1,7 @@
 ---
-title: "Presenting Without Sharing My Screen"
+title: "PWSMS"
 path: /decks/PRESENTINGWITHOUTSHARINGMYSCREEN
-desc: A React + Gatsby + Socket.io solution for crystal clear slides for everyone using minimal bandwidth. 
+desc: Presenting Without Sharing My Screen, a React + Gatsby + Socket.io solution. 
 hero: "./hero.png"
 date: 2020-07-11
 type: "Presentation"
@@ -14,18 +14,28 @@ import {Emojione} from "react-emoji-render"
 import Warning from "../../../src/components/Presentations/Warning";
 import Success from "../../../src/components/Presentations/Success";
 import CodeBlock from "../../../src/components/Presentations/CodeBlock";
+import AnimatedBackground from "../../../src/components/Presentations/AnimatedBackground";
+import Confetti from "../../../src/components/Presentations/Confetti";
 import Idea from "../../../src/components/Presentations/Idea";
 import ZoomData from "./ZoomData";
 
-# Hey I'm Sam
 
-follow along at follow.sld.codes
+<AnimatedBackground />
+
+# Sam Larsen-Disney
+
+ UX Engineer @ AmericanExpress
+
 
 ---
 
 <div className="flex align-horizontal align-vertical container">
     <Warning content="All views expressed in this talk are my own and do not represent the opinions of any entity whatsover with which I have been, am now or will be affiliated." backgroundColourClassName="is-white-bg"/>
 </div>
+
+---
+
+<h2 className="lato-always">Join in at <a href="https://follow.sld.codes">follow.sld.codes</a> </h2>
 
 ---
 
@@ -165,6 +175,12 @@ HalfStack 2019
 ---
 
 Try it yourself
+
+---
+
+<Confetti>
+ <h1>YAY</h1>
+</Confetti>
 
 ---
 
