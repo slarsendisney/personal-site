@@ -124,6 +124,8 @@
     "react-particles-js": "^3.3.0",
     "react-pdf-print": "^0.1.9",
     "react-photo-gallery": "^8.0.0",
+    "react-pixelify": "^0.2.2",
+    "react-polls": "^1.2.0",
     "react-redux": "^7.2.0",
     "react-share": "^4.2.0",
     "react-slick": "^0.26.1",

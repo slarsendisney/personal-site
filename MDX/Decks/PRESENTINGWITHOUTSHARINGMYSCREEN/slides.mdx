@@ -17,14 +17,22 @@ import CodeBlock from "../../../src/components/Presentations/CodeBlock";
 import AnimatedBackground from "../../../src/components/Presentations/AnimatedBackground";
 import Confetti from "../../../src/components/Presentations/Confetti";
 import Idea from "../../../src/components/Presentations/Idea";
+import Poll from "../../../src/components/Presentations/Poll";
+import QandA from "../../../src/components/Presentations/QandA";
 import ZoomData from "./ZoomData";
-
+import RealityVsExpectation from "./RealityVsExpectation";
+import Preload from "../../../src/components/Presentations/Preload";
 
 <AnimatedBackground />
 
-# Sam Larsen-Disney
-
- UX Engineer @ AmericanExpress
+<div className="text-align-left row is-grey" style={{width:"100%"}}>
+    <div className="col-xs-12 ">
+        <h2 className="lato-always"> <Emojione text="👋"/> Hey, I'm Sam.</h2>
+       </div>
+    <div className="col-xs-12 ">
+        <h5 className="lato-always">UX Engineer @ American Express</h5>
+    </div>
+</div>
 
 
 ---
@@ -32,6 +40,12 @@ import ZoomData from "./ZoomData";
 <div className="flex align-horizontal align-vertical container">
     <Warning content="All views expressed in this talk are my own and do not represent the opinions of any entity whatsover with which I have been, am now or will be affiliated." backgroundColourClassName="is-white-bg"/>
 </div>
+
+---
+
+<h1 className="lato-always text-align-center">Presenting Without Sharing My Screen</h1>
+<p>OR</p>
+<p className="bold">Using React to Replace Powerpoint </p>
 
 ---
 
@@ -47,20 +61,106 @@ I hate it.
 
 ---
 
-It's an aid for me not the audience.
+Pixel perfection
 
 ---
 
-Genuine enthusiasm sells ideas not slide decks.
+Overly complex to theme
 
 ---
 
-Gatsby
+When was powerpoint born?
+
+---
+
+1987
+
+---
+
+🔎
+
+---
+
+MDX
+[Read More](https://mdxjs.com/)
+
+---
+
+Markdown + JSX ❤️
+
+---
+
+Interactive charts, animations or alerts inside your markdown content!
+
+---
+
+Example time.
+
+---
+
+<CodeBlock >
+{
+` # Hello, *world*!
+Below is an example of JSX embedded in Markdown.
+<div style={{ padding: '20px', backgroundColor: 'tomato' }}>
+  <h3>This is JSX</h3>
+</div>
+`
+}
+</CodeBlock >
+
+---
+
+
+<CodeBlock >
+{
+`import SpecialComponent from "./specialComponent"
+# Hello, *world*!
+Below is an example of JSX embedded in Markdown.
+<SpecialComponent/>
+`
+}
+</CodeBlock >
+
+---
+
+![Infographic](https://ik.imagekit.io/sld/infographic_EaEYSfYB37-.png)
+Perfect for blog posts from devs
+
+---
+
+![Design System](https://ik.imagekit.io/sld/DesignSystemExample_jXzuX1HjQ.png)
+Design System Documentation
+
+---
+
+GatsbyJS
+[Learn More](https://www.gatsbyjs.org/)
+
+---
+
+React Static Site Generator
+
+---
+
+Gatsby generates pages for you
+
+- Pass Gatsby content, define a template and it will programmatically create pages for you.
+
+---
+
+## 🔌 Built with a plugin architecture
+
+Abstract complex, configurations, or reusable code into a plugin so its away from what your focused on.
+
+---
+
+## gatsby-plugin-mdx
 
 ---
 
 ## gatsby-plugin-mdx-deck
-As its name suggests, this theme takes MDX and turns it into slide decks .
+MDX -> slide decks .
 
 ---
 
@@ -90,11 +190,43 @@ My first point
 
 ---
 
-# 👓 & 🌍
+<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
+    <h3 className="lato-always"><Emojione text="✅ Slides can be styled with css or sass."/></h3>
+    <h3 className="lato-always"><Emojione text="✅ Performant."/></h3>
+    <h3 className="lato-always"><Emojione text="✅ We can host the slides."/></h3>
+    <h3 className="lato-always"><Emojione text="✅ We can customise the 💩 out of it."/></h3>
+</div>
 
 ---
 
-# The End?
+Things we can do with react components in slides
+
+---
+
+Lottie animations
+[Learn More](https://airbnb.io/lottie/#/)
+
+---
+
+<Confetti>
+ <h1>YAY</h1>
+</Confetti>
+
+---
+
+Interactive code blocks & live code editing
+
+---
+
+DEMO BLOCK
+
+---
+
+### An interactive slide deck might be a more memorable one?
+
+---
+
+Job Done.
 
 ---
 
@@ -102,7 +234,11 @@ My first point
 
 ---
 
-# Reality of video calls in old buildings
+Job Done?
+
+---
+
+# 🌍 -> 👩‍💻👨‍💻
 
 ---
 
@@ -126,6 +262,10 @@ My first point
 
 ---
 
+<RealityVsExpectation/>
+
+---
+
 ![Sooo 90s](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/90s.gif?alt=media&token=92309475-e44b-4df3-ab5b-1419f95226c2)
 
 ---
@@ -137,6 +277,70 @@ My first point
 ---
 
 <Idea content="When I give a presentation, my slide decks are already hosted. <br/><br/> <strong>Why don’t I send people to that URL and let them “follow along” as I present?</strong>"/>
+
+---
+
+Realtime -> Sockets
+
+---
+
+Socket
+
+A bi-directional communication channel between a client and a server.
+
+---
+
+<div className="row">
+    <div className="col-xs-6 pad-10-l">
+        <p>Client</p>
+        <CodeBlock >
+{
+`import openSocket from 'socket.io-client';
+const socket = openSocket('http://localhost:8000');
+socket.emit('message', "Hello!");`
+}
+        </CodeBlock >
+    </div>
+    <div className="col-xs-6 pad-10-r">
+            <p>Server</p>
+        <CodeBlock >
+{
+`io.on('connection', (socket) => {
+  socket.on('message', (msg) => {
+    console.log('message: ' + msg);
+  });
+});`
+}
+        </CodeBlock >
+    </div>
+</div>
+
+
+---
+
+simple socket server
+
+---
+
+back and fourth
+
+---
+
+Making it presentor only
+
+---
+
+What if I'm going too fast?
+
+---
+
+Adding unfollow
+
+---
+
+<div className="flex align-horizontal align-vertical container" style={{height:"100%", width:"100%"}}>
+    <ZoomData />
+</div>
 
 ---
 
@@ -152,15 +356,39 @@ My first point
 
 ---
 
-
-
----
-
-Little Bonus!
+Sockets allow for even more crazy react components 
 
 ---
 
-HalfStack 2019
+Q&A
+
+---
+
+<QandA />
+
+---
+
+Polls
+
+---
+
+<Poll />
+
+---
+
+Stats
+
+---
+
+Insert Stats Page Here!
+
+---
+
+# Getting stupid with this
+
+---
+
+![HalfStack](https://ik.imagekit.io/sld/halfstack_zHesQ-h1y5m.png)
 
 ---
 
@@ -170,7 +398,20 @@ HalfStack 2019
 
 ---
 
+posenet
+<Preload images={["https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2"]}/>
+
+---
+
 ![Trump](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2)
+
+---
+
+Extensions
+
+---
+
+Turning your audience into a choir/orchestra using tone.js
 
 ---
 
@@ -178,26 +419,16 @@ Try it yourself
 
 ---
 
-<Confetti>
- <h1>YAY</h1>
-</Confetti>
-
----
-
-
 <div className="text-align-left row is-grey" style={{width:"100%"}}>
     <div className="col-xs-12 ">
-        <h2 className="lato-always"> <Emojione text="👋"/> That's all folks!</h2>
-        
+        <h2 className="lato-always"> <Emojione text="💪"/> That's all folks!</h2>
         <p className="legal margin-3-t">Find me on the interwebs. Feedback always welcome:</p>
         <div>
         <h4 className="lato-always">
                 <TextLoop>
                     <span></span>
                     <span>twitter.</span>
-                    
                     <span>linkedin.</span>
-                    
                 </TextLoop>sld.codes
             </h4>
             </div>
@@ -205,19 +436,21 @@ Try it yourself
     </div>
     <div className="col-xs-4 ">
         <h5 className="lato-always">Dev Links</h5>
-         <a className="legal margin-0" href=""><p>Demo Project</p></a>
+         <a className="legal margin-0" href=""><p>This Repo</p></a>
+          <a className="legal margin-0" href=""><p>MDX</p></a>
          <a className="legal margin-0" href=""><p>gatsby-theme-mdx-deck</p></a>
          <a className="legal margin-0" href=""><p>Socket.io</p></a>
+         <a className="legal margin-0" href=""><p>Posenet</p></a>
        
     </div>
     <div className="col-xs-4 ">
-         <h5 className="lato-always">Resources</h5>
+        <h5 className="lato-always">Resources</h5>
+        <a className="legal margin-0" href=""><p>Article on this tech with code</p></a>
         <a className="legal margin-0" href=""><p>Demoing Gesture Controlled Slides</p></a>
     </div>
     <div className="col-xs-4 ">
         <h5 className="lato-always">Credits</h5>
         <a className="legal margin-0" href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"><p>How much data does zoom use?</p></a>
          <a className="legal margin-0" href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"><p>Trumps waving hands.</p></a>
-        
     </div>
 </div>

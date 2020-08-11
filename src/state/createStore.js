@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware } from "redux"
 import createSocketIoMiddleware from "redux-socket.io"
 import io from "socket.io-client"
-let socket = io("https://sld-clicker.herokuapp.com/") //io("http://localhost:3000/")
+let socket = io("http://localhost:3000/")
 let socketIoMiddleware = createSocketIoMiddleware(socket, "server/")
 
-const DEVELOPMENT = false
+const DEVELOPMENT = true
 
 function reducer(
   state = {
@@ -31,6 +31,9 @@ function reducer(
     }
     case "userCount":
       return Object.assign({}, { ...state, count: action.data })
+    case "pollUpdate": {
+      return Object.assign({}, { ...state, polls: action.data })
+    }
     case "follow":
       return Object.assign({}, { ...state, follow: action.data })
     case "verify":

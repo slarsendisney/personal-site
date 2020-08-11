@@ -36,6 +36,35 @@
       
     }
 
+    .QA {
+      
+      min-width: 80%;
+      p{
+        margin-top: 10px;
+        font-size: 30px;
+      }
+      h4 {
+        @extend .lato-always;
+        font-size: 25px;
+      }
+      .input {
+        font-size: 30px;
+      }
+    }
+
+    .poll {
+      *{
+        font-family: Lato;
+      }
+      h3 {
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 20px;
+      }
+      transition: width 1s;
+    }
+
   pre code {
     @extend .is-black;
     background: none;
