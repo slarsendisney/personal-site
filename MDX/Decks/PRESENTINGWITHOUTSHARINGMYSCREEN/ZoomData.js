@@ -11,7 +11,7 @@ import {
 } from "recharts"
 const data = [
   {
-    name: "Audio Only",
+    name: "Audio",
     GB: 0.072,
   },
   {
@@ -24,16 +24,35 @@ const data = [
   },
 ]
 
-export default () => {
+const dataWithGatsby = [
+  {
+    name: "Audio",
+    GB: 0.072,
+  },
+  {
+    name: "Our Solution",
+    GB: 0.092,
+  },
+  {
+    name: "SD Video",
+    GB: 0.7,
+  },
+  {
+    name: "HD Video",
+    GB: 2.5,
+  },
+]
+
+export default ({ withGatsby }) => {
   return (
     <ResponsiveContainer
-      width="90%"
+      width="100%"
       height="90%"
       maxHeight="400px"
-      maxWidth="800px"
+      maxWidth="900px"
     >
       <BarChart
-        data={data}
+        data={withGatsby ? dataWithGatsby : data}
         margin={{ top: 20, right: 30, left: 60, bottom: 50 }}
       >
         <XAxis dataKey="name" />

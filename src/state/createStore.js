@@ -13,6 +13,7 @@ function reducer(
     follow: true,
     verified: false,
     count: 0,
+    polls: [],
   },
   action
 ) {

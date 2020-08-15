@@ -2,7 +2,7 @@ import React from "react"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
-export default (props) => {
+export default (props, { language = "jsx" }) => {
   return (
     <div
       className="is-white-always flex"
@@ -10,6 +10,7 @@ export default (props) => {
     >
       <SyntaxHighlighter
         style={atomOneDark}
+        language={language}
         wrapLines
         customStyle={{
           padding: 10,
