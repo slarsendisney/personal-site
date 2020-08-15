@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import useDarkMode from "use-dark-mode"
+import Img from "gatsby-image/withIEPolyfill"
 import { connect } from "react-redux"
 import { ProjectPreview } from "../templates/Projects"
 import { ArticlePreview } from "../templates/Articles"
@@ -11,7 +12,6 @@ import ExperimentalHero from "../components/Hero/ExperimentalHero"
 import EmploymentHistory from "../data/timeline.json"
 import PreferPaper from "../components/Root/PreferPaper"
 import getAllArticles from "../utils/getAllArticles"
-import MakeItRain from "../components/Root/MakeItRain"
 
 const Start = ({ data, donationActive, donation }) => {
   const allArticles = getAllArticles(data)
@@ -90,9 +90,35 @@ const Start = ({ data, donationActive, donation }) => {
         </div>
       </div>
       <div className="is-grey is-white-bg">
-        <div className="row container-small pad-5-t pad-10-b ">
-          <h2 className="margin-0-b pad-3-lr">Recent Events</h2>
-          <RecentEvents />
+        <div className="row" style={{ position: "relative", minHeight: 350 }}>
+          <Img
+            fluid={data.eventHero.childImageSharp.fluid}
+            style={{
+              width: "100%",
+              height: "100%",
+              zIndex: 1,
+              position: "absolute",
+            }}
+            objectPosition="75% 50%"
+          />
+          <div
+            className="col-xs-12 flex align-horizontal align-vertical"
+            style={{ zIndex: 1, width: "100%", backgroundColor: "#00000080" }}
+          >
+            <h1>Conferences and Hackathons</h1>
+            <Link to="events">
+              <button
+                className="bubble-button border-radius"
+                style={{
+                  minWidth: 300,
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                }}
+              >
+                UPCOMING EVENTS
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
       <PreferPaper darkMode={darkMode} />
@@ -102,6 +128,14 @@ const Start = ({ data, donationActive, donation }) => {
 
 export const query = graphql`
   {
+    eventHero: file(relativePath: { eq: "eventHero.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+          ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
     allMdx(
       filter: { frontmatter: { type: { eq: "Article" } } }
       sort: { fields: frontmatter___date, order: DESC }
