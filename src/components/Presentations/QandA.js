@@ -22,11 +22,18 @@ const QuestionCard = ({ question }) => {
     <div className="col-xs-12 col-md-4 pad-1 fill-height">
       <button
         className={`${
-          answered ? "is-special-blue-bg is-white" : "is-light-grey-bg is-grey"
+          answered
+            ? "is-special-blue-bg is-white-always"
+            : "is-light-grey-bg is-grey"
         } pad-2 border-radius fill-height fill-width`}
-        onClick={() => setAnswered(true)}
+        onClick={() => setAnswered(!answered)}
       >
-        <p style={{ fontSize: 20 }}>{question}</p>
+        <p
+          style={{ fontSize: 20 }}
+          className={`${answered && "is-white-always"}`}
+        >
+          {question}
+        </p>
       </button>
     </div>
   )
@@ -76,10 +83,10 @@ const QuestionForm = ({ submitQuestion }) => {
             <Emojione text="✅ Question Submitted!" />{" "}
           </p>
           <button
-            className="bubble-button border-radius"
+            className="bubble-button border-radius "
             onClick={() => setSubmitted(false)}
           >
-            <p className="legal">Ask Another</p>
+            <p className="legal is-white-always">Ask Another</p>
           </button>{" "}
         </>
       ) : (
@@ -94,8 +101,8 @@ const QuestionForm = ({ submitQuestion }) => {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
           />
-          <button className="bubble-button border-radius" onClick={onSubmit}>
-            <p className="legal">Submit</p>
+          <button className="bubble-button border-radius " onClick={onSubmit}>
+            <p className="legal is-white-always">Submit</p>
           </button>{" "}
         </>
       )}

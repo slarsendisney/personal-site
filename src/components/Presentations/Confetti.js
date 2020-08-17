@@ -39,7 +39,7 @@ export default ({ children }) => {
           style={{ position: "absolute", bottom: 50 }}
           onClick={restart}
         >
-          <p className="legal">More 🎉</p>
+          <p className="legal is-white-always">More 🎉</p>
         </button>
       </div>
     </>

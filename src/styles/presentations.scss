@@ -3,6 +3,7 @@
     padding-left:7vw;
     padding-right:7vw;
     display: flex;
+   
     * {
       z-index:100;
     }
@@ -19,11 +20,13 @@
       font-weight: bold;
       margin-top: 0.37em;
       margin-bottom: 0.37em;
+      @extend .is-grey;
     }
     p {
       font-family: Lato;
       font-weight: normal;
       font-size: 1em;
+      @extend .is-grey;
       // margin-right: auto;
     }
     .legal {

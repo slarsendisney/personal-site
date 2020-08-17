@@ -63,7 +63,7 @@ const PollView = ({
                 className="bubble-button fill-width border-radius"
                 onClick={() => handleVote(option)}
               >
-                <p>{option}</p>
+                <p className="is-white-always">{option}</p>
               </button>
             </div>
           ))}
