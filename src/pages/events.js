@@ -11,8 +11,8 @@ const EventBlock = ({ events }) => {
   return (
     <>
       {events.map((event) => (
-        <div className="col-xs-12 col-md-6 col-lg-4">
-          <div className="fill-height fill-width pad-3 pad-5-tb is-white-bg is-grey margin-3-b">
+        <div className="col-xs-12 col-md-6 col-lg-4 ">
+          <div className="fill-height pad-3 pad-5-tb is-white-bg is-grey margin-3-b margin-1-r">
             <h3 className="bold margin-1-tb">{event.talk}</h3>
             <p className="margin-2-tb">
               {event.event} | {event.location}
@@ -67,11 +67,14 @@ export default ({ data }) => {
             style={{ zIndex: 1, width: "100%", backgroundColor: "#00000080" }}
           >
             <div className="text-align-center">
-              <h1 className="margin-0-tb" style={{ fontSize: "5em" }}>
+              <h1
+                className="margin-0-tb is-white-always"
+                style={{ fontSize: "5em" }}
+              >
                 Events
               </h1>
               <div
-                className="line is-grey margin-3-t "
+                className="line is-white-always margin-3-t "
                 style={{ width: "60vw", margin: "auto" }}
               />
             </div>

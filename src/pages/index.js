@@ -105,7 +105,7 @@ const Start = ({ data, donationActive, donation }) => {
             className="col-xs-12 flex align-horizontal align-vertical"
             style={{ zIndex: 1, width: "100%", backgroundColor: "#00000080" }}
           >
-            <h1>Conferences and Hackathons</h1>
+            <h1 className="is-white-always">Conferences and Hackathons</h1>
             <Link to="events">
               <button
                 className="bubble-button border-radius"
