@@ -1,0 +1,26 @@
+[
+  {
+    "event": "HalfStack Conf",
+    "talk": "Presenting Without Sharing My Screen",
+    "description": "A React + Gatsby + Socket.io solution for crystal clear slides for everyone using minimal bandwidth + slide navigation using gestures.",
+    "location": "Remote",
+    "date": "2020-10-30",
+    "link": "https://halfstackconf.com/"
+  },
+  {
+    "event": "React London Meetup",
+    "talk": "Presenting Without Sharing My Screen",
+    "description": "A React + Gatsby + Socket.io solution for crystal clear slides for everyone using minimal bandwidth + slide navigation using gestures.",
+    "location": "Remote",
+    "date": "2020-08-18",
+    "link": "https://meetup.react.london/"
+  },
+  {
+    "event": "Imperial College London",
+    "talk": "Elevating Your Hack",
+    "description": "Tips & tricks to make your hack stand out from the crowd.",
+    "location": "London",
+    "date": "2020-02-08",
+    "link": "https://ichack.org/"
+  }
+]
