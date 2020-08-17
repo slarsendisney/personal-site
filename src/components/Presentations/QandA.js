@@ -86,7 +86,7 @@ const QuestionForm = ({ submitQuestion }) => {
             className="bubble-button border-radius "
             onClick={() => setSubmitted(false)}
           >
-            <p className="legal is-white-always">Ask Another</p>
+            <p className="legal is-white-always margin-0">Ask Another</p>
           </button>{" "}
         </>
       ) : (
@@ -102,7 +102,7 @@ const QuestionForm = ({ submitQuestion }) => {
             onChange={(e) => setQuestion(e.target.value)}
           />
           <button className="bubble-button border-radius " onClick={onSubmit}>
-            <p className="legal is-white-always">Submit</p>
+            <p className="legal is-white-always margin-0">Submit</p>
           </button>{" "}
         </>
       )}

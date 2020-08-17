@@ -10,12 +10,12 @@ export default () => {
         {reality ? (
           <div style={{ width: "80%" }}>
             <Pixelify
-              src="https://ik.imagekit.io/sld/Screenshot_2020-08-07_at_15.25.59_S_VrLUzsTo0.png?tr=w-500,h-300"
+              src="https://ik.imagekit.io/sld/Screenshot_2020-08-07_at_15.25.59_S_VrLUzsTo0.png?tr=w-600,h-360"
               pixelSize={5}
             />
           </div>
         ) : (
-          <img src="https://ik.imagekit.io/sld/Screenshot_2020-08-07_at_15.25.59_S_VrLUzsTo0.png?tr=w-500,h-300" />
+          <img src="https://ik.imagekit.io/sld/Screenshot_2020-08-07_at_15.25.59_S_VrLUzsTo0.png?tr=w-600,h-360" />
         )}
       </div>
       <div className="col-xs-12 text-align-center">

@@ -1,7 +1,7 @@
 ---
 title: "PWSMS"
 path: /decks/PRESENTINGWITHOUTSHARINGMYSCREEN
-desc: Presenting Without Sharing My Screen, a React + Gatsby + Socket.io solution. 
+desc: Presenting Without Sharing My Screen. A React + Gatsby + Socket.io Solution. 
 hero: "./hero.png"
 date: 2020-07-11
 type: "Presentation"
@@ -23,7 +23,7 @@ import ZoomData from "./ZoomData";
 import RealityVsExpectation from "./RealityVsExpectation";
 import Preload from "../../../src/components/Presentations/Preload";
 import Editor from "../../../src/components/LiveEditor/Editor";
-
+import Stats from "../../../src/components/Presentations/Stats";
 
 
 <div className="text-align-left row is-grey" style={{width:"100%"}}>
@@ -206,7 +206,7 @@ My first point
 
 ---
 
-Things we can do with react components in slides
+<h1 className="lato-always">Things we can do with react components in slides</h1>
 
 ---
 
@@ -231,7 +231,7 @@ Things we can do with react components in slides
 
 ---
 
-<h1 className="lato-always"> Coronavirus & social distancing </h1>
+<h1 className="lato-always"> Coronavirus & Social Distancing </h1>
 
 ---
 
@@ -322,11 +322,11 @@ io.on('connection', (socket) => {
 
 ---
 
-What if we want to save data?
+<h1 className="lato-always"><Emojione text="What If We Want To Store The Data?"/></h1>
 
 ---
 
-Combine with Redux ♥️
+<h1 className="lato-always"><Emojione text="Combine With Redux ♥️"/></h1>
 
 ---
 
@@ -378,7 +378,7 @@ io.on('connection', function(socket){
 
 ---
 
-Controlling Slide Delivery
+<h1 className="lato-always"><Emojione text="Controlling Slide Delivery"/></h1>
 
 ---
 
@@ -437,7 +437,7 @@ export default ConnectedDeck`}
 
 ---
 
-Making it presentor only
+<h1 className="lato-always"><Emojione text="Making it Presentor Only"/></h1>
 
 ---
 
@@ -470,11 +470,11 @@ Making it presentor only
 
 ---
 
-What if I'm going too fast?
+<h1 className="lato-always"><Emojione text="What if I'm going too fast? 🚀"/></h1>
 
 ---
 
-Adding unfollow
+<h1 className="lato-always"><Emojione text="Adding Unfollow"/></h1>
 
 ---
 
@@ -500,11 +500,17 @@ architecture diagram
 
 ---
 
-Sockets allow for even more crazy react components 
+<h1 className="lato-always font-weight-normal">Sockets allow for <span className="bold">even more crazy</span> react components</h1>
 
 ---
 
-Q&A
+<div className="flex align-horizontal align-vertical container">
+    <Warning content="These components are experimental. I have never tested them with this many people!" backgroundColourClassName="is-white-bg"/>
+</div>
+
+---
+
+<h1 className="lato-always">Q&A</h1>
 
 ---
 
@@ -512,7 +518,7 @@ Q&A
 
 ---
 
-Polls
+<h1 className="lato-always">Polls</h1>
 
 ---
 
@@ -520,11 +526,11 @@ Polls
 
 ---
 
-Stats
+<h1 className="lato-always">Stats</h1>
 
 ---
 
-Insert Stats Page Here!
+<Stats />
 
 ---
 
@@ -539,6 +545,7 @@ Insert Stats Page Here!
 <TwitterTweetEmbed tweetId="1241812642852995074" options={{
     cards: 'hidden',
   }}/>
+<Preload images={["https://github.com/tensorflow/tfjs-models/raw/master/posenet/demos/camera.gif"]}/>
 
 ---
 
@@ -550,14 +557,22 @@ Insert Stats Page Here!
 
 ![Trump](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2)
 
+<Preload images={["https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif"]}/>
+
 
 ---
 
-Further Extensions
+![Gesturing](https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif)
 
 ---
 
-Turning your audience into a choir/orchestra using tone.js
+<h1 className="lato-always">Further Extensions</h1>
+<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
+<p className="lato-always"><Emojione text="🔎 SEO"/></p>
+<p className="lato-always"><Emojione text="📞 Calling through the app"/></p>
+<p className="lato-always"><Emojione text="🎺 Turning your audience into a choir/orchestra using tone.js"/></p>
+
+</div>
 
 ---
 
@@ -580,23 +595,23 @@ Try it yourself
             </div>
            <h4 className="margin-0 opacity-30">-</h4>
     </div>
-    <div className="col-xs-4 ">
+    <div className="col-xs-4">
         <h5 className="lato-always">Dev Links</h5>
-         <a className="legal margin-0" href=""><p>This Repo</p></a>
-          <a className="legal margin-0" href=""><p>MDX</p></a>
-         <a className="legal margin-0" href=""><p>gatsby-theme-mdx-deck</p></a>
-         <a className="legal margin-0" href=""><p>Socket.io</p></a>
-         <a className="legal margin-0" href=""><p>Posenet</p></a>
+         <a className="legal margin-0" href=""><p className="is-special-blue-always">This Repo</p></a>
+          <a className="legal margin-0" href=""><p className="is-special-blue-always">MDX</p></a>
+         <a className="legal margin-0" href=""><p className="is-special-blue-always">gatsby-theme-mdx-deck</p></a>
+         <a className="legal margin-0" href=""><p className="is-special-blue-always">Socket.io</p></a>
+         <a className="legal margin-0" href=""><p className="is-special-blue-always">Posenet</p></a>
        
     </div>
     <div className="col-xs-4 ">
         <h5 className="lato-always">Resources</h5>
-        <a className="legal margin-0" href=""><p>Article on this tech with code</p></a>
-        <a className="legal margin-0" href=""><p>Demoing Gesture Controlled Slides</p></a>
+        <a className="legal margin-0" href=""><p className="is-special-blue-always">Article on this project with code</p></a>
+        <a className="legal margin-0" href=""><p className="is-special-blue-always">Demoing Gesture Controlled Slides</p></a>
     </div>
     <div className="col-xs-4 ">
         <h5 className="lato-always">Credits</h5>
-        <a className="legal margin-0" href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"><p>How much data does zoom use?</p></a>
-         <a className="legal margin-0" href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"><p>Trumps waving hands.</p></a>
+        <a className="legal margin-0" href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"><p className="is-special-blue-always">How much data does zoom use?</p></a>
+         <a className="legal margin-0" href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"><p className="is-special-blue-always">Trumps waving hands.</p></a>
     </div>
 </div>
