@@ -2,12 +2,13 @@ import React from "react"
 import { connect } from "react-redux"
 import { Link } from "gatsby"
 let pathname = typeof window !== "undefined" ? window.location.pathname : ""
-const Stats = ({ count, polls }) => {
+const Stats = ({ count, polls, pollIDs }) => {
+  let pollsInScope = new Set(pollIDs)
   let currentDeck = pathname.split("/")[2]
   console.log({ polls, pathname, currentDeck })
   let votes = 0
   Object.keys(polls).forEach((key) => {
-    if (key.includes(currentDeck)) {
+    if (pollsInScope.has(key)) {
       Object.keys(polls[key]).forEach((pollsKey) => {
         votes += polls[key][pollsKey]
       })
