@@ -10,11 +10,6 @@ if (typeof window !== "undefined") {
   require("firebase/firestore")
 }
 
-let QandAID =
-  typeof window !== "undefined"
-    ? window.location.pathname.substring(1).split("/").join("-")
-    : ""
-
 const QuestionCard = ({ question }) => {
   const [answered, setAnswered] = useState(false)
 
@@ -38,9 +33,9 @@ const QuestionCard = ({ question }) => {
     </div>
   )
 }
-const QuestionReel = () => {
+const QuestionReel = ({ QAID }) => {
   const [value, loading, error] = useDocumentData(
-    firebase.firestore().doc(`QandA/${QandAID}`)
+    firebase.firestore().doc(`QandA/${QAID}`)
   )
   return (
     <div className="QA">
@@ -64,12 +59,12 @@ const QuestionReel = () => {
   )
 }
 
-const QuestionForm = ({ submitQuestion }) => {
+const QuestionForm = ({ submitQuestion, QAID }) => {
   const [submitted, setSubmitted] = useState(false)
   const [question, setQuestion] = useState("")
   const onSubmit = () => {
     if (question !== "") {
-      submitQuestion(QandAID, question)
+      submitQuestion(QAID, question)
       setSubmitted(true)
       setQuestion("")
     }
@@ -109,11 +104,11 @@ const QuestionForm = ({ submitQuestion }) => {
     </div>
   )
 }
-const QandAView = ({ livePresenter, verified, submitQuestion }) => {
+const QandAView = ({ livePresenter, verified, submitQuestion, QAID }) => {
   if (livePresenter && verified) {
-    return <QuestionReel />
+    return <QuestionReel QAID={QAID} />
   }
-  return <QuestionForm submitQuestion={submitQuestion} />
+  return <QuestionForm submitQuestion={submitQuestion} QAID={QAID} />
 }
 
 const mapStateToProps = ({ livePresenter, verified }) => {

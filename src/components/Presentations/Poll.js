@@ -8,16 +8,13 @@ let starterPollAnswers = [
   { option: "Yes", votes: 0 },
   { option: "No", votes: 0 },
 ]
-let pollID =
-  typeof window !== "undefined"
-    ? window.location.pathname.substring(1).split("/").join("-")
-    : ""
 
 const PollView = ({
   polls,
   submitVote,
   question = pollQuestion,
   answers = starterPollAnswers,
+  pollID,
 }) => {
   const evaluatePoll = (polls) => {
     if (!polls) {
