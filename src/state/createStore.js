@@ -13,6 +13,7 @@ function reducer(
     follow: true,
     verified: false,
     count: 0,
+    polls: [],
   },
   action
 ) {
@@ -31,6 +32,9 @@ function reducer(
     }
     case "userCount":
       return Object.assign({}, { ...state, count: action.data })
+    case "pollUpdate": {
+      return Object.assign({}, { ...state, polls: action.data })
+    }
     case "follow":
       return Object.assign({}, { ...state, follow: action.data })
     case "verify":

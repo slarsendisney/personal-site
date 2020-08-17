@@ -4,6 +4,9 @@
     padding-right:7vw;
     display: flex;
    
+    * {
+      z-index:100;
+    }
     img{
       max-height: 80vh;
       max-width: 90vw;
@@ -17,11 +20,13 @@
       font-weight: bold;
       margin-top: 0.37em;
       margin-bottom: 0.37em;
+      @extend .is-grey;
     }
     p {
       font-family: Lato;
       font-weight: normal;
       font-size: 1em;
+      @extend .is-grey;
       // margin-right: auto;
     }
     .legal {
@@ -32,6 +37,35 @@
         
         // margin-right: auto;
       
+    }
+
+    .QA {
+      
+      min-width: 80%;
+      p{
+        margin-top: 10px;
+        font-size: 30px;
+      }
+      h4 {
+        @extend .lato-always;
+        font-size: 25px;
+      }
+      .input {
+        font-size: 30px;
+      }
+    }
+
+    .poll {
+      *{
+        font-family: Lato;
+      }
+      h3 {
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 20px;
+      }
+      transition: width 1s;
     }
 
   pre code {
@@ -70,6 +104,18 @@
   .pres-image{
     border-top-right-radius: 15;
     border-top-left-radius: 15;
+  }
+
+  .bottom-fade-to-white {
+    background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  .pres-warning{
+    @extend .container;
+    min-height: 200px;
+    position: relative;
+    @extend .border-radius;
   }
 
   .btn-sm {

@@ -25,13 +25,16 @@
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .font-weight-normal{
-  font-weight: normal;
+  font-weight: normal !important;
 }
 
+.fill-width {
+  width: 100% !important;
+}
 .line {
   border-bottom: 7px solid;
   max-width: 30%;

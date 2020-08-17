@@ -29,6 +29,7 @@ export const Slide = ({
   sayHello,
   livePresenter,
   follow,
+  count,
   shouldfollow,
   stopPres,
   verfication,
@@ -121,6 +122,7 @@ export const Slide = ({
 
         <div
           {...(!preview ? swipeProps : {})}
+          id="pres-slide"
           className="pres-layout light-mode stepTwo stepThree"
           sx={{
             boxSizing: "border-box",
@@ -161,7 +163,10 @@ export const Slide = ({
               }}
             />
           </button>
-          <div style={{ position: "fixed", bottom: 10, left: 20 }}>
+          <div
+            style={{ position: "fixed", bottom: 10, left: 20 }}
+            className="flex align-horizontal"
+          >
             <button onClick={() => removeCookie("SLDPresTourCookie")}>
               <img
                 src={Question}
@@ -175,16 +180,30 @@ export const Slide = ({
               TourActive === true) && (
               <>
                 {verified ? (
-                  <button
-                    onClick={(e) => {
-                      context.setState(toggleMode(modes.normal))
-                      stopPres()
-                      e.currentTarget.blur()
-                    }}
-                    style={{ marginLeft: 15 }}
-                  >
-                    <img src={Stop} style={{ height: 30 }} className="grow" />
-                  </button>
+                  <>
+                    <button
+                      onClick={(e) => {
+                        context.setState(toggleMode(modes.normal))
+                        stopPres()
+                        e.currentTarget.blur()
+                      }}
+                      style={{ marginLeft: 15 }}
+                    >
+                      <img
+                        data-tip={`Stop`}
+                        src={Stop}
+                        style={{ height: 30 }}
+                        className="grow margin-2-r"
+                      />
+                    </button>
+                    <p
+                      data-tip={`Viewers`}
+                      className="is-grey margin-3-t opacity-50"
+                      style={{ fontSize: 30 }}
+                    >
+                      {count}
+                    </p>
+                  </>
                 ) : (
                   <button
                     onClick={(e) => {
@@ -225,8 +244,14 @@ export const Slide = ({
   )
 }
 
-const mapStateToProps = ({ livePresenter, follow, verified, presentation }) => {
-  return { livePresenter, follow, verified, presentation }
+const mapStateToProps = ({
+  livePresenter,
+  follow,
+  count,
+  verified,
+  presentation,
+}) => {
+  return { livePresenter, follow, count, verified, presentation }
 }
 
 const mapDispatchToProps = (dispatch) => {

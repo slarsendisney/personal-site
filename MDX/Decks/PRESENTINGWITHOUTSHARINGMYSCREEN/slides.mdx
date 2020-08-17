@@ -1,0 +1,602 @@
+---
+title: "PWSMS"
+path: /decks/PRESENTINGWITHOUTSHARINGMYSCREEN
+desc: Presenting Without Sharing My Screen, a React + Gatsby + Socket.io solution. 
+hero: "./hero.png"
+date: 2020-07-11
+type: "Presentation"
+location: Remote | React London
+---
+
+import { TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed } from 'react-twitter-embed';
+import TextLoop from "react-text-loop";
+import {Emojione} from "react-emoji-render"
+import Warning from "../../../src/components/Presentations/Warning";
+import Success from "../../../src/components/Presentations/Success";
+import CodeBlock from "../../../src/components/Presentations/CodeBlock";
+import AnimatedBackground from "../../../src/components/Presentations/AnimatedBackground";
+import Confetti from "../../../src/components/Presentations/Confetti";
+import Idea from "../../../src/components/Presentations/Idea";
+import Poll from "../../../src/components/Presentations/Poll";
+import QandA from "../../../src/components/Presentations/QandA";
+import ZoomData from "./ZoomData";
+import RealityVsExpectation from "./RealityVsExpectation";
+import Preload from "../../../src/components/Presentations/Preload";
+import Editor from "../../../src/components/LiveEditor/Editor";
+
+
+
+<div className="text-align-left row is-grey" style={{width:"100%"}}>
+    <div className="col-xs-12 ">
+        <h2 className="lato-always"> <Emojione text="👋"/> Hey, I'm Sam Larsen-Disney.</h2>
+       </div>
+    <div className="col-xs-12 ">
+        <h5 className="lato-always">UX Engineer @ American Express</h5>
+    </div>
+</div>
+
+
+---
+
+<div className="flex align-horizontal align-vertical container">
+    <Warning content="All views expressed in this talk are my own and do not represent the opinions of any entity whatsover with which I have been, am now or will be affiliated." backgroundColourClassName="is-white-bg"/>
+</div>
+
+---
+
+<h1 className="lato-always text-align-center">Presenting Without Sharing My Screen</h1>
+<p>OR</p>
+<p className="bold">Using React to Replace Powerpoint </p>
+
+---
+
+<h2 className="lato-always">Join in at <a href="https://follow.sld.codes">follow.sld.codes</a> </h2>
+
+---
+
+<h2 className="lato-always font-weight-normal">PowerPoint and me are not friends.</h2>
+
+---
+
+<h2 className="lato-always font-weight-normal">I hate it.</h2>
+
+---
+
+<h2 className="lato-always font-weight-normal">Pixel Perfect</h2>
+
+---
+
+<h2 className="lato-always font-weight-normal">Overly complex to theme</h2>
+
+---
+
+<h2 className="lato-always font-weight-normal">When was powerpoint born?</h2>
+
+---
+
+<h1 className="lato-always is-hero-menu">1987</h1>
+
+---
+
+<h1 className="lato-always is-hero-menu">🔎</h1>
+
+---
+
+<h1 className="lato-always is-hero-menu">MDX</h1>
+
+<a href="https://mdxjs.com/"><button className="bubble-button border-radius legal">Learn More</button></a>
+
+---
+
+<h2 className="lato-always font-weight-normal">Markdown + JSX <Emojione text="❤️"/></h2>
+
+---
+
+<h1 className="lato-always"><Emojione text="😍"/></h1>
+<h2 className="lato-always font-weight-normal">Interactive charts, animations or alerts inside your markdown content!</h2>
+
+---
+
+<h2 className="lato-always font-weight-normal">Example Time <Emojione text="💫"/></h2>
+
+---
+
+<p className="legal opacity-70"><code>Example.mdx</code></p>
+<CodeBlock language="Markdown">
+{
+`# Hello, *world*!
+Below is an example of JSX embedded in Markdown:
+<div style={{ padding: '20px', backgroundColor: 'tomato' }}>
+  <h3>This is JSX</h3>
+</div>
+`
+}
+</CodeBlock >
+
+---
+
+<p className="legal opacity-70"><code>Example.mdx</code></p>
+<CodeBlock language="Markdown">
+{
+`import SpecialComponent from "./specialComponent"
+# Hello, *world*!
+Below is an example of JSX embedded in Markdown.
+<SpecialComponent/>
+`
+}
+</CodeBlock >
+
+---
+
+![Infographic](https://ik.imagekit.io/sld/infographic_EaEYSfYB37-.png)
+
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Perfect for blog posts from devs</p>
+
+---
+
+![Design System](https://ik.imagekit.io/sld/DesignSystemExample_jXzuX1HjQ.png)
+
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Design System Documentation</p>
+
+
+---
+
+<h1 className="lato-always is-hero-menu">GatsbyJS</h1>
+<a href="https://www.gatsbyjs.org/"><button className="bubble-button border-radius legal">Learn More</button></a>
+
+---
+
+<h2 className="lato-always font-weight-normal">React Static Site Generator</h2>
+
+---
+
+<h2 className="lato-always">Gatsby generates pages for you</h2>
+
+<p>Pass Gatsby content, define a template and it will programmatically create pages for you.</p>
+
+---
+
+<h2 className="lato-always "><Emojione text="🔌"/> Built with a plugin architecture</h2>
+
+Abstract complex, configurations, or reusable code into a plugin so its away from what your focused on.
+
+---
+
+<h2 className="lato-always">gatsby-plugin-mdx </h2>
+
+---
+
+<h2 className="lato-always">gatsby-theme-mdx-deck </h2>
+<p>MDX -> slide decks .</p>
+
+---
+
+<CodeBlock >
+{
+    `---
+# My first slide
+An awesome introduction
+---
+# My second slide..
+My first point
+---
+...
+`
+}
+</CodeBlock >
+
+<a href="https://github.com/slarsendisney/personal-site/blob/master/decks/HOWTOGATSBY/slides.mdx">
+<p class="legal">See on GitHub!</p>
+</a>
+
+---
+
+<div className="flex align-horizontal align-vertical container">
+    <Success content="This was the PowerPoint alternative I was looking for." backgroundColourClassName="is-white-bg"/>
+</div>
+
+---
+
+<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
+    <h3 className="lato-always"><Emojione text="✅ Slides can be styled with css or sass."/></h3>
+    <h3 className="lato-always"><Emojione text="✅ Performant."/></h3>
+    <h3 className="lato-always"><Emojione text="✅ We can host the slides."/></h3>
+    <h3 className="lato-always"><Emojione text="✅ We can customise the 🔥 out of it."/></h3>
+</div>
+
+---
+
+Things we can do with react components in slides
+
+---
+
+<Confetti>
+ <h1 className="lato-always">Lottie animations</h1>
+ <a href="https://airbnb.io/lottie/#/">Learn More</a>
+</Confetti>
+
+---
+
+<div className="fill-width">
+  <Editor />
+</div>
+
+---
+<h1><Emojione text="⭐️"/></h1>
+<h2 className="lato-always"> An interactive slide deck might be a more memorable one?</h2>
+
+---
+
+<h1 className="lato-always"><Emojione text="✅ Job Done"/></h1>
+
+---
+
+<h1 className="lato-always"> Coronavirus & social distancing </h1>
+
+---
+
+<h1 className="lato-always"><Emojione text="😿 Job Done?"/></h1>
+
+---
+
+<h1><Emojione text="🌍 -> 💻"/></h1>
+
+---
+
+<div className="flex align-horizontal align-vertical container" style={{height:"100%", width:"100%"}}>
+<h6  className="opacity-70 margin-0 font-weight-normal">Zoom Data Usage Per Hour</h6>
+    <ZoomData />
+</div>
+
+---
+
+<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
+  <h3 className="lato-always"><Emojione text="😐 No fibre" /></h3>
+  <h3 className="lato-always"><Emojione text="😑 Other users" /></h3>
+  <h3 className="lato-always"><Emojione text="😕 BAD ISP" /></h3>
+  <h3 className="lato-always"><Emojione text="😞 VPN" /></h3>
+</div>
+
+---
+
+<RealityVsExpectation/>
+
+---
+
+![Sooo 90s](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/90s.gif?alt=media&token=92309475-e44b-4df3-ab5b-1419f95226c2)
+
+---
+
+<div className="flex align-horizontal align-vertical container">
+    <Warning content="The UX designer in me thinks this is less than ideal. I spend considerable time putting presentations together and they deserve a proper delivery." backgroundColourClassName="is-white-bg"/>
+</div>
+
+---
+
+<Idea content="When I give a presentation, my slide decks are already hosted. <br/><br/> <strong>Why don’t I send people to that URL and let them “follow along” as I present?</strong>"/>
+
+---
+
+<h1 className="lato-always"><Emojione text="Realtime ➡️ Sockets"/></h1>
+
+
+---
+
+<h2 className="lato-always">What is a Socket?</h2>
+
+<p>A <span className="is-yellow-bg pad-1 border-radius">bi-directional</span> communication channel between a client and a server.</p>
+
+
+---
+
+<div className="row" style={{maxWidth:'100%'}}>
+    <div className="col-xs-12 pad-10-lr">
+        <p>Client</p>
+        <CodeBlock language="JSX">
+{
+`import openSocket from 'socket.io-client';
+const socket = openSocket('http://localhost:8000');
+socket.emit('message', "Hello!");`
+}
+        </CodeBlock >
+    </div>
+    <div className="col-xs-12 pad-10-lr">
+            <p>Server</p>
+        <CodeBlock language="JS">
+{
+`const express = require("express");
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(\`Listening on \${PORT}\`));
+  const io = require("socket.io")(server);
+io.on('connection', (socket) => {
+  socket.on('message', (msg) => {
+    console.log('message: ' + msg);
+  });
+});`
+}
+        </CodeBlock >
+    </div>
+</div>
+
+
+---
+
+What if we want to save data?
+
+---
+
+Combine with Redux ♥️
+
+---
+
+
+<CodeBlock >
+{
+`import { createStore, applyMiddleware } from 'redux';
+import createSocketIoMiddleware from 'redux-socket.io';
+import io from 'socket.io-client';
+let socket = io('http://localhost:3000');
+let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
+function reducer(state = {}, action){
+  switch(action.type){
+    case 'message':
+      return Object.assign({}, {message:action.data});
+    default:
+      return state;
+  }
+}
+let store = applyMiddleware(socketIoMiddleware)(createStore)(reducer);
+store.subscribe(()=>{
+  console.log('new client state', store.getState());
+});
+store.dispatch({type:'server/hello', data:'Hello!'});`
+}
+</CodeBlock >
+
+---
+
+<CodeBlock >
+{
+`var http = require('http');
+var server = http.createServer();
+var socket_io = require('socket.io');
+server.listen(3000);
+var io = socket_io();
+io.attach(server);
+io.on('connection', function(socket){
+  console.log("Socket connected: " + socket.id);
+  socket.on('action', (action) => {
+    if(action.type === 'server/hello'){
+      console.log('Got hello data!', action.data);
+      socket.emit('action', {type:'message', data:'good day!'});
+    }
+  });
+});`
+}
+</CodeBlock >
+
+---
+
+Controlling Slide Delivery
+
+---
+
+<CodeBlock language="jsx">
+    {`export const Deck = ({
+  changePresPosOnServer,
+  presentation,
+}) => {
+//...
+if (
+    index !== presentation.slide
+  ) {
+    changePresPosOnServer(index)
+  }
+//...
+const mapStateToProps = ({ presentation }) => {
+  return { presentation }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changePresPosOnServer: (value) =>
+      dispatch({ type: "server/updateIndex", data: value }),
+  }
+}
+const ConnectedDeck =
+  typeof window !== "undefined"
+    ? connect(mapStateToProps, mapDispatchToProps)(Deck)
+    : Slide
+export default ConnectedDeck`}
+</CodeBlock>
+
+---
+
+<CodeBlock language="jsx">
+    {`export const Deck = ({
+  presentation,
+}) => {
+//...
+if (
+    window.location.pathname.includes(presentation.deck) &&
+    window.location.pathname !==
+      presentation.deck + "/slides/" + presentation.slide
+  ) {
+    jump(presentation.slide)
+  }
+//...
+const mapStateToProps = ({ presentation }) => {
+  return { presentation }
+}
+const ConnectedDeck =
+  typeof window !== "undefined"
+    ? connect(mapStateToProps)(Deck)
+    : Slide
+export default ConnectedDeck`}
+</CodeBlock>
+
+---
+
+Making it presentor only
+
+---
+
+<CodeBlock language="js">
+{`if (action.type === "server/verify") {
+      if (process.env.PRESENT_PASSWORD === action.data.password) {
+        pres.presenter = socket.id;
+        pres.deck = action.data.location;
+        pres.slide = action.data.index;
+        socket.emit("action", {
+          type: "verify",
+          data: true,
+        });
+        io.emit("action", {
+          type: "startLivePresentor",
+          data: pres,
+        });
+      }
+    }
+    if (action.type === "server/updateIndex") {
+      if (socket.id === pres.presenter) {
+        pres.slide = action.data;
+        io.emit("action", {
+          type: "updatePresIndex",
+          data: pres,
+        });
+      }
+    }`}
+</CodeBlock>
+
+---
+
+What if I'm going too fast?
+
+---
+
+Adding unfollow
+
+---
+
+architecture diagram
+
+---
+
+<div className="flex align-horizontal align-vertical container" style={{height:"100%", width:"100%"}}>
+    <ZoomData withGatsby={true}/>
+</div>
+
+---
+
+<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
+
+<h3 className="lato-always"><Emojione text="✅ Stress on my network goes down"/></h3>
+
+<h3 className="lato-always"><Emojione text="✅ Everybody downloads less"/></h3>
+
+<h3 className="lato-always"><Emojione text="✅ Crystal clear content"/></h3>
+
+</div>
+
+---
+
+Sockets allow for even more crazy react components 
+
+---
+
+Q&A
+
+---
+
+<QandA />
+
+---
+
+Polls
+
+---
+
+<Poll />
+
+---
+
+Stats
+
+---
+
+Insert Stats Page Here!
+
+---
+
+# Getting stupid with this
+
+---
+
+![HalfStack](https://ik.imagekit.io/sld/halfstack_zHesQ-h1y5m.png)
+
+---
+
+<TwitterTweetEmbed tweetId="1241812642852995074" options={{
+    cards: 'hidden',
+  }}/>
+
+---
+
+![PoseNet Skeleton](https://github.com/tensorflow/tfjs-models/raw/master/posenet/demos/camera.gif)
+
+<Preload images={["https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2"]}/>
+
+---
+
+![Trump](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2)
+
+
+---
+
+Further Extensions
+
+---
+
+Turning your audience into a choir/orchestra using tone.js
+
+---
+
+Try it yourself
+
+---
+
+<div className="text-align-left row is-grey" style={{width:"100%"}}>
+    <div className="col-xs-12 ">
+        <h2 className="lato-always"> <Emojione text="💪"/> That's all folks!</h2>
+        <p className="legal margin-3-t">Find me on the interwebs. Feedback always welcome:</p>
+        <div>
+        <h4 className="lato-always">
+                <TextLoop>
+                    <span></span>
+                    <span>twitter.</span>
+                    <span>linkedin.</span>
+                </TextLoop>sld.codes
+            </h4>
+            </div>
+           <h4 className="margin-0 opacity-30">-</h4>
+    </div>
+    <div className="col-xs-4 ">
+        <h5 className="lato-always">Dev Links</h5>
+         <a className="legal margin-0" href=""><p>This Repo</p></a>
+          <a className="legal margin-0" href=""><p>MDX</p></a>
+         <a className="legal margin-0" href=""><p>gatsby-theme-mdx-deck</p></a>
+         <a className="legal margin-0" href=""><p>Socket.io</p></a>
+         <a className="legal margin-0" href=""><p>Posenet</p></a>
+       
+    </div>
+    <div className="col-xs-4 ">
+        <h5 className="lato-always">Resources</h5>
+        <a className="legal margin-0" href=""><p>Article on this tech with code</p></a>
+        <a className="legal margin-0" href=""><p>Demoing Gesture Controlled Slides</p></a>
+    </div>
+    <div className="col-xs-4 ">
+        <h5 className="lato-always">Credits</h5>
+        <a className="legal margin-0" href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"><p>How much data does zoom use?</p></a>
+         <a className="legal margin-0" href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"><p>Trumps waving hands.</p></a>
+    </div>
+</div>
