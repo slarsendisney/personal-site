@@ -62,15 +62,15 @@ import Stats from "../../../src/components/Presentations/Stats";
 
 ---
 
-<h2 className="lato-always font-weight-normal">Pixel Perfect</h2>
+<h2 className="lato-always">Pixel Perfect</h2>
 
 ---
 
-<h2 className="lato-always font-weight-normal">Overly complex to theme</h2>
+<h2 className="lato-always">Overly complex to theme</h2>
 
 ---
 
-<h2 className="lato-always font-weight-normal">When was powerpoint born?</h2>
+<h2 className="lato-always">When was PowerPoint born?</h2>
 
 ---
 
@@ -112,6 +112,7 @@ Below is an example of JSX embedded in Markdown:
 `
 }
 </CodeBlock >
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">We can throw in JSX!</p>
 
 ---
 
@@ -125,6 +126,7 @@ Below is an example of JSX embedded in Markdown.
 `
 }
 </CodeBlock >
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">We can use imports as normal.</p>
 
 ---
 
@@ -146,7 +148,7 @@ Below is an example of JSX embedded in Markdown.
 
 ---
 
-<h2 className="lato-always font-weight-normal">React Static Site Generator</h2>
+<h2 className="lato-always">React Static Site Generator</h2>
 
 ---
 
@@ -156,7 +158,7 @@ Below is an example of JSX embedded in Markdown.
 
 ---
 
-<h2 className="lato-always "><Emojione text="🔌"/> Built with a plugin architecture</h2>
+<h2 className="lato-always "><Emojione text="🔌"/>Built with a plugin architecture</h2>
 
 Abstract complex, configurations, or reusable code into a plugin so its away from what your focused on.
 
@@ -171,6 +173,7 @@ Abstract complex, configurations, or reusable code into a plugin so its away fro
 
 ---
 
+<p className="legal opacity-70"><code>Deck.mdx</code></p>
 <CodeBlock >
 {
     `---
@@ -185,9 +188,7 @@ My first point
 }
 </CodeBlock >
 
-<a href="https://github.com/slarsendisney/personal-site/blob/master/decks/HOWTOGATSBY/slides.mdx">
-<p class="legal">See on GitHub!</p>
-</a>
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Slides seperated by <strong>---</strong></p>
 
 ---
 
@@ -220,6 +221,7 @@ My first point
 <div className="fill-width">
   <Editor />
 </div>
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">In-presentation-code-editors</p>
 
 ---
 <h1><Emojione text="⭐️"/></h1>
@@ -240,13 +242,15 @@ My first point
 ---
 
 <h1><Emojione text="🌍 -> 💻"/></h1>
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">The whole world went online!</p>
 
 ---
 
 <div className="flex align-horizontal align-vertical container" style={{height:"100%", width:"100%"}}>
-<h6  className="opacity-70 margin-0 font-weight-normal">Zoom Data Usage Per Hour</h6>
     <ZoomData />
+    <p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Zoom Data Usage Per Hour</p>
 </div>
+
 
 ---
 
@@ -260,6 +264,7 @@ My first point
 ---
 
 <RealityVsExpectation/>
+<Preload images={["https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/90s.gif?alt=media&token=92309475-e44b-4df3-ab5b-1419f95226c2"]}/>
 
 ---
 
@@ -270,6 +275,7 @@ My first point
 <div className="flex align-horizontal align-vertical container">
     <Warning content="The UX designer in me thinks this is less than ideal. I spend considerable time putting presentations together and they deserve a proper delivery." backgroundColourClassName="is-white-bg"/>
 </div>
+<Preload images={["https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Thought.png?alt=media&token=593cba54-930a-4345-868a-8f9a6d90cfa9"]}/>
 
 ---
 
@@ -291,7 +297,8 @@ My first point
 
 <div className="row" style={{maxWidth:'100%'}}>
     <div className="col-xs-12 pad-10-lr">
-        <p>Client</p>
+    
+        <p className="legal opacity-70"><code>App.js</code></p>
         <CodeBlock language="JSX">
 {
 `import openSocket from 'socket.io-client';
@@ -301,7 +308,8 @@ socket.emit('message', "Hello!");`
         </CodeBlock >
     </div>
     <div className="col-xs-12 pad-10-lr">
-            <p>Server</p>
+           
+            <p className="legal opacity-70"><code>Server.js</code></p>
         <CodeBlock language="JS">
 {
 `const express = require("express");
@@ -318,6 +326,7 @@ io.on('connection', (socket) => {
         </CodeBlock >
     </div>
 </div>
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Sockets Demo</p>
 
 
 ---
@@ -330,7 +339,7 @@ io.on('connection', (socket) => {
 
 ---
 
-
+<p className="legal opacity-70"><code>CreateStore.js</code></p>
 <CodeBlock >
 {
 `import { createStore, applyMiddleware } from 'redux';
@@ -353,9 +362,12 @@ store.subscribe(()=>{
 store.dispatch({type:'server/hello', data:'Hello!'});`
 }
 </CodeBlock >
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Implementing Socket.IO Redux Middleware</p>
+<a href="https://github.com/itaylor/redux-socket.io"><p className="legal is-special-blue-always margin-5-t">See redux-socket.io on Github</p></a>
 
 ---
 
+<p className="legal opacity-70"><code>Server.js</code></p>
 <CodeBlock >
 {
 `var http = require('http');
@@ -375,6 +387,7 @@ io.on('connection', function(socket){
 });`
 }
 </CodeBlock >
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Do something with the data on our server.</p>
 
 ---
 
@@ -382,6 +395,7 @@ io.on('connection', function(socket){
 
 ---
 
+<p className="legal opacity-70"><code>Deck.js</code></p>
 <CodeBlock language="jsx">
     {`export const Deck = ({
   changePresPosOnServer,
@@ -409,9 +423,25 @@ const ConnectedDeck =
     : Slide
 export default ConnectedDeck`}
 </CodeBlock>
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Updating Index While Presenting</p>
 
 ---
 
+<p className="legal opacity-70"><code>Server.js</code></p>
+<CodeBlock language="jsx">
+    {`if (action.type === "server/updateIndex") {
+        pres.slide = action.data;
+        io.emit("action", {
+          type: "updatePresIndex",
+          data: pres,
+        });
+    }`}
+</CodeBlock>
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Server Updates Index and Emits!</p>
+
+---
+
+<p className="legal opacity-70"><code>Deck.js</code></p>
 <CodeBlock language="jsx">
     {`export const Deck = ({
   presentation,
@@ -434,6 +464,7 @@ const ConnectedDeck =
     : Slide
 export default ConnectedDeck`}
 </CodeBlock>
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Following Along</p>
 
 ---
 
@@ -441,6 +472,7 @@ export default ConnectedDeck`}
 
 ---
 
+<p className="legal opacity-70"><code>Server.js</code></p>
 <CodeBlock language="js">
 {`if (action.type === "server/verify") {
       if (process.env.PRESENT_PASSWORD === action.data.password) {
@@ -467,6 +499,12 @@ export default ConnectedDeck`}
       }
     }`}
 </CodeBlock>
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Using ENV Variable to Identify Presentor</p>
+<Preload images={["https://ik.imagekit.io/sld/flowDiagram_GM8ZlDQ1BMI.png"]}/>
+
+---
+
+![Architecture Digram](https://ik.imagekit.io/sld/flowDiagram_GM8ZlDQ1BMI.png)
 
 ---
 
@@ -478,7 +516,32 @@ export default ConnectedDeck`}
 
 ---
 
-architecture diagram
+<p className="legal opacity-70"><code>Deck.js</code></p>
+<CodeBlock language="js">
+{`export const Deck = ({
+  presentation,
+  follow
+}) => {
+//...
+if (
+    follow &&
+    window.location.pathname.includes(presentation.deck) &&
+    window.location.pathname !==
+      presentation.deck + "/slides/" + presentation.slide
+  ) {
+    jump(presentation.slide)
+  }
+//...
+const mapStateToProps = ({ presentation, follow }) => {
+  return { presentation, follow }
+}
+const ConnectedDeck =
+  typeof window !== "undefined"
+    ? connect(mapStateToProps)(Deck)
+    : Slide
+export default ConnectedDeck`}
+</CodeBlock>
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Only jump if follow === true</p>
 
 ---
 
@@ -505,7 +568,7 @@ architecture diagram
 ---
 
 <div className="flex align-horizontal align-vertical container">
-    <Warning content="These components are experimental. I have never tested them with this many people!" backgroundColourClassName="is-white-bg"/>
+    <Warning content="These components are experimental. I have never tested them with this many sockets!" backgroundColourClassName="is-white-bg"/>
 </div>
 
 ---
@@ -534,22 +597,27 @@ architecture diagram
 
 ---
 
-# Getting stupid with this
+<h1 className="lato-always">Getting stupid with this</h1>
 
 ---
 
 ![HalfStack](https://ik.imagekit.io/sld/halfstack_zHesQ-h1y5m.png)
 
----
-
-<TwitterTweetEmbed tweetId="1241812642852995074" options={{
-    cards: 'hidden',
-  }}/>
-<Preload images={["https://github.com/tensorflow/tfjs-models/raw/master/posenet/demos/camera.gif"]}/>
+<Preload images={["https://ik.imagekit.io/sld/Charlie_H6woYFtms.jpg"]}/>
 
 ---
 
-![PoseNet Skeleton](https://github.com/tensorflow/tfjs-models/raw/master/posenet/demos/camera.gif)
+<img src="https://ik.imagekit.io/sld/Charlie_H6woYFtms.jpg"/>
+
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Charlie Gerard</p>
+
+<Preload images={["https://ik.imagekit.io/sld/camera__1__GesaesDUrR9.gif"]}/>
+
+---
+
+<img src="https://ik.imagekit.io/sld/camera__1__GesaesDUrR9.gif" width="100%" style="max-width:500px"/>
+
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">The PoseNet Skeleton</p>
 
 <Preload images={["https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2"]}/>
 
@@ -557,12 +625,97 @@ architecture diagram
 
 ![Trump](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2)
 
-<Preload images={["https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif"]}/>
-
+<Preload images={["https://ik.imagekit.io/sld/7_e9NGqNNtNFh.png","https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif"]}/>
 
 ---
 
-![Gesturing](https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif)
+<img src="https://ik.imagekit.io/sld/7_e9NGqNNtNFh.png" width="100%" style="max-width:800px"/>
+
+---
+
+<p className="legal opacity-70"><code>PoseNetCamera.js</code></p>
+<CodeBlock language="js">
+{`class PoseNet extends Component {  
+ //...
+  poseDetectionFrame(canvasContext) {  
+    const posenetModel = this.posenet;  
+    const video = this.video;  
+    const findPoseDetectionFrame = async () => {  
+      let poses = [];  
+      const pose = await posenetModel.estimateSinglePose(video, {  
+        imageScaleFactor,  
+        flipHorizontal,  
+        outputStride,  
+      });  
+      poses.push(pose);  
+    };  
+   
+  }  
+//...
+`}
+</CodeBlock >
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Using PoseNet</p>
+
+---
+
+<CodeBlock language="json">
+{`{
+  "score": 0.32371445304906,
+  "keypoints": [
+    {
+      "position": {
+        "y": 113.9603729248,
+        "x": 393.19735717773
+      },
+      "part": "leftWrist",
+      "score": 0.94009721279144
+    },
+    {
+      "position": {
+        "y": 186.47859191895,
+        "x": 257.98034667969
+      },
+      "part": "rightWrist",
+      "score": 0.98029226064682
+    }
+  ]
+}
+`}
+</CodeBlock >
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">PoseNet Data Points</p>
+
+---
+
+<p className="legal opacity-70"><code>Remote.js</code></p>
+<CodeBlock language="js">
+{`useEffect(() => {  
+    if (presentation && differenceInSeconds(new Date(), lastPunch) > 0.5) {  
+      const gesturingRight = poses.every((item) => item.position.x > window.innerWidth*0.75);  
+      const gseturingLeft = poses.every((item) => item.position.x < window.innerWidth*0.25);  
+      if (gesturingRight && presentation.slide >= 0) {  
+        changePresPosOnServer(presentation.slide + 1);  
+      }  
+      if (gseturingLeft && presentation.slide > 0) {  
+        changePresPosOnServer(presentation.slide - 1);  
+      }  
+      setLastPunch(new Date());  
+    }  
+  }, [poses]);
+`}
+</CodeBlock >
+<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Triggering Slide Jumps</p>
+
+---
+
+<img src="https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif" width="100%" style="max-width:800px"/>
+
+<a href="https://github.com/kirstenlindsmith/PoseNet_React/blob/master/client/components/Camera.js"><p className="legal is-special-blue-always margin-5-t">See the Video</p></a>
+
+---
+
+<h1 className="lato-always">Try it yourself!</h1>
+
+<a href="https://github.com/kirstenlindsmith/PoseNet_React/blob/master/client/components/Camera.js">See the Borrowed Code</a>
 
 ---
 
@@ -573,10 +726,6 @@ architecture diagram
 <p className="lato-always"><Emojione text="🎺 Turning your audience into a choir/orchestra using tone.js"/></p>
 
 </div>
-
----
-
-Try it yourself
 
 ---
 
