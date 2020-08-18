@@ -39,7 +39,7 @@ import Stats from "../../../src/components/Presentations/Stats";
 ---
 
 <div className="flex align-horizontal align-vertical container">
-    <Warning content="All views expressed in this talk are my own and do not represent the opinions of any entity whatsover with which I have been, am now or will be affiliated." backgroundColourClassName="is-white-bg"/>
+    <Warning content="All views expressed in this talk are my own and do not represent the opinions of any entity whatsover with which I have been, am now or will be affiliated with." backgroundColourClassName="is-white-bg"/>
 </div>
 
 ---
@@ -50,7 +50,7 @@ import Stats from "../../../src/components/Presentations/Stats";
 
 ---
 
-<h2 className="lato-always">Join in at <a href="https://follow.sld.codes">follow.sld.codes</a> </h2>
+<h2 className="lato-always">Join in at <a target="_blank" rel="noopener noreferrer" href="https://follow.sld.codes">follow.sld.codes</a> </h2>
 
 ---
 
@@ -84,7 +84,7 @@ import Stats from "../../../src/components/Presentations/Stats";
 
 <h1 className="lato-always is-hero-menu">MDX</h1>
 
-<a href="https://mdxjs.com/"><button className="bubble-button border-radius legal">Learn More</button></a>
+<a target="_blank" rel="noopener noreferrer" href="https://mdxjs.com/"><button className="bubble-button border-radius legal">Learn More</button></a>
 
 ---
 
@@ -144,7 +144,7 @@ Below is an example of JSX embedded in Markdown.
 ---
 
 <h1 className="lato-always is-hero-menu">GatsbyJS</h1>
-<a href="https://www.gatsbyjs.org/"><button className="bubble-button border-radius legal">Learn More</button></a>
+<a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/"><button className="bubble-button border-radius legal">Learn More</button></a>
 
 ---
 
@@ -212,8 +212,8 @@ My first point
 ---
 
 <Confetti>
- <h1 className="lato-always">Lottie animations</h1>
- <a href="https://airbnb.io/lottie/#/">Learn More</a>
+ <h1 className="lato-always">Lottie Animations</h1>
+ <a target="_blank" rel="noopener noreferrer" href="https://airbnb.io/lottie/#/">Learn More</a>
 </Confetti>
 
 ---
@@ -301,9 +301,9 @@ My first point
         <p className="legal opacity-70"><code>App.js</code></p>
         <CodeBlock language="JSX">
 {
-`import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8000');
-socket.emit('message', "Hello!");`
+`import openSocket from "socket.io-client";
+const socket = openSocket("http://localhost:8000");
+socket.emit("message", "Hello!");`
 }
         </CodeBlock >
     </div>
@@ -317,9 +317,9 @@ const server = express()
   .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
   .listen(PORT, () => console.log(\`Listening on \${PORT}\`));
   const io = require("socket.io")(server);
-io.on('connection', (socket) => {
-  socket.on('message', (msg) => {
-    console.log('message: ' + msg);
+io.on("connection", (socket) => {
+  socket.on("message", (msg) => {
+    console.log("message: " + msg);
   });
 });`
 }
@@ -342,14 +342,14 @@ io.on('connection', (socket) => {
 <p className="legal opacity-70"><code>CreateStore.js</code></p>
 <CodeBlock >
 {
-`import { createStore, applyMiddleware } from 'redux';
-import createSocketIoMiddleware from 'redux-socket.io';
-import io from 'socket.io-client';
-let socket = io('http://localhost:3000');
+`import { createStore, applyMiddleware } from "redux";
+import createSocketIoMiddleware from "redux-socket.io";
+import io from "socket.io-client";
+let socket = io("http://localhost:3000");
 let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
 function reducer(state = {}, action){
   switch(action.type){
-    case 'message':
+    case "message":
       return Object.assign({}, {message:action.data});
     default:
       return state;
@@ -357,31 +357,31 @@ function reducer(state = {}, action){
 }
 let store = applyMiddleware(socketIoMiddleware)(createStore)(reducer);
 store.subscribe(()=>{
-  console.log('new client state', store.getState());
+  console.log("new client state", store.getState());
 });
-store.dispatch({type:'server/hello', data:'Hello!'});`
+store.dispatch({type:"server/hello", data:"Hello!"});`
 }
 </CodeBlock >
 <p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Implementing Socket.IO Redux Middleware</p>
-<a href="https://github.com/itaylor/redux-socket.io"><p className="legal is-special-blue-always margin-5-t">See redux-socket.io on Github</p></a>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/itaylor/redux-socket.io"><p className="legal is-special-blue-always margin-5-t">See redux-socket.io on Github</p></a>
 
 ---
 
 <p className="legal opacity-70"><code>Server.js</code></p>
 <CodeBlock >
 {
-`var http = require('http');
+`var http = require("http");
 var server = http.createServer();
-var socket_io = require('socket.io');
+var socket_io = require("socket.io");
 server.listen(3000);
 var io = socket_io();
 io.attach(server);
-io.on('connection', function(socket){
+io.on("connection", function(socket){
   console.log("Socket connected: " + socket.id);
-  socket.on('action', (action) => {
-    if(action.type === 'server/hello'){
-      console.log('Got hello data!', action.data);
-      socket.emit('action', {type:'message', data:'good day!'});
+  socket.on("action", (action) => {
+    if(action.type === "server/hello"){
+      console.log("Got hello data!", action.data);
+      socket.emit("action", {type:"message", data:"good day!"});
     }
   });
 });`
@@ -709,13 +709,13 @@ export default ConnectedDeck`}
 
 <img src="https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif" width="100%" style="max-width:800px"/>
 
-<a href="https://github.com/kirstenlindsmith/PoseNet_React/blob/master/client/components/Camera.js"><p className="legal is-special-blue-always margin-5-t">See the Video</p></a>
+<a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=kZkOyVuBw-o&feature=youtu.be"><p className="legal is-special-blue-always margin-5-t">See the Video</p></a>
 
 ---
 
 <h1 className="lato-always">Try it yourself!</h1>
 
-<a href="https://github.com/kirstenlindsmith/PoseNet_React/blob/master/client/components/Camera.js">See the Borrowed Code</a>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/kirstenlindsmith/PoseNet_React/blob/master/client/components/Camera.js">See the Borrowed Code</a>
 
 ---
 
@@ -746,21 +746,21 @@ export default ConnectedDeck`}
     </div>
     <div className="col-xs-4">
         <h5 className="lato-always">Dev Links</h5>
-         <a className="legal margin-0" href=""><p className="is-special-blue-always">This Repo</p></a>
-          <a className="legal margin-0" href=""><p className="is-special-blue-always">MDX</p></a>
-         <a className="legal margin-0" href=""><p className="is-special-blue-always">gatsby-theme-mdx-deck</p></a>
-         <a className="legal margin-0" href=""><p className="is-special-blue-always">Socket.io</p></a>
-         <a className="legal margin-0" href=""><p className="is-special-blue-always">Posenet</p></a>
+         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://github.com/slarsendisney/personal-site"><p className="is-special-blue-always">This Repo</p></a>
+          <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://mdxjs.com/"><p className="is-special-blue-always">MDX</p></a>
+         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://github.com/jxnblk/mdx-deck/tree/master/packages/gatsby-theme"><p className="is-special-blue-always">gatsby-theme-mdx-deck</p></a>
+         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://socket.io/"><p className="is-special-blue-always">Socket.io</p></a>
+         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://github.com/tensorflow/tfjs-models/tree/master/posenet"><p className="is-special-blue-always">Posenet</p></a>
        
     </div>
     <div className="col-xs-4 ">
         <h5 className="lato-always">Resources</h5>
-        <a className="legal margin-0" href=""><p className="is-special-blue-always">Article on this project with code</p></a>
-        <a className="legal margin-0" href=""><p className="is-special-blue-always">Demoing Gesture Controlled Slides</p></a>
+        <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://sld.codes/articles/Presenting-Without-Sharing-My-Screen"><p className="is-special-blue-always">Article on this project with code</p></a>
+        <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://www.youtube.com/watch?v=kZkOyVuBw-o&feature=youtu.be"><p className="is-special-blue-always">Demoing Gesture Controlled Slides</p></a>
     </div>
     <div className="col-xs-4 ">
         <h5 className="lato-always">Credits</h5>
-        <a className="legal margin-0" href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"><p className="is-special-blue-always">How much data does zoom use?</p></a>
-         <a className="legal margin-0" href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"><p className="is-special-blue-always">Trumps waving hands.</p></a>
+        <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"><p className="is-special-blue-always">How much data does zoom use?</p></a>
+         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"><p className="is-special-blue-always">Trumps waving hands.</p></a>
     </div>
 </div>
