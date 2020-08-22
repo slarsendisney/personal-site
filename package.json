@@ -10,12 +10,16 @@
     "gatsby-plugin-offline": "3.2.23",
     "gatsby-plugin-postcss": "2.3.11",
     "gatsby-plugin-react-helmet": "3.3.10",
+    "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-sharp": "2.6.27",
+    "node-sass": "^4.14.1",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-emoji-render": "^1.2.4",
     "react-helmet": "6.1.0",
-    "react-lottie": "^1.2.3"
+    "react-lottie": "^1.2.3",
+    "react-smooth-collapse": "^2.1.0"
   },
   "keywords": [
     "gatsby",

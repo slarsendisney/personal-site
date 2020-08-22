@@ -1,0 +1,26 @@
+
+.logo {
+    div {
+        svg {
+            g {
+                g {
+                    g:nth-child(3) {
+                        path {
+                            fill: var(--color-logo-one)
+                        }
+                    }
+                    g:nth-child(2) {
+                        path {
+                            fill: var(--color-logo-two)
+                        }
+                    }
+                    g:nth-child(1) {
+                        path {
+                            fill: var(--color-logo-three)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

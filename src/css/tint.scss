@@ -1,0 +1,28 @@
+
+.tint {
+    position: relative;
+    float: left;
+    cursor: pointer;
+  }
+
+  .tint:before {
+    background: var(--color-bg-primary);
+    opacity: 0.15;
+  }
+  
+  .tint:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: background 0.3s linear;
+  }
+  
+  .card:hover {
+      .tint:before {
+        background: none;
+      }
+  }

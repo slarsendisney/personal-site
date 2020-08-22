@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-const themes = ["minimal", "startup", "blue"];
+const themes = ["blue", "dark"];
 
 const ThemePicker = ({ theme, setTheme }) => {
   return (
@@ -17,7 +16,7 @@ const ThemePicker = ({ theme, setTheme }) => {
           >
             <div
               className={`h-8 w-8 bg-primary rounded-full ${
-                theme === `theme-${item}` ? " border-4 border-secondary" : ""
+                theme === `theme-${item}` ? " border-4 border-accent" : ""
               }`}
             />
           </button>

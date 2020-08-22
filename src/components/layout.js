@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
-
 import Header from "./header";
 import { Helmet } from "react-helmet";
+import Footer from "./Footer";
 
 function Layout({ children }) {
   return (
@@ -16,24 +16,7 @@ function Layout({ children }) {
       <Header />
 
       <main className="text-default ">{children}</main>
-
-      <footer className="text-primary bg-primary">
-        <nav className="flex justify-between max-w-4xl p-4 mx-auto text-sm md:p-8">
-          <p className="">
-            <strong>Site Stats</strong>
-          </p>
-          <p>
-            <a
-              className="font-bold  no-underline"
-              href="https://github.com/taylorbryant/gatsby-starter-tailwind"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-          </p>
-        </nav>
-      </footer>
+      <Footer />
     </div>
   );
 }

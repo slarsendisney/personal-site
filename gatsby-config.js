@@ -13,6 +13,13 @@ module.exports = {
     `gatsby-plugin-eslint`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        // Configure SASS to process Tailwind
+        postCssPlugins: [require("tailwindcss")],
+      },
+    },
+    {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [

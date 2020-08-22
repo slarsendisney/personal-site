@@ -13,7 +13,7 @@ const Logo = () => {
   };
 
   return (
-    <span title="Home">
+    <span title="Home" className="logo">
       <Lottie
         isClickToPauseDisabled={true}
         options={defaultOptions}
