@@ -7,4 +7,11 @@
 @import "./themes.scss";
 @import "./tint.scss";
 @import "./logo.scss";
-@import "./icons.scss"
+@import "./icons.scss";
+@import "./buttons.scss";
+@import "./tags.scss";
+@import "./link.scss";
+
+main {
+    min-height: calc(100vh - 374px);
+}

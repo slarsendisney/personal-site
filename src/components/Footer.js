@@ -17,9 +17,7 @@ const Footer = () => (
               presentations and at hackathons.
             </p>
             <Link to="/this-site">
-              <button className="bg-accent text-primary hover:bg-accent-light text-sm py-2 px-3 rounded">
-                About This Site
-              </button>
+              <button className="btn-sm-accent">About This Site</button>
             </Link>
           </div>
 

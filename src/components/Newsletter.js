@@ -1,14 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Newsletter = () => (
+const Newsletter = ({ nodesc }) => (
   <div className="px-4 pt-3 pb-4  -mx-4 ">
     <h2 className="text-1xl md:text-2xl lg:text-3xl text-left inline-block font-semibold">
       Join My Newsletter
     </h2>
-    <p className="text-md pl-px">
-      Want to know when I post something new? For the latest articles and
-      projects staright to your inbox, subscribe to my newsletter.
-    </p>
+    {!nodesc && (
+      <p className="text-md pl-px">
+        Want to know when I post something new? For the latest articles and
+        projects staright to your inbox, subscribe to my newsletter.
+      </p>
+    )}
     <form action="#" className="mt-2">
       <div className="">
         <input
@@ -30,4 +33,7 @@ const Newsletter = () => (
   </div>
 );
 
+Newsletter.propTypes = {
+  nodesc: PropTypes.bool,
+};
 export default Newsletter;

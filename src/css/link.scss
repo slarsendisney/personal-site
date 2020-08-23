@@ -1,0 +1,7 @@
+.link {
+    @apply cursor-pointer font-semibold text-link no-underline;
+}
+
+.link:hover {
+    @apply underline;
+}

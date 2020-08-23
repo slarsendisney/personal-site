@@ -20,6 +20,26 @@
     --color-logo-three: #d25171;
 }
 
+.theme-pink {
+    --color-bg-primary: #ff5d8f;
+    --color-bg-primary-light: #fa6796;
+    --color-bg-accent: #ff7192; 
+    --color-bg-accent-light: #fc7b99; 
+    --color-bg-secondary: #ffc4d6;
+    --color-text-link: #ff7192;
+    --color-bg-compliment: #d3d3d340;
+    --color-bg-default: #f5f5ff;
+    --color-bg-inverse: #d77d4d;
+    --color-text-primary: #f5f5f5;
+    --color-text-secondary: #831f3f;
+    --color-text-default: #303030;
+    --color-text-default-soft: #484848;
+    --color-text-inverse: #fff;
+    --color-text-inverse-soft: rgba(255, 255, 255, 0.7);
+    --color-logo-one: #272f4b;
+    --color-logo-two: #4d5e9b;
+    --color-logo-three: #738de0;
+}
 
 .theme-dark {
     --color-bg-primary: #0b132bff;

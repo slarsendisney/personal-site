@@ -45,6 +45,9 @@ module.exports = {
   variants: {},
   // https://github.com/tailwindcss/custom-forms
   plugins: [
+    require("postcss-import"),
+    require("tailwindcss"),
+    require("autoprefixer"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/custom-forms"),
   ],

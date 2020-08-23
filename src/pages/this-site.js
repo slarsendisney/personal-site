@@ -1,13 +1,15 @@
 import React from "react";
 import Layout from "../components/layout";
+import { Link } from "gatsby";
 
+const inspirers = ["JoshWComeau", "mxbck", "yannispanagis"];
 const ThisSite = () => (
   <Layout>
     <section className="text-secondary flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 ">
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">
         About This Site
       </h1>
-      <p className="text-gray-700 mb-8">
+      <p className=" mb-8">
         Following on from the previous article, sometimes making complex UI
         controls that involve unsemantic HTML and dynamic JavaScript-updated
         content can be difficult. WAI-ARIA is a technology that can help with
@@ -18,14 +20,22 @@ const ThisSite = () => (
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">
         Inspiration
       </h1>
-      <p className="text-gray-700 mb-8">
-        Following on from the previous article, sometimes making complex UI
-        controls that involve unsemantic HTML and dynamic JavaScript-updated
-        content can be difficult. WAI-ARIA is a technology that can help with
-        such problems by adding in further semantics that browsers and assistive
-        technologies can recognize and use to let users know what is going on.
-        Here well show how to use it at a basic level to improve accessibility.
+      <p className="">
+        This site contains many ideas inspried by some awesome developers, I
+        encourage you to check out their work.
       </p>
+      <div className="flex flex-wrap mb-8 text-xl">
+        {inspirers.map((name, index) => (
+          <a
+            key={name}
+            href={"https://twitter.com/" + name}
+            className="font-bold text-link no-underline hover:underline"
+          >
+            @{name}
+            {index !== inspirers.length - 1 && <span className="mr-1">,</span>}
+          </a>
+        ))}
+      </div>
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">
         Frequently Asked Questions
       </h1>
@@ -34,12 +44,12 @@ const ThisSite = () => (
           <p className="font-semibold mt-0 mb-3 text-gray-900">
             Can I this site&apos;s code?
           </p>
-          <p className="text-gray-700">
-            This article starts off the module with a good look at what
-            accessibility is — this includes what groups of people we need to
-            consider and why, what tools different people use to interact with
-            the web, and how we can make accessibility part of our web
-            development workflow.
+          <p className="">
+            Yes, you can fork this repo (link at the bottom of this page!). The
+            code is provided as is, and is not guaranteed to work on your
+            machine or for your paticular use case. If you have questions about
+            implementation, please refer to the github readme and the Gatsby
+            docs.
           </p>
         </div>
       </div>
@@ -48,12 +58,13 @@ const ThisSite = () => (
           <p className="font-semibold mt-0 mb-3 text-gray-900">
             What is the best way to credit you?
           </p>
-          <p className="text-gray-700">
-            CSS and JavaScript, when used properly, also have the potential to
-            allow for accessible web experiences, but if misused they can
-            significantly harm accessibility. This article outlines some CSS and
-            JavaScript best practices that should be considered to ensure that
-            even complex content is as accessible as possible.
+          <p className="">
+            Please give me proper credit by linking back to sld.codes. I want to
+            keep this site open source howevers it&apos;s always disheartening
+            to find that someone has copied my work without giving me credit. I
+            spent a non-trivial amount of effort building and designing
+            sld.codes, and I am proud of it! All I ask of you is to not claim
+            this effort as your own.
           </p>
         </div>
       </div>
@@ -62,26 +73,27 @@ const ThisSite = () => (
           <p className="font-semibold mt-0 mb-3 text-gray-900">
             How can I support you?
           </p>
-          <p className="text-gray-700">
-            Following on from the previous article, sometimes making complex UI
-            controls that involve unsemantic HTML and dynamic JavaScript-updated
-            content can be difficult. WAI-ARIA is a technology that can help
-            with such problems by adding in further semantics that browsers and
-            assistive technologies can recognize and use to let users know what
-            is going on. Here well show how to use it at a basic level to
-            improve accessibility.
+          <p className="">
+            My site has no ads or sponsors. If you&apos;ve enjoyed my content or
+            used this site&apos;s code please consider supporting what I do.
           </p>
         </div>
       </div>
-      <div className="text-center mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 mx-auto max-w-2xl text-center">
         <a
           href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Howto/CSS_FAQ"
           target="_blank"
           rel="noreferrer"
-          className="bg-primary hover:bg-primary-light text-primary  text-md py-3 px-5 rounded"
+          className="bg-primary hover:bg-primary-light text-primary text-md py-3 px-5 my-1 mx-1 rounded"
         >
           <span>Learn more on the GitHub Repo</span>
         </a>
+        <Link
+          className="bg-primary hover:bg-primary-light text-primary  text-md py-3 px-5 my-1 mx-1 rounded"
+          to="/sponsor"
+        >
+          Say thanks
+        </Link>
       </div>
     </section>
   </Layout>

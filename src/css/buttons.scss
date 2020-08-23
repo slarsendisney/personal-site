@@ -1,0 +1,33 @@
+.btn {
+    @apply cursor-pointer bg-primary text-primary max-w-md py-3 px-5 rounded;
+}
+
+.btn-sm {
+    @apply cursor-pointer bg-primary text-primary max-w-md py-2 px-3 rounded text-sm;
+}
+
+.btn:hover {
+    @apply bg-primary-light;
+}
+
+.btn-sm:hover {
+    @extend .btn:hover;
+}
+
+.btn-accent {
+    @extend .btn;
+    @apply bg-accent;
+}
+
+.btn-accent:hover {
+    @apply bg-accent-light;
+}
+
+.btn-sm-accent {
+    @extend .btn-sm;
+    @apply bg-accent;
+}
+
+.btn-sm-accent:hover {
+    @apply bg-accent-light;
+}

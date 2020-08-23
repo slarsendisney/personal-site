@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-const themes = ["blue", "dark"];
+const themes = ["pink", "blue", "dark"];
 
 const ThemePicker = ({ theme, setTheme }) => {
   return (

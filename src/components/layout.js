@@ -15,7 +15,7 @@ function Layout({ children }) {
       </Helmet>
       <Header />
 
-      <main className="text-default ">{children}</main>
+      <main className="text-default overflow-x-hidden">{children}</main>
       <Footer />
     </div>
   );

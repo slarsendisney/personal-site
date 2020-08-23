@@ -29,7 +29,7 @@ function Header() {
         <SmoothCollapse expanded={themeExpanded} className="">
           <div className=" flex flex-wrap items-center justify-between container px-4 py-3 mx-auto mx-auto">
             <div className="flex items-center text-grey">
-              <h3 className="text-l">
+              <h3 className=" text-sm md:text-base">
                 Choose a new <strong>Lick of Paint.</strong>
               </h3>
             </div>
@@ -80,22 +80,57 @@ function Header() {
         </div>
       </header>
       <SmoothCollapse expanded={menuExpanded} className="">
-        <div className="bg-secondary">
-          <div className=" flex flex-wrap items-center container px-4 py-3 mx-auto mx-auto">
-            {[
-              {
-                title: "About",
-                link: "/about",
-              },
-              {
-                title: "Articles",
-                link: "/articles",
-              },
-            ].map(({ title, link }) => (
-              <Link to={link} key={title} className="mr-2 text-link">
-                <h3 className="text-l font-bold">{title}</h3>
-              </Link>
-            ))}
+        <div className="bg-secondary text-secondary">
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mx-4">
+              {[
+                {
+                  section: "Basics",
+                  elements: [
+                    { title: "About Me", link: "/about" },
+                    { title: "Events", link: "/events" },
+                    { title: "Projects", link: "/projects" },
+                    { title: "CV", link: "/cv" },
+                    { title: "Presentations", link: "/presentations" },
+                  ],
+                },
+                {
+                  section: "ToolKit",
+                  elements: [
+                    { title: "Articles", link: "/articles" },
+                    { title: "Boilerplates", link: "/boilerplates" },
+                    { title: "Uses", link: "/uses" },
+                    { title: "Hackathons", link: "/sos" },
+                  ],
+                },
+                {
+                  section: "Extras",
+                  elements: [
+                    { title: "Site Stats", link: "/stats" },
+                    { title: "Search", link: "/search" },
+                    { title: "Newsletter", link: "/newsletter" },
+                    { title: "Sponsor", link: "/sponsor" },
+                  ],
+                },
+              ].map(({ section, elements }) => (
+                <div className="px-8 my-4 w-auto " key={section}>
+                  <div>
+                    <h4 className="text-sm mb-3 font-semibold opacity-75">
+                      {section.toUpperCase()}
+                    </h4>
+                  </div>
+                  <ul className="grid grid-cols-2 lg:grid-cols-3">
+                    {elements.map(({ title, link }) => (
+                      <li className="mb-2" key={section + title}>
+                        <Link to={link} className="hover:text-link ">
+                          <p className="text-base">{title}</p>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </SmoothCollapse>
