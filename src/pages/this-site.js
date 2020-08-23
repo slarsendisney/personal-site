@@ -2,20 +2,29 @@ import React from "react";
 import Layout from "../components/layout";
 import { Link } from "gatsby";
 
-const inspirers = ["JoshWComeau", "mxbck", "yannispanagis"];
+const inspirers = [
+  "JoshWComeau",
+  "mxbck",
+  "yannispanagis",
+  "celikkoseoglu",
+  "jxnblk",
+];
 const ThisSite = () => (
   <Layout>
     <section className="text-secondary flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 ">
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">
         About This Site
       </h1>
+      <p className=" mb-3">
+        This site is my corner of the internet. I use it to experiment and
+        document my front-end adventures.
+      </p>
       <p className=" mb-8">
-        Following on from the previous article, sometimes making complex UI
-        controls that involve unsemantic HTML and dynamic JavaScript-updated
-        content can be difficult. WAI-ARIA is a technology that can help with
-        such problems by adding in further semantics that browsers and assistive
-        technologies can recognize and use to let users know what is going on.
-        Here well show how to use it at a basic level to improve accessibility.
+        The site has been redesigned and rebuilt many times. Its current tech
+        stack uses GatsbyJS, Redux, Socket.IO & Firebase. All UX design and code
+        was completed by me with a little inspiration. You can read about how
+        parts of the site were created by{" "}
+        <span className="link">reading my articles</span>.
       </p>
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">
         Inspiration

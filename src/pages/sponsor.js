@@ -13,7 +13,7 @@ function ContactPage() {
       <section className="text-secondary bg-default  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
           <h1 className="text-4xl font-semibold mb-5">Support Me</h1>
-          <p className="text-xl mb-5">
+          <p className="text-base mb-5">
             My site has no ads or sponsors. If you&apos;ve enjoyed my content
             and learnt something new please consider supporting what I do.{" "}
             <strong>There is no better way to say thanks!</strong>

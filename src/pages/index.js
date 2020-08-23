@@ -152,7 +152,7 @@ function IndexPage() {
         </div>
       </section>
       <section className="text-center text-secondary bg-secondary  ">
-        <div className="w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+        <div className="w-full max-w-4xl px-4 py-16 mx-auto md:px-8 md:py-32">
           <h1 className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
             Conferences and Hackathons
           </h1>
