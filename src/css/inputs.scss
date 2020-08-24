@@ -1,0 +1,7 @@
+.input {
+    @apply w-full px-2 py-4 mr-2 mt-2  bg-default shadow-inner rounded-md border;
+}
+
+.input:focus {
+    @apply outline-none;
+}

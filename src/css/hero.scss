@@ -1,0 +1,36 @@
+.bulb-glow {
+  width: 10px;
+  height: 10px;
+  
+}
+
+.bulb-special {
+  
+        border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 60px 40px #fff,
+    /* inner white */ 0 0 100px 60px rgb(255, 196, 0),
+    /* middle magenta */ 0 0 140px 90px rgb(255, 224, 124); /* outer cyan */
+  @media screen and (max-width: 500px) {
+    box-shadow: 0 0 20px 20px #fff,
+      /* inner white */ 0 0 40 40px rgb(255, 196, 0),
+      /* middle magenta */ 0 0 30 30 rgb(255, 224, 124); /* outer cyan */
+  
+}
+}
+
+.float-y {
+  animation: float-y 10s infinite;
+}
+
+@keyframes float-y {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}

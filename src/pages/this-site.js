@@ -19,11 +19,11 @@ const ThisSite = () => (
         This site is my corner of the internet. I use it to experiment and
         document my front-end adventures.
       </p>
-      <p className=" mb-8">
+      <p className="mb-8">
         The site has been redesigned and rebuilt many times. Its current tech
-        stack uses GatsbyJS, Redux, Socket.IO & Firebase. All UX design and code
-        was completed by me with a little inspiration. You can read about how
-        parts of the site were created by{" "}
+        stack uses GatsbyJS, Redux, Socket.IO, Tailwind & Firebase. All UX
+        design and code was completed by me with a little inspiration. You can
+        read about how parts of the site were created by{" "}
         <span className="link">reading my articles</span>.
       </p>
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">

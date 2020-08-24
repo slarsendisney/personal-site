@@ -9,7 +9,7 @@ const Newsletter = ({ nodesc }) => (
     {!nodesc && (
       <p className="text-md pl-px">
         Want to know when I post something new? For the latest articles and
-        projects staright to your inbox, subscribe to my newsletter.
+        projects straight to your inbox, subscribe to my newsletter.
       </p>
     )}
     <form action="#" className="mt-2">
@@ -19,7 +19,7 @@ const Newsletter = ({ nodesc }) => (
           aria-label="email"
           type="email"
           placeholder="you@email.com"
-          className="w-full px-2 py-4 mr-2 mt-2  bg-default shadow-inner rounded-md border border-gray-400 focus:outline-none"
+          className="input"
           required
         />
         <button

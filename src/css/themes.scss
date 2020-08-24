@@ -60,4 +60,7 @@
     --color-logo-one: #FFC53A;
     --color-logo-two: #fff;
     --color-logo-three: #c63082;
+    .bulb-glow {
+        @extend .bulb-special
+    }
   }

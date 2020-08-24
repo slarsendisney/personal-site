@@ -11,7 +11,9 @@
 @import "./buttons.scss";
 @import "./tags.scss";
 @import "./link.scss";
+@import "./inputs.scss";
+@import "./hero.scss";
 
 main {
-    min-height: calc(100vh - 374px);
+    min-height: calc(100vh - 373px);
 }

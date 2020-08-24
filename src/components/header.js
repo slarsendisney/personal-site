@@ -21,6 +21,7 @@ function Header() {
     var currentCss = document.body.className;
     currentCss = currentCss.replace(/theme-\w*/g, "") + theme;
     document.body.className = currentCss;
+    window.theme = theme;
   }, [theme]);
 
   return (

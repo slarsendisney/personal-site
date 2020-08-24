@@ -2,10 +2,8 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { Link } from "gatsby";
-import HeroBody from "../images/Body/Thinking.png";
-import HeroTorso from "../images/Torso/Thinking.png";
-import Bulb from "../images/Item/Bulb.png";
 import Newsletter from "../components/Newsletter";
+import Hero from "../components/Hero";
 
 const CardText = () => (
   <div className="cursor-pointer md:w-1/2 mb-3 duration-500 ease-in-out transform hover:scale-105">
@@ -69,49 +67,7 @@ function IndexPage() {
         title="Home"
       />
 
-      <section className="text-left text-secondary flex-1 w-full max-w-4xl px-6 pt-8 mx-auto md:px-8 md:pt-16">
-        <div className="grid grid-cols-8 gap-4 w-full ">
-          <div className="lg:col-span-6 md:col-span-5 col-span-8 mb-12 px-3">
-            <h1 className="inline-block text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold md:-mr-16">
-              Sam Larsen-Disney
-            </h1>
-            <h2 className="leading-loose text-xl md:text-1xl lg:text-2xl mb-3">
-              I have built{" "}
-              <span className="link">new ways to refer friends</span>,{" "}
-              <span className="link">onboarding experiences</span> and{" "}
-              <span className="link">rapid response systems</span>. I enjoy
-              teaching the next generation to code through my{" "}
-              <Link className="link" to="/articles">
-                articles
-              </Link>
-              ,{" "}
-              <Link className="link" to="/presentations">
-                presentations
-              </Link>{" "}
-              and at hackathons.
-            </h2>
-            <Link to="/this-site">
-              <button className="btn">About Me</button>
-            </Link>
-          </div>
-          <div className="col-span-2 lg:-mb-24 hidden lg:block">
-            <img src={Bulb} className="w-8 ml-16 mb-5" />
-            <img src={HeroBody} className="" />
-          </div>
-          <div className="col-span-8 md:col-span-3 md:mt-auto md:-ml-16 lg:-mb-24 block lg:hidden ">
-            <div className="mx-auto w-full -mr-24 -mt-24 md:-mt-16  md:mt-0 md:mr-0">
-              <div className="md:ml-2 mr-16">
-                <img
-                  src={Bulb}
-                  className="w-10 md:w-8 md:ml-32 mb-5  mx-auto"
-                />
-              </div>
-              <img src={HeroTorso} className="w-2/3 max-w-xs mx-auto" />
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Hero />
       <section className="text-secondary bg-secondary  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
           <h1 className="inline-block p-3 mb-4 text-2xl md:text-3xl lg:text-4xl font-bold">
