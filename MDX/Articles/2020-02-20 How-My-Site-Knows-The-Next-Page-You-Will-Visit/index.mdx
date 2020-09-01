@@ -1,0 +1,105 @@
+---
+type: "Article"
+title: How My Site Knows The Next Page You Will Visit
+desc: I was browsing the GatsbyJS documentation late at night when I came across a section called “Improving Performance ”. As you might expect, I saw sections on SEO, caching and auditing, all of which I have already looked into, but there was also a sect...
+coverimg: "./hero.png"
+date: 2020-02-20
+tags: [analytics, guess.js, gatsby, plugins]
+---
+
+I was browsing the GatsbyJS documentation late at night when I came across a section called “[Improving Performance](https://www.gatsbyjs.org/docs/performance/)”. As you might expect, I saw sections on SEO, caching and auditing, all of which I have already looked into, but there was also a section on [implementing guess.js](https://www.gatsbyjs.org/docs/optimizing-site-performance-with-guessjs/). I read a couple of lines and then my head exploded 🤯.
+
+### What is guess.js?
+
+
+> _Automatic, dynamic, intelligent prefetching for faster page loads._
+
+It’s a fortune teller. When my site builds, it downloads the last three months of google analytics data for [my website](https://sld.codes/). It uses this to create a ML model. Whenever a user navigates to one of my pages, it uses this model to make an educated guess at what page a user will go to next and prefetch that page. It also takes into consideration the client’s connection type to determine whether a resource should be prefetched.
+
+#### Why is this cool?
+
+A significant portion of the world still uses 3G networks. [The average page load time is 19 seconds for these networks](https://web.archive.org/web/20160908152245/https://www.doubleclickbygoogle.com/articles/mobile-speed-matters/). Using guess.js, we can predict what page a user will go to next and preload that page. And its not just internal pages, if I post a link to this medium blog post on my site, it could preload that too!
+
+This means that **while the load time remains the same, the experienced load time is way smaller**(and sometimes even negligible). Anything that makes my site’s user experience better is a win in my book 🎉.
+
+If you’re on a slow network right now and want to see it in action, you can [check out my site](https://sld.codes/) although there isn’t a whole lot to see as its a background process.
+
+#### Isn’t this overkill?
+
+Absolutely, but if you can’t try these things out on your personal website, where can you?
+
+### How I implemented it
+
+Like it seems to be with everything in the GatsbyJS world — There’s a plugin for that! But it did not work straight out of the box for me this time. The steps I followed were as follows:
+
+ 1. Create a Google Service Account, through the Google Developer Console.
+
+Navigate to [https://console.developers.google.com/](https://console.developers.google.com/), click “Credentials” on the left hand drawer. Click “Create Credentials”, then “Service Account”. Fill in the form with an appropriate name and you should be done. Be sure to save the json file with the service account’s private key and the account’s email, you’ll need them later.
+
+ 2. Give the service account access to your site’s property in Google Analytics.
+
+Navigate to [https://analytics.google.com](https://analytics.google.com/), click Admin, Click “Property User Management”. Add the service account you just made using it’s email. Make a note of your analytics view ID, you’ll need it later.
+
+ 3. Set up some environment variables
+
+Take all the information that you saved along the way and add it to a .env file at the root of your project. Don’t know what .env is? [Click here](https://www.npmjs.com/package/dotenv). If you’ve done this step right you should have equivalent keys in your .env file:
+```js
+GUESS_EMAIL=YOUR_SERVICE_ACCOUNT_EMAIL_GOES_HERE  
+GUESS_PRIVATE_KEY=YOUR_PRIVATE_KEY_GOES_HERE  
+VIEW_ID=YOUR_ANALYTICS_VIEW_ID_GOES_HERE
+```
+*** Note: If you are using a CI/CD pipeline you will have to store these environment variables there too!***
+
+Now in order to access these values in our config, we need to load them in within out gatsby-config.js file. Take the following snippet it and add it the top of the file:
+```js
+require("dotenv").config({  
+  path: `.env`,  
+})
+```
+
+ 4. Set up the guess plugin for gatsby.
+
+`npm install gatsby-plugin-guess-js --save`
+
+Add the plugin to your gatsby config:
+```js
+{  
+    resolve: `gatsby-plugin-guess-js`,  
+    options: {  
+      GAViewID: process.env.VIEW_ID,  
+      jwt: {  
+        client_email: process.env.GUESS_EMAIL,  
+        private_key: process.env.GUESS_PRIVATE_KEY,  
+      },  
+      period: {  
+        startDate: A_DATE_IN_THE_PAST,  
+        endDate: new Date(),  
+      },  
+    },  
+  }
+  ```
+
+ 5. Try and run it!
+
+If it works awesome! Skip this step. If, however, you’re unlucky like me, this will fail. I had an error that looked like this:
+
+`npm ERR! error:0906D06C:PEM routines:PEM_read_bio:no start line`
+
+It turns out, guess didn’t like my private key as it contained “n” which it formatted strangely. To fix this I had to use a little regex within my gatsby plugin configuration when setting my private key:
+```js
+{  
+    resolve: `gatsby-plugin-guess-js`,  
+    options: {  
+      GAViewID: process.env.VIEW_ID,  
+      jwt: {  
+        client_email: process.env.GUESS_EMAIL,  
+        private_key: process.env.GUESS_PRIVATE_KEY.replace(/n/g, "n"),  
+      },  
+      period: {  
+        startDate: A_DATE_IN_THE_PAST,  
+        endDate: new Date(),  
+      },  
+    },  
+  }
+```
+ At this point, you should be good to go! 🚀

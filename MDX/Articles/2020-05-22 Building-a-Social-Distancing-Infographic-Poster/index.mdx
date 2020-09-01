@@ -1,0 +1,150 @@
+---
+type: "Article"
+title: Building a Social-Distancing Infographic Poster
+desc: How many times could I have made it to the moon while social distancing? I thought I would do the math and find out. So join me on this adventure while I build a realtime infographic poster in my GatsbyJS Site. It should be noted that most of this ar...
+coverimg: "./hero.png"
+date: 2020-05-22
+tags: [infographic, javascript]
+---
+
+How many times could I have made it to the moon while social distancing? I thought I would do the math and find out. So join me on this adventure while I build a realtime infographic poster in my GatsbyJS Site. It should be noted that most of this article is really just vanilla ReactJS so read on and enjoy!
+
+#### Short on time?
+
+You can see the finished poster by [clicking on this magic link](https://sld.codes/articles/A-Social-Distancing-Infographic-Poster).
+
+
+#### Defining our date range
+
+If we’re going to have this poster as accurate as possible we’re going to want to ensure we start at the moment I went into isolation. We’re still social-distancing in the UK so I will keep the end date equal to the current date until social-distancing restrictions are lifted. For me, my start date was the 16th of March.
+```js
+// Set our start Date is constant (Note months start at index 0 here.)  
+const startDate = new Date(2020, 2, 16)  
+// Lockdown is still active so we will initially set the date to the current date.  
+const [endDate, setEndDate] = useState(Date.now())  
+// Next we will use a use-effect hook to update that endDate once a second.  
+useEffect(() => {  
+ const interval = setInterval(() => setEndDate(new Date()), 1000)  
+ return () => {  
+  clearInterval(interval)  
+}}, [])
+```
+When social-distancing restrictions are lifted all I need to do is change the end date to a constant date and the poster will remain static.
+
+#### Date-fns
+
+Take it from me, dates in Javascript are no fun at all. In order to get the stats we need we’re going to want to be able to calculate the difference in days, minutes and hours between various dates. Now like the very best of software engineers — I am super lazy. This is too much math for my brain so instead of coding it myself, I’ll use [date-fns](http://date-fns.org/). It has a whole host of functions that calculate distances between dates, I used the following:
+```js
+import {  
+differenceInDays,  
+differenceInMinutes,  
+differenceInSeconds,  
+differenceInHours,  
+differenceInBusinessDays,  
+} from "date-fns"
+```
+I then used them by creating functions like this:
+```js
+const daysInLockDown = () => {  
+ return differenceInDays(endDate, startDate)  
+}
+```
+
+#### Google Searching
+
+I needed to know how the time it takes to get to the moon, mars, to cook eggs and to listen to Queen. Luckily google is a thing and very quickly I had the values I needed. These values were hardcoded into my calculations:
+```js
+const timeToCookEggs = Math.floor(minutesInLockDown() / 3.5)
+```
+#### Pulling Github Contributions
+
+One of the stats I wanted to have on the poster was code contributions. I used Github’s API version 4 (the graphQL one) to pull the numbers. I didn’t want to use up my api quota up so instead of pinging GitHub every-time a user requested the page, I instead made it part of my GatsbyJS build process. I whipped up a little GatsbyJS plugin to source the content:
+```js
+exports.sourceNodes = async ({ actions }, configOptions) => {  
+  const { createNode } = actions;  
+  const headers = {  
+    Authorization: `bearer ${configOptions.token}`,  
+  };  
+  const body = {  
+    query: `query {  
+            user(login: "${configOptions.username}") {  
+     
+    pandemicContributions: contributionsCollection(from: "2020-03-16T00:00:00Z") {  
+      contributionCalendar {  
+        totalContributions  
+      }  
+    }  
+   }}`,  
+  };  
+  const response = await fetch("[https://api.github.com/graphql](https://api.github.com/graphql)", {  
+    method: "POST",  
+    body: JSON.stringify(body),  
+    headers: headers,  
+  });  
+  const data = await response.json();  
+  const { contributionsCollection, pandemicContributions } = data.data.user;
+
+const pandemicPosterContributions =  
+    pandemicContributions.contributionCalendar.totalContributions;  
+  createNode({  
+    pandemicContributions: Number(pandemicPosterContributions),  
+    id: "Github-Profile",  
+    internal: {  
+      type: `GitHubProfile`,  
+      mediaType: `text/plain`,  
+      contentDigest: crypto  
+        .createHash(`md5`)  
+        .update(  
+          JSON.stringify({  
+            pandemicPosterContributions,  
+          })  
+        )  
+        .digest(`hex`),  
+      description: `Github Profile Information`,  
+    },  
+  });  
+};
+
+```
+Implementing the above, I had the contribution count available in my graphQL data layer. I could then query that information using a custom static-query hook:
+```js
+import { useStaticQuery, graphql } from "gatsby";
+
+export const useGithubData = () => {  
+  const data = useStaticQuery(  
+    graphql`  
+      query MyQuery {  
+        gitHubProfile {  
+          pandemicContributions  
+        }  
+      }  
+    `  
+  );  
+  return data.gitHubProfile;  
+};
+```
+
+#### Kawaii Icons
+
+I wanted the poster to have a happy vibe and kawaii icons seem to be popular at the moment so I pulled a bunch of appropriate SVG images from [flaticon](https://www.flaticon.com/authors/kawaii/flat).
+
+#### Putting It All Together
+
+I created a little react component for each stat using my grid layout:
+```html
+<div  
+  className="col-xs-12 col-sm-6 col-md-4 flex align-horizontal margin-5-t"  
+>  
+  <img src={Moon} className="poster-icon " />  
+  <h3 className="margin-2-l">Travel to the moon {timesToMoon} times.</h3>  
+</div>
+```
+You can read more about my grid-layout in my [“Coding my CV in ReactJS”](https://medium.com/@samlarsendisney/i-coded-my-cv-in-reactjs-8440610801d1) article.
+
+#### The Result
+
+<img src="test.png"/>
+
+You can see the finished poster by [clicking on this magic link](https://sld.codes/articles/A-Social-Distancing-Infographic-Poster).
+
+Thanks for reading. Have a great day!

@@ -1,5 +1,4 @@
 import React from "react";
-
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -23,13 +22,10 @@ function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="col-span-4">
-              {" "}
-              <h1 className="inline-block text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold">
-                An Article Title
-              </h1>
-              <h2 className="leading-loose text-2xl py-3">Introduction</h2>
-              <p className="leading-loose text-md">
+            <div className="col-span-4 article">
+              <h1 className="">An Article Title</h1>
+              <h2 className="">Introduction</h2>
+              <p className="">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptatibus quia, nulla! Maiores et perferendis eaque,
                 exercitationem praesentium nihil. Lorem ipsum dolor sit amet,
@@ -41,8 +37,8 @@ function AboutPage() {
                 adipisicing elit. Voluptatibus quia, nulla! Maiores et
                 perferendis eaque, exercitationem praesentium nihil.
               </p>
-              <h2 className="leading-loose text-2xl py-3">More Content</h2>
-              <p className="leading-loose text-md">
+              <h2 className="">More Content</h2>
+              <p className="">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptatibus quia, nulla! Maiores et perferendis eaque,
                 exercitationem praesentium nihil. Lorem ipsum dolor sit amet,
@@ -54,8 +50,8 @@ function AboutPage() {
                 adipisicing elit. Voluptatibus quia, nulla! Maiores et
                 perferendis eaque, exercitationem praesentium nihil.
               </p>
-              <h2 className="leading-loose text-2xl py-3">More Content</h2>
-              <p className="leading-loose text-md">
+              <h2 className="">More Content</h2>
+              <p className="">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptatibus quia, nulla! Maiores et perferendis eaque,
                 exercitationem praesentium nihil. Lorem ipsum dolor sit amet,
@@ -67,8 +63,8 @@ function AboutPage() {
                 adipisicing elit. Voluptatibus quia, nulla! Maiores et
                 perferendis eaque, exercitationem praesentium nihil.
               </p>
-              <h2 className="leading-loose text-2xl py-3">More Content</h2>
-              <p className="leading-loose text-md">
+              <h2 className="">More Content</h2>
+              <p className="">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptatibus quia, nulla! Maiores et perferendis eaque,
                 exercitationem praesentium nihil. Lorem ipsum dolor sit amet,

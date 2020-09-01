@@ -87,6 +87,7 @@ function Header() {
               {[
                 {
                   section: "Basics",
+                  icon: "atom",
                   elements: [
                     { title: "About Me", link: "/about" },
                     { title: "Events", link: "/events" },
@@ -97,6 +98,7 @@ function Header() {
                 },
                 {
                   section: "ToolKit",
+                  icon: "toolbox",
                   elements: [
                     { title: "Articles", link: "/articles" },
                     { title: "Boilerplates", link: "/boilerplates" },
@@ -106,6 +108,7 @@ function Header() {
                 },
                 {
                   section: "Extras",
+                  icon: "coffee",
                   elements: [
                     { title: "Site Stats", link: "/stats" },
                     { title: "Search", link: "/search" },
@@ -113,17 +116,30 @@ function Header() {
                     { title: "Sponsor", link: "/sponsor" },
                   ],
                 },
-              ].map(({ section, elements }) => (
-                <div className="px-8 my-4 w-auto " key={section}>
-                  <div>
-                    <h4 className="text-sm mb-3 font-semibold opacity-75">
+              ].map(({ section, elements, icon }) => (
+                <div
+                  className="px-4 mx-3 my-4 border-t-2 md:border-2 border-accent md:rounded"
+                  key={section}
+                >
+                  <div className="flex items-center -mt-4 text-link ">
+                    <p className="text-xl m-0 px-1 inline-block bg-secondary">
+                      <i className={`las la-${icon}`}></i>
+                    </p>
+                    <h4 className="text-sm  font-bold inline-block pr-1 bg-secondary">
                       {section.toUpperCase()}
                     </h4>
                   </div>
                   <ul className="grid grid-cols-2 lg:grid-cols-3">
                     {elements.map(({ title, link }) => (
                       <li className="mb-2" key={section + title}>
-                        <Link to={link} className="hover:text-link ">
+                        <Link
+                          to={link}
+                          className={`${
+                            window.location.pathname.includes(link)
+                              ? "text-link font-semibold"
+                              : "hover:text-link"
+                          }`}
+                        >
                           <p className="text-base">{title}</p>
                         </Link>
                       </li>

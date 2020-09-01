@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import data from "./logo.json";
+import data from "../animations/logo.json";
 
 const Logo = () => {
   const defaultOptions = {

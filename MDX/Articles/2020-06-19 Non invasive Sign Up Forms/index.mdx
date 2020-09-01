@@ -1,0 +1,64 @@
+---
+type: "Article"
+title: Non-Invasive Sign Up Forms
+desc: Encouraging those that have shown interest in the content to sign up. Creating a higher quality audience that are more likely to interact with emails I send them. Working out how we can define an engaged user.
+coverimg: "./hero.png"
+date: 2020-06-19
+tags: [react, ux, hooks]
+---
+I recently posted to the [gatsby reddit](https://www.reddit.com/r/gatsbyjs/) with one of my articles. One of the comments I received was:
+
+> How can I subscribe to new posts? If you don’t have an RSS feed, maybe an article on it would be cool?
+
+While I was happy that someone was showing interest in my content, it also concerned me that they hadn't found the form for my email newsletter. I must admit that signups had been a little disappointing up to this moment. The UX designer in me thought we could do better! Lets implement a sign-up modal that isn't invasive! 
+
+### Drawing Attention
+
+We've all visited buzzfeed-type sites that bombard you with sign-up requests that feel invasive. I find that these often appear before I have even looked at the content that I came to see. It is my belief that this damages the user experience and would negatively impact my visitor count if I implemented it. Instead, I wanted to only encourage those that have shown interest in the content to sign up. I also think this leads to a higher quality audience that are more likely to interact with emails you send them.
+
+So, how do we define an engaged user? I decided to opt for article views. **If a user has viewed 3 articles within 24 hours I think it is safe to assume they are interested in what I write about.** 
+
+In order to know which articles you've viewed, I'm going to have to track them but I'd rather not take ownership of any data from users that I don't need so I will keep this information client-side by using `localstorage`. I have set up a [localstorage hook](https://github.com/slarsendisney/personal-site/blob/master/src/utils/customHooks.js) in my project that came in handy when [adding reactions to the site](/articles/Creating-Page-Reactions) and again now. When navigating to an article, I update my "views" localstorage to contain the time at which you looked at the current article (identified by contentID):
+
+```jsx
+setViewed({ ...viewed, [contentID]: new Date().getTime() })
+```
+
+Now my code can determine how many articles you have viewed in the last 24 hours with a little help from [date-fns](https://date-fns.org/):
+
+```jsx
+import { differenceInHours } from "date-fns"
+
+function viewedArticlesToday(viewed) {
+  const currentDate = new Date()
+  let count = 0
+  Object.keys(viewed).forEach((key) => {
+    const articleViewedOn = new Date(viewed[key])
+    if (differenceInHours(articleViewedOn, currentDate) <= 24) {
+      count++
+    }
+  })
+  return count
+}
+```
+
+This alone is not enough as repeat visitors who navigate to an article would be prompted to subscribe all the time. That would certainly put them off visiting again! So I also decided to use `localstorage` to remember when you last saw the modal and whether you had subscribed already. If you have already subscribed, or seen the modal in the last 3 days then it will leave you alone:
+
+```jsx
+import React, { useEffect } from "react"
+import { differenceInDays } from "date-fns"
+
+useEffect(() => {
+    if (
+      viewedArticlesToday(viewed) > 2 &&
+      !subscribed &&
+      differenceInDays(new Date(), new Date(lastSeenDate)) > 2
+    ) {
+      setModalVisible(true)
+    }
+  }, [])
+```
+
+### Want to try it out? 
+
+Explore some of my other articles and you should come across this little feature! If you enjoy the content I write you can sign up using the form below this article - no pressure though.

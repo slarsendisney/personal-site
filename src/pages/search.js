@@ -4,8 +4,8 @@ import Layout from "../components/layout";
 const Search = () => (
   <Layout>
     <section className="text-secondary bg-secondary">
-      <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 ">
-        <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-0">
+      <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:pb-16 ">
+        <h1 className="font-semibold text-xl md:text-3xl lg:text-4xl text-left mb-0">
           Site Search
         </h1>
         <input

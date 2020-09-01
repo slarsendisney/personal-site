@@ -8,7 +8,10 @@ const inspirers = [
   "yannispanagis",
   "celikkoseoglu",
   "jxnblk",
+  "duncanbain",
+  "wesbos",
 ];
+
 const ThisSite = () => (
   <Layout>
     <section className="text-secondary flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 ">
@@ -19,28 +22,38 @@ const ThisSite = () => (
         This site is my corner of the internet. I use it to experiment and
         document my front-end adventures.
       </p>
-      <p className="mb-8">
+      <p className="mb-3">
         The site has been redesigned and rebuilt many times. Its current tech
         stack uses GatsbyJS, Redux, Socket.IO, Tailwind & Firebase. All UX
         design and code was completed by me with a little inspiration. You can
         read about how parts of the site were created by{" "}
         <span className="link">reading my articles</span>.
       </p>
+      <p className="mb-8">
+        This site features photography by{" "}
+        <a href={"https://twitter.com/thepaulbalaji"} className="link">
+          @thepaulbalaji
+        </a>{" "}
+        and 3D illustrations by{" "}
+        <a
+          href={"https://www.instagram.com/allsortscreativeuk/"}
+          className="link"
+        >
+          @allsortscreativeuk
+        </a>
+        .
+      </p>
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">
         Inspiration
       </h1>
       <p className="">
-        This site contains many ideas inspried by some awesome developers, I
-        encourage you to check out their work.
+        This site contains many ideas inspired by some awesome developers and
+        photographers, I encourage you to check out their work.
       </p>
       <div className="flex flex-wrap mb-8 text-xl">
         {inspirers.map((name, index) => (
-          <a
-            key={name}
-            href={"https://twitter.com/" + name}
-            className="font-bold text-link no-underline hover:underline"
-          >
-            @{name}
+          <a key={name} href={"https://twitter.com/" + name} className="link">
+            @{name.toLowerCase()}
             {index !== inspirers.length - 1 && <span className="mr-1">,</span>}
           </a>
         ))}
@@ -51,17 +64,25 @@ const ThisSite = () => (
       <div className="flex items-start justify-start mb-8">
         <div>
           <p className="font-semibold mt-0 mb-3 text-gray-900">
-            Can I this site&apos;s code?
+            Can I use this site&apos;s code?
           </p>
           <p className="">
             Yes, you can fork this repo (link at the bottom of this page!). The
             code is provided as is, and is not guaranteed to work on your
             machine or for your paticular use case. If you have questions about
             implementation, please refer to the github readme and the Gatsby
-            docs.
+            docs. I have spent considerable time ensuring that there are
+            comments throughout the code to help you get started.
+          </p>
+          <p>
+            <strong>
+              Please note that while the code is free for anyone to use, I
+              reserve the rights to all images on this site.
+            </strong>
           </p>
         </div>
       </div>
+
       <div className="flex items-start justify-start mb-8">
         <div>
           <p className="font-semibold mt-0 mb-3 text-gray-900">
@@ -93,15 +114,21 @@ const ThisSite = () => (
           href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Howto/CSS_FAQ"
           target="_blank"
           rel="noreferrer"
-          className="bg-primary hover:bg-primary-light text-primary text-md py-3 px-5 my-1 mx-1 rounded"
+          className="btn-accent text-md py-3 px-5 my-1 mx-1 rounded"
         >
-          <span>Learn more on the GitHub Repo</span>
+          <div className="justify-center align-center flex">
+            <span>Visit the GitHub Repo</span>
+            <i className="lab la-github ml-1 text-2xl"></i>
+          </div>
         </a>
         <Link
-          className="bg-primary hover:bg-primary-light text-primary  text-md py-3 px-5 my-1 mx-1 rounded"
+          className="btn-accent text-md py-3 px-5 my-1 mx-1 rounded"
           to="/sponsor"
         >
-          Say thanks
+          <div className="justify-center align-center flex">
+            <span>Say thanks</span>
+            <i className="las la-heart text-xl ml-1"></i>
+          </div>
         </Link>
       </div>
     </section>

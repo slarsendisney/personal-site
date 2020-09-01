@@ -1,0 +1,71 @@
+{
+  "_from": "gatsby-source-google-analytics-reporting-api",
+  "_id": "gatsby-source-google-analytics-reporting-api@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-djjE0hpK1BMJn/B42K1G4RvFlllsbBsEwEE7KvIv0WcQyPbgIR2hfXKYSiFmYkeJerSmc39lGBhJ5tASiv6IOw==",
+  "_location": "/gatsby-source-google-analytics-reporting-api",
+  "_phantomChildren": {
+    "abort-controller": "3.0.0",
+    "buffer-equal-constant-time": "1.0.1",
+    "debug": "3.2.6",
+    "ecdsa-sig-formatter": "1.0.11",
+    "es6-promisify": "5.0.0",
+    "extend": "3.0.2",
+    "follow-redirects": "1.5.10",
+    "lodash.isstring": "4.0.1",
+    "mime": "2.4.4",
+    "pseudomap": "1.0.2",
+    "qs": "6.7.0",
+    "retry-axios": "0.3.2",
+    "safe-buffer": "5.1.2",
+    "url-template": "2.0.8",
+    "uuid": "3.3.3",
+    "yallist": "2.1.2"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "gatsby-source-google-analytics-reporting-api",
+    "name": "gatsby-source-google-analytics-reporting-api",
+    "escapedName": "gatsby-source-google-analytics-reporting-api",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/gatsby-source-google-analytics-reporting-api/-/gatsby-source-google-analytics-reporting-api-1.0.2.tgz",
+  "_shasum": "b992239a25726c7a09ebcbc28915637b72c97dc6",
+  "_spec": "gatsby-source-google-analytics-reporting-api",
+  "_where": "/Users/samlarsen-disney/Documents/DEVELOPMENT/sld.codes/sld-personal-site",
+  "author": {
+    "name": "Anton Medvedev",
+    "email": "anton@medv.io"
+  },
+  "bugs": {
+    "url": "https://github.com/antonmedv/gatsby-source-google-analytics-reporting-api/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "googleapis": "^33.0.0"
+  },
+  "deprecated": false,
+  "description": "GatsbyJS Source for Google Anatytics Reporting API",
+  "homepage": "https://github.com/antonmedv/gatsby-source-google-analytics-reporting-api#readme",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "analytics",
+    "reporting"
+  ],
+  "license": "MIT",
+  "main": "gatsby-node.js",
+  "name": "gatsby-source-google-analytics-reporting-api",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonmedv/gatsby-source-google-analytics-reporting-api.git"
+  },
+  "version": "1.0.2"
+}

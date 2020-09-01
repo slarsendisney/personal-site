@@ -1,0 +1,291 @@
+---
+type: "Article"
+path: "/articles/Creating-'onMash'-for-the-Click-Addicts"
+title: "Creating 'onMash' for the Click Addicts"
+desc: "I built an NPM package for react that can trigger a different function when clicking a button in quick succession. Why? Well for an easter egg of course."
+date: 2020-05-28
+coverimg: "./hero.png"
+declutter: false
+tags: [javascript, react, hooks, npm]
+---
+
+import Mash from "./Mash";
+
+I've been thinking its about time this site had an easter egg. Nothing major, just a little something for the keen observer. My idea is stupid and I don’t want it to dampen my user experience so its hidden away - you’re not going to find it unless you really want to. But how would I trigger the egg? Two words - **Button Mashing**.
+
+<blockquote>Noun. Button Mashing - The act of repeatedly pressing random buttons on a video game controller in hopes of executing attacks and/or other various motions found in video games.</blockquote>
+
+In the context of videogames, mashing multiple buttons is easy as they are all located in close proximity to each other. However things are not the same when you are using a website with a cursor. As such I am modifying the above definition to refer to repeatedly pressing the same button in quick succession.
+
+## Creating onMash
+
+I started a react project and created a new component and added a button to its render. I took any props of the component and spread them across the button. This would mean that adding classnames, styles, aria-labels etc would all still work as I did not want to reduce accessibility:
+```
+import React, { useState, useEffect } from "react";
+
+export default (props) => {
+  const {
+    onClick,
+  } = props;
+
+  return (
+    <button {...props} onClick={onClick}>
+      {props.children}
+    </button>
+  );
+}
+```
+
+Next we're going to want to keep track of how many times the button is clicked. Luckily react has a built in state hook we can use to do this. Its at this moment that we're going to have to modify the onClick prop to up this counter:
+
+```
+import React, { useState, useEffect } from "react";
+
+export default (props) => {
+  const {
+    onClick,
+  } = props;
+  const [count, setCount] = useState(0);
+
+  const onClickFunctions = () => {
+    onClick();
+    setCount(count + 1);
+  };
+  return (
+    <button {...props} onClick={onClickFunctions}>
+      {props.children}
+    </button>
+  );
+};
+```
+
+Now we have a counter that will increment with clicks, but we're not doing anything with that information. We can use a useEffect hook to run some code everytime the count is changed. In this block we can determine if the count threshold has been reached, or reset the count if the interval in which we would like to trigger a mash has passed.
+
+```
+import React, { useState, useEffect } from "react";
+
+export default (props) => {
+  const {
+    onClick,
+  } = props;
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const handler = setTimeout(() => setCount(0), 2000);
+    if (count >= 8) {
+      console.log("MASH HAPPENED!")
+      setCount(0);
+    }
+    return () => clearTimeout(handler);
+  }, [count]);
+
+  const onClickFunctions = () => {
+    if (onClick) {
+      onClick();
+    }
+    setCount(count + 1);
+  };
+  return (
+    <button {...props} onClick={onClickFunctions}>
+      {props.children}
+    </button>
+  );
+};
+```
+
+In the above code I am checking whether 8 clicks have happened in 2000ms and console logging if they have. But what if I want to customise this - lets add some props!
+
+```
+import React, { useState, useEffect } from "react";
+
+export default (props) => {
+  const {
+    interval = 1000,
+    clicks = 4,
+    onMash,
+    onClick,
+  } = props;
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const handler = setTimeout(() => setCount(0), interval);
+    if (count >= clicks) {
+      onMash();
+      setCount(0);
+    }
+    return () => clearTimeout(handler);
+  }, [count]);
+
+  const onClickFunctions = () => {
+    onClick();
+    setCount(count + 1);
+  };
+  return (
+    <button {...props} onClick={onClickFunctions}>
+      {props.children}
+    </button>
+  );
+};
+```
+
+I put default props of 4 clicks in 1000ms which I think is mashed enough. Just like that, we have a button that can respond to repetition! I finally added a couple of nice to have's like allowing the mash function to keep being called as the button is pressed passed the mash threshold. See it in action below:
+
+<Mash />
+
+## Adding it to NPM
+
+### Login to npm in your terminal:
+If you don't already have an account you can [create an NPM account here](https://www.npmjs.com/signup). Then login by running:```npm login```
+
+### Create a folder for your package
+
+For my new button I called it `react-mash`. You must check that the name isnt already taken by another package on NPM.
+```
+mkdir your-package-name
+```
+
+### Initialise npm in your package:
+We can do this with ```npm init```. When prompted give your package name, author info, etc.
+
+
+### Add our component
+
+As this package contains only one component, we can make it the default component. Create a src folder and inside create an index.js file with your component. In my case it looked like this:
+
+*src/index.js*
+```
+import React, { useState, useEffect } from "react";
+
+export default (props) => {
+  const {
+    interval = 1000,
+    clicks = 4,
+    onMash,
+    onClick,
+    resetOnMash = true,
+  } = props;
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const handler = setTimeout(() => setCount(0), interval);
+    if (count >= clicks) {
+      if (onMash) {
+        onMash();
+      }
+      if (resetOnMash) {
+        setCount(0);
+      }
+    }
+    return () => clearTimeout(handler);
+  }, [count]);
+
+  const onClickFunctions = () => {
+    if (onClick) {
+      onClick();
+    }
+    setCount(count + 1);
+  };
+  return (
+    <button {...props} onClick={onClickFunctions}>
+      {props.children}
+    </button>
+  );
+};
+
+```
+We need to add *react* and *react-dom* as dependancies in our package.json:
+
+```
+...
+"peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+},
+...
+```
+
+We also need to add babel as dev dependancies:
+
+```
+...
+"devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/preset-react": "^7.10.1"
+}
+...
+```
+
+We can go ahead and NPM install at this point to pull these dependancies down. **Best to add node-modules to a .gitignore file to ensure they are not pushed too.**
+
+
+We will need a little bit of webpack and babel to make our react component useable.
+
+*webpack.config.js*
+```
+var path = require("path");
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname),
+    filename: "index.js",
+    libraryTarget: "commonjs2",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, "src"),
+        exclude: /(node_modules|bower_components|build)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["env"],
+          },
+        },
+      },
+    ],
+  },
+  externals: {
+    react: "commonjs react",
+  },
+};
+
+```
+
+*babel.rc*
+
+```
+{
+  "presets": ["@babel/preset-react", "@babel/preset-env"]
+}
+```
+
+### Build
+
+```
+./node_modules/.bin/babel src --out-file index.js
+```
+
+This will transpile our code down to a nice little index.js file at the root of our project.
+
+You could also add this command to your package.json scripts to make it easier to run:
+
+```
+...
+"scripts": {
+    "build": "./node_modules/.bin/babel src --out-file index.js"
+},
+...
+```
+
+We can now run it with ```npm run build```
+
+### Publish
+
+At this point we're ready to publish - ```npm publish```
+
+And just like that, our package is live - [click here](https://www.npmjs.com/package/react-mash) to check it out! After the code? [Click here](https://github.com/slarsendisney/react-mash).
+
+If you find the easter egg - [tweet me](https://twitter.com/SamLarsenDisney)!
