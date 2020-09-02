@@ -49,7 +49,7 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "googleapis": "^33.0.0"
+    "googleapis": "^59.0.0"
   },
   "deprecated": false,
   "description": "GatsbyJS Source for Google Anatytics Reporting API",
