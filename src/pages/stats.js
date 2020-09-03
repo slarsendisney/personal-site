@@ -12,6 +12,8 @@ import {
 } from "react-firebase-hooks/firestore";
 import Trend from "../components/Trend";
 import firebase from "gatsby-plugin-firebase";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
+import ThemeFound from "../components/ThemeFound";
 
 const colours = ["primary", "accent", "secondary", "accent"];
 
@@ -164,7 +166,7 @@ const Stats = ({ data, count }) => {
             <Emojione text={"❤️"} className="inline-block mt-3" />
           </h2>
           <Link to="/sponsor">
-            <button className="btn-accent">Sponsor Me</button>
+            <button className="btn-accent mt-3">Sponsor Me</button>
           </Link>
         </div>
       </section>
@@ -271,32 +273,32 @@ const Stats = ({ data, count }) => {
                 <span className="text-link">{stars}</span> times and forked{" "}
                 <span className="text-link">{forks}</span> times.
               </h2>
-              <div className="flex">
-                <a
+              <div className="flex flex-wrap">
+                <OutboundLink
                   href="https://github.com/slarsendisney"
                   target="_blank"
                   rel="noreferrer"
-                  className="mr-2"
+                  className="mr-2 mb-2"
                 >
                   <button className="btn-accent text-sm">
                     Follow me on GitHub
                   </button>
-                </a>
-                <a
+                </OutboundLink>
+                <OutboundLink
                   target="_blank"
                   rel="noreferrer"
                   href="https://github.com/slarsendisney/personal-site/fork"
-                  className="mr-2"
+                  className="mr-2 mb-2"
                 >
                   <button className="btn-accent text-sm">Fork this repo</button>
-                </a>
-                <a
+                </OutboundLink>
+                <OutboundLink
                   href="https://github.com/slarsendisney/personal-site"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <button className="btn-accent text-sm">Star this repo</button>
-                </a>
+                </OutboundLink>
               </div>
             </div>
           </div>
@@ -313,9 +315,14 @@ const Stats = ({ data, count }) => {
             <button className="btn-accent text-sm">Take Me There</button>
           </Link>
           <p className="mt-10 text-sm">
-            * Code count only account for code I have written myself. Page
+            * Code count only accounts for code I have written myself. Page
             views, sessions, events and commit count are refreshed daily at 9PM
-            GMT.
+            GMT.{" "}
+            <ThemeFound theme="Fall Guys">
+              <span className="hover:text-link cursor-pointer">
+                Have a theme for reading the small print!
+              </span>
+            </ThemeFound>
           </p>
         </div>
       </section>

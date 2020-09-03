@@ -20,9 +20,7 @@ const monthNames = [
 ];
 
 const Trend = ({ data }) => {
-  const allViewsPerDate = data.allViewsPerDate.edges.slice(
-    data.allViewsPerDate.edges.length - 14
-  );
+  const allViewsPerDate = data.allViewsPerDate.edges; //.slice( data.allViewsPerDate.edges.length - 14);
   const maxViews = data.maxViews.edges[0].node.views;
   const α = 0.7;
   const B = 1000;
@@ -128,13 +126,15 @@ const Trend = ({ data }) => {
                 width: 100 / allViewsPerDate.length + "%",
               }}
             >
-              <p className="text-xs opacity-80">{item.node.date.slice(-2)}</p>
+              <p className="text-xs opacity-80 hidden md:block">
+                {item.node.date.slice(-2)}
+              </p>
             </div>
           );
         })}
       </div>
       <div
-        className="col-xs-12 mt-3 flex"
+        className="col-xs-12 md:mt-3 flex"
         style={{ height: 100, justifyContent: "center" }}
       >
         {normalisedViews.map((item, index) => {

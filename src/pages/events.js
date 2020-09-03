@@ -61,10 +61,10 @@ const EventsPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Events" />
-      <section className="text-center text-secondary bg-secondary relative">
+      <section className="text-center text-secondary bg-default relative">
         <Img
           fluid={data.eventHero.childImageSharp.fluid}
-          className="w-full h-full opacity-50"
+          className="w-full h-full opacity-75"
           style={{
             zIndex: 10,
             position: "absolute",

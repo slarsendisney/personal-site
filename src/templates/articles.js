@@ -7,6 +7,43 @@ import Img from "gatsby-image/withIEPolyfill";
 import getAllArticles from "../utils/getAllArticles";
 import Layout from "../components/layout";
 
+export const CardText = ({ title, desc, excerpt, tags, slug, hideTags }) => (
+  <Link to={slug} key={slug} className=" h-full">
+    <div className="cursor-pointer  h-full mb-3 duration-500 ease-in-out transform hover:scale-105">
+      <div
+        className={`relative p-8 ${
+          hideTags ? "" : "pb-16"
+        } bg-default h-full text-default shadow-lg rounded-lg`}
+      >
+        <div>
+          <h2 className="text-2xl font-semibold">{title}</h2>
+          <p className="mt-2">{desc ? desc : excerpt}</p>
+        </div>
+        {!hideTags && (
+          <div className="absolute bottom-0">
+            <div className="flex flex-wrap mb-5">
+              {tags.slice(0, 3).map((tag) => (
+                <button key={tag} className="tag">
+                  {tag.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </Link>
+);
+
+CardText.propTypes = {
+  title: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  excerpt: PropTypes.string.isRequired,
+  hideTags: PropTypes.bool.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+};
+
 export const pathToTitle = (path) => {
   let clean = path
     .replace("/articles/", "")

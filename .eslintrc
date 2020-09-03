@@ -2,7 +2,8 @@
   // https://eslint.org/docs/user-guide/configuring#specifying-environments
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "es6": true
   },
   // https://github.com/babel/babel-eslint
   "parser": "babel-eslint",

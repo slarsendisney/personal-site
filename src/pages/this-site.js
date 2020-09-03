@@ -10,6 +10,7 @@ const inspirers = [
   "jxnblk",
   "duncanbain",
   "wesbos",
+  "jlengstorf",
 ];
 
 const ThisSite = () => (
@@ -31,13 +32,20 @@ const ThisSite = () => (
       </p>
       <p className="mb-8">
         This site features photography by{" "}
-        <a href={"https://twitter.com/thepaulbalaji"} className="link">
+        <a
+          href={"https://twitter.com/thepaulbalaji"}
+          className="link"
+          target="_blank"
+          rel="noreferrer"
+        >
           @thepaulbalaji
         </a>{" "}
         and 3D illustrations by{" "}
         <a
           href={"https://www.instagram.com/allsortscreativeuk/"}
           className="link"
+          target="_blank"
+          rel="noreferrer"
         >
           @allsortscreativeuk
         </a>
@@ -52,7 +60,13 @@ const ThisSite = () => (
       </p>
       <div className="flex flex-wrap mb-8 text-xl">
         {inspirers.map((name, index) => (
-          <a key={name} href={"https://twitter.com/" + name} className="link">
+          <a
+            key={name}
+            href={"https://twitter.com/" + name}
+            className="link"
+            target="_blank"
+            rel="noreferrer"
+          >
             @{name.toLowerCase()}
             {index !== inspirers.length - 1 && <span className="mr-1">,</span>}
           </a>

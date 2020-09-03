@@ -5,11 +5,11 @@ import { useLocalStorage } from "../utils/customHooks";
 import LogoAnimation from "./LogoAnimation";
 import SmoothCollapse from "react-smooth-collapse";
 
-const defaultTheme =
+export const defaultTheme =
   typeof window !== "undefined" &&
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "theme-dark"
+    ? "theme-midnightdreams"
     : "theme-blue";
 
 function Header() {
@@ -29,8 +29,8 @@ function Header() {
       <div className="bg-white">
         <SmoothCollapse expanded={themeExpanded} className="">
           <div className=" flex flex-wrap items-center justify-between container px-4 py-3 mx-auto mx-auto">
-            <div className="flex items-center text-grey">
-              <h3 className=" text-sm md:text-base">
+            <div className="flex items-center text-grey m-auto md:m-0">
+              <h3 className="text-sm md:text-base ">
                 Choose a new <strong>Lick of Paint.</strong>
               </h3>
             </div>
@@ -110,7 +110,7 @@ function Header() {
                   section: "Extras",
                   icon: "coffee",
                   elements: [
-                    { title: "Site Stats", link: "/stats" },
+                    { title: "Statistics", link: "/stats" },
                     { title: "Search", link: "/search" },
                     { title: "Newsletter", link: "/newsletter" },
                     { title: "Sponsor", link: "/sponsor" },
@@ -121,7 +121,7 @@ function Header() {
                   className="px-4 mx-3 my-4 border-t-2 md:border-2 border-accent md:rounded"
                   key={section}
                 >
-                  <div className="flex items-center -mt-4 text-link ">
+                  <div className="flex items-center -mt-4 mb-3 md:mb-0 text-link ">
                     <p className="text-xl m-0 px-1 inline-block bg-secondary">
                       <i className={`las la-${icon}`}></i>
                     </p>
@@ -129,7 +129,23 @@ function Header() {
                       {section.toUpperCase()}
                     </h4>
                   </div>
-                  <ul className="grid grid-cols-2 lg:grid-cols-3">
+                  <ul className="hidden lg:flex flex-wrap">
+                    {elements.map(({ title, link }) => (
+                      <li className="mb-2 mr-3" key={section + title}>
+                        <Link
+                          to={link}
+                          className={`${
+                            window.location.pathname.includes(link)
+                              ? "text-link font-semibold"
+                              : "hover:text-link"
+                          }`}
+                        >
+                          <p className="text-base font-semibold">{title}</p>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <ul className="grid grid-cols-2 lg:hidden">
                     {elements.map(({ title, link }) => (
                       <li className="mb-2" key={section + title}>
                         <Link
@@ -140,7 +156,7 @@ function Header() {
                               : "hover:text-link"
                           }`}
                         >
-                          <p className="text-base">{title}</p>
+                          <p className="text-base font-semibold">{title}</p>
                         </Link>
                       </li>
                     ))}

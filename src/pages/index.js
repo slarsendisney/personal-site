@@ -7,77 +7,8 @@ import SEO from "../components/seo";
 import Newsletter from "../components/Newsletter";
 import Hero from "../components/Hero";
 import PreferPaper from "../components/PreferPaper";
-
-const CardText = ({ title, desc, excerpt, tags, slug }) => (
-  <Link to={slug} key={slug} className=" h-full">
-    <div className="cursor-pointer  h-full mb-3 duration-500 ease-in-out transform hover:scale-105">
-      <div className="relative p-8 pb-16 bg-default h-full text-default shadow-lg rounded-lg">
-        <div>
-          <h2 className="text-2xl font-semibold">{title}</h2>
-          <p className="mt-2">{desc ? desc : excerpt}</p>
-        </div>
-        <div className="absolute bottom-0">
-          <div className="flex flex-wrap mb-5">
-            {tags.slice(0, 3).map((tag) => (
-              <button key={tag} className="tag">
-                {tag.toUpperCase()}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </Link>
-);
-
-CardText.propTypes = {
-  title: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  excerpt: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-};
-
-const Card = ({ title, desc, tags, path, coverimg }) => (
-  <Link to={path} key={path} className=" h-full">
-    <div className="card w-full cursor-pointer h-full mb-4 duration-500 ease-in-out transform hover:scale-105">
-      <div className="bg-default text-default shadow-lg h-full rounded-lg rounded ">
-        <div className="block">
-          <figure className="relative tint mb-5 h-48 w-full">
-            <Img
-              fluid={coverimg.childImageSharp.fluid}
-              className="rounded-t h-full"
-            />
-          </figure>
-        </div>
-        <div className="p-5 pb-16">
-          <p className="font-semibold text-xl">{title}</p>
-          <p className="text-default text-base">{desc}</p>
-          <div className="absolute bottom-0">
-            <div className="flex flex-wrap mb-5">
-              {tags.slice(0, 3).map((tag) => (
-                <button key={tag} className="tag">
-                  {tag.toUpperCase()}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </Link>
-);
-
-Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  excerpt: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  coverimg: PropTypes.shape({
-    childImageSharp: PropTypes.shape({ fluid: PropTypes.string.isRequired }),
-  }),
-};
+import { CardText } from "../templates/articles";
+import { Card } from "../templates/projects";
 
 function IndexPage({ data }) {
   return (
@@ -90,7 +21,7 @@ function IndexPage({ data }) {
       <Hero />
       <section className="text-secondary bg-secondary  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-          <h1 className="inline-block p-3 mb-4 text-2xl md:text-3xl lg:text-4xl font-bold">
+          <h1 className="inline-block -mx-3 p-3 mb-4 text-2xl md:text-3xl lg:text-4xl font-bold">
             Latest Posts
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
@@ -114,7 +45,7 @@ function IndexPage({ data }) {
       </section>
       <section className="text-secondary bg-compliment  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-          <h1 className="inline-block p-3 mb-4 text-2xl md:text-3xl lg:text-4xl font-bold">
+          <h1 className="inline-block -mx-3 p-3 mb-4 text-2xl md:text-3xl lg:text-4xl font-bold">
             Recent Projects
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
@@ -134,10 +65,10 @@ function IndexPage({ data }) {
           </div>
         </div>
       </section>
-      <section className="text-center text-secondary bg-secondary relative">
+      <section className="text-center text-secondary bg-default relative">
         <Img
           fluid={data.eventHero.childImageSharp.fluid}
-          className="w-full h-full opacity-50"
+          className="w-full h-full opacity-75"
           style={{
             zIndex: 10,
             position: "absolute",
@@ -160,7 +91,7 @@ function IndexPage({ data }) {
           </Link>
         </div>
       </section>
-      <section className="text-primary bg-primary  ">
+      <section className="text-secondary bg-secondary  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
           <Newsletter />
         </div>

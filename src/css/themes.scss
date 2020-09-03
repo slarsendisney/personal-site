@@ -1,4 +1,26 @@
 
+.theme-fallguys {
+    --color-bg-primary: #ee4599;
+    --color-bg-primary-light: #fa5bab;
+    --color-bg-accent: #97cc3c; 
+    --color-bg-accent-light: #ace34e; 
+    --color-bg-secondary: #00449b;
+    --color-text-link: #fcc700;
+    --color-bg-compliment: #d3d3d340;
+    --color-bg-default: #0090c9;
+    --color-bg-inverse: #d77d4d;
+    --color-text-primary: #f5f5f5;
+    --color-text-secondary: #f5f5f5;
+    --color-text-default: #f5f5f5;
+    --color-text-default-soft: #484848;
+    --color-text-inverse: #fff;
+    --color-text-inverse-soft: #ffffffb3;
+    --color-logo-one: #fcc700;
+    --color-logo-two: #ffffff;
+    --color-logo-three: #97cc3c;
+}
+
+
 .theme-blue {
     --color-bg-primary: #41539b;
     --color-bg-primary-light: #505f9e;
@@ -40,8 +62,28 @@
     --color-logo-two: #4d5e9b;
     --color-logo-three: #738de0;
 }
+.theme-rhubarbandcustard {
+    --color-bg-primary: #f9cf77;
+    --color-bg-primary-light: #ffdd93;
+    --color-bg-accent: #fea5cb; 
+    --color-bg-accent-light: #feb3d3; 
+    --color-bg-secondary: #f7dca2;
+    --color-text-link: #bd4177;
+    --color-bg-compliment: #d3d3d340;
+    --color-bg-default: #f5f5ff;
+    --color-bg-inverse: #d77d4d;
+    --color-text-primary: #834d14;
+    --color-text-secondary: #831f3f;
+    --color-text-default: #303030;
+    --color-text-default-soft: #484848;
+    --color-text-inverse: #fff;
+    --color-text-inverse-soft: #ffffffb3;
+    --color-logo-one: #f9519a;
+    --color-logo-two: #ffffff;
+    --color-logo-three: #feabcf;
+}
 
-.theme-dark {
+.theme-midnightdreams {
     --color-bg-primary: #0b132bff;
     --color-bg-primary-light: #111d41;
     --color-bg-accent: #e9a700; 
@@ -60,6 +102,10 @@
     --color-logo-one: #FFC53A;
     --color-logo-two: #fff;
     --color-logo-three: #c63082;
+    .tint:before {
+        background: #0b132bff;
+        opacity: 0.15;
+      }
     .bulb-glow {
         @extend .bulb-special
     }

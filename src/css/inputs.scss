@@ -1,7 +1,11 @@
 .input {
-    @apply w-full px-2 py-4 mr-2 mt-2  bg-default shadow-inner rounded-md border;
+    @apply w-full px-2 py-4 mr-2 mt-2 bg-default shadow-inner rounded-md border-2 border-primary;
 }
 
 .input:focus {
     @apply outline-none;
+}
+
+.form-checkbox {
+    color: var(--color-logo-one)
 }

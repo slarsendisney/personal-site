@@ -55,7 +55,6 @@ const Hero = () => {
               HeroBody: file(relativePath: { eq: "Body/Thinking.png" }) {
                 childImageSharp {
                   fluid(maxWidth: 230) {
-                    # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
                     ...GatsbyImageSharpFluid_noBase64
                   }
                 }
@@ -63,15 +62,13 @@ const Hero = () => {
               HeroTorso: file(relativePath: { eq: "Torso/Thinking.png" }) {
                 childImageSharp {
                   fluid(maxWidth: 230) {
-                    # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
                     ...GatsbyImageSharpFluid_noBase64
                   }
                 }
               }
               Bulb: file(relativePath: { eq: "Item/Bulb.png" }) {
                 childImageSharp {
-                  fluid(maxWidth: 48) {
-                    # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+                  fluid(maxWidth: 52) {
                     ...GatsbyImageSharpFluid_noBase64
                   }
                 }

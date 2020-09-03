@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     colors: {},
     textColor: {
+      white: "#ffffff",
       grey: "#444444",
       primary: "var(--color-text-primary)",
-
       secondary: "var(--color-text-secondary)",
       link: "var(--color-text-link)",
       default: "var(--color-text-default)",
@@ -16,6 +16,8 @@ module.exports = {
     },
     backgroundColor: {
       white: "#ffffff",
+      grey: "#999999",
+      modal: "#00000050",
       primary: "var(--color-bg-primary)",
       "primary-light": "var(--color-bg-primary-light)",
       compliment: "var(--color-bg-compliment)",

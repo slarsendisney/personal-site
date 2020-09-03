@@ -20,10 +20,15 @@ function ContactPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 mx-auto  my-5 -mx-1 text-center">
             <a target="_blank" rel="noreferrer" className="btn mx-1 my-1">
-              <span>Buy Me A Coffee</span>
+              <div className="flex items-center justify-center">
+                <i className="text-2xl las la-coffee m-0 mr-1 animate-bounce"></i>{" "}
+                Buy Me A Coffee
+              </div>
             </a>
             <a target="_blank" rel="noreferrer" className="btn mx-1 my-1">
-              <span>My Patreon</span>
+              <div className="flex items-center justify-center">
+                <i className="text-2xl lab la-patreon m-0 mr-1"></i>My Patreon
+              </div>
             </a>
           </div>
           <h2 className="mt-5 text-1xl lg:text-2xl text-left inline-block font-semibold opacity-75 mb-3">
@@ -37,10 +42,18 @@ function ContactPage() {
             more! You can also hit the button below to send me some love!
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 mx-auto  my-5 -mx-1 text-center">
-            <a target="_blank" rel="noreferrer" className="btn mx-1 my-1">
-              <span>Send Some Love</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 mx-auto  my-5 -mx-1  items-center">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              className="btn mx-1 my-1 text-center"
+            >
+              <span>Send Virtual Thanks</span>
             </a>
+            <div className="flex items-center justify-center text-xl opacity-75">
+              <i className="text-2xl las la-glass-cheers m-0 mr-1"></i>
+              1423 Virtual Thanks Sent.
+            </div>
           </div>
         </div>
       </section>

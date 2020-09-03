@@ -154,6 +154,20 @@ module.exports = {
         path: `${__dirname}/MDX/Projects`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Boilerplates`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Quibs`,
+      },
+    },
     // TRANSFORMER PLUGINS
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
