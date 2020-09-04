@@ -1,20 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
-import { useLocalStorage } from "../utils/customHooks";
-const themes = new Set([
-  "Pink",
-  "Rhubarb and Custard",
-  "Blue",
-  "Midnight Dreams",
-]);
-const unlockables = new Set(["Fall Guys"]);
+const themes = new Set(["Rhubarb and Custard", "Blue", "Midnight Dreams"]);
+const unlockables = new Set(["Fall Guys", "Elementary"]);
 
 const allThemes = [...themes, ...unlockables];
-const ThemePicker = ({ theme, setTheme }) => {
-  const [unlockedThemes] = useLocalStorage("unlocked_themes", []);
+const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
   const unlocked = new Set(unlockedThemes);
-  console.log(unlocked);
   return (
     <div className="flex m-auto md:m-0">
       <ReactTooltip />
@@ -51,7 +43,7 @@ const ThemePicker = ({ theme, setTheme }) => {
                 aria-label={`Theme Locked`}
                 className={`h-8 w-8 ${
                   index !== allThemes.length ? "mr-4" : ""
-                } transition duration-500  ease-in-out transform`}
+                } transition duration-500  ease-in-out transform opacity-75`}
               >
                 <div
                   data-tip={`Find this theme by exploring the site.`}
@@ -71,6 +63,7 @@ const ThemePicker = ({ theme, setTheme }) => {
 ThemePicker.propTypes = {
   theme: PropTypes.string,
   setTheme: PropTypes.func,
+  unlockedThemes: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default ThemePicker;

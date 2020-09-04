@@ -1,31 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { useLocalStorage } from "../utils/customHooks";
-import { defaultTheme } from "./header";
-const ThemeFound = ({ children, theme }) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [currenttheme, setTheme] = useLocalStorage("theme", defaultTheme);
-  const [unlockedThemes, setUnlockedThemes] = useLocalStorage(
-    "unlocked_themes",
-    []
-  );
+import { connect } from "react-redux";
 
-  const updateTheme = (newTheme) => {
-    var currentCss = document.body.className;
-    currentCss = currentCss.replace(/theme-\w*/g, "") + newTheme;
-    document.body.className = currentCss;
-    window.theme = newTheme;
-  };
-  const setFound = () => {
-    const unlocked = new Set(unlockedThemes);
-    if (!unlocked.has(theme)) {
-      console.log("Found theme!");
-      setUnlockedThemes([...unlockedThemes, theme]);
+const ThemeFound = ({ newTheme, setTheme, dismissNewTheme }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  useEffect(() => {
+    if (newTheme) {
       setModalOpen(true);
-    } else {
-      console.log("Theme already found!");
     }
-  };
+  }, [newTheme]);
+  const themeVal = newTheme ? newTheme.toLowerCase().replaceAll(" ", "") : "";
   return (
     <>
       {modalOpen && (
@@ -33,28 +17,32 @@ const ThemeFound = ({ children, theme }) => {
           className="bg-modal fixed top-0 right-0 w-full h-full flex items-center justify-center"
           style={{ zIndex: 1000 }}
         >
-          <div className="w-auto h-auto bg-secondary rounded p-8">
+          <div
+            className="w-auto h-auto bg-default text-secondary rounded-lg p-8  border-4 border-accent"
+            style={{ maxWidth: "75%" }}
+          >
             {" "}
             <div className="flex items-center justify-center">
-              <i className="las la-paint-roller text-4xl mb-3"></i>{" "}
-              <h1 className="text-lg text-center">Theme Unlocked!</h1>
+              <div
+                className={`h-8 w-8 bg-primary rounded-full my-2 mr-2 md:my-0 theme-${themeVal} border-4 border-accent`}
+              />
+              <h1 className="text-xl font-bold text-center">Theme Unlocked!</h1>
             </div>
-            <p className="text-xl my-2">
+            <p className="text-xl text-center mt-1 mb-6">
               You&apos;ve unlocked the{" "}
-              <span className="text-link font-semibold">{theme}</span> theme.
-              Want to give the site a new lick of paint?
+              <span className="text-link font-semibold">{newTheme}</span> theme.
+              Want to give the site a new lick of paint? You can also
             </p>
             <div className="flex flex-wrap justify-center my-3">
               {" "}
               <button
                 className="btn-accent text-sm mr-2"
                 onClick={() => {
-                  const newTheme = `theme-${theme
-                    .toLowerCase()
-                    .replaceAll(" ", "")}`;
-                  setTheme(newTheme);
-                  updateTheme(newTheme);
+                  setTheme(
+                    `theme-${newTheme.toLowerCase().replaceAll(" ", "")}`
+                  );
                   setModalOpen(false);
+                  dismissNewTheme();
                 }}
               >
                 Paint It
@@ -62,8 +50,8 @@ const ThemeFound = ({ children, theme }) => {
               <button
                 className="btn-accent text-sm"
                 onClick={() => {
-                  console.log(`Keeping theme ${currenttheme}`);
                   setModalOpen(false);
+                  dismissNewTheme();
                 }}
               >
                 No Thanks
@@ -72,13 +60,27 @@ const ThemeFound = ({ children, theme }) => {
           </div>
         </div>
       )}
-      <span onClick={() => setFound()}>{children}</span>
     </>
   );
 };
 ThemeFound.propTypes = {
-  children: PropTypes.node.isRequired,
-  found: PropTypes.bool,
-  theme: PropTypes.string.isRequired,
+  newTheme: PropTypes.string,
+  setTheme: PropTypes.func.isRequired,
+  dismissNewTheme: PropTypes.func.isRequired,
 };
-export default ThemeFound;
+const mapStateToProps = ({ newTheme }) => {
+  return { newTheme };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dismissNewTheme: () => dispatch({ type: "dismissNewTheme" }),
+  };
+};
+
+const ThemeFoundModal =
+  typeof window !== `undefined`
+    ? connect(mapStateToProps, mapDispatchToProps)(ThemeFound)
+    : ThemeFound;
+
+export default ThemeFoundModal;

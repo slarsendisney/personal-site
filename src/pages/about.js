@@ -237,7 +237,7 @@ function AboutPage() {
             <section className="text-secondary bg-default ">
               <div className="flex-1 w-full max-w-4xl px-4 py-16 mx-auto md:px-8 md:py-32">
                 <p className="text-lg md:text-3xl font-semibold text-default">
-                  You can find out more about me by exploring my{" "}
+                  You can find out more about Sam by exploring his{" "}
                   <Link className="link" to="/articles">
                     articles
                   </Link>

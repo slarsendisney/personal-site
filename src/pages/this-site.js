@@ -128,7 +128,7 @@ const ThisSite = () => (
           href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Howto/CSS_FAQ"
           target="_blank"
           rel="noreferrer"
-          className="btn-accent text-md py-3 px-5 my-1 mx-1 rounded"
+          className="btn text-md py-3 px-5 my-1 mx-1 rounded"
         >
           <div className="justify-center align-center flex">
             <span>Visit the GitHub Repo</span>

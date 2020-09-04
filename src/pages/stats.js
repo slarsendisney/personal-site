@@ -13,11 +13,10 @@ import {
 import Trend from "../components/Trend";
 import firebase from "gatsby-plugin-firebase";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
-import ThemeFound from "../components/ThemeFound";
 
 const colours = ["primary", "accent", "secondary", "accent"];
 
-const Stats = ({ data, count }) => {
+const Stats = ({ data, count, foundTheme }) => {
   const [value, loading, error] = useCollectionOnce(
     typeof window !== "undefined"
       ? firebase.firestore().collection("likes")
@@ -318,11 +317,12 @@ const Stats = ({ data, count }) => {
             * Code count only accounts for code I have written myself. Page
             views, sessions, events and commit count are refreshed daily at 9PM
             GMT.{" "}
-            <ThemeFound theme="Fall Guys">
-              <span className="hover:text-link cursor-pointer">
-                Have a theme for reading the small print!
-              </span>
-            </ThemeFound>
+            <span
+              className="hover:text-link cursor-pointer"
+              onClick={() => foundTheme("Fall Guys")}
+            >
+              Have a theme for reading the small print!
+            </span>
           </p>
         </div>
       </section>
@@ -332,6 +332,7 @@ const Stats = ({ data, count }) => {
 
 Stats.propTypes = {
   count: PropTypes.number.isRequired,
+  foundTheme: PropTypes.func.isRequired,
   data: PropTypes.shape({
     statsJson: PropTypes.shape({
       JavaScript: PropTypes.number.isRequired,
@@ -433,7 +434,15 @@ const mapStateToProps = ({ count }) => {
   return { count };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    foundTheme: (theme) => dispatch({ type: "foundTheme", data: theme }),
+  };
+};
+
 const ConnectedStats =
-  typeof window !== `undefined` ? connect(mapStateToProps, null)(Stats) : Stats;
+  typeof window !== `undefined`
+    ? connect(mapStateToProps, mapDispatchToProps)(Stats)
+    : Stats;
 
 export default ConnectedStats;

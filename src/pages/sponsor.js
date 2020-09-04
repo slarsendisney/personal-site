@@ -19,7 +19,11 @@ function ContactPage() {
             <strong>There is no better way to say thanks!</strong>
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 mx-auto  my-5 -mx-1 text-center">
-            <a target="_blank" rel="noreferrer" className="btn mx-1 my-1">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              className="btn-accent mx-1 my-1"
+            >
               <div className="flex items-center justify-center">
                 <i className="text-2xl las la-coffee m-0 mr-1 animate-bounce"></i>{" "}
                 Buy Me A Coffee

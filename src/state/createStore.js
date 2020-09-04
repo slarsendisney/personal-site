@@ -4,7 +4,7 @@ import io from "socket.io-client";
 let socket = io("https://sld-clicker.herokuapp.com/"); //io("http://localhost:3000/")
 let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
 
-const DEVELOPMENT = false;
+const DEVELOPMENT = true;
 
 function reducer(
   state = {
@@ -27,6 +27,12 @@ function reducer(
         { ...state, donationActive: false, donation: undefined }
       );
     }
+    case "foundTheme":
+      console.log(action.data);
+      return Object.assign({}, { ...state, newTheme: action.data });
+    case "dismissNewTheme":
+      delete state.newTheme;
+      return Object.assign({}, { ...state });
     case "userCount":
       return Object.assign({}, { ...state, count: action.data });
     case "pollUpdate": {

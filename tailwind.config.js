@@ -30,6 +30,7 @@ module.exports = {
     borderColor: {
       primary: "var(--color-bg-primary)",
       accent: "var(--color-bg-accent)",
+      link: "var(--color-text-link)",
       secondary: "var(--color-bg-secondary)",
       default: "var(--color-bg-default)",
       inverse: "var(--color-bg-inverse)",

@@ -1,9 +1,12 @@
 import { Link } from "gatsby";
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import ThemePicker from "./themePicker";
 import { useLocalStorage } from "../utils/customHooks";
 import LogoAnimation from "./LogoAnimation";
 import SmoothCollapse from "react-smooth-collapse";
+import ThemeFoundModal from "./ThemeFound";
 
 export const defaultTheme =
   typeof window !== "undefined" &&
@@ -12,10 +15,14 @@ export const defaultTheme =
     ? "theme-midnightdreams"
     : "theme-blue";
 
-function Header() {
+const Header = ({ newTheme }) => {
   const [theme, setTheme] = useLocalStorage("theme", defaultTheme);
   const [themeExpanded, setThemeExpanded] = useState(false);
   const [menuExpanded, toggleMenuExpansion] = useState(false);
+  const [unlockedThemes, setUnlockedThemes] = useLocalStorage(
+    "unlocked_themes",
+    []
+  );
 
   useEffect(() => {
     var currentCss = document.body.className;
@@ -24,17 +31,28 @@ function Header() {
     window.theme = theme;
   }, [theme]);
 
+  useEffect(() => {
+    if (newTheme) {
+      setUnlockedThemes([...unlockedThemes, newTheme]);
+    }
+  }, [newTheme]);
+
   return (
     <>
+      <ThemeFoundModal setTheme={setTheme} />
       <div className="bg-white">
         <SmoothCollapse expanded={themeExpanded} className="">
           <div className=" flex flex-wrap items-center justify-between container px-4 py-3 mx-auto mx-auto">
-            <div className="flex items-center text-grey m-auto md:m-0">
-              <h3 className="text-sm md:text-base ">
-                Choose a new <strong>Lick of Paint.</strong>
-              </h3>
+            <div className="flex flex-col items-center sm:items-start text-grey m-auto md:m-0">
+              <p className="text-sm md:text-base mb-0">
+                <strong>Find more themes</strong> by exploring the site.
+              </p>
             </div>
-            <ThemePicker theme={theme} setTheme={setTheme} />
+            <ThemePicker
+              theme={theme}
+              setTheme={setTheme}
+              unlockedThemes={unlockedThemes}
+            />
           </div>
         </SmoothCollapse>
       </div>
@@ -118,7 +136,7 @@ function Header() {
                 },
               ].map(({ section, elements, icon }) => (
                 <div
-                  className="px-4 mx-3 my-4 border-t-2 md:border-2 border-accent md:rounded"
+                  className="px-4 mx-3 my-4 border-t-2 md:border-2 border-link md:rounded"
                   key={section}
                 >
                   <div className="flex items-center -mt-4 mb-3 md:mb-0 text-link ">
@@ -169,6 +187,19 @@ function Header() {
       </SmoothCollapse>
     </>
   );
-}
+};
 
-export default Header;
+Header.propTypes = {
+  newTheme: PropTypes.string,
+};
+
+const mapStateToProps = ({ newTheme }) => {
+  return { newTheme };
+};
+
+const ConnectedHeader =
+  typeof window !== `undefined`
+    ? connect(mapStateToProps, null)(Header)
+    : Header;
+
+export default ConnectedHeader;

@@ -16,7 +16,6 @@ function Layout({ children }) {
       </Helmet>
       <ReactTooltip className="text-primary bg-primary" />
       <Header />
-
       <main className="text-default overflow-x-hidden">{children}</main>
       <Footer />
     </div>
