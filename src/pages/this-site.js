@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
 import { Link } from "gatsby";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const inspirers = [
   "JoshWComeau",
@@ -32,23 +33,23 @@ const ThisSite = () => (
       </p>
       <p className="mb-8">
         This site features photography by{" "}
-        <a
+        <OutboundLink
           href={"https://twitter.com/thepaulbalaji"}
           className="link"
           target="_blank"
           rel="noreferrer"
         >
           @thepaulbalaji
-        </a>{" "}
+        </OutboundLink>{" "}
         and 3D illustrations by{" "}
-        <a
+        <OutboundLink
           href={"https://www.instagram.com/allsortscreativeuk/"}
           className="link"
           target="_blank"
           rel="noreferrer"
         >
           @allsortscreativeuk
-        </a>
+        </OutboundLink>
         .
       </p>
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">
@@ -60,7 +61,7 @@ const ThisSite = () => (
       </p>
       <div className="flex flex-wrap mb-8 text-xl">
         {inspirers.map((name, index) => (
-          <a
+          <OutboundLink
             key={name}
             href={"https://twitter.com/" + name}
             className="link"
@@ -69,7 +70,7 @@ const ThisSite = () => (
           >
             @{name.toLowerCase()}
             {index !== inspirers.length - 1 && <span className="mr-1">,</span>}
-          </a>
+          </OutboundLink>
         ))}
       </div>
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">
@@ -83,16 +84,28 @@ const ThisSite = () => (
           <p className="">
             Yes, you can fork this repo (link at the bottom of this page!). The
             code is provided as is, and is not guaranteed to work on your
-            machine or for your paticular use case. If you have questions about
-            implementation, please refer to the github readme and the Gatsby
-            docs. I have spent considerable time ensuring that there are
-            comments throughout the code to help you get started.
+            machine or for your paticular use case.
           </p>
           <p>
             <strong>
               Please note that while the code is free for anyone to use, I
               reserve the rights to all images on this site.
             </strong>
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-start justify-start mb-8">
+        <div>
+          <p className="font-semibold mt-0 mb-3 text-gray-900">
+            Can you help me get started?
+          </p>
+          <p className="">
+            If you have questions about implementation, please refer to the
+            github readme and the Gatsby docs. I have spent considerable time
+            ensuring that there are comments throughout the code to help you get
+            started. Due to the amount of requests I recieve, I cannot help
+            individuals but may answer the odd question on twitter.
           </p>
         </div>
       </div>
@@ -124,7 +137,7 @@ const ThisSite = () => (
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mx-auto max-w-2xl text-center">
-        <a
+        <OutboundLink
           href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Howto/CSS_FAQ"
           target="_blank"
           rel="noreferrer"
@@ -134,7 +147,7 @@ const ThisSite = () => (
             <span>Visit the GitHub Repo</span>
             <i className="lab la-github ml-1 text-2xl"></i>
           </div>
-        </a>
+        </OutboundLink>
         <Link
           className="btn-accent text-md py-3 px-5 my-1 mx-1 rounded"
           to="/sponsor"

@@ -1,3 +1,30 @@
+.theme-matrix {
+    --color-bg-primary: #2dd755;
+    --color-bg-primary-light: #42f06a;
+    --color-bg-accent: #2dd755; 
+    --color-bg-accent-light: #4ce971; 
+    --color-bg-secondary: #0b2b26;
+    --color-text-link: #42f06a;    
+    --color-bg-compliment: #1c1f1e;
+    --color-bg-default: #1c1c1c;
+    --color-bg-inverse: #d77d4d;
+    --color-text-primary: #000000;
+    --color-text-secondary: #f2f2f2;
+    --color-text-default: #e9e9e9;
+    --color-text-default-soft: #6a6a6a;
+    --color-text-inverse: #fff;
+    --color-text-inverse-soft: #ffffffb3;
+    --color-logo-one: #161617;
+    --color-logo-two: #161617;
+    --color-logo-three: #161617;
+    .tint:before {
+        background: #0b132bff;
+        opacity: 0.15;
+      }
+    .bulb-glow {
+        @extend .bulb-special
+    }
+}
 
 .theme-fallguys {
     --color-bg-primary: #ee4599;

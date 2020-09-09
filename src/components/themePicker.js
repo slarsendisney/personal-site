@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
 const themes = new Set(["Rhubarb and Custard", "Blue", "Midnight Dreams"]);
-const unlockables = new Set(["Fall Guys", "Elementary"]);
+const unlockables = new Set(["Fall Guys", "Matrix"]);
 
 const allThemes = [...themes, ...unlockables];
 const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {

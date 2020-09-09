@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const Hero = () => {
   return (
@@ -30,22 +31,22 @@ const Hero = () => {
               <button className=" btn mr-3">About Me</button>
             </Link>
             <div className="text-5xl md:text-4xl flex flex-wrap -mb-12 md:m-0">
-              <a
+              <OutboundLink
                 href="https://twitter.com/SamLarsenDisney"
                 className="hover:text-link"
                 target="_blank"
                 rel="noreferrer"
               >
                 <i className="lab la-twitter "></i>
-              </a>
-              <a
+              </OutboundLink>
+              <OutboundLink
                 href="https://www.linkedin.com/in/samuel-larsen-disney"
                 className="hover:text-link"
                 target="_blank"
                 rel="noreferrer"
               >
                 <i className="lab la-linkedin-in mr-1"></i>
-              </a>
+              </OutboundLink>
             </div>
           </div>
         </div>

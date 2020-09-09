@@ -140,22 +140,22 @@ function AboutPage() {
                   <button className="btn-accent mt-5 w-64">View CV</button>
                 </Link>
                 <div className="text-5xl flex flex-wrap -mb-8 items-center justify-center">
-                  <a
+                  <OutboundLink
                     href="https://twitter.com/SamLarsenDisney"
                     className="hover:text-link"
                     target="_blank"
                     rel="noreferrer"
                   >
                     <i className="lab la-twitter "></i>
-                  </a>
-                  <a
+                  </OutboundLink>
+                  <OutboundLink
                     href="https://www.linkedin.com/in/samuel-larsen-disney"
                     className="hover:text-link"
                     target="_blank"
                     rel="noreferrer"
                   >
                     <i className="lab la-linkedin-in mr-1"></i>
-                  </a>
+                  </OutboundLink>
                 </div>
               </div>
             </section>

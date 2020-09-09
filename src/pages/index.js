@@ -81,7 +81,7 @@ function IndexPage({ data }) {
             zIndex: 500,
           }}
         >
-          <h1 className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+          <h1 className="mb-4 text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
             Conferences and Hackathons
           </h1>
           <Link to="/events">

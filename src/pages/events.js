@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Img from "gatsby-image/withIEPolyfill";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Events from "../data/events.json";
@@ -31,9 +32,9 @@ const EventBlock = ({ events }) => {
                 "iii, dd MMM yyyy"
               )}
             </p>
-            <a href={event.link}>
+            <OutboundLink href={event.link}>
               <button className="btn-sm-accent -mx-1 mt-2">More Info</button>
-            </a>
+            </OutboundLink>
           </div>
         </div>
       ))}
@@ -61,7 +62,7 @@ const EventsPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Events" />
-      <section className="text-center text-secondary bg-default relative">
+      <section className="text-center text-white bg-default relative">
         <Img
           fluid={data.eventHero.childImageSharp.fluid}
           className="w-full h-full opacity-75"
@@ -78,7 +79,7 @@ const EventsPage = ({ data }) => {
           }}
         >
           <h1 className="mb-4 text-4xl md:text-5xl lg:text-6xl font-semibold">
-            Events
+            Events & Hackathons
           </h1>
         </div>
       </section>
@@ -105,9 +106,9 @@ const EventsPage = ({ data }) => {
               through his articles, presentations and at hackathons.
             </h3>
             <div className="text-center md:text-left">
-              <a href={data.face.publicURL}>
+              <OutboundLink href={data.face.publicURL}>
                 <button className="btn mt-3">Download my face</button>
-              </a>
+              </OutboundLink>
             </div>
           </div>
         </div>

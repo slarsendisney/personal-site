@@ -6,6 +6,7 @@ module.exports = {
     textColor: {
       white: "#ffffff",
       grey: "#444444",
+      black: "#111111",
       primary: "var(--color-text-primary)",
       secondary: "var(--color-text-secondary)",
       link: "var(--color-text-link)",

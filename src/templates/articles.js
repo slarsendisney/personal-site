@@ -183,7 +183,7 @@ const Articles = ({ data }) => {
                     </li>
                   )}
 
-                  <li className="mx-1 px-3 py-2 bg-primary text-primary hover:bg-primary-light rounded-lg">
+                  <li className="mx-1 px-3 py-2 bg-accent text-primary hover:bg-accent-light rounded-lg">
                     <Link className="font-bold" href="#">
                       {currentPage}
                     </Link>

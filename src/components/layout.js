@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./header";
 import { Helmet } from "react-helmet";
 import ReactTooltip from "react-tooltip";
+import { Location } from "@reach/router";
 import Footer from "./Footer";
 
 function Layout({ children }) {
@@ -16,8 +17,8 @@ function Layout({ children }) {
       </Helmet>
       <ReactTooltip className="text-primary bg-primary" />
       <Header />
-      <main className="text-default overflow-x-hidden">{children}</main>
-      <Footer />
+      <main className="text-default ">{children}</main>
+      <Location>{(locationProps) => <Footer {...locationProps} />}</Location>
     </div>
   );
 }

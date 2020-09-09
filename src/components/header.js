@@ -28,11 +28,14 @@ const Header = ({ newTheme }) => {
     var currentCss = document.body.className;
     currentCss = currentCss.replace(/theme-\w*/g, "") + theme;
     document.body.className = currentCss;
-    window.theme = theme;
+    if (typeof window !== "undefined") {
+      window.theme = theme;
+    }
   }, [theme]);
 
   useEffect(() => {
-    if (newTheme) {
+    let currentUnlocks = new Set(unlockedThemes);
+    if (newTheme && !currentUnlocks.has(newTheme)) {
       setUnlockedThemes([...unlockedThemes, newTheme]);
     }
   }, [newTheme]);
@@ -45,7 +48,15 @@ const Header = ({ newTheme }) => {
           <div className=" flex flex-wrap items-center justify-between container px-4 py-3 mx-auto mx-auto">
             <div className="flex flex-col items-center sm:items-start text-grey m-auto md:m-0">
               <p className="text-sm md:text-base mb-0">
-                <strong>Find more themes</strong> by exploring the site.
+                {unlockedThemes.length > 1 ? (
+                  <>
+                    Choose a new <strong>lick of paint</strong>.{" "}
+                  </>
+                ) : (
+                  <>
+                    <strong>Find more themes</strong> by exploring the site.
+                  </>
+                )}
               </p>
             </div>
             <ThemePicker
@@ -153,6 +164,7 @@ const Header = ({ newTheme }) => {
                         <Link
                           to={link}
                           className={`${
+                            typeof window !== "undefined" &&
                             window.location.pathname.includes(link)
                               ? "text-link font-semibold"
                               : "hover:text-link"
@@ -169,6 +181,7 @@ const Header = ({ newTheme }) => {
                         <Link
                           to={link}
                           className={`${
+                            typeof window !== "undefined" &&
                             window.location.pathname.includes(link)
                               ? "text-link font-semibold"
                               : "hover:text-link"

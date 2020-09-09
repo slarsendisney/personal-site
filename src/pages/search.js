@@ -5,66 +5,69 @@ import PropTypes from "prop-types";
 import { CardText } from "../templates/articles";
 import { Card } from "../templates/projects";
 
-const Search = ({ data }) => (
-  <Layout>
-    <section className="text-default bg-default">
-      <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-12 ">
-        <h1 className="text-base md:text-lg lg:text-xl text-left">
-          <i className="las la-search md:mr-1"></i>SITE SEARCH
-        </h1>
-        <input
-          className="input"
-          placeholder="Articles, Projects and More!"
-        ></input>
-      </div>
-    </section>
-    <section className="text-default bg-secondary">
-      <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 ">
-        <h1 className="text-base md:text-lg lg:text-xl text-left mb-5">
-          <i className="las la-lightbulb md:mr-1"></i>RECOMMENDED
-        </h1>
-        <div className="grid md:grid-rows-5 grid-cols-1 md:grid-cols-2 gap-4 ">
-          <div className="md:row-span-3">
-            <Card
-              {...data.ShowCaseProject.nodes[0].frontmatter}
-              {...data.ShowCaseProject.nodes[0]}
-            />
-          </div>
-          <div className="md:row-span-2">
-            <CardText
-              hideTags={true}
-              {...data.ShowCaseTwo.nodes[0].fields}
-              {...data.ShowCaseTwo.nodes[0].frontmatter}
-            />
-          </div>
-          <div className="md:row-span-3">
-            <Card
-              {...data.ShowCaseProjectTwo.nodes[0].frontmatter}
-              {...data.ShowCaseProjectTwo.nodes[0]}
-            />
-          </div>
-          <div className="md:row-span-2">
-            <CardText
-              hideTags={true}
-              {...data.ShowCaseOne.nodes[0].fields}
-              {...data.ShowCaseOne.nodes[0].frontmatter}
-            />
+const Search = ({ data }) => {
+  console.log(data);
+  return (
+    <Layout>
+      <section className="text-default bg-default">
+        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-12 ">
+          <h1 className="text-base md:text-lg lg:text-xl text-left">
+            <i className="las la-search md:mr-1"></i>SITE SEARCH
+          </h1>
+          <input
+            className="input"
+            placeholder="Articles, Projects and More!"
+          ></input>
+        </div>
+      </section>
+      <section className="text-default bg-secondary">
+        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 ">
+          <h1 className="text-base md:text-lg lg:text-xl text-left mb-5">
+            <i className="las la-lightbulb md:mr-1"></i>RECOMMENDED
+          </h1>
+          <div className="grid md:grid-rows-5 grid-cols-1 md:grid-cols-2 gap-4 ">
+            <div className="md:row-span-3">
+              <Card
+                {...data.ShowCaseProject.nodes[0].frontmatter}
+                {...data.ShowCaseProject.nodes[0]}
+              />
+            </div>
+            <div className="md:row-span-2">
+              <CardText
+                hideTags={true}
+                {...data.ShowCaseTwo.nodes[0].fields}
+                {...data.ShowCaseTwo.nodes[0].frontmatter}
+              />
+            </div>
+            <div className="md:row-span-3">
+              <Card
+                {...data.ShowCaseProjectTwo.nodes[0].frontmatter}
+                {...data.ShowCaseProjectTwo.nodes[0]}
+              />
+            </div>
+            <div className="md:row-span-2">
+              <CardText
+                hideTags={true}
+                {...data.ShowCaseOne.nodes[0].fields}
+                {...data.ShowCaseOne.nodes[0].frontmatter}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section className="text-secondary bg-default">
-      <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-32 ">
-        <h1 className="text-center text-lg md:text-4xl font-semibold text-default">
-          “The seekers are those that don’t fit.”
-        </h1>
-        <h1 className="text-center text-base md:text-xl font-semibold opacity-75">
-          Shannon L. Alder
-        </h1>
-      </div>
-    </section>
-  </Layout>
-);
+      </section>
+      <section className="text-secondary bg-default">
+        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-32 ">
+          <h1 className="text-center text-lg md:text-4xl font-semibold text-default">
+            “The seekers are those that don’t fit.”
+          </h1>
+          <h1 className="text-center text-base md:text-xl font-semibold opacity-75">
+            Shannon L. Alder
+          </h1>
+        </div>
+      </section>
+    </Layout>
+  );
+};
 
 Search.propTypes = {
   data: PropTypes.shape({
@@ -150,6 +153,7 @@ export const query = graphql`
           type
           title
           date
+          desc
           tags
           path
           coverimg {
@@ -174,6 +178,7 @@ export const query = graphql`
           type
           title
           date
+          desc
           tags
           path
           coverimg {

@@ -51,6 +51,18 @@ module.exports = {
     currentCompanyURL: currentJob.url,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Sam Larsen-Disney",
+        short_name: "SLD",
+        start_url: "/",
+        background_color: "#ea4e68",
+        theme_color: "#2e4052",
+        display: "standalone",
+        crossOrigin: `use-credentials`,
+      },
+    },
     `gatsby-plugin-eslint`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-meta-redirect`,
@@ -63,48 +75,56 @@ module.exports = {
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        // Configure SASS to process Tailwind
-        postCssPlugins: [require("tailwindcss")],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          require(`tailwindcss`)(tailwindConfig),
-          require(`autoprefixer`),
-          ...(process.env.NODE_ENV === `production`
-            ? [require(`cssnano`)]
-            : []),
-        ],
-      },
-    },
-    `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-26978781-2",
-        head: false,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-firebase",
-      options: {
-        credentials: {
-          apiKey: process.env.FIREBASE_API_KEY,
-          authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-          databaseURL: process.env.FIREBASE_DB_URL,
-          projectId: process.env.FIREBASE_PROJECT_ID,
-          storageBucket: process.env.FIREBASE_SB,
-          messagingSenderId: process.env.FIREBASE_MSG_SENDER_ID,
-          appId: process.env.FIREBASE_APP_ID,
-        },
-      },
-    },
     `gatsby-plugin-remove-trailing-slashes`,
+
+    // TRANSFORMER PLUGINS
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: false,
+
+              removeAccents: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+              linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`,
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-copy-relative-linked-files`,
+          `gatsby-remark-smartypants`,
+        ],
+        plugins: [`gatsby-remark-images`, `gatsby-remark-images-medium-zoom`],
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-images`],
+      },
+    },
+
+    `gatsby-transformer-json`,
+
     // SOURCE PLUGINS
     {
       resolve: `gatsby-source-npm-author-packages`,
@@ -151,13 +171,6 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "mdx-pages",
-        path: `${__dirname}/MDX/Projects`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "mdx-pages",
         path: `${__dirname}/MDX/Boilerplates`,
       },
     },
@@ -165,56 +178,10 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "mdx-pages",
-        path: `${__dirname}/MDX/Quibs`,
+        path: `${__dirname}/MDX/Projects`,
       },
     },
-    // TRANSFORMER PLUGINS
-    `gatsby-transformer-json`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-remark-images`,
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              icon: false,
 
-              removeAccents: true,
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-              linkImagesToOriginal: false,
-            },
-          },
-          {
-            resolve: `gatsby-remark-images-medium-zoom`,
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          `gatsby-remark-copy-images`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
-        plugins: [`gatsby-remark-images`, `gatsby-remark-images-medium-zoom`],
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [`gatsby-remark-images`],
-      },
-    },
     //LUNR SEARCH
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
@@ -251,5 +218,46 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        // Configure SASS to process Tailwind
+        postCssPlugins: [require("tailwindcss")],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require(`tailwindcss`)(tailwindConfig),
+          require(`autoprefixer`),
+          ...(process.env.NODE_ENV === `production`
+            ? [require(`cssnano`)]
+            : []),
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-26978781-2",
+        head: false,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: {
+          apiKey: process.env.FIREBASE_API_KEY,
+          authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+          databaseURL: process.env.FIREBASE_DB_URL,
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          storageBucket: process.env.FIREBASE_SB,
+          messagingSenderId: process.env.FIREBASE_MSG_SENDER_ID,
+          appId: process.env.FIREBASE_APP_ID,
+        },
+      },
+    },
+    `gatsby-plugin-offline`,
   ].concat(dynamicPlugins),
 };

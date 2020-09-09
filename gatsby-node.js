@@ -23,71 +23,71 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       isPermanent: true,
     });
   });
-  //   actions.createPage({
-  //     path: "/projects",
-  //     component: require.resolve("./src/templates/Projects.js"),
-  //   });
+  actions.createPage({
+    path: "/projects",
+    component: require.resolve("./src/templates/Projects.js"),
+  });
 
   //   const QandA = path.resolve(`./src/templates/QandA.js`);
   const MDXArticle = path.resolve(`./src/templates/article.js`);
-  //   const Project = path.resolve(`./src/templates/Project.js`);
+  const Project = path.resolve(`./src/templates/Project.js`);
   //   const ArticleTag = path.resolve(`./src/templates/ArticleTag.js`);
   //   const ProjectTag = path.resolve(`./src/templates/ProjectTag.js`);
-  //   const result = await graphql(`
-  //     {
-  //       allMdx(
-  //         limit: 1000
-  //         filter: { frontmatter: { type: { in: ["Project", "Q&A"] } } }
-  //       ) {
-  //         edges {
-  //           node {
-  //             frontmatter {
-  //               path
-  //               type
-  //               title
-  //             }
-  //           }
-  //         }
-  //       }
-  //       projectTagsGroup: allMdx(
-  //         filter: { frontmatter: { type: { eq: "Project" } } }
-  //       ) {
-  //         group(field: frontmatter___tags) {
-  //           fieldValue
-  //         }
-  //       }
-  //       articleTagsGroup: allMdx(
-  //         filter: { frontmatter: { type: { eq: "Article" } } }
-  //       ) {
-  //         group(field: frontmatter___tags) {
-  //           fieldValue
-  //         }
-  //       }
-  //     }
-  //   `);
-  //   // Handle errors
-  //   if (result.errors) {
-  //     reporter.panicOnBuild(`Error while running GraphQL query.`);
-  //     return;
-  //   }
-  //   result.data.allMdx.edges.forEach(({ node }) => {
-  //     switch (node.frontmatter.type) {
-  //       case "Q&A":
-  //         createPage({
-  //           path: node.frontmatter.path,
-  //           component: QandA,
-  //         });
-  //         break;
-  //       case "Project":
-  //         createPage({
-  //           path: node.frontmatter.path,
-  //           component: Project,
-  //         });
-  //         break;
-  //       default:
-  //         console.log(`Unknown page: ${node.frontmatter.type}`);
-  //     }
-  //   });
+  const result = await graphql(`
+    {
+      allMdx(
+        limit: 1000
+        filter: { frontmatter: { type: { in: ["Project", "Q&A"] } } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+              type
+              title
+            }
+          }
+        }
+      }
+      projectTagsGroup: allMdx(
+        filter: { frontmatter: { type: { eq: "Project" } } }
+      ) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
+      articleTagsGroup: allMdx(
+        filter: { frontmatter: { type: { eq: "Article" } } }
+      ) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
+    }
+  `);
+  // Handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
+  }
+  result.data.allMdx.edges.forEach(({ node }) => {
+    switch (node.frontmatter.type) {
+      // case "Q&A":
+      //   createPage({
+      //     path: node.frontmatter.path,
+      //     component: QandA,
+      //   });
+      //   break;
+      case "Project":
+        createPage({
+          path: node.frontmatter.path,
+          component: Project,
+        });
+        break;
+      default:
+        console.log(`Unknown page: ${node.frontmatter.type}`);
+    }
+  });
 
   //   result.data.articleTagsGroup.group.forEach((tag) => {
   //     createPage({
