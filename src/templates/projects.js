@@ -71,8 +71,11 @@ const Projects = ({ data }) => {
     <Layout>
       <section className="text-secondary bg-default">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-          <h3 className="text-4xl mb-3">Projects</h3>
-
+          <h3 className="text-4xl  font-semibold">Projects</h3>
+          <p className="text-base mb-3">
+            Here you&apos;ll find lots of my side projects, many have links so I
+            encourage you to check them out and have a go.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {edges
               .sort((a, b) => {

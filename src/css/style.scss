@@ -19,3 +19,7 @@
 main {
     min-height: calc(100vh - 373px);
 }
+
+*:focus {
+    outline-color: var(--color-text-primary);
+}

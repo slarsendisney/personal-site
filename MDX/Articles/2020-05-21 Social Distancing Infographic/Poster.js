@@ -27,6 +27,7 @@ import Support from "./support.svg";
 import Music from "./music.svg";
 import Webcam from "./webcam.svg";
 import France from "./france.svg";
+import "../../../legacy/styles/global.scss";
 const filmsOrders = films.sort();
 const PROJECTCOUNT = 3;
 const BIRTHDAYCOUNT = 3;
@@ -79,7 +80,7 @@ const Poster = () => {
   const meetings = Math.floor(bussinessdaysInLockDown() * 3.2);
 
   return (
-    <div className="is-white-bg-always is-grey-always pad-5 row pandemic-poster">
+    <div className="my-2 legacy bg-white is-grey-always pad-5 row pandemic-poster">
       <div className="col-xs-12">
         <div className="row">
           <div className="col-xs-12 margin-5-t margin-3-b">

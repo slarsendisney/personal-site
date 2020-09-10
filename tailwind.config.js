@@ -1,5 +1,9 @@
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
   purge: ["./src/**/*.js"],
   theme: {
     colors: {},

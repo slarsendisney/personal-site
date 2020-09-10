@@ -1,9 +1,15 @@
 import React, { useEffect, useState, Fragment } from "react";
 import PropTypes from "prop-types";
+import { throttle } from "lodash";
 
 const ReadingProgress = ({ target }) => {
   const [readingProgress, setReadingProgress] = useState(0);
   const [show, setShow] = useState(false);
+
+  const handleSetProgress = throttle((e) => {
+    setReadingProgress(e);
+  }, 1000);
+
   const scrollListener = () => {
     if (!target.current) {
       return;
@@ -23,14 +29,14 @@ const ReadingProgress = ({ target }) => {
       setShow(toShow);
     }
     if (windowScrollTop === 0) {
-      return setReadingProgress(0);
+      return handleSetProgress(0);
     }
 
     if (windowScrollTop > totalHeight) {
-      return setReadingProgress(100);
+      return handleSetProgress(100);
     }
 
-    setReadingProgress((windowScrollTop / totalHeight) * 100);
+    handleSetProgress((windowScrollTop / totalHeight) * 100);
   };
 
   useEffect(() => {
@@ -42,11 +48,12 @@ const ReadingProgress = ({ target }) => {
   }
   return (
     <div
-      className={`bg-secondary`}
+      className={`bg-accent h-2 transition-all duration-1000 ease-in-out`}
       style={{
         zIndex: 20000,
         width: `${readingProgress}%`,
         top: 0,
+        position: "fixed",
       }}
     />
   );

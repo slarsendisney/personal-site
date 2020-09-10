@@ -1,25 +1,92 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import { graphql } from "gatsby";
+import { Index } from "elasticlunr";
+import SmoothCollapse from "react-smooth-collapse";
 import PropTypes from "prop-types";
 import { CardText } from "../templates/articles";
 import { Card } from "../templates/projects";
 
+const linkFromType = (page) => {
+  if (page.type === "Presentation") {
+    return page.path + "/slides";
+  }
+  if (page.type === "Article") {
+    return "/" + page.path;
+  }
+  return page.path;
+};
+
 const Search = ({ data }) => {
-  console.log(data);
+  const [query, setQuery] = useState("");
+  let [index, setIndex] = useState();
+  let [results, setResults] = useState([]);
+  useEffect(() => {
+    setIndex(Index.load(data.siteSearchIndex.index));
+  }, []);
+  console.log(results);
+
+  const search = (evt) => {
+    const query = evt.target.value;
+    setQuery(query);
+    setResults(
+      index
+        .search(query, { expand: query.length > 2 })
+        .map(({ ref }) => index.documentStore.getDoc(ref))
+    );
+  };
   return (
     <Layout>
       <section className="text-default bg-default">
-        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-12 ">
+        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 ">
           <h1 className="text-base md:text-lg lg:text-xl text-left">
             <i className="las la-search md:mr-1"></i>SITE SEARCH
           </h1>
           <input
             className="input"
             placeholder="Articles, Projects and More!"
+            value={query}
+            onChange={search}
           ></input>
         </div>
       </section>
+      <SmoothCollapse expanded={query !== ""} className="">
+        <section className="text-default bg-default">
+          <div className="flex-1 w-full max-w-4xl px-4 py-4 mx-auto md:px-8 ">
+            {query !== "" && (
+              <>
+                <h1 className="text-base font-semibold md:text-lg lg:text-xl text-left mb-3">
+                  {query.length <= 2
+                    ? "Please enter at least 3 characters."
+                    : `Results for "${query}"`}
+                </h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-2  gap-4">
+                  {results.map((page) => {
+                    return (
+                      <div
+                        key={page.title}
+                        className={
+                          page.type === "Article" ? "row-span-2" : "row-span-1"
+                        }
+                      >
+                        <CardText
+                          key={page.title}
+                          hideTags={page.type === "Article" ? false : true}
+                          {...page}
+                          slug={linkFromType(page)}
+                          tags={page.tags.split(",")}
+                          noLink
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      </SmoothCollapse>
+
       <section className="text-default bg-secondary">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 ">
           <h1 className="text-base md:text-lg lg:text-xl text-left mb-5">
@@ -71,6 +138,9 @@ const Search = ({ data }) => {
 
 Search.propTypes = {
   data: PropTypes.shape({
+    siteSearchIndex: PropTypes.shape({
+      index: PropTypes.object,
+    }),
     ShowCaseTwo: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
@@ -106,6 +176,9 @@ Search.propTypes = {
 
 export const query = graphql`
   {
+    siteSearchIndex {
+      index
+    }
     ShowCaseOne: allMdx(
       limit: 1
       filter: { frontmatter: { type: { eq: "Article" } } }

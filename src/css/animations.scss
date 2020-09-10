@@ -23,6 +23,11 @@
 	        animation: jello-vertical 0.9s both;
 }
 
+.jello-vertical-infinite {
+	-webkit-animation: jello-vertical 0.9s both infinite;
+	        animation: jello-vertical 0.9s both infinite;
+}
+
 @-webkit-keyframes roll-out-bottom {
     0% {
       -webkit-transform: translateY(0) rotate(0deg);

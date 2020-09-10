@@ -132,7 +132,10 @@ const Header = ({ newTheme }) => {
                     { title: "Articles", link: "/articles" },
                     { title: "Boilerplates", link: "/boilerplates" },
                     { title: "Uses", link: "/uses" },
-                    { title: "Hackathons", link: "/sos" },
+                    {
+                      title: "Hackathons",
+                      link: "/hack",
+                    },
                   ],
                 },
                 {

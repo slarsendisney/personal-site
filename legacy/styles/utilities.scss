@@ -1,0 +1,266 @@
+
+.flex {
+  display: flex;
+}
+
+.align-horizontal {
+  align-items: center;
+}
+
+.align-vertical {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.lato {
+  font-family: Lato;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.font-weight-normal{
+  font-weight: normal !important;
+}
+
+.fill-width {
+  width: 100% !important;
+}
+.line {
+  border-bottom: 7px solid;
+  max-width: 30%;
+}
+
+.line-sm {
+  border-bottom: 3px solid;
+  max-width: 100%;
+  opacity: 0.5;
+}
+
+
+.grow {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.grow-lg {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+.shadow {
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+  -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+}
+
+.hover:hover {
+  color: #ef6461;
+  cursor: pointer;
+}
+
+.border-radius {
+  border-radius: 8px;
+}
+
+.border-radius-sm {
+  border-radius: 3px;
+}
+
+
+.slick-slide {
+  pointer-events: none;
+}
+.slide-image-one {
+  background-image: url('https://ik.imagekit.io/sld/ICHACK_a2o31d1eR.png');
+  background-position: right;
+}
+
+
+.slide-image-two {
+  background-image: url('https://ik.imagekit.io/sld/HackKings_nVVodPVC9.jpeg');
+  background-position: center;
+}
+
+.slide-image-three {
+  background-image: url('https://ik.imagekit.io/sld/AmexOnboarding_my-fjWmR6.jpeg');
+  background-position: right;
+}
+
+.firework-window {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  z-index: 1000;
+  height:  calc(100vh);
+  pointer-events: none;
+}
+
+.fade-out {
+  animation: fadeOut 1s;
+  pointer-events: none;
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+.modal-background{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  z-index: 100;
+  height: 100vh;
+  background-color: #00000050;
+}
+.modal{
+  max-width: 800px;
+  
+}
+
+.animated-expansion{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 3s ease-out;
+}
+
+.reading-progress-bar {
+  position: fixed;
+  height: 5px;
+}
+
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 #ea4e68;
+    box-shadow: 0 0 0 0 #ea4e68;
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
+.rotate-icon {
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  transition: transform .8s ease-in-out;
+}
+
+.rotate-light:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+
+.rotate-dark:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.float-y{
+  animation: float-y 10s infinite;
+}
+
+.float-y-slow{
+  animation: float-y-reverse 20s infinite;
+}
+.float-y-slowest{
+  animation: float-y 30s infinite;
+}
+
+.float-x{
+  animation: float-x 30s infinite;
+}
+
+.float-x-slow{
+  animation: float-x-reverse 20s infinite;
+}
+.float-x-slowest{
+  animation: float-x 30s infinite;
+}
+
+@keyframes float-y {
+	0% {
+	
+		transform: translatey(0px);
+	}
+	50% {
+		
+		transform: translatey(-20px);
+	}
+	100% {
+	
+		transform: translatey(0px);
+	}
+}
+@keyframes float-y-reverse {
+	0% {
+	
+		transform: translatey(0px);
+	}
+	50% {
+		
+		transform: translatey(20px);
+	}
+	100% {
+	
+		transform: translatey(0px);
+	}
+}
+
+@keyframes float-x {
+	0% {
+	
+    transform: translatex(0px) translatey(0px);
+    
+	}
+	50% {
+		
+		transform: translatex(-10px) translatey(-8px);
+	}
+	100% {
+	
+		transform: translatex(0px) translatey(0px);
+	}
+}
+@keyframes float-x-reverse {
+	0% {
+	
+		transform: translatex(0px);
+	}
+	50% {
+		
+		transform: translatex(10px);
+	}
+	100% {
+	
+		transform: translatey(0px);
+	}
+}
+

@@ -1,0 +1,155 @@
+//fonts
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700&display=swa);
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@3/distr/fira_code.css);
+
+//files;
+@import './layout';
+@import './pandemic_poster';
+@import './margin_padding';
+@import './article';
+@import './utilities';
+
+
+.legacy{
+  @for $i from 1 through 6 {
+    h#{7 - $i} {
+      font-size: $i * 1.4em;
+    }
+  }
+  
+  html {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  main {
+    min-height: calc(100vh - 155px);
+    transition: background-color 0.5s ease;
+  }
+  
+  div {
+    transition: background-color 0.5s ease;
+  
+  }
+  
+  body {
+    margin: 0;
+    max-width: 100vw;
+  }
+  
+  p {
+    font-family: Lato;
+  
+  }
+  
+  
+  h1 {
+    display: block;
+    font-family: Lato;
+    font-size: 2em;
+    font-weight: 900;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.67em;
+  }
+  
+  h2 {
+    display: block;
+    font-family: Lato;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.83em;
+  }
+  
+  h3 {
+    display: block;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1.17em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+  }
+  
+  h4 {
+    display: block;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 1em;
+   
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.33em;
+  }
+  
+  h5 {
+    display: block;
+    font-family: Lato;
+    font-size: 0.83em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.67em;
+  }
+  
+  h6 {
+    display: block;
+    font-family: Lato;
+    font-size: 0.67em;
+    font-weight: bold;
+    margin-bottom: 2.33em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 2.33em;
+  }
+  
+  hr {
+    margin-bottom: 1vw;
+    margin-top: 2vw;
+  }
+  
+  div {
+    display: block;
+  }
+  
+  footer {
+    font-family: Lato;
+    text-align: center;
+  }
+  
+  .lato {
+    font-family: Lato;
+  }
+  .lato-always {
+    font-family: Lato !important;
+  }
+  .legal {
+    font-size: 10px;
+  }
+  
+  .footer-sub-text {
+    font-size: 13px;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  live-editor {
+    font-size: 30px !important;
+  }
+  
+  .block {
+    display: inline-block;
+  }
+  
+  .emoji-thanks{
+    font-size:30px;
+  }
+}

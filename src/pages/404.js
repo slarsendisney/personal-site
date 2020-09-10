@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Img from "gatsby-image/withIEPolyfill";
 import { Link, graphql } from "gatsby";
 import StringSimilarity from "string-similarity";
 import Layout from "../components/layout";
@@ -15,7 +14,7 @@ const fourOFour = ({ location, data }) => {
       <>
         <h1 className="text-4xl  mb-5">
           <span className="opacity-50">You were probably looking for</span>{" "}
-          <Link to={result.target} className="text-link ">
+          <Link to={result.target} className="text-link font-semibold">
             {result.target}
           </Link>
         </h1>
@@ -54,12 +53,6 @@ const fourOFour = ({ location, data }) => {
               There&apos;s no place like home
             </button>
           </Link>
-          <div className="-mx-16 -my-4">
-            <Img
-              fluid={data.Hero.childImageSharp.fluid}
-              className="w-full h-full"
-            />
-          </div>
         </div>
       </section>
     </Layout>
@@ -67,13 +60,7 @@ const fourOFour = ({ location, data }) => {
 };
 
 fourOFour.propTypes = {
-  data: PropTypes.shape({
-    Hero: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        fluid: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
+  data: PropTypes.shape({}).isRequired,
 };
 
 export const pageQuery = graphql`

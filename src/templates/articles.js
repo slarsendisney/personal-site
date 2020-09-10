@@ -2,7 +2,6 @@ import React from "react";
 import { kebabCase } from "lodash";
 import { Link, graphql } from "gatsby";
 import PropTypes from "prop-types";
-import { format } from "date-fns";
 import Img from "gatsby-image/withIEPolyfill";
 import getAllArticles from "../utils/getAllArticles";
 import Layout from "../components/layout";
@@ -66,15 +65,7 @@ export const createTagGroup = (tags) =>
     </Link>
   ));
 
-export const Article = ({
-  title,
-  pubDate,
-  slug,
-  coverimg,
-  excerpt,
-  key,
-  tags,
-}) => {
+export const Article = ({ title, slug, coverimg, excerpt, key, tags }) => {
   return (
     <Link to={slug} className="text-secondary" id={key}>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 mb-5">
@@ -91,9 +82,7 @@ export const Article = ({
         </div>
         <div className="col-xs-12 col-md-7">
           <h2 className="text-2xl font-semibold">{title}</h2>
-          <p className="text-sm font-semibold">
-            {format(new Date(pubDate), "iii, dd MMM yyyy")}
-          </p>
+
           <p className="text-sm">{excerpt}</p>
           <div className="flex flex-wrap -mx-1 my-1">
             {createTagGroup(tags)}
@@ -138,7 +127,7 @@ const Articles = ({ data }) => {
       <div className=" bg-default">
         <section className="container mx-auto">
           <div className="flex-1 w-full max-w-4xl xl:max-w-full px-4 py-8  mx-auto md:px-8">
-            <div className="grid grid-cols-1 xl:grid-cols-4 xl:gap-6">
+            <div className="grid grid-cols-1 xl:grid-cols-4 xl:gap-8">
               <div className="col-span-3">
                 <h1 className="text-xl text-secondary mb-3">RECENT POSTS</h1>
                 {allArticles.map((item) => (
@@ -218,7 +207,7 @@ const Articles = ({ data }) => {
                 </ul>
               </div>
               <div className="block">
-                <div className="text-secondary top-0 md:sticky">
+                <div className="text-secondary top-0 pt-8 md:sticky">
                   <div>
                     <h1 className="text-xl text-secondary mb-3">
                       POPULAR CONTENT

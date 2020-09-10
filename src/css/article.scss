@@ -13,6 +13,17 @@
   a {
     @apply text-link font-semibold;
   }
+  figure {
+    @apply my-1;
+  }
+  p {
+    img {
+      @apply w-full;
+    }
+  }
+  .gatsby-resp-image-wrapper {
+    @apply my-1;
+  }
   h1 {
     @apply text-2xl font-bold mb-3;
   }

@@ -13,22 +13,20 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import StickyLike from "../components/Articles/StickyLike";
 
 const CodeBlock = (props) => (
-  <SyntaxHighlighter
-    style={atomOneDark}
-    wrapLines
-    customStyle={{
-      padding: 10,
-      paddingTop: 15,
-      paddingBottom: 0,
-      borderRadius: 5,
-      margin: 0,
-    }}
-    showLineNumbers
-    lineNumberContainerProps={{
-      style: { opacity: 0.5, float: "left", paddingRight: "10px" },
-    }}
-    {...props}
-  />
+  <div className="my-1">
+    <SyntaxHighlighter
+      style={atomOneDark}
+      wrapLines
+      customStyle={{
+        padding: 10,
+        paddingTop: 15,
+        paddingBottom: 0,
+        borderRadius: 5,
+        margin: 0,
+      }}
+      {...props}
+    />
+  </div>
 );
 
 const TableOfContents = ({ tableOfContents, currentHeading, depth = 0 }) => {
@@ -40,7 +38,9 @@ const TableOfContents = ({ tableOfContents, currentHeading, depth = 0 }) => {
             <AnchorLink offset="30" href={item.url}>
               <p
                 className={`text-base ml-${depth * 2} ${
-                  currentHeading === item.title ? "text-link" : "text-secondary"
+                  currentHeading === item.title
+                    ? "text-link font-semibold"
+                    : "text-secondary"
                 }`}
               >
                 {item.title}
@@ -130,6 +130,7 @@ const Article = ({ data }) => {
       return <Heading {...e} priority={6} />;
     },
   };
+  console.log({ legacy: mdx.frontmatter.legacy });
   return (
     <Layout>
       <SEO
@@ -137,17 +138,34 @@ const Article = ({ data }) => {
         title="Article"
       />
       <ReadingProgress target={target} />
-      <section className="container mx-auto">
+      <section
+        className={`${mdx.frontmatter.legacy ? "" : "container"} mx-auto`}
+      >
         <div className="flex-1 w-full max-w-4xl xl:max-w-full px-4 py-8  mx-auto md:px-8 md:py-16">
-          <div className="xl:grid xl:grid-cols-8 xl:gap-12">
+          <div className="xl:grid xl:grid-cols-8 xl:gap-4 ">
             <div className="hidden xl:block col-span-2 mt-12">
               <div className="mr-5 ml-auto my-5 text-4xl w-16 sticky top-0 pt-8">
-                <div className="mt-5 p-1 pt-3 bg-secondary rounded text-2xl">
+                <div className="mt-5 p-1 pt-3  rounded text-2xl">
                   <StickyLike />
                 </div>
               </div>
             </div>
-            <div className="col-span-4 article" ref={target}>
+            <div
+              className={`col-span-4 ${
+                mdx.frontmatter.legacy ? "legacy" : "article"
+              }`}
+              ref={target}
+            >
+              {mdx.frontmatter.legacy && (
+                <div className="bg-secondary text-secondary text-center p-3 rounded">
+                  <i className="las la-exclamation-circle  text-3xl"></i>
+                  <p className="">
+                    This article was created with{" "}
+                    <span className="font-semibold">legacy styles</span> and may
+                    look a little strange!
+                  </p>
+                </div>
+              )}
               <h1 className="">{mdx.frontmatter.title}</h1>
               <MDXProvider components={components}>
                 <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -155,15 +173,17 @@ const Article = ({ data }) => {
             </div>
             <div className="hidden xl:block col-span-2  mt-12">
               <div className="xl:text-left m-4 text-xl sticky top-0 pt-8 w-56">
-                <div className="mt-5 -mr-5 p-5 bg-secondary rounded">
-                  <h4 className="text-xs mb-3 text-secondary">
-                    TABLE OF CONTENTS
-                  </h4>
-                  <TableOfContents
-                    currentHeading={currentHeading}
-                    tableOfContents={mdx.tableOfContents}
-                  />
-                </div>
+                {mdx.tableOfContents && mdx.tableOfContents.items && (
+                  <div className="mt-5 -mr-5 p-5 bg-secondary rounded">
+                    <h4 className="text-xs mb-3 text-secondary">
+                      TABLE OF CONTENTS
+                    </h4>
+                    <TableOfContents
+                      currentHeading={currentHeading}
+                      tableOfContents={mdx.tableOfContents}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -179,7 +199,11 @@ const Article = ({ data }) => {
 Article.propTypes = {
   data: PropTypes.shape({
     mdx: PropTypes.shape({
-      frontmatter: PropTypes.shape({ title: PropTypes.string.isRequired }),
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        wide: PropTypes.bool.isRequired,
+        legacy: PropTypes.bool.isRequired,
+      }),
       tableOfContents: PropTypes.shape({
         items: PropTypes.arrayOf({ title: PropTypes.string }),
       }),
@@ -202,8 +226,10 @@ export const pageQuery = graphql`
       tableOfContents
       frontmatter {
         title
+        wide
         desc
         date
+        legacy
       }
     }
   }

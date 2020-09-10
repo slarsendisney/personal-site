@@ -1,7 +1,7 @@
 require("dotenv").config({
   path: `.env`,
 });
-
+const { formatTitleForURL } = require("./src/utils/formatTitleForURL");
 const tailwindConfig = require("./tailwind.config.js");
 const EmploymentHistory = require("./src/data/timeline.json");
 const currentJob = EmploymentHistory[0];
@@ -192,16 +192,12 @@ module.exports = {
             title: (node) => node.frontmatter.title,
             type: (node) => node.frontmatter.type,
             desc: (node) => node.frontmatter.desc,
+            tags: (node) =>
+              node.frontmatter.tags ? node.frontmatter.tags.join(",") : "",
             path: (node) =>
               node.frontmatter.type === "Article"
                 ? "articles/" + formatTitleForURL(node.frontmatter.title)
                 : node.frontmatter.path,
-          },
-          NavSectionsJson: {
-            title: (node) => node.label,
-            type: () => "Page",
-            desc: (node) => node.desc,
-            path: (node) => node.url,
           },
         },
         filter: (node, getNode) => {

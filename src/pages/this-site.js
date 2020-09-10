@@ -57,7 +57,7 @@ const ThisSite = () => (
       </h1>
       <p className="">
         This site contains many ideas inspired by some awesome developers and
-        photographers, I encourage you to check out their work.
+        designers, I encourage you to check out their work.
       </p>
       <div className="flex flex-wrap mb-8 text-xl">
         {inspirers.map((name, index) => (

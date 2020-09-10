@@ -39,13 +39,13 @@ const LikeButton = ({
       >
         <h1
           className={`m-0 rounded px-1 py-2 text-3xl ${
-            selected(type) ? "bg-accent jello-vertical" : ""
+            selected(type) ? "bg-accent jello-vertical" : "bg-secondary"
           }`}
         >
           <Emojione text={label} />
         </h1>
       </button>
-      <p className="text-base margin-0 opacity-60 text-align-center">
+      <p className="text-base margin-0 opacity-75 text-align-center">
         {!loading && !error
           ? value.data() && value.data()[type]
             ? value.data()[type] + normalisedValue

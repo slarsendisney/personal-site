@@ -3,8 +3,10 @@ import React from "react";
 import Header from "./header";
 import { Helmet } from "react-helmet";
 import ReactTooltip from "react-tooltip";
+import { CookiesProvider } from "react-cookie";
 import { Location } from "@reach/router";
 import Footer from "./Footer";
+import Cookies from "./Cookies";
 
 function Layout({ children }) {
   return (
@@ -15,6 +17,9 @@ function Layout({ children }) {
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/css/line-awesome.min.css"
         />
       </Helmet>
+      <CookiesProvider>
+        <Cookies />
+      </CookiesProvider>
       <ReactTooltip className="text-primary bg-primary" />
       <Header />
       <main className="text-default ">{children}</main>
