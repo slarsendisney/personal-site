@@ -12,8 +12,9 @@ const Hero = () => {
             Sam Larsen-Disney
           </h1>
           <h2 className="leading-loose text-xl md:text-1xl lg:text-2xl mb-3">
-            I have built <span className="link">new ways to refer friends</span>
-            , <span className="link">onboarding experiences</span> and{" "}
+            I am a UX Engineer at American Express. I have built{" "}
+            <span className="link">new ways to refer friends</span>,{" "}
+            <span className="link">onboarding experiences</span> and{" "}
             <span className="link">rapid response systems</span>. I enjoy
             teaching the next generation to code through my{" "}
             <Link className="link" to="/articles">

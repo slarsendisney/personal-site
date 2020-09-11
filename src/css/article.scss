@@ -1,4 +1,7 @@
 .article {
+  .gatsby-resp-image-wrapper {
+    @apply my-1;
+  }
   ul {
     @apply list-disc ml-5;
     li {
@@ -21,9 +24,6 @@
       @apply w-full;
     }
   }
-  .gatsby-resp-image-wrapper {
-    @apply my-1;
-  }
   h1 {
     @apply text-2xl font-bold mb-3;
   }
@@ -35,6 +35,9 @@
   }
   h4 {
     @apply text-lg font-semibold mb-1 mt-3 leading-loose;
+  }
+  h5 {
+    @apply text-base font-semibold mb-1 mt-3 leading-loose;
   }
   @screen md {
     h1 {

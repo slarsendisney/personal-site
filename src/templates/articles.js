@@ -1,6 +1,7 @@
 import React from "react";
 import { kebabCase } from "lodash";
 import { Link, graphql } from "gatsby";
+import { Emojione } from "react-emoji-render";
 import PropTypes from "prop-types";
 import Img from "gatsby-image/withIEPolyfill";
 import getAllArticles from "../utils/getAllArticles";
@@ -15,7 +16,9 @@ export const CardText = ({ title, desc, excerpt, tags, slug, hideTags }) => (
         } bg-default h-full text-default shadow-lg rounded-lg`}
       >
         <div>
-          <h2 className="text-2xl font-semibold">{title}</h2>
+          <h2 className="text-2xl font-semibold">
+            <Emojione text={title} className="flex flex-wrap items-center" />
+          </h2>
           <p className="mt-2">{desc ? desc : excerpt}</p>
         </div>
         {!hideTags && (
