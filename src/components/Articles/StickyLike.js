@@ -4,12 +4,7 @@ import PropTypes from "prop-types";
 import { useDocumentOnce } from "react-firebase-hooks/firestore";
 import { useLocalStorage } from "../../utils/customHooks";
 import urls from "../../data/urls.json";
-let firebase;
-
-if (typeof window !== "undefined") {
-  firebase = require("firebase/app");
-  require("firebase/firestore");
-}
+import firebase from "gatsby-plugin-firebase";
 
 let buttonTypes = [
   { type: "fire", label: "🔥" },
