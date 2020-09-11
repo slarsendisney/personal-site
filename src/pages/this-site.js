@@ -12,6 +12,7 @@ const inspirers = [
   "duncanbain",
   "wesbos",
   "jlengstorf",
+  "ryangregorydev",
 ];
 
 const ThisSite = () => (
@@ -78,7 +79,7 @@ const ThisSite = () => (
       </h1>
       <div className="flex items-start justify-start mb-8">
         <div>
-          <p className="font-semibold mt-0 mb-3 text-gray-900">
+          <p className="font-semibold mt-0 mb-3 text-gray-900 text-base lg:text-xl">
             Can I use this site&apos;s code?
           </p>
           <p className="">
@@ -89,7 +90,8 @@ const ThisSite = () => (
           <p>
             <strong>
               Please note that while the code is free for anyone to use, I
-              reserve the rights to all images on this site.
+              reserve the rights to all images on this site unless specified
+              otherwise.
             </strong>
           </p>
         </div>
@@ -97,7 +99,7 @@ const ThisSite = () => (
 
       <div className="flex items-start justify-start mb-8">
         <div>
-          <p className="font-semibold mt-0 mb-3 text-gray-900">
+          <p className="font-semibold mt-0 mb-3 text-gray-900 text-base lg:text-xl">
             Can you help me get started?
           </p>
           <p className="">
@@ -112,7 +114,7 @@ const ThisSite = () => (
 
       <div className="flex items-start justify-start mb-8">
         <div>
-          <p className="font-semibold mt-0 mb-3 text-gray-900">
+          <p className="font-semibold mt-0 mb-3 text-gray-900 text-base lg:text-xl">
             What is the best way to credit you?
           </p>
           <p className="">
@@ -127,7 +129,7 @@ const ThisSite = () => (
       </div>
       <div className="flex items-start justify-start mb-8">
         <div>
-          <p className="font-semibold mt-0 mb-3 text-gray-900">
+          <p className="font-semibold mt-0 mb-3 text-gray-900 text-base lg:text-xl">
             How can I support you?
           </p>
           <p className="">

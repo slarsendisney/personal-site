@@ -22,32 +22,44 @@ const Disclaimer = () => {
             collected and recorded by sld.codes and how I use it.
           </h3>
           <h3 className="text-2xl font-semibold mb-3">Cookies Policy</h3>
-          <h3 className="text-base mb-3">
+          <h3 className="text-base mb-2">
             Cookies are files with small amount of data, which may include an
             anonymous unique identifier. Cookies are sent to your browser from a
             web site and stored on your computer&apos;s hard drive.
           </h3>
-          <h3>
-            Like any other website, sld.codes uses &apos;cookies&apos;. These
-            cookies are used to store information including visitors&apos;
-            preferences, and the pages on the website that the visitor accessed
-            or visited. The information is used to optimize the users&apos;
-            experience by customizing our web page content based on
-            visitors&apos; browser type and/or other information.
+          <h3 className="mb-3">
+            This website uses cookies for enhancing user experience. Cookies are
+            files with small amount of data, which may include an anonymous
+            unique identifier. Cookies are sent to your browser from a web site
+            and stored on your computer&apos;s hard drive. These cookies are
+            used to store information including visitors&apos; preferences, and
+            the pages on the website that the visitor accessed or visited. The
+            information is used to optimize the users&apos; experience by
+            customizing our web page content based on visitors&apos; browser
+            type and/or other information.
           </h3>
 
-          <h3 className="text-2xl font-semibold mb-3">Log Files</h3>
+          <h3 className="text-2xl font-semibold mb-3">Google Analytics</h3>
           <h3 className="text-base mb-3">
-            sld.codes follows a standard procedure of using log files. These
-            files log visitors when they visit websites. All hosting companies
-            do this and a part of hosting services&apos; analytics. The
-            information collected by log files include internet protocol (IP)
-            addresses, browser type, Internet Service Provider (ISP), date and
-            time stamp, referring/exit pages, and possibly the number of clicks.
-            These are not linked to any information that is personally
-            identifiable. The purpose of the information is for analyzing
-            trends, administering the site, tracking users&apos; movement on the
-            website, and gathering demographic information.
+            This website uses Google Analytics for analyzing trends,
+            administering the site, tracking users&apos; movement on the
+            website, and gathering demographic information. Google Analytics is
+            a web analysis service provided by Google LLC (“Google”). The
+            information collected by Google Analytics include internet protocol
+            (IP) addresses, browser type, Internet Service Provider (ISP), date
+            and time stamp, referring/exit pages, and possibly the number of
+            clicks. Please note while the ip address is collected by Google it
+            is not shared in the analytics report for privacy reasons.
+            Therefore, no personally identifiable information is available with
+            this website. For further information please visit{" "}
+            <a
+              href="https://policies.google.com/technologies/partner-sites"
+              target="_blank"
+              rel="noreferrer"
+              className="link"
+            >
+              How Google uses data when you use an app using their services
+            </a>
           </h3>
 
           <h3 className="text-2xl font-semibold mb-3">Third party websites</h3>
@@ -58,7 +70,7 @@ const Disclaimer = () => {
           </h3>
 
           <h3 className="text-2xl font-semibold mb-3">Consent</h3>
-          <h3 className="text-base mb-3">
+          <h3 className="text-base mb-2">
             By using this website, you hereby consent to its privacy policy and
             agree to its terms.
           </h3>

@@ -11,6 +11,7 @@ module.exports = {
       white: "#ffffff",
       grey: "#444444",
       black: "#111111",
+      blue: "#067bc2",
       primary: "var(--color-text-primary)",
       secondary: "var(--color-text-secondary)",
       link: "var(--color-text-link)",
@@ -39,6 +40,7 @@ module.exports = {
       secondary: "var(--color-bg-secondary)",
       default: "var(--color-bg-default)",
       inverse: "var(--color-bg-inverse)",
+      "light-grey": "#00000015",
     },
     fontFamily: {
       display: "var(--font-display)",

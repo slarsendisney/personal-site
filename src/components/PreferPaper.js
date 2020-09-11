@@ -37,7 +37,7 @@ const Paper = ({ mug, paperclip }) => {
           For The People Who Prefer Paper
         </h1>
 
-        <Link to="/this-site">
+        <Link to="/cv">
           <button className="btn max-w-md w-8/12 py-3 px-5">View CV</button>
         </Link>
         <div className="flex -mx-20 md:-mt-32 justify-between">

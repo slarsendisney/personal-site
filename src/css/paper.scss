@@ -1,0 +1,47 @@
+.paper {
+  @apply text-black;
+  background-color: #fff;
+  width: 210mm;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow:
+    /* The top layer shadow */
+    0 -1px 1px rgba(0, 0, 0, 0.15),
+    
+    0 -10px 0 -5px #000,
+    
+    0 -10px 1px -4px rgba(0, 0, 0, 0.15),
+     
+    0 -20px 0 -10px #000,
+    
+    0 -20px 1px -9px    (0,0,0,0.15);
+}
+
+.mobile-cv {
+  width: 230mm;
+  @media only screen and (min-width: 121px) {
+    transform: scale(0.3) translateY(-115%);
+  }
+  @media only screen and (min-width: 321px) {
+    transform: scale(0.3) translateY(-115%);
+  }
+  @media only screen and (min-width: 415px) {
+    transform: scale(0.4) translateY(-75%);
+  }
+  @media only screen and (min-width: 500px) {
+    transform: scale(0.5) translateY(-50%);
+  }
+  @media only screen and (min-width: 600px) {
+    transform: scale(0.6) translateY(-30%);
+  }
+  @media only screen and (min-width: 700px) {
+    transform: scale(0.7) translateY(-20%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .paper {
+    position: absolute;
+    top:-3000px
+  }
+}

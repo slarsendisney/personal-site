@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
-import { useCookies } from "react-cookie";
+import { useLocalStorage } from "../utils/customHooks";
 
 const Cookies = () => {
-  const [cookies, setCookie] = useCookies(["sld-cookie-policy"]);
+  const [cookies, setCookie] = useLocalStorage("sld-cookie-policy", false);
   const [anim, setAnim] = useState(false);
 
   useEffect(() => {
-    if (!cookies["sld-cookie-policy"]) {
+    if (!cookies) {
       if (anim) {
         setTimeout(() => setAnim(false), 900);
       } else {
@@ -16,10 +16,10 @@ const Cookies = () => {
     }
   }, [anim]);
   function onChange() {
-    setCookie("sld-cookie-policy", true, { path: "/" });
+    setCookie(true);
   }
 
-  if (!cookies["sld-cookie-policy"]) {
+  if (!cookies) {
     return (
       <div
         className="fixed bottom-0 bg-primary text-primary w-full"

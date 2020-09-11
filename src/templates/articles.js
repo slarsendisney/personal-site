@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image/withIEPolyfill";
 import getAllArticles from "../utils/getAllArticles";
 import Layout from "../components/layout";
-
+import { Card } from "./projects";
 export const CardText = ({ title, desc, excerpt, tags, slug, hideTags }) => (
   <Link to={slug} key={slug} className=" h-full">
     <div className="cursor-pointer  h-full mb-3 duration-500 ease-in-out transform hover:scale-105">
@@ -70,8 +70,8 @@ export const createTagGroup = (tags) =>
 
 export const Article = ({ title, slug, coverimg, excerpt, key, tags }) => {
   return (
-    <Link to={slug} className="text-secondary" id={key}>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 mb-5">
+    <Link to={slug} className="text-secondary h-full" id={key}>
+      <div className="bg-secondary rounded h-full">
         <div
           className="col-xs-12 col-md-5 margin-2-b"
           style={{ position: "relative" }}
@@ -83,7 +83,7 @@ export const Article = ({ title, slug, coverimg, excerpt, key, tags }) => {
             style={{ width: "100%", height: "100%", maxHeight: 220 }}
           />
         </div>
-        <div className="col-xs-12 col-md-7">
+        <div className="p-3">
           <h2 className="text-2xl font-semibold">{title}</h2>
 
           <p className="text-sm">{excerpt}</p>
@@ -130,18 +130,22 @@ const Articles = ({ data }) => {
       <div className=" bg-default">
         <section className="container mx-auto">
           <div className="flex-1 w-full max-w-4xl xl:max-w-full px-4 py-8  mx-auto md:px-8">
-            <div className="grid grid-cols-1 xl:grid-cols-4 xl:gap-8">
+            <div className="grid grid-cols-1 xl:grid-cols-4 xl:gap-6">
               <div className="col-span-3">
                 <h1 className="text-xl text-secondary mb-3">RECENT POSTS</h1>
-                {allArticles.map((item) => (
-                  <div className="grow" key={item.title}>
-                    <Article
-                      {...item}
-                      {...item.fields}
-                      key={item.fields.slug}
-                    />
-                  </div>
-                ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 mb-5">
+                  {allArticles.map((item) => (
+                    <div className="h-full pb-3 md:pb-0" key={item.fields.slug}>
+                      <Card
+                        bg="bg-white"
+                        text="text-grey"
+                        {...item}
+                        {...item.fields}
+                        path={item.fields.slug}
+                      />
+                    </div>
+                  ))}
+                </div>
                 <ul className="flex justify-center my-10">
                   {currentPage > 1 && (
                     <li className="mx-1 px-3 py-2 bg-secondary text-secondary hover:bg-secondary-light rounded-lg">
@@ -210,7 +214,7 @@ const Articles = ({ data }) => {
                 </ul>
               </div>
               <div className="block">
-                <div className="text-secondary top-0 pt-8 md:sticky">
+                <div className="text-secondary top-0 md:pt-10 md:sticky">
                   <div>
                     <h1 className="text-xl text-secondary mb-3">
                       POPULAR CONTENT
