@@ -5,7 +5,7 @@ import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const Hero = () => {
   return (
-    <section className="text-left text-secondary flex-1 w-full max-w-4xl px-6 pt-8 mx-auto md:px-8 md:pt-16">
+    <section className="text-left text-secondary flex-1 w-full max-w-4xl px-6 pt-8 mx-auto md:px-8 md:pt-16 overflow-x-hidden md:overflow-x-visible">
       <div className="grid grid-cols-8 gap-4 w-full ">
         <div className="lg:col-span-6 md:col-span-5 col-span-8 mb-12 px-3">
           <h1 className="inline-block text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold md:-mr-16">
