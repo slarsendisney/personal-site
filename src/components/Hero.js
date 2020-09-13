@@ -8,10 +8,10 @@ const Hero = () => {
     <section className="text-left text-secondary flex-1 w-full max-w-4xl px-6 pt-8 mx-auto md:px-8 md:pt-16 overflow-x-hidden md:overflow-x-visible">
       <div className="grid grid-cols-8 gap-4 w-full ">
         <div className="lg:col-span-6 md:col-span-5 col-span-8 mb-12 px-3">
-          <h1 className="inline-block text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold md:-mr-16">
+          <h1 className="inline-block text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-bold md:-mr-16">
             Sam Larsen-Disney
           </h1>
-          <h2 className="leading-loose text-xl md:text-1xl lg:text-2xl mb-3">
+          <h2 className="leading-loose text-xl lg:text-2xl mb-3">
             I am a UX Engineer at American Express. I have built{" "}
             <span className="link">new ways to refer friends</span>,{" "}
             <span className="link">onboarding experiences</span> and{" "}
@@ -94,10 +94,10 @@ const Hero = () => {
                 />
               </div>
               <div className="col-span-8 md:col-span-3 md:mt-auto md:-ml-16 lg:-mb-24 block lg:hidden ">
-                <div className="mx-auto min-w-full sm:min-w-0 -mr-24 -mt-24 md:-mt-16  md:mt-0 md:mr-0">
-                  <div className="md:ml-2 mr-16">
+                <div className="mx-auto min-w-full sm:min-w-0 -mr-32 -mt-32 sm:-mt-24 md:-mt-16  md:mt-0 md:mr-0">
+                  <div className="ml-4 sm:ml-0 md:ml-2 mr-16">
                     <div
-                      className="w-10 md:w-8 md:ml-32 mb-16  mx-auto float-y"
+                      className="w-8 sm:w-10 md:w-8 md:ml-32 mb-16  mx-auto float-y"
                       style={{ zIndex: 500 }}
                     >
                       <Img fluid={data.Bulb.childImageSharp.fluid} />
@@ -106,7 +106,7 @@ const Hero = () => {
                   </div>
                   <Img
                     fluid={data.HeroTorso.childImageSharp.fluid}
-                    className="w-2/3 max-w-xs mx-auto"
+                    className="w-1/3 sm:w-2/3 max-w-xs mx-auto sm:mb-0"
                     style={{ zIndex: 1000, position: "relative" }}
                   />
                 </div>
