@@ -94,7 +94,7 @@ const Hero = () => {
                 />
               </div>
               <div className="col-span-8 md:col-span-3 md:mt-auto md:-ml-16 lg:-mb-24 block lg:hidden ">
-                <div className="mx-auto w-full -mr-24 -mt-24 md:-mt-16  md:mt-0 md:mr-0">
+                <div className="mx-auto min-w-full sm:min-w-0 -mr-24 -mt-24 md:-mt-16  md:mt-0 md:mr-0">
                   <div className="md:ml-2 mr-16">
                     <div
                       className="w-10 md:w-8 md:ml-32 mb-16  mx-auto float-y"
