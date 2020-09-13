@@ -17,7 +17,7 @@ const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
             <div key={item} className={`theme-${themeVal}`}>
               <button
                 aria-label={`Theme ${item}`}
-                className={`h-8 w-8 ${
+                className={`h-10 w-8 ${
                   index !== allThemes.length ? "mr-4" : ""
                 } transition duration-500  ease-in-out transform  ${
                   theme === `theme-${themeVal}` ? "" : "hover:scale-110"
@@ -41,7 +41,7 @@ const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
               <button
                 disabled={true}
                 aria-label={`Theme Locked`}
-                className={`h-8 w-8 ${
+                className={`h-10 w-8 ${
                   index !== allThemes.length ? "mr-4" : ""
                 } transition duration-500  ease-in-out transform opacity-75`}
               >

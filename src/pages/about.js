@@ -182,7 +182,7 @@ function AboutPage() {
                 <div className="flex-1 w-full max-w-4xl py-8 mx-auto  transition duration-500">
                   <h1
                     className={`${
-                      selected > 0 ? "text-justify" : "text-center"
+                      selected > 0 ? "md:text-justify" : "text-center"
                     } text-lg md:text-3xl font-semibold text-default`}
                   >
                     {renderBio()}

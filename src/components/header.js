@@ -45,9 +45,9 @@ const Header = ({ newTheme }) => {
       <ThemeFoundModal setTheme={setTheme} />
       <div className="bg-white">
         <SmoothCollapse expanded={themeExpanded} className="">
-          <div className=" flex flex-wrap items-center justify-between container px-4 py-3 mx-auto mx-auto">
+          <div className=" flex flex-wrap items-center justify-between container px-4 py-1 md:py-3 mx-auto mx-auto">
             <div className="flex flex-col items-center sm:items-start text-grey m-auto md:m-0">
-              <p className="text-sm md:text-base mb-0">
+              <p className="text-sm md:text-base mb-0 mt-1 sm:mt-0">
                 {unlockedThemes.length > 1 ? (
                   <>
                     Choose a new <strong>lick of paint</strong>.{" "}
