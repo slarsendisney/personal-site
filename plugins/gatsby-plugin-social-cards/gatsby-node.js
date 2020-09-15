@@ -1,4 +1,4 @@
-const generateCard = require("./build").generateCard;
+const generateCard = require("./social-build").generateCard;
 const path = require("path");
 const fs = require("fs");
 const fse = require("fs-extra");
