@@ -39,7 +39,7 @@ const fourOFour = ({ location, data }) => {
 
   return (
     <Layout>
-      <SEO title={"404"} location={location} />
+      <SEO title={"404"} />
       <section className="text-secondary bg-default  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
           <h1 className="text-4xl">Page not found.</h1>

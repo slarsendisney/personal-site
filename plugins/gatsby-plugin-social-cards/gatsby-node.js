@@ -43,7 +43,7 @@ exports.onCreateNode = ({ node, getNode, actions, graphql }, options) => {
       output
     )
       .then(() => {
-        console.log(post.title, "generated: " + output);
+        // console.log(post.title, "generated: " + output);
         try {
           createNodeField({
             node,

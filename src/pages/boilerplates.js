@@ -61,11 +61,11 @@ BoilerPlate.propTypes = {
   demo: PropTypes.string,
 };
 
-const Start = ({ data, location }) => {
+const Start = ({ data }) => {
   const boilerplates = data.allMdx.edges;
   return (
     <Layout>
-      <SEO title="Boilerplates" location={location} />
+      <SEO title="Boilerplates" />
       <div className=" bg-default">
         <section className="text-secondary bg-default  ">
           <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">

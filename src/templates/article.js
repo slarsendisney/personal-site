@@ -130,11 +130,9 @@ const Article = ({ data }) => {
       return <Heading {...e} priority={6} />;
     },
   };
-  console.log({ legacy: mdx.frontmatter.legacy });
   return (
     <Layout>
       <SEO
-        location={location}
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Article"
         socialcard={mdx.fields.socialcard}

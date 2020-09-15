@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 
 const roles = ["Designer", "Developer", "Bit of Both"];
 
-const Start = ({ location }) => {
+const Start = () => {
   const [open, setOpen] = useState(false);
   const [type, setType] = useState(-1);
 
@@ -45,7 +45,7 @@ const Start = ({ location }) => {
   };
   return (
     <Layout>
-      <SEO title="Boilerplates" location={location} />
+      <SEO title="Boilerplates" />
       <div className=" bg-default">
         <section className="text-secondary bg-default  ">
           <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
@@ -126,10 +126,6 @@ const Start = ({ location }) => {
       </div>
     </Layout>
   );
-};
-
-Start.propTypes = {
-  location: PropTypes.shape({}).isRequired,
 };
 
 export default Start;

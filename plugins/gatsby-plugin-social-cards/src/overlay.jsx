@@ -1,12 +1,12 @@
 import React from "react";
 
 const Overlay = ({
-  title = "",
+  title,
 }) => {
   const iwidth = 1200;
   const iheight = 630;
   const xMargin = 50;
-  const textArray = title.match(/.{1,17}(\s|$)/g)
+  const textArray = title?title.match(/.{1,17}(\s|$)/g):[]
   let texty = 250 - ((textArray.length-1)*30);
   return (
     <svg

@@ -18,7 +18,6 @@ const ContactPage = ({ foundTheme }) => {
   return (
     <Layout>
       <SEO
-        location={location}
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Sponsor"
       />

@@ -82,7 +82,6 @@ const Stats = ({ data, count, foundTheme }) => {
   return (
     <Layout>
       <SEO
-        location={location}
         title="Stats"
         description="Ever wondered how many lines of code are at work here?"
       />
