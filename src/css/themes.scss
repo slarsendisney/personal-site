@@ -119,7 +119,7 @@
     --color-bg-secondary: #0b132bff;
     --color-text-link: #f5bf37;    
     --color-bg-compliment: #112b48;
-    --color-bg-default: #1c2541ff;
+    --color-bg-default: rgb(36, 48, 85);
     --color-bg-inverse: #d77d4d;
     --color-text-primary: #fff;
     --color-text-secondary: #f2f2f2;
@@ -130,6 +130,34 @@
     --color-logo-one: #FFC53A;
     --color-logo-two: #fff;
     --color-logo-three: #c63082;
+    .tint:before {
+        background: #0b132bff;
+        opacity: 0.15;
+      }
+    .bulb-glow {
+        @extend .bulb-special
+    }
+  }
+
+  .theme-apocalypse {
+    --color-bg-primary: #941d2b;
+    --color-bg-primary-light: #691e25;
+    --color-bg-accent: #e9a700; 
+    --color-bg-accent-light: #e8b32c; 
+    --color-bg-secondary: #6b1a26;
+    --color-text-link: #f5bf37;    
+    --color-bg-compliment: #551d21;
+    --color-bg-default: #551d21;
+    --color-bg-inverse: #d77d4d;
+    --color-text-primary: #fff;
+    --color-text-secondary: #f2f2f2;
+    --color-text-default: #e9e9e9;
+    --color-text-default-soft: #6a6a6a;
+    --color-text-inverse: #fff;
+    --color-text-inverse-soft: #ffffffb3;
+    --color-logo-one: #FFC53A;
+    --color-logo-two: #fff;
+    --color-logo-three: #585cd0;
     .tint:before {
         background: #0b132bff;
         opacity: 0.15;

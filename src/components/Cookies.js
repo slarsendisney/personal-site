@@ -30,7 +30,7 @@ const Cookies = () => {
             <i className="las la-cookie-bite text-xl mr-1 hidden md:block"></i>
             This site uses cookies so that I can improve the user experience.
             You can{" "}
-            <Link to="/disclaimer" className="font-semibold hover:underline">
+            <Link to="/disclaimer" className="font-bold hover:underline">
               read more here
             </Link>
             .

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import PropTypes from "prop-types";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -134,8 +134,10 @@ const Article = ({ data }) => {
   return (
     <Layout>
       <SEO
+        location={location}
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Article"
+        socialcard={mdx.fields.socialcard}
       />
       <ReadingProgress target={target} />
       <section
@@ -151,9 +153,7 @@ const Article = ({ data }) => {
               </div>
             </div>
             <div
-              className={`col-span-4 ${
-                mdx.frontmatter.legacy ? "legacy" : "article"
-              }`}
+              className={`col-span-4 ${mdx.frontmatter.legacy ? "legacy" : ""}`}
               ref={target}
             >
               {mdx.frontmatter.legacy && (
@@ -166,10 +166,25 @@ const Article = ({ data }) => {
                   </p>
                 </div>
               )}
-              <h1 className="">{mdx.frontmatter.title}</h1>
-              <MDXProvider components={components}>
-                <MDXRenderer>{mdx.body}</MDXRenderer>
-              </MDXProvider>
+              <h1 className="text-2xl md:text-4xl font-bold mb-3">
+                {mdx.frontmatter.title}
+              </h1>
+              <div className="flex flex-wrap">
+                {mdx.frontmatter.tags.map((tag) => (
+                  <Link
+                    key={tag}
+                    to={`/tags/${tag}`}
+                    className="font-bold bg-primary text-primary hover:bg-primary-light  mr-1 mb-3 py-1 px-2 rounded-full text-sm"
+                  >
+                    {tag.toUpperCase()}
+                  </Link>
+                ))}
+              </div>
+              <div className="article ">
+                <MDXProvider components={components}>
+                  <MDXRenderer>{mdx.body}</MDXRenderer>
+                </MDXProvider>
+              </div>
             </div>
             <div className="hidden xl:block col-span-2  mt-12">
               <div className="xl:text-left m-4 text-xl sticky top-0 pt-8 w-56">
@@ -199,10 +214,14 @@ const Article = ({ data }) => {
 Article.propTypes = {
   data: PropTypes.shape({
     mdx: PropTypes.shape({
+      fields: PropTypes.shape({
+        socialcard: PropTypes.string.isRequired,
+      }),
       frontmatter: PropTypes.shape({
         title: PropTypes.string.isRequired,
         wide: PropTypes.bool.isRequired,
         legacy: PropTypes.bool.isRequired,
+        tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
       }),
       tableOfContents: PropTypes.shape({
         items: PropTypes.arrayOf({ title: PropTypes.string }),
@@ -224,12 +243,16 @@ export const pageQuery = graphql`
       id
       body
       tableOfContents
+      fields {
+        socialcard
+      }
       frontmatter {
         title
         wide
         desc
         date
         legacy
+        tags
       }
     }
   }

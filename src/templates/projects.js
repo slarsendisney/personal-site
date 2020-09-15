@@ -15,9 +15,14 @@ export const Card = ({
   coverimg,
   bg,
   text,
+  noMargin,
 }) => (
   <Link to={path} key={path} className=" h-full">
-    <div className="card w-full cursor-pointer h-full mb-4 duration-500 ease-in-out transform hover:scale-105">
+    <div
+      className={`card w-full cursor-pointer h-full ${
+        noMargin ? "" : "mb-3"
+      } duration-500 ease-in-out transform hover:scale-105`}
+    >
       <div
         className={`${bg ? bg : "bg-default"} ${
           text ? text : "text-default"
@@ -39,9 +44,9 @@ export const Card = ({
           <div className="absolute bottom-0">
             <div className="flex flex-wrap mb-5">
               {tags.slice(0, 3).map((tag) => (
-                <button key={tag} className="tag">
+                <Link key={tag} className="tag" to={`/tags/${tag}`}>
                   {tag.toUpperCase()}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -56,6 +61,7 @@ Card.propTypes = {
   path: PropTypes.string.isRequired,
   bg: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  noMargin: PropTypes.bool,
   desc: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,

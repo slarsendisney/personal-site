@@ -22,7 +22,7 @@ import IntlDemo from "./IntlDemo";
 
 const Poster = () => {
   return (
-    <div className="my-2 legacy bg-white is-grey-always pad-5 row pandemic-poster">
+    <div className="my-2 legacy bg-white text-grey p-5 row pandemic-poster">
       <div className="col-xs-12">
         {/* ------------------     Building Motion Controlled Web Applications       ------------------*/}
         <div className="row">

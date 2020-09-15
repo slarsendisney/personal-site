@@ -80,7 +80,7 @@ const Poster = () => {
   const meetings = Math.floor(bussinessdaysInLockDown() * 3.2);
 
   return (
-    <div className="my-2 legacy bg-white is-grey-always pad-5 row pandemic-poster">
+    <div className="my-2 legacy bg-white text-grey rounded pandemic-poster p-1">
       <div className="col-xs-12">
         <div className="row">
           <div className="col-xs-12 margin-5-t margin-3-b">

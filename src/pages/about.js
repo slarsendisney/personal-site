@@ -70,6 +70,7 @@ function AboutPage() {
   return (
     <Layout>
       <SEO
+        location={location}
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="About"
       />

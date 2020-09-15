@@ -60,7 +60,7 @@ const Search = ({ data }) => {
                     ? "Please enter at least 3 characters."
                     : `Results for "${query}"`}
                 </h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-2  gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-4">
                   {results.map((page) => {
                     return (
                       <div
@@ -75,7 +75,9 @@ const Search = ({ data }) => {
                           {...page}
                           slug={linkFromType(page)}
                           tags={page.tags.split(",")}
-                          noLink
+                          bg="bg-white"
+                          text="text-grey"
+                          noMargin
                         />
                       </div>
                     );

@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
-const themes = new Set(["Rhubarb and Custard", "Blue", "Midnight Dreams"]);
+const lightThemes = new Set(["Blue", "Rhubarb and Custard"]);
+const darkThemes = new Set(["Midnight Dreams", "Apocalypse"]);
 const unlockables = new Set(["Fall Guys", "Matrix"]);
-
-const allThemes = [...themes, ...unlockables];
+const themes = new Set([...darkThemes, ...lightThemes]);
+const allThemes = [...lightThemes, ...darkThemes, ...unlockables];
 const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
   const unlocked = new Set(unlockedThemes);
   return (
@@ -17,7 +18,7 @@ const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
             <div key={item} className={`theme-${themeVal}`}>
               <button
                 aria-label={`Theme ${item}`}
-                className={`h-10 w-8 ${
+                className={`h-10 w-8 my-1 ${
                   index !== allThemes.length ? "mr-4" : ""
                 } transition duration-500  ease-in-out transform  ${
                   theme === `theme-${themeVal}` ? "" : "hover:scale-110"
@@ -26,12 +27,34 @@ const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
               >
                 <div
                   data-tip={`${item}`}
-                  className={`h-8 w-8 bg-primary rounded-full my-2 md:my-0 ${
+                  className={`h-8 w-8 bg-primary  rounded-full my-2 md:my-0 flex items-center justify-center  ${
                     theme === `theme-${themeVal}`
                       ? " border-4 border-accent"
                       : ""
                   }`}
-                />
+                >
+                  {lightThemes.has(item) && (
+                    <i
+                      className={`text-white las la-sun text-primary opacity-75 ${
+                        theme === `theme-${themeVal}` ? "text-md" : "text-lg"
+                      }`}
+                    ></i>
+                  )}
+                  {darkThemes.has(item) && (
+                    <i
+                      className={`text-white las la-moon text-primary opacity-75 ${
+                        theme === `theme-${themeVal}` ? "text-md" : "text-lg"
+                      }`}
+                    ></i>
+                  )}
+                  {unlockables.has(item) && (
+                    <i
+                      className={`text-white las la-gift text-primary opacity-75 ${
+                        theme === `theme-${themeVal}` ? "text-md" : "text-lg"
+                      }`}
+                    ></i>
+                  )}
+                </div>
               </button>
             </div>
           );
@@ -41,7 +64,7 @@ const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
               <button
                 disabled={true}
                 aria-label={`Theme Locked`}
-                className={`h-10 w-8 ${
+                className={`h-10 w-8 my-1 ${
                   index !== allThemes.length ? "mr-4" : ""
                 } transition duration-500  ease-in-out transform opacity-75`}
               >

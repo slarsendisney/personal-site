@@ -44,11 +44,14 @@ module.exports = {
   siteMetadata: {
     title: `SLD | Sam Larsen-Disney`,
     description: `Sam Larsen-Disney | ${currentJob.role} working @ ${currentJob.company}.`,
-    author: `@sld`,
+    author: `@SamLarsenDisney`,
     siteUrl: `https://sld.codes`,
     currentRole: currentJob.role,
     currentCompany: currentJob.company,
     currentCompanyURL: currentJob.url,
+    social: {
+      twitter: `@SamLarsenDisney`,
+    },
   },
   plugins: [
     {
@@ -81,6 +84,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
+    `gatsby-plugin-social-cards`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -122,7 +126,6 @@ module.exports = {
         plugins: [`gatsby-remark-images`],
       },
     },
-
     `gatsby-transformer-json`,
 
     // SOURCE PLUGINS

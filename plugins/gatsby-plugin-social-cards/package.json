@@ -1,0 +1,55 @@
+{
+  "name": "gatsby-plugin-social-cards",
+  "version": "0.5.14",
+  "description": "Generates social cards for your markdown posts and adds a field so you can reference them in your meta-tags.",
+  "main": "index.js",
+  "scripts": {
+    "build": "BABEL_ENV=production babel src/ --out-dir .",
+    "prepublish": "npm run build",
+    "watch": "babel -w src --out-dir ."
+  },
+  "files": [
+    "designs",
+    "img",
+    "*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrioid/gatsby-plugin-social-cards.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andrioid/gatsby-plugin-social-cards/issues"
+  },
+  "author": "Andri Óskarsson <andri@andri.dk>",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-transformer-plugin",
+    "open-graph",
+    "social",
+    "twitter",
+    "card"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/preset-react": "^7.10.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "sharp": "^0.25.1"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.0.0",
+    "gatsby-plugin-sharp": "^2.0.0-beta.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "sharp": "^0.25.1"
+  },
+  "dependencies": {
+    "fs-extra": "^9.0.1"
+  }
+}

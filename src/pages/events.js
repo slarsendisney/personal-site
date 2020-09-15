@@ -61,7 +61,7 @@ const EventsPage = ({ data }) => {
   );
   return (
     <Layout>
-      <SEO title="Events" />
+      <SEO title="Events" location={location} />
       <section className="text-center text-white bg-default relative">
         <Img
           fluid={data.eventHero.childImageSharp.fluid}

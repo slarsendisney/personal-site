@@ -7,13 +7,27 @@ import Img from "gatsby-image/withIEPolyfill";
 import getAllArticles from "../utils/getAllArticles";
 import Layout from "../components/layout";
 import { Card } from "./projects";
-export const CardText = ({ title, desc, excerpt, tags, slug, hideTags }) => (
+export const CardText = ({
+  title,
+  desc,
+  excerpt,
+  tags,
+  slug,
+  hideTags,
+  bg,
+  text,
+  noMargin,
+}) => (
   <Link to={slug} key={slug} className=" h-full">
-    <div className="cursor-pointer  h-full mb-3 duration-500 ease-in-out transform hover:scale-105">
+    <div
+      className={`cursor-pointer  h-full ${
+        noMargin ? "" : "mb-3"
+      } duration-500 ease-in-out transform hover:scale-105`}
+    >
       <div
-        className={`relative p-8 ${
-          hideTags ? "" : "pb-16"
-        } bg-default h-full text-default shadow-lg rounded-lg`}
+        className={`relative p-8 ${hideTags ? "" : "pb-16"} ${
+          bg ? bg : "bg-default"
+        } h-full  ${text ? text : "text-default"} shadow-lg rounded-lg`}
       >
         <div>
           <h2 className="text-2xl font-semibold">
@@ -25,9 +39,9 @@ export const CardText = ({ title, desc, excerpt, tags, slug, hideTags }) => (
           <div className="absolute bottom-0">
             <div className="flex flex-wrap mb-5">
               {tags.slice(0, 3).map((tag) => (
-                <button key={tag} className="tag">
+                <Link key={tag} className="tag" to={`/tags/${tag}`}>
                   {tag.toUpperCase()}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -39,6 +53,9 @@ export const CardText = ({ title, desc, excerpt, tags, slug, hideTags }) => (
 
 CardText.propTypes = {
   title: PropTypes.string.isRequired,
+  bg: PropTypes.string,
+  text: PropTypes.string,
+  noMargin: PropTypes.bool,
   slug: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
@@ -63,7 +80,7 @@ export const pathToTitle = (path) => {
 
 export const createTagGroup = (tags) =>
   tags.map((tag) => (
-    <Link to={`/articles/tags/${kebabCase(tag)}`} key={tag}>
+    <Link to={`/tags/${kebabCase(tag)}`} key={tag}>
       <p className="tag">{tag.toUpperCase()}</p>
     </Link>
   ));
@@ -157,6 +174,20 @@ const Articles = ({ data }) => {
                       </Link>
                     </li>
                   )}
+                  {currentPage === numPages && currentPage - 3 >= 1 && (
+                    <li className="mx-1 px-3 py-2 bg-secondary text-secondary hover:bg-secondary-light rounded-lg">
+                      <Link
+                        className="font-bold"
+                        to={
+                          currentPage - 3 === 1
+                            ? "/articles"
+                            : "/articles/" + (currentPage - 3)
+                        }
+                      >
+                        {currentPage - 3}
+                      </Link>
+                    </li>
+                  )}
                   {currentPage - 2 >= 1 && (
                     <li className="mx-1 px-3 py-2 bg-secondary text-secondary hover:bg-secondary-light hover:text-gray-200 rounded-lg">
                       <Link
@@ -198,6 +229,16 @@ const Articles = ({ data }) => {
                         to={"/articles/" + (currentPage + 2)}
                       >
                         {currentPage + 2}
+                      </Link>
+                    </li>
+                  )}
+                  {currentPage === 1 && currentPage + 3 <= numPages && (
+                    <li className="mx-1 px-3 py-2 bg-secondary text-secondary hover:bg-secondary-light rounded-lg">
+                      <Link
+                        className="font-bold"
+                        to={"/articles/" + (currentPage + 3)}
+                      >
+                        {currentPage + 3}
                       </Link>
                     </li>
                   )}

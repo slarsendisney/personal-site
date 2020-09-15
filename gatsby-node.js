@@ -31,8 +31,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   //   const QandA = path.resolve(`./src/templates/QandA.js`);
   const MDXArticle = path.resolve(`./src/templates/article.js`);
   const Project = path.resolve(`./src/templates/project.js`);
-  //   const ArticleTag = path.resolve(`./src/templates/ArticleTag.js`);
-  //   const ProjectTag = path.resolve(`./src/templates/ProjectTag.js`);
+  const TagPage = path.resolve(`./src/templates/tags.js`);
   const result = await graphql(`
     {
       allMdx(
@@ -49,15 +48,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
-      projectTagsGroup: allMdx(
-        filter: { frontmatter: { type: { eq: "Project" } } }
-      ) {
-        group(field: frontmatter___tags) {
-          fieldValue
-        }
-      }
-      articleTagsGroup: allMdx(
-        filter: { frontmatter: { type: { eq: "Article" } } }
+      tagsGroup: allMdx(
+        filter: { frontmatter: { type: { in: ["Project", "Article"] } } }
       ) {
         group(field: frontmatter___tags) {
           fieldValue
@@ -83,24 +75,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   });
 
-  //   result.data.articleTagsGroup.group.forEach((tag) => {
-  //     createPage({
-  //       path: `articles/tags/${_.kebabCase(tag.fieldValue)}/`,
-  //       component: ArticleTag,
-  //       context: {
-  //         tag: tag.fieldValue,
-  //       },
-  //     });
-  //   });
-  //   result.data.projectTagsGroup.group.forEach((tag) => {
-  //     createPage({
-  //       path: `projects/tags/${_.kebabCase(tag.fieldValue)}/`,
-  //       component: ProjectTag,
-  //       context: {
-  //         tag: tag.fieldValue,
-  //       },
-  //     });
-  //   });
+  result.data.tagsGroup.group.forEach((tag) => {
+    createPage({
+      path: `tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: TagPage,
+      context: {
+        tag: tag.fieldValue,
+      },
+    });
+  });
 
   const mdxPosts = await graphql(`
     {
