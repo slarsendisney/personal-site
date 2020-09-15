@@ -4,10 +4,10 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-const Bio = ({ data, location }) => {
+const Bio = ({ data }) => {
   return (
     <Layout>
-      <SEO title={"Uses"} />
+      <SEO title={"Uses"} socialcard="social-card-uses" />
       <section className="text-secondary bg-default  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 article">
           <MDXRenderer>{data.allMdx.edges[0].node.body}</MDXRenderer>
@@ -18,7 +18,6 @@ const Bio = ({ data, location }) => {
 };
 
 Bio.propTypes = {
-  location: PropTypes.shape({}).isRequired,
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
       edges: PropTypes.arrayOf(

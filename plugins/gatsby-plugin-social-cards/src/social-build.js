@@ -1,7 +1,6 @@
 const sharp = require("sharp");
 const fs = require("fs");
 const path = require("path");
-const buffer = require("buffer");
 
 import React from "react";
 import ReactDOMServer from "react-dom/server";
@@ -19,9 +18,11 @@ export async function generateCard(
   {
     title = "",
     subtitle = "",
+    tags = [],
+    type,
+    timeToRead = 2,
     backgroundImage = defaultBackgroundImage,
-    authorImage64,
-    design = "default", // default, card, split
+    noMeta,
   },
   oname
 ) {
@@ -34,7 +35,10 @@ export async function generateCard(
       <Overlay
         title={title}
         subtitle={subtitle}
-        authorImage64={authorImage64}
+        tags={tags}
+        timeToRead={timeToRead}
+        type={type}
+        noMeta={noMeta}
       />
     )
   );

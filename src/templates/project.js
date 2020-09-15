@@ -4,12 +4,14 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import PropTypes from "prop-types";
 import Layout from "../components/layout";
 import Img from "gatsby-image";
+import SEO from "../components/seo";
 
 const Project = ({ data }) => {
   const { mdx } = data; // data.markdownRemark holds our post data
-  const { frontmatter, body } = mdx;
+  const { frontmatter, body, fields } = mdx;
   return (
     <Layout>
+      <SEO title={frontmatter.title} socialcard={fields.socialcard} />
       <Img
         fluid={frontmatter.coverimg.childImageSharp.fluid}
         className="w-full h-full"
@@ -39,6 +41,9 @@ export const pageQuery = graphql`
   query($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
       body
+      fields {
+        socialcard
+      }
       frontmatter {
         title
         desc
@@ -58,6 +63,9 @@ export const pageQuery = graphql`
 Project.propTypes = {
   data: PropTypes.shape({
     mdx: PropTypes.shape({
+      fields: PropTypes.shape({
+        socialcard: PropTypes.string.isRequired,
+      }),
       frontmatter: PropTypes.shape({
         title: PropTypes.string.isRequired,
         desc: PropTypes.string.isRequired,

@@ -17,8 +17,6 @@ const fs = require("fs");
 
 const path = require("path");
 
-const buffer = require("buffer");
-
 // Default background from: https://pixabay.com/photos/lake-water-wave-mirroring-texture-2063957/
 // Only used if nothing specified by options, or node.frontmatter.cover
 const defaultBackgroundImage = path.join(__dirname, "./img/default-background.jpg");
@@ -26,10 +24,11 @@ const defaultBackgroundImage = path.join(__dirname, "./img/default-background.jp
 async function generateCard({
   title = "",
   subtitle = "",
+  tags = [],
+  type,
+  timeToRead = 2,
   backgroundImage = defaultBackgroundImage,
-  authorImage64,
-  design = "default" // default, card, split
-
+  noMeta
 }, oname) {
   if (!fs.existsSync(backgroundImage)) {
     backgroundImage = defaultBackgroundImage;
@@ -38,7 +37,10 @@ async function generateCard({
   const svgbuffer = Buffer.from(_server.default.renderToStaticMarkup( /*#__PURE__*/_react.default.createElement(_overlay.default, {
     title: title,
     subtitle: subtitle,
-    authorImage64: authorImage64
+    tags: tags,
+    timeToRead: timeToRead,
+    type: type,
+    noMeta: noMeta
   })));
   const infile = new fs.ReadStream(backgroundImage);
   const ostream = fs.WriteStream(oname);

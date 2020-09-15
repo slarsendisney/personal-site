@@ -61,7 +61,11 @@ const EventsPage = ({ data }) => {
   );
   return (
     <Layout>
-      <SEO title="Events" />
+      <SEO
+        keywords={[`Sam`, `Larsen-Disney`, `Events`]}
+        title="Events"
+        socialcard={"social-card-disclaimer"}
+      />
       <section className="text-center text-white bg-default relative">
         <Img
           fluid={data.eventHero.childImageSharp.fluid}

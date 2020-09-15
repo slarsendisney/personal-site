@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/layout";
 import { Link } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
+import SEO from "../components/seo";
 
 const inspirers = [
   "JoshWComeau",
@@ -17,6 +18,7 @@ const inspirers = [
 
 const ThisSite = () => (
   <Layout>
+    <SEO title="About This Site" socialcard="social-card-about-this-site" />
     <section className="text-secondary flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 ">
       <h1 className="font-bold text-xl md:text-3xl lg:text-4xl text-left mb-5">
         About This Site

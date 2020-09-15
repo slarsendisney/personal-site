@@ -16,6 +16,7 @@ function IndexPage({ data }) {
       <SEO
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Home"
+        socialcard={"social-card-home"}
       />
 
       <Hero />

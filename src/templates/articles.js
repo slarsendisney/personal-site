@@ -7,6 +7,7 @@ import Img from "gatsby-image/withIEPolyfill";
 import getAllArticles from "../utils/getAllArticles";
 import Layout from "../components/layout";
 import { Card } from "./projects";
+import SEO from "../components/seo";
 export const CardText = ({
   title,
   desc,
@@ -144,6 +145,7 @@ const Articles = ({ data }) => {
   const nextArticles = "/articles/" + (currentPage + 1);
   return (
     <Layout>
+      <SEO title="Articles" socialcard="social-card-articles" />
       <div className=" bg-default">
         <section className="container mx-auto">
           <div className="flex-1 w-full max-w-4xl xl:max-w-full px-4 py-8  mx-auto md:px-8">

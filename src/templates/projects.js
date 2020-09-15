@@ -5,6 +5,7 @@ import compareAsc from "date-fns/compareAsc";
 import Layout from "../components/layout";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
+import SEO from "../components/seo";
 
 export const Card = ({
   title,
@@ -75,6 +76,7 @@ const Projects = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="Projects" socialcard="social-card-projects" />
       <section className="text-secondary bg-default">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
           <h3 className="text-4xl  font-semibold">Projects</h3>

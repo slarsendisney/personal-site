@@ -19,9 +19,9 @@ function SEO({ description, lang, meta, title, socialcard }) {
       }
     }
   `);
-
   const metaDescription = description || site.siteMetadata.description;
-  const cardUrl = socialcard ? "/social-cards/" + socialcard : "";
+  const card = socialcard ? socialcard : "social-card-default";
+  const cardUrl = "https://sld.codes/social-cards/" + card + ".jpg";
   return (
     <>
       <Helmet
@@ -29,7 +29,7 @@ function SEO({ description, lang, meta, title, socialcard }) {
           lang,
         }}
         title={title}
-        titleTemplate={`%s | ${site.siteMetadata.title}`}
+        titleTemplate={`%s · ${site.siteMetadata.title}`}
         meta={[
           {
             name: `description`,

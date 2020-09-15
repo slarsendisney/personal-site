@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -45,7 +45,7 @@ const Start = () => {
   };
   return (
     <Layout>
-      <SEO title="Boilerplates" />
+      <SEO title="Hack" socialcard={"social-card-hack"} />
       <div className=" bg-default">
         <section className="text-secondary bg-default  ">
           <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
@@ -127,5 +127,7 @@ const Start = () => {
     </Layout>
   );
 };
+
+// Start.propTypes = {};
 
 export default Start;

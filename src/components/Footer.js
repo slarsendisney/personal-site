@@ -59,7 +59,7 @@ const Footer = ({ location }) => {
                         enjoy teaching the next generation to code through my
                         articles, presentations and at hackathons.
                       </p>
-                      <Link to="/this-site">
+                      <Link to="/about-this-site">
                         <button className="btn-sm-accent font-semibold">
                           About This Site
                         </button>

@@ -1,5 +1,5 @@
 ---
-title: Lets Talk About DesignRant
+title: Let's Talk About DesignRant
 type: "Article"
 date: 2020-07-05
 desc: I try to remain a positive person but being English, I occassionally need to complain. I wanted a place to vent about some of the user interfaces and experiences that drive me insane on a daily basis.

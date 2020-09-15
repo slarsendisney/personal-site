@@ -70,8 +70,9 @@ function AboutPage() {
   return (
     <Layout>
       <SEO
-        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
-        title="About"
+        keywords={[`Sam`, `Larsen-Disney`, `About`, `Me`]}
+        title="About Me"
+        socialcard={"social-card-about"}
       />
       <StaticQuery
         query={graphql`

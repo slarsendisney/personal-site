@@ -42,8 +42,8 @@ if (
 
 module.exports = {
   siteMetadata: {
-    title: `SLD | Sam Larsen-Disney`,
-    description: `Sam Larsen-Disney | ${currentJob.role} working @ ${currentJob.company}.`,
+    title: `Sam Larsen-Disney`,
+    description: `${currentJob.role} working @ ${currentJob.company}.`,
     author: `@SamLarsenDisney`,
     siteUrl: `https://sld.codes`,
     currentRole: currentJob.role,
@@ -84,7 +84,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
-    `gatsby-plugin-social-cards`,
+
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -120,6 +120,7 @@ module.exports = {
         plugins: [`gatsby-remark-images`, `gatsby-remark-images-medium-zoom`],
       },
     },
+    `gatsby-plugin-social-cards`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {

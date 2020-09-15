@@ -134,7 +134,7 @@ const Article = ({ data }) => {
     <Layout>
       <SEO
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
-        title="Article"
+        title={mdx.frontmatter.title}
         socialcard={mdx.fields.socialcard}
       />
       <ReadingProgress target={target} />

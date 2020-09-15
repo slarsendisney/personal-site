@@ -4,12 +4,18 @@ import { PDFExport } from "@progress/kendo-react-pdf";
 import CV from "../components/CV/CV";
 import CVSmall from "../components/CV/CVSmall";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 class CVPage extends React.Component {
   pdfExportComponent;
   render() {
     return (
       <Layout>
+        <SEO
+          keywords={[`Sam`, `Larsen-Disney`, `About`, `Me`]}
+          title="CV"
+          socialcard={"social-card-cv"}
+        />
         <div className="w-full text-center">
           <button
             className="btn-accent my-8"
