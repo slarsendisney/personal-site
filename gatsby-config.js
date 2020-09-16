@@ -66,7 +66,18 @@ module.exports = {
         crossOrigin: `use-credentials`,
       },
     },
-    `gatsby-plugin-eslint`,
+    {
+      resolve: "gatsby-plugin-eslint",
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public|plugins)/,
+        stages: ["develop"],
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-meta-redirect`,
     `gatsby-plugin-sitemap`,
@@ -118,6 +129,13 @@ module.exports = {
           `gatsby-remark-smartypants`,
         ],
         plugins: [`gatsby-remark-images`, `gatsby-remark-images-medium-zoom`],
+      },
+    },
+    {
+      resolve: `gatsby-theme-mdx-deck`,
+      options: {
+        contentPath: `MDX/Decks`,
+        basePath: `/decks`,
       },
     },
     `gatsby-plugin-social-cards`,

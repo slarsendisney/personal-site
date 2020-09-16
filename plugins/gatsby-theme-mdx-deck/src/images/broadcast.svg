@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="64px" viewBox="0 0 48 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>broadcast</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="broadcast" fill="#EB4D69" fill-rule="nonzero">
+            <path d="M44,24 C46.2,24 48,25.8 48,28 L48,60 C48,62.2 46.2,64 44,64 L4,64 C1.8,64 0,62.2 0,60 L0,28 C0,25.8 1.8,24 4,24 L7,24 L7,17 C7,7.6 14.6,0 24,0 C33.4,0 41,7.6 41,17 L41,24 L44,24 Z M24,55 C25.1,55 26,54.1 26,53 L26,48.4 C27.1,47.6 28,46.4 28,45 C28,42.8 26.3,41 24.1,41 C22.8,41 21.6,41.7 20.8,42.8 C19.1,45.1 20.3,47.3 22,48.4 L22,53 C22,54.1 22.9,55 24,55 Z M33,24 L33,17 C33,12 29,8 24,8 C19,8 15,12 15,17 L15,24 L33,24 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="69px" viewBox="0 0 48 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="69"></rect>
+        <rect id="path-3" x="5.68434189e-14" y="-1.42108547e-14" width="34" height="35" rx="6"></rect>
+        <rect id="path-5" x="0" y="0" width="48" height="39"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g mask="url(#mask-2)" id="Group">
+                <g transform="translate(-3.000000, -6.000000)">
+                    <g transform="translate(23.472432, 23.655445) rotate(-30.000000) translate(-23.472432, -23.655445) translate(6.472432, 6.155445)">
+                        <g>
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <g id="Mask" fill-rule="nonzero"></g>
+                            <path d="M37,24 C39.2,24 41,25.8 41,28 L41,60 C41,62.2 39.2,64 37,64 L-3,64 C-5.2,64 -7,62.2 -7,60 L-7,28 C-7,25.8 -5.2,24 -3,24 L0.275338707,25.8910177 L0,17 C0,7.6 7.6,2.84217094e-14 17,2.84217094e-14 C26.4,2.84217094e-14 34,7.6 34,17 L34.4539661,28.4098601 L37,24 Z M35.2175406,41.0014303 L35.7316172,29.0389854 L25.9756775,29.1284325 L26,17 C26,12 22,8 17,8 C12,8 8,12 8,17 L7.72481466,29.5868678 L35.2175406,41.0014303 Z" id="Combined-Shape" fill="#9FA5AD" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                        </g>
+                    </g>
+                    <g transform="translate(3.000000, 36.000000)">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <g id="Mask" fill-rule="nonzero" transform="translate(24.000000, 19.500000) scale(1, -1) translate(-24.000000, -19.500000) "></g>
+                        <g mask="url(#mask-6)" fill="#9FA5AD" fill-rule="nonzero" id="Combined-Shape">
+                            <g transform="translate(0.000000, -24.000000)">
+                                <path d="M44,24 C46.2,24 48,25.8 48,28 L48,60 C48,62.2 46.2,64 44,64 L4,64 C1.8,64 0,62.2 0,60 L0,28 C0,25.8 1.8,24 4,24 L7,24 L7,17 C7,7.6 14.6,0 24,0 C33.4,0 41,7.6 41,17 L41,24 L44,24 Z M24,55 C25.1,55 26,54.1 26,53 L26,48.4 C27.1,47.6 28,46.4 28,45 C28,42.8 26.3,41 24.1,41 C22.8,41 21.6,41.7 20.8,42.8 C19.1,45.1 20.3,47.3 22,48.4 L22,53 C22,54.1 22.9,55 24,55 Z"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

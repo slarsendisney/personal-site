@@ -1,0 +1,405 @@
+---
+title: "Intro to Gatsby"
+path: /decks/HOWTOGATSBY
+desc: An overview of GatsbyJS for the uninitiated.
+hero: "./hero.png"
+date: 2020-05-06
+type: "Presentation"
+location: Space | Earth
+---
+import Editor from '../../../src/components/LiveEditor/Editor';
+import {SingleInstancePages} from "./CodeSnippets";
+
+import Preload from "../../../src/components/Presentations/Preload";
+
+<Preload images={["https://ik.imagekit.io/sld/gatsbyStats_P_fCfBD7g.png"]}/>
+
+
+# Intro to Gatsby
+#### Slides can be found at [slides.sld.codes](http://slides.sld.codes)
+
+---
+
+# What is GatsbyJS?
+
+---
+
+
+
+“You get simplicity by finding slightly more sophisticated building blocks“.
+
+ [*- Alan Kay*](https://www.youtube.com/watch?v=NdSD07U5uBs)
+
+
+---
+
+## A static site generator
+
+- Produces static html files that we load up onto a server.
+- No data querying done server side - all sorted at build.
+
+---
+
+
+## Static site !== static page
+
+We can still add all the JS we want to do dynamic things.
+
+
+---
+
+## Uses GraphQL to get data from anywhere
+
+We could get content from files, databases other websites - the list goes on!
+
+---
+
+```
+---
+title: "Intro to Gatsby"
+path: /decks/HOWTOGATSBY
+desc: An overview of GatsbyJS for the uninitiated.
+hero: "./hero.png"
+location: Space | Earth
+---
+
+# Intro to Gatsby
+#### Slides can be found at [slides.sld.codes](http://slides.sld.codes)
+
+---
+
+# What is GatsbyJS?
+
+---
+
+...
+```
+
+<a href="https://github.com/slarsendisney/personal-site/blob/master/decks/HOWTOGATSBY/slides.mdx">
+<p class="legal">See the file here.</p>
+</a>
+
+
+---
+
+## Gatsby generates pages for you
+
+- Pass Gatsby content, define a template and it will programmatically create pages for you.
+- Gatsby uses Node to generate these pages in development.
+
+---
+
+
+
+## 🔌 Built with a plugin architecture
+
+Abstract complex, configurations, or reusable code into a plugin so its away from what your focused on.
+
+---
+
+
+## 💪 Harnesses ReactJS
+
+Gatsby uses react and stylesheets to help structure page layout.
+
+---
+
+## Project Structure 📁
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins                
+|-- /public                 
+|-- /src
+    |-- /pages              
+    |-- /templates          
+|-- /static                 
+|-- gatsby-config.js ⬅️ core configuration file and plugin handeller        
+|-- gatsby-node.js         
+|-- gatsby-browser.js       
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins               
+|-- /public                 
+|-- /src
+    |-- /pages              
+    |-- /templates          
+|-- /static                 
+|-- gatsby-config.js       
+|-- gatsby-node.js ⬅️ control your site's data in the graphQL data layer    
+|-- gatsby-browser.js       
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins                
+|-- /public                 
+|-- /src
+    |-- /pages             
+    |-- /templates          
+|-- /static                 
+|-- gatsby-config.js       
+|-- gatsby-node.js 
+|-- gatsby-browser.js ⬅️ code that will run on the client browser           
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins                
+|-- /public                
+|-- /src
+    |-- /pages            
+    |-- /templates          
+|-- /static ⬅️ static content you want copied to your public folder at build
+|-- gatsby-config.js       
+|-- gatsby-node.js          
+|-- gatsby-browser.js      
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins        
+|-- /public             
+|-- /src
+    |-- /pages            
+    |-- /templates ⬅️ templates for programmatically generated pages        
+|-- /static
+|-- gatsby-config.js 
+|-- gatsby-node.js
+|-- gatsby-browser.js  
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/
+|-- /plugins              
+|-- /public               
+|-- /src
+    |-- /pages ⬅️ location of single instance pages                         
+    |-- /templates
+|-- /static             
+|-- gatsby-config.js     
+|-- gatsby-node.js       
+|-- gatsby-browser.js    
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/   
+|-- /plugins ⬅️ local development plugins                                   
+|-- /public               
+|-- /src
+    |-- /pages
+    |-- /templates      
+|-- /static                
+|-- gatsby-config.js        
+|-- gatsby-node.js       
+|-- gatsby-browser.js      
+```
+
+---
+
+<p class="legal">Typical project structure:</p>
+
+``` 
+/   
+|-- /plugins
+|-- /public ⬅️ the built html and JS files                                  
+|-- /src
+    |-- /pages
+    |-- /templates      
+|-- /static                
+|-- gatsby-config.js        
+|-- gatsby-node.js       
+|-- gatsby-browser.js      
+```
+
+
+---
+
+#### gatsby-config.js 
+
+``` 
+module.exports = {                                                                
+  siteMetadata: {
+    title: `Site Title`,
+    author: {
+      name: `Sam Larsen-Disney`,
+    },
+    description: `Short, sharp description.`,
+    siteUrl: `https://sld.codes`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    `gatsby-transformer-remark` 
+  ]
+}
+```
+
+---
+
+### We can now make queries!
+
+```
+
+query GetBlogPosts {
+  allMarkdownRemark(filter: {frontmatter: {type: {eq: "Article"}}}) {
+    nodes {
+      frontmatter {
+        title
+      }
+    }
+  }
+}
+
+```
+
+---
+
+#### gatsby-node.js 
+
+```
+exports.createPages = async ({ graphql, actions }) => {                           
+  const { createPage } = actions
+  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const result = await graphql(
+    `{
+        allMarkdownRemark{
+          edges {
+            node {
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+      }`
+  )
+  const posts = result.data.allMarkdownRemark.edges
+  posts.forEach((post, index) => {
+    createPage({
+      path: post.frontmatter.path,
+      component: blogPost,
+    })
+  })
+}
+```
+
+---
+
+
+
+#### Single Instance Pages
+<p class="legal">src/pages/index.js</p>
+
+<Editor fullWidth  code={SingleInstancePages}/>
+
+---
+
+# Why use Gatsby?
+
+---
+
+## ⚡️ Speed
+
+Its hard to beat the speed of sending static output.
+
+---
+
+## 🔑 Security
+
+Extremely secure as you are just sending HTML.
+
+---
+
+## 😍 Developer Experience
+
+---
+
+#### Takes away logic we all find pernickety:
+
+- *react-router*
+- *progressive-image-loading*
+- *data-fetching*
+
+---
+
+- #### modern dev enviroment
+- #### simple tooling 
+- #### modern and clean languages
+
+---
+
+Gatsby has a solid team, open source community and awesome documentation.
+
+🏃‍♂️ Its growing fast.
+
+---
+
+#### npm stats
+
+![GATSBY STATS](https://ik.imagekit.io/sld/gatsbyStats_P_fCfBD7g.png)
+
+---
+
+#### Built with Gatsby
+
+- [The Official React Javascript Library Website](https://reactjs.org/)
+- [The Impossible Foods’ Brand Website](https://impossiblefoods.com/)
+- [The Airbnb Sites for Developers and Designers](https://airbnb.io/)
+
+
+---
+
+# Summary
+
+- Gatsby is a static site generator
+- Under the hood it uses Node, GraphQL and react
+- Primary benefits are speed, security and developer experience.
+- Has a stable and growing community.
+
+---
+
+<p >Have a go yourself</p>
+
+# [sld.codes/boilerplates](/boilerplates)
+
+---
+
+<p >See Gatsby in Action</p>
+
+## [Using Gatsby to help my mutual aid network](/decks/CORONASUPPORT/slides/0)

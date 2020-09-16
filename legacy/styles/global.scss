@@ -8,7 +8,8 @@
 @import './margin_padding';
 @import './article';
 @import './utilities';
-
+@import './colors';
+@import './presentations';
 
 .legacy{
   @for $i from 1 through 6 {

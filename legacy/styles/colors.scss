@@ -1,0 +1,48 @@
+$brand-colors: ('white', white, #1c1c1c), ('black', #1c1c1c, white),
+  ('light-brown', #e1d2af, #e1d2af), ('grey', #2e4052, #f9f9f9),
+  ('light-grey', #f9f9f9, #121212),('mid-grey', #e8e8e8, #212121), ('blue', #35466d, #49aab7),
+  ('dark-blue', #222d46, #6292da),
+  ('special-blue', #067bc2, #77cbff),
+  ('hero-blue', #bcdff5, #121212),
+  ('article-tag', #798ad0, #96aafc),
+  ('article-tag-hover', #96a6e4, #afbffc),
+  ('project-tag', #74c799, #74c799),
+  ('project-tag-hover', #8fd3ae, #8fd3ae),
+  ('hero-blue', #067bc270, #000),
+  ('light-blue', #49aab7, #49aab7), ('pink', #ea4e68, #000),
+  ('red', #ea4e68, #ea4e68), ('green', #4cbb55, #4cbb55),
+  ('dark-pink', #ef646130, #2e4052), ('orange', #ff8a1d, #ff8a1d),
+  ('yellow', #fcea87, #fcea87);
+
+@each $color in $brand-colors {
+  .is-#{nth($color,1)}-bg {
+    background-color: nth($color, 2);
+  }
+  .is-#{nth($color,1)}-border {
+    border-color: nth($color, 2);
+  }
+  .is-#{nth($color,1)} {
+    color: nth($color, 2);
+  }
+  .is-#{nth($color,1)}-bg-always {
+    background-color: nth($color, 2) !important;
+  }
+  .is-#{nth($color,1)}-border-always {
+    border-color: nth($color, 2) !important;
+  }
+  .is-#{nth($color,1)}-always {
+    color: nth($color, 2) !important;
+  }
+
+  body.dark-mode {
+    .is-#{nth($color,1)} {
+      color: nth($color, 3);
+    }
+    .is-#{nth($color,1)}-bg {
+      background-color: nth($color, 3);
+    }
+    .is-#{nth($color,1)}-border {
+      border-color: nth($color, 3);
+    }
+  }
+}

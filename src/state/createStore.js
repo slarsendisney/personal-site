@@ -5,11 +5,14 @@ import urls from "../data/urls.json";
 let socket = io(urls.api); //io("http://localhost:3000/")
 let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
 
-const DEVELOPMENT = true;
+const DEVELOPMENT = false;
 
 function reducer(
   state = {
     donationActive: false,
+    livePresenter: false,
+    follow: true,
+    verified: false,
     count: 0,
     polls: [],
   },
@@ -39,6 +42,28 @@ function reducer(
     case "pollUpdate": {
       return Object.assign({}, { ...state, polls: action.data });
     }
+    case "follow":
+      return Object.assign({}, { ...state, follow: action.data });
+    case "verify":
+      return Object.assign({}, { ...state, verified: action.data });
+    case "updatePresIndex": {
+      return Object.assign({}, { ...state, presentation: action.data });
+    }
+    case "startLivePresentor":
+      return Object.assign(
+        {},
+        { ...state, livePresenter: true, presentation: action.data }
+      );
+    case "endLivePresentor":
+      return Object.assign(
+        {},
+        {
+          ...state,
+          livePresenter: false,
+          presentation: undefined,
+          verified: false,
+        }
+      );
     default:
       return state;
   }

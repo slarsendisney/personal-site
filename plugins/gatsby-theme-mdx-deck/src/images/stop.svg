@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="297px" height="297px" viewBox="0 0 297 297" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>stop</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="stop" fill="#EC4D6A" fill-rule="nonzero">
+            <path d="M148.5,0 C66.486,0 0,66.486 0,148.5 C0,230.514 66.486,297 148.5,297 C230.514,297 297,230.514 297,148.5 C297,66.486 230.514,0 148.5,0 Z M213.292,190.121 C213.292,203.033 202.825,213.5 189.914,213.5 L106.67,213.5 C93.759,213.5 83.292,203.033 83.292,190.121 L83.292,106.879 C83.292,93.967 93.759,83.5 106.67,83.5 L189.914,83.5 C202.825,83.5 213.292,93.967 213.292,106.879 L213.292,190.121 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

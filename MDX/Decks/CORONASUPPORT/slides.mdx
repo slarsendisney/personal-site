@@ -1,0 +1,371 @@
+---
+title: "Corona Support"
+path: /decks/CORONASUPPORT
+desc: Using GatsbyJS to Help My Mutual Aid Network.
+hero: "./hero.png"
+date: 2020-05-07
+type: "Presentation"
+location: Home | Remote
+---
+
+import Preload from "../../../src/components/Presentations/Preload";
+
+<Preload images={["https://cdn-images-1.medium.com/max/800/1*0TFj_Zbo6Yns6obRHyIqhg.jpeg", "https://cdn-images-1.medium.com/max/800/1*FGN01i-CHXmikoRx1_3Ykw.jpeg", "https://ik.imagekit.io/sld/Screenshot_2020-04-22_at_15.46.33_p7V-P5DEfbe.png"]}/>
+
+# Using GatsbyJS to Help My Mutual Aid Network
+Building a rapid-response system for volunteers in my area with real-time alerts.
+
+---
+
+<p class="legal">A month ago, I came home to find this note taped to my front door...</p>
+
+
+![TheLetter](https://cdn-images-1.medium.com/max/800/1*0TFj_Zbo6Yns6obRHyIqhg.jpeg)
+
+---
+
+I thought this was an awesome idea 🚀
+<p class="legal">(I wasn't the only one!)</p>
+
+---
+
+![Zoom](https://cdn-images-1.medium.com/max/800/1*FGN01i-CHXmikoRx1_3Ykw.jpeg)
+
+<p class="legal">The zoom call 🤙</p>
+
+---
+
+<p class="legal">We defined our scope of help as:</p>
+
+We are volunteering to help each other as a community. As such, of course this is completely free. We are offering help with errands such as picking up urgent supplies, shopping, posting mail, dog walking or just friendly phone call.
+
+
+---
+
+## But theres a problem 🤔
+
+---
+
+## WhatsApp isn't made for admin.
+
+---
+
+# 🙋‍♂️
+*"Let me build a site where people can submit requests for help and volunteers can claim them. That way we won't lose any."*
+
+---
+
+## Volunteer first and work out how after
+
+<p class="legal">I had no idea how I was going to build what I just signed up for.</p>
+
+---
+
+# 💼
+
+Can I take some time to work on this?
+
+---
+
+# 🎉
+
+You sure can!
+
+---
+
+My Plan
+
+- One day to get something live.
+- Five days to complete the project.
+
+---
+
+"Don't reinvent the wheel, especially when you don't have any time to waste."
+
+*- Sam*
+
+---
+
+## I reused a lot of old code
+
+- The site was built using one of my [GatsbyJS boilerplates](/boilerplates).
+- Styles were taken from my [personal site](/).
+- Animations were stolen from a [hackathon project](/projects/beat-street).
+
+---
+
+# MVP 👑
+
+- A landing page
+- Resource links
+- Volunteer guidelines
+- A way for those in need to create requests.
+- A way for authorised volunteers to claim these requests and mark them as resolved.
+
+
+---
+
+| Static Pages        | Dynamic Pages           |
+| ------------- |:-------------:|
+| Landing Page     | Request Help |
+| Resource links      | Volunteer Authed Pages      |
+| Volunteer guidelines |     |
+| Privacy Notice |     |
+| 404 page |     |
+
+---
+
+Static Pages => React components in /pages
+
+```
+                                                       
+        /src
+        |-- /pages
+            |-- 404.js
+            |-- index.js
+            |-- useful-links.js
+            |-- volunteer-guidelines.js
+
+```
+
+---
+
+index.js
+
+```
+                                                       
+import React from "react";
+import Logo from "../images/Logo-Blue.svg";
+import Layout from "../components/layout";
+import { Link } from "gatsby";
+
+export default () => {
+  return (
+    <Layout>
+      <div className="is-dark-blue">
+        <div className="row container">
+          <div className="col-xs-12 text-align-center">
+            <img src={Logo} alt="Logo" className="hero-logo" />
+          </div>
+          <div className="col-xs-12 text-align-center">
+            <h1>Sussex Square & Lewes Crescent Mutual Aid Network</h1>
+            <div className="line margin-auto-l margin-auto-r" />
+            <div className="row pad-5-tb">
+              <div className="col-xs-12 margin-5-b pad-3-tb pad-5-lr is-light-grey-bg border-radius">
+                <p>
+                  Please check back here regularly - We're building this website
+                  as fast as we can and will have more helpful resources in the
+                  coming days.
+                </p>
+              </div>
+
+```
+
+---
+
+<div style={{height:'100%', width:'100%', overflow:'auto', pointerEvents:"none"}} className="pad-15"> 
+    <object type="text/html" data="https://coronasupport.house/" width="100%" height="100%">
+    </object>
+ </div>
+
+---
+
+# Pages relying on authentication
+
+---
+
+
+I'm no back-end dev
+
+---
+
+# 🔥
+
+## Firebase to the rescue
+
+- Drop-in auth module
+- Realtime Database
+
+---
+
+Theres a plugin for that.
+
+```
+
+{
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: {
+          apiKey: process.env.FIREBASE_API_KEY,
+          authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+          databaseURL: process.env.FIREBASE_DB_URL,
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          storageBucket: process.env.FIREBASE_SB,
+          messagingSenderId: process.env.FIREBASE_MSG_SENDER_ID,
+          appId: process.env.FIREBASE_APP_ID
+        }
+      }
+    },
+
+```
+
+---
+
+Use firebase logic like you would any react project
+
+```
+import React from "react"
+import firebase from "gatsby-plugin-firebase"                 
+
+function Component() {
+  const [data, setData] = React.useState(null)
+
+  React.useEffect(() => {
+    firebase
+      .database()
+      .ref("/data")
+      .once("value")
+      .then(snapshot => {
+        setData(snapshot.val())
+      })
+  }, [])
+
+  return <div>{data ? data : "Loading..."}</div>
+}
+
+export default Component
+```
+
+---
+
+### useAuth()
+
+```
+
+const App = () => {
+const { initialising, user } = useAuth();
+if (initialising) {
+    return /* Content to show while loading */;
+} else {
+    return /* Content to show when we have the user profile. 
+            At this point if user is undefined we know the user is not logged in. */
+}};
+
+export default App;
+
+```
+
+---
+
+![form](https://ik.imagekit.io/sld/Screenshot_2020-04-22_at_16.02.49_82pKenfSg.png)
+
+---
+
+# 📍 Calculating Request Positions
+
+---
+
+### [Geocoding API](https://developers.google.com/maps/documentation/geocoding/intro)
+
+Address => Lat/Lon
+
+---
+
+![Map](https://ik.imagekit.io/sld/Screenshot_2020-04-22_at_15.46.33_p7V-P5DEfbe.png)
+
+---
+
+```
+
+ function submitRequest() {
+    let payload = user
+       {
+          address: user.address,
+          latlng: user.latLng,
+          phone_number: user.phone_number,
+          ...requestData,
+          time: parseInt((new Date().getTime() / 1000).toFixed(0)),
+       }
+    firebase
+      .firestore()
+      .collection("cases")
+      .add(payload)
+      .then(() => {
+        sendText(data.name);
+      });
+  }
+
+```
+
+---
+
+Twilio Text Requests
+
+```
+const accountSid = process.env.ACCOUNTSID;
+const authToken = process.env.AUTHTOKEN;
+const client = require("twilio")(accountSid, authToken);
+
+... 
+
+app.post("/send", (req, res) => {
+  const name = req.body.name;
+  const message = `Hi Volunteer! We've recieved a new request from ${name}. 
+                   Head to https://coronasupport.house/volunteers to claim it.`;
+  volunteerPhoneNumbers.forEach(number => {
+    client.messages.create({
+      body: message,
+      from: "+441173253685",
+      to: number
+    });
+  });
+  res.send("OK");
+});
+```
+
+---
+
+# Extensions
+
+---
+
+# Community Search
+
+- Find volunteers
+
+---
+
+# Settings page
+
+- Opt-in and out of text alerts and community search
+- update your information
+- delete your account
+
+---
+
+# Volunteer find
+
+- Shows lead volunteer in your block 
+- Shows closest geographical volunteer to you
+
+---
+
+# Check-in Service
+
+- Prompts volunteers to check in with local vulnearble people
+
+
+---
+
+## 55 volunteers 
+
+## 13 requests for help answered
+
+---
+
+# 💪 No requests for help lost.
+
+---
+
+# fin.
+

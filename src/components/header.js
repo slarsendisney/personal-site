@@ -25,9 +25,9 @@ const Header = ({ newTheme }) => {
   );
 
   useEffect(() => {
-    var currentCss = document.body.className;
+    var currentCss = document.getElementById("___gatsby").className;
     currentCss = currentCss.replace(/theme-\w*/g, "") + theme;
-    document.body.className = currentCss;
+    document.getElementById("___gatsby").className = currentCss;
     if (typeof window !== "undefined") {
       window.theme = theme;
     }
