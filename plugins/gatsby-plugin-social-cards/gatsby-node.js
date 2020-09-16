@@ -55,7 +55,7 @@ exports.onCreatePage = ({ page, actions }) => {
       .map((item) => jsUcfirst(item))
       .join(" ");
     if (page.path === "/cv") {
-      title = "CV / Resume";
+      title = "CV";
     }
     const filename = "social-card-" + pathPage + ".jpg";
     const output = path.join("./public/social-cards", filename);
