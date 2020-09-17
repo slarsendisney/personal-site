@@ -263,6 +263,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://codes.us4.list-manage.com/subscribe/post?u=0cf960d42e04bd50f7c21d709&amp;id=35a0b97fdb",
+      },
+    },
+    {
       resolve: "gatsby-plugin-firebase",
       options: {
         credentials: {

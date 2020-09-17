@@ -7,11 +7,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const BoilerPlate = ({ title, desc, flag, repo, demo }) => (
-  <div className="p-3 bg-default rounded mb-3 md:mb-2 xl:mb-0">
-    <div
-      className="pad-2 pad-3-lr is-white-bg border-radius "
-      style={{ height: "100%" }}
-    >
+  <div className="p-4 bg-default rounded mb-3 md:mb-2 xl:mb-0">
+    <div className="pad-2 pad-3-lr border-radius " style={{ height: "100%" }}>
       <h1 className="text-2xl">
         <Emojione text={title} className="flex flex-wrap items-center" />
       </h1>
@@ -66,10 +63,10 @@ const Start = ({ data }) => {
   return (
     <Layout>
       <SEO title="Boilerplates" socialcard={"social-card-boilerplates"} />
-      <div className=" bg-default">
-        <section className="text-secondary bg-default  ">
+      <div className="">
+        <section className="text-secondary bg-default ">
           <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-            <h1 className="text-4xl  font-bold">Boilerplates</h1>
+            <h1 className="text-4xl font-bold">Boilerplates</h1>
             <p className="mb-3">
               In computer programming, boilerplate code or just boilerplate are
               sections of code that have to be included in many places with

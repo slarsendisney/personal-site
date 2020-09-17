@@ -6,6 +6,7 @@ const darkThemes = new Set(["Midnight Dreams", "Apocalypse"]);
 const unlockables = new Set(["Fall Guys", "Matrix"]);
 const themes = new Set([...darkThemes, ...lightThemes]);
 const allThemes = [...lightThemes, ...darkThemes, ...unlockables];
+
 const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
   const unlocked = new Set(unlockedThemes);
   return (

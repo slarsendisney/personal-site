@@ -79,11 +79,13 @@ const Start = ({ data, presentation }) => {
                       style={{
                         maxHeight: 200,
                       }}
-                      className="pres-image rounded-t is-light-grey-border"
+                      className="rounded-t"
                     />
 
                     <div className="p-3">
-                      <h1 className="margin-0-b link text-2xl">{title}</h1>
+                      <h1 className="margin-0-b text-secondary text-2xl">
+                        {title}
+                      </h1>
                       <h4 className="margin-0-b margin-1-t">{desc}</h4>
                       <p className="opacity-75">{location}</p>
                     </div>

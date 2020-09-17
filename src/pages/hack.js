@@ -49,7 +49,7 @@ const Start = () => {
       <div className=" bg-default">
         <section className="text-secondary bg-default  ">
           <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-            <h1 className="text-2xl md:text-6xl font-bold leading-none">
+            <h1 className="text-2xl md:text-6xl font-bold leading-none mb-2">
               <i className="las la-skull"></i> Sam&apos;s Hackathon Survival
               Guide
             </h1>

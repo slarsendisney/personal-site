@@ -13,10 +13,18 @@ const Hero = () => {
           </h1>
           <h2 className="leading-loose text-xl lg:text-2xl mb-3">
             I am a UX Engineer at American Express. I have built{" "}
-            <span className="link">new ways to refer friends</span>,{" "}
-            <span className="link">onboarding experiences</span> and{" "}
-            <span className="link">rapid response systems</span>. I enjoy
-            teaching the next generation to code through my{" "}
+            <Link className="link" to="/projects/enhanced-referral">
+              new ways to refer friends
+            </Link>
+            ,{" "}
+            <Link className="link" to="/projects/grad">
+              onboarding experiences
+            </Link>{" "}
+            and{" "}
+            <Link className="link" to="/projects/corona-support">
+              rapid response systems
+            </Link>
+            . I enjoy teaching the next generation to code through my{" "}
             <Link className="link" to="/articles">
               articles
             </Link>
@@ -31,7 +39,7 @@ const Hero = () => {
             <Link to="/about" className="text-base">
               <button className=" btn mr-3">About Me</button>
             </Link>
-            <div className="text-5xl md:text-4xl flex flex-wrap -mb-12 md:m-0">
+            <div className="text-5xl flex flex-wrap -mb-12 md:m-0">
               <OutboundLink
                 href="https://twitter.com/SamLarsenDisney"
                 className="hover:text-link"

@@ -7,6 +7,7 @@ import { useLocalStorage } from "../utils/customHooks";
 import LogoAnimation from "./LogoAnimation";
 import SmoothCollapse from "react-smooth-collapse";
 import ThemeFoundModal from "./ThemeFound";
+import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 
 export const defaultTheme =
   typeof window !== "undefined" &&
@@ -28,6 +29,11 @@ const Header = ({ newTheme }) => {
     var currentCss = document.getElementById("___gatsby").className;
     currentCss = currentCss.replace(/theme-\w*/g, "") + theme;
     document.getElementById("___gatsby").className = currentCss;
+    trackCustomEvent({
+      category: "Themes",
+      action: "Click",
+      label: `Theme Changed - ${theme}`,
+    });
     if (typeof window !== "undefined") {
       window.theme = theme;
     }
@@ -37,6 +43,11 @@ const Header = ({ newTheme }) => {
     let currentUnlocks = new Set(unlockedThemes);
     if (newTheme && !currentUnlocks.has(newTheme)) {
       setUnlockedThemes([...unlockedThemes, newTheme]);
+      trackCustomEvent({
+        category: "Themes",
+        action: "Click",
+        label: `Unlocked Theme - ${newTheme}`,
+      });
     }
   }, [newTheme]);
 
