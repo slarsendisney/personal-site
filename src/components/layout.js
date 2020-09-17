@@ -9,7 +9,7 @@ import Cookies from "./Cookies";
 
 function Layout({ children }) {
   return (
-    <div className="flex flex-col min-h-screen font-sans bg-default">
+    <>
       <Helmet>
         <link
           rel="stylesheet"
@@ -18,10 +18,12 @@ function Layout({ children }) {
       </Helmet>
       <Cookies />
       <ReactTooltip className="text-primary bg-primary" />
-      <Header />
-      <main className="text-default ">{children}</main>
-      <Location>{(locationProps) => <Footer {...locationProps} />}</Location>
-    </div>
+      <div className="flex flex-col min-h-screen font-sans bg-default">
+        <Header />
+        <main className="text-default ">{children}</main>
+        <Location>{(locationProps) => <Footer {...locationProps} />}</Location>
+      </div>
+    </>
   );
 }
 

@@ -37,7 +37,7 @@ const Hero = () => {
 
           <div className="text-4xl md:flex md:flex-row md:items-center ">
             <Link to="/about" className="text-base">
-              <button className=" btn mr-3">About Me</button>
+              <div className=" btn mr-3">About Me</div>
             </Link>
             <div className="text-5xl flex flex-wrap -mb-12 md:m-0">
               <OutboundLink
