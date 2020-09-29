@@ -14,7 +14,8 @@
     @apply font-semibold text-base;
   }
   a {
-    @apply text-link font-semibold;
+    @apply font-semibold;
+    @extend .link;
   }
   figure {
     @apply my-1;
@@ -53,5 +54,13 @@
       @apply text-xl;
     }
   }
+}
 
+.guide {
+  h4 {
+    @apply mt-5;
+  }
+  a {
+    text-decoration: unset;
+  }
 }

@@ -203,6 +203,37 @@ module.exports = {
         path: `${__dirname}/MDX/Projects`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/MDX/Hack`,
+      },
+    },
+    {
+      resolve: "gatsby-source-url-metadata",
+      options: {
+        urls: [
+          "lawsofux.com",
+          "start.uxdesign.cc",
+          "figma.com",
+          "sketch.com",
+          "carbondesignsystem.com",
+          "microsoft.com/design/fluent",
+          "spectrum.adobe.com",
+          "material.io/design",
+          "superposition.design",
+          "coolors.co",
+          "fontpair.co",
+          "spotify.design",
+          "blind.com/blog/typography-manual",
+          "www.youtube.com/channel/UCZHkx_OyRXHb1D3XTqOidRw",
+          "www.youtube.com/user/DesignCourse",
+          "www.invisionapp.com/inside-design/how-to-wireframe",
+          "www.justinmind.com/blog/wireframes-and-mockups-whats-the-best-option",
+        ],
+      },
+    },
 
     //LUNR SEARCH
     {

@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
+import * as Scroll from "react-scroll";
+import { graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const roles = ["Designer", "Developer", "Bit of Both"];
+var Element = Scroll.Element;
+var scroller = Scroll.scroller;
 
-const Start = () => {
+const roles = ["UX Designer"]; //, "Front-End Developer", "Back-End Developer"];
+
+const Start = ({ data }) => {
   const [open, setOpen] = useState(false);
   const [type, setType] = useState(-1);
 
@@ -15,9 +21,17 @@ const Start = () => {
         return (
           <section className="text-secondary bg-secondary">
             <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-              <h1 className="text-2xl md:text-5xl font-bold mb-2">
-                <i className="las la-pencil-ruler"></i> I&apos;m a Designer.
-              </h1>
+              <Element name="guide">
+                <h1 className="text-3xl md:text-5xl font-bold mb-2">
+                  <i className="las la-pencil-ruler"></i> I&apos;m a UX
+                  Designer.
+                </h1>
+              </Element>
+              <div className="guide article">
+                <MDXProvider>
+                  <MDXRenderer>{data.designer.body}</MDXRenderer>
+                </MDXProvider>
+              </div>
             </div>
           </section>
         );
@@ -25,9 +39,11 @@ const Start = () => {
         return (
           <section className="text-secondary bg-secondary">
             <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-              <h1 className="text-2xl md:text-5xl font-bold mb-2">
-                <i className="las la-laptop-code"></i> I&apos;m a Developer.
-              </h1>
+              <Element name="guide">
+                <h1 className="text-3xl md:text-5xl font-bold mb-2">
+                  <i className="las la-laptop-code"></i> I&apos;m a Developer.
+                </h1>
+              </Element>
             </div>
           </section>
         );
@@ -35,9 +51,11 @@ const Start = () => {
         return (
           <section className="text-secondary bg-secondary">
             <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-              <h1 className="text-2xl md:text-5xl font-bold mb-2">
-                <i className="las la-gem"></i> I&apos;m both.
-              </h1>
+              <Element name="guide">
+                <h1 className="text-3xl md:text-5xl font-bold mb-2">
+                  <i className="las la-gem"></i> I&apos;m both.
+                </h1>
+              </Element>
             </div>
           </section>
         );
@@ -74,7 +92,10 @@ const Start = () => {
                     >
                       <h4 className="text-base md:text-2xl">
                         {type !== -1 ? (
-                          <span>{roles[type]}</span>
+                          <span>
+                            {roles[type]}{" "}
+                            <i className="las la-arrow-circle-down"></i>
+                          </span>
                         ) : (
                           <span>
                             Please Choose{" "}
@@ -87,7 +108,10 @@ const Start = () => {
                 </h4>
               </div>
               {open && (
-                <div className="origin-top-right absolute right-0 mt-2 w-64 rounded-md shadow-lg">
+                <div
+                  className="origin-top-right absolute right-0 mt-2 w-64 rounded-md shadow-lg"
+                  style={{ zIndex: 1000 }}
+                >
                   <div className="rounded-md bg-primary border-4 border-accent text-primary shadow-xs">
                     <div
                       className="py-1"
@@ -104,11 +128,26 @@ const Start = () => {
                           onClick={() => {
                             setType(index);
                             setOpen(!open);
+                            setTimeout(
+                              () =>
+                                scroller.scrollTo("guide", {
+                                  duration: 1000,
+                                  smooth: true,
+                                }),
+                              100
+                            );
                           }}
                         >
                           {type}
                         </button>
                       ))}
+                      <div
+                        className="block px-4 py-2 border-t-2 mt-1 text-sm md:text-base w-full text-left leading-5"
+                        role="menuitem"
+                        style={{ borderTopColor: "#ffffff30" }}
+                      >
+                        <span className="opacity-75">More coming soon!</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -123,11 +162,41 @@ const Start = () => {
         >
           {type !== -1 && showDetail()}
         </div>
+        {type !== -1 && (
+          <section className="text-secondary bg-default  ">
+            <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+              <h4 className="text-2xl md:text-4xl">
+                Got something that should be on this page?
+              </h4>
+              <p className="text-2xl md:text-4xl">
+                Let me know at{" "}
+                <a
+                  href="mailto:sam@sld.codes"
+                  className="link"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  sam@sld.codes
+                </a>
+                !
+              </p>
+            </div>
+          </section>
+        )}
       </div>
     </Layout>
   );
 };
 
 // Start.propTypes = {};
+
+export const query = graphql`
+  {
+    designer: mdx(frontmatter: { type: { eq: "hack/designer" } }) {
+      id
+      body
+    }
+  }
+`;
 
 export default Start;
