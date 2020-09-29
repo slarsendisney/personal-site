@@ -32,6 +32,7 @@ const ContactPage = ({ foundTheme }) => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 mx-auto  my-5 -mx-1 text-center">
             <OutboundLink
+              href={urls.buyMeACoffee}
               target="_blank"
               rel="noreferrer"
               className="btn-accent mx-1 my-1"
@@ -42,6 +43,7 @@ const ContactPage = ({ foundTheme }) => {
               </div>
             </OutboundLink>
             <OutboundLink
+              href={urls.patreon}
               target="_blank"
               rel="noreferrer"
               className="btn mx-1 my-1"
@@ -57,9 +59,17 @@ const ContactPage = ({ foundTheme }) => {
           <p className="mb-3">
             That&apos;s cool and I totally get it. If you&apos;d still like to
             say thanks you can{" "}
-            <span className="link">message me on twitter</span>. I really do
-            like finding out what content you&apos;re enjoying so I can create
-            more! You can also hit the button below to send me some love!
+            <OutboundLink
+              href={urls.twitter}
+              target="_blank"
+              rel="noreferrer"
+              className="link"
+            >
+              message me on twitter
+            </OutboundLink>
+            . I really do like finding out what content you&apos;re enjoying so
+            I can create more! You can also hit the button below to send me some
+            love!
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 mx-auto  my-5 -mx-1  items-center">

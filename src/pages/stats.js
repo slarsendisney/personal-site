@@ -221,7 +221,7 @@ const Stats = ({ data, count, foundTheme }) => {
       <section className="text-secondary bg-default  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
           <div className="row container pad-10-tb pad-3-lr">
-            <div className="is-grey">
+            <div className="">
               <h4 className="margin-0 text-xl">
                 PROJECT BREAKDOWN BY LANGUAGE
               </h4>
@@ -266,7 +266,7 @@ const Stats = ({ data, count, foundTheme }) => {
       <section className="text-secondary bg-secondary  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 ">
           <div className="row container pad-10-tb pad-3-lr">
-            <div className="is-grey">
+            <div className="">
               <h4 className="margin-0 margin-1-b text-xl">GITHUB REPO</h4>
               <h2 className="text-2xl font-semibold my-3">
                 This site&apos;s repository has been starred{" "}
