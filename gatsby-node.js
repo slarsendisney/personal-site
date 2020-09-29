@@ -151,12 +151,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-// const fs = require("fs");
+const fs = require("fs");
 
-// exports.onPostBuild = () => {
-//   fs.copyFile(`./firebase.json`, `./public/firebase.json`, (err) => {
-//     if (err) {
-//       throw err;
-//     }
-//   });
-// };
+exports.onPostBuild = () => {
+  fs.copyFile(`./firebase.json`, `./public/firebase.json`, (err) => {
+    if (err) {
+      throw err;
+    }
+  });
+};

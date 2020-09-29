@@ -6,7 +6,9 @@
 
 You can see it live here:
 
-### [``` sld.codes ```](https://sld.codes/)
+### Current Version [``` sld.codes ```](https://sld.codes/)
+
+### Version 1: [``` v1.sld.codes ```](https://v1.sld.codes/) - [repo](https://github.com/slarsendisney/personal-site-v1)
 
 I built the whole site using my favourite react framework - Gatsby! If you haven't heard of it, you should check it out here:
 
