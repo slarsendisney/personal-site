@@ -40,6 +40,7 @@ exports.sourceNodes = async ({ actions, cache }, configOptions) => {
           actualUrl = "http://" + actualUrl;
         }
         return got(actualUrl).then(({ body: html, url }) => {
+          console.log(`Retreiving metadata for ${actualUrl}`);
           const doc = domino.createWindow(html).document;
           return { ...getMetadata(doc, url), suppliedUrl };
         });
