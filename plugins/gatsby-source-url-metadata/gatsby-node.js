@@ -33,7 +33,7 @@ exports.sourceNodes = async ({ actions, cache }, configOptions) => {
       });
     });
   } else {
-    Promise.all(
+    await Promise.all(
       urls.map((suppliedUrl) => {
         let actualUrl = suppliedUrl;
         if (!actualUrl.match(/^[a-zA-Z]+:\/\//)) {
