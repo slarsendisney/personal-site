@@ -37,7 +37,9 @@ const Hero = () => {
 
           <div className="text-4xl md:flex md:flex-row md:items-center ">
             <Link to="/about" className="text-base">
-              <div className=" btn mr-3">About Me</div>
+              <div className="mr-3 btn text-center" style={{ maxWidth: 130 }}>
+                About Me
+              </div>
             </Link>
             <div className="text-5xl flex flex-wrap -mb-12 md:m-0">
               <OutboundLink

@@ -25,7 +25,7 @@ const Project = ({ data }) => {
         <h1 className="text-4xl font-semibold text-center">
           {frontmatter.title}
         </h1>
-        <p className="text-3xl text-center mb-5 is-grey text-align-center">
+        <p className="text-2xl text-center mb-5 text-align-center">
           {frontmatter.desc}
         </p>
 
