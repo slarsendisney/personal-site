@@ -142,7 +142,7 @@ const ThisSite = () => (
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mx-auto max-w-2xl text-center">
         <OutboundLink
-          href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Howto/CSS_FAQ"
+          href="https://github.com/slarsendisney/personal-site"
           target="_blank"
           rel="noreferrer"
           className="btn text-md py-3 px-5 my-1 mx-1 rounded"
