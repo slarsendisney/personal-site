@@ -56,7 +56,7 @@ const Overlay = ({ title, tags, type, timeToRead, noMeta }) => {
           {noMeta &&
               <>
                 <tspan
-                  fontSize="35"
+                  fontSize="30"
                   fontWeight="semibold"
                   fill="#44444480"
                   x={xMargin}

@@ -6,7 +6,7 @@
 
 You can see it live here:
 
-### Current Version [``` sld.codes ```](https://sld.codes/)
+### Current Version: [``` sld.codes ```](https://sld.codes/)
 
 ### Version 1: [``` v1.sld.codes ```](https://v1.sld.codes/) - [repo](https://github.com/slarsendisney/personal-site-v1)
 
