@@ -15,7 +15,8 @@ exports.sourceNodes = async ({ actions, cache }, configOptions) => {
   const { createNode } = actions;
   const { urls } = configOptions;
   const currentCache = await cache.get(`gatsby-source-metadata-urls`);
-  if (currentCache && checkCacheValid(JSON.parse(currentCache).urls, urls)) {
+  //if (currentCache && checkCacheValid(JSON.parse(currentCache).urls, urls)) {
+  if (false) {
     console.log("🔥 Using cached metadata for urls");
     JSON.parse(currentCache).metaData.forEach((site) => {
       createNode({
