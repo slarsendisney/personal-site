@@ -45,7 +45,7 @@ const Overlay = ({
     dy: index > 0 ? largeText ? 65 : 75 : 0,
     key: line
   }, line)), noMeta && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("tspan", {
-    fontSize: "35",
+    fontSize: "30",
     fontWeight: "semibold",
     fill: "#44444480",
     x: xMargin,
