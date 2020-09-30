@@ -5,7 +5,7 @@
     "react-dom": "^16.8.6"
   },
   "license": "MIT",
-  "main": "index.js",
+  "main": "gatsby-node.js",
   "name": "gatsby-source-url-metadata",
   "peerDependencies": {
     "gatsby": "^2.13.6",

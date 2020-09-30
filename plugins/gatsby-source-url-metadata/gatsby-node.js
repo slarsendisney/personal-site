@@ -65,7 +65,7 @@ exports.sourceNodes = async ({ actions, cache }, configOptions) => {
       })
       .then((metaData) => {
         console.log("💾 Caching metadata for urls");
-        cache.set(
+        return cache.set(
           `gatsby-source-metadata-urls`,
           JSON.stringify({
             metaData,
