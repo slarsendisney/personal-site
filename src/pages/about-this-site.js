@@ -87,7 +87,7 @@ const ThisSite = () => (
           <p className="">
             Yes, you can fork this repo (link at the bottom of this page!). The
             code is provided as is, and is not guaranteed to work on your
-            machine or for your paticular use case.
+            machine or for your particular use case.
           </p>
           <p>
             <strong>
