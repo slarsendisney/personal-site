@@ -162,7 +162,7 @@ const Footer = ({ location }) => {
                       Copyright &copy; {new Date().getFullYear() + " "}
                       Sam Larsen-Disney. All Rights Reserved.
                     </div>
-                    <div className="px-4 w-full text-center sm:w-auto sm:text-left text-sm flex items-center">
+                    <div className="px-4 w-full text-center sm:w-auto sm:text-left text-sm sm:flex sm:items-center">
                       Made with <i className="las la-heart mx-1"></i>
                       by SLD
                     </div>
