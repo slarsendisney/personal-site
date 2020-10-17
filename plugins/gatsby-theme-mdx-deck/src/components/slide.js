@@ -177,7 +177,7 @@ export const Slide = ({
                     </button>
                     <p
                       data-tip={`Viewers`}
-                      className="is-grey margin-3-t opacity-50"
+                      className="text-secondary margin-3-t opacity-50"
                       style={{ fontSize: 30 }}
                     >
                       {count}
