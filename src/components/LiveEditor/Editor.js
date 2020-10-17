@@ -16,7 +16,7 @@ export default ({
 }) => {
   return (
     <LiveProvider code={code}>
-      <div className={`grid grid-cols-2`}>
+      <div className={`grid grid-cols-2 gap-4 mb-4`}>
         <div className="unset-all mx-1">
           <div className="bg-white rounded p-2">
             <LiveEditor className="text-2xl" />
@@ -24,7 +24,7 @@ export default ({
           </div>
         </div>
         <div className="mx-1">
-          <div className="bg-white rounded p-2">
+          <div className="bg-secondary h-full rounded p-2">
             <LivePreview className="article" />
           </div>
         </div>
