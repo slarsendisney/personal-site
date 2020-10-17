@@ -3,12 +3,7 @@ import { connect } from "react-redux";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { Emojione } from "react-emoji-render";
 
-let firebase;
-
-if (typeof window !== "undefined") {
-  firebase = require("firebase/app");
-  require("firebase/firestore");
-}
+import firebase from "gatsby-plugin-firebase";
 
 const QuestionCard = ({ question }) => {
   const [answered, setAnswered] = useState(false);
@@ -72,11 +67,8 @@ const QuestionForm = ({ submitQuestion, QAID }) => {
           <p className="margin-5-tb">
             <Emojione text="✅ Question Submitted!" />{" "}
           </p>
-          <button
-            className="bubble-button border-radius "
-            onClick={() => setSubmitted(false)}
-          >
-            <p className="legal is-white-always margin-0">Ask Another</p>
+          <button className="btn text-2xl" onClick={() => setSubmitted(false)}>
+            <p className="">Ask Another</p>
           </button>{" "}
         </>
       ) : (
