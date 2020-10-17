@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react"
-import { connect } from "react-redux"
-import { useLocalStorage } from "../../utils/customHooks"
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { useLocalStorage } from "../../utils/customHooks";
 
 // Declaring poll question and answers
-const pollQuestion = "Are you working from home?"
+const pollQuestion = "Are you working from home?";
 let starterPollAnswers = [
   { option: "Yes", votes: 0 },
   { option: "No", votes: 0 },
-]
+];
 
 const PollView = ({
   polls,
@@ -18,49 +18,49 @@ const PollView = ({
 }) => {
   const evaluatePoll = (polls) => {
     if (!polls) {
-      return answers
+      return answers;
     }
     return answers.map(({ option }) => {
       if (polls[pollID] && polls[pollID][option]) {
         return {
           option,
           votes: polls[pollID][option],
-        }
+        };
       }
       return {
         option,
         votes: 0,
-      }
-    })
-  }
-  const [pollAnswers, setPollAnswers] = useState(evaluatePoll(polls))
-  const [userPollVotes, setUserPollVotes] = useLocalStorage("userPollVotes", {})
+      };
+    });
+  };
+  const [pollAnswers, setPollAnswers] = useState(evaluatePoll(polls));
+  const [userPollVotes, setUserPollVotes] = useLocalStorage(
+    "userPollVotes",
+    {}
+  );
   const handleVote = (voteAnswer) => {
-    setUserPollVotes({ ...userPollVotes, [pollID]: voteAnswer })
-    submitVote(pollID, voteAnswer)
-  }
+    setUserPollVotes({ ...userPollVotes, [pollID]: voteAnswer });
+    submitVote(pollID, voteAnswer);
+  };
   useEffect(() => {
-    setPollAnswers(evaluatePoll(polls))
-  }, [polls])
+    setPollAnswers(evaluatePoll(polls));
+  }, [polls]);
 
   const totalVotes = pollAnswers.reduce((acc, cur) => {
-    acc += cur.votes
-    return acc
-  }, 0)
-  const submitted = userPollVotes[pollID] ? true : false
-  const userChoice = userPollVotes[pollID] ? userPollVotes[pollID] : ""
+    acc += cur.votes;
+    return acc;
+  }, 0);
+  const submitted = userPollVotes[pollID] ? true : false;
+  const userChoice = userPollVotes[pollID] ? userPollVotes[pollID] : "";
   return (
-    <div className="lato-always poll flex align-horizontal align-vertical">
-      <h3 className="margin-3-b">{question}</h3>
+    <div className="poll">
+      <h3 className="text-2xl">{question}</h3>
       {!submitted ? (
-        <div className="row fill-width">
+        <div className="row fill-width grid grid-cols-2 gap-4">
           {answers.map(({ option }) => (
             <div className="col-xs-12 margin-2-b">
-              <button
-                className="bubble-button fill-width border-radius"
-                onClick={() => handleVote(option)}
-              >
-                <p className="is-white-always">{option}</p>
+              <button className="btn w-full" onClick={() => handleVote(option)}>
+                <p>{option}</p>
               </button>
             </div>
           ))}
@@ -70,13 +70,13 @@ const PollView = ({
           {totalVotes > 0 ? (
             <>
               {pollAnswers.map(({ option, votes }) => (
-                <div className="col-xs-12 margin-2-b">
+                <div className="mb-4">
                   <div
-                    className="is-light-grey-bg  fill-width border-radius"
-                    style={{ position: "relative", height: 60 }}
+                    className="bg-secondary w-full rounded"
+                    style={{ position: "relative", height: 70 }}
                   >
                     <div
-                      className="is-special-blue-bg border-radius opacity-50 poll"
+                      className="bg-accent rounded poll"
                       style={{
                         position: "absolute",
                         zIndex: 1000,
@@ -85,14 +85,18 @@ const PollView = ({
                       }}
                     ></div>
                     <div
-                      className="fill-width flex align-horizontal align-vertical"
+                      className="fill-width flex align-horizontal align-vertical p-1"
                       style={{
                         position: "absolute",
                         zIndex: 1100,
                         height: "100%",
                       }}
                     >
-                      <p className={`${userChoice === option ? "bold" : ""}`}>
+                      <p
+                        className={`mr-4 text-5xl ${
+                          userChoice === option ? "font-bold" : ""
+                        }`}
+                      >
                         {Math.floor((votes / totalVotes) * 100)}% {option}
                       </p>
                     </div>
@@ -105,24 +109,24 @@ const PollView = ({
           )}
         </div>
       )}
-      <p className="opacity-70">{totalVotes} votes submitted</p>
+      <p className="opacity-70 text-center">{totalVotes} votes submitted</p>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ polls }) => {
-  return { polls }
-}
+  return { polls };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     submitVote: (id, vote) =>
       dispatch({ type: "server/poll", data: { id, vote } }),
-  }
-}
+  };
+};
 
 const ConnectedPollView =
   typeof window !== `undefined`
     ? connect(mapStateToProps, mapDispatchToProps)(PollView)
-    : PollView
+    : PollView;
 
-export default ConnectedPollView
+export default ConnectedPollView;

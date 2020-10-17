@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import { Pixelify } from "react-pixelify"
+import React, { useState } from "react";
+import { Pixelify } from "react-pixelify";
 
 export default () => {
-  const [reality, setReality] = useState(false)
+  const [reality, setReality] = useState(false);
 
   return (
     <div className="row">
@@ -18,20 +18,22 @@ export default () => {
           <img src="https://ik.imagekit.io/sld/Screenshot_2020-08-07_at_15.25.59_S_VrLUzsTo0.png?tr=w-600,h-360" />
         )}
       </div>
-      <div className="col-xs-12 text-align-center">
+      <div className="flex justify-center items-center my-10">
         <button
-          className="bubble-button border-radius pad-1-tb pad-3-lr"
+          className="btn text-2xl"
           onClick={() => {
-            setReality(!reality)
+            setReality(!reality);
             if (typeof document !== "undefined") {
-              document.getElementById("gatsby-focus-wrapper").focus()
+              document.getElementById("gatsby-focus-wrapper").focus();
             }
           }}
           style={{ minWidth: 270 }}
         >
-          <h6 className="margin-0">{reality ? "Expectation" : "Reality"}</h6>
+          <h6 className="margin-0">
+            Click here for the {reality ? "expectation" : "reality"}
+          </h6>
         </button>
       </div>
     </div>
-  )
-}
+  );
+};

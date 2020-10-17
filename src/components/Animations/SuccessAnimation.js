@@ -1,6 +1,6 @@
-import React from "react"
-import Lottie from "react-lottie"
-import data from "../../animation-data/success.json"
+import React from "react";
+import Lottie from "react-lottie";
+import data from "../../animation-data/success.json";
 
 export default ({ backgroundColourClassName }) => {
   const defaultOptions = {
@@ -10,7 +10,7 @@ export default ({ backgroundColourClassName }) => {
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
-  }
+  };
 
   return (
     <span
@@ -22,7 +22,9 @@ export default ({ backgroundColourClassName }) => {
         left: -60,
         borderRadius: "50%",
       }}
-      className={`${backgroundColourClassName}`}
+      className={`${
+        backgroundColourClassName ? backgroundColourClassName : "bg-default"
+      }`}
     >
       <Lottie
         isClickToPauseDisabled={true}
@@ -31,5 +33,5 @@ export default ({ backgroundColourClassName }) => {
         height={120}
       />
     </span>
-  )
-}
+  );
+};

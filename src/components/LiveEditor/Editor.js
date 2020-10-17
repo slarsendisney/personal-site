@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
+import React, { useState } from "react";
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 
 export default ({
   fullWidth,
@@ -16,42 +16,19 @@ export default ({
 }) => {
   return (
     <LiveProvider code={code}>
-      <div
-        className={`row pad-2-t ${large ? "" : "legal"} ${
-          fullWidth ? "pad-5" : ""
-        }`}
-        style={{
-          width: fullWidth ? "100vw" : "auto",
-        }}
-      >
-        <div className="col-xs-12 col-md-6 margin-5-b">
-          <div className="is-grey-bg-always is-white-always pad-5 border-radius">
-            <LiveEditor />
-            {!noErrors && (
-              <LiveError
-                className={`is-red-bg pad-3 border-radius ${
-                  large ? "" : "legal"
-                }`}
-                style={{
-                  wordWrap: "break-word",
-                  overflowX: "auto",
-                }}
-                style={{ fontSize: 12 }}
-              />
-            )}
+      <div className={`grid grid-cols-2`}>
+        <div className="unset-all mx-1">
+          <div className="bg-white rounded p-2">
+            <LiveEditor className="text-2xl" />
+            {!noErrors && <LiveError className={``} />}
           </div>
         </div>
-        <div className="col-xs-12 col-md-6 margin-5-b">
-          <div
-            className={
-              previewClassNames + " is-light-grey-bg pad-5 border-radius"
-            }
-            style={{ height: "100%" }}
-          >
-            <LivePreview />
+        <div className="mx-1">
+          <div className="bg-white rounded p-2">
+            <LivePreview className="article" />
           </div>
         </div>
       </div>
     </LiveProvider>
-  )
-}
+  );
+};

@@ -1,21 +1,19 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import React, { useState, useRef } from "react"
-import { connect } from "react-redux"
-import { navigate } from "gatsby"
-import { useCookies } from "react-cookie"
-import ReactTooltip from "react-tooltip"
-import Context from "../context"
-import useDeck from "../hooks/use-deck"
-import useSwipe from "../hooks/use-swipe"
-import { modes } from "../constants"
-import Logo from "../images/Logo.svg"
-import Question from "../images/question.svg"
-import Broadcast from "../images/broadcast.svg"
-import BroadcastOff from "../images/broadcast-off.svg"
-import Stop from "../images/stop.svg"
-import Close from "../images/close.svg"
-
+import { jsx } from "theme-ui";
+import React, { useState, useRef } from "react";
+import { connect } from "react-redux";
+import { useCookies } from "react-cookie";
+import ReactTooltip from "react-tooltip";
+import Context from "../context";
+import useDeck from "../hooks/use-deck";
+import useSwipe from "../hooks/use-swipe";
+import { modes } from "../constants";
+import Logo from "../images/Logo.svg";
+import Question from "../images/question.svg";
+import Broadcast from "../images/broadcast.svg";
+import BroadcastOff from "../images/broadcast-off.svg";
+import Stop from "../images/stop.svg";
+import MinThemeWrapper from "../../../../src/components/minThemeWrapper";
 const toggleMode = (next) => (state) =>
   state.mode === next
     ? {
@@ -23,7 +21,7 @@ const toggleMode = (next) => (state) =>
       }
     : {
         mode: next,
-      }
+      };
 
 export const Slide = ({
   sayHello,
@@ -42,18 +40,18 @@ export const Slide = ({
   length,
   ...props
 }) => {
-  const [cookies, setCookie, removeCookie] = useCookies()
-  const outer = useDeck()
-  const swipeProps = useSwipe()
+  const [cookies, setCookie, removeCookie] = useCookies();
+  const outer = useDeck();
+  const swipeProps = useSwipe();
   const context = {
     ...outer,
     index,
     preview,
-  }
-  const [password, setPassword] = useState("")
-  const TourActive = !cookies.SLDPresTourCookie
+  };
+  const [password, setPassword] = useState("");
+  const TourActive = !cookies.SLDPresTourCookie;
 
-  const onChange = (e) => setPassword(e.target.value)
+  const onChange = (e) => setPassword(e.target.value);
   return (
     <>
       <Context.Provider value={context}>
@@ -71,7 +69,7 @@ export const Slide = ({
             }}
           >
             <div
-              className="is-white-bg is-grey pad-5 border-radius"
+              className="bg-default text-default pad-5 border-radius"
               style={{ minWidth: "30vw" }}
             >
               <h1 className="margin-0-t margin-2-b">Ready to go live?</h1>
@@ -99,7 +97,7 @@ export const Slide = ({
                     className="bubble-button is-red-bg"
                     style={{ width: "100%" }}
                     onClick={() => {
-                      context.setState(toggleMode(modes.normal))
+                      context.setState(toggleMode(modes.normal));
                     }}
                   >
                     Cancel
@@ -117,13 +115,13 @@ export const Slide = ({
             zIndex: 100,
             width: `${index !== 0 ? ((index + 1) / length) * 100 : 0}vw`,
           }}
-          className="is-pink-bg"
+          className="bg-accent"
         />
 
         <div
           {...(!preview ? swipeProps : {})}
           id="pres-slide"
-          className="pres-layout light-mode stepTwo stepThree"
+          className="bg-default text-default presentation stepTwo stepThree py-6 px-12 py-8 md:py-32 lg:py-64 md:px-32 lg:px-64 "
           sx={{
             boxSizing: "border-box",
             width: "100%",
@@ -134,8 +132,6 @@ export const Slide = ({
             justifyContent: "center",
             overflow: "hidden",
             position: "relative",
-            color: "text",
-            bg: "background",
             variant: "styles.Slide",
           }}
         >
@@ -145,35 +141,18 @@ export const Slide = ({
             data-tip={`This presentation was made by Sam Larsen-Disney`}
             style={{ position: "fixed", height: 18, bottom: 20, right: 20 }}
           />
-          <button
-            className=""
-            style={{}}
-            onClick={() => navigate("/presentations")}
-          >
-            <img
-              src={Close}
-              className="grow stepFour"
-              data-tip={`Close`}
-              style={{
-                position: "fixed",
-                height: "100%",
-                top: 12,
-                right: 15,
-                height: 30,
-              }}
-            />
-          </button>
+          <MinThemeWrapper />
           <div
             style={{ position: "fixed", bottom: 10, left: 20 }}
             className="flex align-horizontal"
           >
             <button onClick={() => removeCookie("SLDPresTourCookie")}>
-              <img
-                src={Question}
-                style={{ height: 30 }}
-                className="stepOne grow"
-                data-tip={`Help`}
-              />
+              <p className="text-4xl">
+                <i
+                  className={`stepOne grow las la-question-circle`}
+                  data-tip={`Help`}
+                ></i>
+              </p>
             </button>
             {((livePresenter &&
               window.location.pathname.includes(presentation.deck)) ||
@@ -183,9 +162,9 @@ export const Slide = ({
                   <>
                     <button
                       onClick={(e) => {
-                        context.setState(toggleMode(modes.normal))
-                        stopPres()
-                        e.currentTarget.blur()
+                        context.setState(toggleMode(modes.normal));
+                        stopPres();
+                        e.currentTarget.blur();
                       }}
                       style={{ marginLeft: 15 }}
                     >
@@ -207,8 +186,8 @@ export const Slide = ({
                 ) : (
                   <button
                     onClick={(e) => {
-                      shouldfollow(!follow)
-                      e.currentTarget.blur()
+                      shouldfollow(!follow);
+                      e.currentTarget.blur();
                     }}
                     style={{ marginLeft: 15 }}
                     className="stepFive"
@@ -219,11 +198,11 @@ export const Slide = ({
                         : "Follow presentation."
                     }
                   >
-                    <img
-                      src={follow ? Broadcast : BroadcastOff}
-                      style={{ width: 22 }}
-                      className="grow"
-                    />
+                    <p className="text-4xl">
+                      <i
+                        className={`las ${follow ? "la-lock" : "la-lock-open"}`}
+                      ></i>
+                    </p>
                   </button>
                 )}
               </>
@@ -241,8 +220,8 @@ export const Slide = ({
         </div>
       </Context.Provider>
     </>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({
   livePresenter,
@@ -251,8 +230,8 @@ const mapStateToProps = ({
   verified,
   presentation,
 }) => {
-  return { livePresenter, follow, count, verified, presentation }
-}
+  return { livePresenter, follow, count, verified, presentation };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -268,12 +247,12 @@ const mapDispatchToProps = (dispatch) => {
           index,
         },
       }),
-  }
-}
+  };
+};
 
 const ConnectedSlide =
   typeof window !== `undefined`
     ? connect(mapStateToProps, mapDispatchToProps)(Slide)
-    : Slide
+    : Slide;
 
-export default ConnectedSlide
+export default ConnectedSlide;

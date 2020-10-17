@@ -1,6 +1,6 @@
-import React from "react"
-import Joyride from "react-joyride"
-import { useCookies } from "react-cookie"
+import React from "react";
+import Joyride from "react-joyride";
+import { useCookies } from "react-cookie";
 const steps = [
   {
     target: ".stepTwo",
@@ -11,7 +11,7 @@ const steps = [
   {
     target: ".stepThree",
     content: "Swipe or use your arrow keys to navigate between the slides.",
-    placement: "top",
+    placement: "top-end",
   },
   {
     target: ".stepFour",
@@ -26,20 +26,25 @@ const steps = [
     placement: "top-end",
   },
   {
+    target: ".stepSix",
+    content: "Click here to change the deck theme.",
+    placement: "bottom-end",
+  },
+  {
     target: ".stepOne",
     content: "Tap or click here at any time to see these instructions again.",
     placement: "top",
   },
-]
+];
 
 export default () => {
-  const [cookies, setCookie] = useCookies()
-  const TourActive = !cookies.SLDPresTourCookie
+  const [cookies, setCookie] = useCookies();
+  const TourActive = !cookies.SLDPresTourCookie;
   const tourCB = (e) => {
     if (e.action === "reset" || e.action === "close") {
-      setCookie("SLDPresTourCookie", true)
+      setCookie("SLDPresTourCookie", true);
     }
-  }
+  };
   return (
     <Joyride
       steps={
@@ -66,5 +71,5 @@ export default () => {
         },
       }}
     />
-  )
-}
+  );
+};

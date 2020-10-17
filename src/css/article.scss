@@ -10,9 +10,10 @@
       }
     }
   }
+  
   code {
     @apply font-semibold text-base;
-  }
+  };
   a {
     @apply font-semibold;
     @extend .link;
@@ -62,5 +63,113 @@
   }
   a {
     text-decoration: unset;
+  }
+}
+
+.presentation {
+  .big-img{
+    height: 1024px;
+    width: 1400px
+  }
+  .unset-all{
+    all: unset !important
+  }
+  .firework-window{
+    position: absolute;
+    height: 100vh;
+    width:100vw;
+    top:0
+
+  }
+  .recharts-bar-rectangle {
+    path {
+      fill: var(--color-bg-accent)
+    }
+  }
+  .recharts-default-tooltip {
+    @apply text-primary rounded;
+    background-color: var(--color-bg-primary) !important;
+  }
+  .recharts-tooltip-label {
+    color: var(--color-accent) !important;
+  }
+  .recharts-tooltip-item-list {
+    li {
+      color: var(--color-accent) !important;
+    }
+   
+  }
+  .recharts-text {
+    fill: var(--color-text-secondary)
+  }
+  .npm__react-simple-code-editor__textarea {
+    // all: unset !important;
+  }
+  img {
+    max-height: 75vh;
+  }
+  pre {
+    @apply text-xl mb-3;
+  }
+  h1 {
+    @apply text-4xl font-bold mb-3;
+  }
+  h2 {
+    @apply text-3xl font-semibold mb-1 mt-3 leading-loose;
+  }
+  h3 {
+    @apply text-3xl font-semibold mb-1 mt-3 leading-loose; 
+  }
+  h4 {
+    @apply text-2xl font-semibold mb-1 mt-3 leading-loose;
+  }
+  h5 {
+    @apply text-xl font-semibold mb-1 mt-3 leading-loose;
+  }
+  @screen md {
+    pre {
+      @apply text-2xl;
+    }
+    h1 {
+      @apply text-6xl;
+    }
+    h2 {
+      @apply text-4xl;
+    }
+    h3 {
+      @apply text-4xl;
+    }
+    h4 {
+      @apply text-3xl;
+    }
+  }
+
+  @screen lg {
+    pre {
+      @apply text-3xl;
+    }
+    .code-small {
+      pre {
+        @apply text-xl;
+      }
+    }
+    .code-xs {
+      pre {
+        @apply text-base;
+      }
+    }
+    
+    h1 {
+      @apply text-8xl;
+    }
+    h2 {
+      @apply text-6xl;
+    }
+    h3 {
+      @apply text-6xl;
+    }
+    h4 {
+      @apply text-5xl;
+    }
   }
 }

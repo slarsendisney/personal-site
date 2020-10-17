@@ -1,12 +1,12 @@
-import React from "react"
-import SyntaxHighlighter from "react-syntax-highlighter"
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import React from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default (props, { language = "jsx" }) => {
   return (
     <div
       className="is-white-always flex"
-      style={{ maxWidth: "100%", width: "100vw" }}
+      style={{ width: "100%", minWidth: "80vw" }}
     >
       <SyntaxHighlighter
         style={atomOneDark}
@@ -34,5 +34,5 @@ export default (props, { language = "jsx" }) => {
         {...props}
       />
     </div>
-  )
-}
+  );
+};

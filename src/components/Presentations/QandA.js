@@ -1,42 +1,35 @@
-import React, { useState } from "react"
-import { connect } from "react-redux"
-import { useDocumentData } from "react-firebase-hooks/firestore"
-import { Emojione } from "react-emoji-render"
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { useDocumentData } from "react-firebase-hooks/firestore";
+import { Emojione } from "react-emoji-render";
 
-let firebase
+let firebase;
 
 if (typeof window !== "undefined") {
-  firebase = require("firebase/app")
-  require("firebase/firestore")
+  firebase = require("firebase/app");
+  require("firebase/firestore");
 }
 
 const QuestionCard = ({ question }) => {
-  const [answered, setAnswered] = useState(false)
+  const [answered, setAnswered] = useState(false);
 
   return (
-    <div className="col-xs-12 col-md-4 pad-1 fill-height">
+    <div className="">
       <button
         className={`${
-          answered
-            ? "is-special-blue-bg is-white-always"
-            : "is-light-grey-bg is-grey"
-        } pad-2 border-radius fill-height fill-width`}
+          answered ? "text-secondary" : "bg-secondary text-link"
+        } rounded py-1 px-2`}
         onClick={() => setAnswered(!answered)}
       >
-        <p
-          style={{ fontSize: 20 }}
-          className={`${answered && "is-white-always"}`}
-        >
-          {question}
-        </p>
+        <p style={{ fontSize: 20 }}>{question}</p>
       </button>
     </div>
-  )
-}
+  );
+};
 const QuestionReel = ({ QAID }) => {
   const [value, loading, error] = useDocumentData(
     firebase.firestore().doc(`QandA/${QAID}`)
-  )
+  );
   return (
     <div className="QA">
       <h4>Q&A Session</h4>
@@ -44,31 +37,33 @@ const QuestionReel = ({ QAID }) => {
       {error && <p>Error loading data.</p>}
 
       {!loading && !error && value && value.questions && (
-        <div className="row">
-          <div className="col-xs-12">
-            <p className="opacity-50" style={{ fontSize: 20 }}>
-              {value.questions.length} questions asked.
-            </p>
+        <div style={{ height: "75vh", overflowY: "scroll" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+            <div className="col-span-3">
+              <p className="opacity-50" style={{ fontSize: 20 }}>
+                {value.questions.length} questions asked.
+              </p>
+            </div>
+            {value.questions.map((question) => (
+              <QuestionCard question={question} />
+            ))}
           </div>
-          {value.questions.map((question) => (
-            <QuestionCard question={question} />
-          ))}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
 const QuestionForm = ({ submitQuestion, QAID }) => {
-  const [submitted, setSubmitted] = useState(false)
-  const [question, setQuestion] = useState("")
+  const [submitted, setSubmitted] = useState(false);
+  const [question, setQuestion] = useState("");
   const onSubmit = () => {
     if (question !== "") {
-      submitQuestion(QAID, question)
-      setSubmitted(true)
-      setQuestion("")
+      submitQuestion(QAID, question);
+      setSubmitted(true);
+      setQuestion("");
     }
-  }
+  };
   return (
     <div className="QA">
       <h4>Q&A Session</h4>
@@ -87,43 +82,44 @@ const QuestionForm = ({ submitQuestion, QAID }) => {
       ) : (
         <>
           {" "}
-          <p className="legal">
-            Want to ask me a question? It's anonymous <Emojione text="💫" />.
+          <p className="text-3xl">
+            Want to ask me a question? It's anonymous{" "}
+            <Emojione className="inline-block" text="💫" />.
           </p>
           <input
-            className="input"
+            className="input text-3xl"
             placeholder="My Awesome Question..."
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
           />
-          <button className="bubble-button border-radius " onClick={onSubmit}>
-            <p className="legal is-white-always margin-0">Submit</p>
+          <button className="btn text-2xl" onClick={onSubmit}>
+            Submit
           </button>{" "}
         </>
       )}
     </div>
-  )
-}
+  );
+};
 const QandAView = ({ livePresenter, verified, submitQuestion, QAID }) => {
   if (livePresenter && verified) {
-    return <QuestionReel QAID={QAID} />
+    return <QuestionReel QAID={QAID} />;
   }
-  return <QuestionForm submitQuestion={submitQuestion} QAID={QAID} />
-}
+  return <QuestionForm submitQuestion={submitQuestion} QAID={QAID} />;
+};
 
 const mapStateToProps = ({ livePresenter, verified }) => {
-  return { livePresenter, verified }
-}
+  return { livePresenter, verified };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     submitQuestion: (id, question) =>
       dispatch({ type: "server/question", data: { id, question } }),
-  }
-}
+  };
+};
 
 const ConnectedQandAView =
   typeof window !== `undefined`
     ? connect(mapStateToProps, mapDispatchToProps)(QandAView)
-    : QandAView
+    : QandAView;
 
-export default ConnectedQandAView
+export default ConnectedQandAView;

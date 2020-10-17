@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   ResponsiveContainer,
   BarChart,
@@ -8,7 +8,7 @@ import {
   Tooltip,
   Legend,
   Bar,
-} from "recharts"
+} from "recharts";
 const data = [
   {
     name: "Audio",
@@ -22,7 +22,7 @@ const data = [
     name: "HD Video",
     GB: 2.5,
   },
-]
+];
 
 const dataWithGatsby = [
   {
@@ -41,7 +41,7 @@ const dataWithGatsby = [
     name: "HD Video",
     GB: 2.5,
   },
-]
+];
 
 export default ({ withGatsby }) => {
   return (
@@ -61,5 +61,5 @@ export default ({ withGatsby }) => {
         <Bar dataKey="GB" fill="#82ca9d" />
       </BarChart>
     </ResponsiveContainer>
-  )
-}
+  );
+};

@@ -26,12 +26,11 @@ import Editor from "../../../src/components/LiveEditor/Editor";
 import Stats from "../../../src/components/Presentations/Stats";
 
 
-<div className="text-align-left row is-grey" style={{width:"100%"}}>
-    <div className="col-xs-12 ">
-        <h2 className="lato-always"> <Emojione text="👋"/> Hey, I'm Sam Larsen-Disney.</h2>
-       </div>
-    <div className="col-xs-12 ">
-        <h5 className="lato-always">UX Engineer @ American Express</h5>
+<div  style={{width:"100%"}}>
+    <div className="flex flex-col items-left">
+      <h1><Emojione text="👋"/></h1>
+        <h1> Hey, I'm <br/> <span className="text-link">Sam Larsen-Disney</span>.</h1>
+        <h4>UX Engineer @ American Express</h4>
     </div>
 </div>
 
@@ -39,69 +38,77 @@ import Stats from "../../../src/components/Presentations/Stats";
 ---
 
 <div className="flex align-horizontal align-vertical container">
-    <Warning content="All views expressed in this talk are my own and do not represent the opinions of any entity whatsover with which I have been, am now or will be affiliated with." backgroundColourClassName="is-white-bg"/>
+    <Warning content="All views expressed in this talk are my own and do not represent the opinions of any entity whatsover with which I have been, am now or will be affiliated with." backgroundColourClassName="bg-default"/>
 </div>
 
 ---
 
-<h1 className="lato-always text-align-center">Presenting Without Sharing My Screen</h1>
-<p>OR</p>
-<p className="bold">Using React to Replace Powerpoint </p>
+<h1 className="text-center">Presenting Without Sharing My Screen</h1>
+<p className="text-link">OR</p>
+<h3>Using React to Replace Powerpoint </h3>
 
 ---
 
-<h2 className="lato-always">Join in at <a target="_blank" rel="noopener noreferrer" href="https://follow.sld.codes">follow.sld.codes</a> </h2>
+<h2 className="font-weight-normal">PowerPoint and me are <span className="text-link">not</span> friends.</h2>
 
 ---
 
-<h2 className="lato-always font-weight-normal">PowerPoint and me are not friends.</h2>
+<h2 className=" font-weight-normal">I hate it.</h2>
 
 ---
 
-<h2 className="lato-always font-weight-normal">I hate it.</h2>
+<h2 >Pixel Perfect</h2>
 
 ---
 
-<h2 className="lato-always">Pixel Perfect</h2>
+<h2 ><span className="text-link">Overly complex</span> to theme</h2>
 
 ---
 
-<h2 className="lato-always">Overly complex to theme</h2>
+<h2 >When was PowerPoint born?</h2>
 
 ---
 
-<h2 className="lato-always">When was PowerPoint born?</h2>
+<h1 className=" text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold">1987</h1>
+<Preload images={["https://ik.imagekit.io/sld/bill_lJon8Dz19S_.jpg"]}/>
 
 ---
 
-<h1 className="lato-always is-hero-menu">1987</h1>
+![Bill](https://ik.imagekit.io/sld/bill_lJon8Dz19S_.jpg)
+<p className="mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">1987 Bill</p>
+<Preload images={["https://ik.imagekit.io/sld/bad_OroGsHBIic0.webp"]}/>
 
 ---
 
-<h1 className="lato-always is-hero-menu">🔎</h1>
+![Bad](https://ik.imagekit.io/sld/bad_OroGsHBIic0.webp)
+<p className=" text-lg mt-8 px-2 py-1 rounded bg-primary text-primary">Michael Jackson released his highly anticipated Thriller follow-up, Bad.</p>
 
 ---
 
-<h1 className="lato-always is-hero-menu">MDX</h1>
-
-<a target="_blank" rel="noopener noreferrer" href="https://mdxjs.com/"><button className="bubble-button border-radius legal">Learn More</button></a>
+<h1 className=" text-4xl">🔎</h1>
 
 ---
 
-<h2 className="lato-always font-weight-normal">Markdown + JSX <Emojione text="❤️"/></h2>
+<h1 className=" text-4xl">MDX</h1>
+
+<a target="_blank" rel="noopener noreferrer" href="https://mdxjs.com/"><button className="link text-4xl ">Learn More</button></a>
 
 ---
 
-<h1 className="lato-always"><Emojione text="😍"/></h1>
-<h2 className="lato-always font-weight-normal">Interactive charts, animations or alerts inside your markdown content!</h2>
+<h2 className=" font-weight-normal">Markdown + JSX <Emojione style={{display:'inline-block'}} text="❤️"/></h2>
 
 ---
 
-<h2 className="lato-always font-weight-normal">Example Time <Emojione text="💫"/></h2>
+<h1 ><Emojione style={{display:'inline-block'}} text="😍"/></h1>
+<h2 className=" font-weight-normal">Interactive charts, animations or alerts inside your markdown content!</h2>
 
 ---
 
-<p className="legal opacity-70"><code>Example.mdx</code></p>
+<h2 className=" font-weight-normal">Example Time <Emojione style={{display:'inline-block'}} text="💫"/></h2>
+
+---
+
+<p className=" opacity-70"><code>Example.mdx</code></p>
 <CodeBlock language="Markdown">
 {
 `# Hello, *world*!
@@ -112,11 +119,11 @@ Below is an example of JSX embedded in Markdown:
 `
 }
 </CodeBlock >
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">We can throw in JSX!</p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">We can throw in JSX!</p>
 
 ---
 
-<p className="legal opacity-70"><code>Example.mdx</code></p>
+<p className=" opacity-70"><code>Example.mdx</code></p>
 <CodeBlock language="Markdown">
 {
 `import SpecialComponent from "./specialComponent"
@@ -126,54 +133,54 @@ Below is an example of JSX embedded in Markdown.
 `
 }
 </CodeBlock >
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">We can use imports as normal.</p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">We can use imports as normal.</p>
 
 ---
 
 ![Infographic](https://ik.imagekit.io/sld/infographic_EaEYSfYB37-.png)
 
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Perfect for blog posts from devs</p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">Perfect for blog posts from devs</p>
 
 ---
 
 ![Design System](https://ik.imagekit.io/sld/DesignSystemExample_jXzuX1HjQ.png)
 
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Design System Documentation</p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">Design System Documentation</p>
 
 
 ---
 
-<h1 className="lato-always is-hero-menu">GatsbyJS</h1>
-<a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/"><button className="bubble-button border-radius legal">Learn More</button></a>
+<h1 className=" text-4xl">GatsbyJS</h1>
+<a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/"><button className="link text-4xl">Learn More</button></a>
 
 ---
 
-<h2 className="lato-always">React Static Site Generator</h2>
+<h2 >React Static Site Generator</h2>
 
 ---
 
-<h2 className="lato-always">Gatsby generates pages for you</h2>
+<h2 >Gatsby generates pages for you</h2>
 
 <p>Pass Gatsby content, define a template and it will programmatically create pages for you.</p>
 
 ---
 
-<h2 className="lato-always "><Emojione text="🔌"/>Built with a plugin architecture</h2>
+<h2 className=" "><Emojione style={{display:'inline-block'}} text="🔌"/>Built with a plugin architecture</h2>
 
 Abstract complex, configurations, or reusable code into a plugin so its away from what your focused on.
 
 ---
 
-<h2 className="lato-always">gatsby-plugin-mdx </h2>
+<h2 >gatsby-plugin-mdx </h2>
 
 ---
 
-<h2 className="lato-always">gatsby-theme-mdx-deck </h2>
+<h2 >gatsby-theme-mdx-deck </h2>
 <p>MDX -> slide decks .</p>
 
 ---
 
-<p className="legal opacity-70"><code>Deck.mdx</code></p>
+<p className=" opacity-70"><code>Deck.mdx</code></p>
 <CodeBlock >
 {
     `---
@@ -188,77 +195,95 @@ My first point
 }
 </CodeBlock >
 
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Slides seperated by <strong>---</strong></p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">Slides seperated by <strong>---</strong></p>
 
 ---
 
 <div className="flex align-horizontal align-vertical container">
-    <Success content="This was the PowerPoint alternative I was looking for." backgroundColourClassName="is-white-bg"/>
+    <Success content="This was the PowerPoint alternative I was looking for." backgroundColourClassName="bg-default"/>
 </div>
 
 ---
 
-<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
-    <h3 className="lato-always"><Emojione text="✅ Slides can be styled with css or sass."/></h3>
-    <h3 className="lato-always"><Emojione text="✅ Performant."/></h3>
-    <h3 className="lato-always"><Emojione text="✅ We can host the slides."/></h3>
-    <h3 className="lato-always"><Emojione text="✅ We can customise the 🔥 out of it."/></h3>
+<div className="text-align-left flex" style={{flexDirection:'column'}} >
+    <h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>Slides can be styled with css or sass.</h3>
+    <h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>Performant.</h3>
+    <h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>We can host the slides.</h3>
+    <h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>We can customise the <Emojione style={{display:'inline-block'}} text="🔥"/> out of it.</h3>
 </div>
 
 ---
 
-<h1 className="lato-always">Things we can do with react components in slides</h1>
+<h1 >Things we can do with react components in slides</h1>
 
 ---
 
 <Confetti>
- <h1 className="lato-always">Lottie Animations</h1>
+ <h1 >Lottie Animations</h1>
  <a target="_blank" rel="noopener noreferrer" href="https://airbnb.io/lottie/#/">Learn More</a>
 </Confetti>
 
 ---
 
-<div className="fill-width">
+<div className="fill-width code-xs mt-24">
+  <div className="unset-all">
   <Editor />
+  </div>
 </div>
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">In-presentation-code-editors</p>
-
----
-<h1><Emojione text="⭐️"/></h1>
-<h2 className="lato-always"> An interactive slide deck might be a more memorable one?</h2>
+<p className=" mt-2 px-2 py-1 rounded bg-primary text-primary mb-5">In-presentation-code-editors</p>
 
 ---
 
-<h1 className="lato-always"><Emojione text="✅ Job Done"/></h1>
+<h2 style="line-height: 10px;"><Emojione text="🎨"/></h2>
+<h2 >Themes</h2>
+<button className="btn">I Love Themes!</button>
 
 ---
 
-<h1 className="lato-always"> Coronavirus & Social Distancing </h1>
+<h2 style="line-height: 10px;"><Emojione text="⭐️"/></h2>
+<h2 > An interactive slide deck might be a more memorable one?</h2>
 
 ---
 
-<h1 className="lato-always"><Emojione text="😿 Job Done?"/></h1>
+<h1 ><Emojione style={{display:'inline-block'}} text="✅ "/>Job Done</h1>
+<Preload images={["https://media.giphy.com/media/KyGg5aSMnuM1TwNywV/source.gif"]}/>
 
 ---
 
-<h1><Emojione text="🌍 -> 💻"/></h1>
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">The whole world went online!</p>
+![Covid](https://media.giphy.com/media/KyGg5aSMnuM1TwNywV/source.gif)
+
+<Preload images={["https://media.giphy.com/media/VIEEC7Jl1LnxE6ntlF/source.gif"]}/>
 
 ---
 
-<div className="flex align-horizontal align-vertical container" style={{height:"100%", width:"100%"}}>
+![WFH](https://media.giphy.com/media/VIEEC7Jl1LnxE6ntlF/source.gif)
+
+---
+
+<h1 ><Emojione style={{display:'inline-block'}} text="😿"/>Job Done?</h1>
+
+---
+
+<h1><Emojione style={{display:'flex'}} text="🌍 -> 💻"/></h1>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">The whole world went online!</p>
+
+---
+
+<div className="flex flex-col items-center" style={{height:"100vh", width:"100%"}}>
     <ZoomData />
-    <p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Zoom Data Usage Per Hour</p>
+    <div>
+      <p className="mt-8 px-2 py-1 rounded bg-primary text-primary text-center">Zoom Data Usage Per Hour</p>
+    </div>
 </div>
 
 
 ---
 
-<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
-  <h3 className="lato-always"><Emojione text="😐 No fibre" /></h3>
-  <h3 className="lato-always"><Emojione text="😑 Other users" /></h3>
-  <h3 className="lato-always"><Emojione text="😕 BAD ISP" /></h3>
-  <h3 className="lato-always"><Emojione text="😞 VPN" /></h3>
+<div className="text-align-left flex" style={{flexDirection:'column'}} >
+  <h3 ><Emojione style={{display:'inline-block'}} text="😐 " />No fibre</h3>
+  <h3 ><Emojione style={{display:'inline-block'}} text="😑 " />Other users</h3>
+  <h3 ><Emojione style={{display:'inline-block'}} text="😕 " />BAD ISP</h3>
+  <h3 ><Emojione style={{display:'inline-block'}} text="😞 " />VPN</h3>
 </div>
 
 ---
@@ -270,10 +295,12 @@ My first point
 
 ![Sooo 90s](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/90s.gif?alt=media&token=92309475-e44b-4df3-ab5b-1419f95226c2)
 
+<p className="mt-8 px-2 py-1 rounded bg-primary text-primary text-center text-2xl">How it feels...</p>
+
 ---
 
 <div className="flex align-horizontal align-vertical container">
-    <Warning content="The UX designer in me thinks this is less than ideal. I spend considerable time putting presentations together and they deserve a proper delivery." backgroundColourClassName="is-white-bg"/>
+    <Warning content="The UX designer in me thinks this is less than ideal. I spend considerable time putting presentations together and they deserve a proper delivery." backgroundColourClassName="bg-default"/>
 </div>
 <Preload images={["https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Thought.png?alt=media&token=593cba54-930a-4345-868a-8f9a6d90cfa9"]}/>
 
@@ -283,22 +310,22 @@ My first point
 
 ---
 
-<h1 className="lato-always"><Emojione text="Realtime ➡️ Sockets"/></h1>
+<h1 className="items-center">Realtime<Emojione style={{display:'inline-block'}} text=" ➡️ "/>Sockets</h1>
 
 
 ---
 
-<h2 className="lato-always">What is a Socket?</h2>
+<h2 >What is a Socket?</h2>
 
-<p>A <span className="is-yellow-bg pad-1 border-radius">bi-directional</span> communication channel between a client and a server.</p>
+<p>A <span className="bg-accent text-accent py-1 px-2 rounded">bi-directional</span> communication channel between a client and a server.</p>
 
 
 ---
 
-<div className="row" style={{maxWidth:'100%'}}>
+<div className="row code-small" style={{maxWidth:'100%'}}>
     <div className="col-xs-12 pad-10-lr">
     
-        <p className="legal opacity-70"><code>App.js</code></p>
+        <p className=" opacity-70"><code>App.js</code></p>
         <CodeBlock language="JSX">
 {
 `import openSocket from "socket.io-client";
@@ -309,7 +336,7 @@ socket.emit("message", "Hello!");`
     </div>
     <div className="col-xs-12 pad-10-lr">
            
-            <p className="legal opacity-70"><code>Server.js</code></p>
+            <p className=" opacity-70"><code>Server.js</code></p>
         <CodeBlock language="JS">
 {
 `const express = require("express");
@@ -326,20 +353,21 @@ io.on("connection", (socket) => {
         </CodeBlock >
     </div>
 </div>
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Sockets Demo</p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-2xl">Sockets Demo</p>
 
 
 ---
 
-<h1 className="lato-always"><Emojione text="What If We Want To Store The Data?"/></h1>
+<h1 >What If We Want To <span className="text-link">Store</span> The Data?</h1>
 
 ---
 
-<h1 className="lato-always"><Emojione text="Combine With Redux ♥️"/></h1>
+<h1 ><Emojione style={{display:'inline-block'}} text="Combine With Redux ♥️"/></h1>
 
 ---
 
-<p className="legal opacity-70"><code>CreateStore.js</code></p>
+<p className=" opacity-70"><code>CreateStore.js</code></p>
+<div className="code-small md:mx-3">
 <CodeBlock >
 {
 `import { createStore, applyMiddleware } from "redux";
@@ -362,12 +390,14 @@ store.subscribe(()=>{
 store.dispatch({type:"server/hello", data:"Hello!"});`
 }
 </CodeBlock >
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Implementing Socket.IO Redux Middleware</p>
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/itaylor/redux-socket.io"><p className="legal is-special-blue-always margin-5-t">See redux-socket.io on Github</p></a>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Implementing Socket.IO Redux Middleware</p>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/itaylor/redux-socket.io"><p className="text-sm md:text-xl link mt-4">See redux-socket.io on Github</p></a>
 
 ---
 
-<p className="legal opacity-70"><code>Server.js</code></p>
+<p className=" opacity-70"><code>Server.js</code></p>
+<div className="code-small md:mx-3">
 <CodeBlock >
 {
 `var http = require("http");
@@ -387,15 +417,17 @@ io.on("connection", function(socket){
 });`
 }
 </CodeBlock >
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Do something with the data on our server.</p>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Do something with the data on our server.</p>
 
 ---
 
-<h1 className="lato-always"><Emojione text="Controlling Slide Delivery"/></h1>
+<h1 ><Emojione style={{display:'inline-block'}} text="Controlling Slide Delivery"/></h1>
 
 ---
 
-<p className="legal opacity-70"><code>Deck.js</code></p>
+<p className=" opacity-70"><code>Deck.js</code></p>
+<div className="code-xs md:mx-3">
 <CodeBlock language="jsx">
     {`export const Deck = ({
   changePresPosOnServer,
@@ -423,11 +455,12 @@ const ConnectedDeck =
     : Slide
 export default ConnectedDeck`}
 </CodeBlock>
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Updating Index While Presenting</p>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Updating Index While Presenting</p>
 
 ---
 
-<p className="legal opacity-70"><code>Server.js</code></p>
+<p className=" opacity-70"><code>Server.js</code></p>
 <CodeBlock language="jsx">
     {`if (action.type === "server/updateIndex") {
         pres.slide = action.data;
@@ -437,11 +470,12 @@ export default ConnectedDeck`}
         });
     }`}
 </CodeBlock>
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Server Updates Index and Emits!</p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Server Updates Index and Emits!</p>
 
 ---
 
-<p className="legal opacity-70"><code>Deck.js</code></p>
+<p className=" opacity-70"><code>Deck.js</code></p>
+<div className="code-xs md:mx-3">
 <CodeBlock language="jsx">
     {`export const Deck = ({
   presentation,
@@ -464,15 +498,17 @@ const ConnectedDeck =
     : Slide
 export default ConnectedDeck`}
 </CodeBlock>
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Following Along</p>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Following Along</p>
 
 ---
 
-<h1 className="lato-always"><Emojione text="Making it Presentor Only"/></h1>
+<h1 ><Emojione style={{display:'inline-block'}} text="Making it Presentor Only"/></h1>
 
 ---
 
-<p className="legal opacity-70"><code>Server.js</code></p>
+<p className=" opacity-70"><code>Server.js</code></p>
+<div className="code-xs md:mx-3">
 <CodeBlock language="js">
 {`if (action.type === "server/verify") {
       if (process.env.PRESENT_PASSWORD === action.data.password) {
@@ -499,24 +535,26 @@ export default ConnectedDeck`}
       }
     }`}
 </CodeBlock>
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Using ENV Variable to Identify Presentor</p>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Using ENV Variable to Identify Presentor</p>
 <Preload images={["https://ik.imagekit.io/sld/flowDiagram_GM8ZlDQ1BMI.png"]}/>
 
 ---
 
-![Architecture Digram](https://ik.imagekit.io/sld/flowDiagram_GM8ZlDQ1BMI.png)
+<img src="https://ik.imagekit.io/sld/flowDiagram_GM8ZlDQ1BMI.png" className="bg-white rounded p-5"/>
 
 ---
 
-<h1 className="lato-always"><Emojione text="What if I'm going too fast? 🚀"/></h1>
+<h1 ><Emojione style={{display:'inline-block'}} text="What if I'm going too fast? 🚀"/></h1>
 
 ---
 
-<h1 className="lato-always"><Emojione text="Adding Unfollow"/></h1>
+<h1 ><Emojione style={{display:'inline-block'}} text="Adding Unfollow"/></h1>
 
 ---
 
-<p className="legal opacity-70"><code>Deck.js</code></p>
+<p className=" opacity-70"><code>Deck.js</code></p>
+<div className="code-xs md:mx-3">
 <CodeBlock language="js">
 {`export const Deck = ({
   presentation,
@@ -541,39 +579,40 @@ const ConnectedDeck =
     : Slide
 export default ConnectedDeck`}
 </CodeBlock>
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Only jump if follow === true</p>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Only jump if follow === true</p>
 
 ---
 
-<div className="flex align-horizontal align-vertical container" style={{height:"100%", width:"100%"}}>
+<div className="flex items-center justify-center" style={{height:"100%", width:"100%", minHeight:"70vh"}}>
     <ZoomData withGatsby={true}/>
 </div>
 
 ---
 
-<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
+<div className="text-align-left flex" style={{flexDirection:'column'}} >
 
-<h3 className="lato-always"><Emojione text="✅ Stress on my network goes down"/></h3>
+<h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>Stress on my network goes down</h3>
 
-<h3 className="lato-always"><Emojione text="✅ Everybody downloads less"/></h3>
+<h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>Everybody downloads less</h3>
 
-<h3 className="lato-always"><Emojione text="✅ Crystal clear content"/></h3>
+<h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>Crystal clear content</h3>
 
 </div>
 
 ---
 
-<h1 className="lato-always font-weight-normal">Sockets allow for <span className="bold">even more crazy</span> react components</h1>
+<h1 className="font-weight-normal">Sockets allow for <span className="bold text-link">even more crazy</span> react components</h1>
 
 ---
 
 <div className="flex align-horizontal align-vertical container">
-    <Warning content="These components are experimental. I have never tested them with this many sockets!" backgroundColourClassName="is-white-bg"/>
+    <Warning content="These components are experimental. I have never tested them with this many sockets!" backgroundColourClassName="bg-default"/>
 </div>
 
 ---
 
-<h1 className="lato-always">Q&A</h1>
+<h1 >Q&A</h1>
 
 ---
 
@@ -581,7 +620,7 @@ export default ConnectedDeck`}
 
 ---
 
-<h1 className="lato-always">Polls</h1>
+<h1 >Polls</h1>
 
 ---
 
@@ -589,7 +628,7 @@ export default ConnectedDeck`}
 
 ---
 
-<h1 className="lato-always">Stats</h1>
+<h1 >Stats</h1>
 
 ---
 
@@ -597,7 +636,7 @@ export default ConnectedDeck`}
 
 ---
 
-<h1 className="lato-always">Getting stupid with this</h1>
+<h1 >Getting <span className="text-link">stupid</span> with this</h1>
 
 ---
 
@@ -609,15 +648,15 @@ export default ConnectedDeck`}
 
 <img src="https://ik.imagekit.io/sld/Charlie_H6woYFtms.jpg"/>
 
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Charlie Gerard</p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Charlie Gerard</p>
 
 <Preload images={["https://ik.imagekit.io/sld/camera__1__GesaesDUrR9.gif"]}/>
 
 ---
 
-<img src="https://ik.imagekit.io/sld/camera__1__GesaesDUrR9.gif" width="100%" style="max-width:500px"/>
+<img src="https://ik.imagekit.io/sld/camera__1__GesaesDUrR9.gif" width="100%" height="100%" style="max-width:500px; min-height:500px"/>
 
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">The PoseNet Skeleton</p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">The PoseNet Skeleton</p>
 
 <Preload images={["https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2"]}/>
 
@@ -633,7 +672,8 @@ export default ConnectedDeck`}
 
 ---
 
-<p className="legal opacity-70"><code>PoseNetCamera.js</code></p>
+<p className=" opacity-70"><code>PoseNetCamera.js</code></p>
+<div className="code-small">
 <CodeBlock language="js">
 {`class PoseNet extends Component {  
  //...
@@ -654,10 +694,12 @@ export default ConnectedDeck`}
 //...
 `}
 </CodeBlock >
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Using PoseNet</p>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Using PoseNet</p>
 
 ---
 
+<div className="code-small">
 <CodeBlock language="json">
 {`{
   "score": 0.32371445304906,
@@ -682,11 +724,13 @@ export default ConnectedDeck`}
 }
 `}
 </CodeBlock >
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">PoseNet Data Points</p>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">PoseNet Data Points</p>
 
 ---
 
-<p className="legal opacity-70"><code>Remote.js</code></p>
+<p className=" opacity-70 "><code>Remote.js</code></p>
+<div classname="code-small">
 <CodeBlock language="js">
 {`useEffect(() => {  
     if (presentation && differenceInSeconds(new Date(), lastPunch) > 0.5) {  
@@ -703,64 +747,65 @@ export default ConnectedDeck`}
   }, [poses]);
 `}
 </CodeBlock >
-<p className="legal pad-2-lr pad-1-tb  border-radius is-yellow-bg">Triggering Slide Jumps</p>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">Triggering Slide Jumps</p>
+
+---
+<div>
+  <img src="https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif" className="big-img"/>
+</div>
+<a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=kZkOyVuBw-o&feature=youtu.be"><p className=" mx-auto btn text-xl mt-5 text-center">See the Video</p></a>
 
 ---
 
-<img src="https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif" width="100%" style="max-width:800px"/>
-
-<a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=kZkOyVuBw-o&feature=youtu.be"><p className="legal is-special-blue-always margin-5-t">See the Video</p></a>
-
----
-
-<h1 className="lato-always">Try it yourself!</h1>
+<h1 >Try it yourself!</h1>
 
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/kirstenlindsmith/PoseNet_React/blob/master/client/components/Camera.js">See the Borrowed Code</a>
 
 ---
 
-<h1 className="lato-always">Further Extensions</h1>
-<div className="text-align-left flex is-grey" style={{flexDirection:'column'}} >
-<p className="lato-always"><Emojione text="🔎 SEO"/></p>
-<p className="lato-always"><Emojione text="📞 Calling through the app"/></p>
-<p className="lato-always"><Emojione text="🎺 Turning your audience into a choir/orchestra using tone.js"/></p>
+<h1 >Further Extensions</h1>
+<div className="text-align-left flex" style={{flexDirection:'column'}} >
+<p ><Emojione style={{display:'inline-block'}} text="🔎"/>SEO</p>
+<p ><Emojione style={{display:'inline-block'}} text="👨"/><Emojione style={{display:'inline-block'}} text="👨"/>  Peer to Peer</p>
+<p ><Emojione style={{display:'inline-block'}} text="📞 "/>Calling through the app</p>
+<p ><Emojione style={{display:'inline-block'}} text="🎺 "/>Turning your audience into a choir/orchestra</p>
 
 </div>
 
 ---
 
-<div className="text-align-left row is-grey" style={{width:"100%"}}>
-    <div className="col-xs-12 ">
-        <h2 className="lato-always"> <Emojione text="💪"/> That's all folks!</h2>
-        <p className="legal margin-3-t">Find me on the interwebs. Feedback always welcome:</p>
+<div className="text-left grid grid-cols-3" style={{width:"100%"}}>
+    <div className="col-span-3 ">
+        <h2 > <Emojione style={{display:'inline-block'}} text="💪"/> That's all folks!</h2>
+        <p className="mt-0">Find me on the interwebs. Feedback always welcome:</p>
         <div>
-        <h4 className="lato-always">
+        <h4 >
                 <TextLoop>
-                    <span></span>
-                    <span>twitter.</span>
-                    <span>linkedin.</span>
+                    <span ></span>
+                    <span className="text-link">twitter.</span>
+                    <span className="text-link">linkedin.</span>
                 </TextLoop>sld.codes
             </h4>
             </div>
-           <h4 className="margin-0 opacity-30">-</h4>
     </div>
-    <div className="col-xs-4">
-        <h5 className="lato-always">Dev Links</h5>
-         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://github.com/slarsendisney/personal-site"><p className="is-special-blue-always">This Repo</p></a>
-          <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://mdxjs.com/"><p className="is-special-blue-always">MDX</p></a>
-         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://github.com/jxnblk/mdx-deck/tree/master/packages/gatsby-theme"><p className="is-special-blue-always">gatsby-theme-mdx-deck</p></a>
-         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://socket.io/"><p className="is-special-blue-always">Socket.io</p></a>
-         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://github.com/tensorflow/tfjs-models/tree/master/posenet"><p className="is-special-blue-always">Posenet</p></a>
+    <div className="col-span-2 md:col-span-1">
+        <h5 >Dev Links</h5>
+         <a target="_blank" rel="noopener noreferrer" className=" margin-0 text-sm md:text-2xl text-link" href="https://github.com/slarsendisney/personal-site"><p className="text-link">This Repo</p></a>
+          <a target="_blank" rel="noopener noreferrer" className=" margin-0 text-sm md:text-2xl text-link" href="https://mdxjs.com/"><p className="text-link">MDX</p></a>
+         <a target="_blank" rel="noopener noreferrer" className=" margin-0 text-sm md:text-2xl text-link" href="https://github.com/jxnblk/mdx-deck/tree/master/packages/gatsby-theme"><p className="text-link">gatsby-theme-mdx-deck</p></a>
+         <a target="_blank" rel="noopener noreferrer" className=" margin-0 text-sm md:text-2xl text-link" href="https://socket.io/"><p className="text-link">Socket.io</p></a>
+         <a target="_blank" rel="noopener noreferrer" className=" margin-0 text-sm md:text-2xl text-link" href="https://github.com/tensorflow/tfjs-models/tree/master/posenet"><p className="text-link">Posenet</p></a>
        
     </div>
     <div className="col-xs-4 ">
-        <h5 className="lato-always">Resources</h5>
-        <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://sld.codes/articles/Presenting-Without-Sharing-My-Screen"><p className="is-special-blue-always">Article on this project with code</p></a>
-        <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://www.youtube.com/watch?v=kZkOyVuBw-o&feature=youtu.be"><p className="is-special-blue-always">Demoing Gesture Controlled Slides</p></a>
+        <h5 >Resources</h5>
+        <a target="_blank" rel="noopener noreferrer" className=" margin-0 text-sm md:text-2xl text-link" href="https://sld.codes/articles/Presenting-Without-Sharing-My-Screen"><p className="text-link">Article on this project with code</p></a>
+        <a target="_blank" rel="noopener noreferrer" className=" margin-0 text-sm md:text-2xl text-link" href="https://www.youtube.com/watch?v=kZkOyVuBw-o&feature=youtu.be"><p className="text-link">Demoing Gesture Controlled Slides</p></a>
     </div>
-    <div className="col-xs-4 ">
-        <h5 className="lato-always">Credits</h5>
-        <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"><p className="is-special-blue-always">How much data does zoom use?</p></a>
-         <a target="_blank" rel="noopener noreferrer" className="legal margin-0" href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"><p className="is-special-blue-always">Trumps waving hands.</p></a>
+    <div className="col-span-3 md:col-span-1">
+        <h5 >Credits</h5>
+        <a target="_blank" rel="noopener noreferrer" className=" margin-0 text-sm md:text-2xl text-link" href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"><p className="text-link">How much data does zoom use?</p></a>
+         <a target="_blank" rel="noopener noreferrer" className=" margin-0 text-sm md:text-2xl text-link" href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"><p className="text-link">Trumps waving hands.</p></a>
     </div>
 </div>

@@ -7,8 +7,9 @@ const unlockables = new Set(["Fall Guys", "Matrix"]);
 const themes = new Set([...darkThemes, ...lightThemes]);
 const allThemes = [...lightThemes, ...darkThemes, ...unlockables];
 
-const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
+const ThemePicker = ({ theme, setTheme, unlockedThemes, small }) => {
   const unlocked = new Set(unlockedThemes);
+  const fontSize = small ? "text-sm" : "text-md";
   return (
     <div className="flex m-auto md:m-0">
       <ReactTooltip />
@@ -37,21 +38,21 @@ const ThemePicker = ({ theme, setTheme, unlockedThemes }) => {
                   {lightThemes.has(item) && (
                     <i
                       className={`text-white las la-sun text-primary opacity-75 ${
-                        theme === `theme-${themeVal}` ? "text-md" : "text-lg"
+                        theme === `theme-${themeVal}` ? fontSize : "text-lg"
                       }`}
                     ></i>
                   )}
                   {darkThemes.has(item) && (
                     <i
                       className={`text-white las la-moon text-primary opacity-75 ${
-                        theme === `theme-${themeVal}` ? "text-md" : "text-lg"
+                        theme === `theme-${themeVal}` ? fontSize : "text-lg"
                       }`}
                     ></i>
                   )}
                   {unlockables.has(item) && (
                     <i
                       className={`text-white las la-gift text-primary opacity-75 ${
-                        theme === `theme-${themeVal}` ? "text-md" : "text-lg"
+                        theme === `theme-${themeVal}` ? fontSize : "text-lg"
                       }`}
                     ></i>
                   )}
