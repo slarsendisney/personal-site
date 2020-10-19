@@ -1,11 +1,16 @@
 const path = require(`path`);
 const _ = require("lodash");
 const { formatTitleForURL } = require("./src/utils/formatTitleForURL");
+const { copyDir } = require("./utils/funcs");
 
 const redirects = [
   {
     from: "/articles/Sharing-Presentations-Without-Sharing-My-Screen",
     to: "/articles/Presenting-Without-Sharing-My-Screen",
+  },
+  {
+    from: "/newsletters",
+    to: "/newsletter",
   },
 ];
 
@@ -153,10 +158,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 const fs = require("fs");
 
-exports.onPostBuild = () => {
+exports.onPostBuild = async () => {
   fs.copyFile(`./firebase.json`, `./public/firebase.json`, (err) => {
     if (err) {
       throw err;
     }
   });
+  await copyDir("newsletters", "public/newsletters");
 };

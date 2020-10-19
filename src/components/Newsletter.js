@@ -22,7 +22,7 @@ const Newsletter = ({ nodesc }) => {
 
   return (
     <div className="px-4 pt-3 pb-4  -mx-4 mb-16 sm:mb-0">
-      <h2 className="text-1xl md:text-2xl lg:text-3xl text-left inline-block font-semibold">
+      <h2 className="text-2xl lg:text-3xl text-left inline-block font-semibold">
         Join My Newsletter
       </h2>
       {!nodesc && (
@@ -40,7 +40,7 @@ const Newsletter = ({ nodesc }) => {
             handleSubmit();
           }}
         >
-          <div className="grid grid-cols-10 items-center h-12">
+          <div className="grid grid-cols-10 h-12 gap-4">
             <input
               id="email"
               aria-label="email"
@@ -48,11 +48,14 @@ const Newsletter = ({ nodesc }) => {
               placeholder="you@email.com"
               className="input col-span-10 sm:col-span-8 h-12"
               required
+              style={{ marginTop: 0 }}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <div className="col-span-10 sm:col-span-2 items-center text-center  sm:p-1 pt-3 sm:pt-3">
-              <button className="w-full btn-accent">Sign Up</button>
+            <div className="col-span-10 sm:col-span-2 text-center">
+              <button className="w-full btn-accent" style={{ maxWidth: 1000 }}>
+                Sign Up
+              </button>
             </div>
           </div>
         </form>

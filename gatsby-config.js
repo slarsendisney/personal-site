@@ -212,6 +212,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "mdx-pages",
+        path: `${__dirname}/newsletters`,
+      },
+    },
+    {
       resolve: "gatsby-source-url-metadata",
       options: {
         urls: [
