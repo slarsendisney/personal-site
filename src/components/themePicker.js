@@ -14,7 +14,7 @@ const ThemePicker = ({ theme, setTheme, unlockedThemes, small }) => {
     <div className="flex m-auto md:m-0">
       <ReactTooltip />
       {allThemes.map((item, index) => {
-        const themeVal = item.toLowerCase().replaceAll(" ", "");
+        const themeVal = item.toLowerCase().replace(/ /g, '');
         if (themes.has(item) || (unlockables.has(item) && unlocked.has(item))) {
           return (
             <div key={item} className={`theme-${themeVal}`}>
