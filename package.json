@@ -56,7 +56,7 @@
     "gatsby-transformer-json": "^2.4.11",
     "gatsby-transformer-remark": "2.8.34",
     "gatsby-transformer-sharp": "^2.5.14",
-    "googleapis": "^59.0.0",
+    "googleapis": "^61.0.0",
     "got": "^11.7.0",
     "hhmmss": "^1.0.0",
     "intersection-observer": "^0.11.0",
