@@ -52,7 +52,7 @@ function NewsletterPage({ data }) {
       <section className="text-secondary bg-default">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
           <h1 className="text-3xl font-semibold mb-5">Read Past Issues:</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {data.newslettersJson.newsletters.map((route) => (
               <OutboundLink
                 href={`/newsletters/${route}`}
