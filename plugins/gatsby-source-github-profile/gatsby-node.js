@@ -50,7 +50,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
   })
 
   const data = await response.json()
-  // console.log(data)
+  // console.log(data) 
   const { contributionsCollection, pandemicContributions } = data.data.user
   const totalContributions =
     contributionsCollection.contributionCalendar.totalContributions

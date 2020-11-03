@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Img from "gatsby-image/withIEPolyfill";
@@ -10,7 +10,7 @@ import isFuture from "date-fns/isFuture";
 import parse from "date-fns/parse";
 import format from "date-fns/format";
 
-const EventBlock = ({ events }) => {
+const EventBlock = ({ events, setVideoModalVisibility }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
       {events.map((event) => (
@@ -32,9 +32,12 @@ const EventBlock = ({ events }) => {
                 "iii, dd MMM yyyy"
               )}
             </p>
+            <div className="grid grid-cols-2 gap-2 -mx-2">
             <OutboundLink href={event.link}>
-              <button className="btn-sm-accent -mx-1 mt-2">More Info</button>
+              <button className="btn-sm-accent mx-1 mt-2 flex items-center justify-center w-full"><i class="las la-info-circle text-2xl -my-4"></i>More Info</button>
             </OutboundLink>
+            {event.video && <button className="btn-sm-accent mx-1 mt-2 flex items-center justify-center w-full" onClick={()=>setVideoModalVisibility(event.video)}><i class="las la-play-circle text-2xl -my-4"></i> Play Video</button>}
+            </div>
           </div>
         </div>
       ))}
@@ -53,6 +56,7 @@ EventBlock.propTypes = {
   ),
 };
 const EventsPage = ({ data }) => {
+  const [showVideoModal, setVideoModalVisibility] = useState(false)
   const upcoming = Events.filter((event) =>
     isFuture(parse(event.date, "yyyy-MM-dd", new Date()))
   );
@@ -66,6 +70,34 @@ const EventsPage = ({ data }) => {
         title="Events"
         socialcard={"social-card-disclaimer"}
       />
+      {showVideoModal && <div className="fixed top-0 right-0 w-full h-full flex items-center justify-center" style={{zIndex:1000, backgroundColor:'#00000095'}}>
+        <div style={{width:"80%", maxWidth:1000}}>
+          <div className="flex">
+          <button className="ml-auto text-2xl flex items-center justify-center text-primary hover:text-link" onClick={() => setVideoModalVisibility(false)}>Close <i class="las la-times-circle  text-4xl"></i></button>
+          </div>
+          <div
+      className="video"
+      style={{
+        position: "relative",
+        paddingBottom: "56.25%" /* 16:9 */,
+        paddingTop: 25,
+        height: 0
+      }}
+    >
+      <iframe
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%"
+        }}
+        src={showVideoModal}
+        frameBorder="0"
+      />
+    </div>
+      </div>
+        </div>}
       <section className="text-center text-white bg-default relative">
         <Img
           fluid={data.eventHero.childImageSharp.fluid}
@@ -120,7 +152,7 @@ const EventsPage = ({ data }) => {
         {upcoming.length > 0 && (
           <>
             <h2 className="text-2xl">Upcoming Events</h2>
-            <EventBlock events={upcoming} />
+            <EventBlock events={upcoming} setVideoModalVisibility={setVideoModalVisibility} />
           </>
         )}
         {past.length > 0 && (
@@ -128,7 +160,7 @@ const EventsPage = ({ data }) => {
             <div className="col-xs-12 ">
               <h2 className="text-2xl">Past Events</h2>
             </div>
-            <EventBlock events={past} />
+            <EventBlock events={past} setVideoModalVisibility={setVideoModalVisibility} />
           </>
         )}
       </div>

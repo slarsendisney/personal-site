@@ -5,7 +5,8 @@
     "description": "A React + Gatsby + Socket.io solution for crystal clear slides for everyone using minimal bandwidth + slide navigation using gestures.",
     "location": "Remote",
     "date": "2020-10-30",
-    "link": "https://halfstackconf.com/"
+    "link": "https://halfstackconf.com/",
+    "video": "https://www.youtube.com/embed/vTja-ZU_NQg"
   },
   {
     "event": "React London Meetup",
@@ -13,7 +14,8 @@
     "description": "A React + Gatsby + Socket.io solution for crystal clear slides for everyone using minimal bandwidth + slide navigation using gestures.",
     "location": "Remote",
     "date": "2020-08-18",
-    "link": "https://meetup.react.london/"
+    "link": "https://meetup.react.london/",
+    "video":"https://www.youtube.com/embed/E-50aGAZG38?start=3632"
   },
   {
     "event": "Imperial College London",
