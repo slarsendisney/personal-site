@@ -37,7 +37,7 @@ I own the images used within the hero section of this site that are referenced i
 
 ### Can you help me get started?
 
-If you have questions about implementation, please refer to the this page and the [Gatsby docs](https://www.gatsbyjs.org/docs/). I have spent considerable time ensuring that there are comments throughout the code to help you get started. Due to the amount of requests I recieve, I cannot help individuals but may answer the odd question on twitter.
+If you have questions about implementation, please refer to the this page and the [Gatsby docs](https://www.gatsbyjs.org/docs/). I have spent considerable time ensuring that there are comments throughout the code to help you get started. Due to the amount of requests I receive, I cannot help individuals but may answer the odd question on twitter.
 
 ### What is the best way to credit you?
 
