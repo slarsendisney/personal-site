@@ -299,7 +299,7 @@ module.exports = {
       options: {
         defaultDarkTheme: 'theme-midnightdreams',
         defaultLightTheme: 'theme-blue',
-        themeStorageKey: 'sld-theme',
+        themeStorageKey: 'theme',
         minify: true,
       }
     },

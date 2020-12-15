@@ -1,33 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useLocalStorage } from "../utils/customHooks";
 import SmoothCollapse from "react-smooth-collapse";
 import { navigate } from "gatsby";
 import ThemePicker from "./themePicker";
 import { Helmet } from "react-helmet";
-
-export const defaultTheme =
-  typeof window !== "undefined" &&
-  window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "theme-midnightdreams"
-    : "theme-blue";
+import { ThemeContext } from 'gatsby-plugin-theme-switcher';
 
 const Header = () => {
-  const [theme, setTheme] = useLocalStorage("theme", defaultTheme);
+  const { theme, switchTheme } = useContext(ThemeContext);
   const [themeExpanded, setThemeExpanded] = useState(false);
   const [unlockedThemes, setUnlockedThemes] = useLocalStorage(
     "unlocked_themes",
     []
   );
-  useEffect(() => {
-    var currentCss = document.getElementById("___gatsby").className;
-    currentCss = currentCss.replace(/theme-\w*/g, "") + theme;
-    document.getElementById("___gatsby").className = currentCss;
-    if (typeof window !== "undefined") {
-      window.theme = theme;
-    }
-  }, [theme]);
-
   return (
     <div
       className="w-full"
@@ -50,7 +35,7 @@ const Header = () => {
             <div className="md:-mt-4">
               <ThemePicker
                 theme={theme}
-                setTheme={setTheme}
+                setTheme={switchTheme}
                 unlockedThemes={unlockedThemes}
                 small
               />

@@ -10,6 +10,7 @@ const allThemes = [...lightThemes, ...darkThemes, ...unlockables];
 const ThemePicker = ({ theme, setTheme, unlockedThemes, small }) => {
   const unlocked = new Set(unlockedThemes);
   const fontSize = small ? "text-sm" : "text-md";
+  console.log(theme)
   return (
     <div className="flex m-auto md:m-0">
       <ReactTooltip />
