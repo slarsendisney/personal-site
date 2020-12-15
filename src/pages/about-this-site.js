@@ -14,6 +14,7 @@ const inspirers = [
   "wesbos",
   "jlengstorf",
   "ryangregorydev",
+  "Infoxicador",
 ];
 
 const ThisSite = () => (

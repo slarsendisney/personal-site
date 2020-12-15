@@ -295,6 +295,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-theme-switcher',
+      options: {
+        defaultDarkTheme: 'theme-midnightdreams',
+        defaultLightTheme: 'theme-blue',
+        themeStorageKey: 'sld-theme',
+        minify: true,
+      }
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-26978781-2",

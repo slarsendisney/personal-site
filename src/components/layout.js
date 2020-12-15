@@ -9,7 +9,7 @@ import Cookies from "./Cookies";
 
 function Layout({ children }) {
   return (
-    <div className="default-theme">
+    <div>
       <Helmet>
         <link
           rel="stylesheet"

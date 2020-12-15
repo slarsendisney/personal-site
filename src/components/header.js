@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ThemePicker from "./themePicker";
@@ -9,15 +9,10 @@ import SmoothCollapse from "react-smooth-collapse";
 import ThemeFoundModal from "./ThemeFound";
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 
-export const defaultTheme =
-  typeof window !== "undefined" &&
-  window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "theme-midnightdreams"
-    : "theme-blue";
+import { ThemeContext } from 'gatsby-plugin-theme-switcher';
 
 const Header = ({ newTheme }) => {
-  const [theme, setTheme] = useLocalStorage("theme", defaultTheme);
+  const { theme, switchTheme } = useContext(ThemeContext);
   const [themeExpanded, setThemeExpanded] = useState(false);
   const [menuExpanded, toggleMenuExpansion] = useState(false);
   const [unlockedThemes, setUnlockedThemes] = useLocalStorage(
@@ -26,17 +21,11 @@ const Header = ({ newTheme }) => {
   );
 
   useEffect(() => {
-    var currentCss = document.getElementById("my-content").className;
-    currentCss = currentCss.replace(/theme-\w*/g, "") + theme;
-    document.getElementById("my-content").className = currentCss;
     trackCustomEvent({
       category: "Themes",
       action: "Click",
       label: `Theme Changed - ${theme}`,
     });
-    if (typeof window !== "undefined") {
-      window.theme = theme;
-    }
   }, [theme]);
 
   useEffect(() => {
@@ -53,7 +42,7 @@ const Header = ({ newTheme }) => {
 
   return (
     <>
-      <ThemeFoundModal setTheme={setTheme} />
+      <ThemeFoundModal setTheme={switchTheme} />
       <div className="bg-white">
         <SmoothCollapse expanded={themeExpanded} className="">
           <div className=" flex flex-wrap items-center justify-between container px-4 py-1 md:py-3 mx-auto mx-auto">
@@ -72,7 +61,7 @@ const Header = ({ newTheme }) => {
             </div>
             <ThemePicker
               theme={theme}
-              setTheme={setTheme}
+              setTheme={switchTheme}
               unlockedThemes={unlockedThemes}
             />
           </div>
