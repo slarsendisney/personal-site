@@ -103,10 +103,12 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           {
+            resolve: `gatsby-remark-highlight-code`,
+          },
+          {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
               icon: false,
-
               removeAccents: true,
             },
           },
@@ -278,20 +280,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        // Configure SASS to process Tailwind
-        postCssPlugins: [require("tailwindcss")],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          require(`tailwindcss`)(tailwindConfig),
-          require(`autoprefixer`),
-          ...(process.env.NODE_ENV === `production`
-            ? [require(`cssnano`)]
-            : []),
-        ],
+        postCssPlugins: [require("tailwindcss")()],
       },
     },
     {

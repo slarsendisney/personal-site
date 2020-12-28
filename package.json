@@ -4,6 +4,7 @@
   "version": "4.0.0",
   "author": "Sam Larsen-DIsney <sam@sld.codes>",
   "dependencies": {
+    "@deckdeckgo/highlight-code": "^2.2.2",
     "@emotion/core": "^10.0.35",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "2.4.1",
     "@mdx-deck/themes": "^4.1.0",
@@ -46,6 +47,7 @@
     "gatsby-remark-copy-images": "^0.2.1",
     "gatsby-remark-copy-linked-files": "2.3.14",
     "gatsby-remark-copy-relative-linked-files": "^1.0.3",
+    "gatsby-remark-highlight-code": "^2.1.1",
     "gatsby-remark-images": "3.3.29",
     "gatsby-remark-images-medium-zoom": "^1.7.0",
     "gatsby-remark-import-code": "^0.1.1",
@@ -55,7 +57,7 @@
     "gatsby-source-filesystem": "^2.3.30",
     "gatsby-source-google-analytics-reporting-api": "^1.0.2",
     "gatsby-transformer-json": "^2.4.11",
-    "gatsby-transformer-remark": "2.8.34",
+    "gatsby-transformer-remark": "^2.8.34",
     "gatsby-transformer-sharp": "^2.5.14",
     "googleapis": "^61.0.0",
     "got": "^11.7.0",
@@ -70,10 +72,12 @@
     "mkdirp": "^1.0.4",
     "node-fetch": "^2.6.1",
     "node-sass": "^4.14.1",
+    "normalize.css": "^8.0.1",
     "page-metadata-parser": "^1.1.4",
     "path": "^0.12.7",
-    "postcss-import": "^12.0.1",
-    "postcss-nested": "^4.2.3",
+    "postcss": "^8.1.7",
+    "postcss-import": "^13.0.0",
+    "postcss-nested": "^5.0.1",
     "prop-types": "15.7.2",
     "radium": "^0.26.0",
     "rc-progress": "^3.1.0",
@@ -145,7 +149,7 @@
     "eslint-plugin-react": "7.20.6",
     "gatsby-plugin-eslint": "2.0.8",
     "prettier": "2.1.1",
-    "tailwindcss": "^1.8.6"
+    "tailwindcss": "^2.0.2"
   },
   "repository": {
     "type": "git",

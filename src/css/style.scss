@@ -25,3 +25,39 @@ main {
 *:focus {
     outline-color: var(--color-text-primary);
 }
+
+.prose  h1{
+    @apply text-secondary;  
+}
+
+.prose  h2{
+    @apply text-secondary;  
+}
+
+.prose  h3{
+    @apply text-secondary;  
+}
+
+.prose  h4{
+    @apply text-secondary;  
+}
+
+.prose  h5{
+    @apply text-secondary;  
+}
+
+.prose  h6{
+    @apply text-secondary;  
+}
+
+.prose a{
+    @apply text-link;
+}
+
+.prose code{
+    @apply text-link;
+}
+
+.prose :not(pre) > code.language-text {
+    white-space: pre-line;
+}

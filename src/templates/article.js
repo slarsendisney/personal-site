@@ -7,27 +7,12 @@ import VisibilitySensor from "react-visibility-sensor";
 import Layout from "../components/layout";
 import ReadingProgress from "../components/Articles/ReadingProgress";
 import SEO from "../components/seo";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import StickyLike from "../components/Articles/StickyLike";
 
-const CodeBlock = (props) => (
-  <div className="my-1">
-    <SyntaxHighlighter
-      style={atomOneDark}
-      wrapLines
-      customStyle={{
-        padding: 10,
-        paddingTop: 15,
-        paddingBottom: 0,
-        borderRadius: 5,
-        margin: 0,
-      }}
-      {...props}
-    />
-  </div>
-);
+
+deckDeckGoHighlightElement();
 
 const TableOfContents = ({ tableOfContents, currentHeading, depth = 0 }) => {
   return (
@@ -110,7 +95,6 @@ const Article = ({ data }) => {
   };
 
   const components = {
-    code: CodeBlock,
     h1: function h1(e) {
       return <Heading {...e} priority={1} />;
     },
@@ -178,7 +162,7 @@ const Article = ({ data }) => {
                   </Link>
                 ))}
               </div>
-              <div className="article ">
+              <div className="prose text-secondary">
                 <MDXProvider components={components}>
                   <MDXRenderer>{mdx.body}</MDXRenderer>
                 </MDXProvider>
