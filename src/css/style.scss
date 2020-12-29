@@ -50,6 +50,14 @@ main {
     @apply text-secondary;  
 }
 
+.prose  blockquote{
+    @apply text-secondary;  
+}
+
+.prose  strong{
+    @apply text-secondary;  
+}
+
 .prose a{
     @apply text-link;
 }
