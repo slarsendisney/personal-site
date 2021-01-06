@@ -1,11 +1,26 @@
 require("dotenv").config({
   path: `.env`,
 });
+
+Number.prototype.pad = function (size) {
+  var s = String(this);
+  while (s.length < (size || 2)) {
+    s = "0" + s;
+  }
+  return s;
+};
+
 const { formatTitleForURL } = require("./src/utils/formatTitleForURL");
 const tailwindConfig = require("./tailwind.config.js");
 const EmploymentHistory = require("./src/data/timeline.json");
 const currentJob = EmploymentHistory[0];
 
+const dayOfYear = (date) =>
+  Math.floor(
+    (date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)
+  );
+const currentAnimationFrame = (dayOfYear(new Date()) - 1).pad(3);
+console.log(`Favicon Animation Frame: ${currentAnimationFrame}`)
 const dynamicPlugins = [];
 
 if (
@@ -63,7 +78,7 @@ module.exports = {
         background_color: "#ea4e68",
         theme_color: "#2e4052",
         display: "standalone",
-        icon: `src/images/favicon.png`,
+        icon: `src/images/FaviconAnimation/${currentAnimationFrame}.png`,
         crossOrigin: `use-credentials`,
       },
     },
@@ -284,13 +299,13 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-theme-switcher',
+      resolve: "gatsby-plugin-theme-switcher",
       options: {
-        defaultDarkTheme: 'theme-midnightdreams',
-        defaultLightTheme: 'theme-blue',
-        themeStorageKey: 'theme',
+        defaultDarkTheme: "theme-midnightdreams",
+        defaultLightTheme: "theme-blue",
+        themeStorageKey: "theme",
         minify: true,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
