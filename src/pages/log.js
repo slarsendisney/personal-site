@@ -28,7 +28,7 @@ function DevLog() {
           <ul className="list-none m-0 p-0">
             {!error &&
               !loading &&
-              logs.docs.map((doc) => (
+              logs.docs.sort((a,b) => b.data().milliseconds - a.data().milliseconds ).map((doc) => (
                 <li className="mb-2" key={doc.id}>
                   <div className="flex items-center mb-1">
                     <div className="bg-primary rounded-full h-8 w-8"></div>
