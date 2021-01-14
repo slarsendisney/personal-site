@@ -1,10 +1,23 @@
 [
   {
+    "role": "Front-End Engineer",
+    "company": "American Express",
+    "location": "London",
+    "date": "2020 - Present",
+    "desc": "Currently working on the Design Language System at American Express.",
+    "longDesc": [
+      "Responsible for creating and maintaining performant, acessible ReactJS and JS components used across the organisation's online presence.",
+      "Created tools that allow us to measure how our components are being used. Versions, bundle size, accessiblity, best practices and SEO impacts are tracked automatically."
+    ],
+    "tags": "JS, ReactJS, Jest, Redux, GatsbyJS, Emotion, Styled Components, Sketch, Invision",
+    "url": "https://www.americanexpress.com"
+  },
+  {
     "role": "UX Engineer",
     "company": "American Express",
     "location": "London",
-    "date": "2019 - Present",
-    "desc": "Currently creating the future of the ‘refer a friend’ experience in an R&D team.",
+    "date": "2019 - 2020",
+    "desc": "Creating the future of the ‘refer a friend’ experience in an R&D team.",
     "longDesc": [
       "Developed a new referral experience that features enhanced referral rewards for platinum and gold card members. It has engaged with 600,000 customers to date.",
       "Created a self-service automation tool for assesing a webpage's performance, accessibilty and generating screenshots of the page for multiple view ports. This has increased the ability for markets to self service, reducing the need to engage engineers to acquire this information.",
@@ -52,17 +65,5 @@
       "Created a design language system for the application that was adopted for both desktop and mobile experiences."
     ],
     "tags": "React, React Native, JS, SocketIO, Node, MongoDB, Sketch"
-  },
-  {
-    "role": "Summer Intern",
-    "company": "American Express",
-    "location": "Burgess Hill",
-    "date": "2017",
-    "desc": "Working in loyalty on a response time monitoring tool using the ELK",
-    "longDesc": [
-      "Delivered an internal data visualisation tool capable of mapping the end-to-end journey of Amazon 'Pay with Points' requests. The project alerts when our E2E time drops below expected levels to help identify issues and avoid fines from Amazon."
-    ],
-    "tags": "Data Visualisations, Analytics, Logging, ELK stack, Java, Splunk",
-    "url": "https://www.americanexpress.com"
   }
 ]

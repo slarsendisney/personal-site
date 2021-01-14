@@ -20,8 +20,7 @@ const CV = () => (
       www.sld.codes | s.larsendisney@gmail.com
     </h3>
     <p className="text-xs border-light-grey border-b-2 pb-3 mb-3">
-      Creative, collaborative and courageous developer with extensive experience
-      in web based technologies and UX design. Looking for the next challenge to
+      A front-end developer with four years experience using ReactJS to build performant and accessible applications. Looking for the next challenge to
       improve customer experience and deepen engagement.
     </p>
     <div className="grid grid-cols-4 gap-4">
