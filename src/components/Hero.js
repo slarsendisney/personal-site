@@ -12,17 +12,14 @@ const Hero = () => {
             Sam Larsen-Disney
           </h1>
           <h2 className="leading-loose text-xl lg:text-2xl mb-3">
-            I am a UX Engineer at American Express. I have built{" "}
+            I am a UX Engineer building the Design Language System at <a className="link" href="https://www.americanexpress.com">American
+            Express</a>. I have built{" "}
             <Link className="link" to="/projects/enhanced-referral">
               new ways to refer friends
-            </Link>
-            ,{" "}
-            <Link className="link" to="/projects/grad">
-              onboarding experiences
             </Link>{" "}
             and{" "}
-            <Link className="link" to="/projects/corona-support">
-              rapid response systems
+            <Link className="link" to="/projects/grad">
+              onboarding experiences
             </Link>
             . I enjoy teaching the next generation to code through my{" "}
             <Link className="link" to="/articles">
