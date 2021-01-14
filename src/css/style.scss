@@ -54,6 +54,10 @@ main {
     @apply text-secondary;  
 }
 
+.prose  ul{
+    @apply text-secondary;  
+}
+
 .prose  strong{
     @apply text-secondary;  
 }
@@ -68,4 +72,20 @@ main {
 
 .prose :not(pre) > code.language-text {
     white-space: pre-line;
+}
+
+
+.presentation deckgo-highlight-code{
+    min-height: 60vh;
+    font-size: 16px !important;
+}
+
+@media (max-width: 1268px) {
+    .presentation deckgo-highlight-code{
+        font-size: 12px !important;
+    }
+}
+
+.presentation img{
+    margin:auto;
 }

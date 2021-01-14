@@ -4,10 +4,14 @@ import SmoothCollapse from "react-smooth-collapse";
 import { navigate } from "gatsby";
 import ThemePicker from "./themePicker";
 import { Helmet } from "react-helmet";
-import { ThemeContext } from 'gatsby-plugin-theme-switcher';
+import { ThemeContext } from "gatsby-plugin-theme-switcher";
 
 const Header = () => {
   const { theme, switchTheme } = useContext(ThemeContext);
+  const [openedThemesOnce, setOpenedThemesOnce] = useLocalStorage(
+    "opened_pres_themes",
+    false
+  );
   const [themeExpanded, setThemeExpanded] = useState(false);
   const [unlockedThemes, setUnlockedThemes] = useLocalStorage(
     "unlocked_themes",
@@ -45,30 +49,40 @@ const Header = () => {
       </div>
       <div className="flex mt-2 justify-between w-full px-2">
         <button
+          
           className="ml-2"
           onClick={() => {
             navigate("/presentations");
           }}
         >
           <p className="text-4xl font-bold mt-0 mb-0">
-            <i className={`stepFour las la-door-open`}></i>
+            <i data-tip={`Exit the presentation`} className={`stepFour las la-door-open hover:bg-primary hover:text-primary p-1 rounded-full`}></i>
           </p>
         </button>
-        <button
-          aria-label="Theme Changer"
-          className="mr-2"
-          onClick={() => {
-            setThemeExpanded(!themeExpanded);
-          }}
-        >
-          <p className="text-4xl font-bold  mt-0 mb-0">
-            <i
-              className={`stepSix las ${
-                !themeExpanded ? "la-paint-roller" : "la-times-circle"
-              }`}
-            ></i>
-          </p>
-        </button>
+        <div className="relative">
+          {!openedThemesOnce && (
+            <span class="absolute flex h-3 w-3 mt-5 top-0 right-0">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
+            </span>
+          )}
+          <button
+            aria-label="Theme Changer"
+            className="mr-2"
+            onClick={() => {
+              setThemeExpanded(!themeExpanded);
+              setOpenedThemesOnce(true)
+            }}
+          >
+            <p className="text-4xl font-bold  mt-0 mb-0">
+              <i
+                className={`stepSix hover:bg-primary hover:text-primary p-1 rounded-full las ${
+                  !themeExpanded ? "la-paint-roller" : "la-arrow-circle-up"
+                }`}
+              ></i>
+            </p>
+          </button>
+        </div>
       </div>
     </div>
   );

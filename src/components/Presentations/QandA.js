@@ -64,22 +64,23 @@ const QuestionForm = ({ submitQuestion, QAID }) => {
       <h4>Q&A Session</h4>
       {submitted ? (
         <>
-          <p className="margin-5-tb">
-            <Emojione text="✅ Question Submitted!" />{" "}
+          <p className="margin-5-tb flex items-center">
+            <Emojione style={{ display: "inline-block" }} text="✅" /> Question
+            Submitted!
           </p>
           <button className="btn text-2xl" onClick={() => setSubmitted(false)}>
-            <p className="">Ask Another</p>
+            Ask Another
           </button>{" "}
         </>
       ) : (
-        <>
+        <div className="prose-sm">
           {" "}
-          <p className="text-3xl">
+          <p className="">
             Want to ask me a question? It's anonymous{" "}
             <Emojione className="inline-block" text="💫" />.
           </p>
           <input
-            className="input text-3xl"
+            className="input text-3xl -mt-3 mb-3"
             placeholder="My Awesome Question..."
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
@@ -87,7 +88,7 @@ const QuestionForm = ({ submitQuestion, QAID }) => {
           <button className="btn text-2xl" onClick={onSubmit}>
             Submit
           </button>{" "}
-        </>
+        </div>
       )}
     </div>
   );

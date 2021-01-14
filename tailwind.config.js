@@ -4,7 +4,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: ["./src/**/*.js"],
+  purge: ["./src/**/*.js", "./MDX/**/*.mdx"],
   theme: {
     extend:{
       fontSize: {
@@ -57,16 +57,32 @@ module.exports = {
         inverse: "var(--color-bg-inverse)",
         "light-grey": "#00000015",
       },
-      typography: (theme) => {
-        return {
+      typography: {
           default: {
             css: {
               "code::before": false,
               "code::after": false,
-              
             },
           },
-        };
+          '3xl': {
+            css: {
+              
+              ul: {
+                fontSize: '2rem',
+              },
+              code:{
+                fontSize: '1rem !important',
+              },
+              blockquote:{
+                fontSize: '2.5rem',
+              },
+              p: {
+                fontSize: '2rem',
+              }
+            
+              // ...
+            },
+          },
       },
     },
     fontFamily: {

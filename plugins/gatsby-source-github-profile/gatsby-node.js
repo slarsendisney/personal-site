@@ -1,55 +1,71 @@
 const fetch = require("node-fetch")
 const crypto = require("crypto")
 
-exports.sourceNodes = async ({ actions }, configOptions) => {
+exports.sourceNodes = async ({ actions, cache }, configOptions) => {
+  const currentCache = await cache.get(`gatsby-source-github-profile`);
+  let data = {}
   const { createNode } = actions
-  const headers = {
-    Authorization: `bearer ${configOptions.token}`,
-  }
-  const body = {
-    query: `query {
-            user(login: "${configOptions.username}") {
-              name
-    contributionsCollection {
+  if (currentCache) {
+    console.log("🔥 Using cached data for github profile");
+    data = JSON.parse(currentCache)
+  } else {
+    console.log("🚀 Getting github profile")
+    const headers = {
+      Authorization: `bearer ${configOptions.token}`,
+    }
+    const body = {
+      query: `query {
+              user(login: "${configOptions.username}") {
+                name
+      contributionsCollection {
+          contributionCalendar {
+              totalContributions
+           }
+      }
+      pandemicContributions: contributionsCollection(from: "2020-03-16T00:00:00Z") {
         contributionCalendar {
-            totalContributions
-         }
-    }
-    pandemicContributions: contributionsCollection(from: "2020-03-16T00:00:00Z") {
-      contributionCalendar {
-        totalContributions
+          totalContributions
+        }
       }
-    }
-    repository(name: "personal-site") {
-      id
-      createdAt
-      url
-      forkCount
-      stargazers {
-        totalCount
-      }
-      ref(qualifiedName: "master") {
-            name
-            target {
-              ... on Commit {
-                
-                history(first: 0) {
-                  totalCount
+      repository(name: "personal-site") {
+        id
+        createdAt
+        url
+        forkCount
+        stargazers {
+          totalCount
+        }
+        ref(qualifiedName: "master") {
+              name
+              target {
+                ... on Commit {
+                  
+                  history(first: 0) {
+                    totalCount
+              }
             }
           }
         }
       }
+              }
+            }`,
     }
-            }
-          }`,
+    const response = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: headers,
+    })
+    const result = await response.json()
+    data = result
+    console.log("💾 Caching github profile data");
+    return cache.set(
+      `gatsby-source-github-profile`,
+      JSON.stringify(result)
+    );
   }
-  const response = await fetch("https://api.github.com/graphql", {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: headers,
-  })
+ 
 
-  const data = await response.json()
+  
   // console.log(data) 
   const { contributionsCollection, pandemicContributions } = data.data.user
   const totalContributions =
