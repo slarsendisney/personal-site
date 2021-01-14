@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Newsletter from "../components/Newsletter";
+import { StaticImage } from "gatsby-plugin-image";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 function NewsletterPage({ data }) {
@@ -50,7 +51,14 @@ function NewsletterPage({ data }) {
         </div>
       </section>
       <section className="text-secondary bg-default">
-        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+        <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+          <div className="absolute left-0 top-0 hidden md:block md:-mt-0 -ml-6 lg:-ml-24 float-y">
+            <StaticImage
+              src="https://ik.imagekit.io/sld/SuperScene/lup_b_zxT8k48zL.png"
+              alt="Mailbox"
+              className="h-24 w-24 lg:h-32 lg:w-32 z-10"
+            />
+          </div>
           <h1 className="text-3xl font-semibold mb-5">Read Past Issues:</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {data.newslettersJson.newsletters.map((route) => (

@@ -4,7 +4,7 @@ import parse from "date-fns/parse";
 import compareAsc from "date-fns/compareAsc";
 import Layout from "../components/layout";
 import PropTypes from "prop-types";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import SEO from "../components/seo";
 
 export const Card = ({
@@ -31,10 +31,9 @@ export const Card = ({
       >
         <div className="block">
           <figure className="relative tint mb-5 h-48 w-full">
-            <Img
-              fluid={coverimg.childImageSharp.fluid}
-              className="rounded-t h-full"
-            />
+            <GatsbyImage
+              image={coverimg.childImageSharp.gatsbyImageData}
+              className="rounded-t h-full" />
           </figure>
         </div>
         <div className="p-5 pb-16">
@@ -122,32 +121,28 @@ Projects.propTypes = {
   }).isRequired,
 };
 
-export const pageQuery = graphql`
-  query Projects {
-    allMdx(filter: { frontmatter: { type: { eq: "Project" } } }) {
-      edges {
-        node {
-          id
-          frontmatter {
-            type
-            title
-            desc
-            tags
-            date
-            path
-            coverimg {
-              childImageSharp {
-                fluid(maxWidth: 400) {
-                  # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
+export const pageQuery = graphql`query Projects {
+  allMdx(filter: {frontmatter: {type: {eq: "Project"}}}) {
+    edges {
+      node {
+        id
+        frontmatter {
+          type
+          title
+          desc
+          tags
+          date
+          path
+          coverimg {
+            childImageSharp {
+              gatsbyImageData(maxWidth: 400, placeholder: NONE, layout: FLUID)
             }
           }
         }
       }
     }
   }
+}
 `;
 
 export default Projects;

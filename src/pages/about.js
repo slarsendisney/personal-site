@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, graphql, StaticQuery } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
@@ -75,55 +75,46 @@ function AboutPage() {
         socialcard={"social-card-about"}
       />
       <StaticQuery
-        query={graphql`
-          {
-            gitHubProfile {
-              totalContributions
-            }
-            allNpmPackage {
-              totalCount
-            }
-            boilerplates: allMdx(
-              filter: { frontmatter: { type: { eq: "Boilerplate" } } }
-            ) {
-              totalCount
-            }
-            articles: allMdx(
-              filter: { frontmatter: { type: { eq: "Article" } } }
-            ) {
-              totalCount
-            }
-            site {
-              siteMetadata {
-                currentCompany
-                currentRole
-                currentCompanyURL
-              }
-            }
-            HeroBody: file(relativePath: { eq: "Body/Floats.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 230) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-            Face: file(relativePath: { eq: "face.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 230) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-          }
-        `}
+        query={graphql`{
+  gitHubProfile {
+    totalContributions
+  }
+  allNpmPackage {
+    totalCount
+  }
+  boilerplates: allMdx(filter: {frontmatter: {type: {eq: "Boilerplate"}}}) {
+    totalCount
+  }
+  articles: allMdx(filter: {frontmatter: {type: {eq: "Article"}}}) {
+    totalCount
+  }
+  site {
+    siteMetadata {
+      currentCompany
+      currentRole
+      currentCompanyURL
+    }
+  }
+  HeroBody: file(relativePath: {eq: "Body/Floats.png"}) {
+    childImageSharp {
+      gatsbyImageData(maxWidth: 230, placeholder: NONE, layout: FLUID)
+    }
+  }
+  Face: file(relativePath: {eq: "face.png"}) {
+    childImageSharp {
+      gatsbyImageData(maxWidth: 230, placeholder: NONE, layout: FLUID)
+    }
+  }
+}
+`}
         render={(data) => (
           <>
             <section className="text-secondary bg-default  -mb-32 md:-mb-64">
               <div className="flex-1 w-full max-w-4xl px-4 py-6 mx-auto md:px-8 md:pb-16">
                 <div className="w-64 md:w-6/12 m-auto relative">
-                  <Img fluid={data.Face.childImageSharp.fluid} />
+                  <GatsbyImage image={data.Face.childImageSharp.gatsbyImageData} />
                   <div className="w-2/5 md:w-56 ml-auto -mt-24 md:-mt-64 -mr-8 md:-mr-32 float-y">
-                    <Img fluid={data.HeroBody.childImageSharp.fluid} />
+                    <GatsbyImage image={data.HeroBody.childImageSharp.gatsbyImageData} />
                   </div>
                 </div>
               </div>

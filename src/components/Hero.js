@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, graphql, StaticQuery } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const Hero = () => {
@@ -62,31 +62,24 @@ const Hero = () => {
           </div>
         </div>
         <StaticQuery
-          query={graphql`
-            {
-              HeroBody: file(relativePath: { eq: "Body/Thinking.png" }) {
-                childImageSharp {
-                  fluid(maxWidth: 230) {
-                    ...GatsbyImageSharpFluid_noBase64
-                  }
-                }
-              }
-              HeroTorso: file(relativePath: { eq: "Torso/Thinking.png" }) {
-                childImageSharp {
-                  fluid(maxWidth: 230) {
-                    ...GatsbyImageSharpFluid_noBase64
-                  }
-                }
-              }
-              Bulb: file(relativePath: { eq: "Item/Bulb.png" }) {
-                childImageSharp {
-                  fluid(maxWidth: 52) {
-                    ...GatsbyImageSharpFluid_noBase64
-                  }
-                }
-              }
-            }
-          `}
+          query={graphql`{
+  HeroBody: file(relativePath: {eq: "Body/Thinking.png"}) {
+    childImageSharp {
+      gatsbyImageData(maxWidth: 230, placeholder: NONE, layout: FLUID)
+    }
+  }
+  HeroTorso: file(relativePath: {eq: "Torso/Thinking.png"}) {
+    childImageSharp {
+      gatsbyImageData(maxWidth: 230, placeholder: NONE, layout: FLUID)
+    }
+  }
+  Bulb: file(relativePath: {eq: "Item/Bulb.png"}) {
+    childImageSharp {
+      gatsbyImageData(maxWidth: 52, placeholder: NONE, layout: FLUID)
+    }
+  }
+}
+`}
           render={(data) => (
             <>
               <div className="col-span-2 lg:-mb-24 hidden lg:block">
@@ -94,14 +87,13 @@ const Hero = () => {
                   className="w-8 ml-16 mb-16 float-y"
                   style={{ zIndex: 500 }}
                 >
-                  <Img fluid={data.Bulb.childImageSharp.fluid} />
+                  <GatsbyImage image={data.Bulb.childImageSharp.gatsbyImageData} />
 
                   <div className="bulb-glow ml-4 -mt-10"></div>
                 </div>
-                <Img
-                  fluid={data.HeroBody.childImageSharp.fluid}
-                  style={{ zIndex: 1000, position: "relative" }}
-                />
+                <GatsbyImage
+                  image={data.HeroBody.childImageSharp.gatsbyImageData}
+                  style={{ zIndex: 1000, position: "relative" }} />
               </div>
               <div className="col-span-8 md:col-span-3 md:mt-auto md:-ml-16 lg:-mb-24 block lg:hidden ">
                 <div className="mx-auto min-w-full sm:min-w-0 -mr-32 -mt-32 sm:-mt-24 md:-mt-16  md:mt-0 md:mr-0">
@@ -110,15 +102,14 @@ const Hero = () => {
                       className="w-8 sm:w-10 md:w-8 md:ml-32 mb-16  mx-auto float-y"
                       style={{ zIndex: 500 }}
                     >
-                      <Img fluid={data.Bulb.childImageSharp.fluid} />
+                      <GatsbyImage image={data.Bulb.childImageSharp.gatsbyImageData} />
                       <div className="bulb-glow ml-4 -mt-10"></div>
                     </div>
                   </div>
-                  <Img
-                    fluid={data.HeroTorso.childImageSharp.fluid}
+                  <GatsbyImage
+                    image={data.HeroTorso.childImageSharp.gatsbyImageData}
                     className="w-1/3 sm:w-2/3 max-w-xs mx-auto sm:mb-0"
-                    style={{ zIndex: 1000, position: "relative" }}
-                  />
+                    style={{ zIndex: 1000, position: "relative" }} />
                 </div>
               </div>
             </>

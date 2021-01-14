@@ -34,3 +34,19 @@
     transform: translatey(0px);
   }
 }
+
+.float-y-reverse {
+  animation: float-y-reverse  10s infinite;
+}
+
+@keyframes float-y-reverse  {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}

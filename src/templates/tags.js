@@ -100,48 +100,36 @@ Tags.propTypes = {
 
 export default Tags;
 
-export const pageQuery = graphql`
-  query($tag: String) {
-    tags: allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
-      group(field: frontmatter___tags) {
-        tag: fieldValue
-        totalCount
-      }
-    }
-    allMdx(
-      limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: {
-        frontmatter: {
-          tags: { in: [$tag] }
-          type: { in: ["Project", "Article"] }
-        }
-      }
-    ) {
+export const pageQuery = graphql`query ($tag: String) {
+  tags: allMdx(filter: {frontmatter: {type: {eq: "Article"}}}) {
+    group(field: frontmatter___tags) {
+      tag: fieldValue
       totalCount
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date
-            desc
-            path
-            type
-            featured
-            tags
-            coverimg {
-              childImageSharp {
-                fluid(maxWidth: 400) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
+    }
+  }
+  allMdx(limit: 2000, sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {tags: {in: [$tag]}, type: {in: ["Project", "Article"]}}}) {
+    totalCount
+    edges {
+      node {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date
+          desc
+          path
+          type
+          featured
+          tags
+          coverimg {
+            childImageSharp {
+              gatsbyImageData(maxWidth: 400, placeholder: NONE, layout: FLUID)
             }
           }
         }
       }
     }
   }
+}
 `;

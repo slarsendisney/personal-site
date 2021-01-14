@@ -108,6 +108,7 @@ module.exports = {
     `gatsby-plugin-remove-trailing-slashes`,
 
     // TRANSFORMER PLUGINS
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,

@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import PropTypes from "prop-types";
 import Layout from "../components/layout";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import SEO from "../components/seo";
 
 const Project = ({ data }) => {
@@ -12,14 +12,13 @@ const Project = ({ data }) => {
   return (
     <Layout>
       <SEO title={frontmatter.title} socialcard={fields.socialcard} />
-      <Img
-        fluid={frontmatter.coverimg.childImageSharp.fluid}
+      <GatsbyImage
+        image={frontmatter.coverimg.childImageSharp.gatsbyImageData}
         className="w-full h-full"
         style={{
           maxHeight: 400,
         }}
-        objectPosition="50% 50%"
-      />
+        objectPosition="50% 50%" />
 
       <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
         <h1 className="text-4xl font-semibold text-center">
@@ -37,27 +36,23 @@ const Project = ({ data }) => {
   );
 };
 
-export const pageQuery = graphql`
-  query($path: String!) {
-    mdx(frontmatter: { path: { eq: $path } }) {
-      body
-      fields {
-        socialcard
-      }
-      frontmatter {
-        title
-        desc
-        coverimg {
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
+export const pageQuery = graphql`query ($path: String!) {
+  mdx(frontmatter: {path: {eq: $path}}) {
+    body
+    fields {
+      socialcard
+    }
+    frontmatter {
+      title
+      desc
+      coverimg {
+        childImageSharp {
+          gatsbyImageData(maxWidth: 1200, placeholder: NONE, layout: FLUID)
         }
       }
     }
   }
+}
 `;
 
 Project.propTypes = {

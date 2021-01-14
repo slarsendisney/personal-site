@@ -63,24 +63,18 @@ fourOFour.propTypes = {
   data: PropTypes.shape({}).isRequired,
 };
 
-export const pageQuery = graphql`
-  {
-    Hero: file(relativePath: { eq: "404Hero.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
-    }
-    allSitePage(
-      filter: { path: { nin: ["/dev-404-page", "/404", "/404/", "/404.html"] } }
-    ) {
-      nodes {
-        path
-      }
+export const pageQuery = graphql`{
+  Hero: file(relativePath: {eq: "404Hero.png"}) {
+    childImageSharp {
+      gatsbyImageData(maxWidth: 800, placeholder: NONE, layout: FLUID)
     }
   }
+  allSitePage(filter: {path: {nin: ["/dev-404-page", "/404", "/404/", "/404.html"]}}) {
+    nodes {
+      path
+    }
+  }
+}
 `;
 
 export default fourOFour;

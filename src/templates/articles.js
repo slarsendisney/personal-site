@@ -3,7 +3,7 @@ import { kebabCase } from "lodash";
 import { Link, graphql } from "gatsby";
 import { Emojione } from "react-emoji-render";
 import PropTypes from "prop-types";
-import Img from "gatsby-image/withIEPolyfill";
+import { GatsbyImage } from "gatsby-plugin-image";
 import getAllArticles from "../utils/getAllArticles";
 import Layout from "../components/layout";
 import { Card } from "./projects";
@@ -94,12 +94,11 @@ export const Article = ({ title, slug, coverimg, excerpt, key, tags }) => {
           className="col-xs-12 col-md-5 margin-2-b"
           style={{ position: "relative" }}
         >
-          <Img
-            fluid={coverimg.childImageSharp.fluid}
+          <GatsbyImage
+            image={coverimg.childImageSharp.gatsbyImageData}
             className="shadow"
             objectFit="cover"
-            style={{ width: "100%", height: "100%", maxHeight: 220 }}
-          />
+            style={{ width: "100%", height: "100%", maxHeight: 220 }} />
         </div>
         <div className="p-3">
           <h2 className="text-2xl font-semibold">{title}</h2>
@@ -307,66 +306,53 @@ Articles.propTypes = {
   }).isRequired,
 };
 
-export const pageQuery = graphql`
-  query Articles($skip: Int!, $limit: Int!, $slug: String!) {
-    sitePage(path: { eq: $slug }) {
-      context {
-        limit
-        skip
-        numPages
-        currentPage
-      }
+export const pageQuery = graphql`query Articles($skip: Int!, $limit: Int!, $slug: String!) {
+  sitePage(path: {eq: $slug}) {
+    context {
+      limit
+      skip
+      numPages
+      currentPage
     }
-    allPageViews(
-      filter: { path: { regex: "//articles/[^?/]*$/g" } }
-      sort: { fields: totalCount, order: DESC }
-      limit: 8
-    ) {
-      edges {
-        node {
-          totalCount
-          path
-        }
-      }
-    }
-    tags: allMdx(filter: { frontmatter: { type: { eq: "Article" } } }) {
-      group(field: frontmatter___tags) {
-        tag: fieldValue
+  }
+  allPageViews(filter: {path: {regex: "//articles/[^?/]*$/g"}}, sort: {fields: totalCount, order: DESC}, limit: 8) {
+    edges {
+      node {
         totalCount
-      }
-    }
-    allMdx(
-      limit: $limit
-      skip: $skip
-      filter: { frontmatter: { type: { eq: "Article" } } }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            desc
-            path
-            featured
-            tags
-            coverimg {
-              childImageSharp {
-                fluid(maxWidth: 400) {
-                  # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
-          excerpt
-        }
+        path
       }
     }
   }
+  tags: allMdx(filter: {frontmatter: {type: {eq: "Article"}}}) {
+    group(field: frontmatter___tags) {
+      tag: fieldValue
+      totalCount
+    }
+  }
+  allMdx(limit: $limit, skip: $skip, filter: {frontmatter: {type: {eq: "Article"}}}, sort: {fields: frontmatter___date, order: DESC}) {
+    edges {
+      node {
+        frontmatter {
+          title
+          date
+          desc
+          path
+          featured
+          tags
+          coverimg {
+            childImageSharp {
+              gatsbyImageData(maxWidth: 400, placeholder: NONE, layout: FLUID)
+            }
+          }
+        }
+        fields {
+          slug
+        }
+        excerpt
+      }
+    }
+  }
+}
 `;
 
 export default Articles;

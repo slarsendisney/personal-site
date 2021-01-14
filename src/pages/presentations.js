@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { connect } from "react-redux";
 import SmoothCollapse from "react-smooth-collapse";
 import Layout from "../components/layout";
@@ -74,13 +74,12 @@ const Start = ({ data, presentation }) => {
                     }
                     className=" "
                   >
-                    <Img
-                      fluid={hero.childImageSharp.fluid}
+                    <GatsbyImage
+                      image={hero.childImageSharp.gatsbyImageData}
                       style={{
                         maxHeight: 200,
                       }}
-                      className="rounded-t"
-                    />
+                      className="rounded-t" />
 
                     <div className="p-3">
                       <h1 className="margin-0-b text-secondary text-2xl">
@@ -100,29 +99,23 @@ const Start = ({ data, presentation }) => {
   );
 };
 
-export const query = graphql`
-  {
-    allMdx(
-      sort: { fields: frontmatter___date, order: DESC }
-      filter: { frontmatter: { type: { eq: "Presentation" } } }
-    ) {
-      nodes {
-        frontmatter {
-          path
-          title
-          desc
-          location
-          hero {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
+export const query = graphql`{
+  allMdx(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {type: {eq: "Presentation"}}}) {
+    nodes {
+      frontmatter {
+        path
+        title
+        desc
+        location
+        hero {
+          childImageSharp {
+            gatsbyImageData(maxWidth: 1000, placeholder: NONE, layout: FLUID)
           }
         }
       }
     }
   }
+}
 `;
 
 const mapStateToProps = ({ presentation }) => {

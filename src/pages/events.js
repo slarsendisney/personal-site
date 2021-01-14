@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import Img from "gatsby-image/withIEPolyfill";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -99,15 +99,14 @@ const EventsPage = ({ data }) => {
       </div>
         </div>}
       <section className="text-center text-white bg-default relative">
-        <Img
-          fluid={data.eventHero.childImageSharp.fluid}
+        <GatsbyImage
+          image={data.eventHero.childImageSharp.gatsbyImageData}
           className="w-full h-full opacity-75"
           style={{
             zIndex: 10,
             position: "absolute",
           }}
-          objectPosition="75% 50%"
-        />
+          objectPosition="75% 50%" />
         <div
           className="relative w-full max-w-4xl px-4 py-24 mx-auto md:px-8 md:py-32"
           style={{
@@ -124,15 +123,14 @@ const EventsPage = ({ data }) => {
         <h2 className="text-2xl">Speaker Bio</h2>
         <div className="grid grid-cols-4 gap-4 my-3">
           <div className="col-span-4 md:col-span-1">
-            <Img
-              fluid={data.face.childImageSharp.fluid}
+            <GatsbyImage
+              image={data.face.childImageSharp.gatsbyImageData}
               style={{
                 maxWidth: 150,
                 width: "80%",
                 marginLeft: "auto",
                 marginRight: "auto",
-              }}
-            />
+              }} />
           </div>
           <div className="col-span-4 md:col-span-3">
             <h3>
@@ -184,26 +182,19 @@ EventsPage.propTypes = {
   }).isRequired,
 };
 
-export const query = graphql`
-  {
-    eventHero: file(relativePath: { eq: "eventHero.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
-    }
-    face: file(relativePath: { eq: "face.png" }) {
-      publicURL
-      childImageSharp {
-        fluid(maxWidth: 400) {
-          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
+export const query = graphql`{
+  eventHero: file(relativePath: {eq: "eventHero.png"}) {
+    childImageSharp {
+      gatsbyImageData(maxWidth: 1200, placeholder: NONE, layout: FLUID)
     }
   }
+  face: file(relativePath: {eq: "face.png"}) {
+    publicURL
+    childImageSharp {
+      gatsbyImageData(maxWidth: 400, placeholder: NONE, layout: FLUID)
+    }
+  }
+}
 `;
 
 export default EventsPage;

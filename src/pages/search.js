@@ -178,98 +178,73 @@ Search.propTypes = {
   }).isRequired,
 };
 
-export const query = graphql`
-  {
-    siteSearchIndex {
-      index
-    }
-    ShowCaseOne: allMdx(
-      limit: 1
-      filter: { frontmatter: { type: { eq: "Article" } } }
-      skip: 3
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      nodes {
-        frontmatter {
-          title
-          desc
-          tags
-        }
-        fields {
-          slug
-        }
-        excerpt
+export const query = graphql`{
+  siteSearchIndex {
+    index
+  }
+  ShowCaseOne: allMdx(limit: 1, filter: {frontmatter: {type: {eq: "Article"}}}, skip: 3, sort: {fields: frontmatter___date, order: DESC}) {
+    nodes {
+      frontmatter {
+        title
+        desc
+        tags
       }
-    }
-    ShowCaseTwo: allMdx(
-      limit: 1
-      filter: { frontmatter: { type: { eq: "Article" } } }
-      skip: 6
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      nodes {
-        frontmatter {
-          title
-          desc
-          tags
-        }
-        fields {
-          slug
-        }
-        excerpt
+      fields {
+        slug
       }
-    }
-    ShowCaseProject: allMdx(
-      limit: 1
-      filter: { frontmatter: { type: { eq: "Project" } } }
-      skip: 4
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      nodes {
-        frontmatter {
-          type
-          title
-          date
-          desc
-          tags
-          path
-          coverimg {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
-          }
-        }
-        excerpt
-      }
-    }
-    ShowCaseProjectTwo: allMdx(
-      limit: 1
-      filter: { frontmatter: { type: { eq: "Project" } } }
-      skip: 2
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      nodes {
-        frontmatter {
-          type
-          title
-          date
-          desc
-          tags
-          path
-          coverimg {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
-          }
-        }
-        excerpt
-      }
+      excerpt
     }
   }
+  ShowCaseTwo: allMdx(limit: 1, filter: {frontmatter: {type: {eq: "Article"}}}, skip: 6, sort: {fields: frontmatter___date, order: DESC}) {
+    nodes {
+      frontmatter {
+        title
+        desc
+        tags
+      }
+      fields {
+        slug
+      }
+      excerpt
+    }
+  }
+  ShowCaseProject: allMdx(limit: 1, filter: {frontmatter: {type: {eq: "Project"}}}, skip: 4, sort: {fields: frontmatter___date, order: DESC}) {
+    nodes {
+      frontmatter {
+        type
+        title
+        date
+        desc
+        tags
+        path
+        coverimg {
+          childImageSharp {
+            gatsbyImageData(maxWidth: 1000, placeholder: NONE, layout: FLUID)
+          }
+        }
+      }
+      excerpt
+    }
+  }
+  ShowCaseProjectTwo: allMdx(limit: 1, filter: {frontmatter: {type: {eq: "Project"}}}, skip: 2, sort: {fields: frontmatter___date, order: DESC}) {
+    nodes {
+      frontmatter {
+        type
+        title
+        date
+        desc
+        tags
+        path
+        coverimg {
+          childImageSharp {
+            gatsbyImageData(maxWidth: 1000, placeholder: NONE, layout: FLUID)
+          }
+        }
+      }
+      excerpt
+    }
+  }
+}
 `;
 
 export default Search;

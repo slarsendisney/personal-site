@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import PropTypes from "prop-types";
-import Img from "gatsby-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Newsletter from "../components/Newsletter";
@@ -45,7 +45,14 @@ function IndexPage({ data }) {
         </div>
       </section>
       <section className="text-secondary bg-compliment  ">
-        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+        <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+        <div className="absolute top-0 left-0 hidden md:block -mt-12 md:-mt-16 ml-4 md:-ml-12 lg:-ml-36 float-y">
+            <StaticImage
+              src="https://ik.imagekit.io/sld/SuperScene/rocket_b_IroGKaPfcUEIo.png"
+              alt="Lantern"
+              className="w-24 md:w-36"
+            />
+          </div>
           <h1 className="inline-block -mx-3 p-3 mb-4 text-2xl md:text-3xl lg:text-4xl font-bold">
             Recent Projects
           </h1>
@@ -67,15 +74,14 @@ function IndexPage({ data }) {
         </div>
       </section>
       <section className="text-center text-secondary bg-default relative">
-        <Img
-          fluid={data.eventHero.childImageSharp.fluid}
+        <GatsbyImage
+          image={data.eventHero.childImageSharp.gatsbyImageData}
           className="w-full h-full opacity-75"
           style={{
             zIndex: 10,
             position: "absolute",
           }}
-          objectPosition="75% 50%"
-        />
+          objectPosition="75% 50%" />
         <div
           className="relative w-full max-w-4xl px-4 py-32 mx-auto md:px-8 md:py-40"
           style={{
@@ -97,7 +103,7 @@ function IndexPage({ data }) {
           <Newsletter />
         </div>
       </section>
-      <PreferPaper mug={data.mug} paperclip={data.paperclip} />
+      <PreferPaper />
     </Layout>
   );
 }
@@ -127,77 +133,47 @@ IndexPage.propTypes = {
   }).isRequired,
 };
 
-export const query = graphql`
-  {
-    Articles: allMdx(
-      filter: { frontmatter: { type: { eq: "Article" } } }
-      sort: { fields: frontmatter___date, order: DESC }
-      limit: 4
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            desc
-            tags
-          }
-          fields {
-            slug
-          }
-          excerpt
+export const query = graphql`{
+  Articles: allMdx(filter: {frontmatter: {type: {eq: "Article"}}}, sort: {fields: frontmatter___date, order: DESC}, limit: 4) {
+    edges {
+      node {
+        frontmatter {
+          title
+          desc
+          tags
         }
+        fields {
+          slug
+        }
+        excerpt
       }
     }
-    Projects: allMdx(
-      filter: { frontmatter: { type: { eq: "Project" } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 4
-    ) {
-      edges {
-        node {
-          frontmatter {
-            type
-            title
-            desc
-            date
-            tags
-            path
-            coverimg {
-              childImageSharp {
-                fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
+  }
+  Projects: allMdx(filter: {frontmatter: {type: {eq: "Project"}}}, sort: {order: DESC, fields: [frontmatter___date]}, limit: 4) {
+    edges {
+      node {
+        frontmatter {
+          type
+          title
+          desc
+          date
+          tags
+          path
+          coverimg {
+            childImageSharp {
+              gatsbyImageData(maxWidth: 1000, placeholder: NONE, layout: FLUID)
             }
           }
         }
       }
     }
-    eventHero: file(relativePath: { eq: "eventHero.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
-    }
-    paperclip: file(relativePath: { eq: "Item/Paperclip.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
-    }
-    mug: file(relativePath: { eq: "Item/Mug.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-          ...GatsbyImageSharpFluid_noBase64
-        }
-      }
+  }
+  eventHero: file(relativePath: {eq: "eventHero.png"}) {
+    childImageSharp {
+      gatsbyImageData(maxWidth: 1200, placeholder: NONE, layout: FLUID)
     }
   }
+}
 `;
 
 export default IndexPage;
