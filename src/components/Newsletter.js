@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import addToMailchimp from "gatsby-plugin-mailchimp";
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
+import urls from "../data/urls.json";
 
 const Newsletter = ({ nodesc }) => {
   const [email, setEmail] = useState("");
   const [sumitted, setSubmitted] = useState("");
 
   const handleSubmit = () => {
-    addToMailchimp(email).then((data) => {
+    fetch(`${urls.api}/subscribe`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email }),
+    }).then(() => {
       const subLocation =
         typeof window !== "undefined" ? window.location.pathname : "N/A";
       trackCustomEvent({
