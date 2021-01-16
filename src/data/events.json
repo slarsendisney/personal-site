@@ -1,5 +1,12 @@
 [
   {
+    "event": "Imperial College Guest Lecture",
+    "talk": "Introduction to Web Development",
+    "description": "A history of web development, an introduction to industry-leading front-end technologies and challenging what you think is possible in the browser with some fun experiments in Javascript.",
+    "location": "Imperial College",
+    "date": "2021-01-20"
+  },
+  {
     "event": "HalfStack Conf",
     "talk": "Presenting Without Sharing My Screen",
     "description": "A React + Gatsby + Socket.io solution for crystal clear slides for everyone using minimal bandwidth + slide navigation using gestures.",

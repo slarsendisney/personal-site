@@ -12,23 +12,23 @@ const Project = ({ data }) => {
   return (
     <Layout>
       <SEO title={frontmatter.title} socialcard={fields.socialcard} />
-      <GatsbyImage
+        <GatsbyImage
         image={frontmatter.coverimg.childImageSharp.gatsbyImageData}
-        className="w-full h-full"
+        className="w-full h-full md:max-w-4xl mx-auto md:mt-5 md:rounded"
         style={{
           maxHeight: 400,
         }}
         objectPosition="50% 50%" />
 
-      <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-        <h1 className="text-4xl font-semibold text-center">
+      <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 prose">
+        <h1 className="text-center">
           {frontmatter.title}
         </h1>
-        <p className="text-2xl text-center mb-5 text-align-center">
+        <p className="text-center">
           {frontmatter.desc}
         </p>
 
-        <div className={`article`}>
+        <div className={``}>
           <MDXRenderer>{body}</MDXRenderer>
         </div>
       </div>

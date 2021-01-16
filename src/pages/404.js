@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import StringSimilarity from "string-similarity";
+import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -42,17 +43,28 @@ const fourOFour = ({ location, data }) => {
       <SEO title={"404"} socialcard={"social-card-404"} />
       <section className="text-secondary bg-default  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-          <h1 className="text-4xl">Page not found.</h1>
-          {renderContent()}
-          <Link
-            to={"/"}
-            style={{ textDecoration: "none" }}
-            className=" align-horizontal is-white lato margin-4-r"
-          >
-            <button className="btn my-5">
-              There&apos;s no place like home
-            </button>
-          </Link>
+          <div className="grid grid-cols-1 sm:grid-cols-3">
+            <div className="w-24 sm:w-48 lg:w-64 float-y">
+            <StaticImage
+              src="https://ik.imagekit.io/sld/SuperScene/BigRobot_-PBxPXWjphTA.png"
+              alt="Helpful Robot"
+              className="z-10"
+            />
+            </div>
+            <div className="col-span-2 flex flex-col">
+              <h1 className="text-4xl">Page not found.</h1>
+              {renderContent()}
+              <Link
+                to={"/"}
+                style={{ textDecoration: "none" }}
+                className=" align-horizontal is-white lato margin-4-r"
+              >
+                <button className="btn my-5">
+                  There&apos;s no place like home
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>
@@ -63,18 +75,21 @@ fourOFour.propTypes = {
   data: PropTypes.shape({}).isRequired,
 };
 
-export const pageQuery = graphql`{
-  Hero: file(relativePath: {eq: "404Hero.png"}) {
-    childImageSharp {
-      gatsbyImageData(maxWidth: 800, placeholder: NONE, layout: FLUID)
+export const pageQuery = graphql`
+  {
+    Hero: file(relativePath: { eq: "404Hero.png" }) {
+      childImageSharp {
+        gatsbyImageData(maxWidth: 800, placeholder: NONE, layout: FLUID)
+      }
+    }
+    allSitePage(
+      filter: { path: { nin: ["/dev-404-page", "/404", "/404/", "/404.html"] } }
+    ) {
+      nodes {
+        path
+      }
     }
   }
-  allSitePage(filter: {path: {nin: ["/dev-404-page", "/404", "/404/", "/404.html"]}}) {
-    nodes {
-      path
-    }
-  }
-}
 `;
 
 export default fourOFour;

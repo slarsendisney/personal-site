@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import firebase from "gatsby-plugin-firebase";
+import { StaticImage } from "gatsby-plugin-image";
 import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import urls from "../data/urls.json";
@@ -23,7 +24,14 @@ const ContactPage = ({ foundTheme }) => {
         socialcard="social-card-sponsor"
       />
       <section className="text-secondary bg-default  ">
-        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+        <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+          <div className="absolute hidden md:block left-0 top-0 mt-8 -ml-16 lg:-ml-36">
+            <StaticImage
+              src="https://ik.imagekit.io/sld/SuperScene/coin_r-1n-XaE4nl_.png"
+              alt="Coin"
+              className="h-20 w-20 lg:h-24 lg:w-24 z-10 float-y"
+            />
+          </div>
           <h1 className="text-4xl font-semibold mb-5">Support Me</h1>
           <p className="text-base mb-5">
             My site has no ads or sponsors. If you&apos;ve enjoyed my content

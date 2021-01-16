@@ -11,9 +11,9 @@ import {
   useDocumentDataOnce,
 } from "react-firebase-hooks/firestore";
 import Trend from "../components/Trend";
+import { StaticImage } from "gatsby-plugin-image";
 import firebase from "gatsby-plugin-firebase";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
-
 const colours = ["primary", "accent", "secondary", "accent"];
 
 const Stats = ({ data, count, foundTheme }) => {
@@ -87,7 +87,14 @@ const Stats = ({ data, count, foundTheme }) => {
         socialcard="social-card-stats"
       />
       <section className="text-secondary bg-default  ">
-        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 article">
+        <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 article">
+          <div className="absolute hidden md:block right-0 top-0 mt-6 -mr-12 lg:-mr-24">
+            <StaticImage
+              src="https://ik.imagekit.io/sld/SuperScene/compass_a_X0JX3IeIP4M6L.png"
+              alt="Compass"
+              className="h-20 w-20 lg:h-24 lg:w-24 z-10"
+            />
+          </div>
           <h2 className="text-base">
             You are{" "}
             {count > 1 ? (
@@ -150,7 +157,14 @@ const Stats = ({ data, count, foundTheme }) => {
         </div>
       </section>
       <section className="text-secondary bg-secondary  ">
-        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 article">
+        <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 article">
+          <div className="absolute hidden md:block left-0 top-0 -mt-6 -ml-16 lg:-ml-36">
+            <StaticImage
+              src="https://ik.imagekit.io/sld/SuperScene/coin_r-1n-XaE4nl_.png"
+              alt="Coin"
+              className="h-20 w-20 lg:h-24 lg:w-24 z-10 float-y"
+            />
+          </div>
           <p className="margin-0 margin-1-b text-xl">SPONSORS</p>
           <h2 className="font-normal">
             Some incredibly generous people have bought me{" "}
@@ -219,7 +233,14 @@ const Stats = ({ data, count, foundTheme }) => {
         </div>
       </section>
       <section className="text-secondary bg-default  ">
-        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+        <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
+        <div className="absolute hidden md:block right-0 top-0 -mt-6 -mr-16 lg:-mr-36">
+            <StaticImage
+              src="https://ik.imagekit.io/sld/SuperScene/box_a_UzAmxZSmTN.png"
+              alt="Box"
+              className="h-24 w-24 lg:h-36 lg:w-36 z-10 float-y"
+            />
+          </div>
           <div className="row container pad-10-tb pad-3-lr">
             <div className="">
               <h4 className="margin-0 text-xl">
