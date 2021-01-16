@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useLocalStorage } from "../../utils/customHooks";
@@ -54,7 +55,7 @@ const PollView = ({
   const userChoice = userPollVotes[pollID] ? userPollVotes[pollID] : "";
   return (
     <div className="poll">
-      <h3 className="text-2xl">{question}</h3>
+      <p className="font-bold">{question}</p>
       {!submitted ? (
         <div className="row fill-width grid grid-cols-2 gap-4">
           {answers.map(({ option }) => (
@@ -66,7 +67,7 @@ const PollView = ({
           ))}
         </div>
       ) : (
-        <div className="row fill-width">
+        <div className="row w-full max-w-2xl mx-auto">
           {totalVotes > 0 ? (
             <>
               {pollAnswers.map(({ option, votes }) => (
@@ -85,7 +86,7 @@ const PollView = ({
                       }}
                     ></div>
                     <div
-                      className="fill-width flex align-horizontal align-vertical p-1"
+                      className="w-full flex items-center p-1"
                       style={{
                         position: "absolute",
                         zIndex: 1100,
@@ -93,7 +94,7 @@ const PollView = ({
                       }}
                     >
                       <p
-                        className={`mr-4 text-5xl ${
+                        className={`mr-4 text-3xl md:text-4xl ${
                           userChoice === option ? "font-bold" : ""
                         }`}
                       >

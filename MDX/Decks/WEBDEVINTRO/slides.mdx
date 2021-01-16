@@ -1,0 +1,864 @@
+---
+title: "Intro to Web Dev"
+path: /decks/WEBDEVINTRO
+desc: How we got here, where we're going and how to get started.
+hero: "./hero.png"
+date: 2021-01-15
+type: "Presentation"
+minimal: true
+location: London | Imperial College
+---
+
+import TextLoop from "react-text-loop";
+import { Emojione } from "react-emoji-render";
+import { StaticImage } from "gatsby-plugin-image";
+import Preload from "../../../src/components/Presentations/Preload";
+import PrettifyPlease from "../../../src/components/Presentations/PrettifyPlease";
+import FloatingMe from "../../../src/components/Presentations/FloatingMe";
+import QandA from "../../../src/components/Presentations/QandA";
+import Poll from "../../../src/components/Presentations/Poll";
+
+<!---
+INTRODUCTION
+-->
+
+<div className="absolute top-0 left-0 w-full h-full flex items-center">
+  <div className="grid grid-cols-4 w-full max-w-4xl mx-auto">
+    <div className="col-span-3 prose prose-sm">
+      <h1>Hey.</h1>
+      <h4>
+        I'm <a>Sam Larsen-Disney.</a>
+      </h4>
+      <blockquote>
+        <h5>UX Engineer @ American Express</h5>
+      </blockquote>
+    </div>
+    <div className="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 relative">
+      <div className="w-full top-0 absolute bg-accent z-10 rounded-full">
+        <div className="w-full h-full -m-6">
+          <FloatingMe />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+# My Journey.
+
+---
+
+# I'm 4/5 years ahead of you
+
+---
+
+<!---
+HISTORY OF WEB DEVELOPMENT
+-->
+
+![History of web development](https://ik.imagekit.io/sld/WebDevHistory_x9FsqptLOOHP.gif)
+
+---
+
+In the beginning
+The origins of the internet go way back to the 1960s, with the US military’s Arpanet project linking computers remotely for the first time.
+
+---
+
+Significant milestones were achieved in the following years as technology improved, including:
+
+- The first email message sent, generally credited to Ray Tomlinson, who also pioneered the use of the @ symbol.
+- USENET went live in 1979. This was a precursor to modern-day social media and allowed enthusiasts to share memes and descend into obtuse arguments online for the first time.
+- The domain name system (DNS) was established in 1983, with the first .com registered by Symbolics Computer Corporation in 1985.
+
+---
+
+# WWW
+
+However, web development as we know it today began when Tim Berners Lee created Hypertext Markup Language (HTML) in the early 1990s. This was the catalyst for the modern World Wide Web, and HTML still forms the backbone of virtually every web page ever created.
+
+---
+
+Browser wars
+During the early 1990s, ‘web developer’ was not a recognised profession. A variety of different roles, such as; designer, content manager and programmer were conglomerated under the term webmaster.
+
+---
+
+The introduction of the Mosaic web browser in 1993 brought with it the emergence of the Front-end Web Developer, as graphical user interfaces became possible for the first time. This early era also introduced the browser wars, as competing web browser vendors attempted to outdo each other with proprietary features and quirks.
+
+---
+
+![Best Viewed with IE](https://pbs.twimg.com/media/DTVLXJAW4AAJc25.jpg:large)
+
+---
+
+This made the developer’s job very difficult, as it was almost impossible to guarantee that a web page would look and function as intended across different browsers without making separate versions of the same page.
+
+---
+
+User expectations were not particularly high during this period. Many popular websites were produced by hobbyists and browsing the web was a bit of a Wild West experience. Accepted standards of design and accessibility had not yet been established.
+
+---
+
+Developers came up with many innovative solutions to get around these limitations, such as using tables to control layout and infamous spacer gif files (an invisible gif file used to force a layout into the correct position).
+
+---
+
+# Getting flashy
+
+Towards the end of the 1990s, Macromedia’s Flash (later acquired by Adobe) seemed to open up a whole new world of possibilities for developers frustrated by HTML’s limitations.
+
+---
+
+The technology delivered content in a browser plugin rather than relying on the browser’s own proprietary features. This allowed animated, interactive content to be produced that would work on the majority of end-users’ computers.
+
+---
+
+However, it also led to some issues:
+
+Most users relied on slow modem connections and Flash websites could take a long time to load.
+Search Engines were unable to crawl sites created purely using Flash, causing difficulties for sites relying on organic search for traffic.
+Accessibility problems - users relying on assistive technology could face severe difficulties navigating through Flash sites.
+Even the most simple content updates would require a Flash developer to implement, making websites very costly to maintain.
+It required the plugin to be installed in the first place. This could often lead to scenes like the below.
+
+---
+
+When Steve Jobs announced in 2010 that iOS devices would no longer support Flash, it effectively killed it off as a viable platform for web development.
+
+---
+
+As we moved into the 2000s, there was a growing grassroots movement to establish independent standards for web technologies. Groups like the World Wide Web Consortium began to exert influence over the industry in an effort to make the web accessible for all and ensure that advancements were not driven by the profit motive of individual technology companies.
+
+---
+
+Gradually, browsers and developers began to adopt a standards-based approach. This has led to widespread adoption of open source technology and a greater focus on the experience of the end user.
+
+---
+
+A major issue with HTML-based websites at this time was that content and presentational code were mixed in together in one document. This made it very difficult for a non-developer to update a website and caused maintenance problems, e.g if a company wished to change a brand colour then they would have to ask their developers to individually update many individual pages wherever the colour was used.
+
+---
+
+# Building sites with style (sheets)
+
+CSS gradually gained widespread adoption and became the standard language used to separate presentation from content. As web browsers moved towards standardisation, developers could build more accessible, functional and performant sites. Content editors could update with confidence, knowing that a wrong move would not completely break the site’s layout.
+
+---
+
+In many ways, this made the developer’s job easier but for some, it meant having to learn an entirely new language and process for producing websites; unlearning carefully mastered techniques that had now become obsolete.
+
+---
+
+Javascript became the standard language used to add interactivity to web pages. Unfortunately, differences in how web browsers interpret this language made it very challenging to prevent bugs and inconsistencies in the end-user experience.
+
+---
+
+The jQuery framework emerged as a “wrapper” around the Javascript language in a (largely successful) attempt to iron out these inconsistencies by giving developers a standard method to add interactivity that would work across the majority of browsers. jQuery became an essential part of the front-end developer’s toolbox.
+
+---
+
+# The state of play
+
+We have reached a stage where standards have become widely accepted, Internet Explorer is being phased out (yay!) and front-end development has become relatively mature.
+
+---
+
+The proliferation of smartphones and other web-enabled devices has brought a new set of challenges to the fore. Responsive, mobile-first development is the de facto standard practice to address this. Websites are now produced in such a way that the user experience is optimised for users on small screens and additional features are added to enhance the experience on larger screens.
+
+---
+
+Web users now expect a fast, accessible and seamless experience on whatever device they use to access a site. This has led to a trend for function over flash in web design and a much greater focus on the needs of the end-user.
+
+---
+
+Front-end development is no longer about hacking together web pages. Modern user interfaces should provide an “app like” experience. Today developers must adopt best practice from both software engineering and user interface design.
+
+---
+
+It is still an incredibly fast-moving profession, with new frameworks and trends emerging constantly. However; HTML, CSS and Javascript are still the core technologies that underpin everything that is built to be viewed in a web browser. This is unlikely to change in the near future.
+
+---
+
+<!---
+FUTURE OF WEB DEVELOPMENT
+-->
+
+# My thoughts on the future
+
+---
+
+# The office is dead
+
+- no commute
+- better work life balance
+- live where you want
+
+---
+
+companies embraced WFH
+
+---
+
+Micrsofot and Apple will continue to allow emoployees to work remotely
+
+exodus from silicon valley
+
+---
+
+College degrees no longer required for jobs at apple google etc. for software engineers
+
+---
+
+Job market more competitive as you have to compete with the entire world
+
+---
+
+Our industry performed way better in these weird times than anyone other field.
+
+---
+
+Typescript will continue to dominate - especially with Deno being a thing.
+
+---
+
+web apps and native apps will draw nearer each other.
+
+---
+
+you can now create websites that have push notifications, offline mode, bluetooth, background sync and more!
+
+(These things used to be reserved for native apps)
+
+---
+
+More and more apps will just wrap web pages.
+
+---
+
+Artifical Intelligence will not take your job
+
+---
+
+GPT-3
+
+---
+
+<div className="w-full max-w-lg text-center">
+  <Tweet tweetLink="sharifshameem/status/1284095222939451393" />
+</div>
+
+---
+
+![Don't Panic](https://i.pinimg.com/originals/16/12/87/161287e215d0839f75f32d69625cd102.gif)
+
+---
+
+Nocode/lowcode revolution
+
+---
+
+Lots of tools out there to help with no coding experience create apps
+
+---
+
+Examples here!
+
+---
+
+So it will take my job?
+
+---
+
+No. We're just more likely to focus on the stuff it can't handle.
+
+---
+
+We will be able to follow the DRY principle even easier.
+
+---
+
+The server is dead.
+
+---
+
+Serverless is King.
+
+---
+
+Whats serverless?
+
+---
+
+Serverless Databases
+
+---
+
+Fauna & Firestore
+
+---
+
+# We will spend less time thinking about how we scale.
+
+(It'll just work)
+
+---
+
+<!---
+GETTING STARTED INTRO
+-->
+
+# What's in the box of a modern webpage?
+
+---
+
+# HTML
+
+- HTML stands for Hypertext Markup Language
+- Every webpage in the world is HTML. It’s the main thing web browsers understand.
+- HTML describes the page’s content as a series of elements.
+
+---
+
+# CSS
+
+- CSS is a series of rules that applies to “selectors”
+- You can either include a stylesheet, or define the style on the element directly
+- You can change different predefined properties of things
+
+---
+
+# JavaScript
+
+- Named that way to be appealing to Java Devs
+- HTML describes the page’s content as a series of elements.
+
+---
+
+# Getting Practical
+
+Introducing you to two modern industry-leading front-end technologies (ReactJS & GatsbyJS)
+
+---
+
+<!---
+REACT INTRO
+-->
+
+<Poll
+  pollID="reactFeeler"
+  question="Have you used ReactJS before?"
+  answers={[
+    { option: "I'm an Expert", votes: 0 },
+    { option: "Many Times", votes: 0 },
+    { option: "Once or Twice", votes: 0 },
+    { option: "What's React?", votes: 0 },
+  ]}
+/>
+
+---
+
+<!---
+GATSBY INTRO
+-->
+
+# Intro to Gatsby
+
+---
+
+<Poll
+  pollID="reactFeeler"
+  question="Have you used GatsbyJS before?"
+  answers={[
+    { option: "I'm an Expert", votes: 0 },
+    { option: "Many Times", votes: 0 },
+    { option: "Once or Twice", votes: 0 },
+    { option: "What's Gatsby?", votes: 0 },
+  ]}
+/>
+
+---
+
+# What is GatsbyJS?
+
+---
+
+> You get simplicity by finding slightly more sophisticated building blocks.
+
+By [_Alan Kay_](https://www.youtube.com/watch?v=NdSD07U5uBs)
+
+---
+
+## A static site generator
+
+- Produces static html files that we load up onto a server.
+- No data querying done server side - all sorted at build.
+
+---
+
+## Static site !== static page
+
+We can still add all the JS we want to do dynamic things.
+
+---
+
+## Uses GraphQL to get data from anywhere
+
+We could get content from files, databases other websites - the list goes on!
+
+---
+
+```
+---
+title: "Intro to Gatsby"
+path: /decks/HOWTOGATSBY
+desc: An overview of GatsbyJS for the uninitiated.
+hero: "./hero.png"
+location: Space | Earth
+---
+
+# Intro to Gatsby
+#### Slides can be found at [slides.sld.codes](http://slides.sld.codes)
+
+---
+
+# What is GatsbyJS?
+
+---
+
+...
+```
+
+###### [See the file here.](https://github.com/slarsendisney/personal-site/blob/master/MDX/Decks/HOWTOGATSBY/slides.mdx)
+
+---
+
+## Gatsby generates pages for you
+
+- Pass Gatsby content, define a template and it will programmatically create pages for you.
+- Gatsby uses Node to generate these pages in development.
+
+---
+
+## 🔌 Built with a plugin architecture
+
+Abstract complex, configurations, or reusable code into a plugin so its away from what your focused on.
+
+---
+
+## 💪 Harnesses ReactJS
+
+Gatsby uses react and stylesheets to help structure page layout.
+
+---
+
+## Project Structure 📁
+
+---
+
+```
+/
+|-- /plugins
+|-- /public
+|-- /src
+    |-- /pages
+    |-- /templates
+|-- /static
+|-- gatsby-config.js ⬅️ core configuration file and plugin handeller
+|-- gatsby-node.js
+|-- gatsby-browser.js
+```
+
+---
+
+```
+/
+|-- /plugins
+|-- /public
+|-- /src
+    |-- /pages
+    |-- /templates
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js ⬅️ control your site's data in the graphQL data layer
+|-- gatsby-browser.js
+```
+
+---
+
+```
+/
+|-- /plugins
+|-- /public
+|-- /src
+    |-- /pages
+    |-- /templates
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-browser.js ⬅️ code that will run on the client browser
+```
+
+---
+
+```
+/
+|-- /plugins
+|-- /public
+|-- /src
+    |-- /pages
+    |-- /templates
+|-- /static ⬅️ static content you want copied to your public folder at build
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-browser.js
+```
+
+---
+
+```
+/
+|-- /plugins
+|-- /public
+|-- /src
+    |-- /pages
+    |-- /templates ⬅️ templates for programmatically generated pages
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-browser.js
+```
+
+---
+
+```
+/
+|-- /plugins
+|-- /public
+|-- /src
+    |-- /pages ⬅️ location of single instance pages
+    |-- /templates
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-browser.js
+```
+
+---
+
+```
+/
+|-- /plugins ⬅️ local development plugins
+|-- /public
+|-- /src
+    |-- /pages
+    |-- /templates
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-browser.js
+```
+
+---
+
+```
+/
+|-- /plugins
+|-- /public ⬅️ the built html and JS files
+|-- /src
+    |-- /pages
+    |-- /templates
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-browser.js
+```
+
+---
+
+###### gatsby-config.js
+
+```
+module.exports = {
+  siteMetadata: {
+    title: `Site Title`,
+    author: {
+      name: `Sam Larsen-Disney`,
+    },
+    description: `Short, sharp description.`,
+    siteUrl: `https://sld.codes`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    `gatsby-transformer-remark`
+  ]
+}
+```
+
+---
+
+###### We can now make queries!
+
+```
+
+query GetBlogPosts {
+  allMarkdownRemark(filter: {frontmatter: {type: {eq: "Article"}}}) {
+    nodes {
+      frontmatter {
+        title
+      }
+    }
+  }
+}
+
+```
+
+---
+
+###### gatsby-node.js
+
+```
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const result = await graphql(
+    `{
+        allMarkdownRemark{
+          edges {
+            node {
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+      }`
+  )
+  const posts = result.data.allMarkdownRemark.edges
+  posts.forEach((post, index) => {
+    createPage({
+      path: post.frontmatter.path,
+      component: blogPost,
+    })
+  })
+}
+```
+
+---
+
+#### Single Instance Pages
+
+<p class="legal">src/pages/index.js</p>
+
+<Editor fullWidth code={SingleInstancePages} />
+
+---
+
+# Why use Gatsby?
+
+---
+
+## ⚡️ Speed
+
+Its hard to beat the speed of sending static output.
+
+---
+
+## 🔑 Security
+
+Extremely secure as you are just sending HTML.
+
+---
+
+## 😍 Developer Experience
+
+---
+
+#### Takes away logic we all find pernickety:
+
+- _react-router_
+- _progressive-image-loading_
+- _data-fetching_
+
+---
+
+- #### modern dev enviroment
+- #### simple tooling
+- #### modern and clean languages
+
+---
+
+Gatsby has a solid team, open source community and awesome documentation.
+
+🏃‍♂️ Its growing fast.
+
+---
+
+#### npm stats
+
+![GATSBY STATS](https://ik.imagekit.io/sld/gatsbyStats_P_fCfBD7g.png)
+
+---
+
+#### Built with Gatsby
+
+- [The Official React Javascript Library Website](https://reactjs.org/)
+- [The Impossible Foods’ Brand Website](https://impossiblefoods.com/)
+- [The Airbnb Sites for Developers and Designers](https://airbnb.io/)
+
+---
+
+# Summary
+
+- Gatsby is a static site generator
+- Under the hood it uses Node, GraphQL and react
+- Primary benefits are speed, security and developer experience.
+- Has a stable and growing community.
+
+---
+
+Have a go yourself
+
+# [sld.codes/boilerplates](/boilerplates)
+
+---
+
+See Gatsby in Action
+
+---
+
+<!---
+10 MIN BREAK
+-->
+
+Time for a Break.
+
+---
+
+<QandA QAID="imperials-questions-round-one" />
+
+---
+
+UX design principles you can use to elevate your apps
+
+---
+
+Challenging what you think is possible in the browser with some fun experiments in Javascript.
+
+---
+
+Carol Singers
+
+---
+
+<QandA QAID="imperials-questions-round-two" />
+
+---
+
+<div className="text-left grid grid-cols-3" style={{ width: "100%" }}>
+  <div className="col-span-3 ">
+    <h2>
+      {" "}
+      <Emojione style={{ display: "inline-block" }} text="💪" /> That's all folks!
+    </h2>
+    <p className="mt-0">Find me on the interwebs. Feedback always welcome:</p>
+    <div>
+      <h4>
+        <TextLoop>
+          <span></span>
+          <span className="text-link">twitter.</span>
+          <span className="text-link">linkedin.</span>
+        </TextLoop>
+        sld.codes
+      </h4>
+    </div>
+  </div>
+  <div className="col-span-2 md:col-span-1 prose-sm">
+    <h5>Dev Links</h5>
+    <ul>
+      <li>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/slarsendisney/personal-site"
+        >
+          <p className="text-link">This Repo</p>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" rel="noopener noreferrer" href="https://mdxjs.com/">
+          <p className="text-link">MDX</p>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" rel="noopener noreferrer" href="https://socket.io/">
+          <p className="text-link">Socket.io</p>
+        </a>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/tensorflow/tfjs-models/tree/master/posenet"
+        >
+          <p className="text-link">Posenet</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div className="col-xs-4 prose-sm">
+    <h5>Resources</h5>
+    <ul>
+      <li>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://sld.codes/articles/Presenting-Without-Sharing-My-Screen"
+        >
+          <p className="text-link">
+            Article on this presentation project with code
+          </p>
+        </a>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.youtube.com/watch?v=kZkOyVuBw-o&feature=youtu.be"
+        >
+          <p className="text-link">Demoing Gesture Controlled Slides</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div className="col-span-3 md:col-span-1 prose-sm">
+    <h5>Credits</h5>
+    <ul>
+      <li>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.reviews.org/internet-service/how-much-data-does-zoom-use/"
+        >
+          <p className="text-link">How much data does zoom use?</p>
+        </a>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://s.abcnews.com/images/Politics/AP_donald_trump_cf_160303_16x9_992.jpg"
+        >
+          <p className="text-link">Trumps waving hands.</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

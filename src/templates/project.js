@@ -20,7 +20,7 @@ const Project = ({ data }) => {
         }}
         objectPosition="50% 50%" />
 
-      <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 prose">
+      <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 prose text-secondary">
         <h1 className="text-center">
           {frontmatter.title}
         </h1>
