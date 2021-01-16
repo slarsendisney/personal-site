@@ -3,7 +3,7 @@ import { useLocalStorage } from "../utils/customHooks";
 import SmoothCollapse from "react-smooth-collapse";
 import { navigate } from "gatsby";
 import ThemePicker from "./themePicker";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ThemeContext } from 'gatsby-plugin-theme-switcher';
 
 const Header = () => {

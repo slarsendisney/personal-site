@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Header from "./header";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import ReactTooltip from "react-tooltip";
 import { Location } from "@reach/router";
 import Footer from "./Footer";
