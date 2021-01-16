@@ -1,17 +1,15 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useCookies } from "react-cookie";
 import ReactTooltip from "react-tooltip";
+import { Helmet } from "react-helmet";
 import Context from "../context";
 import useDeck from "../hooks/use-deck";
 import useSwipe from "../hooks/use-swipe";
 import { modes } from "../constants";
 import Logo from "../images/Logo.svg";
-import Question from "../images/question.svg";
-import Broadcast from "../images/broadcast.svg";
-import BroadcastOff from "../images/broadcast-off.svg";
 import Stop from "../images/stop.svg";
 import MinThemeWrapper from "../../../../src/components/minThemeWrapper";
 const toggleMode = (next) => (state) =>
@@ -41,6 +39,7 @@ export const Slide = ({
   ...props
 }) => {
   const [cookies, setCookie, removeCookie] = useCookies();
+  const [tourActive, setTourActive] = useState(!cookies.SLDPresTourCookie);
   const outer = useDeck();
   const swipeProps = useSwipe();
   const context = {
@@ -49,11 +48,18 @@ export const Slide = ({
     preview,
   };
   const [password, setPassword] = useState("");
-  const TourActive = !cookies.SLDPresTourCookie;
+
+  useEffect(() => {
+    setTourActive(!cookies.SLDPresTourCookie);
+  }, [cookies]);
 
   const onChange = (e) => setPassword(e.target.value);
   return (
     <>
+      <Helmet>
+        <base target="_blank" />
+      </Helmet>
+
       <Context.Provider value={context}>
         <ReactTooltip className="info-tooltip" />
         {context.mode === "MASTER" && !verified && (
@@ -135,7 +141,14 @@ export const Slide = ({
             variant: "styles.Slide",
           }}
         >
-          {slide}
+          <div
+            className={`${
+              frontmatter.minimal ? "prose prose-3xl max-w-4xl" : ""
+            }`}
+          >
+            {slide}
+          </div>
+
           <img
             src={Logo}
             data-tip={`This presentation was made by Sam Larsen-Disney`}
@@ -149,14 +162,14 @@ export const Slide = ({
             <button onClick={() => removeCookie("SLDPresTourCookie")}>
               <p className="text-4xl">
                 <i
-                  className={`stepOne grow las la-question-circle`}
+                  className={`stepOne grow las la-question-circle hover:bg-primary hover:text-primary p-1 rounded-full`}
                   data-tip={`Help`}
                 ></i>
               </p>
             </button>
             {((livePresenter &&
               window.location.pathname.includes(presentation.deck)) ||
-              TourActive === true) && (
+              tourActive === true) && (
               <>
                 {verified ? (
                   <>
@@ -191,7 +204,7 @@ export const Slide = ({
                     }}
                     style={{ marginLeft: 15 }}
                     className="stepFive"
-                    disabled={TourActive}
+                    disabled={tourActive}
                     data-tip={
                       follow
                         ? "Review at your own pace."
