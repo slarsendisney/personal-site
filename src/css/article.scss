@@ -105,42 +105,40 @@
   .npm__react-simple-code-editor__textarea {
     // all: unset !important;
   }
-  img {
-    max-height: 75vh;
-  }
+  
   pre {
     @apply text-xl mb-3;
   }
   h1 {
-    @apply text-4xl font-bold mb-3;
+    @apply text-4xl font-bold mb-3 leading-snug;
   }
   h2 {
-    @apply text-3xl font-semibold mb-1 mt-3 leading-loose;
+    @apply text-3xl font-semibold mb-1 mt-3 leading-snug;
   }
   h3 {
-    @apply text-3xl font-semibold mb-1 mt-3 leading-loose; 
+    @apply text-3xl font-semibold mb-1 mt-3 leading-snug; 
   }
   h4 {
-    @apply text-2xl font-semibold mb-1 mt-3 leading-loose;
+    @apply text-2xl font-semibold mb-1 mt-3 leading-snug;
   }
   h5 {
-    @apply text-xl font-semibold mb-1 mt-3 leading-loose;
+    @apply text-xl font-semibold mb-1 mt-3 leading-snug;
   }
   @screen md {
     pre {
       @apply text-2xl;
     }
     h1 {
-      @apply text-6xl;
+      @apply text-6xl leading-snug;
     }
     h2 {
-      @apply text-4xl;
+      @apply text-4xl leading-snug;
     }
     h3 {
-      @apply text-4xl;
+      @apply text-4xl leading-snug;
     }
     h4 {
-      @apply text-3xl;
+      @apply text-3xl leading-snug;
     }
   }
 
@@ -160,16 +158,16 @@
     }
     
     h1 {
-      @apply text-8xl;
+      @apply text-8xl leading-snug;
     }
     h2 {
-      @apply text-6xl;
+      @apply text-6xl leading-snug;
     }
     h3 {
-      @apply text-6xl;
+      @apply text-6xl leading-snug;
     }
     h4 {
-      @apply text-5xl;
+      @apply text-5xl leading-snug;
     }
   }
 }
