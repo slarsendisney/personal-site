@@ -12,6 +12,7 @@ location: London | Imperial College
 import TextLoop from "react-text-loop";
 import { Emojione } from "react-emoji-render";
 import { StaticImage } from "gatsby-plugin-image";
+import Editor from "../../../src/components/LiveEditor/Editor";
 import Preload from "../../../src/components/Presentations/Preload";
 import PrettifyPlease from "../../../src/components/Presentations/PrettifyPlease";
 import FloatingMe from "../../../src/components/Presentations/FloatingMe";
@@ -67,7 +68,7 @@ The origins of the internet go way back to the 1960s, with the US military’s A
 ---
 
 <PrettifyPlease>
-{`
+  {`
 Significant milestones were achieved in the following years as technology improved, including:
 - The first email message sent, generally credited to Ray Tomlinson, who also pioneered the use of the @ symbol.
 - USENET went live in 1979. This was a precursor to modern-day social media and allowed enthusiasts to share memes and descend into obtuse arguments online for the first time.
@@ -358,6 +359,407 @@ REACT INTRO
     { option: "Once or Twice", votes: 0 },
     { option: "What's React?", votes: 0 },
   ]}
+/>
+
+---
+
+The very very basics
+
+---
+
+a declaritive library for building user interfaces
+
+---
+
+Library NOT Framework - something tht enhances your exisiting code
+
+---
+
+Doesnt care about your folder structure.
+These are the functions you can use -> go!
+
+---
+
+Declaritive
+
+---
+
+Your in your card and want to turn up the AC
+
+In an old car you would use a dial to turn up the temprature yourself until you're at right temprature.
+
+This is like JQuery you would grab the element in the dom get the text value increase it and set the element to the new value in the browser.
+
+But React is more like a Tesla. You set the exact temprature that you want and then the car then decides whether you need to make it cooler or warmer.
+I just want it at X degrees and it just does it. Me as a user dont need to worry about which parts of the application to change.
+
+---
+
+Lets dive into the code!
+
+---
+
+```js
+import React from "react";
+import ReactDom from "react-dom";
+
+ReactDom.render(<div>hello</div>, document.getElementById("root"));
+```
+
+React itself is a blueprint. ReactDom uses that blueprint to make the user interface.
+
+---
+
+What if I want to use the same code to build mobile UIs?
+
+---
+
+```js
+import React from "react";
+import ReactNative from "react-native";
+
+ReactNative.render(<div>hello</div>, document.getElementById("root"));
+```
+
+---
+
+#### If you are seeing this for the first time you might be thinking: 
+## *"You're putting HTML in my Javascript. You must be f\*\*\*ing kidding me!"*
+
+---
+
+This is not HTML - This is JSX. Its a templating language that looks like HTML.
+
+---
+
+```js
+import React from "react";
+import ReactDom from "react-dom";
+
+let reactElement = <div>hello</div>;
+
+ReactDom.render(reactElement, document.getElementById("root"));
+```
+
+---
+
+```js
+import React from "react";
+import ReactDom from "react-dom";
+
+let reactElement = React.createElement("div", null, "hello");
+
+ReactDom.render(reactElement, document.getElementById("root"));
+```
+
+This is the exact same thing! Some people prefer this as its looks more like JS.
+
+---
+
+It allows you to get even more abstract:
+
+```js
+import React from "react";
+import ReactDom from "react-dom";
+
+let text = "Yo";
+
+let reactElement = React.createElement("div", null, text);
+
+ReactDom.render(reactElement, document.getElementById("root"));
+```
+
+---
+
+```js
+import React from "react";
+import ReactDom from "react-dom";
+
+let text = "Yo";
+
+let reactElement = React.createElement("div", null, () => {
+  return text + "!!!!!!!!";
+});
+
+ReactDom.render(reactElement, document.getElementById("root"));
+```
+
+---
+
+You could have React.createElement inside a React.createElement!
+
+---
+
+And the more you do this, the grosser it gets.
+
+---
+
+OR you could use JSX!
+
+---
+
+```js
+import React from "react";
+import ReactDom from "react-dom";
+
+let text = "Yo";
+
+// let reactElement = React.createElement(
+//   'div',
+//   null,
+//   (() => {
+//     return text + '!!!!!!!!'
+//   }
+//   )
+// )
+
+let reactElement = <div>{text}!!!!!!!!</div>;
+
+ReactDom.render(reactElement, document.getElementById("root"));
+```
+
+---
+
+```js
+import React from "react";
+import ReactDom from "react-dom";
+
+let text = "Yo";
+
+let Button = () => {
+  return <button>{text}!!!!!!!!</button>;
+};
+
+ReactDom.render(<Button />, document.getElementById("root"));
+```
+
+---
+
+```js
+import React from "react";
+import ReactDom from "react-dom";
+
+let text = "Yo";
+
+let Button = () => {
+  return <button>{text}!!!!!!!!</button>;
+};
+
+// Its reusable! Yay!
+
+ReactDom.render(
+  <div>
+    <Button />
+    <Button />
+    <Button />
+    <Button />
+  </div>,
+  document.getElementById("root")
+);
+```
+
+---
+
+<Editor
+  fullWidth={true}
+  code={`
+// import React from "react";
+// import ReactDom from "react-dom";
+//
+// This code is editable. Give it a try!
+  () => {
+    let text= "Yo"
+    let Button = () => {
+      return <button className="btn mr-2">{text}!!!!!!!!</button>
+    }
+    return (
+      <div>
+        <Button/>
+        <Button/>
+        <Button/>
+      </div>
+    )
+  }
+`}
+/>
+
+---
+
+# PROPS
+
+---
+
+<Editor
+  fullWidth={true}
+  code={`
+// import React from "react";
+// import ReactDom from "react-dom";
+//
+// This code is editable. Give it a try!
+  () => {
+    let Button = (props) => {
+      const {text} = props;
+      return <button className="btn mr-2">{text}!!!!!!!!</button>
+    }
+    return (
+      <div>
+        <Button text="Sam"/>
+        <Button/>
+        <Button/>
+      </div>
+    )
+  }
+`}
+/>
+
+---
+
+<Editor
+  fullWidth={true}
+  code={`
+// import React from "react";
+// import ReactDom from "react-dom";
+//
+// This code is editable. Give it a try!
+  () => {
+    let Button = (props) => {
+      const {text, onClick} = props;
+      return <button onClick={onClick} className="btn mr-2">{text}!!!!!!!!</button>
+    }
+    return (
+      <div>
+        <Button text="Hey!" onClick={() => alert("Your button says hey!")}/>
+      </div>
+    )
+  }
+`}
+/>
+
+---
+
+<Editor
+  fullWidth={true}
+  code={`
+// import React from "react";
+// import ReactDom from "react-dom";
+//
+// This code is editable. Give it a try!
+  () => {
+    let Button = (props) => {
+      const {text, fish} = props;
+      return <button onClick={fish} className="btn mr-2">{text}!!!!!!!!</button>
+    }
+    return (
+      <div>
+        <Button text="Hey!" fish={() => alert("Your button says hey!")}/>
+      </div>
+    )
+  }
+`}
+/>
+
+---
+
+# State!
+
+---
+
+<Editor
+  fullWidth={true}
+  code={`
+  function LikeButton(){
+    const [likes, increaseLikes] = React.useState(0)
+    function incrementLikes(){
+      return increaseLikes(likes+1)
+    }
+    return (
+      <div className="text-center w-full">
+        <p>{likes} likes recorded</p>
+        <button className="btn" onClick={() => incrementLikes()}>❤️</button>
+      </div>
+    )
+  }
+`}
+/>
+
+---
+
+<Editor
+  fullWidth={true}
+  code={`
+  function LikeButton(){
+    const [likes, increaseLikes] = React.useState(0)
+    function incrementLikes(){
+      return increaseLikes(likes+1)
+    }
+    function decrementLikes(){
+      return increaseLikes(likes-1)
+    }
+    return (
+      <div className="text-center w-full">
+        <p>{likes} likes recorded</p>
+        <button className="btn mr-1" onClick={() => incrementLikes()}>❤️</button>
+        <button className="btn" onClick={() => decrementLikes()}>Remove a like</button>
+      </div>
+    )
+  }
+`}
+/>
+
+---
+
+<Editor
+  code={`function LikeButton(){
+    const [likes, increaseLikes] = React.useState(0)
+    const [error, setError] = React.useState(false)
+    function incrementLikes(){
+      return increaseLikes(likes+1)
+    }
+    function decrementLikes(){
+      if(likes > 0){
+        increaseLikes(likes-1)
+      }
+      else {
+        setError(true)
+      }
+    }
+    return (
+      <div className="text-center w-full">
+        <p>{likes} likes recorded</p>
+        <button className="btn mr-1" onClick={() => incrementLikes()}>❤️</button>
+        <button className="btn" onClick={() => decrementLikes()}>Remove a like</button>
+        {error && <marquee>Hey Stop!</marquee>}
+      </div>
+    )
+  }`}
+/>
+
+---
+
+<Editor
+  code={`function LikeButton(){
+    const [likes, increaseLikes] = React.useState(0)
+    const [error, setError] = React.useState(false)
+    function incrementLikes(){
+      return increaseLikes(likes+1)
+    }
+    function decrementLikes(){
+      if(likes > 0){
+        increaseLikes(likes-1)
+      }
+      else {
+        setError(true)
+      }
+    }
+    return (
+      <div className="text-center w-full">
+        <p>{likes} likes recorded</p>
+        <button className="btn mr-1" onClick={() => incrementLikes()}>❤️</button>
+        <button className="btn" onClick={() => decrementLikes()}>Remove a like</button>
+        {error && <marquee>Hey Stop!  <button className="btn" onClick={() => setError(false)}>Dismiss</button></marquee>}
+      </div>
+    )
+  }`}
 />
 
 ---

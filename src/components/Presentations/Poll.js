@@ -54,7 +54,7 @@ const PollView = ({
   const submitted = userPollVotes[pollID] ? true : false;
   const userChoice = userPollVotes[pollID] ? userPollVotes[pollID] : "";
   return (
-    <div className="poll">
+    <div className="poll max-w-2xl mx-auto">
       <p className="font-bold">{question}</p>
       {!submitted ? (
         <div className="row fill-width grid grid-cols-2 gap-4">

@@ -143,7 +143,7 @@ export const Slide = ({
         >
           <div
             className={`${
-              frontmatter && frontmatter.minimal ? "prose prose-3xl max-w-4xl" : ""
+              frontmatter && frontmatter.minimal ? "prose text-secondary prose-3xl max-w-4xl w-full" : ""
             }`}
           >
             {slide}
