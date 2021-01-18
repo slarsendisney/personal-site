@@ -3,7 +3,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: ["./src/**/*.js", "./MDX/**/*.mdx"],
+  purge: ["./src/**/*.js", "./plugins/**/*.js", "./MDX/**/*.mdx"],
   theme: {
     extend:{
       fontSize: {

@@ -399,12 +399,13 @@ Lets dive into the code!
 
 ---
 
-```js
+<Editor
+  codeOnly
+  code={`
 import React from "react";
 import ReactDom from "react-dom";
-
 ReactDom.render(<div>hello</div>, document.getElementById("root"));
-```
+`}/>
 
 React itself is a blueprint. ReactDom uses that blueprint to make the user interface.
 
@@ -414,12 +415,13 @@ What if I want to use the same code to build mobile UIs?
 
 ---
 
-```js
+<Editor
+  codeOnly
+  code={`
 import React from "react";
 import ReactNative from "react-native";
-
 ReactNative.render(<div>hello</div>, document.getElementById("root"));
-```
+`}/>
 
 ---
 
@@ -432,25 +434,25 @@ This is not HTML - This is JSX. Its a templating language that looks like HTML.
 
 ---
 
-```js
+<Editor
+  codeOnly
+  code={`
 import React from "react";
 import ReactDom from "react-dom";
-
 let reactElement = <div>hello</div>;
-
 ReactDom.render(reactElement, document.getElementById("root"));
-```
+`}/>
 
 ---
 
-```js
+<Editor
+  codeOnly
+  code={`
 import React from "react";
 import ReactDom from "react-dom";
-
 let reactElement = React.createElement("div", null, "hello");
-
 ReactDom.render(reactElement, document.getElementById("root"));
-```
+`}/>
 
 This is the exact same thing! Some people prefer this as its looks more like JS.
 
@@ -458,31 +460,29 @@ This is the exact same thing! Some people prefer this as its looks more like JS.
 
 It allows you to get even more abstract:
 
-```js
+<Editor
+  codeOnly
+  code={`
 import React from "react";
 import ReactDom from "react-dom";
-
 let text = "Yo";
-
 let reactElement = React.createElement("div", null, text);
-
 ReactDom.render(reactElement, document.getElementById("root"));
-```
+`}/>
 
 ---
 
-```js
+<Editor
+  codeOnly
+  code={`
 import React from "react";
 import ReactDom from "react-dom";
-
 let text = "Yo";
-
 let reactElement = React.createElement("div", null, () => {
   return text + "!!!!!!!!";
 });
-
 ReactDom.render(reactElement, document.getElementById("root"));
-```
+`}/>
 
 ---
 
@@ -498,12 +498,12 @@ OR you could use JSX!
 
 ---
 
-```js
+<Editor
+  codeOnly
+  code={`
 import React from "react";
 import ReactDom from "react-dom";
-
 let text = "Yo";
-
 // let reactElement = React.createElement(
 //   'div',
 //   null,
@@ -512,41 +512,36 @@ let text = "Yo";
 //   }
 //   )
 // )
-
 let reactElement = <div>{text}!!!!!!!!</div>;
-
 ReactDom.render(reactElement, document.getElementById("root"));
-```
+`}/>
 
 ---
 
-```js
+<Editor
+  codeOnly
+  code={`
 import React from "react";
 import ReactDom from "react-dom";
-
 let text = "Yo";
-
 let Button = () => {
   return <button>{text}!!!!!!!!</button>;
 };
-
 ReactDom.render(<Button />, document.getElementById("root"));
-```
+`}/>
 
 ---
 
-```js
+<Editor
+  codeOnly
+  code={`
 import React from "react";
 import ReactDom from "react-dom";
-
 let text = "Yo";
-
 let Button = () => {
   return <button>{text}!!!!!!!!</button>;
 };
-
 // Its reusable! Yay!
-
 ReactDom.render(
   <div>
     <Button />
@@ -556,7 +551,7 @@ ReactDom.render(
   </div>,
   document.getElementById("root")
 );
-```
+`}/>
 
 ---
 
@@ -814,7 +809,9 @@ We could get content from files, databases other websites - the list goes on!
 
 ---
 
-```
+<Editor
+  codeOnly={true}
+  code={`
 ---
 title: "Intro to Gatsby"
 path: /decks/HOWTOGATSBY
@@ -822,18 +819,13 @@ desc: An overview of GatsbyJS for the uninitiated.
 hero: "./hero.png"
 location: Space | Earth
 ---
-
 # Intro to Gatsby
 #### Slides can be found at [slides.sld.codes](http://slides.sld.codes)
-
 ---
-
 # What is GatsbyJS?
-
 ---
-
 ...
-```
+`}/>
 
 ###### [See the file here.](https://github.com/slarsendisney/personal-site/blob/master/MDX/Decks/HOWTOGATSBY/slides.mdx)
 
@@ -862,7 +854,9 @@ Gatsby uses react and stylesheets to help structure page layout.
 
 ---
 
-```
+<Editor
+  codeOnly={true}
+  code={`
 /
 |-- /plugins
 |-- /public
@@ -873,11 +867,13 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js ⬅️ core configuration file and plugin handeller
 |-- gatsby-node.js
 |-- gatsby-browser.js
-```
+`}/>
 
 ---
 
-```
+<Editor
+  codeOnly={true}
+  code={`
 /
 |-- /plugins
 |-- /public
@@ -888,11 +884,13 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js ⬅️ control your site's data in the graphQL data layer
 |-- gatsby-browser.js
-```
+`}/>
 
 ---
 
-```
+<Editor
+  codeOnly={true}
+  code={`
 /
 |-- /plugins
 |-- /public
@@ -903,11 +901,13 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js ⬅️ code that will run on the client browser
-```
+`}/>
 
 ---
 
-```
+<Editor
+  codeOnly={true}
+  code={`
 /
 |-- /plugins
 |-- /public
@@ -918,11 +918,13 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-```
+`}/>
 
 ---
 
-```
+<Editor
+  codeOnly={true}
+  code={`
 /
 |-- /plugins
 |-- /public
@@ -933,11 +935,13 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-```
+`}/>
 
 ---
 
-```
+<Editor
+  codeOnly={true}
+  code={`
 /
 |-- /plugins
 |-- /public
@@ -948,11 +952,13 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-```
+`}/>
 
 ---
 
-```
+<Editor
+  codeOnly={true}
+  code={`
 /
 |-- /plugins ⬅️ local development plugins
 |-- /public
@@ -963,11 +969,13 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-```
+`}/>
 
 ---
 
-```
+<Editor
+  codeOnly={true}
+  code={`
 /
 |-- /plugins
 |-- /public ⬅️ the built html and JS files
@@ -978,7 +986,7 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-```
+`}/>
 
 ---
 

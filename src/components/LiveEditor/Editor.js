@@ -6,6 +6,7 @@ export default ({
   noErrors,
   large,
   previewClassNames,
+  codeOnly,
   code = `
   // This code is editable. Give it a try!
   () => (
@@ -16,18 +17,27 @@ export default ({
 }) => {
   return (
     <LiveProvider code={code}>
-      <div className={`sm: -mx-2 md:-mx-16 lg:-mx-24 grid ${fullWidth ? "grid-cols-1" : "grid-cols-2 "} gap-4 mb-4`}>
+      <div
+        className={`sm: -mx-2 md:-mx-16 lg:-mx-24 grid ${
+          fullWidth || codeOnly ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2 "
+        } gap-4 mb-4`}
+      >
         <div className="editor text-sm mx-1">
-          <div className="bg-gray-700 rounded p-2" style={{caretColor: "white"}}>
+          <div
+            className="bg-gray-700 rounded p-2"
+            style={{ caretColor: "white" }}
+          >
             <LiveEditor />
-            {!noErrors && <LiveError className={``} />}
+            {(!noErrors && !codeOnly) && <LiveError className={``} />}
           </div>
         </div>
-        <div className="mx-1">
-          <div className="bg-secondary h-full rounded p-2 md:p-5 w-full max-w-6xl">
-            <LivePreview className="prose max-w-6xl text-secondary w-full" />
+        {!codeOnly && (
+          <div className="mx-1">
+            <div className="bg-secondary h-full rounded p-2 md:p-5 w-full max-w-6xl">
+              <LivePreview className="prose max-w-6xl text-secondary w-full" />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </LiveProvider>
   );
