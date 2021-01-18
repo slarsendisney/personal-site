@@ -18,6 +18,8 @@ import PrettifyPlease from "../../../src/components/Presentations/PrettifyPlease
 import FloatingMe from "../../../src/components/Presentations/FloatingMe";
 import QandA from "../../../src/components/Presentations/QandA";
 import Poll from "../../../src/components/Presentations/Poll";
+import Confetti from "../../../src/components/Presentations/Confetti";
+import { SingleInstancePage } from "./CodeSnippets";
 
 <!---
 INTRODUCTION
@@ -363,39 +365,47 @@ REACT INTRO
 
 ---
 
-The very very basics
+# The very very basics
 
 ---
 
-A declaritive library for building user interfaces
+## A **declaritive library** for building user interfaces
 
 ---
 
-Library NOT Framework - something tht enhances your exisiting code
+## Library NOT Framework 
+>Something tht enhances your exisiting code
 
 ---
 
-Doesnt care about your folder structure.
-These are the functions you can use -> go!
+## Doesnt care about your folder structure.
+>These are the functions you can use -> go!
 
 ---
 
-Declaritive
+# Declaritive
 
 ---
 
-Your in your card and want to turn up the AC
+## Your in your card and want to turn up the AC
 
 In an old car you would use a dial to turn up the temprature yourself until you're at right temprature.
 
-This is like JQuery you would grab the element in the dom get the text value increase it and set the element to the new value in the browser.
+---
 
-But React is more like a Tesla. You set the exact temprature that you want and then the car then decides whether you need to make it cooler or warmer.
+## This is like JQuery 
+
+You would grab the element in the dom get the text value increase it and set the element to the new value in the browser.
+
+---
+
+## But React is more like a Tesla. 
+You set the exact temprature that you want and then the car then decides whether you need to make it cooler or warmer.
 I just want it at X degrees and it just does it. Me as a user dont need to worry about which parts of the application to change.
 
 ---
 
-Lets dive into the code!
+## Lets dive into the code!
 
 ---
 
@@ -405,13 +415,14 @@ Lets dive into the code!
 import React from "react";
 import ReactDom from "react-dom";
 ReactDom.render(<div>hello</div>, document.getElementById("root"));
-`}/>
+`}
+/>
 
 React itself is a blueprint. ReactDom uses that blueprint to make the user interface.
 
 ---
 
-What if I want to use the same code to build mobile UIs?
+## What if I want to use the same code to build mobile UIs?
 
 ---
 
@@ -421,16 +432,19 @@ What if I want to use the same code to build mobile UIs?
 import React from "react";
 import ReactNative from "react-native";
 ReactNative.render(<div>hello</div>, document.getElementById("root"));
-`}/>
+`}
+/>
 
 ---
 
-#### If you are seeing this for the first time you might be thinking: 
-## *"You're putting HTML in my Javascript. You must be f\*\*\*ing kidding me!"*
+#### If you are seeing this for the first time you might be thinking:
+
+## _"You're putting HTML in my Javascript. You must be f\*\*\*ing kidding me!"_
 
 ---
 
-This is not HTML - This is JSX. Its a templating language that looks like HTML.
+# This is not HTML 
+This is JSX. Its a templating language that looks like HTML.
 
 ---
 
@@ -441,7 +455,8 @@ import React from "react";
 import ReactDom from "react-dom";
 let reactElement = <div>hello</div>;
 ReactDom.render(reactElement, document.getElementById("root"));
-`}/>
+`}
+/>
 
 ---
 
@@ -452,13 +467,12 @@ import React from "react";
 import ReactDom from "react-dom";
 let reactElement = React.createElement("div", null, "hello");
 ReactDom.render(reactElement, document.getElementById("root"));
-`}/>
+`}
+/>
 
 This is the exact same thing! Some people prefer this as its looks more like JS.
 
 ---
-
-It allows you to get even more abstract:
 
 <Editor
   codeOnly
@@ -468,7 +482,10 @@ import ReactDom from "react-dom";
 let text = "Yo";
 let reactElement = React.createElement("div", null, text);
 ReactDom.render(reactElement, document.getElementById("root"));
-`}/>
+`}
+/>
+
+It allows you to get even more abstract!
 
 ---
 
@@ -482,7 +499,8 @@ let reactElement = React.createElement("div", null, () => {
   return text + "!!!!!!!!";
 });
 ReactDom.render(reactElement, document.getElementById("root"));
-`}/>
+`}
+/>
 
 ---
 
@@ -514,7 +532,8 @@ let text = "Yo";
 // )
 let reactElement = <div>{text}!!!!!!!!</div>;
 ReactDom.render(reactElement, document.getElementById("root"));
-`}/>
+`}
+/>
 
 ---
 
@@ -528,7 +547,8 @@ let Button = () => {
   return <button>{text}!!!!!!!!</button>;
 };
 ReactDom.render(<Button />, document.getElementById("root"));
-`}/>
+`}
+/>
 
 ---
 
@@ -551,7 +571,8 @@ ReactDom.render(
   </div>,
   document.getElementById("root")
 );
-`}/>
+`}
+/>
 
 ---
 
@@ -825,7 +846,8 @@ location: Space | Earth
 # What is GatsbyJS?
 ---
 ...
-`}/>
+`}
+/>
 
 ###### [See the file here.](https://github.com/slarsendisney/personal-site/blob/master/MDX/Decks/HOWTOGATSBY/slides.mdx)
 
@@ -867,7 +889,8 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js ⬅️ core configuration file and plugin handeller
 |-- gatsby-node.js
 |-- gatsby-browser.js
-`}/>
+`}
+/>
 
 ---
 
@@ -884,7 +907,8 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js ⬅️ control your site's data in the graphQL data layer
 |-- gatsby-browser.js
-`}/>
+`}
+/>
 
 ---
 
@@ -901,7 +925,8 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js ⬅️ code that will run on the client browser
-`}/>
+`}
+/>
 
 ---
 
@@ -918,7 +943,8 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-`}/>
+`}
+/>
 
 ---
 
@@ -935,7 +961,8 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-`}/>
+`}
+/>
 
 ---
 
@@ -952,7 +979,8 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-`}/>
+`}
+/>
 
 ---
 
@@ -969,7 +997,8 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-`}/>
+`}
+/>
 
 ---
 
@@ -986,41 +1015,46 @@ Gatsby uses react and stylesheets to help structure page layout.
 |-- gatsby-config.js
 |-- gatsby-node.js
 |-- gatsby-browser.js
-`}/>
+`}
+/>
 
 ---
 
 ###### gatsby-config.js
 
-```
+<Editor
+  codeOnly
+  code={`
 module.exports = {
   siteMetadata: {
-    title: `Site Title`,
+    title: 'Site Title',
     author: {
-      name: `Sam Larsen-Disney`,
+      name: 'Sam Larsen-Disney',
     },
-    description: `Short, sharp description.`,
-    siteUrl: `https://sld.codes`,
+    description: 'Short, sharp description.',
+    siteUrl: 'https://sld.codes',
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: __dirname + '/content/blog',
+        name: 'blog',
       },
     },
-    `gatsby-transformer-remark`
+    'gatsby-transformer-remark'
   ]
 }
-```
+`}
+/>
 
 ---
 
 ###### We can now make queries!
 
-```
-
+<Editor
+  codeOnly
+  code={`
 query GetBlogPosts {
   allMarkdownRemark(filter: {frontmatter: {type: {eq: "Article"}}}) {
     nodes {
@@ -1030,19 +1064,21 @@ query GetBlogPosts {
     }
   }
 }
-
-```
+`}
+/>
 
 ---
 
-###### gatsby-node.js
+gatsby-node.js
 
-```
+<Editor
+  codeOnly
+  code={`
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPost = path.resolve(\`./src/templates/blog-post.js\`)
   const result = await graphql(
-    `{
+    \`{
         allMarkdownRemark{
           edges {
             node {
@@ -1052,7 +1088,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-      }`
+      }\`
   )
   const posts = result.data.allMarkdownRemark.edges
   posts.forEach((post, index) => {
@@ -1062,7 +1098,8 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
-```
+`}
+/>
 
 ---
 
@@ -1070,7 +1107,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
 <p class="legal">src/pages/index.js</p>
 
-<Editor fullWidth code={SingleInstancePages} />
+<Editor code={SingleInstancePage} />
 
 ---
 
@@ -1102,15 +1139,15 @@ Extremely secure as you are just sending HTML.
 
 ---
 
-- #### modern dev enviroment
-- #### simple tooling
-- #### modern and clean languages
+- modern dev enviroment
+- simple tooling
+- modern and clean languages
 
 ---
 
-Gatsby has a solid team, open source community and awesome documentation.
+# 🏃‍♂️ Its growing fast.
 
-🏃‍♂️ Its growing fast.
+### Gatsby has a solid team, open source community and awesome documentation.
 
 ---
 
@@ -1128,22 +1165,9 @@ Gatsby has a solid team, open source community and awesome documentation.
 
 ---
 
-# Summary
-
-- Gatsby is a static site generator
-- Under the hood it uses Node, GraphQL and react
-- Primary benefits are speed, security and developer experience.
-- Has a stable and growing community.
-
----
-
-Have a go yourself
+### Have a go yourself
 
 # [sld.codes/boilerplates](/boilerplates)
-
----
-
-See Gatsby in Action
 
 ---
 
@@ -1151,7 +1175,9 @@ See Gatsby in Action
 10 MIN BREAK
 -->
 
-Time for a Break.
+<Confetti>
+  <h1>Break Time</h1>
+</Confetti>
 
 ---
 

@@ -1,16 +1,15 @@
 export const SingleInstancePages = `
 // This code block is interactive - try changing it!
-
 () => (
-    <div className="row">
-        <div className="col-xs-12">
+    <div className="grid grid-cols-2 gap-4">
+        <div className="col-span-2">
             <h1>This is an example page </h1>
-            <h4>With a sub-heading</h4>
+            <p>With a sub-heading</p>
         </div>
-        <div className="col-xs-6 is-blue-bg pad-5">
+        <div className="bg-primary">
             <p>This is a paragraph </p>
         </div>
-        <div className="col-xs-6 is-red-bg pad-5">
+        <div className="bg-primary">
             <p>This is a paragraph </p>
         </div>
     </div>
