@@ -11,15 +11,19 @@ location: London | Imperial College
 
 import TextLoop from "react-text-loop";
 import { Emojione } from "react-emoji-render";
+import Warning from "../../../src/components/Presentations/Warning";
 import { StaticImage } from "gatsby-plugin-image";
 import Editor from "../../../src/components/LiveEditor/Editor";
 import Preload from "../../../src/components/Presentations/Preload";
 import PrettifyPlease from "../../../src/components/Presentations/PrettifyPlease";
+import ZoomData from "../PRESENTINGWITHOUTSHARINGMYSCREEN/ZoomData";
 import FloatingMe from "../../../src/components/Presentations/FloatingMe";
 import QandA from "../../../src/components/Presentations/QandA";
 import Poll from "../../../src/components/Presentations/Poll";
 import Confetti from "../../../src/components/Presentations/Confetti";
 import { SingleInstancePage } from "./CodeSnippets";
+import { Tweet } from "mdx-embed";
+import Newsletter from "../../../src/components/Newsletter";
 
 <!---
 INTRODUCTION
@@ -48,6 +52,25 @@ INTRODUCTION
 
 ---
 
+<div className="flex align-horizontal align-vertical container">
+  <Warning
+    content="All views expressed in this talk are my own and do not represent the opinions of any entity whatsover with which I have been, am now or will be affiliated with."
+    backgroundColourClassName="bg-default"
+  />
+</div>
+
+---
+
+<Confetti>
+  <h1 className="float-y">This is no ordinary powerpoint.</h1>
+</Confetti>
+
+---
+
+#### You can follow along at [follow.sld.codes](http://follow.sld.codes)
+
+---
+
 # My Journey.
 
 ---
@@ -64,34 +87,63 @@ HISTORY OF WEB DEVELOPMENT
 
 ---
 
-In the beginning
-The origins of the internet go way back to the 1960s, with the US military’s Arpanet project linking computers remotely for the first time.
+![Lets Begin](https://media.giphy.com/media/eHFSpEGnvxSI8NpTaS/giphy.gif)
+
+<Notes>
+  The origins of the internet go way back to the 1960s, with the US military’s
+  Arpanet project linking computers remotely for the first time.
+</Notes>
 
 ---
 
-<PrettifyPlease>
-  {`
-Significant milestones were achieved in the following years as technology improved, including:
+## 🚀 Significant milestones were achieved in the following years as technology improved.
+
+<Notes>
+
+
 - The first email message sent, generally credited to Ray Tomlinson, who also pioneered the use of the @ symbol.
+
 - USENET went live in 1979. This was a precursor to modern-day social media and allowed enthusiasts to share memes and descend into obtuse arguments online for the first time.
+
 - The domain name system (DNS) was established in 1983, with the first .com registered by Symbolics Computer Corporation in 1985.
-`}
-</PrettifyPlease>
+
+</Notes>
+
 
 ---
 
 # WWW
 
-However, web development as we know it today began when Tim Berners Lee created Hypertext Markup Language (HTML) in the early 1990s. This was the catalyst for the modern World Wide Web, and HTML still forms the backbone of virtually every web page ever created.
+<Notes>
+  However, web development as we know it today began when Tim Berners Lee
+  created Hypertext Markup Language (HTML) in the early 1990s. This was the
+  catalyst for the modern World Wide Web, and HTML still forms the backbone of
+  virtually every web page ever created.
+</Notes>
 
 ---
 
-Browser wars
-During the early 1990s, ‘web developer’ was not a recognised profession. A variety of different roles, such as; designer, content manager and programmer were conglomerated under the term webmaster.
+![Fight!](https://media.giphy.com/media/VRGjEAWPQvsxG/giphy.gif)
+
+# The Browser wars
+
+<Notes>
+  During the early 1990s, ‘web developer’ was not a recognised profession. A
+  variety of different roles, such as; designer, content manager and programmer
+  were conglomerated under the term webmaster.
+</Notes>
 
 ---
 
-The introduction of the Mosaic web browser in 1993 brought with it the emergence of the Front-end Web Developer, as graphical user interfaces became possible for the first time. This early era also introduced the browser wars, as competing web browser vendors attempted to outdo each other with proprietary features and quirks.
+![Mosaic](https://dayintechhistory.com/wp-content/uploads/2013/06/mosaic1.gif)
+
+<Notes>
+  The introduction of the Mosaic web browser in 1993 brought with it the
+  emergence of the Front-end Web Developer, as graphical user interfaces became
+  possible for the first time. This early era also introduced the browser wars,
+  as competing web browser vendors attempted to outdo each other with
+  proprietary features and quirks.
+</Notes>
 
 ---
 
@@ -99,91 +151,205 @@ The introduction of the Mosaic web browser in 1993 brought with it the emergence
 
 ---
 
-This made the developer’s job very difficult, as it was almost impossible to guarantee that a web page would look and function as intended across different browsers without making separate versions of the same page.
+# 😭😭😭😭😭😭😭😭
+
+<Notes>
+  This made the developer’s job very difficult, as it was almost impossible to
+  guarantee that a web page would look and function as intended across different
+  browsers without making separate versions of the same page.
+</Notes>
 
 ---
 
-User expectations were not particularly high during this period. Many popular websites were produced by hobbyists and browsing the web was a bit of a Wild West experience. Accepted standards of design and accessibility had not yet been established.
+# User expectations were not particularly high during this period.
+
+<Notes>
+  Many popular websites were produced by hobbyists and browsing the web was a
+  bit of a Wild West experience. Accepted standards of design and accessibility
+  had not yet been established.
+</Notes>
 
 ---
 
-Developers came up with many innovative solutions to get around these limitations, such as using tables to control layout and infamous spacer gif files (an invisible gif file used to force a layout into the correct position).
+![SpaceJam](https://ik.imagekit.io/sld/Screenshot_2021-01-19_at_20.59.41_B-zrhkWp0DQC.png)
+
+<Notes>
+  Developers came up with many innovative solutions to get around these
+  limitations, such as using tables to control layout and infamous spacer gif
+  files (an invisible gif file used to force a layout into the correct
+  position).
+</Notes>
 
 ---
 
-# Getting flashy
+# 🎉 Getting flashy
 
-Towards the end of the 1990s, Macromedia’s Flash (later acquired by Adobe) seemed to open up a whole new world of possibilities for developers frustrated by HTML’s limitations.
-
----
-
-The technology delivered content in a browser plugin rather than relying on the browser’s own proprietary features. This allowed animated, interactive content to be produced that would work on the majority of end-users’ computers.
-
----
-
-However, it also led to some issues:
-
-Most users relied on slow modem connections and Flash websites could take a long time to load.
-Search Engines were unable to crawl sites created purely using Flash, causing difficulties for sites relying on organic search for traffic.
-Accessibility problems - users relying on assistive technology could face severe difficulties navigating through Flash sites.
-Even the most simple content updates would require a Flash developer to implement, making websites very costly to maintain.
-It required the plugin to be installed in the first place. This could often lead to scenes like the below.
+<Notes>
+  Towards the end of the 1990s, Macromedia’s Flash (later acquired by Adobe)
+  seemed to open up a whole new world of possibilities for developers frustrated
+  by HTML’s limitations.
+</Notes>
 
 ---
 
-When Steve Jobs announced in 2010 that iOS devices would no longer support Flash, it effectively killed it off as a viable platform for web development.
+### The technology delivered content in a browser plugin rather than relying on the browser’s own proprietary features.
+
+<Notes>
+  This allowed animated, interactive content to be produced that would work on
+  the majority of end-users’ computers.
+</Notes>
 
 ---
 
-As we moved into the 2000s, there was a growing grassroots movement to establish independent standards for web technologies. Groups like the World Wide Web Consortium began to exert influence over the industry in an effort to make the web accessible for all and ensure that advancements were not driven by the profit motive of individual technology companies.
+# However, it also led to some issues 😭
+
+<Notes>
+  Most users relied on slow modem connections and Flash websites could take a
+  long time to load. Search Engines were unable to crawl sites created purely
+  using Flash, causing difficulties for sites relying on organic search for
+  traffic. Accessibility problems - users relying on assistive technology could
+  face severe difficulties navigating through Flash sites. Even the most simple
+  content updates would require a Flash developer to implement, making websites
+  very costly to maintain. It required the plugin to be installed in the first
+  place. This could often lead to scenes like the below.
+</Notes>
 
 ---
 
-Gradually, browsers and developers began to adopt a standards-based approach. This has led to widespread adoption of open source technology and a greater focus on the experience of the end user.
+![Steve Jobs](https://media.giphy.com/media/CTkWFZ1IDvsfS/giphy.gif)
+
+<Notes>
+  When Steve Jobs announced in 2010 that iOS devices would no longer support
+  Flash, it effectively killed it off as a viable platform for web development.
+</Notes>
 
 ---
 
-A major issue with HTML-based websites at this time was that content and presentational code were mixed in together in one document. This made it very difficult for a non-developer to update a website and caused maintenance problems, e.g if a company wished to change a brand colour then they would have to ask their developers to individually update many individual pages wherever the colour was used.
+![2000](https://media.giphy.com/media/ln6u0EgyDg5c4nrl1R/giphy.gif)
+
+<Notes>
+  As we moved into the 2000s, there was a growing grassroots movement to
+  establish independent standards for web technologies. Groups like the World
+  Wide Web Consortium began to exert influence over the industry in an effort to
+  make the web accessible for all and ensure that advancements were not driven
+  by the profit motive of individual technology companies.
+</Notes>
+
+---
+
+## ✅ Gradually, browsers and developers began to adopt a standards-based approach.
+
+<Notes>
+  This has led to widespread adoption of open source technology and a greater
+  focus on the experience of the end user.
+</Notes>
+
+---
+
+## 🤮 A major issue with HTML-based websites at this time was that content and presentational code were mixed in together in one document.
+
+<Notes>
+  This made it very difficult for a non-developer to update a website and caused
+  maintenance problems, e.g if a company wished to change a brand colour then
+  they would have to ask their developers to individually update many individual
+  pages wherever the colour was used.
+</Notes>
 
 ---
 
 # Building sites with style (sheets)
 
-CSS gradually gained widespread adoption and became the standard language used to separate presentation from content. As web browsers moved towards standardisation, developers could build more accessible, functional and performant sites. Content editors could update with confidence, knowing that a wrong move would not completely break the site’s layout.
+<Notes>
+  CSS gradually gained widespread adoption and became the standard language used
+  to separate presentation from content. As web browsers moved towards
+  standardisation, developers could build more accessible, functional and
+  performant sites. Content editors could update with confidence, knowing that a
+  wrong move would not completely break the site’s layout.
+</Notes>
 
 ---
 
-In many ways, this made the developer’s job easier but for some, it meant having to learn an entirely new language and process for producing websites; unlearning carefully mastered techniques that had now become obsolete.
+![Easy!](https://media.giphy.com/media/dWy2WwcB3wvX8QA1Iu/giphy.gif)
+
+<Notes>
+  In many ways, this made the developer’s job easier but for some, it meant
+  having to learn an entirely new language and process for producing websites;
+  unlearning carefully mastered techniques that had now become obsolete.
+</Notes>
 
 ---
 
-Javascript became the standard language used to add interactivity to web pages. Unfortunately, differences in how web browsers interpret this language made it very challenging to prevent bugs and inconsistencies in the end-user experience.
+# JS
+
+<Notes>
+  Javascript became the standard language used to add interactivity to web
+  pages. Unfortunately, differences in how web browsers interpret this language
+  made it very challenging to prevent bugs and inconsistencies in the end-user
+  experience.
+</Notes>
 
 ---
 
-The jQuery framework emerged as a “wrapper” around the Javascript language in a (largely successful) attempt to iron out these inconsistencies by giving developers a standard method to add interactivity that would work across the majority of browsers. jQuery became an essential part of the front-end developer’s toolbox.
+# jQuery 🤮
+
+<Notes>
+  The jQuery framework emerged as a “wrapper” around the Javascript language in
+  a (largely successful) attempt to iron out these inconsistencies by giving
+  developers a standard method to add interactivity that would work across the
+  majority of browsers. jQuery became an essential part of the front-end
+  developer’s toolbox.
+</Notes>
 
 ---
 
 # The state of play
 
-We have reached a stage where standards have become widely accepted, Internet Explorer is being phased out (yay!) and front-end development has become relatively mature.
+<Notes>
+  We have reached a stage where standards have become widely accepted, Internet
+  Explorer is being phased out (yay!) and front-end development has become
+  relatively mature.
+</Notes>
 
 ---
 
-The proliferation of smartphones and other web-enabled devices has brought a new set of challenges to the fore. Responsive, mobile-first development is the de facto standard practice to address this. Websites are now produced in such a way that the user experience is optimised for users on small screens and additional features are added to enhance the experience on larger screens.
+![](https://media.giphy.com/media/RD2n7uh3PjGg/giphy.gif)
+
+<Notes>
+  The proliferation of smartphones and other web-enabled devices has brought a
+  new set of challenges to the fore. Responsive, mobile-first development is the
+  de facto standard practice to address this. Websites are now produced in such
+  a way that the user experience is optimised for users on small screens and
+  additional features are added to enhance the experience on larger screens.
+</Notes>
 
 ---
 
-Web users now expect a fast, accessible and seamless experience on whatever device they use to access a site. This has led to a trend for function over flash in web design and a much greater focus on the needs of the end-user.
+## Web users now expect a fast, accessible and seamless experience on whatever device they use to access a site.
+
+<Notes>
+  This has led to a trend for function over flash in web design and a much
+  greater focus on the needs of the end-user.
+</Notes>
 
 ---
 
-Front-end development is no longer about hacking together web pages. Modern user interfaces should provide an “app like” experience. Today developers must adopt best practice from both software engineering and user interface design.
+## Front-end development is no longer about hacking together web pages.
+
+<Notes>
+  Modern user interfaces should provide an “app like” experience. Today
+  developers must adopt best practice from both software engineering and user
+  interface design.
+</Notes>
 
 ---
 
-It is still an incredibly fast-moving profession, with new frameworks and trends emerging constantly. However; HTML, CSS and Javascript are still the core technologies that underpin everything that is built to be viewed in a web browser. This is unlikely to change in the near future.
+## It is still an incredibly fast-moving profession, with new frameworks and trends emerging constantly.
+
+---
+
+## However; HTML, CSS and Javascript are still the core technologies that underpin everything that is built to be viewed in a web browser.
+
+<Notes>This is unlikely to change in the near future.</Notes>
 
 ---
 
@@ -191,7 +357,7 @@ It is still an incredibly fast-moving profession, with new frameworks and trends
 FUTURE OF WEB DEVELOPMENT
 -->
 
-# My thoughts on the future
+![Future](https://media.giphy.com/media/ZZkCo8zKWtt2ZgozfX/giphy.gif)
 
 ---
 
@@ -203,51 +369,215 @@ FUTURE OF WEB DEVELOPMENT
 
 ---
 
-companies embraced WFH
+# 🏡 Companies embraced WFH
 
 ---
 
-Microsoft and Apple will continue to allow emoployees to work remotely
-
-exodus from silicon valley
+## 🌎 Microsoft and Apple will continue to allow employees to work remotely
 
 ---
 
-College degrees no longer required for jobs at apple google etc. for software engineers
+# 🏃‍♂️ Exodus from silicon valley
 
 ---
 
-Job market more competitive as you have to compete with the entire world
+## College degrees no longer required for jobs at FANG for software engineers
 
 ---
 
-Our industry performed way better in these weird times than anyone other field.
+## 💼 Job market more competitive as you have to compete with the entire world
 
 ---
 
-Typescript will continue to dominate - especially with Deno being a thing.
+## 🚀 Our industry performed way better in these weird times than anyone other field.
 
 ---
 
-web apps and native apps will draw nearer each other.
+## 😎 Typescript will continue to dominate - especially with Deno being a thing.
 
 ---
 
-you can now create websites that have push notifications, offline mode, bluetooth, background sync and more!
+# 👀 I'm gonna sidetrack here for a minute for the JS nerds
+
+---
+
+# What is Deno?
+
+---
+
+### A secure runtime for JavaScript and TypeScript.
+
+---
+
+### Solves the same problems as NodeJS and was made by the same guy.
+
+---
+
+### "(node) could have been much nicer"
+
+_- Ryan Dahl_
+
+---
+
+### Uses the [V8 JavaScript engine](https://github.com/v8/v8).
+
+(Like node!)
+
+---
+
+### Runtime implemented in Rust and Typescript.
+
+---
+
+### Hit release candidate 1.0.0 in 2020
+
+(early adoption)
+
+---
+
+### Deno is **_secure by default_**
+
+---
+
+You as the developer need to give permissions to perform certain actions in the runtime.
+
+### _Prevents security holes._
+
+---
+
+Example main.ts:
+
+<Editor
+  codeOnly
+  code={`
+// Print the current working directory
+console.log( Deno.cwd() )
+`}
+/>
+
+Can be run with:
+
+<Editor
+  codeOnly
+  code={`
+// Explicit permission from dev to allow deno to read files.
+deno run --allow-read main.ts
+`}
+/>
+
+---
+
+Supports top level await:
+
+<Editor
+  codeOnly
+  code={`
+const res = await fetch('https://sld.codes')
+// no async function needed!
+`}
+/>
+
+---
+
+Browser compatible events:
+
+<Editor
+  codeOnly
+  code={`
+window.onload = e=> console.log("Yo!")
+`}
+/>
+
+---
+
+# You can also execute Web Assembly Binaries
+
+---
+
+# No more NPM 😲
+
+---
+
+Remote modules referenced by their URL:
+
+<Editor
+  codeOnly
+  code={`
+import { serve } from "https://deno.land/std@v0.42.0/http/server.ts";
+`}
+/>
+
+---
+
+## When script is run for the first time it will download and cache imports.
+
+## No package.json and code can be referenced from any URL.
+
+---
+
+### Main Advantages:
+
+- Secure by default
+- Browser compatible APIs.
+- Test runner, file watcher and bundler baked in.
+- No node modules, package.json instead reference URL.
+
+---
+
+### Simple server demo:
+
+main.ts
+
+<Editor
+  codeOnly
+  code={`
+import { serve } from "https://deno.land/std@v0.42.0/http/server.ts";
+const s = serve({ port: 8000 });
+console.log("http://localhost:8000/");
+for await (const req of s) {
+  req.respond({ body: "Hello World" });
+}
+`}
+/>
+
+Run with:
+
+<Editor
+  codeOnly
+  code={`
+deno run --allow-net  main.ts
+`}
+/>
+
+---
+
+# 👀 Anyway!
+
+---
+
+## Web apps and native apps will draw nearer each other.
+
+---
+
+## You can now create websites that have push notifications, offline mode, bluetooth, background sync and more!
 
 (These things used to be reserved for native apps)
 
 ---
 
-More and more apps will just wrap web pages.
+# [WebAuthn demo](https://webauthn.sld.codes/)
 
 ---
 
-Artifical Intelligence will not take your job
+## More and more apps will just wrap web pages.
 
 ---
 
-GPT-3
+## Artifical Intelligence will not take your job
+
+---
+
+# GPT-3
 
 ---
 
@@ -261,47 +591,56 @@ GPT-3
 
 ---
 
-Nocode/lowcode revolution
+# Nocode/lowcode revolution
 
 ---
 
-Lots of tools out there to help with no coding experience create apps
+## Lots of tools out there to help those with no coding experience create apps 😅
 
 ---
 
-Examples here!
+# [webflow.com](webflow.com)
 
 ---
 
-So it will take my job?
+# So it will take my job?
 
 ---
 
-No. We're just more likely to focus on the stuff it can't handle.
+## No. We're just more likely to focus on the stuff it can't handle.
 
 ---
 
-We will be able to follow the DRY principle even easier.
+## We will be able to follow the DRY principle even easier.
 
 ---
 
-The server is dead.
+## The server is dead.
+
+### Its expensive!
 
 ---
 
-Serverless is King.
+# Serverless is King.
 
 ---
 
-Whats serverless?
+# Whats serverless?
+
+<Notes>
+  Serverless computing (or serverless for short), is an execution model where
+  the cloud provider (AWS, Azure, or Google Cloud) is responsible for executing
+  a piece of code by dynamically allocating the resources. And only charging for
+  the amount of resources used to run the code
+</Notes>
 
 ---
 
-Serverless Databases
+# Serverless Databases
 
 ---
 
-Fauna & Firestore
+# [Fauna](https://fauna.com/) & [Firestore](https://firebase.google.com/docs/firestore)
 
 ---
 
@@ -321,30 +660,71 @@ GETTING STARTED INTRO
 
 # HTML
 
-- HTML stands for Hypertext Markup Language
-- Every webpage in the world is HTML. It’s the main thing web browsers understand.
-- HTML describes the page’s content as a series of elements.
+<Notes>
+  - HTML stands for Hypertext Markup Language - Every webpage in the world is
+  HTML. It’s the main thing web browsers understand. - HTML describes the page’s
+  content as a series of elements.
+</Notes>
 
 ---
 
 # CSS
 
-- CSS is a series of rules that applies to “selectors”
-- You can either include a stylesheet, or define the style on the element directly
-- You can change different predefined properties of things
+<Notes>
+  - CSS is a series of rules that applies to “selectors” - You can either
+  include a stylesheet, or define the style on the element directly - You can
+  change different predefined properties of things
+</Notes>
 
 ---
 
 # JavaScript
 
-- Named that way to be appealing to Java Devs
-- HTML describes the page’s content as a series of elements.
+<Notes>
+  - Named that way to be appealing to Java Devs - Allows you to implement
+  complex features on web pages.
+</Notes>
 
 ---
 
 # Getting Practical
 
 Introducing you to two modern industry-leading front-end technologies (ReactJS & GatsbyJS)
+
+---
+
+# NPM
+
+---
+
+# Node Package Manager
+
+<Notes>
+  NPM is a package manager for the JavaScript programming language. It is the
+  default package manager for the JavaScript runtime environment Node.js. It
+  consists of a command line client, also called npm, and an online database of
+  public and paid-for private packages, called the npm registry. The registry is
+  accessed via the client, and the available packages can be browsed and
+  searched via the npm website. The package manager and the registry are managed
+  by npm, Inc. NPM is included as a recommended feature in Node.js
+  installer.npm consists of a command line client that interacts with a remote
+  registry. It allows users to consume and distribute JavaScript modules that
+  are available on the registry.
+</Notes>
+
+---
+
+# 1,000,000+ packages 🚀
+
+---
+
+## Every website you build using NPM contains a package.json and a node-modules folder.
+
+---
+
+<Editor
+  codeOnly
+  code={`npm install react`}/>
 
 ---
 
@@ -373,13 +753,15 @@ REACT INTRO
 
 ---
 
-## Library NOT Framework 
->Something tht enhances your exisiting code
+## Library NOT Framework
+
+> Something tht enhances your exisiting code
 
 ---
 
 ## Doesnt care about your folder structure.
->These are the functions you can use -> go!
+
+> These are the functions you can use -> go!
 
 ---
 
@@ -389,19 +771,26 @@ REACT INTRO
 
 ## Your in your card and want to turn up the AC
 
+<Notes>
 In an old car you would use a dial to turn up the temprature yourself until you're at right temprature.
+</Notes>
 
 ---
 
-## This is like JQuery 
+## This is like JQuery
 
+<Notes>
 You would grab the element in the dom get the text value increase it and set the element to the new value in the browser.
+</Notes>
 
 ---
 
-## But React is more like a Tesla. 
+## But React is more like a Tesla.
+
+<Notes>
 You set the exact temprature that you want and then the car then decides whether you need to make it cooler or warmer.
 I just want it at X degrees and it just does it. Me as a user dont need to worry about which parts of the application to change.
+</Notes>
 
 ---
 
@@ -443,8 +832,9 @@ ReactNative.render(<div>hello</div>, document.getElementById("root"));
 
 ---
 
-# This is not HTML 
-This is JSX. Its a templating language that looks like HTML.
+# This is not HTML
+
+#### This is JSX. Its a templating language that looks like HTML.
 
 ---
 
@@ -504,15 +894,15 @@ ReactDom.render(reactElement, document.getElementById("root"));
 
 ---
 
-You could have React.createElement inside a React.createElement!
+## You could have React.createElement inside a React.createElement!
 
 ---
 
-And the more you do this, the grosser it gets.
+## And the more you do this, the grosser it gets.
 
 ---
 
-OR you could use JSX!
+# OR you could use JSX!
 
 ---
 
@@ -781,6 +1171,20 @@ ReactDom.render(
 ---
 
 <!---
+10 MIN BREAK
+-->
+
+<Confetti>
+  <h1>Break Time</h1>
+</Confetti>
+
+---
+
+<QandA QAID="imperials-questions-round-one" />
+
+---
+
+<!---
 GATSBY INTRO
 -->
 
@@ -789,7 +1193,7 @@ GATSBY INTRO
 ---
 
 <Poll
-  pollID="reactFeeler"
+  pollID="gatsbyFeeler"
   question="Have you used GatsbyJS before?"
   answers={[
     { option: "I'm an Expert", votes: 0 },
@@ -1171,33 +1575,810 @@ Extremely secure as you are just sending HTML.
 
 ---
 
-<!---
-10 MIN BREAK
--->
-
-<Confetti>
-  <h1>Break Time</h1>
-</Confetti>
+## UX design
 
 ---
 
-<QandA QAID="imperials-questions-round-one" />
+# What is UX?
 
 ---
 
-UX design principles you can use to elevate your apps
+# User eXperience
 
 ---
 
-Challenging what you think is possible in the browser with some fun experiments in Javascript.
+## UX design is the process of creating products that provide meaningful and personally relevant experiences.
 
 ---
 
-Carol Singers
+- Conducting user research
+- Creating user personas
+- Determining the information architecture of a digital product
+- Designing user flows and wireframes
+- Creating prototypes
+- Conducting user testing **and soo much more!**
+
+---
+
+## I think every front-end engineer should be a UX ambassador.
+
+---
+
+# 💡 Create with your users in mind
+
+---
+
+# The five second rule
+
+<Notes>
+Visitors should be able to tell what your site has to offer within the first five seconds of landing on your homepage. This is the average time users need to form a first impression and decide whether it’s worth engaging with content. To retain visitors, a landing page must clearly convey its purpose, what content is on offer and a strong call to action.
+</Notes>
+
+---
+
+# First steps
+
+<Notes>
+Most website traffic will come from external links such as search engines or site links, rather than from users who know your URL (a great web hosting service will give you the analytics you need). As a result, users are likely to land on your website with a specific goal. Your site should satisfy this goal by providing engaging, relevant and valuable information through an easy to use interface.  It’s also likely that users who are directed to your site from another source will land on a deeper page of your website. Therefore, all website pages need to be designed to clearly communicate what information can be found there to avoid high bounce rates.
+</Notes>
+
+---
+
+# Minimal Design
+
+<Notes>
+The information users are looking for on your site needs to be presented in a clean and simple way (a website builder will help if you need to keep things simple). If any element of the page doesn’t need to be there, get rid of it. In terms of copy, communicating key information in fewer words is more effective than offering long bodies of text that users will skim read. Avoid clutter and keep decorative elements minimal; fewer distractions allow users to find what they’re looking for, faster. 
+</Notes>
+
+---
+
+# Consistency 
+
+<Notes>
+Keep design consistent across pages so users can easily find information. For example, the main menu should always have the same elements, no matter which page it features on. Similarly, clicks should always perform the same action – for instance, clicking on a link should always open it on a new window. Consistent design enables your users to learn how to navigate your site quickly and effectively. 
+</Notes>
+
+---
+
+# Standard design patterns
+
+<Notes>
+Designing the layout and navigation for a website requires you to follow tired-and-tested trends. This means using standard design patterns and taking inspiration from successful websites, which will also encourage cross-browser compatibility across devices. Keep any design system files in secure cloud storage for your whole team to access.
+</Notes>
+
+---
+
+# Structured content
+
+<Notes>
+The information you put on your website needs to be arranged and grouped into pages and the resulting structure will form the navigation and logic for your menu. Within each page, you’ll also need to organise information; if content isn’t visible on the screen before scrolling down, then there’s a high chance that users will miss it. 
+
+Calls to action should also prompt users to scroll through to uncover more information. When it comes to a website’s homepage, it should contain a brief summary on the brand and what it does, so that users know what to expect from the site. 
+</Notes>
+
+---
+
+![](https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2019/02/image2.gif)
+
+---
+
+### Users spend most of their time on other sites. This means that users prefer your site to work the same way as all the other sites they already know.
+
+---
+
+# 🌱 AKA Copy
+
+### or at least get inspired!
+
+---
+
+# Colour Theory
+
+The colours that you use to represent yourself matter
+
+---
+
+#### Induce the right emotion in your users by using appropriate colours.
+
+![](https://ik.imagekit.io/sld/ColorBranding_qPRmwDGMc.png)
+
+---
+
+![](https://ik.imagekit.io/sld/fav-colors_R5BA6-Tj_.png)
+
+---
+
+![](https://ik.imagekit.io/sld/least-fav-colors_jyyHvq3tT.png)
+
+---
+
+Cheat your colour scheme
+
+# [Coolors](https://coolors.co)
+
+---
+
+# Logos
+
+---
+
+![](https://ik.imagekit.io/sld/059b81864cdb473affdf6ea8ba1989c7_veMFWscTf.jpg)
+
+---
+
+![](https://ik.imagekit.io/sld/maxresdefault_aG3eQuJbz.jpg)
+
+---
+
+![](https://ik.imagekit.io/sld/netflix_EV22ktyWN.gif)
+
+---
+
+![](https://ik.imagekit.io/sld/Screenshot_2020-05-21_at_14.32.33_NZxNTeXn4.png)
+
+---
+
+![](https://ik.imagekit.io/sld/Color_loEQbJ_BFwH.png)
+
+---
+
+![](https://ik.imagekit.io/sld/BW_WSFIKUbGN.png)
+
+---
+
+## Getting Animated
+
+---
+
+The animation was built using Lottie — an awesome animation library from airbnb.
+
+---
+
+![](https://airbnb.io/lottie/images/Introduction_00_sm.gif)
+
+---
+
+# DESIGN INSPIRATION
+
+[sidebar](https://sidebar.io/): Just go here every day.
+
+[dribbble](https://dribbble.com/): Arguably the home of designers online.
+
+[pages.xyz](https://www.pages.xyz/): A hall of fame for simply beautiful websites.
+
+[uplabs](https://www.uplabs.com/): Designs with files.
+
+---
+
+# Content
+
+---
+
+## Writing text to get your users to do what you want is harder than you think!
+
+---
+
+# Make it enticing.
+
+---
+
+Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages.
+Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages.
+
+---
+
+## Building the site
+
+---
+
+## Build it with tools you want to use in your day job.
+
+---
+
+# Architecture - Start small!
+
+---
+
+![](https://ik.imagekit.io/sld/architecture_kz1HjMMDz.png)
+
+---
+
+![](https://ik.imagekit.io/sld/Architecture_4fGET9WRR.png)
+
+---
+
+# Test test test!
+
+---
+
+# 🦍 Testing
+
+---
+
+![User Testing](https://ik.imagekit.io/sld/rapidlab_aHiYEOEXo.JPG)
+
+---
+
+# If you can't demo it well - don't build it.
+
+(If you're at a hackathon!)
+
+---
+
+# 👍 You've tested it - have some peace of mind.
+
+---
+
+# JS Experiments
+
+---
+
+## This presentation and this whole site was built with the tech I've talked about today.
+
+---
+
+## With one extra little thing -
+
+# Sockets!
+
+---
+
+<h2>What is a Socket?</h2>
+
+<p>
+  A{" "}
+  <span className="bg-accent text-accent py-1 px-2 rounded">
+    bi-directional
+  </span>{" "}
+  communication channel between a client and a server.
+</p>
+
+---
+
+<div className="row code-small" style={{ maxWidth: "100%" }}>
+  <div className="col-xs-12 pad-10-lr">
+    <p className=" opacity-70">
+      <code>App.js</code>
+    </p>
+    <Editor
+      codeOnly
+      code={`import openSocket from "socket.io-client";
+const socket = openSocket("http://localhost:8000");
+socket.emit("message", "Hello!");`}
+    />
+  </div>
+  <div className="col-xs-12 pad-10-lr">
+    <p className=" opacity-70">
+      <code>Server.js</code>
+    </p>
+    <Editor
+      codeOnly
+      code={`const express = require("express");
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(\`Listening on \${PORT}\`));
+  const io = require("socket.io")(server);
+io.on("connection", (socket) => {
+  socket.on("message", (msg) => {
+    console.log("message: " + msg);
+  });
+});`}
+    />
+  </div>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-2xl">
+  Sockets Demo
+</p>
+
+---
+
+<h1>
+  What If We Want To <span className="text-link">Store</span> The Data?
+</h1>
+
+---
+
+<h1>
+  <Emojione style={{ display: "inline-block" }} text="Combine With Redux ♥️" />
+</h1>
+
+---
+
+<p className=" opacity-70">
+  <code>CreateStore.js</code>
+</p>
+<div className="code-small md:mx-3">
+  <Editor
+    codeOnly
+    code={`import { createStore, applyMiddleware } from "redux";
+import createSocketIoMiddleware from "redux-socket.io";
+import io from "socket.io-client";
+let socket = io("http://localhost:3000");
+let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
+function reducer(state = {}, action){
+  switch(action.type){
+    case "message":
+      return Object.assign({}, {message:action.data});
+    default:
+      return state;
+  }
+}
+let store = applyMiddleware(socketIoMiddleware)(createStore)(reducer);
+store.subscribe(()=>{
+  console.log("new client state", store.getState());
+});
+store.dispatch({type:"server/hello", data:"Hello!"});`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Implementing Socket.IO Redux Middleware
+</p>
+<a
+  target="_blank"
+  rel="noopener noreferrer"
+  href="https://github.com/itaylor/redux-socket.io"
+>
+  <p className="text-sm md:text-xl link mt-4">See redux-socket.io on Github</p>
+</a>
+
+---
+
+<p className=" opacity-70">
+  <code>Server.js</code>
+</p>
+<div className="code-small md:mx-3">
+  <Editor
+    codeOnly
+    code={`var http = require("http");
+var server = http.createServer();
+var socket_io = require("socket.io");
+server.listen(3000);
+var io = socket_io();
+io.attach(server);
+io.on("connection", function(socket){
+  console.log("Socket connected: " + socket.id);
+  socket.on("action", (action) => {
+    if(action.type === "server/hello"){
+      console.log("Got hello data!", action.data);
+      socket.emit("action", {type:"message", data:"good day!"});
+    }
+  });
+});`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Do something with the data on our server.
+</p>
+
+---
+
+<h1>
+  <Emojione
+    style={{ display: "inline-block" }}
+    text="Controlling Slide Delivery"
+  />
+</h1>
+
+---
+
+<p className=" opacity-70">
+  <code>Deck.js</code>
+</p>
+<div className="code-xs md:mx-3">
+  <Editor
+    codeOnly
+    code={`export const Deck = ({
+  changePresPosOnServer,
+  presentation,
+}) => {
+//...
+if (
+    index !== presentation.slide
+  ) {
+    changePresPosOnServer(index)
+  }
+//...
+const mapStateToProps = ({ presentation }) => {
+  return { presentation }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changePresPosOnServer: (value) =>
+      dispatch({ type: "server/updateIndex", data: value }),
+  }
+}
+const ConnectedDeck =
+  typeof window !== "undefined"
+    ? connect(mapStateToProps, mapDispatchToProps)(Deck)
+    : Slide
+export default ConnectedDeck`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Updating Index While Presenting
+</p>
+
+---
+
+<p className=" opacity-70">
+  <code>Server.js</code>
+</p>
+<Editor
+  codeOnly
+  code={`if (action.type === "server/updateIndex") {
+        pres.slide = action.data;
+        io.emit("action", {
+          type: "updatePresIndex",
+          data: pres,
+        });
+    }`}
+/>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Server Updates Index and Emits!
+</p>
+
+---
+
+<p className=" opacity-70">
+  <code>Deck.js</code>
+</p>
+<div className="code-xs md:mx-3">
+  <Editor
+    codeOnly
+    code={`export const Deck = ({
+  presentation,
+}) => {
+//...
+if (
+    window.location.pathname.includes(presentation.deck) &&
+    window.location.pathname !==
+      presentation.deck + "/slides/" + presentation.slide
+  ) {
+    jump(presentation.slide)
+  }
+//...
+const mapStateToProps = ({ presentation }) => {
+  return { presentation }
+}
+const ConnectedDeck =
+  typeof window !== "undefined"
+    ? connect(mapStateToProps)(Deck)
+    : Slide
+export default ConnectedDeck`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Following Along
+</p>
+
+---
+
+<h1>
+  <Emojione
+    style={{ display: "inline-block" }}
+    text="Making it Presentor Only"
+  />
+</h1>
+
+---
+
+<p className=" opacity-70">
+  <code>Server.js</code>
+</p>
+<div className="code-xs md:mx-3">
+  <Editor
+    codeOnly
+    code={`if (action.type === "server/verify") {
+      if (process.env.PRESENT_PASSWORD === action.data.password) {
+        pres.presenter = socket.id;
+        pres.deck = action.data.location;
+        pres.slide = action.data.index;
+        socket.emit("action", {
+          type: "verify",
+          data: true,
+        });
+        io.emit("action", {
+          type: "startLivePresentor",
+          data: pres,
+        });
+      }
+    }
+    if (action.type === "server/updateIndex") {
+      if (socket.id === pres.presenter) {
+        pres.slide = action.data;
+        io.emit("action", {
+          type: "updatePresIndex",
+          data: pres,
+        });
+      }
+    }`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Using ENV Variable to Identify Presentor
+</p>
+<Preload images={["https://ik.imagekit.io/sld/flowDiagram_GM8ZlDQ1BMI.png"]} />
+
+---
+
+<img
+  src="https://ik.imagekit.io/sld/flowDiagram_GM8ZlDQ1BMI.png"
+  className="bg-white rounded p-5"
+/>
+
+---
+
+<h1>
+  <Emojione
+    style={{ display: "inline-block" }}
+    text="What if I'm going too fast? 🚀"
+  />
+</h1>
+
+---
+
+<h1>
+  <Emojione style={{ display: "inline-block" }} text="Adding Unfollow" />
+</h1>
+
+---
+
+<p className=" opacity-70">
+  <code>Deck.js</code>
+</p>
+<div className="code-xs md:mx-3">
+  <Editor
+    codeOnly
+    code={`export const Deck = ({
+  presentation,
+  follow
+}) => {
+//...
+if (
+    follow &&
+    window.location.pathname.includes(presentation.deck) &&
+    window.location.pathname !==
+      presentation.deck + "/slides/" + presentation.slide
+  ) {
+    jump(presentation.slide)
+  }
+//...
+const mapStateToProps = ({ presentation, follow }) => {
+  return { presentation, follow }
+}
+const ConnectedDeck =
+  typeof window !== "undefined"
+    ? connect(mapStateToProps)(Deck)
+    : Slide
+export default ConnectedDeck`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Only jump if follow === true
+</p>
+
+---
+
+<div
+  className="flex items-center justify-center"
+  style={{ height: "100%", width: "100%", minHeight: "70vh" }}
+>
+  <ZoomData withGatsby={true} />
+</div>
+
+---
+
+<h1>
+  Getting <span className="text-link">stupid</span> with this
+</h1>
+
+---
+
+![HalfStack](https://ik.imagekit.io/sld/halfstack_zHesQ-h1y5m.png)
+
+<Preload images={["https://ik.imagekit.io/sld/Charlie_H6woYFtms.jpg"]} />
+
+---
+
+<img src="https://ik.imagekit.io/sld/Charlie_H6woYFtms.jpg" />
+
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center text-center">
+  Charlie Gerard
+</p>
+
+<Preload images={["https://ik.imagekit.io/sld/camera__1__GesaesDUrR9.gif"]} />
+
+---
+
+<img
+  src="https://ik.imagekit.io/sld/camera__1__GesaesDUrR9.gif"
+  width="100%"
+  height="100%"
+  style="max-width:500px; min-height:500px"
+/>
+
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center text-center">
+  The PoseNet Skeleton
+</p>
+
+<Preload
+  images={[
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2",
+  ]}
+/>
+
+---
+
+![Trump](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2)
+
+<Preload
+  images={[
+    "https://ik.imagekit.io/sld/7_e9NGqNNtNFh.png",
+    "https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif",
+  ]}
+/>
+
+---
+
+<img
+  src="https://ik.imagekit.io/sld/7_e9NGqNNtNFh.png"
+  width="100%"
+  style="max-width:800px"
+/>
+
+---
+
+<p className="opacity-70">
+  <code>PoseNetCamera.js</code>
+</p>
+<div className="code-small">
+  <Editor
+    codeOnly
+    code={`class PoseNet extends Component {  
+ //...
+  poseDetectionFrame(canvasContext) {  
+    const posenetModel = this.posenet;  
+    const video = this.video;  
+    const findPoseDetectionFrame = async () => {  
+      let poses = [];  
+      const pose = await posenetModel.estimateSinglePose(video, {  
+        imageScaleFactor,  
+        flipHorizontal,  
+        outputStride,  
+      });  
+      poses.push(pose);  
+    };  
+  }  
+//...
+`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center">
+  Using PoseNet
+</p>
+
+---
+
+<div className="code-small">
+  <Editor
+    codeOnly
+    code={`{
+  "score": 0.32371445304906,
+  "keypoints": [
+    {
+      "position": {
+        "y": 113.9603729248,
+        "x": 393.19735717773
+      },
+      "part": "leftWrist",
+      "score": 0.94009721279144
+    },
+    {
+      "position": {
+        "y": 186.47859191895,
+        "x": 257.98034667969
+      },
+      "part": "rightWrist",
+      "score": 0.98029226064682
+    }
+  ]
+}
+`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center">
+  PoseNet Data Points
+</p>
+
+---
+
+<p className=" opacity-70 ">
+  <code>Remote.js</code>
+</p>
+<div classname="code-small">
+  <Editor
+    codeOnly
+    code={`useEffect(() => {  
+    if (presentation && differenceInSeconds(new Date(), lastPunch) > 0.5) {  
+      const gesturingRight = poses.every((item) => item.position.x > window.innerWidth*0.75);  
+      const gseturingLeft = poses.every((item) => item.position.x < window.innerWidth*0.25);  
+      if (gesturingRight && presentation.slide >= 0) {  
+        changePresPosOnServer(presentation.slide + 1);  
+      }  
+      if (gseturingLeft && presentation.slide > 0) {  
+        changePresPosOnServer(presentation.slide - 1);  
+      }  
+      setLastPunch(new Date());  
+    }  
+  }, [poses]);
+`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center">
+  Triggering Slide Jumps
+</p>
+
+---
+
+<div>
+  <img
+    src="https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif"
+    className="w-full"
+  />
+</div>
+<a
+  target="_blank"
+  rel="noopener noreferrer"
+  href="https://www.youtube.com/watch?v=kZkOyVuBw-o&feature=youtu.be"
+>
+  <p className=" mx-auto btn text-xl mt-5 text-center">See the Video</p>
+</a>
+
+---
+
+<h1>Try it yourself!</h1>
+
+<a
+  target="_blank"
+  rel="noopener noreferrer"
+  href="https://github.com/kirstenlindsmith/PoseNet_React/blob/master/client/components/Camera.js"
+>
+  See the Borrowed Code
+</a>
+
+---
+
+<h1>Further Extensions</h1>
+<div className="text-align-left flex" style={{ flexDirection: "column" }}>
+  <p>
+    <Emojione style={{ display: "inline-block" }} text="🔎" />
+    SEO
+  </p>
+  <p>
+    <Emojione style={{ display: "inline-block" }} text="👨" />
+    <Emojione style={{ display: "inline-block" }} text="👨" /> Peer to Peer
+  </p>
+  <p>
+    <Emojione style={{ display: "inline-block" }} text="📞 " />
+    Calling through the app
+  </p>
+  <p>
+    <Emojione style={{ display: "inline-block" }} text="🎺 " />
+    Turning your audience into a choir/orchestra
+  </p>
+</div>
+
+---
+
+# Turning your audience into a choir/orchestra
 
 ---
 
 <QandA QAID="imperials-questions-round-two" />
+
+---
+
+<Newsletter />
 
 ---
 

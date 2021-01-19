@@ -172,7 +172,7 @@ export const Slide = ({
               tourActive === true) && (
               <>
                 {verified ? (
-                  <>
+                  <div className="flex items-center">
                     <button
                       onClick={(e) => {
                         context.setState(toggleMode(modes.normal));
@@ -190,12 +190,11 @@ export const Slide = ({
                     </button>
                     <p
                       data-tip={`Viewers`}
-                      className="text-secondary margin-3-t opacity-50"
-                      style={{ fontSize: 30 }}
+                      className="text-secondary text-xl ml-2 opacity-50"
                     >
-                      {count}
+                      {count} viewers
                     </p>
-                  </>
+                  </div>
                 ) : (
                   <button
                     onClick={(e) => {
