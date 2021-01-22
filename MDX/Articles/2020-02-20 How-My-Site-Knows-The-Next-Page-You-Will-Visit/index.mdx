@@ -43,7 +43,7 @@ Navigate to [https://analytics.google.com](https://analytics.google.com/), click
  3. Set up some environment variables
 
 Take all the information that you saved along the way and add it to a .env file at the root of your project. Don’t know what .env is? [Click here](https://www.npmjs.com/package/dotenv). If you’ve done this step right you should have equivalent keys in your .env file:
-```js
+```
 GUESS_EMAIL=YOUR_SERVICE_ACCOUNT_EMAIL_GOES_HERE  
 GUESS_PRIVATE_KEY=YOUR_PRIVATE_KEY_GOES_HERE  
 VIEW_ID=YOUR_ANALYTICS_VIEW_ID_GOES_HERE
@@ -51,7 +51,7 @@ VIEW_ID=YOUR_ANALYTICS_VIEW_ID_GOES_HERE
 *** Note: If you are using a CI/CD pipeline you will have to store these environment variables there too!***
 
 Now in order to access these values in our config, we need to load them in within out gatsby-config.js file. Take the following snippet it and add it the top of the file:
-```js
+```
 require("dotenv").config({  
   path: `.env`,  
 })
@@ -62,7 +62,7 @@ require("dotenv").config({
 `npm install gatsby-plugin-guess-js --save`
 
 Add the plugin to your gatsby config:
-```js
+```
 {  
     resolve: `gatsby-plugin-guess-js`,  
     options: {  
@@ -86,7 +86,7 @@ If it works awesome! Skip this step. If, however, you’re unlucky like me, this
 `npm ERR! error:0906D06C:PEM routines:PEM_read_bio:no start line`
 
 It turns out, guess didn’t like my private key as it contained “n” which it formatted strangely. To fix this I had to use a little regex within my gatsby plugin configuration when setting my private key:
-```js
+```
 {  
     resolve: `gatsby-plugin-guess-js`,  
     options: {  

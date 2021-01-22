@@ -22,7 +22,7 @@ I decided to audit 100 pages per site. This would be a good amount of data to gi
 
 One of my favourite npm packages that I have discovered in the last year is [puppeteer](https://www.npmjs.com/package/puppeteer). Puppeteer is a Node library that provides an API to control chrome over the dev tools protocol. It can run headless (in the background), so you don’t even see it working away.
 
-```js
+```
 this.browser = await puppeteer.launch();  
 this.page = await this.browser.newPage();  
 await this.page.goto("[http://sld.codes/](http://sld.codes/)");  
@@ -34,7 +34,7 @@ A super simple example of the power of this tool can be seen above. By running t
 #### Clustering
 
 You can also run a [cluster of puppets](https://www.npmjs.com/package/puppeteer-cluster)! This allows you to tackle larger problems asynchronously with multiple instances of puppeteer workers. A simple example of how this works can be found in the readme:
-```js
+```
 const { Cluster } = require('puppeteer-cluster');  
    
 (async () => {  
@@ -59,7 +59,7 @@ const { Cluster } = require('puppeteer-cluster');
 #### Lighthouse
 
 There is no better tool out there for automated auditing. Most people are familiar with its integration into the chrome dev tools but you can also run it using a [node CLI](https://github.com/GoogleChrome/lighthouse#using-the-node-cli). All I needed to do to get it going was to point it to the puppeteer instance.
-```js
+```
 var { lhr } = await lighthouse(this.page.url(), {  
       port: new URL(this.browser.wsEndpoint()).port,  
       output: "json",  
@@ -73,7 +73,7 @@ You can define the top 100 sites in lots of different ways. For this experiment,
 #### The Script
 
 The web-crawler I created was fairly basic. Upon landing on a webpage, it would look through and search for any `<a>` tags and add the hrefs to a first-in first-out queue. I used a set to hold visited urls to ensure I didn’t audit the same page twice.
-```js
+```
 let newHrefs = await page.$$eval("a", as => as.map(a => a.href));  
         newHrefs = newHrefs.map(url => url.replace(//$/, ""));  
         newHrefs = newHrefs.filter(  
@@ -104,7 +104,7 @@ This reduced 1.83gb down to 50.9mb. Much more manageable!
 #### Gatsby + GraphQL
 
 I used the [gatsby-transformer-json](https://www.npmjs.com/package/gatsby-transformer-json) package to pull all the JSON into my Gatsby project. Then used this query to source the data:
-```GraphQL
+```
 {  
     allAllJson {  
       edges {  

@@ -29,7 +29,7 @@ In the example above we can see that gatsby knows you're trying to hit `/asdasd`
 
 A list of every path on the site. This is data that can be collected with the following graphQL query:
 
-   ```graphql
+   ```
    allSitePage {
          nodes {
            path
@@ -43,7 +43,7 @@ A list of every path on the site. This is data that can be collected with the fo
 
 Pages in Gatsby have the `location` object available as a prop which we can use to grab the pathname:
 
-```jsx
+```
 import React from "react"
 export default ({ location }) => {
   console.log(location.pathname)
@@ -52,7 +52,7 @@ export default ({ location }) => {
 
 We can use the query mentioned above from the 404 development page to get our list of pages:
 
-```jsx
+```
 import React from "react"
 import { graphql } from "gatsby"
 export default ({ location, data }) => {
@@ -78,7 +78,7 @@ You'll notice I've added a filter to the page just to exclude pages that match 4
 Now to find the closest match to the current page in the paths. I came across this awesome little npm package called `string-similarity`. 
 It has a funciton "bestMatch" that can find the best match to a string in an array of strings. It also gives the match a rating so I could introduce a threshold. Using this function we have all the pieces we need to work out the logic:
 
-```jsx
+```
 import React from "react"
 import { graphql } from "gatsby"
 import StringSimilarity from "string-similarity"
@@ -105,7 +105,7 @@ If I consider the match to be high enough, I can suggest the match as the user's
 
 ##### Final Implementation
 
-```jsx
+```
 import React from "react"
 import { Link, graphql } from "gatsby"
 import StringSimilarity from "string-similarity"

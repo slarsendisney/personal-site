@@ -24,7 +24,7 @@ Whilst building out [my personal website](https://sld.codes/) last year in [gats
 #### An Example Using “gatsby-theme-mdx-deck”
 
 The first step is to add gatsby-theme-mdx-deck to your gatsby config:
-```js
+```
 {  
   resolve: `gatsby-theme-mdx-deck`,  
   options: {  
@@ -81,7 +81,7 @@ The first thing I wanted to do was make the way in which you interact with the s
 Note that the toggle button would only be present when I was presenting as you would have control of the slides when I am not.
 
 In the situations when I am not around to give you the tour of how these buttons work, I thought I would let [“react-joyride”](https://www.npmjs.com/package/react-joyride) do it for me. I decided to use a cookie to determine whether the user had seen the tour before. I would only trigger the tour if that cookie had not been set:
-```js
+```
 export default () => {  
   const [cookies, setCookie] = useCookies();  
   const TourActive = !cookies.SLDPresTourCookie;  
@@ -121,7 +121,7 @@ Up to this point my personal website had been entirely static. I had had no need
 #### Creating the server
 
 I spun up a node server on [heroku](https://dashboard.heroku.com/) and added the following code:
-```js
+```
 io.on("connection", function (socket) {  
   if (active) {  
     //If there is a presentation already started, tell the user.  
@@ -183,14 +183,14 @@ io.on("connection", function (socket) {
 First we need to add a custom wrapper around gatsby:
 
 _gatsby-browser.js_
-```js
+```
 import wrapWithProvider from "./src/state/wrapWithProvider"  
 export const wrapRootElement = wrapWithProvider
 ```
 This wrapper needs to wrap our site content in a redux provider.
 
 _src/state/wrapWithProvider.js_
-```js
+```
 import React from "react"  
 import { Provider } from "react-redux"  
 import createStore from "./createStore"
@@ -206,7 +206,7 @@ export default ({ element }) => {
 In our store we add methods to handle any incoming actions from the server. Notice the “socketIoMiddleware” that catches any actions that start with”/server” and emits them to our server
 
 _src/state/createStore.js_
-```js
+```
 import { createStore, applyMiddleware } from "redux";  
 import createSocketIoMiddleware from "redux-socket.io";  
 import io from "socket.io-client";  
@@ -256,7 +256,7 @@ export default store;
 Now if we connect any component using redux we will have access to these values.
 
 _Slides.js_
-```js
+```
 const Deck = ({  
   follow,  
   presentation,  
@@ -341,7 +341,7 @@ Posenet uses a trained model to take an image and make an attempt at guessing th
 Being a magician! 🎩
 
 It can be implemented relatively easily (code borrowed from [here](https://github.com/kirstenlindsmith/PoseNet_React/blob/master/client/components/Camera.js)):
-```js
+```
 class PoseNet extends Component {  
   async componentDidMount() {  
     try {  
@@ -427,7 +427,7 @@ For my purposes, I focused on the wrists. When gesturing right or left, both wri
 When both wrists were in the same box, I knew I was gesturing for a slide change.
 
 All that was left was to work out whether my poses array containing the positions of the left and right wrist had placed them both in the bounding box. I could then use my socket connection as above to change the slide.
-```js
+```
 useEffect(() => {  
     if (presentation && differenceInSeconds(new Date(), lastPunch) > 0.5) {  
       const gesturingRight = poses.every((item) => item.position.x > window.innerWidth*0.75);  

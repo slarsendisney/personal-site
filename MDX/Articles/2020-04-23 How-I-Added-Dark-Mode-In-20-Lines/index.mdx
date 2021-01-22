@@ -16,7 +16,7 @@ Install dependencies.
 **Step 2.**
 
 Add the plugin to your gatsby config.
-```js
+```
 module.exports = {  
   ...,  
   plugins: [  
@@ -40,7 +40,7 @@ module.exports = {
 **Step 3.**
 
 Create our colours in a **colors.scss** file.
-```scss
+```
 $brand-colors: ('white', #ffffff, #1c1c1c), ('black', #1c1c1c, white),  
   ('light-brown', #e1d2af, #e1d2af), ('grey', #2e4052, #f9f9f9),  
   ('light-grey', #f9f9f9, #121212), ('blue', #35466d, #49aab7);  
@@ -67,13 +67,13 @@ Then I iterate through each colour and create a classnames with the name and hex
 `('white', #ffffff, #1c1c1c)`
 
 creates in the loop:
-```scss
+```
 .is-white {  
     color: #ffffff;  
   }
 ```
 I also add a second instance of this class that overrides when dark mode has been added as a class name to the body. This uses the second colour so in our example with white we create:
-```scss
+```
 body.dark-mode {  
     .is-white {  
       color: #1c1c1c;  
@@ -86,19 +86,19 @@ You can repeat this process for background and border colours too!
 **Step 4.**
 
 Import colors.scss in **global.scss.**
-```scss
+```
 @import './colors';
 ```
 **Step 5.**
 
 Add scss to **gatsby-browser.js.**
-```js
+```
 require("./src/styles/global.scss")
 ```
 **Step 6.**
 
 Create a new react component that acts as a mode switch.
-```js
+```
 import React from "react";  
 import useDarkMode from "use-dark-mode";  
 export default (props) => {  
@@ -126,7 +126,7 @@ export default (props) => {
 **Step 7.**
 
 Use our new classnames in any react component.
-```js
+```
 import React from "react";  
 export default () => {  
   return (  

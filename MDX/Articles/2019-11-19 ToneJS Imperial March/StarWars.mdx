@@ -12,7 +12,7 @@ Did you know that *The Imperial March* is 104bpm? This is the kind of useless fa
 
 I have recently become interested in how to create music in the browser. While looking around for libraries I could make music with, I came across [tone.js](https://tonejs.github.io/). Using the library you can make your browser play music with code as simply as:
 
-```js
+```
 //create a synth and connect it to the master output (your speakers)
 var synth = new Tone.Synth().toMaster()
 
@@ -30,7 +30,7 @@ npm install --save tone
 
 I then imported our new library and created a function called playSong that would be triggered by the call to action:
 
-```jsx
+```
 import React from "react";
 import Tone from "tone";
 
@@ -50,7 +50,7 @@ export default function Start() {
 
 In order to start creating sound, we're going to need to set the bpm and create a synth:
 
-```js
+```
 const playSong = () => {
     Tone.Transport.bpm.value = Music.bpm;
     var synth = new Tone.Synth().toMaster();
@@ -59,7 +59,7 @@ const playSong = () => {
 
 you see the *.toMaster()*? Thats connecting the synth to the master output. If you run the code now you still wont hear anything as we havent told the synth what to play. Lets fix that:
 
-```js
+```
 const playSong = () => {
     Tone.Transport.bpm.value = 104;
     var synth = new Tone.Synth().toMaster();
@@ -78,7 +78,7 @@ Thats going to play middle C for us on repeat but in the future we are going to 
 
 Because the song will be quite a large array, I decided to throw it in a seperate JSON file. I set it up as follows: 
 
-```json
+```
 {
   "notes": [
     "G2",
@@ -95,7 +95,7 @@ Because the song will be quite a large array, I decided to throw it in a seperat
 
 Notice the inner arrays? They split the note lengths in half. I then imported the file and used it as such: 
 
-```js
+```
 import Music from "../music/imperialMarch.json";
 
 const playSong = () => {

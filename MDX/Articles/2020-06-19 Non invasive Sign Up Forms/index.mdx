@@ -20,13 +20,13 @@ So, how do we define an engaged user? I decided to opt for article views. **If a
 
 In order to know which articles you've viewed, I'm going to have to track them but I'd rather not take ownership of any data from users that I don't need so I will keep this information client-side by using `localstorage`. I have set up a [localstorage hook](https://github.com/slarsendisney/personal-site/blob/master/src/utils/customHooks.js) in my project that came in handy when [adding reactions to the site](/articles/Creating-Page-Reactions) and again now. When navigating to an article, I update my "views" localstorage to contain the time at which you looked at the current article (identified by contentID):
 
-```jsx
+```
 setViewed({ ...viewed, [contentID]: new Date().getTime() })
 ```
 
 Now my code can determine how many articles you have viewed in the last 24 hours with a little help from [date-fns](https://date-fns.org/):
 
-```jsx
+```
 import { differenceInHours } from "date-fns"
 
 function viewedArticlesToday(viewed) {
@@ -44,7 +44,7 @@ function viewedArticlesToday(viewed) {
 
 This alone is not enough as repeat visitors who navigate to an article would be prompted to subscribe all the time. That would certainly put them off visiting again! So I also decided to use `localstorage` to remember when you last saw the modal and whether you had subscribed already. If you have already subscribed, or seen the modal in the last 3 days then it will leave you alone:
 
-```jsx
+```
 import React, { useEffect } from "react"
 import { differenceInDays } from "date-fns"
 

@@ -57,7 +57,7 @@ Like everything I seem to want to add to my site - "there's a plugin for that". 
 
 4. Replace any `<a>` tags with `<OutboundLink>` components:
 
-   ```jsx
+   ```js
    import { OutboundLink } from "gatsby-plugin-google-analytics";
 
    export default () => (
@@ -85,7 +85,7 @@ I use these connections to [present without sharing my screen](/articles/Present
 
 To use sockets in the project we need to create a server to communicate between connected clients. You can get started quickly by throwing the following on a node server:
 
-```js
+```
 const express = require("express");
 const PORT = process.env.PORT || 3000;
 const server = express().listen(PORT, () =>
@@ -115,7 +115,7 @@ Now we have a server set we need a way for our clients to recieve the broadcasts
 
 `gatsby-browser.js`
 
-```jsx
+```
 import wrapWithProvider from "./src/state/wrapWithProvider";
 export const wrapRootElement = wrapWithProvider;
 ```
@@ -124,7 +124,7 @@ This wrapper needs to wrap our site content in a Redux provider.
 
 `src/state/wrapWithProvider.js`
 
-```jsx
+```
 import React from "react";
 import { Provider } from "react-redux";
 import createStore from "./createStore";
@@ -137,7 +137,7 @@ In our store we add methods to handle any incoming actions from the server.
 
 `src/state/createStore.js`
 
-```jsx
+```
 import { createStore, applyMiddleware } from "redux";
 import createSocketIoMiddleware from "redux-socket.io";
 import io from "socket.io-client";
@@ -165,7 +165,7 @@ export default store;
 
 Now if we connect any component using Redux we will have access to these values:
 
-```jsx
+```
 import React from "react";
 import { connect } from "react-redux";
 
@@ -189,7 +189,7 @@ export default ConnectedStats;
 
 To collect code statistics, I use [`cloc`](https://www.npmjs.com/package/cloc). Cloc counts blank lines, comment lines, and physical lines of source code in many programming languages including JS! I am always impressed by how quickly it runs. I have created a custom script in my package.json that runs the tool.
 
-```json
+```
 {
   "count_totals": "cloc --exclude-ext=svg --exclude-dir=animation-data --json src/ MDX/ > data/stats/count_total.json"
 }
@@ -205,7 +205,7 @@ I've included quite a few flags in the command so lets run through them:
 
 I added `gatsby-transformer-json` to ingest this data and sourced the file in my gatsby-config.js:
 
-```js
+```
 module.exports = {
 	plugins: [
 	`gatsby-transformer-json`,
@@ -228,7 +228,7 @@ I also use data that is collected for me by other services connected to this sit
 
 [I have created a couple of local plugins](https://github.com/slarsendisney/personal-site/tree/master/plugins) that I use to source data at build time. This data is then available in my graphQL layer to use on the page. Its important to note that data pulled into the site in this way is not updated in real-time. It only updates when the site is built and deployed. To stop myself needing to manually build it every-time, I have a cron-job set up on a node server that pings gatsby cloud at 9PM GMT:
 
-```js
+```
 const CronJob = require("cron").CronJob;
 const GatsbyWebHook = "your-gatsby-cloud-webhook-url";
 var job = new CronJob(
@@ -252,7 +252,7 @@ Github has an awesome API you can use to grab your GitHub stats and repos. Their
 
 In my `gatsby-source-github-profile` plugin, I fetch repository information via this API and add it to my graphQL layer using the `createNode` action. An Example fetching just forks and stars of a repo can be found below:
 
-```js
+```
 const fetch = require("node-fetch");
 const crypto = require("crypto");
 
@@ -304,7 +304,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
 
 I take a similar approach with google analytics but instead of using REST I use the `googleapis` npm package. In my implementation I am using V3 of the google analytics API but V4 has been out for a while. I am used to V3 so just feel more comfortable using it but will update this code soon. I make multiple queries but as an example here is my retrieval and ingestion of my site wide views to date:
 
-```js
+```
 const crypto = require("crypto");
 const { google } = require("googleapis");
 
@@ -339,7 +339,7 @@ To retrieve data from the store is easy with the previously mentioned [`react-fi
 
 Using this implementation I can retrieve reactions for a given article with the following code:
 
-```jsx
+```
 const [value, loading, error] = useCollectionOnce(
   firebase.firestore().collection("likes")
 );
@@ -347,7 +347,7 @@ const [value, loading, error] = useCollectionOnce(
 
 Whats cool about this hook is that it gives us a loading boolean to indicate if the data is still being loaded and any errors can be retrieved to. If both loading and error are false then we know we have retrieved our data and can use it in our components:
 
-```js
+```
 if (!loading && !error) {
   console.log(value);
 }
@@ -361,7 +361,7 @@ Inspired by the gov.uk website, I wanted to make my stats human readable. To do 
 
 I also created a graph for views by day. I intially implemented it using the recharts library but found it to be a little heavy-weight for my use case. I instead decided to just create it with divs:
 
-```js
+```
 allViewsPerDate.map((item) => {
   return (
     <div
@@ -400,7 +400,7 @@ Looking at my retrieved google analytics data in my graphQL layer, it occured to
 
 In my footer I use a `StaticQuery` to retrieve this information from my graphQL layer:
 
-```jsx
+```
 <StaticQuery
   query={graphql`
     {

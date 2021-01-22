@@ -14,7 +14,7 @@ Medium exposes an rss feed for your posts that you can find at:
 https://medium.com/feed/@yourUsername
 
 Using this and the [gatsby-source-rss-feed](https://www.gatsbyjs.org/packages/gatsby-source-rss-feed/?=source%20rss) plugin meant that there was very little front end change to switching the blog over. Using the plugin exposes the title, date and story content of each post. The only thing I lost in the move was an auto generated excerpt of each article that gatsby-transformer-remark had made for me. I had been using it for meta-descriptions for SEO so really wanted it back. I fixed this by updating my gatsby-node to create a field called excerpt whenever it made an article node:
-```js
+```
 createNodeField({  
       node,  
       name: "excerpt",  

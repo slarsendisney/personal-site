@@ -27,7 +27,7 @@ Reference&#32;&#35;18&#46;1e6cd417&#46;1571674983&#46;fd73639
 
 Nike's website seemed to be stopping me at every turn - not surprising really. I was probably missing a cookie that was needed for the request. Then I had a bright idea💡. Instead of trying to hit the auth API  through a POST request, I thought I would instead see if I could intercept the login post request response using [puppeteer](https://github.com/GoogleChrome/puppeteer) as it would technically visit the site for me. Slower but I might have better luck! The code I came up with can be seen below.
 
-```js
+```
 const puppeteer = require("puppeteer")
 const shell = require("shelljs")
 const dotenv = require("dotenv")
@@ -80,13 +80,13 @@ The script takes 15 seconds to run, based on my internet speed - I can live with
 
 After further testing I managed to make it even faster by removing:
 
-```js
+```
 waitUntil: "networkidle0"
 ```
 
 I had done this to ensure the nav had loaded but it turns out that it was also waiting for all the resources to completely load the page. Instead I could just wait for the element I wanted to click:
 
-```js
+```
 await page.waitForSelector(".g72-menu")
 ```
 
@@ -96,7 +96,7 @@ This got the script run time down to X seconds on.a pretty average network speed
 
 You'll see I have a function called `CallScript()` in the _puppeteer_ code above. This executes the getActivity.sh bash script that is taken from the  [gist](https://gist.github.com/niw/858c1ecaef89858893681e46db63db66). It fetches activity using the bearer token retrieved from _puppeteer_. 
 
-```sh
+```
 readonly bearer_token="$1"
 
 nike_plus_api() {

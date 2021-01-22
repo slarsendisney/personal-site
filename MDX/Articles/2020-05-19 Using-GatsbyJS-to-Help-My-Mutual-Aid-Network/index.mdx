@@ -68,7 +68,7 @@ By using a realtime database, I could watch the DB for changes and immediately u
 Given that most of the people using the site would not be ‘spring chickens’, I decided to leave most of the social login options off. I kept it simple, login with an email/password combination or your google account.
 
 In order to use the auth in the context of my Gatsby site, I created a react hook called useAuth...
-```js
+```
 export const useAuth = () => {  
   const [state, setState] = React.useState(() => {  
     const user =  
@@ -86,7 +86,7 @@ export const useAuth = () => {
 };
 ```
 You’ll notice a weird ternary above checking the type of window. This is because firebase’s web implementation will not work server side and therefore would break my build without this check. Using the hook above, I could listen for auth changes, and ensure that the user info had loaded before rending any user related content. For example:
-```js
+```
 const App = () => {  
   const { initialising, user } = useAuth();  
   if (initialising) {  
@@ -100,7 +100,7 @@ export default App;
 #### User Type
 
 I used a series of routes to handle users that have logged in. I would first retrieve their user profile from the DB. I would then perform a series of checks to ensure they had a role and profile information before showing them their content:
-```text
+```
 If user does not have a type
  -> Prompt user to choose "volunteer" or "need support"  
 If user does not have an address, name and phone number 
@@ -121,7 +121,7 @@ If user does not have an address, name and phone number
 #### Calculating the Position of Requests
 
 I wanted to acquire the latitude and longitude of requests so I could plot them on a map for volunteers. To do this I found an awesome little npm package — “[react-places-autocomplete](https://www.npmjs.com/package/react-places-autocomplete)”. That plus a [google maps API](https://googleapis.dev/) key and I was good to go:
-```js
+```
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";  
 const handleAddressSelect = (address) => {  
   geocodeByAddress(address)  
