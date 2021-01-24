@@ -61,7 +61,7 @@ function NewsletterPage({ data }) {
           </div>
           <h1 className="text-3xl font-semibold mb-5">Read Past Issues:</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {data.newslettersJson.newsletters.map((route) => (
+            {data.newslettersJson.newsletters.reverse().map((route) => (
               <OutboundLink
                 href={`/newsletters/${route}`}
                 target="_blank"
