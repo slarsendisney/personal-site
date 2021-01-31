@@ -87,7 +87,7 @@ const Stats = ({ data, count, foundTheme }) => {
         socialcard="social-card-stats"
       />
       <section className="text-secondary bg-default  ">
-        <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 article">
+        <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
           <div className="absolute hidden md:block right-0 top-0 mt-6 -mr-12 lg:-mr-24">
             <StaticImage
               src="https://ik.imagekit.io/sld/SuperScene/compass_a_X0JX3IeIP4M6L.png"
@@ -95,65 +95,117 @@ const Stats = ({ data, count, foundTheme }) => {
               className="h-20 w-20 lg:h-24 lg:w-24 z-10"
             />
           </div>
-          <h2 className="text-base">
-            You are{" "}
-            {count > 1 ? (
-              <>
-                among <span className="text-link">{count}</span> people{" "}
-              </>
-            ) : (
-              <>
-                {" "}
-                the only <span className="text-link">1</span>{" "}
-              </>
-            )}
-            currently visiting the site. The site has recieved{" "}
-            <span className="text-link">
-              {totalViews.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            </span>{" "}
-            page views across{" "}
-            <span className="text-link">
-              {totalSessions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-            </span>
-            sessions.{" "}
-          </h2>
-          <h2 className=" margin-2-t ">
-            Themes have been toggled{" "}
-            <span className="text-link">
-              {data.darkModeToggles.totalEvents}
-            </span>{" "}
-            times. Easter eggs on this site have been triggered{" "}
-            <span className="text-link">{data.eggTriggers.totalEvents}</span>{" "}
-            times.
-          </h2>
-          <h2 className="text-base">
-            In total, I have written{" "}
-            <span className="text-accent">{data.articleCount.totalCount}</span>{" "}
-            articles. Articles have been reacted to{" "}
-            <span className="text-accent">
-              {reacts.total ? reacts.total : "X"}
-            </span>{" "}
-            times with{" "}
-            <span className="text-link">{reacts.avo ? reacts.avo : "X"}</span>{" "}
-            <Emojione text={"🥑"} className="mt-3 inline-block" />,{" "}
-            <span className="text-link">
-              {reacts.popcorn ? reacts.popcorn : "X"}
-            </span>{" "}
-            <Emojione text={"🍿"} className="mt-3  inline-block" />,{" "}
-            <span className="text-link">{reacts.fire ? reacts.fire : "X"}</span>{" "}
-            <Emojione text={"🔥"} className="mt-3  inline-block" /> and{" "}
-            <span className="text-link">
-              {reacts.unicorn ? reacts.unicorn : "X"}
-            </span>{" "}
-            <Emojione text={"🦄"} className="mt-3  inline-block" />.
-          </h2>
-
-          <h2 className="">
-            The latest build of this site has{" "}
-            <span className="text-link">{SUM.code}</span> lines of code,{" "}
-            <span className="text-link">{SUM.comment}</span> comments and{" "}
-            <span className="text-link">{totalCount}</span> commits*.
-          </h2>
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 mb-1">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="col-span-2">
+                <h2 className="mb-0 text-base uppercase">Site Stats</h2>
+              </div>
+              <div className="col-span-2 text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {count} people
+                </h2>
+                <h3>Visiting Right Now!</h3>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {totalViews.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </h2>
+                <h3>Page Views</h3>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {totalSessions
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </h2>
+                <h3>Sessions</h3>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {data.darkModeToggles.totalEvents}
+                </h2>
+                <h3>Theme Toggles</h3>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {data.eggTriggers.totalEvents}
+                </h2>
+                <h3>Easter Egg Finds</h3>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="col-span-2">
+                <h2 className="mb-0 text-base uppercase">Article Stats</h2>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {data.articleCount.totalCount}
+                </h2>
+                <h3>Articles Written</h3>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {reacts.total ? reacts.total : "X"}
+                </h2>
+                <h3>Article Reactions</h3>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+                <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
+                  <Emojione text={"🥑"} />
+                </h2>
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {reacts.avo ? reacts.avo : "X"}
+                </h2>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+                <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
+                  <Emojione text={"🍿"} />
+                </h2>
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {reacts.popcorn ? reacts.popcorn : "X"}
+                </h2>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+                <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
+                  <Emojione text={"🔥"} />
+                </h2>
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {reacts.fire ? reacts.fire : "X"}
+                </h2>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+                <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
+                  <Emojione text={"🦄"} />
+                </h2>
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {reacts.unicorn ? reacts.unicorn : "X"}
+                </h2>
+              </div>
+            </div>
+            <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-2 mb-1">
+              <div className="sm:col-span-3">
+                <h2 className="mb-0 text-base uppercase">Build Stats</h2>
+              </div>
+              <div className="col-span-2 sm:col-span-1 text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {SUM.code.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </h2>
+                <h3>Lines of code</h3>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {totalCount}
+                </h2>
+                <h3>Commits</h3>
+              </div>
+              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+                <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
+                  {SUM.comment}
+                </h2>
+                <h3>Comments</h3>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section className="text-secondary bg-secondary  ">
@@ -234,7 +286,7 @@ const Stats = ({ data, count, foundTheme }) => {
       </section>
       <section className="text-secondary bg-default  ">
         <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-        <div className="absolute hidden md:block right-0 top-0 -mt-6 -mr-16 lg:-mr-36">
+          <div className="absolute hidden md:block right-0 top-0 -mt-6 -mr-16 lg:-mr-36">
             <StaticImage
               src="https://ik.imagekit.io/sld/SuperScene/box_a_UzAmxZSmTN.png"
               alt="Box"
