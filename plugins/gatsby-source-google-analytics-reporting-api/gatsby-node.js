@@ -1,12 +1,14 @@
-const crypto = require("crypto")
-const { google } = require("googleapis")
+const crypto = require("crypto");
+const { google } = require("googleapis");
+
+const naughtyBotPaths = ["/bot-traffic.xyz"];
 
 exports.sourceNodes = async ({ actions }, configOptions) => {
-  const { createNode } = actions
-  const { email, key, viewId, startDate } = configOptions
-  const scopes = "https://www.googleapis.com/auth/analytics.readonly"
-  const jwt = new google.auth.JWT(email, null, key, scopes)
-  await jwt.authorize()
+  const { createNode } = actions;
+  const { email, key, viewId, startDate } = configOptions;
+  const scopes = "https://www.googleapis.com/auth/analytics.readonly";
+  const jwt = new google.auth.JWT(email, null, key, scopes);
+  await jwt.authorize();
 
   //SITE WIDE STATS
   const SiteWideStats = await google.analytics("v3").data.ga.get({
@@ -15,7 +17,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     "start-date": startDate || "2009-01-01",
     "end-date": "today",
     metrics: "ga:pageviews, ga:sessions",
-  })
+  });
   for (let [pageViews, sessions] of SiteWideStats.data.rows) {
     createNode({
       pageViews: Number(pageViews),
@@ -30,7 +32,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
         mediaType: `text/plain`,
         description: `Page views & sessions for the site`,
       },
-    })
+    });
   }
 
   //Events
@@ -41,7 +43,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     "end-date": "today",
     dimensions: "ga:eventCategory, ga:eventLabel",
     metrics: "ga:totalEvents",
-  })
+  });
   for (let [eventCategory, eventLabel, totalEvents] of Events.data.rows) {
     createNode({
       eventCategory,
@@ -57,7 +59,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
         mediaType: `text/plain`,
         description: `Events for this site`,
       },
-    })
+    });
   }
 
   //VIEWS PER DATE
@@ -68,7 +70,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     "end-date": "today",
     dimensions: "ga:date",
     metrics: "ga:pageviews",
-  })
+  });
 
   for (let [date, views] of viewsPerDate.data.rows) {
     createNode({
@@ -84,7 +86,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
         mediaType: `text/plain`,
         description: `Page views & sessions for the site`,
       },
-    })
+    });
   }
 
   const result = await google.analytics("v3").data.ga.get({
@@ -95,23 +97,25 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     dimensions: "ga:pagePath",
     metrics: "ga:pageviews, ga:sessions",
     sort: "-ga:pageviews",
-  })
+  });
 
   for (let [path, totalCount, sessions] of result.data.rows) {
-    createNode({
-      path,
-      totalCount: Number(totalCount),
-      sessions: Number(sessions),
-      id: path,
-      internal: {
-        type: `PageViews`,
-        contentDigest: crypto
-          .createHash(`md5`)
-          .update(JSON.stringify({ path, totalCount }))
-          .digest(`hex`),
-        mediaType: `text/plain`,
-        description: `Page views per path`,
-      },
-    })
+    if (!naughtyBotPaths.includes(path)) {
+      createNode({
+        path,
+        totalCount: Number(totalCount),
+        sessions: Number(sessions),
+        id: path,
+        internal: {
+          type: `PageViews`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify({ path, totalCount }))
+            .digest(`hex`),
+          mediaType: `text/plain`,
+          description: `Page views per path`,
+        },
+      });
+    }
   }
-}
+};
