@@ -100,19 +100,19 @@ const Stats = ({ data, count, foundTheme }) => {
               <div className="col-span-2">
                 <h2 className="mb-0 text-base uppercase">Site Stats</h2>
               </div>
-              <div className="col-span-2 text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="col-span-2 h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {count} people
                 </h2>
                 <h3>Visiting Right Now!</h3>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {totalViews.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </h2>
                 <h3>Page Views</h3>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {totalSessions
                     .toString()
@@ -120,13 +120,13 @@ const Stats = ({ data, count, foundTheme }) => {
                 </h2>
                 <h3>Sessions</h3>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {data.darkModeToggles.totalEvents}
                 </h2>
                 <h3>Theme Toggles</h3>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {data.eggTriggers.totalEvents}
                 </h2>
@@ -137,19 +137,19 @@ const Stats = ({ data, count, foundTheme }) => {
               <div className="col-span-2">
                 <h2 className="mb-0 text-base uppercase">Article Stats</h2>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {data.articleCount.totalCount}
                 </h2>
                 <h3>Articles Written</h3>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {reacts.total ? reacts.total : "X"}
                 </h2>
                 <h3>Article Reactions</h3>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
                 <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
                   <Emojione text={"🥑"} />
                 </h2>
@@ -157,7 +157,7 @@ const Stats = ({ data, count, foundTheme }) => {
                   {reacts.avo ? reacts.avo : "X"}
                 </h2>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
                 <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
                   <Emojione text={"🍿"} />
                 </h2>
@@ -165,7 +165,7 @@ const Stats = ({ data, count, foundTheme }) => {
                   {reacts.popcorn ? reacts.popcorn : "X"}
                 </h2>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
                 <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
                   <Emojione text={"🔥"} />
                 </h2>
@@ -173,7 +173,7 @@ const Stats = ({ data, count, foundTheme }) => {
                   {reacts.fire ? reacts.fire : "X"}
                 </h2>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
                 <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
                   <Emojione text={"🦄"} />
                 </h2>
@@ -186,19 +186,19 @@ const Stats = ({ data, count, foundTheme }) => {
               <div className="sm:col-span-3">
                 <h2 className="mb-0 text-base uppercase">Build Stats</h2>
               </div>
-              <div className="col-span-2 sm:col-span-1 text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="col-span-2 sm:col-span-1 h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {SUM.code.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </h2>
                 <h3>Lines of code</h3>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {totalCount}
                 </h2>
                 <h3>Commits</h3>
               </div>
-              <div className="text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {SUM.comment}
                 </h2>
