@@ -29,7 +29,7 @@ const Newsletter = ({ nodesc, noImg, imgsm }) => {
 
   return (
     <div className="relative px-4 pt-3 pb-4  -mx-4 mb-16 sm:mb-0">
-      {!noImg && !imgsm &&  (
+      {!noImg && !imgsm && (
         <div className="absolute right-0 top-0 -mt-24 lg:-mr-48">
           <StaticImage
             src="https://ik.imagekit.io/sld/SuperScene/mailbox_3yiJL7rWYZWa.png"
@@ -38,7 +38,7 @@ const Newsletter = ({ nodesc, noImg, imgsm }) => {
           />
         </div>
       )}
-        {!noImg && imgsm &&  (
+      {!noImg && imgsm && (
         <div className="absolute right-0 top-0 -mt-24 lg:-mt-12 lg:-mr-24">
           <StaticImage
             src="https://ik.imagekit.io/sld/SuperScene/mailbox_3yiJL7rWYZWa.png"

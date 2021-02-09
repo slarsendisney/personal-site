@@ -82,7 +82,7 @@ const ThisSite = () => (
       </h1>
       <div className="flex items-start justify-start mb-8">
         <div>
-          <p className="font-semibold mt-0 mb-3 text-gray-900 text-base lg:text-xl">
+          <p className="font-semibold mt-0 mb-3 text-secondary text-base lg:text-xl">
             Can I use this site&apos;s code?
           </p>
           <p className="">
@@ -102,7 +102,7 @@ const ThisSite = () => (
 
       <div className="flex items-start justify-start mb-8">
         <div>
-          <p className="font-semibold mt-0 mb-3 text-gray-900 text-base lg:text-xl">
+          <p className="font-semibold mt-0 mb-3 text-secondary text-base lg:text-xl">
             Can you help me get started?
           </p>
           <p className="">
@@ -117,7 +117,7 @@ const ThisSite = () => (
 
       <div className="flex items-start justify-start mb-8">
         <div>
-          <p className="font-semibold mt-0 mb-3 text-gray-900 text-base lg:text-xl">
+          <p className="font-semibold mt-0 mb-3 text-secondary text-base lg:text-xl">
             What is the best way to credit you?
           </p>
           <p className="">
@@ -132,7 +132,7 @@ const ThisSite = () => (
       </div>
       <div className="flex items-start justify-start mb-8">
         <div>
-          <p className="font-semibold mt-0 mb-3 text-gray-900 text-base lg:text-xl">
+          <p className="font-semibold mt-0 mb-3 text-secondary text-base lg:text-xl">
             How can I support you?
           </p>
           <p className="">

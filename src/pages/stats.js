@@ -10,11 +10,13 @@ import {
   useCollectionOnce,
   useDocumentDataOnce,
 } from "react-firebase-hooks/firestore";
+import { useLocalStorage } from "../utils/customHooks";
 import Trend from "../components/Trend";
 import { StaticImage } from "gatsby-plugin-image";
 import firebase from "gatsby-plugin-firebase";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
-const colours = ["primary", "accent", "secondary", "accent"];
+import { lightThemes, darkThemes } from "../components/themePicker";
+const colours = ["bg-logo-three", "bg-logo-one", "bg-logo-two", "bg-accent"];
 
 const Stats = ({ data, count, foundTheme }) => {
   const [value, loading, error] = useCollectionOnce(
@@ -28,14 +30,36 @@ const Stats = ({ data, count, foundTheme }) => {
       ? firebase.firestore().doc("coffee/ko-fi")
       : ""
   );
-
+  const [unlockedThemes, setUnlockedThemes] = useLocalStorage(
+    "unlocked_themes",
+    []
+  );
+  const themesUnlocked = [
+    ...lightThemes,
+    ...darkThemes,
+    ...unlockedThemes,
+  ].map((item) => item.toLowerCase().replace(/ /g, ""));
   const { JavaScript, Markdown, Sass, JSON, SUM } = data.statsJson;
   const totalCount = data.gitHubProfile.commitsOnRepo;
   const { forks, stars } = data.gitHubProfile;
   const totalViews = data.siteWideStats.pageViews;
   const totalSessions = data.siteWideStats.sessions;
   const cards = { JavaScript, Markdown, Sass, JSON };
-
+  const mostCommonThemes = data.unlockedThemes.nodes
+    .filter(({ eventLabel }) => eventLabel.includes("Theme Changed - theme"))
+    .map((item) => ({
+      ...item,
+      eventLabel: item.eventLabel.replace("Theme Changed - ", ""),
+    }));
+  const themeStats = mostCommonThemes.map((node) =>
+    themesUnlocked.includes(`${node.eventLabel.replace("theme-", "")}`)
+      ? { ...node }
+      : { ...node, locked: true }
+  );
+  const totalToggles = themeStats.reduce(
+    (acc, cur) => acc + parseInt(cur.totalEvents),
+    0
+  );
   const statsByCodeCount = [];
   const statsByFileCount = [];
   let remainingPct = 100;
@@ -122,13 +146,17 @@ const Stats = ({ data, count, foundTheme }) => {
               </div>
               <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {data.darkModeToggles.totalEvents}
+                  {totalToggles
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </h2>
                 <h3>Theme Toggles</h3>
               </div>
               <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {data.eggTriggers.totalEvents}
+                  {data.eggTriggers.totalEvents
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </h2>
                 <h3>Easter Egg Finds</h3>
               </div>
@@ -139,46 +167,68 @@ const Stats = ({ data, count, foundTheme }) => {
               </div>
               <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {data.articleCount.totalCount}
+                  {data.articleCount.totalCount
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </h2>
                 <h3>Articles Written</h3>
               </div>
               <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {reacts.total ? reacts.total : "X"}
+                  {reacts.total
+                    ? reacts.total
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : "X"}
                 </h2>
                 <h3>Article Reactions</h3>
               </div>
-              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+              <div className="h-32 text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
                 <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
                   <Emojione text={"🥑"} />
                 </h2>
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {reacts.avo ? reacts.avo : "X"}
+                  {reacts.avo
+                    ? reacts.avo
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : "X"}
                 </h2>
               </div>
-              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+              <div className="h-32text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
                 <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
                   <Emojione text={"🍿"} />
                 </h2>
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {reacts.popcorn ? reacts.popcorn : "X"}
+                  {reacts.popcorn
+                    ? reacts.popcorn
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : "X"}
                 </h2>
               </div>
-              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+              <div className="h-32 text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
                 <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
                   <Emojione text={"🔥"} />
                 </h2>
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {reacts.fire ? reacts.fire : "X"}
+                  {reacts.fire
+                    ? reacts.fire
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : "X"}
                 </h2>
               </div>
-              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
+              <div className="h-32 text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center justify-center">
                 <h2 className="mb-0 text-2xl md:text-3xl lg:text-4xl font-bold">
                   <Emojione text={"🦄"} />
                 </h2>
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {reacts.unicorn ? reacts.unicorn : "X"}
+                  {reacts.unicorn
+                    ? reacts.unicorn
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : "X"}
                 </h2>
               </div>
             </div>
@@ -186,31 +236,78 @@ const Stats = ({ data, count, foundTheme }) => {
               <div className="sm:col-span-3">
                 <h2 className="mb-0 text-base uppercase">Build Stats</h2>
               </div>
-              <div className="col-span-2 sm:col-span-1 h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="col-span-2 sm:col-span-1 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
                   {SUM.code.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </h2>
                 <h3>Lines of code</h3>
               </div>
-              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {totalCount}
+                  {totalCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </h2>
                 <h3>Commits</h3>
               </div>
-              <div className="h-32 justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
+              <div className="justify-center text-center text-secondary bg-secondary rounded p-4 flex flex-col items-center">
                 <h2 className="mb-0 text-xl md:text-2xl lg:text-3xl font-bold">
-                  {SUM.comment}
+                  {SUM.comment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </h2>
                 <h3>Comments</h3>
               </div>
+            </div>
+            <div className="relative md:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-2 mb-1">
+              <div className="absolute hidden md:block left-0 top-0 -mt-6 -ml-20 lg:-ml-48">
+                <StaticImage
+                  src="https://ik.imagekit.io/sld/SuperScene/paint_sZ5Ktc6AhhuM.png"
+                  alt="Coin"
+                  className="h-20 w-20 lg:h-48 lg:w-36 z-10 float-y-reverse"
+                />
+              </div>
+              <div className="sm:col-span-3">
+                <h2 className="mb-0 text-base uppercase">Theme Toggles</h2>
+              </div>
+              {themeStats.map(({ eventLabel, totalEvents, locked }) => {
+                return locked ? (
+                  <div
+                    data-tip={`Find this theme by exploring the site.`}
+                    className="opacity-75 bg-secondary text-secondary p-4 rounded w-full h-full flex flex-col items-center justify-center"
+                  >
+                    <svg
+                      className="h-6 w-6 my-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
+                    </svg>
+                    <p className="text-sm uppercase">Theme Locked</p>
+                  </div>
+                ) : (
+                  <div className="bg-secondary text-secondary p-4 rounded w-full h-full flex flex-col justify-center items-center">
+                    <h2 className="font-bold text-2xl">
+                      {totalEvents
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    </h2>
+                    <p className="text-sm uppercase">
+                      {eventLabel.replace("theme-", "")}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
       <section className="text-secondary bg-secondary  ">
         <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 article">
-          <div className="absolute hidden md:block left-0 top-0 -mt-6 -ml-16 lg:-ml-36">
+          <div className="absolute hidden md:block right-0 top-0 -mt-6 -mr-16 lg:-mr-36">
             <StaticImage
               src="https://ik.imagekit.io/sld/SuperScene/coin_r-1n-XaE4nl_.png"
               alt="Coin"
@@ -227,8 +324,7 @@ const Stats = ({ data, count, foundTheme }) => {
             bought by{" "}
             <span className="text-link">
               {loadingCoffees ? "..." : coffees.recent}
-            </span>{" "}
-            . Thanks for supporting what I do - you&apos;re awesome.{" "}
+            </span>. Thanks for supporting what I do - you&apos;re awesome.{" "}
             <Emojione text={"❤️"} className="inline-block mt-3" />
           </h2>
           <Link to="/sponsor">
@@ -239,7 +335,7 @@ const Stats = ({ data, count, foundTheme }) => {
       <section className="text-secondary bg-default  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
           <div className="row container pad-10-tb pad-3-lr">
-            <h4 className="m-0 mb-3 text-xl">VIEWS OVER LAST FORTNIGHT</h4>
+            <h4 className="m-0 mb-3 text-xl">VIEWS OVER LAST MONTH</h4>
             <Trend />
           </div>
         </div>
@@ -266,7 +362,7 @@ const Stats = ({ data, count, foundTheme }) => {
               {data.allPageViews.edges.slice(0, 5).map((item) => (
                 <>
                   <div className="">
-                    <Link to={item.node.path} className="is-special-blue">
+                    <Link to={item.node.path} className="text-link">
                       <p className="margin-0">{item.node.path}</p>
                     </Link>
                   </div>
@@ -286,7 +382,7 @@ const Stats = ({ data, count, foundTheme }) => {
       </section>
       <section className="text-secondary bg-default  ">
         <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
-          <div className="absolute hidden md:block right-0 top-0 -mt-6 -mr-16 lg:-mr-36">
+          <div className="absolute hidden md:block left-0 top-0 -mt-6 -ml-16 lg:-ml-36">
             <StaticImage
               src="https://ik.imagekit.io/sld/SuperScene/box_a_UzAmxZSmTN.png"
               alt="Box"
@@ -306,7 +402,7 @@ const Stats = ({ data, count, foundTheme }) => {
                   return (
                     <div
                       key={item}
-                      className={`bg-${colours[index]} h-full`}
+                      className={`${colours[index]} h-full`}
                       style={{
                         width: `${cards[item].percentage}%`,
 
@@ -378,7 +474,14 @@ const Stats = ({ data, count, foundTheme }) => {
         </div>
       </section>
       <section className="text-secondary bg-default  ">
-        <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 article">
+        <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16 article">
+        <div className="absolute hidden md:block right-0 top-0 -mt-6 -mr-16 lg:-mr-36">
+            <StaticImage
+              src="https://ik.imagekit.io/sld/SuperScene/cube_b_vUMSQyCV8LQXM.png"
+              alt="Hovering Cube"
+              className="h-24 w-24 z-10 float-y-reverse"
+            />
+          </div>
           <h2 className="">
             Want to know more about how this page works? I have written a
             &quot;deep dive&quot; article that goes into detail about
@@ -462,6 +565,13 @@ export const query = graphql`
     }
     darkModeToggles: siteEvents(eventLabel: { eq: "Dark Mode Toggle Button" }) {
       totalEvents
+    }
+    unlockedThemes: allSiteEvents(filter: { eventCategory: { eq: "Themes" } }) {
+      nodes {
+        eventLabel
+        eventCategory
+        totalEvents
+      }
     }
     gitHubProfile {
       totalContributions

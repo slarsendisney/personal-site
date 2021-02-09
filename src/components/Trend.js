@@ -195,7 +195,7 @@ const Trend = ({ data }) => {
               )}
               {decks[item.node.date] && (
                 <div
-                  className="bg-secondary mb-1"
+                  className="bg-logo-three my-1"
                   style={{
                     height: 15,
                     width: 15,

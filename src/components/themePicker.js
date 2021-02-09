@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
-const lightThemes = new Set(["Blue", "Rhubarb and Custard"]);
-const darkThemes = new Set(["Midnight Dreams", "Apocalypse"]);
-const unlockables = new Set(["Fall Guys", "Matrix"]);
+
+export const lightThemes = new Set(["Blue", "Rhubarb and Custard"]);
+export const darkThemes = new Set(["Midnight Dreams", "Apocalypse"]);
+export const unlockables = new Set(["Fall Guys", "Matrix"]);
 const themes = new Set([...darkThemes, ...lightThemes]);
 const allThemes = [...lightThemes, ...darkThemes, ...unlockables];
 

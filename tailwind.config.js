@@ -46,6 +46,9 @@ module.exports = {
         secondary: "var(--color-bg-secondary)",
         default: "var(--color-bg-default)",
         inverse: "var(--color-bg-inverse)",
+        "logo-one": "var(--color-logo-one)",
+        "logo-two": "var(--color-logo-two)",
+        "logo-three": "var(--color-logo-three)",
       },
       borderColor: {
         primary: "var(--color-bg-primary)",
