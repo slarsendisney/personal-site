@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 import urls from "../data/urls.json";
 
-const Newsletter = ({ nodesc }) => {
+const Newsletter = ({ nodesc, noImg, imgsm }) => {
   const [email, setEmail] = useState("");
   const [sumitted, setSubmitted] = useState("");
 
@@ -29,13 +29,24 @@ const Newsletter = ({ nodesc }) => {
 
   return (
     <div className="relative px-4 pt-3 pb-4  -mx-4 mb-16 sm:mb-0">
-      <div className="absolute right-0 top-0 -mt-24 lg:-mr-48">
-        <StaticImage
-          src="https://ik.imagekit.io/sld/SuperScene/mailbox_3yiJL7rWYZWa.png"
-          alt="Mailbox"
-          className="h-32 w-32 lg:h-48 lg:w-48 z-10"
-        />
-      </div>
+      {!noImg && !imgsm &&  (
+        <div className="absolute right-0 top-0 -mt-24 lg:-mr-48">
+          <StaticImage
+            src="https://ik.imagekit.io/sld/SuperScene/mailbox_3yiJL7rWYZWa.png"
+            alt="Mailbox"
+            className={`h-32 w-32 lg:h-48 lg:w-48 z-10`}
+          />
+        </div>
+      )}
+        {!noImg && imgsm &&  (
+        <div className="absolute right-0 top-0 -mt-24 lg:-mt-12 lg:-mr-24">
+          <StaticImage
+            src="https://ik.imagekit.io/sld/SuperScene/mailbox_3yiJL7rWYZWa.png"
+            alt="Mailbox"
+            className={`h-32 w-32 z-10`}
+          />
+        </div>
+      )}
       <h2 className="text-2xl lg:text-3xl text-left inline-block font-semibold">
         Join My Newsletter
       </h2>

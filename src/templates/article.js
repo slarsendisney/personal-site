@@ -7,10 +7,10 @@ import VisibilitySensor from "react-visibility-sensor";
 import Layout from "../components/layout";
 import ReadingProgress from "../components/Articles/ReadingProgress";
 import SEO from "../components/seo";
-import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import StickyLike from "../components/Articles/StickyLike";
-
+import Newsletter from "../components/Newsletter";
 
 deckDeckGoHighlightElement();
 
@@ -162,10 +162,12 @@ const Article = ({ data }) => {
                   </Link>
                 ))}
               </div>
-              <div className="prose text-secondary">
-                <MDXProvider components={components}>
-                  <MDXRenderer>{mdx.body}</MDXRenderer>
-                </MDXProvider>
+              <div>
+                <div className="prose text-secondary">
+                  <MDXProvider components={components}>
+                    <MDXRenderer>{mdx.body}</MDXRenderer>
+                  </MDXProvider>
+                </div>
               </div>
             </div>
             <div className="hidden xl:block col-span-2  mt-12">
@@ -187,6 +189,13 @@ const Article = ({ data }) => {
 
           <div className="xl:hidden flex text-4xl my-10 mt-5 px-1 pt-4  justify-center bg-secondary rounded text-2xl w-64 mx-auto">
             <StickyLike />
+          </div>
+          <div className="xl:grid xl:grid-cols-8 xl:gap-4 ">
+          <div className="hidden xl:block col-span-2"/>
+          <div className="col-span-4 rounded bg-primary py-1 px-3 mt-6">
+            <Newsletter imgsm/>
+          </div>
+          <div className="hidden xl:block col-span-2"/>
           </div>
         </div>
       </section>

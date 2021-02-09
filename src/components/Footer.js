@@ -144,9 +144,9 @@ const Footer = ({ location }) => {
                       <Link to="/stats" className="hover:text-link mt-3 ">
                         <p className="text-sm opacity-75">
                           {pageViews
-                            ? `This page has recieved ${pageViews.node.totalCount} page
+                            ? `This page has received ${pageViews.node.totalCount} page
                         views across ${pageViews.node.sessions} sessions`
-                            : `This site has recieved a total of 
+                            : `This site has received a total of 
                         ${data.siteWideStats.pageViews} views across
                         ${data.siteWideStats.sessions} sessions`}
                         </p>

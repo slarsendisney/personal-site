@@ -310,7 +310,7 @@ const client = require("twilio")(accountSid, authToken);
 
 app.post("/send", (req, res) => {
   const name = req.body.name;
-  const message = `Hi Volunteer! We've recieved a new request from ${name}. 
+  const message = `Hi Volunteer! We've received a new request from ${name}. 
                    Head to https://coronasupport.house/volunteers to claim it.`;
   volunteerPhoneNumbers.forEach(number => {
     client.messages.create({
