@@ -29,8 +29,8 @@ import Newsletter from "../../../src/components/Newsletter";
 INTRODUCTION
 -->
 
-<div className="absolute top-0 left-0 w-full h-full flex items-center">
-  <div className="grid grid-cols-4 w-full max-w-4xl mx-auto">
+<div className="absolute top-0 left-0 w-full h-full flex items-center p-6">
+  <div className="grid grid-cols-1 md:grid-cols-4 w-full max-w-4xl mx-auto">
     <div className="col-span-3 prose prose-sm">
       <h1>Hey.</h1>
       <h4>
@@ -41,8 +41,8 @@ INTRODUCTION
       </blockquote>
     </div>
     <div className="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 relative">
-      <div className="w-full top-0 absolute bg-accent z-10 rounded-full">
-        <div className="w-full h-full -m-6">
+      <div className="mt-12 md:mt-0 w-64 md:w-full h-64 md:h-unset top-0 md:absolute bg-accent z-10 rounded-full">
+        <div className="w-64 md:w-full h-full -m-6">
           <FloatingMe />
         </div>
       </div>
@@ -445,19 +445,19 @@ You as the developer need to give permissions to perform certain actions in the 
 
 ---
 
-Example main.ts:
-
 <Editor
+  title="Example main.ts:"
   codeOnly
+  noPadBottom
   code={`
 // Print the current working directory
 console.log( Deno.cwd() )
 `}
 />
 
-Can be run with:
-
 <Editor
+  noPadTop
+  title="Can be run with:"
   codeOnly
   code={`
 // Explicit permission from dev to allow deno to read files.
@@ -467,10 +467,9 @@ deno run --allow-read main.ts
 
 ---
 
-Supports top level await:
-
 <Editor
   codeOnly
+  title="Supports top level await:"
   code={`
 const res = await fetch('https://sld.codes')
 // no async function needed!
@@ -479,9 +478,8 @@ const res = await fetch('https://sld.codes')
 
 ---
 
-Browser compatible events:
-
 <Editor
+  title="Browser compatible events:"
   codeOnly
   code={`
 window.onload = e=> console.log("Yo!")
@@ -498,9 +496,8 @@ window.onload = e=> console.log("Yo!")
 
 ---
 
-Remote modules referenced by their URL:
-
 <Editor
+  title="Remote modules referenced by their URL:"
   codeOnly
   code={`
 import { serve } from "https://deno.land/std@v0.42.0/http/server.ts";
@@ -526,9 +523,10 @@ import { serve } from "https://deno.land/std@v0.42.0/http/server.ts";
 
 ### Simple server demo:
 
-main.ts
-
 <Editor
+  title="main.ts"
+  noPadBottom
+  noPadTop
   codeOnly
   code={`
 import { serve } from "https://deno.land/std@v0.42.0/http/server.ts";
@@ -540,9 +538,9 @@ for await (const req of s) {
 `}
 />
 
-Run with:
-
 <Editor
+  noPadTop
+  title="Run with:"
   codeOnly
   code={`
 deno run --allow-net  main.ts
@@ -706,10 +704,10 @@ Introducing you to two modern industry-leading front-end technologies (ReactJS &
   public and paid-for private packages, called the npm registry. The registry is
   accessed via the client, and the available packages can be browsed and
   searched via the npm website. The package manager and the registry are managed
-  by npm, Inc. NPM is included as a recommended feature in Node.js
-  installer.npm consists of a command line client that interacts with a remote
-  registry. It allows users to consume and distribute JavaScript modules that
-  are available on the registry.
+  by npm, Inc. NPM is included as a recommended feature in Node.js installer.npm
+  consists of a command line client that interacts with a remote registry. It
+  allows users to consume and distribute JavaScript modules that are available
+  on the registry.
 </Notes>
 
 ---
@@ -722,9 +720,7 @@ Introducing you to two modern industry-leading front-end technologies (ReactJS &
 
 ---
 
-<Editor
-  codeOnly
-  code={`npm install react`}/>
+<Editor codeOnly code={`npm install react`} />
 
 ---
 
@@ -772,7 +768,8 @@ REACT INTRO
 ## Your in your card and want to turn up the AC
 
 <Notes>
-In an old car you would use a dial to turn up the temprature yourself until you're at right temprature.
+  In an old car you would use a dial to turn up the temprature yourself until
+  you're at right temprature.
 </Notes>
 
 ---
@@ -780,7 +777,8 @@ In an old car you would use a dial to turn up the temprature yourself until you'
 ## This is like JQuery
 
 <Notes>
-You would grab the element in the dom get the text value increase it and set the element to the new value in the browser.
+  You would grab the element in the dom get the text value increase it and set
+  the element to the new value in the browser.
 </Notes>
 
 ---
@@ -788,8 +786,10 @@ You would grab the element in the dom get the text value increase it and set the
 ## But React is more like a Tesla.
 
 <Notes>
-You set the exact temprature that you want and then the car then decides whether you need to make it cooler or warmer.
-I just want it at X degrees and it just does it. Me as a user dont need to worry about which parts of the application to change.
+  You set the exact temprature that you want and then the car then decides
+  whether you need to make it cooler or warmer. I just want it at X degrees and
+  it just does it. Me as a user dont need to worry about which parts of the
+  application to change.
 </Notes>
 
 ---
@@ -799,6 +799,7 @@ I just want it at X degrees and it just does it. Me as a user dont need to worry
 ---
 
 <Editor
+  noPadBottom
   codeOnly
   code={`
 import React from "react";
@@ -851,6 +852,7 @@ ReactDom.render(reactElement, document.getElementById("root"));
 ---
 
 <Editor
+  noPadBottom
   codeOnly
   code={`
 import React from "react";
@@ -865,6 +867,7 @@ This is the exact same thing! Some people prefer this as its looks more like JS.
 ---
 
 <Editor
+  noPadBottom
   codeOnly
   code={`
 import React from "react";
@@ -1236,6 +1239,7 @@ We could get content from files, databases other websites - the list goes on!
 
 <Editor
   codeOnly={true}
+  noPadBottom
   code={`
 ---
 title: "Intro to Gatsby"
@@ -1424,9 +1428,8 @@ Gatsby uses react and stylesheets to help structure page layout.
 
 ---
 
-###### gatsby-config.js
-
 <Editor
+  title="gatsby-config.js"
   codeOnly
   code={`
 module.exports = {
@@ -1454,9 +1457,8 @@ module.exports = {
 
 ---
 
-###### We can now make queries!
-
 <Editor
+  title="We can now make queries!"
   codeOnly
   code={`
 query GetBlogPosts {
@@ -1473,9 +1475,8 @@ query GetBlogPosts {
 
 ---
 
-gatsby-node.js
-
 <Editor
+  title="gatsby-node.js"
   codeOnly
   code={`
 exports.createPages = async ({ graphql, actions }) => {
@@ -1507,11 +1508,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
 ---
 
-#### Single Instance Pages
-
-<p class="legal">src/pages/index.js</p>
-
-<Editor code={SingleInstancePage} />
+<Editor
+  code={SingleInstancePage}
+  title="Single Instance Pages | src/pages/index.js"
+/>
 
 ---
 
@@ -1611,7 +1611,11 @@ Extremely secure as you are just sending HTML.
 # The five second rule
 
 <Notes>
-Visitors should be able to tell what your site has to offer within the first five seconds of landing on your homepage. This is the average time users need to form a first impression and decide whether it’s worth engaging with content. To retain visitors, a landing page must clearly convey its purpose, what content is on offer and a strong call to action.
+  Visitors should be able to tell what your site has to offer within the first
+  five seconds of landing on your homepage. This is the average time users need
+  to form a first impression and decide whether it’s worth engaging with
+  content. To retain visitors, a landing page must clearly convey its purpose,
+  what content is on offer and a strong call to action.
 </Notes>
 
 ---
@@ -1619,7 +1623,15 @@ Visitors should be able to tell what your site has to offer within the first fiv
 # First steps
 
 <Notes>
-Most website traffic will come from external links such as search engines or site links, rather than from users who know your URL (a great web hosting service will give you the analytics you need). As a result, users are likely to land on your website with a specific goal. Your site should satisfy this goal by providing engaging, relevant and valuable information through an easy to use interface.  It’s also likely that users who are directed to your site from another source will land on a deeper page of your website. Therefore, all website pages need to be designed to clearly communicate what information can be found there to avoid high bounce rates.
+  Most website traffic will come from external links such as search engines or
+  site links, rather than from users who know your URL (a great web hosting
+  service will give you the analytics you need). As a result, users are likely
+  to land on your website with a specific goal. Your site should satisfy this
+  goal by providing engaging, relevant and valuable information through an easy
+  to use interface. It’s also likely that users who are directed to your site
+  from another source will land on a deeper page of your website. Therefore, all
+  website pages need to be designed to clearly communicate what information can
+  be found there to avoid high bounce rates.
 </Notes>
 
 ---
@@ -1627,15 +1639,26 @@ Most website traffic will come from external links such as search engines or sit
 # Minimal Design
 
 <Notes>
-The information users are looking for on your site needs to be presented in a clean and simple way (a website builder will help if you need to keep things simple). If any element of the page doesn’t need to be there, get rid of it. In terms of copy, communicating key information in fewer words is more effective than offering long bodies of text that users will skim read. Avoid clutter and keep decorative elements minimal; fewer distractions allow users to find what they’re looking for, faster. 
+  The information users are looking for on your site needs to be presented in a
+  clean and simple way (a website builder will help if you need to keep things
+  simple). If any element of the page doesn’t need to be there, get rid of it.
+  In terms of copy, communicating key information in fewer words is more
+  effective than offering long bodies of text that users will skim read. Avoid
+  clutter and keep decorative elements minimal; fewer distractions allow users
+  to find what they’re looking for, faster.
 </Notes>
 
 ---
 
-# Consistency 
+# Consistency
 
 <Notes>
-Keep design consistent across pages so users can easily find information. For example, the main menu should always have the same elements, no matter which page it features on. Similarly, clicks should always perform the same action – for instance, clicking on a link should always open it on a new window. Consistent design enables your users to learn how to navigate your site quickly and effectively. 
+  Keep design consistent across pages so users can easily find information. For
+  example, the main menu should always have the same elements, no matter which
+  page it features on. Similarly, clicks should always perform the same action –
+  for instance, clicking on a link should always open it on a new window.
+  Consistent design enables your users to learn how to navigate your site
+  quickly and effectively.
 </Notes>
 
 ---
@@ -1643,7 +1666,11 @@ Keep design consistent across pages so users can easily find information. For ex
 # Standard design patterns
 
 <Notes>
-Designing the layout and navigation for a website requires you to follow tired-and-tested trends. This means using standard design patterns and taking inspiration from successful websites, which will also encourage cross-browser compatibility across devices. Keep any design system files in secure cloud storage for your whole team to access.
+  Designing the layout and navigation for a website requires you to follow
+  tired-and-tested trends. This means using standard design patterns and taking
+  inspiration from successful websites, which will also encourage cross-browser
+  compatibility across devices. Keep any design system files in secure cloud
+  storage for your whole team to access.
 </Notes>
 
 ---
@@ -1651,10 +1678,13 @@ Designing the layout and navigation for a website requires you to follow tired-a
 # Structured content
 
 <Notes>
-The information you put on your website needs to be arranged and grouped into pages and the resulting structure will form the navigation and logic for your menu. Within each page, you’ll also need to organise information; if content isn’t visible on the screen before scrolling down, then there’s a high chance that users will miss it. 
+The information you put on your website needs to be arranged and grouped into pages and the resulting structure will form the navigation and logic for your menu. Within each page, you’ll also need to organise information; if content isn’t visible on the screen before scrolling down, then there’s a high chance that users will miss it.
 
-Calls to action should also prompt users to scroll through to uncover more information. When it comes to a website’s homepage, it should contain a brief summary on the brand and what it does, so that users know what to expect from the site. 
+
+Calls to action should also prompt users to scroll through to uncover more information. When it comes to a website’s homepage, it should contain a brief summary on the brand and what it does, so that users know what to expect from the site.
+
 </Notes>
+
 
 ---
 
@@ -1837,10 +1867,10 @@ Avoid text heavy pages. Avoid text heavy pages. Avoid text heavy pages. Avoid te
 
 <div className="row code-small" style={{ maxWidth: "100%" }}>
   <div className="col-xs-12 pad-10-lr">
-    <p className=" opacity-70">
-      <code>App.js</code>
-    </p>
     <Editor
+      noPadTop
+      noPadBottom
+      title="App.js"
       codeOnly
       code={`import openSocket from "socket.io-client";
 const socket = openSocket("http://localhost:8000");
@@ -1848,10 +1878,10 @@ socket.emit("message", "Hello!");`}
     />
   </div>
   <div className="col-xs-12 pad-10-lr">
-    <p className=" opacity-70">
-      <code>Server.js</code>
-    </p>
     <Editor
+      noPadTop
+      noPadBottom
+      title="Server.js"
       codeOnly
       code={`const express = require("express");
 const server = express()
@@ -1866,7 +1896,7 @@ io.on("connection", (socket) => {
     />
   </div>
 </div>
-<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-2xl">
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
   Sockets Demo
 </p>
 
@@ -1884,11 +1914,11 @@ io.on("connection", (socket) => {
 
 ---
 
-<p className=" opacity-70">
-  <code>CreateStore.js</code>
-</p>
 <div className="code-small md:mx-3">
   <Editor
+    title="CreateStore.js"
+    noPadBottom
+    noPadTop
     codeOnly
     code={`import { createStore, applyMiddleware } from "redux";
 import createSocketIoMiddleware from "redux-socket.io";
@@ -1923,11 +1953,11 @@ store.dispatch({type:"server/hello", data:"Hello!"});`}
 
 ---
 
-<p className=" opacity-70">
-  <code>Server.js</code>
-</p>
 <div className="code-small md:mx-3">
   <Editor
+    title="Server.js"
+    noPadBottom
+    noPadTop
     codeOnly
     code={`var http = require("http");
 var server = http.createServer();
@@ -1961,11 +1991,11 @@ io.on("connection", function(socket){
 
 ---
 
-<p className=" opacity-70">
-  <code>Deck.js</code>
-</p>
 <div className="code-xs md:mx-3">
   <Editor
+    title="Deck.js"
+    noPadBottom
+    noPadTop
     codeOnly
     code={`export const Deck = ({
   changePresPosOnServer,
@@ -2000,10 +2030,10 @@ export default ConnectedDeck`}
 
 ---
 
-<p className=" opacity-70">
-  <code>Server.js</code>
-</p>
 <Editor
+  title="Server.js"
+  noPadBottom
+  noPadTop
   codeOnly
   code={`if (action.type === "server/updateIndex") {
         pres.slide = action.data;
@@ -2019,11 +2049,11 @@ export default ConnectedDeck`}
 
 ---
 
-<p className=" opacity-70">
-  <code>Deck.js</code>
-</p>
 <div className="code-xs md:mx-3">
   <Editor
+   title="Deck.js"
+  noPadBottom
+  noPadTop
     codeOnly
     code={`export const Deck = ({
   presentation,
@@ -2062,11 +2092,11 @@ export default ConnectedDeck`}
 
 ---
 
-<p className=" opacity-70">
-  <code>Server.js</code>
-</p>
 <div className="code-xs md:mx-3">
   <Editor
+  title="Server.js"
+  noPadBottom
+  noPadTop
     codeOnly
     code={`if (action.type === "server/verify") {
       if (process.env.PRESENT_PASSWORD === action.data.password) {
@@ -2123,11 +2153,11 @@ export default ConnectedDeck`}
 
 ---
 
-<p className=" opacity-70">
-  <code>Deck.js</code>
-</p>
 <div className="code-xs md:mx-3">
   <Editor
+  title="Deck.js"
+  noPadBottom
+  noPadTop
     codeOnly
     code={`export const Deck = ({
   presentation,
@@ -2228,11 +2258,11 @@ export default ConnectedDeck`}
 
 ---
 
-<p className="opacity-70">
-  <code>PoseNetCamera.js</code>
-</p>
 <div className="code-small">
   <Editor
+  title="PoseNetCamera.js"
+  noPadBottom
+  noPadTop
     codeOnly
     code={`class PoseNet extends Component {  
  //...
@@ -2261,6 +2291,8 @@ export default ConnectedDeck`}
 
 <div className="code-small">
   <Editor
+  noPadBottom
+  noPadTop
     codeOnly
     code={`{
   "score": 0.32371445304906,
@@ -2292,11 +2324,11 @@ export default ConnectedDeck`}
 
 ---
 
-<p className=" opacity-70 ">
-  <code>Remote.js</code>
-</p>
 <div classname="code-small">
   <Editor
+  title="Remote.js"
+  noPadBottom
+  noPadTop
     codeOnly
     code={`useEffect(() => {  
     if (presentation && differenceInSeconds(new Date(), lastPunch) > 0.5) {  

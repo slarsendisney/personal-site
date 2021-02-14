@@ -127,7 +127,7 @@ export const Slide = ({
         <div
           {...(!preview ? swipeProps : {})}
           id="pres-slide"
-          className="bg-default text-default presentation stepTwo stepThree py-6 px-12 py-8 md:py-32 lg:py-64 md:px-32 lg:px-64 "
+          className="bg-default text-default presentation stepTwo stepThree py-6 px-12 md:py-32 lg:py-64 md:px-32 lg:px-64"
           sx={{
             boxSizing: "border-box",
             width: "100%",
@@ -136,14 +136,13 @@ export const Slide = ({
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            overflow: "hidden",
+            overflowX: "hidden",
             position: "relative",
-            variant: "styles.Slide",
           }}
         >
           <div
             className={`${
-              frontmatter && frontmatter.minimal ? "prose text-secondary prose-3xl max-w-4xl w-full" : ""
+              frontmatter && frontmatter.minimal ? "my-2 max-h-screen py-2 prose md:prose-3xl max-w-4xl w-full" : ""
             }`}
           >
             {slide}

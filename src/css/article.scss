@@ -105,6 +105,16 @@
   .npm__react-simple-code-editor__textarea {
     // all: unset !important;
   }
+
+  .code-block {
+    .text-xs {
+      margin-top: 2px !important;
+      margin-bottom: 2px !important;
+    }
+  }
+  .prose{
+    color: inherit;
+  }
   
   pre {
     @apply text-xl mb-3;

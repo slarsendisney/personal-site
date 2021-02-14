@@ -2,16 +2,16 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.88",
-  "elapsed_seconds"    : 0.183691024780273,
+  "elapsed_seconds"    : 0.357193946838379,
   "n_files"            : 168,
-  "n_lines"            : 19910,
-  "files_per_second"   : 914.579251767784,
-  "lines_per_second"   : 108388.529182718},
+  "n_lines"            : 19908,
+  "files_per_second"   : 470.332718364949,
+  "lines_per_second"   : 55734.4271262465},
 "JavaScript" :{
   "nFiles": 87,
   "blank": 364,
   "comment": 6,
-  "code": 8177},
+  "code": 8173},
 "Markdown" :{
   "nFiles": 55,
   "blank": 2523,
@@ -21,7 +21,7 @@
   "nFiles": 16,
   "blank": 162,
   "comment": 199,
-  "code": 1136},
+  "code": 1138},
 "JSON" :{
   "nFiles": 10,
   "blank": 0,
@@ -30,5 +30,5 @@
 "SUM": {
   "blank": 3049,
   "comment": 205,
-  "code": 16656,
+  "code": 16654,
   "nFiles": 168} }

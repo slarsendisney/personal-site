@@ -54,13 +54,13 @@ const PollView = ({
   const submitted = userPollVotes[pollID] ? true : false;
   const userChoice = userPollVotes[pollID] ? userPollVotes[pollID] : "";
   return (
-    <div className="poll max-w-2xl mx-auto">
+    <div className="poll max-w-2xl mx-auto text-secondary">
       <p className="font-bold">{question}</p>
       {!submitted ? (
         <div className="row fill-width grid grid-cols-2 gap-4">
           {answers.map(({ option }) => (
             <div className="col-xs-12 margin-2-b">
-              <button className="btn w-full" onClick={() => handleVote(option)}>
+              <button className="btn w-full h-full" onClick={() => handleVote(option)}>
                 <p>{option}</p>
               </button>
             </div>
@@ -94,7 +94,7 @@ const PollView = ({
                       }}
                     >
                       <p
-                        className={`mr-4 text-3xl md:text-4xl ${
+                        className={`mr-4 text-primary text-xl sm:text-3xl md:text-4xl ${
                           userChoice === option ? "font-bold" : ""
                         }`}
                       >

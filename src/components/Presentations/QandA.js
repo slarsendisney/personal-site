@@ -80,7 +80,7 @@ const QuestionForm = ({ submitQuestion, QAID }) => {
             <Emojione className="inline-block" text="💫" />.
           </p>
           <input
-            className="input text-3xl -mt-3 mb-3"
+            className="input text-lg md:text-3xl -mt-3 mb-3"
             placeholder="My Awesome Question..."
             value={question}
             onChange={(e) => setQuestion(e.target.value)}

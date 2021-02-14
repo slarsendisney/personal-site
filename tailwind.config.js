@@ -5,7 +5,7 @@ module.exports = {
   },
   purge: ["./src/**/*.js", "./plugins/**/*.js", "./MDX/**/*.mdx"],
   theme: {
-    extend:{
+    extend: {
       fontSize: {
         xs: ".75rem",
         sm: ".875rem",
@@ -60,31 +60,55 @@ module.exports = {
         "light-grey": "#00000015",
       },
       typography: {
-          default: {
-            css: {
-              "code::before": false,
-              "code::after": false,
+        DEFAULT: {
+          css: {
+            color: "var(--color-text-secondary)",
+            "code::before": false,
+            "code::after": false,
+          },
+        },
+        sm: {
+          css: {
+            color: "var(--color-text-secondary)",
+            h1: {
+              color: "var(--color-text-secondary)",
+            },
+            h2: {
+              color: "var(--color-text-secondary)",
+            },
+            h3: {
+              color: "var(--color-text-secondary)",
+            },
+            h4: {
+              color: "var(--color-text-secondary)",
+            },
+            h5: {
+              color: "var(--color-text-secondary)",
+            },
+            h6: {
+              color: "var(--color-text-secondary)",
+            },
+            p: {
+              color: "var(--color-text-secondary)",
             },
           },
-          '3xl': {
-            css: {
-              
-              ul: {
-                fontSize: '2rem',
-              },
-              code:{
-                fontSize: '1rem !important',
-              },
-              blockquote:{
-                fontSize: '2.5rem',
-              },
-              p: {
-                fontSize: '2rem',
-              }
-            
-              // ...
+        },
+        "3xl": {
+          css: {
+            ul: {
+              fontSize: "2rem",
+            },
+            code: {
+              fontSize: "1rem !important",
+            },
+            blockquote: {
+              fontSize: "2.5rem",
+            },
+            p: {
+              fontSize: "2rem",
             },
           },
+        },
       },
     },
     fontFamily: {

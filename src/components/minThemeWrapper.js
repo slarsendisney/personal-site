@@ -15,11 +15,7 @@ const Header = () => {
   );
   return (
     <div
-      className="w-full"
-      style={{
-        position: "absolute",
-        top: 0,
-      }}
+      className="w-full absolute top-0 left-0"
     >
       <Helmet>
         <link
@@ -32,7 +28,7 @@ const Header = () => {
         <SmoothCollapse expanded={themeExpanded} className="">
           <div className="bg-white flex flex-wrap items-center justify-between px-4 py-1 mx-auto mx-auto">
             <div className="flex  sm:items-start text-grey m-auto md:m-0"></div>
-            <div className="md:-mt-4">
+            <div className="">
               <ThemePicker
                 theme={theme}
                 setTheme={switchTheme}
