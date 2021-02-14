@@ -67,6 +67,9 @@
 }
 
 .presentation {
+  img {
+    @apply rounded;
+  }
   .big-img{
     height: 1024px;
     width: 1400px

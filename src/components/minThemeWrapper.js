@@ -26,9 +26,9 @@ const Header = () => {
       </Helmet>
       <div className="">
         <SmoothCollapse expanded={themeExpanded} className="">
-          <div className="bg-white flex flex-wrap items-center justify-between px-4 py-1 mx-auto mx-auto">
-            <div className="flex  sm:items-start text-grey m-auto md:m-0"></div>
-            <div className="">
+          <div className="bg-white flex flex-wrap items-center justify-between px-4 py-1 mx-auto">
+            <div className="hidden sm:flex sm:items-start text-grey mx-auto sm:mx-0 my-auto md:m-0"><p><span className="font-bold">Pick a theme</span>, any theme...</p></div>
+            <div className="mx-auto sm:mx-0">
               <ThemePicker
                 theme={theme}
                 setTheme={switchTheme}

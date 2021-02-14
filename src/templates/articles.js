@@ -341,7 +341,7 @@ export const pageQuery = graphql`query Articles($skip: Int!, $limit: Int!, $slug
           tags
           coverimg {
             childImageSharp {
-              gatsbyImageData(maxWidth: 400, placeholder: NONE, layout: FLUID)
+              gatsbyImageData(maxWidth: 450, placeholder: NONE, layout: FLUID)
             }
           }
         }

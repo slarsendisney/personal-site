@@ -192,7 +192,7 @@ const Article = ({ data }) => {
           </div>
           <div className="xl:grid xl:grid-cols-8 xl:gap-4 ">
           <div className="hidden xl:block col-span-2"/>
-          <div className="col-span-4 rounded bg-primary py-1 px-3 mt-6">
+          <div className="col-span-4 rounded bg-primary text-primary py-1 px-3 mt-6">
             <Newsletter imgsm/>
           </div>
           <div className="hidden xl:block col-span-2"/>

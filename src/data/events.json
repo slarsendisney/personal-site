@@ -1,5 +1,13 @@
 [
   {
+    "event": "MMT Tech Meetup - GatsbyJS",
+    "talk": "Presenting Without Sharing My Screen",
+    "description": "A React + Gatsby + Socket.io solution for crystal clear slides for everyone using minimal bandwidth + slide navigation using gestures.",
+    "location": "Remote",
+    "date": "2021-02-23",
+    "link": "https://www.linkedin.com/events/mmttechmeetup-gatsbyjs-feb20216762857247988031488/about/"
+  },
+  {
     "event": "Imperial College Guest Lecture",
     "talk": "Introduction to Web Development",
     "description": "A history of web development, an introduction to industry-leading front-end technologies and challenging what you think is possible in the browser with some fun experiments in Javascript.",
