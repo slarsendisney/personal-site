@@ -11,6 +11,7 @@ import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import StickyLike from "../components/Articles/StickyLike";
 import Newsletter from "../components/Newsletter";
+import replaceAll from "replaceall";
 
 deckDeckGoHighlightElement();
 
@@ -125,7 +126,7 @@ const Article = ({ data }) => {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title={mdx.frontmatter.title}
         socialcard={mdx.fields.socialcard}
-        video={`${slug.slice(1).replaceAll("/", "-")}.mp4`}
+        video={`${replaceAll("/", "-", slug.slice(1))}.mp4`}
       />
       <ReadingProgress target={target} />
       <section
