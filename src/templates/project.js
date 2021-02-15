@@ -11,7 +11,7 @@ const Project = ({ data }) => {
   const { frontmatter, body, fields } = mdx;
   return (
     <Layout>
-      <SEO title={frontmatter.title} socialcard={fields.socialcard} />
+      <SEO title={frontmatter.title} socialcard={fields.socialcard} video={`${frontmatter.path.slice(1).replaceAll("/", "-")}.mp4`}/>
         <GatsbyImage
         image={frontmatter.coverimg.childImageSharp.gatsbyImageData}
         className="w-full h-full md:max-w-4xl mx-auto md:mt-5 md:rounded"
@@ -44,6 +44,7 @@ export const pageQuery = graphql`query ($path: String!) {
     }
     frontmatter {
       title
+      path
       desc
       coverimg {
         childImageSharp {

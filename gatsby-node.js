@@ -16,6 +16,19 @@ const redirects = [
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage, createRedirect } = actions;
+
+  const functionFullURL = (path) =>
+    path
+      ? "https://sld.codes" + (path.charAt(0) === "/" ? path : "/" + path)
+      : "https://sld.codes";
+  let videoManifest = [
+    {
+      type: "Page",
+      path: `index`,
+      url: functionFullURL(),
+    },
+  ];
+
   redirects.forEach((redirect) => {
     createRedirect({
       fromPath: redirect.from,
@@ -74,6 +87,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           path: node.frontmatter.path,
           component: Project,
         });
+        videoManifest.push({
+          type: "Page",
+          path: node.frontmatter.path,
+          url: functionFullURL(node.frontmatter.path),
+        });
         break;
       default:
         console.log(`Unknown page: ${node.frontmatter.type}`);
@@ -101,6 +119,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             id
             frontmatter {
               title
+              tags
             }
           }
         }
@@ -126,6 +145,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         slug: i === 0 ? `/articles` : `/articles/${i + 1}`,
       },
     });
+    videoManifest.push({
+      type: "Page",
+      path: i === 0 ? `/articles` : `/articles/${i + 1}`,
+      url: functionFullURL(i === 0 ? `/articles` : `/articles/${i + 1}`),
+    });
   });
   mdxPosts.data.allMdx.edges.forEach((item, index) => {
     const slug = "/articles/" + formatTitleForURL(item.node.frontmatter.title);
@@ -134,6 +158,31 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: MDXArticle,
       context: { slug: slug, articlePage: Math.floor(index / postsPerPage) },
     });
+    videoManifest.push({
+      type: "Article",
+      path: slug,
+      url: functionFullURL(slug),
+      title: item.node.frontmatter.title,
+      tags:
+        "An article about " +
+        item.node.frontmatter.tags
+          .map(
+            (tag, i) =>
+              `${tag}${item.node.frontmatter.tags.length - i > 2 ? ", " : ""}${
+                item.node.frontmatter.tags.length - 2 === i ? " & " : ""
+              }`
+          )
+          .join(""),
+    });
+  });
+
+  const jsonString = JSON.stringify(videoManifest);
+  fs.writeFile("./remotion/manifest.json", jsonString, (err) => {
+    if (err) {
+      console.log("Error!", err);
+    } else {
+      console.log("Wrote video manifest!");
+    }
   });
 };
 

@@ -1,0 +1,18 @@
+.float-y{
+  animation: float-y 10s infinite;
+}
+
+@keyframes float-y {
+	0% {
+	
+		transform: translatey(0px);
+	}
+	50% {
+		
+		transform: translatey(-40px);
+	}
+	100% {
+	
+		transform: translatey(0px);
+	}
+}

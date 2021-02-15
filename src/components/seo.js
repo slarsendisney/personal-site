@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Helmet } from "react-helmet-async";
 
-function SEO({ description, lang, meta, title, socialcard }) {
+function SEO({ description, lang, meta, title, socialcard, video }) {
   const { site } = useStaticQuery(graphql`
     query DefaultSEOQuery {
       site {
@@ -31,6 +31,26 @@ function SEO({ description, lang, meta, title, socialcard }) {
         title={title}
         titleTemplate={`%s · ${site.siteMetadata.title}`}
         meta={[
+          ...(video
+            ? [
+                {
+                  property: `og:video`,
+                  content: `/video/${video}`,
+                },
+                {
+                  property: `og:video:type`,
+                  content: "video/mp4",
+                },
+                {
+                  property: `og:video:width`,
+                  content: "1200",
+                },
+                {
+                  property: `og:video:height`,
+                  content: "628",
+                },
+              ]
+            : []),
           {
             name: `description`,
             content: metaDescription,

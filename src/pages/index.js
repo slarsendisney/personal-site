@@ -17,6 +17,7 @@ function IndexPage({ data }) {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Home"
         socialcard={"social-card-home"}
+        video="index.mp4"
       />
 
       <Hero />
