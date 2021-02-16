@@ -75,10 +75,6 @@ function SEO({ description, lang, meta, title, socialcard, video }) {
             content: cardUrl,
           },
           {
-            name: `twitter:card`,
-            content: `summary_large_image`,
-          },
-          {
             name: `twitter:creator`,
             content: site.siteMetadata.social.twitter,
           },
