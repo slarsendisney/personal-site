@@ -8,6 +8,8 @@ import getAllArticles from "../utils/getAllArticles";
 import Layout from "../components/layout";
 import { Card } from "./projects";
 import SEO from "../components/seo";
+import replaceAll from "replaceall";
+
 export const CardText = ({
   title,
   desc,
@@ -128,7 +130,7 @@ Article.propTypes = {
 };
 
 const Articles = ({ data }) => {
-  const { currentPage, numPages } = data.sitePage.context;
+  const { currentPage, numPages, slug } = data.sitePage.context;
   const allArticles = getAllArticles(data);
   const popular = data.allPageViews.edges.filter(
     (item) => !/\/articles\/\d$/g.test(item.node.path)
@@ -144,7 +146,7 @@ const Articles = ({ data }) => {
   const nextArticles = "/articles/" + (currentPage + 1);
   return (
     <Layout>
-      <SEO title="Articles" socialcard="social-card-articles" />
+      <SEO title="Articles" socialcard="social-card-articles" video={`${replaceAll("/", "-", slug.slice(1))}.mp4`}/>
       <div className=" bg-default">
         <section className="container mx-auto">
           <div className="flex-1 w-full max-w-4xl xl:max-w-full px-4 py-8  mx-auto md:px-8">
@@ -313,6 +315,7 @@ export const pageQuery = graphql`query Articles($skip: Int!, $limit: Int!, $slug
       skip
       numPages
       currentPage
+      slug
     }
   }
   allPageViews(filter: {path: {regex: "//articles/[^?/]*$/g"}}, sort: {fields: totalCount, order: DESC}, limit: 8) {

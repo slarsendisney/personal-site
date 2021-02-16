@@ -120,6 +120,7 @@ const Article = ({ data }) => {
       return <Heading {...e} priority={6} />;
     },
   };
+  
   return (
     <Layout>
       <SEO

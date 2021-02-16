@@ -10,7 +10,7 @@ const Start = ({ data, presentation }) => {
   const { nodes } = data.allMdx;
   return (
     <Layout>
-      <SEO title="Presentations" socialcard="social-card-presentations" />
+      <SEO title="Presentations" socialcard="social-card-presentations" video="presentations.mp4"/>
       <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">
         <h3 className="text-4xl font-semibold mb-1">Presentations</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

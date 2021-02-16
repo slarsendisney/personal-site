@@ -13,6 +13,7 @@ function NewsletterPage({ data }) {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Newsletter"
         socialcard={"social-card-newsletter"}
+        video="newsletter.mp4"
       />
       <section className="text-secondary bg-default  ">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">

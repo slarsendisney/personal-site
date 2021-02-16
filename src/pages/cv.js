@@ -15,6 +15,7 @@ class CVPage extends React.Component {
           keywords={[`Sam`, `Larsen-Disney`, `About`, `Me`]}
           title="CV"
           socialcard={"social-card-cv"}
+          video="cv.mp4"
         />
         <div className="w-full text-center">
           <button

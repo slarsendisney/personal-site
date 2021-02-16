@@ -38,7 +38,7 @@ const Search = ({ data }) => {
   };
   return (
     <Layout>
-      <SEO title="Search" socialcard={"social-card-search"} />
+      <SEO title="Search" socialcard={"social-card-search"} video="search.mp4"/>
       <section className="text-default bg-default">
         <div className="flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 ">
           <h1 className="text-base md:text-lg lg:text-xl text-left">

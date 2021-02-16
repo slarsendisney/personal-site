@@ -14,6 +14,7 @@ function DevLog() {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Dev Log"
         socialcard={"social-card-log"}
+        video="log.mp4"
       />
       <section className="text-secondary bg-default px-2">
         <div className=" max-w-xl mx-auto m-8 prose">

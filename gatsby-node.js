@@ -21,13 +21,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     path
       ? "https://sld.codes" + (path.charAt(0) === "/" ? path : "/" + path)
       : "https://sld.codes";
-  let videoManifest = [
-    {
+  let videoManifest = [];
+
+  fs.readdirSync("./src/pages").forEach((file) => {
+    const pagePath = file.replace(".js", "");
+    const url =
+      pagePath !== "index" ? functionFullURL(pagePath) : functionFullURL();
+    videoManifest.push({
       type: "Page",
-      path: `index`,
-      url: functionFullURL(),
-    },
-  ];
+      path: pagePath,
+      url,
+    });
+  });
 
   redirects.forEach((redirect) => {
     createRedirect({

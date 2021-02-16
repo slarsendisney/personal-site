@@ -63,6 +63,7 @@ const generateVideo = async ({ type, path, ...otherProps }) => {
     nodePath.join(framesDir, "element-100.jpeg"),
     nodePath.join(__dirname, "..", "/static/covers", `${actualpath}.jpeg`)
   );
+  console.log(`Grabbed og:image`);
 
   // Add this step if you want to make an MP4 out of the rendered frames.
   await stitchFramesToVideo({
@@ -86,6 +87,7 @@ const generateVideo = async ({ type, path, ...otherProps }) => {
       `${actualpath}.mp4`
     ),
   });
+  console.log(`Grabbed og:video`);
   return;
 };
 
@@ -94,7 +96,6 @@ async function start() {
   for (const item of manifest) {
     console.log("Creating Video for " + item.path);
     await generateVideo(item);
-    console.log("Done!");
   }
 }
 start().then(() => {

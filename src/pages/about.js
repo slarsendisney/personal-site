@@ -73,6 +73,7 @@ function AboutPage() {
         keywords={[`Sam`, `Larsen-Disney`, `About`, `Me`]}
         title="About Me"
         socialcard={"social-card-about"}
+        video="about.mp4"
       />
       <StaticQuery
         query={graphql`{

@@ -109,6 +109,7 @@ const Stats = ({ data, count, foundTheme }) => {
         title="Stats"
         description="Ever wondered how many lines of code are at work here?"
         socialcard="social-card-stats"
+        video="stats.mp4"
       />
       <section className="text-secondary bg-default  ">
         <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">

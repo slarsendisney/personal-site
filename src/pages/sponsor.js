@@ -22,6 +22,7 @@ const ContactPage = ({ foundTheme }) => {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Sponsor"
         socialcard="social-card-sponsor"
+        video="sponsor.mp4"
       />
       <section className="text-secondary bg-default  ">
         <div className="relative flex-1 w-full max-w-4xl px-4 py-8 mx-auto md:px-8 md:py-16">

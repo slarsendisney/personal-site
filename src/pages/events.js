@@ -69,6 +69,7 @@ const EventsPage = ({ data }) => {
         keywords={[`Sam`, `Larsen-Disney`, `Events`]}
         title="Events"
         socialcard={"social-card-events"}
+        video="events.mp4"
       />
       {showVideoModal && <div className="fixed top-0 right-0 w-full h-full flex items-center justify-center" style={{zIndex:1000, backgroundColor:'#00000095'}}>
         <div style={{width:"80%", maxWidth:1000}}>
