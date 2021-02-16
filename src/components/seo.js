@@ -23,7 +23,7 @@ function SEO({ description, lang, meta, title, socialcard, video }) {
   const card = socialcard ? socialcard : "social-card-default";
   let cardUrl = "https://sld.codes/social-cards/" + card + ".jpg";
   if(video){
-    cardUrl = `/covers/${video.replace(".mp4", ".jpeg")}`
+    cardUrl = `https://sld.codes/covers/${video.replace(".mp4", ".jpeg")}`
   }
   return (
     <>
@@ -73,6 +73,10 @@ function SEO({ description, lang, meta, title, socialcard, video }) {
           {
             property: `og:image`,
             content: cardUrl,
+          },
+          {
+            name: `twitter:card`,
+            content: `summary_large_image`,
           },
           {
             name: `twitter:creator`,
