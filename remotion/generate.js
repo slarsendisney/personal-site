@@ -26,14 +26,18 @@ const generateVideo = async ({ type, path, ...otherProps }) => {
   // The composition you want to render
   const compositionId = type;
 
+  let actualpath =
+    path.charAt(0) !== "/"
+      ? replaceAll("/", "-", path)
+      : replaceAll("/", "-", path).substring(1);
+
   // Select the composition you want to render.
   const video = comps.find((c) => c.id === compositionId);
 
-  // We create a temporary directory for storing the frames
+  // We create a temporary directory for storing the frames of the video
   const framesDir = await fs.promises.mkdtemp(
     nodePath.join(os.tmpdir(), "remotion-")
   );
-
   // We create PNGs for all frames
   await renderFrames({
     config: video,
@@ -53,14 +57,14 @@ const generateVideo = async ({ type, path, ...otherProps }) => {
     // Can be either 'jpeg' or 'png'. JPEG is faster, but has no transparency.
     imageFormat: "jpeg",
   });
-  console.log(`Rendered frames!`);
+  console.log(`Rendered Video frames!`);
+
+  fs.renameSync(
+    nodePath.join(framesDir, "element-100.jpeg"),
+    nodePath.join(__dirname, "..", "/static/covers", `${actualpath}.jpeg`)
+  );
 
   // Add this step if you want to make an MP4 out of the rendered frames.
-
-  let actualpath =
-    path.charAt(0) !== "/"
-      ? replaceAll("/", "-", path)
-      : replaceAll("/", "-", path).substring(1);
   await stitchFramesToVideo({
     // Input directory of the frames
     dir: framesDir,
@@ -75,7 +79,12 @@ const generateVideo = async ({ type, path, ...otherProps }) => {
     // Must match the value above for the image format
     imageFormat: "jpeg",
     // Pass in the desired output path of the video. Et voilà!
-    outputLocation: nodePath.join(__dirname, '..', '/static/video', `${actualpath}.mp4`),
+    outputLocation: nodePath.join(
+      __dirname,
+      "..",
+      "/static/video",
+      `${actualpath}.mp4`
+    ),
   });
   return;
 };

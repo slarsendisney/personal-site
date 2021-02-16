@@ -21,7 +21,10 @@ function SEO({ description, lang, meta, title, socialcard, video }) {
   `);
   const metaDescription = description || site.siteMetadata.description;
   const card = socialcard ? socialcard : "social-card-default";
-  const cardUrl = "https://sld.codes/social-cards/" + card + ".jpg";
+  let cardUrl = "https://sld.codes/social-cards/" + card + ".jpg";
+  if(video){
+    cardUrl = `/covers/${video.replace(".mp4", ".jpeg")}`
+  }
   return (
     <>
       <Helmet
