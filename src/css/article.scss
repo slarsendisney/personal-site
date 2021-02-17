@@ -10,10 +10,9 @@
       }
     }
   }
-  
   code {
     @apply font-semibold text-base;
-  };
+  }
   a {
     @apply font-semibold;
     @extend .link;
@@ -33,7 +32,7 @@
     @apply text-xl font-semibold mb-1 mt-3 leading-loose;
   }
   h3 {
-    @apply text-lg font-semibold mb-1 mt-3 leading-loose; 
+    @apply text-lg font-semibold mb-1 mt-3 leading-loose;
   }
   h4 {
     @apply text-lg font-semibold mb-1 mt-3 leading-loose;
@@ -70,23 +69,22 @@
   img {
     @apply rounded;
   }
-  .big-img{
+  .big-img {
     height: 1024px;
-    width: 1400px
+    width: 1400px;
   }
-  .unset-all{
-    all: unset !important
+  .unset-all {
+    all: unset !important;
   }
-  .firework-window{
+  .firework-window {
     position: absolute;
     height: 100vh;
-    width:100vw;
-    top:0
-
+    width: 100vw;
+    top: 0;
   }
   .recharts-bar-rectangle {
     path {
-      fill: var(--color-bg-accent)
+      fill: var(--color-bg-accent);
     }
   }
   .recharts-default-tooltip {
@@ -100,10 +98,9 @@
     li {
       color: var(--color-accent) !important;
     }
-   
   }
   .recharts-text {
-    fill: var(--color-text-secondary)
+    fill: var(--color-text-secondary);
   }
   .npm__react-simple-code-editor__textarea {
     // all: unset !important;
@@ -115,10 +112,10 @@
       margin-bottom: 2px !important;
     }
   }
-  .prose{
+  .prose {
     color: inherit;
   }
-  
+
   pre {
     @apply text-xl mb-3;
   }
@@ -129,7 +126,7 @@
     @apply text-3xl font-semibold mb-1 mt-3 leading-snug;
   }
   h3 {
-    @apply text-3xl font-semibold mb-1 mt-3 leading-snug; 
+    @apply text-3xl font-semibold mb-1 mt-3 leading-snug;
   }
   h4 {
     @apply text-2xl font-semibold mb-1 mt-3 leading-snug;
@@ -169,7 +166,7 @@
         @apply text-base;
       }
     }
-    
+
     h1 {
       @apply text-8xl leading-snug;
     }
@@ -183,4 +180,16 @@
       @apply text-5xl leading-snug;
     }
   }
+}
+
+.prose {
+  .floatingImageRight {
+    @apply h-20 w-20 absolute top-0 right-0 -mb-20 -mr-20;
+    margin-top: -6rem !important;
+  }
+  .floatingImageLeft {
+    @apply h-20 w-20 absolute top-0 left-0 -mb-20 -ml-20;
+    margin-top: -6rem !important;
+  }
+
 }

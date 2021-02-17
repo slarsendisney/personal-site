@@ -14,6 +14,10 @@ const manifest = require("./manifest.json");
 let bundled;
 let comps;
 
+const builtPrior = fs.readdirSync("./static/video").map((file) => {
+  return file.replace(".mp4", "");
+});
+
 const prep = async () => {
   // Create a webpack bundle of the entry file.
   bundled = await bundle(require.resolve("./src/index.tsx"));
@@ -30,6 +34,12 @@ const generateVideo = async ({ type, path, ...otherProps }) => {
     path.charAt(0) !== "/"
       ? replaceAll("/", "-", path)
       : replaceAll("/", "-", path).substring(1);
+  
+  if(builtPrior.includes(actualpath)){
+    console.log(`Already Built ${path}`)
+    return
+  }
+  console.log(`Creating Video for ${path}`);
 
   // Select the composition you want to render.
   const video = comps.find((c) => c.id === compositionId);
@@ -94,7 +104,6 @@ const generateVideo = async ({ type, path, ...otherProps }) => {
 async function start() {
   await prep();
   for (const item of manifest) {
-    console.log("Creating Video for " + item.path);
     await generateVideo(item);
   }
 }

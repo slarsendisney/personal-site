@@ -19,8 +19,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const functionFullURL = (path) =>
     path
-      ? "https://sld.codes" + (path.charAt(0) === "/" ? path : "/" + path)
-      : "https://sld.codes";
+      ? "http://localhost:9000" + (path.charAt(0) === "/" ? path : "/" + path)
+      : "http://localhost:9000";
   let videoManifest = [];
 
   fs.readdirSync("./src/pages").forEach((file) => {
@@ -181,7 +181,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 
-  const jsonString = JSON.stringify(videoManifest);
+  const jsonString = JSON.stringify(videoManifest, null, 4);
   fs.writeFile("./remotion/manifest.json", jsonString, (err) => {
     if (err) {
       console.log("Error!", err);

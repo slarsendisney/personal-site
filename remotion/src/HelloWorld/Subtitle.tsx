@@ -45,7 +45,7 @@ export const Subtitle: React.FC<{
 							>
 								{t}
 							</span>
-							{i !== 0 && i % 4 === 0 && <br />}
+							{i !== 0 && i % 3 === 0 && <br />}
 						</span>
 					);
 				})}

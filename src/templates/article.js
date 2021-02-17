@@ -68,11 +68,10 @@ const Article = ({ data }) => {
       setCurrentHeading(mdx.tableOfContents.items[0].title);
     }
   }, []);
-  function onChange(isVisible, name) {
-    if (isVisible) {
-      setCurrentHeading(name);
-    }
-  }
+  useEffect(() => {
+    console.log(currentHeading)
+  }, [currentHeading]);
+
   const Heading = (props) => {
     const CustomTag = `h${props.priority}`;
     return (
@@ -89,7 +88,7 @@ const Article = ({ data }) => {
 
   const VisWatcher = ({ children, name }) => {
     return (
-      <VisibilitySensor onChange={(e) => onChange(e, name)}>
+      <VisibilitySensor onChange={(e) => e && setCurrentHeading(name)}>
         {children}
       </VisibilitySensor>
     );
@@ -120,7 +119,7 @@ const Article = ({ data }) => {
       return <Heading {...e} priority={6} />;
     },
   };
-  
+
   return (
     <Layout>
       <SEO

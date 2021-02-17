@@ -130,6 +130,11 @@
     "purgecss"
   ],
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run count_totals && npm run generate-video && git add ."
+    }
+  },
   "scripts": {
     "analyze:lint": "eslint --ext .jsx --ext .js .",
     "analyze:prettier": "prettier --list-different \"**/*.{css,js,jsx,json,md}\"",
@@ -159,6 +164,7 @@
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-react": "7.20.6",
     "gatsby-plugin-eslint": "2.0.8",
+    "husky": "^5.0.9",
     "prettier": "2.1.1",
     "remotion": "^1.3.0",
     "tailwindcss": "^2.0.2"

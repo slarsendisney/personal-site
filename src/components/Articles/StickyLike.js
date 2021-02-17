@@ -34,7 +34,7 @@ const LikeButton = ({
       >
         <h1
           className={`m-0 rounded px-1 py-2 text-3xl ${
-            selected(type) ? "bg-accent jello-vertical" : "bg-secondary"
+            selected(type) ? "bg-logo-three jello-vertical" : "bg-secondary"
           }`}
         >
           <Emojione text={label} />
