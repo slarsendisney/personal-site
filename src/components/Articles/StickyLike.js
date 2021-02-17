@@ -71,9 +71,9 @@ const StickyLike = () => {
       : ["test"];
 
   const contentID =
-    pathArray[pathArray.length - 1].length > 0
+    (pathArray[pathArray.length - 1].length > 0
       ? pathArray[pathArray.length - 1]
-      : pathArray[pathArray.length - 2];
+      : pathArray[pathArray.length - 2]).replace("&","");
   const [value, loading, error] =
     typeof window !== "undefined"
       ? useDocumentOnce(firebase.firestore().doc(`likes/${contentID}`))
