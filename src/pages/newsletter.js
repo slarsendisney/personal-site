@@ -46,7 +46,7 @@ function NewsletterPage({ data }) {
           <p className="mb-3">
             That&apos;s cool. If you&apos;d like to keep up with my content
             another way, you can{" "}
-            <span className="link">follow me on twitter</span>. Whenever I post
+            <a href="https://twitter.com/SamLarsenDisney" className="link">follow me on twitter</a>. Whenever I post
             new content, I like to talk about it there.
           </p>
         </div>
