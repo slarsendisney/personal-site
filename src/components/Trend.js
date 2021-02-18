@@ -180,7 +180,7 @@ const Trend = ({ data }) => {
             >
               {completeArticles[item.node.date] && (
                 <div
-                  className="bg-primary mb-1"
+                  className="bg-primary my-1"
                   style={{
                     height: 15,
                     width: 15,
@@ -208,7 +208,7 @@ const Trend = ({ data }) => {
               )}
               {projects[item.node.date] && (
                 <div
-                  className="bg-accent mb-1"
+                  className="bg-accent my-1"
                   style={{
                     height: 15,
                     width: 15,
