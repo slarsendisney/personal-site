@@ -16,20 +16,13 @@ export default ({ children }) => {
     }, 100);
   };
   return (
-    <>
+    <div style={{ height: "100%" }}>
       {showConfetti && (
-        <div className="absolute top-0 left-0 w-screen h-screen">
+        <div className="absolute top-0 left-0 w-screen h-screen" style={{pointerEvents:'none'}}>
           <ConfettiAnimation />
         </div>
       )}
-      <div
-        style={{
-          position: "relative",
-          top: 0,
-          left: 0,
-        }}
-        className="w-full h-screen flex flex-col items-center justify-center"
-      >
+      <div className="w-full h-full flex flex-col items-center justify-center">
         {children}
 
         <button
@@ -40,6 +33,6 @@ export default ({ children }) => {
           More 🎉
         </button>
       </div>
-    </>
+    </div>
   );
 };

@@ -29,9 +29,7 @@ export default () => {
           }}
           style={{ minWidth: 270 }}
         >
-          <h6 className="margin-0">
-            Click here for the {reality ? "expectation" : "reality"}
-          </h6>
+          Click here for the {reality ? "expectation" : "reality"}
         </button>
       </div>
     </div>

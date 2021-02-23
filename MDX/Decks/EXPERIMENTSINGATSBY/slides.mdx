@@ -13,6 +13,7 @@ import TextLoop from "react-text-loop";
 import { Emojione } from "react-emoji-render";
 import Warning from "../../../src/components/Presentations/Warning";
 import { StaticImage } from "gatsby-plugin-image";
+import Success from "../../../src/components/Presentations/Success";
 import Editor from "../../../src/components/LiveEditor/Editor";
 import Preload from "../../../src/components/Presentations/Preload";
 import PrettifyPlease from "../../../src/components/Presentations/PrettifyPlease";
@@ -23,6 +24,7 @@ import Poll from "../../../src/components/Presentations/Poll";
 import Confetti from "../../../src/components/Presentations/Confetti";
 import { Tweet } from "mdx-embed";
 import Newsletter from "../../../src/components/Newsletter";
+import RealityVsExpectation from "../PRESENTINGWITHOUTSHARINGMYSCREEN/RealityVsExpectation";
 
 <!---
 INTRODUCTION
@@ -67,18 +69,23 @@ INTRODUCTION
 ---
 
 #### You can follow along at:
+
 # [follow.sld.codes](http://follow.sld.codes)
 
 ---
 
-
 # Presenting Without Sharing My Screen
+
 #### OR
+
 # Using Gatsby to Replace Powerpoint
 
 ---
 
-<h2 className="font-weight-normal">PowerPoint and me are <span className="text-link font-bold">not</span> friends.</h2>
+<h2 className="font-weight-normal">
+  PowerPoint and me are <span className="text-link font-bold">not</span>{" "}
+  friends.
+</h2>
 
 ---
 
@@ -90,7 +97,9 @@ INTRODUCTION
 
 ---
 
-<h1><span className="text-link">Overly complex</span> to theme</h1>
+<h1>
+  <span className="text-link">Overly complex</span> to theme
+</h1>
 
 ---
 
@@ -100,13 +109,13 @@ INTRODUCTION
 
 # 1987
 
-<Preload images={["https://ik.imagekit.io/sld/bill_lJon8Dz19S_.jpg"]}/>
+<Preload images={["https://ik.imagekit.io/sld/bill_lJon8Dz19S_.jpg"]} />
 
 ---
 
 ![1987 Bill](https://ik.imagekit.io/sld/bill_lJon8Dz19S_.jpg)
 
-<Preload images={["https://ik.imagekit.io/sld/bad_OroGsHBIic0.webp"]}/>
+<Preload images={["https://ik.imagekit.io/sld/bad_OroGsHBIic0.webp"]} />
 
 ---
 
@@ -120,89 +129,112 @@ INTRODUCTION
 
 <h1 className="text-4xl">MDX</h1>
 
-<a target="_blank" rel="noopener noreferrer" href="https://mdxjs.com/"><button className="link text-4xl ">Learn More</button></a>
+<a target="_blank" rel="noopener noreferrer" href="https://mdxjs.com/">
+  <button className="link text-4xl ">Learn More</button>
+</a>
 
 ---
 
-<h2 className=" font-weight-normal">Markdown + JSX <Emojione style={{display:'inline-block'}} text="❤️"/></h2>
+<h2 className=" font-weight-normal">
+  Markdown + JSX <Emojione style={{ display: "inline-block" }} text="❤️" />
+</h2>
 
 ---
 
-<h1 ><Emojione style={{display:'inline-block'}} text="😍"/></h1>
-<h2 className=" font-weight-normal">Interactive charts, animations or alerts inside your markdown content!</h2>
+<h1>
+  <Emojione style={{ display: "inline-block" }} text="😍" />
+</h1>
+<h2 className=" font-weight-normal">
+  Interactive charts, animations or alerts inside your markdown content!
+</h2>
 
 ---
 
-<h2 className=" font-weight-normal">Example Time <Emojione style={{display:'inline-block'}} text="💫"/></h2>
+<h2 className=" font-weight-normal">
+  Example Time <Emojione style={{ display: "inline-block" }} text="💫" />
+</h2>
 
 ---
 
-<p className=" opacity-70"><code>Example.mdx</code></p>
-<CodeBlock language="Markdown">
-{
-`# Hello, *world*!
+<Editor
+  noPadTop
+  noPadBottom
+  title="Example.mdx"
+  codeOnly
+  code={`# Hello, *world*!
 Below is an example of JSX embedded in Markdown:
 <div style={{ padding: '20px', backgroundColor: 'tomato' }}>
   <h3>This is JSX</h3>
 </div>
-`
-}
-</CodeBlock >
-<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">We can throw in JSX!</p>
+`}
+/>
 
 ---
 
-<p className=" opacity-70"><code>Example.mdx</code></p>
-<CodeBlock language="Markdown">
-{
-`import SpecialComponent from "./specialComponent"
+<Editor
+  noPadTop
+  noPadBottom
+  title="Example.mdx"
+  codeOnly
+  code={`import SpecialComponent from "./specialComponent"
 # Hello, *world*!
 Below is an example of JSX embedded in Markdown.
 <SpecialComponent/>
-`
-}
-</CodeBlock >
-<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">We can use imports as normal.</p>
+`}
+/>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">
+  We can use imports as normal.
+</p>
 
 ---
 
 ![Infographic](https://ik.imagekit.io/sld/infographic_EaEYSfYB37-.png)
 
-<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">Perfect for blog posts from devs</p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">
+  Perfect for blog posts from devs
+</p>
 
 ---
 
 ![Design System](https://ik.imagekit.io/sld/DesignSystemExample_jXzuX1HjQ.png)
 
-<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">Design System Documentation</p>
-
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">
+  Design System Documentation
+</p>
 
 ---
 
 <h1 className=" text-4xl">GatsbyJS</h1>
-<a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/"><button className="link text-4xl">Learn More</button></a>
+<a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/">
+  <button className="link text-4xl">Learn More</button>
+</a>
 
 ---
 
-<h2 className=" "><Emojione style={{display:'inline-block'}} text="🔌"/>Built with a plugin architecture</h2>
+<h2 className=" ">
+  <Emojione style={{ display: "inline-block" }} text="🔌" />
+  Built with a plugin architecture
+</h2>
 
 Abstract complex, configurations, or reusable code into a plugin so its away from what your focused on.
 
 ---
 
-<h2 >gatsby-plugin-mdx </h2>
+<h2>gatsby-plugin-mdx </h2>
 
 ---
 
-<h2 >gatsby-theme-mdx-deck </h2>
+<h2>gatsby-theme-mdx-deck </h2>
 <p>MDX -> slide decks .</p>
 
 ---
 
-<p className=" opacity-70"><code>Deck.mdx</code></p>
-<CodeBlock >
-{
-    `---
+<Editor
+  noPadTop
+  noPadBottom
+  title="Example.mdx"
+  codeOnly
+  code={`---
 # My first slide
 An awesome introduction
 ---
@@ -210,69 +242,781 @@ An awesome introduction
 My first point
 ---
 ...
-`
-}
-</CodeBlock >
+`}
+/>
 
-<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">Slides seperated by <strong>---</strong></p>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary">
+  Slides seperated by ---
+</p>
 
 ---
 
 <div className="flex align-horizontal align-vertical container">
-    <Success content="This was the PowerPoint alternative I was looking for." backgroundColourClassName="bg-default"/>
+  <Success
+    content="This was the PowerPoint alternative I was looking for."
+    backgroundColourClassName="bg-default"
+  />
 </div>
 
 ---
 
-<div className="text-align-left flex" style={{flexDirection:'column'}} >
-    <h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>Slides can be styled with css or sass.</h3>
-    <h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>Performant.</h3>
-    <h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>We can host the slides.</h3>
-    <h3 ><Emojione style={{display:'inline-block'}} text="✅ "/>We can customise the <Emojione style={{display:'inline-block'}} text="🔥"/> out of it.</h3>
-</div>
+- Slides can be styled.
+- Performant.
+- We can host the slides.
+- We can customise it.
 
 ---
 
-<h1 >Things we can do with react components in slides</h1>
+## Things we can do with react components in slides
 
 ---
 
 <Confetti>
- <h1 >Lottie Animations</h1>
- <a target="_blank" rel="noopener noreferrer" href="https://airbnb.io/lottie/#/">Learn More</a>
+  <h1>Lottie Animations</h1>
+  <p>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://airbnb.io/lottie/#/"
+    >
+      Learn More
+    </a>
+  </p>
 </Confetti>
 
 ---
 
-<div className="fill-width code-xs mt-24">
-  <div className="unset-all">
-  <Editor />
+<Editor
+  noPadTop
+  noPadBottom
+  code={`function LikeButton(){
+    const [likes, increaseLikes] = React.useState(0)
+    const [error, setError] = React.useState(false)
+    function incrementLikes(){
+      return increaseLikes(likes+1)
+    }
+    function decrementLikes(){
+      if(likes > 0){
+        increaseLikes(likes-1)
+      }
+      else {
+        setError(true)
+      }
+    }
+    return (
+      <div className="text-center w-full">
+        <p>{likes} likes recorded</p>
+        <button className="btn mr-1" onClick={() => incrementLikes()}>❤️</button>
+        <button className="btn" onClick={() => decrementLikes()}>Remove a like</button>
+        {error && <marquee>Hey Stop!  <button className="btn" onClick={() => setError(false)}>Dismiss</button></marquee>}
+      </div>
+    )
+  }`}
+/>
+
+---
+
+# <Emojione text="🎨"/>
+
+### Themes
+
+---
+
+<h2 style="line-height: 10px;">
+  <Emojione text="⭐️" />
+</h2>
+<h2> An interactive slide deck might be a more memorable one?</h2>
+
+---
+
+<h1>
+  <Emojione style={{ display: "inline-block" }} text="✅ " />
+  Job Done
+</h1>
+<Preload
+  images={["https://media.giphy.com/media/KyGg5aSMnuM1TwNywV/source.gif"]}
+/>
+
+---
+
+![Covid](https://media.giphy.com/media/KyGg5aSMnuM1TwNywV/source.gif)
+
+<Preload
+  images={["https://media.giphy.com/media/VIEEC7Jl1LnxE6ntlF/source.gif"]}
+/>
+
+---
+
+![WFH](https://media.giphy.com/media/VIEEC7Jl1LnxE6ntlF/source.gif)
+
+---
+
+<h1>
+  <Emojione style={{ display: "inline-block" }} text="😿" />
+  Job Done?
+</h1>
+
+---
+
+<h1>
+  <Emojione style={{ display: "flex" }} text="🌍 -> 💻" />
+</h1>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  The whole world went online!
+</p>
+
+---
+
+<div
+  className="flex flex-col items-center justify-center"
+  style={{ height: "100%", width: "100%", minHeight: "70vh" }}
+>
+  <ZoomData />
+  <div>
+    <p className="mt-8 px-2 py-1 rounded bg-primary text-primary text-center">
+      Zoom Data Usage Per Hour
+    </p>
   </div>
 </div>
-<p className=" mt-2 px-2 py-1 rounded bg-primary text-primary mb-5">In-presentation-code-editors</p>
 
 ---
 
-<h2 style="line-height: 10px;"><Emojione text="🎨"/></h2>
-<h2 >Themes</h2>
-<button className="btn">I Love Themes!</button>
+<div className="text-align-left flex" style={{ flexDirection: "column" }}>
+  <h3>
+    <Emojione style={{ display: "inline-block" }} text="😐 " />
+    No fibre
+  </h3>
+  <h3>
+    <Emojione style={{ display: "inline-block" }} text="😑 " />
+    Other users
+  </h3>
+  <h3>
+    <Emojione style={{ display: "inline-block" }} text="😕 " />
+    BAD ISP
+  </h3>
+  <h3>
+    <Emojione style={{ display: "inline-block" }} text="😞 " />
+    VPN
+  </h3>
+</div>
 
 ---
 
-<h2 style="line-height: 10px;"><Emojione text="⭐️"/></h2>
-<h2 > An interactive slide deck might be a more memorable one?</h2>
+<RealityVsExpectation />
+<Preload
+  images={[
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/90s.gif?alt=media&token=92309475-e44b-4df3-ab5b-1419f95226c2",
+  ]}
+/>
 
 ---
 
-<h1 ><Emojione style={{display:'inline-block'}} text="✅ "/>Job Done</h1>
-<Preload images={["https://media.giphy.com/media/KyGg5aSMnuM1TwNywV/source.gif"]}/>
+![Sooo 90s](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/90s.gif?alt=media&token=92309475-e44b-4df3-ab5b-1419f95226c2)
+
+<p className="mt-8 px-2 py-1 rounded bg-primary text-primary text-center text-2xl">
+  How it feels...
+</p>
 
 ---
 
+<div className="flex align-horizontal align-vertical container">
+  <Warning
+    content="The UX designer in me thinks this is less than ideal. I spend considerable time putting presentations together and they deserve a proper delivery."
+    backgroundColourClassName="bg-default"
+  />
+</div>
+<Preload
+  images={[
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Thought.png?alt=media&token=593cba54-930a-4345-868a-8f9a6d90cfa9",
+  ]}
+/>
 
 ---
 
-<QandA QAID="imperials-questions-round-two" />
+When I give a presentation, my slide decks are already hosted.
+
+> Why don’t I send people to that URL and let them “follow along” as I present?
+
+---
+
+<h1 className="items-center">
+  Realtime
+  <Emojione style={{ display: "inline-block" }} text=" ➡️ " />
+  Sockets
+</h1>
+
+---
+
+<h2>What is a Socket?</h2>
+
+<p>
+  A{" "}
+  <span className="bg-accent text-accent py-1 px-2 rounded">
+    bi-directional
+  </span>{" "}
+  communication channel between a client and a server.
+</p>
+
+---
+
+<div className="row code-small" style={{ maxWidth: "100%" }}>
+  <div className="col-xs-12 pad-10-lr">
+    <Editor
+      noPadTop
+      noPadBottom
+      title="App.js"
+      codeOnly
+      code={`import openSocket from "socket.io-client";
+const socket = openSocket("http://localhost:8000");
+socket.emit("message", "Hello!");`}
+    />
+  </div>
+  <div className="col-xs-12 pad-10-lr">
+    <Editor
+      noPadTop
+      noPadBottom
+      title="Server.js"
+      codeOnly
+      code={`const express = require("express");
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(\`Listening on \${PORT}\`));
+  const io = require("socket.io")(server);
+io.on("connection", (socket) => {
+  socket.on("message", (msg) => {
+    console.log("message: " + msg);
+  });
+});`}
+    />
+  </div>
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Sockets Demo
+</p>
+
+---
+
+<h1>
+  What If We Want To <span className="text-link">Store</span> The Data?
+</h1>
+
+---
+
+<h1>
+  <Emojione style={{ display: "inline-block" }} text="Combine With Redux ♥️" />
+</h1>
+
+---
+
+<div className="code-small md:mx-3">
+  <Editor
+    title="CreateStore.js"
+    noPadBottom
+    noPadTop
+    codeOnly
+    code={`import { createStore, applyMiddleware } from "redux";
+import createSocketIoMiddleware from "redux-socket.io";
+import io from "socket.io-client";
+let socket = io("http://localhost:3000");
+let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
+function reducer(state = {}, action){
+  switch(action.type){
+    case "message":
+      return Object.assign({}, {message:action.data});
+    default:
+      return state;
+  }
+}
+let store = applyMiddleware(socketIoMiddleware)(createStore)(reducer);
+store.subscribe(()=>{
+  console.log("new client state", store.getState());
+});
+store.dispatch({type:"server/hello", data:"Hello!"});`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Implementing Socket.IO Redux Middleware
+</p>
+<a
+  target="_blank"
+  rel="noopener noreferrer"
+  href="https://github.com/itaylor/redux-socket.io"
+>
+  <p className="text-sm md:text-xl link mt-4">See redux-socket.io on Github</p>
+</a>
+
+---
+
+<div className="code-small md:mx-3">
+  <Editor
+    title="Server.js"
+    noPadBottom
+    noPadTop
+    codeOnly
+    code={`var http = require("http");
+var server = http.createServer();
+var socket_io = require("socket.io");
+server.listen(3000);
+var io = socket_io();
+io.attach(server);
+io.on("connection", function(socket){
+  console.log("Socket connected: " + socket.id);
+  socket.on("action", (action) => {
+    if(action.type === "server/hello"){
+      console.log("Got hello data!", action.data);
+      socket.emit("action", {type:"message", data:"good day!"});
+    }
+  });
+});`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Do something with the data on our server.
+</p>
+
+---
+
+<h1>
+  <Emojione
+    style={{ display: "inline-block" }}
+    text="Controlling Slide Delivery"
+  />
+</h1>
+
+---
+
+<div className="code-xs md:mx-3">
+  <Editor
+    title="Deck.js"
+    noPadBottom
+    noPadTop
+    codeOnly
+    code={`export const Deck = ({
+  changePresPosOnServer,
+  presentation,
+}) => {
+//...
+if (
+    index !== presentation.slide
+  ) {
+    changePresPosOnServer(index)
+  }
+//...
+const mapStateToProps = ({ presentation }) => {
+  return { presentation }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changePresPosOnServer: (value) =>
+      dispatch({ type: "server/updateIndex", data: value }),
+  }
+}
+const ConnectedDeck =
+  typeof window !== "undefined"
+    ? connect(mapStateToProps, mapDispatchToProps)(Deck)
+    : Slide
+export default ConnectedDeck`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Updating Index While Presenting
+</p>
+
+---
+
+<Editor
+  title="Server.js"
+  noPadBottom
+  noPadTop
+  codeOnly
+  code={`if (action.type === "server/updateIndex") {
+        pres.slide = action.data;
+        io.emit("action", {
+          type: "updatePresIndex",
+          data: pres,
+        });
+    }`}
+/>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Server Updates Index and Emits!
+</p>
+
+---
+
+<div className="code-xs md:mx-3">
+  <Editor
+    title="Deck.js"
+    noPadBottom
+    noPadTop
+    codeOnly
+    code={`export const Deck = ({
+  presentation,
+}) => {
+//...
+if (
+    window.location.pathname.includes(presentation.deck) &&
+    window.location.pathname !==
+      presentation.deck + "/slides/" + presentation.slide
+  ) {
+    jump(presentation.slide)
+  }
+//...
+const mapStateToProps = ({ presentation }) => {
+  return { presentation }
+}
+const ConnectedDeck =
+  typeof window !== "undefined"
+    ? connect(mapStateToProps)(Deck)
+    : Slide
+export default ConnectedDeck`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Following Along
+</p>
+
+---
+
+<h1>
+  <Emojione
+    style={{ display: "inline-block" }}
+    text="Making it Presentor Only"
+  />
+</h1>
+
+---
+
+<div className="code-xs md:mx-3">
+  <Editor
+    title="Server.js"
+    noPadBottom
+    noPadTop
+    codeOnly
+    code={`if (action.type === "server/verify") {
+      if (process.env.PRESENT_PASSWORD === action.data.password) {
+        pres.presenter = socket.id;
+        pres.deck = action.data.location;
+        pres.slide = action.data.index;
+        socket.emit("action", {
+          type: "verify",
+          data: true,
+        });
+        io.emit("action", {
+          type: "startLivePresentor",
+          data: pres,
+        });
+      }
+    }
+    if (action.type === "server/updateIndex") {
+      if (socket.id === pres.presenter) {
+        pres.slide = action.data;
+        io.emit("action", {
+          type: "updatePresIndex",
+          data: pres,
+        });
+      }
+    }`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Using ENV Variable to Identify Presentor
+</p>
+<Preload images={["https://ik.imagekit.io/sld/flowDiagram_GM8ZlDQ1BMI.png"]} />
+
+---
+
+<img
+  src="https://ik.imagekit.io/sld/flowDiagram_GM8ZlDQ1BMI.png"
+  className="bg-white rounded p-5"
+/>
+
+---
+
+<h1>
+  <Emojione
+    style={{ display: "inline-block" }}
+    text="What if I'm going too fast? 🚀"
+  />
+</h1>
+
+---
+
+<h1>
+  <Emojione style={{ display: "inline-block" }} text="Adding Unfollow" />
+</h1>
+
+---
+
+<div className="code-xs md:mx-3">
+  <Editor
+    title="Deck.js"
+    noPadBottom
+    noPadTop
+    codeOnly
+    code={`export const Deck = ({
+  presentation,
+  follow
+}) => {
+//...
+if (
+    follow &&
+    window.location.pathname.includes(presentation.deck) &&
+    window.location.pathname !==
+      presentation.deck + "/slides/" + presentation.slide
+  ) {
+    jump(presentation.slide)
+  }
+//...
+const mapStateToProps = ({ presentation, follow }) => {
+  return { presentation, follow }
+}
+const ConnectedDeck =
+  typeof window !== "undefined"
+    ? connect(mapStateToProps)(Deck)
+    : Slide
+export default ConnectedDeck`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl">
+  Only jump if follow === true
+</p>
+
+---
+
+<div
+  className="flex items-center justify-center"
+  style={{ height: "100%", width: "100%", minHeight: "70vh" }}
+>
+  <ZoomData withGatsby={true} />
+</div>
+
+---
+
+## Sockets allow for even more interaction
+
+---
+
+<Poll
+  pollID="MMTreactFeeler"
+  question="Are you working from home?"
+  answers={[
+    { option: "Always", votes: 0 },
+    { option: "Sometimes", votes: 0 },
+    { option: "Rarely", votes: 0 },
+    { option: "Never", votes: 0 },
+  ]}
+/>
+
+---
+
+<h1>
+  Getting <span className="text-link">stupid</span> with this
+</h1>
+
+---
+
+![HalfStack](https://ik.imagekit.io/sld/halfstack_zHesQ-h1y5m.png)
+
+<Preload images={["https://ik.imagekit.io/sld/Charlie_H6woYFtms.jpg"]} />
+
+---
+
+<img src="https://ik.imagekit.io/sld/Charlie_H6woYFtms.jpg" />
+
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center text-center">
+  Charlie Gerard
+</p>
+
+<Preload images={["https://ik.imagekit.io/sld/camera__1__GesaesDUrR9.gif"]} />
+
+---
+
+<img
+  src="https://ik.imagekit.io/sld/camera__1__GesaesDUrR9.gif"
+  width="100%"
+  height="100%"
+  style="max-width:500px; min-height:500px"
+/>
+
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center text-center">
+  The PoseNet Skeleton
+</p>
+
+<Preload
+  images={[
+    "https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2",
+  ]}
+/>
+
+---
+
+![Trump](https://firebasestorage.googleapis.com/v0/b/personalwebsite-fe5d4.appspot.com/o/Presentations%2FTrump.jpg?alt=media&token=9d5eefb6-c6a1-4b0b-9d94-2189acd4b0b2)
+
+<Preload
+  images={[
+    "https://ik.imagekit.io/sld/7_e9NGqNNtNFh.png",
+    "https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif",
+  ]}
+/>
+
+---
+
+<img
+  src="https://ik.imagekit.io/sld/7_e9NGqNNtNFh.png"
+  width="100%"
+  style="max-width:800px"
+/>
+
+---
+
+<div className="code-small">
+  <Editor
+    title="PoseNetCamera.js"
+    noPadBottom
+    noPadTop
+    codeOnly
+    code={`class PoseNet extends Component {  
+ //...
+  poseDetectionFrame(canvasContext) {  
+    const posenetModel = this.posenet;  
+    const video = this.video;  
+    const findPoseDetectionFrame = async () => {  
+      let poses = [];  
+      const pose = await posenetModel.estimateSinglePose(video, {  
+        imageScaleFactor,  
+        flipHorizontal,  
+        outputStride,  
+      });  
+      poses.push(pose);  
+    };  
+  }  
+//...
+`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center">
+  Using PoseNet
+</p>
+
+---
+
+<div className="code-small">
+  <Editor
+    noPadBottom
+    noPadTop
+    codeOnly
+    code={`{
+  "score": 0.32371445304906,
+  "keypoints": [
+    {
+      "position": {
+        "y": 113.9603729248,
+        "x": 393.19735717773
+      },
+      "part": "leftWrist",
+      "score": 0.94009721279144
+    },
+    {
+      "position": {
+        "y": 186.47859191895,
+        "x": 257.98034667969
+      },
+      "part": "rightWrist",
+      "score": 0.98029226064682
+    }
+  ]
+}
+`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center">
+  PoseNet Data Points
+</p>
+
+---
+
+<div classname="code-small">
+  <Editor
+    title="Remote.js"
+    noPadBottom
+    noPadTop
+    codeOnly
+    code={`useEffect(() => {  
+    if (presentation && differenceInSeconds(new Date(), lastPunch) > 0.5) {  
+      const gesturingRight = poses.every((item) => item.position.x > window.innerWidth*0.75);  
+      const gseturingLeft = poses.every((item) => item.position.x < window.innerWidth*0.25);  
+      if (gesturingRight && presentation.slide >= 0) {  
+        changePresPosOnServer(presentation.slide + 1);  
+      }  
+      if (gseturingLeft && presentation.slide > 0) {  
+        changePresPosOnServer(presentation.slide - 1);  
+      }  
+      setLastPunch(new Date());  
+    }  
+  }, [poses]);
+`}
+  />
+</div>
+<p className=" mt-8 px-2 py-1 rounded bg-primary text-primary text-2xl text-center">
+  Triggering Slide Jumps
+</p>
+
+---
+
+<div>
+  <img
+    src="https://ik.imagekit.io/sld/Slide_Gesturing_Demo_JUGmnpIznYg.gif"
+    className="w-full"
+  />
+</div>
+<a
+  target="_blank"
+  rel="noopener noreferrer"
+  href="https://www.youtube.com/watch?v=kZkOyVuBw-o&feature=youtu.be"
+>
+  <p className=" mx-auto btn text-xl mt-5 text-center">See the Video</p>
+</a>
+
+---
+
+<h1>Try it yourself!</h1>
+
+<a
+  target="_blank"
+  rel="noopener noreferrer"
+  href="https://github.com/kirstenlindsmith/PoseNet_React/blob/master/client/components/Camera.js"
+>
+  See the Borrowed Code
+</a>
+
+---
+
+# Further Extensions
+
+---
+
+<div className="text-align-left flex" style={{ flexDirection: "column" }}>
+  <h3>
+    <Emojione style={{ display: "inline-block" }} text="🔎" />
+    SEO
+  </h3>
+  <h3>
+    <Emojione style={{ display: "inline-block" }} text="👨" />
+    <Emojione style={{ display: "inline-block" }} text="👨" /> Peer to Peer
+  </h3>
+  <h3>
+    <Emojione style={{ display: "inline-block" }} text="📞 " />
+    Calling through the app
+  </h3>
+  <h3>
+    <Emojione style={{ display: "inline-block" }} text="🎺 " />
+    Turning your audience into a choir/orchestra
+  </h3>
+</div>
+
+---
+
+<QandA QAID="mmt-tech-gatsby-talk" />
 
 ---
 
@@ -283,7 +1027,8 @@ My first point
 <div className="text-left grid grid-cols-3" style={{ width: "100%" }}>
   <div className="col-span-3 ">
     <h2>
-      <Emojione style={{ display: "inline-block" }} text="💪" /> That's all folks!
+      <Emojione style={{ display: "inline-block" }} text="💪" /> That's all
+      folks!
     </h2>
     <p className="mt-0">Find me on the interwebs. Feedback always welcome:</p>
     <div>
