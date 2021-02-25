@@ -9,7 +9,7 @@ const Disclaimer = () => {
     <Layout>
       <SEO
         keywords={[`Sam`, `Larsen-Disney`, `Disclaimer`]}
-        title="CV"
+        title="Disclaimer"
         socialcard={"social-card-disclaimer"}
         video="disclaimer.mp4"
       />
