@@ -7,7 +7,7 @@ const Experience = ({ experience, icon }) => (
       <img src={icon} alt="" className="mr-1 h-3" />
       EXPERIENCE
     </h5>
-    {experience.map((item, index) => (
+    {experience.slice(0, 5).map((item, index) => (
       <div
         className={`m1-b  ${
           index > 0 ? "border-light-grey border-t-2 mt-2 pt-2" : ""

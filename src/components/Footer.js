@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql, StaticQuery } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
+import Timeline from "../data/timeline.json"
+const currentJob = Timeline[0];
 
 const Footer = ({ location }) => {
   return (
@@ -55,7 +57,7 @@ const Footer = ({ location }) => {
                         I&apos;m Sam Larsen-Disney.
                       </h4>
                       <p className="text-sm mb-3">
-                        I currently work as a UX Engineer at American Express. I
+                        I currently work as a {currentJob.role} at {currentJob.company}. I
                         enjoy teaching the next generation to code through my
                         articles, presentations and at hackathons.
                       </p>

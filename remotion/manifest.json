@@ -86,8 +86,8 @@
     },
     {
         "type": "Page",
-        "path": "/projects/meta-preview",
-        "url": "http://localhost:9000/projects/meta-preview"
+        "path": "/projects/enhanced-referral",
+        "url": "http://localhost:9000/projects/enhanced-referral"
     },
     {
         "type": "Page",
@@ -96,8 +96,8 @@
     },
     {
         "type": "Page",
-        "path": "/projects/enhanced-referral",
-        "url": "http://localhost:9000/projects/enhanced-referral"
+        "path": "/projects/meta-preview",
+        "url": "http://localhost:9000/projects/meta-preview"
     },
     {
         "type": "Page",

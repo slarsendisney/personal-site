@@ -1,10 +1,22 @@
 [
   {
+    "role": "UX Engineer",
+    "company": "Behaviour Lab",
+    "location": "London",
+    "date": "2021 - Present",
+    "desc": "Leading UI development at Behvaiour Lab.",
+    "longDesc": [
+      "Responsible for leading UI development of Behaviour Lab's SaaS product targeted at asset managers, private equity firms, insurance companies and executive boards."
+    ],
+    "tags": "JS, ReactJS, Jest, TypeScript, GatsbyJS, TailwindCSS",
+    "url": "https://behaviourlab.com/"
+  },
+  {
     "role": "Front-End Engineer",
     "company": "American Express",
     "location": "London",
-    "date": "2020 - Present",
-    "desc": "Currently working on the Design Language System at American Express.",
+    "date": "2020 - 2021",
+    "desc": "Building the Design Language System at American Express.",
     "longDesc": [
       "Responsible for creating and maintaining performant, acessible ReactJS and JS components used across the organisation's online presence.",
       "Created tools that allow us to measure how our components are being used. Versions, bundle size, accessiblity, best practices and SEO impacts are tracked automatically."

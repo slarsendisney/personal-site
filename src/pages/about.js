@@ -15,7 +15,7 @@ function AboutPage() {
       case 1:
         return (
           <span>
-            Sam is a UX Engineer at American Express. He cares most about
+            Sam is a UX Engineer at BehaviourLab. He cares most about
             accessibility and making a performant web. He enjoys teaching the
             next generation to code through his articles, presentations and at
             hackathons.
@@ -25,12 +25,11 @@ function AboutPage() {
         return (
           <span>
             Sam studied Computer Science at King&apos;s College London and now
-            works as a UX Engineer at American Express. He is most at home
-            coding in React, Javascript, GraphQL & Gatsby but is always open to
-            learning something new. When coding he likes to ensure his code is
-            accessible and performant. <br /> <br /> He enjoys teaching the next
-            generation to code through his articles, presentations and at
-            hackathons.
+            works as a UX Engineer at BehaviourLab. He is most at home coding in
+            React, Javascript, GraphQL & Gatsby but is always open to learning
+            something new. When coding he likes to ensure his code is accessible
+            and performant. <br /> <br /> He enjoys teaching the next generation
+            to code through his articles, presentations and at hackathons.
           </span>
         );
       default:
@@ -54,11 +53,12 @@ function AboutPage() {
             User Experience Designer and realised that he wanted his role to be
             a mixture of the two. Since then he has worked in the “refer a
             friend“ and the “Design Language System“ teams as a Design Engineer.
-            Here he designs and builds American Express&apos; website. When
-            coding he likes to ensure his code is accessible and performant. He
-            has always enjoyed leading people. He was the only graduate in his
-            cohort to formally manage interns and has gone on to be the youngest
-            engineer to manage graduates. <br /> <br />
+            He helped design and build American Express&apos; websites. Since
+            then he has moved to BehaviourLab where he leads front-end
+            development. When coding he likes to ensure his code is accessible
+            and performant. He has always enjoyed leading people. He was the
+            only graduate in his cohort to formally manage interns and has gone
+            on to be the youngest engineer to manage graduates. <br /> <br />
             When not in the office he likes to attend hackathons. At these
             events he enjoys teaching the next generation to code and has a bit
             of a reputation for staying up all night. He also likes to take
@@ -76,46 +76,55 @@ function AboutPage() {
         video="about.mp4"
       />
       <StaticQuery
-        query={graphql`{
-  gitHubProfile {
-    totalContributions
-  }
-  allNpmPackage {
-    totalCount
-  }
-  boilerplates: allMdx(filter: {frontmatter: {type: {eq: "Boilerplate"}}}) {
-    totalCount
-  }
-  articles: allMdx(filter: {frontmatter: {type: {eq: "Article"}}}) {
-    totalCount
-  }
-  site {
-    siteMetadata {
-      currentCompany
-      currentRole
-      currentCompanyURL
-    }
-  }
-  HeroBody: file(relativePath: {eq: "Body/Floats.png"}) {
-    childImageSharp {
-      gatsbyImageData(maxWidth: 230, placeholder: NONE, layout: FLUID)
-    }
-  }
-  Face: file(relativePath: {eq: "face.png"}) {
-    childImageSharp {
-      gatsbyImageData(maxWidth: 230, placeholder: NONE, layout: FLUID)
-    }
-  }
-}
-`}
+        query={graphql`
+          {
+            gitHubProfile {
+              totalContributions
+            }
+            allNpmPackage {
+              totalCount
+            }
+            boilerplates: allMdx(
+              filter: { frontmatter: { type: { eq: "Boilerplate" } } }
+            ) {
+              totalCount
+            }
+            articles: allMdx(
+              filter: { frontmatter: { type: { eq: "Article" } } }
+            ) {
+              totalCount
+            }
+            site {
+              siteMetadata {
+                currentCompany
+                currentRole
+                currentCompanyURL
+              }
+            }
+            HeroBody: file(relativePath: { eq: "Body/Floats.png" }) {
+              childImageSharp {
+                gatsbyImageData(maxWidth: 230, placeholder: NONE, layout: FLUID)
+              }
+            }
+            Face: file(relativePath: { eq: "face.png" }) {
+              childImageSharp {
+                gatsbyImageData(maxWidth: 230, placeholder: NONE, layout: FLUID)
+              }
+            }
+          }
+        `}
         render={(data) => (
           <>
             <section className="text-secondary bg-default  -mb-32 md:-mb-64">
               <div className="flex-1 w-full max-w-4xl px-4 py-6 mx-auto md:px-8 md:pb-16">
                 <div className="w-64 md:w-6/12 m-auto relative">
-                  <GatsbyImage image={data.Face.childImageSharp.gatsbyImageData} />
+                  <GatsbyImage
+                    image={data.Face.childImageSharp.gatsbyImageData}
+                  />
                   <div className="w-2/5 md:w-56 ml-auto -mt-24 md:-mt-64 -mr-8 md:-mr-32 float-y">
-                    <GatsbyImage image={data.HeroBody.childImageSharp.gatsbyImageData} />
+                    <GatsbyImage
+                      image={data.HeroBody.childImageSharp.gatsbyImageData}
+                    />
                   </div>
                 </div>
               </div>
