@@ -86,23 +86,13 @@
     },
     {
         "type": "Page",
-        "path": "/projects/enhanced-referral",
-        "url": "http://localhost:9000/projects/enhanced-referral"
-    },
-    {
-        "type": "Page",
-        "path": "/projects/gatsby-boilerplates",
-        "url": "http://localhost:9000/projects/gatsby-boilerplates"
-    },
-    {
-        "type": "Page",
         "path": "/projects/meta-preview",
         "url": "http://localhost:9000/projects/meta-preview"
     },
     {
         "type": "Page",
-        "path": "/projects/grad",
-        "url": "http://localhost:9000/projects/grad"
+        "path": "/projects/gatsby-boilerplates",
+        "url": "http://localhost:9000/projects/gatsby-boilerplates"
     },
     {
         "type": "Page",
@@ -116,13 +106,23 @@
     },
     {
         "type": "Page",
-        "path": "/projects/corona-support",
-        "url": "http://localhost:9000/projects/corona-support"
+        "path": "/projects/enhanced-referral",
+        "url": "http://localhost:9000/projects/enhanced-referral"
     },
     {
         "type": "Page",
         "path": "/projects/color-in-culture",
         "url": "http://localhost:9000/projects/color-in-culture"
+    },
+    {
+        "type": "Page",
+        "path": "/projects/corona-support",
+        "url": "http://localhost:9000/projects/corona-support"
+    },
+    {
+        "type": "Page",
+        "path": "/projects/grad",
+        "url": "http://localhost:9000/projects/grad"
     },
     {
         "type": "Page",
