@@ -2,13 +2,18 @@
   <img alt="Logo" src="https://ik.imagekit.io/sld/readme-hero_wpt0gQ1I0.jpg" width="100%"/>
 </div>
 
-# 👋 Welcome to my portfolio's repo.
 
-You can see it live here:
+## ⚠️ Please note that this project is my legacy portfolio and is no longer actively maintained.
 
-### Current Version: [``` sld.codes ```](https://sld.codes/)
+# 👋 Welcome to my V2 portfolio's repo.
 
-### Version 1: [``` v1.sld.codes ```](https://v1.sld.codes/) - [repo](https://github.com/slarsendisney/personal-site-v1)
+Versions of sld.codes can be seen here:
+
+### Current Version: [``` sld.codes ```](https://sld.codes/) (Repo not public)
+
+### Version 2: [``` v2.sld.codes ```](https://v2.sld.codes/) (The repo you're looking at)
+
+### Version 1: [``` v1.sld.codes ```](https://v1.sld.codes/) ([Repo here](https://github.com/slarsendisney/personal-site-v1))
 
 I built the whole site using my favourite react framework - Gatsby! If you haven't heard of it, you should check it out here:
 
