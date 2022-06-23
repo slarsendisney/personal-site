@@ -63,7 +63,7 @@
     "gatsby-transformer-remark": "^2.8.34",
     "gatsby-transformer-sharp": "^2.10.1",
     "googleapis": "^61.0.0",
-    "got": "^11.7.0",
+    "got": "^11.8.5",
     "hhmmss": "^1.0.0",
     "intersection-observer": "^0.11.0",
     "libnpmsearch": "^3.0.0",
