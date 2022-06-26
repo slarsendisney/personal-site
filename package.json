@@ -75,7 +75,7 @@
     "metascraper": "^5.14.12",
     "metascraper-publisher": "^5.14.12",
     "mkdirp": "^1.0.4",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "page-metadata-parser": "^1.1.4",
