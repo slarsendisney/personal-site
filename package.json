@@ -113,7 +113,7 @@
     "react-tooltip": "^4.2.10",
     "react-twitter-embed": "^3.0.3",
     "react-visibility-sensor": "^5.1.1",
-    "recharts": "^1.8.5",
+    "recharts": "^2.1.14",
     "redux": "^4.0.5",
     "redux-socket.io": "^1.4.0",
     "remark-emoji": "^2.1.0",
